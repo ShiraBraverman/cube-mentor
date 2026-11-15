@@ -1,0 +1,63 @@
+{
+  "@@locale": "en",
+  "appTitle": "CubeMentor",
+  "homeTagline": "Scan, solve and master every cube from 2×2 to 6×6.",
+  "chooseCubeSize": "Choose your cube",
+  "cubeSizeLabel": "{size}×{size}",
+  "@cubeSizeLabel": {
+    "placeholders": { "size": { "type": "int" } }
+  },
+  "cubeLevel2": "Beginner",
+  "cubeLevel3": "Classic",
+  "cubeLevel4": "Advanced",
+  "cubeLevel5": "Expert",
+  "cubeLevel6": "Master",
+  "chooseMode": "What do you want to do?",
+  "modePlayground": "3D Playground",
+  "modePlaygroundDesc": "Turn layers, scramble and replay moves in 3D.",
+  "modeScanSolve": "Scan & Solve",
+  "modeScanSolveDesc": "Scan your cube with the camera and get a solution.",
+  "modeAcademy": "Academy",
+  "modeAcademyDesc": "Learn step by step with interactive lessons.",
+  "comingSoon": "Coming soon",
+  "comingSoonMessage": "This feature is on its way in an upcoming update.",
+  "language": "Language",
+  "languageEnglish": "English",
+  "languageHebrew": "עברית",
+  "playgroundTitle": "{size}×{size} Playground",
+  "@playgroundTitle": {
+    "placeholders": { "size": { "type": "int" } }
+  },
+  "scramble": "Scramble",
+  "reset": "Reset",
+  "undo": "Undo",
+  "speed": "Speed",
+  "xray": "X-ray",
+  "prime": "Prime",
+  "wide": "Wide",
+  "layer": "Layer {index}",
+  "@layer": {
+    "placeholders": { "index": { "type": "int" } }
+  },
+  "cubeRotations": "Rotations",
+  "play": "Play",
+  "pause": "Pause",
+  "nextStep": "Next",
+  "previousStep": "Previous",
+  "playbackTitle": "Playback",
+  "playbackEmpty": "Scramble the cube to build a solving playback.",
+  "playbackProgress": "Step {current} of {total}",
+  "@playbackProgress": {
+    "placeholders": {
+      "current": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "moveCount": "{count, plural, =0{No moves} =1{1 move} other{{count} moves}}",
+  "@moveCount": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "solved": "Solved",
+  "scrambled": "Scrambled",
+  "orbitHint": "Drag to orbit · Double-tap to reset view"
+}
