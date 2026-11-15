@@ -347,8 +347,14 @@ abstract class AppLocalizations {
   /// No description provided for @orbitHint.
   ///
   /// In en, this message translates to:
-  /// **'Drag to orbit · Double-tap to reset view'**
+  /// **'Drag a row to turn it · Drag the background to orbit'**
   String get orbitHint;
+
+  /// No description provided for @notationPad.
+  ///
+  /// In en, this message translates to:
+  /// **'Notation pad'**
+  String get notationPad;
 }
 
 class _AppLocalizationsDelegate

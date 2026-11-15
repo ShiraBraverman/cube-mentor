@@ -8,40 +8,27 @@ import 'model/cube_session.dart';
 import 'widgets/cube_viewport.dart';
 import 'widgets/move_pad.dart';
 
-/// 3D playground: interactive cube viewport plus move and playback controls.
-class Solver3DScreen extends ConsumerWidget {
+/// 3D playground: a full-bleed touch-driven cube, a slim glass action bar,
+/// and an optional collapsible notation pad.
+class Solver3DScreen extends ConsumerStatefulWidget {
   const Solver3DScreen({super.key, required this.size});
 
   final int size;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<Solver3DScreen> createState() => _Solver3DScreenState();
+}
+
+class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
+  bool _showPad = false;
+
+  @override
+  Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final size = widget.size;
     final session = ref.watch(cubeSessionProvider(size));
     final controller = ref.read(cubeSessionProvider(size).notifier);
     final solved = session.isIdle && session.cube.isSolved;
-
-    final viewport = Stack(
-      children: [
-        Positioned.fill(child: CubeViewport(size: size)),
-        PositionedDirectional(
-          bottom: 8,
-          start: 0,
-          end: 0,
-          child: IgnorePointer(
-            child: Text(
-              l10n.orbitHint,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: AppColors.textSecondary,
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-
-    final controls = _ControlPanel(size: size);
 
     return GlassBackground(
       child: Scaffold(
@@ -62,45 +49,72 @@ class Solver3DScreen extends ConsumerWidget {
               ),
               onPressed: controller.toggleXray,
             ),
+            IconButton(
+              key: const ValueKey('toggle-notation'),
+              tooltip: l10n.notationPad,
+              isSelected: _showPad,
+              icon: const Icon(Icons.keyboard_outlined),
+              selectedIcon: const Icon(
+                Icons.keyboard,
+                color: AppColors.accentSecondary,
+              ),
+              onPressed: () => setState(() => _showPad = !_showPad),
+            ),
             const SizedBox(width: 4),
           ],
         ),
         body: SafeArea(
           top: false,
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              final wide = constraints.maxWidth > constraints.maxHeight * 1.1;
-              if (wide) {
-                return Row(
+          child: Column(
+            children: [
+              Expanded(
+                child: Stack(
                   children: [
-                    Expanded(flex: 3, child: viewport),
-                    SizedBox(
-                      width: 400,
-                      child: SingleChildScrollView(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                          0, 8, 16, 16),
-                        child: controls,
+                    Positioned.fill(child: CubeViewport(size: size)),
+                    PositionedDirectional(
+                      bottom: 6,
+                      start: 16,
+                      end: 16,
+                      child: IgnorePointer(
+                        child: Text(
+                          l10n.orbitHint,
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.bodySmall
+                              ?.copyWith(color: AppColors.textSecondary),
+                        ),
                       ),
                     ),
                   ],
-                );
-              }
-              return Column(
-                children: [
-                  Expanded(child: viewport),
-                  ConstrainedBox(
-                    constraints: BoxConstraints(
-                      maxHeight: constraints.maxHeight * 0.52,
-                    ),
-                    child: SingleChildScrollView(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
-                        12, 4, 12, 12),
-                      child: controls,
+                ),
+              ),
+              Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 560),
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(12, 6, 12, 12),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        AnimatedSize(
+                          duration: const Duration(milliseconds: 220),
+                          curve: Curves.easeOutCubic,
+                          alignment: Alignment.bottomCenter,
+                          child: _showPad
+                              ? Padding(
+                                  padding: const EdgeInsetsDirectional.only(
+                                    bottom: 8,
+                                  ),
+                                  child: _NotationPanel(size: size),
+                                )
+                              : const SizedBox(width: double.infinity),
+                        ),
+                        _ActionBar(size: size),
+                      ],
                     ),
                   ),
-                ],
-              );
-            },
+                ),
+              ),
+            ],
           ),
         ),
       ),
@@ -108,8 +122,9 @@ class Solver3DScreen extends ConsumerWidget {
   }
 }
 
-class _ControlPanel extends ConsumerWidget {
-  const _ControlPanel({required this.size});
+/// Slim glass bar: scramble / undo / reset, plus playback when available.
+class _ActionBar extends ConsumerWidget {
+  const _ActionBar({required this.size});
 
   final int size;
 
@@ -120,12 +135,83 @@ class _ControlPanel extends ConsumerWidget {
     final controller = ref.read(cubeSessionProvider(size).notifier);
     final textTheme = Theme.of(context).textTheme;
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        GlassCard(
-          padding: const EdgeInsetsDirectional.all(12),
-          child: Row(
+    return GlassCard(
+      borderRadius: 24,
+      padding: const EdgeInsetsDirectional.fromSTEB(10, 8, 10, 8),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          AnimatedSize(
+            duration: const Duration(milliseconds: 220),
+            curve: Curves.easeOutCubic,
+            child: !session.hasPlayback
+                ? const SizedBox(width: double.infinity)
+                : Padding(
+                    padding: const EdgeInsetsDirectional.only(bottom: 4),
+                    child: Row(
+                      // Media controls keep LTR order in every locale,
+                      // following Material's bidirectionality guidelines.
+                      textDirection: TextDirection.ltr,
+                      children: [
+                        IconButton(
+                          tooltip: l10n.previousStep,
+                          onPressed:
+                              session.canStepBack ? controller.stepBack : null,
+                          icon: const Icon(Icons.skip_previous_rounded),
+                        ),
+                        IconButton.filledTonal(
+                          tooltip: session.isPlaying ? l10n.pause : l10n.play,
+                          onPressed: session.isPlaying
+                              ? controller.pause
+                              : (session.canStepForward
+                                    ? controller.play
+                                    : null),
+                          icon: Icon(
+                            session.isPlaying
+                                ? Icons.pause_rounded
+                                : Icons.play_arrow_rounded,
+                          ),
+                        ),
+                        IconButton(
+                          tooltip: l10n.nextStep,
+                          onPressed: session.canStepForward
+                              ? controller.stepForward
+                              : null,
+                          icon: const Icon(Icons.skip_next_rounded),
+                        ),
+                        const SizedBox(width: 6),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                l10n.playbackProgress(
+                                  session.playbackIndex,
+                                  session.playback.length,
+                                ),
+                                style: textTheme.bodySmall?.copyWith(
+                                  color: AppColors.textSecondary,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(4),
+                                child: LinearProgressIndicator(
+                                  value: session.playbackIndex /
+                                      session.playback.length,
+                                  minHeight: 4,
+                                  backgroundColor: AppColors.glassBorder,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                      ],
+                    ),
+                  ),
+          ),
+          Row(
             children: [
               Expanded(
                 child: _ActionButton(
@@ -153,113 +239,54 @@ class _ControlPanel extends ConsumerWidget {
               ),
             ],
           ),
-        ),
-        const SizedBox(height: 10),
-        GlassCard(
-          padding: const EdgeInsetsDirectional.fromSTEB(12, 10, 12, 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+        ],
+      ),
+    );
+  }
+}
+
+/// Collapsible advanced controls: notation buttons and animation speed.
+class _NotationPanel extends ConsumerWidget {
+  const _NotationPanel({required this.size});
+
+  final int size;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final session = ref.watch(cubeSessionProvider(size));
+    final controller = ref.read(cubeSessionProvider(size).notifier);
+
+    return GlassCard(
+      padding: const EdgeInsetsDirectional.fromSTEB(12, 12, 12, 4),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          MovePad(size: size, onMove: controller.turnNotation),
+          Row(
             children: [
-              Row(
-                children: [
-                  Text(l10n.playbackTitle, style: textTheme.titleSmall),
-                  const Spacer(),
-                  Text(
-                    session.hasPlayback
-                        ? l10n.playbackProgress(
-                            session.playbackIndex, session.playback.length)
-                        : l10n.moveCount(session.log.length),
-                    style: textTheme.bodySmall?.copyWith(
-                      color: AppColors.textSecondary,
-                    ),
-                  ),
-                ],
+              const Icon(
+                Icons.speed_rounded,
+                size: 18,
+                color: AppColors.textSecondary,
               ),
-              if (!session.hasPlayback)
-                Padding(
-                  padding: const EdgeInsetsDirectional.only(top: 6),
-                  child: Text(
-                    l10n.playbackEmpty,
-                    style: textTheme.bodySmall?.copyWith(
-                      color: AppColors.textSecondary,
-                    ),
-                  ),
-                )
-              else ...[
-                const SizedBox(height: 6),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(4),
-                  child: LinearProgressIndicator(
-                    value: session.playbackIndex / session.playback.length,
-                    minHeight: 4,
-                    backgroundColor: AppColors.glassBorder,
-                  ),
+              const SizedBox(width: 6),
+              Text(l10n.speed, style: Theme.of(context).textTheme.bodySmall),
+              Expanded(
+                child: Slider(
+                  value: session.speed,
+                  min: 0.25,
+                  max: 3,
+                  divisions: 11,
+                  label: '${session.speed.toStringAsFixed(2)}×',
+                  onChanged: controller.setSpeed,
                 ),
-                const SizedBox(height: 4),
-                // Media controls keep LTR order in every locale, following
-                // Material's bidirectionality guidelines.
-                Row(
-                  textDirection: TextDirection.ltr,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                      tooltip: l10n.previousStep,
-                      onPressed:
-                          session.canStepBack ? controller.stepBack : null,
-                      icon: const Icon(Icons.skip_previous_rounded),
-                    ),
-                    IconButton.filledTonal(
-                      tooltip: session.isPlaying ? l10n.pause : l10n.play,
-                      iconSize: 32,
-                      onPressed: session.isPlaying
-                          ? controller.pause
-                          : (session.canStepForward ? controller.play : null),
-                      icon: Icon(
-                        session.isPlaying
-                            ? Icons.pause_rounded
-                            : Icons.play_arrow_rounded,
-                      ),
-                    ),
-                    IconButton(
-                      tooltip: l10n.nextStep,
-                      onPressed: session.canStepForward
-                          ? controller.stepForward
-                          : null,
-                      icon: const Icon(Icons.skip_next_rounded),
-                    ),
-                  ],
-                ),
-              ],
-              Row(
-                children: [
-                  const Icon(
-                    Icons.speed_rounded,
-                    size: 18,
-                    color: AppColors.textSecondary,
-                  ),
-                  const SizedBox(width: 6),
-                  Text(l10n.speed, style: textTheme.bodySmall),
-                  Expanded(
-                    child: Slider(
-                      value: session.speed,
-                      min: 0.25,
-                      max: 3,
-                      divisions: 11,
-                      label: '${session.speed.toStringAsFixed(2)}×',
-                      onChanged: controller.setSpeed,
-                    ),
-                  ),
-                ],
               ),
             ],
           ),
-        ),
-        const SizedBox(height: 10),
-        GlassCard(
-          padding: const EdgeInsetsDirectional.all(12),
-          child: MovePad(size: size, onMove: controller.turnNotation),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -62,6 +62,70 @@ void main() {
     });
   });
 
+  group('MoveNotation.describe', () {
+    test('round-trips every single layer, wide block and rotation', () {
+      for (final n in [2, 3, 4, 5, 6]) {
+        for (var axis = 0; axis < 3; axis++) {
+          for (var q = 1; q <= 3; q++) {
+            final ranges = [
+              for (var l = 0; l < n; l++) (l, l),
+              for (var d = 2; d < n; d++) ...[(n - d, n - 1), (0, d - 1)],
+              (0, n - 1),
+            ];
+            for (final (from, to) in ranges) {
+              final move = MoveNotation.describe(
+                axis: axis,
+                fromLayer: from,
+                toLayer: to,
+                quarterTurns: q,
+                size: n,
+              );
+              expect(
+                move,
+                _move(axis: axis, from: from, to: to, q: q),
+                reason: '${n}x$n axis $axis $from..$to q$q -> ${move.notation}',
+              );
+              expect(MoveNotation.parse(move.notation, n), move);
+            }
+          }
+        }
+      }
+    });
+
+    test('uses familiar names', () {
+      String name(int axis, int from, int to, int q, [int n = 3]) =>
+          MoveNotation.describe(
+            axis: axis,
+            fromLayer: from,
+            toLayer: to,
+            quarterTurns: q,
+            size: n,
+          ).notation;
+      expect(name(0, 2, 2, 3), 'R');
+      expect(name(0, 0, 0, 3), "L'");
+      expect(name(0, 1, 1, 1), 'M');
+      expect(name(2, 1, 1, 3), 'S');
+      expect(name(1, 0, 2, 2), 'y2');
+      expect(name(0, 2, 2, 3, 4), '2R');
+      expect(name(0, 1, 1, 1, 4), '2L');
+      expect(name(1, 2, 3, 3, 4), 'Uw');
+      expect(name(0, 3, 5, 3, 6), '3Rw');
+    });
+
+    test('rejects blocks not anchored to a face and full turns', () {
+      expect(
+        () => MoveNotation.describe(
+            axis: 0, fromLayer: 1, toLayer: 2, quarterTurns: 1, size: 5),
+        throwsArgumentError,
+      );
+      expect(
+        () => MoveNotation.describe(
+            axis: 0, fromLayer: 0, toLayer: 0, quarterTurns: 4, size: 3),
+        throwsArgumentError,
+      );
+    });
+  });
+
   group('CubeMove.inverse', () {
     test('inverts direction and notation', () {
       expect(p('R').inverse, p("R'"));

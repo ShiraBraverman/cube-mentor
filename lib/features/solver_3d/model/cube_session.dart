@@ -122,6 +122,21 @@ class CubeSessionController extends Notifier<CubeSession> {
     );
   }
 
+  /// Commits a move the user already animated by hand (a touch drag), so it
+  /// is applied instantly instead of being queued for animation. Only valid
+  /// while no queued animation is pending.
+  void commitDirect(CubeMove move) {
+    assert(state.isIdle, 'Direct moves require an idle session');
+    final cube = state.cube.apply(move);
+    state = state.copyWith(
+      cube: cube,
+      log: cube.isSolved ? const [] : [...state.log, move],
+      playback: const [],
+      playbackIndex: 0,
+      isPlaying: false,
+    );
+  }
+
   /// Parses and performs a notation token (e.g. `"Rw'"`).
   void turnNotation(String token) => turn(MoveNotation.parse(token, size));
 

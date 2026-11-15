@@ -219,6 +219,53 @@ class MoveNotation {
         size);
   }
 
+  /// Names an arbitrary geometric layer turn in standard notation, e.g. a
+  /// turn produced by a touch gesture. Supports single layers, wide turns
+  /// anchored at a face, middle slices and whole-cube rotations.
+  static CubeMove describe({
+    required int axis,
+    required int fromLayer,
+    required int toLayer,
+    required int quarterTurns,
+    required int size,
+  }) {
+    final q = quarterTurns % 4;
+    if (q == 0) throw ArgumentError('A move needs a non-zero turn');
+    const positiveFaces = ['R', 'U', 'F'];
+    const negativeFaces = ['L', 'D', 'B'];
+
+    // The suffix depends on whether the named face looks down +axis.
+    String suffix(bool followsPositive) {
+      final clockwise = followsPositive ? q == 3 : q == 1;
+      if (q == 2) return '2';
+      return clockwise ? '' : "'";
+    }
+
+    String token;
+    if (fromLayer == 0 && toLayer == size - 1) {
+      token = const ['x', 'y', 'z'][axis] + suffix(true);
+    } else if (fromLayer == toLayer &&
+        size.isOdd &&
+        size >= 3 &&
+        fromLayer == size ~/ 2) {
+      // M follows L, E follows D, S follows F.
+      token = const ['M', 'E', 'S'][axis] + suffix(axis == 2);
+    } else if (fromLayer == toLayer) {
+      final positive = fromLayer * 2 >= size;
+      final depth = positive ? size - fromLayer : fromLayer + 1;
+      final face = positive ? positiveFaces[axis] : negativeFaces[axis];
+      token = '${depth == 1 ? '' : depth}$face${suffix(positive)}';
+    } else if (toLayer == size - 1 || fromLayer == 0) {
+      final positive = toLayer == size - 1;
+      final depth = positive ? size - fromLayer : toLayer + 1;
+      final face = positive ? positiveFaces[axis] : negativeFaces[axis];
+      token = '${depth == 2 ? '' : depth}${face}w${suffix(positive)}';
+    } else {
+      throw ArgumentError('Layers $fromLayer..$toLayer have no notation');
+    }
+    return parse(token, size);
+  }
+
   /// Builds a move for [face]. When [rangeIsAbsolute] is false, `near`/`far`
   /// are 0-based depths from the face; otherwise they are absolute indices.
   static CubeMove _build(

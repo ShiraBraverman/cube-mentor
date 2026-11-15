@@ -1,8 +1,11 @@
 import 'package:cube_mentor/app.dart';
+import 'package:cube_mentor/core/cube/cube_state.dart';
 import 'package:cube_mentor/core/settings/preferences.dart';
 import 'package:cube_mentor/features/solver_3d/model/cube_session.dart';
+import 'package:cube_mentor/features/solver_3d/render/cube_geometry.dart';
 import 'package:cube_mentor/features/solver_3d/solver_3d_screen.dart';
 import 'package:cube_mentor/features/solver_3d/widgets/cube_viewport.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
@@ -84,17 +87,26 @@ void main() {
     );
     CubeSession session() => container.read(cubeSessionProvider(5));
 
+    // The notation pad is hidden by default and opens from the app bar.
+    expect(find.text('R'), findsNothing);
+    await tester.tap(find.byKey(const ValueKey('toggle-notation')));
+    await _advance(tester, 6);
     await tester.tap(find.text('R'));
     // Give the 320 ms quarter-turn animation time to finish and commit.
     await _advance(tester, 10);
     expect(session().isIdle, isTrue);
-    expect(find.text('1 move'), findsOneWidget);
+    expect(session().log.map((m) => m.notation), ['R']);
     expect(find.text('Scrambled'), findsOneWidget);
 
     await tester.tap(find.text('Undo'));
     await _advance(tester, 10);
     expect(session().isIdle, isTrue);
     expect(find.text('Solved'), findsOneWidget);
+
+    // Collapse the pad again; the action bar stays.
+    await tester.tap(find.byKey(const ValueKey('toggle-notation')));
+    await _advance(tester, 6);
+    expect(find.text('R'), findsNothing);
 
     await tester.tap(find.text('Scramble'));
     await _advance(tester, 4);
@@ -104,12 +116,110 @@ void main() {
     expect(session().isIdle, isTrue);
     expect(session().cube.isSolved, isFalse);
 
-    // Orbit drag with inertia, then double-tap to reset the view.
-    await tester.fling(find.byType(CubeViewport), const Offset(120, 40), 800);
-    await _advance(tester, 4);
-    await tester.tap(find.byType(CubeViewport));
-    await tester.pump(const Duration(milliseconds: 50));
-    await tester.tap(find.byType(CubeViewport));
-    await _advance(tester, 30);
+    await tester.tap(find.text('Reset'));
+    await _advance(tester, 2);
+    expect(session().cube.isSolved, isTrue);
+    expect(session().hasPlayback, isFalse);
+  });
+
+  group('touch gestures', () {
+    late List<MethodCall> platformCalls;
+
+    Future<ProviderContainer> openPlayground(WidgetTester tester) async {
+      platformCalls = [];
+      tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+        SystemChannels.platform,
+        (call) async {
+          platformCalls.add(call);
+          return null;
+        },
+      );
+      addTearDown(() => tester.binding.defaultBinaryMessenger
+          .setMockMethodCallHandler(SystemChannels.platform, null));
+      await _pumpApp(tester, await _prefs());
+      await tester.tap(find.byKey(const ValueKey('mode-playground')));
+      await _advance(tester);
+      return ProviderScope.containerOf(
+        tester.element(find.byType(CubeViewport)),
+      );
+    }
+
+    /// Global position of a sticker center in the viewport's default view.
+    Offset stickerOnScreen(WidgetTester tester, IVec3 pos, IVec3 normal) {
+      final viewport = find.byType(CubeViewport);
+      final size = tester.getSize(viewport);
+      final face = CubeScene.build(
+        CubeFrame(cube: CubeState.solved(3), orbit: OrbitAngles.initial),
+        size,
+      ).firstWhere((f) => f.cubie.position == pos && f.normal == normal);
+      final local = (face.quad[0] + face.quad[1] + face.quad[2] + face.quad[3]) / 4;
+      return tester.getTopLeft(viewport) + local;
+    }
+
+    bool hapticClicked() => platformCalls.any(
+      (c) =>
+          c.method == 'HapticFeedback.vibrate' &&
+          c.arguments == 'HapticFeedbackType.selectionClick',
+    );
+
+    testWidgets('dragging a sticker turns its layer and clicks on snap', (
+      tester,
+    ) async {
+      final container = await openPlayground(tester);
+      final start = stickerOnScreen(tester, (2, 0, 2), kNormalFront);
+      final gesture = await tester.startGesture(start);
+      for (var i = 0; i < 10; i++) {
+        await gesture.moveBy(const Offset(0, -15));
+        await tester.pump(const Duration(milliseconds: 16));
+      }
+      // Mid-drag nothing is committed yet.
+      expect(container.read(cubeSessionProvider(3)).log, isEmpty);
+      await gesture.up();
+      await _advance(tester, 8);
+
+      final session = container.read(cubeSessionProvider(3));
+      expect(session.log.map((m) => m.notation), ['R']);
+      expect(session.cube.isSolved, isFalse);
+      expect(hapticClicked(), isTrue);
+      expect(find.text('Scrambled'), findsOneWidget);
+
+      // Undo works for hand-made moves too.
+      await tester.tap(find.text('Undo'));
+      await _advance(tester, 10);
+      expect(container.read(cubeSessionProvider(3)).cube.isSolved, isTrue);
+    });
+
+    testWidgets('a short wiggle snaps back without a move', (tester) async {
+      final container = await openPlayground(tester);
+      final start = stickerOnScreen(tester, (0, 0, 2), kNormalFront);
+      final gesture = await tester.startGesture(start);
+      await gesture.moveBy(const Offset(0, -12));
+      await tester.pump(const Duration(milliseconds: 16));
+      await gesture.moveBy(const Offset(0, -12));
+      await tester.pump(const Duration(milliseconds: 400));
+      await gesture.up();
+      await _advance(tester, 8);
+      expect(container.read(cubeSessionProvider(3)).log, isEmpty);
+      expect(container.read(cubeSessionProvider(3)).cube.isSolved, isTrue);
+      expect(hapticClicked(), isFalse);
+    });
+
+    testWidgets('dragging the background orbits without turning', (
+      tester,
+    ) async {
+      final container = await openPlayground(tester);
+      final corner = tester.getTopLeft(find.byType(CubeViewport)) +
+          const Offset(12, 12);
+      await tester.flingFrom(corner, const Offset(200, 120), 900);
+      await _advance(tester, 20);
+      expect(container.read(cubeSessionProvider(3)).log, isEmpty);
+      // Double-tap resets the view; still no moves.
+      await tester.tapAt(corner);
+      await tester.pump(const Duration(milliseconds: 50));
+      await tester.tapAt(corner);
+      await _advance(tester, 30);
+      expect(container.read(cubeSessionProvider(3)).log, isEmpty);
+      expect(hapticClicked(), isFalse);
+    });
   });
 }

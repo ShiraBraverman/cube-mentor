@@ -5,7 +5,11 @@
   "chooseCubeSize": "Choose your cube",
   "cubeSizeLabel": "{size}×{size}",
   "@cubeSizeLabel": {
-    "placeholders": { "size": { "type": "int" } }
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
   },
   "cubeLevel2": "Beginner",
   "cubeLevel3": "Classic",
@@ -26,7 +30,11 @@
   "languageHebrew": "עברית",
   "playgroundTitle": "{size}×{size} Playground",
   "@playgroundTitle": {
-    "placeholders": { "size": { "type": "int" } }
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
   },
   "scramble": "Scramble",
   "reset": "Reset",
@@ -37,7 +45,11 @@
   "wide": "Wide",
   "layer": "Layer {index}",
   "@layer": {
-    "placeholders": { "index": { "type": "int" } }
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
   },
   "cubeRotations": "Rotations",
   "play": "Play",
@@ -49,15 +61,24 @@
   "playbackProgress": "Step {current} of {total}",
   "@playbackProgress": {
     "placeholders": {
-      "current": { "type": "int" },
-      "total": { "type": "int" }
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
     }
   },
   "moveCount": "{count, plural, =0{No moves} =1{1 move} other{{count} moves}}",
   "@moveCount": {
-    "placeholders": { "count": { "type": "int" } }
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   },
   "solved": "Solved",
   "scrambled": "Scrambled",
-  "orbitHint": "Drag to orbit · Double-tap to reset view"
+  "orbitHint": "Drag a row to turn it · Drag the background to orbit",
+  "notationPad": "Notation pad"
 }

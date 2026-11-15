@@ -150,5 +150,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get scrambled => 'מעורבבת';
 
   @override
-  String get orbitHint => 'גררו כדי לסובב · הקישו פעמיים לאיפוס התצוגה';
+  String get orbitHint =>
+      'גררו שורה כדי לסובב אותה · גררו את הרקע כדי לסובב את הקובייה';
+
+  @override
+  String get notationPad => 'לוח סימונים';
 }

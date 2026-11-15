@@ -154,5 +154,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get scrambled => 'Scrambled';
 
   @override
-  String get orbitHint => 'Drag to orbit · Double-tap to reset view';
+  String get orbitHint =>
+      'Drag a row to turn it · Drag the background to orbit';
+
+  @override
+  String get notationPad => 'Notation pad';
 }

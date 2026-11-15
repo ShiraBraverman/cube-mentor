@@ -1,17 +1,24 @@
 import 'dart:math' as math;
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../../core/cube/cube_move.dart';
+import '../interaction/layer_drag.dart';
 import '../model/cube_session.dart';
 import '../render/cube_painter.dart';
 
 /// Interactive 3D viewport bound to a [cubeSessionProvider] session.
 ///
-/// * Animates queued moves one at a time with an eased layer rotation.
-/// * Drag to orbit (with inertia), double-tap to return to the default view.
+/// * Drag on the background to orbit (with inertia); double-tap to reset.
+/// * Drag a sticker along a row or column to turn that layer under the
+///   finger; on release it snaps to the nearest quarter turn with a haptic
+///   tick.
+/// * Moves queued in the session (buttons, scramble, playback) are animated
+///   one at a time.
 class CubeViewport extends ConsumerStatefulWidget {
   const CubeViewport({super.key, required this.size, this.highlighted = const {}});
 
@@ -24,24 +31,39 @@ class CubeViewport extends ConsumerStatefulWidget {
   ConsumerState<CubeViewport> createState() => _CubeViewportState();
 }
 
+enum _DragMode { none, orbit, pendingLayer, layer }
+
 class _CubeViewportState extends ConsumerState<CubeViewport>
     with TickerProviderStateMixin {
-  static const double _dragSensitivity = 0.012;
+  static const double _orbitSensitivity = 0.012;
   static const double _inertiaDecayPerSecond = 0.02;
 
+  // Queued move animation.
   late final AnimationController _turn = AnimationController(vsync: this)
     ..addStatusListener(_onTurnStatus);
   late final CurvedAnimation _eased = CurvedAnimation(
     parent: _turn,
     curve: Curves.easeInOutCubic,
   );
-  late final Ticker _orbitTicker = createTicker(_onOrbitTick);
-  final ValueNotifier<OrbitAngles> _orbit = ValueNotifier(OrbitAngles.initial);
-
   CubeMove? _activeMove;
   int _epoch = 0;
 
-  // Orbit inertia (radians per second) and the optional reset target.
+  // Finger-driven layer turn and its snap animation.
+  late final AnimationController _snap = AnimationController(vsync: this)
+    ..addListener(_onSnapTick)
+    ..addStatusListener(_onSnapStatus);
+  final ValueNotifier<LayerTurn?> _dragTurn = ValueNotifier(null);
+  _DragMode _mode = _DragMode.none;
+  LayerGrab? _grab;
+  LayerDrag? _layerDrag;
+  Offset _dragTotal = Offset.zero;
+  double _snapFrom = 0;
+  double _snapTo = 0;
+  int _snapQuarterTurns = 0;
+
+  // Orbit with inertia (radians per second) and the optional reset target.
+  late final Ticker _orbitTicker = createTicker(_onOrbitTick);
+  final ValueNotifier<OrbitAngles> _orbit = ValueNotifier(OrbitAngles.initial);
   Offset _velocity = Offset.zero;
   OrbitAngles? _orbitTarget;
   Duration _lastOrbitTick = Duration.zero;
@@ -56,6 +78,8 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
   void dispose() {
     _eased.dispose();
     _turn.dispose();
+    _snap.dispose();
+    _dragTurn.dispose();
     _orbitTicker.dispose();
     _orbit.dispose();
     super.dispose();
@@ -64,9 +88,17 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
   CubeSessionController get _controller =>
       ref.read(cubeSessionProvider(widget.size).notifier);
 
+  CubeSession get _session => ref.read(cubeSessionProvider(widget.size));
+
+  bool get _handTurning => _dragTurn.value != null;
+
+  // ---- Queued move animation ----
+
   void _maybeStartNext() {
-    if (!mounted || _turn.isAnimating) return;
-    final session = ref.read(cubeSessionProvider(widget.size));
+    // A layer held (or snapping) under the finger blocks queued moves until
+    // it is committed, so the two never fight over the cube.
+    if (!mounted || _turn.isAnimating || _handTurning) return;
+    final session = _session;
     if (session.queue.isEmpty) {
       if (_activeMove != null) setState(() => _activeMove = null);
       return;
@@ -94,27 +126,140 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
       _epoch = next.epoch;
       _turn.stop();
       _turn.value = 0;
+      _cancelHandTurn();
       setState(() => _activeMove = null);
     }
     _maybeStartNext();
   }
 
-  // ---- Orbit gestures ----
+  // ---- Gestures ----
+
+  CubeFrame _frame({LayerTurn? turn}) {
+    final session = _session;
+    return CubeFrame(
+      cube: session.cube,
+      orbit: _orbit.value,
+      turn: turn,
+      highlighted: widget.highlighted,
+      xray: session.xray,
+    );
+  }
 
   void _onPanStart(DragStartDetails details) {
     _orbitTarget = null;
     _velocity = Offset.zero;
     if (_orbitTicker.isActive) _orbitTicker.stop();
+    _dragTotal = Offset.zero;
+    _grab = null;
+    _layerDrag = null;
+
+    // Layers can only be grabbed while nothing else is turning.
+    final viewport = context.size;
+    final canGrab = viewport != null &&
+        _session.isIdle &&
+        !_turn.isAnimating &&
+        !_snap.isAnimating &&
+        !_handTurning;
+    if (canGrab) {
+      final frame = _frame();
+      final hit = CubeScene.hitTest(frame, viewport, details.localPosition);
+      if (hit != null) {
+        _grab = LayerGrab.fromFace(hit, frame, viewport);
+        _mode = _DragMode.pendingLayer;
+        return;
+      }
+    }
+    _mode = _DragMode.orbit;
   }
 
   void _onPanUpdate(DragUpdateDetails details) {
-    final d = details.delta * _dragSensitivity;
-    _orbit.value = _orbit.value.rotatedBy(d.dx, d.dy);
+    _dragTotal += details.delta;
+    switch (_mode) {
+      case _DragMode.orbit:
+        final d = details.delta * _orbitSensitivity;
+        _orbit.value = _orbit.value.rotatedBy(d.dx, d.dy);
+      case _DragMode.pendingLayer:
+        final drag = _grab!.resolve(_dragTotal);
+        if (drag == null) return;
+        _layerDrag = drag;
+        _mode = _DragMode.layer;
+        _dragTurn.value = drag.turnAt(drag.angleFor(_dragTotal));
+      case _DragMode.layer:
+        final drag = _layerDrag!;
+        _dragTurn.value = drag.turnAt(drag.angleFor(_dragTotal));
+      case _DragMode.none:
+        break;
+    }
   }
 
   void _onPanEnd(DragEndDetails details) {
-    _velocity = details.velocity.pixelsPerSecond * _dragSensitivity;
-    if (_velocity.distance > 0.05) _startOrbitTicker();
+    final mode = _mode;
+    _mode = _DragMode.none;
+    switch (mode) {
+      case _DragMode.orbit:
+        _velocity = details.velocity.pixelsPerSecond * _orbitSensitivity;
+        if (_velocity.distance > 0.05) _startOrbitTicker();
+      case _DragMode.layer:
+        final drag = _layerDrag!;
+        final angle = _dragTurn.value!.angle;
+        _snapQuarterTurns =
+            drag.snapQuarterTurns(angle, details.velocity.pixelsPerSecond);
+        _startSnap(angle, _snapQuarterTurns * math.pi / 2);
+      case _DragMode.pendingLayer:
+      case _DragMode.none:
+        break;
+    }
+  }
+
+  void _onPanCancel() {
+    if (_mode == _DragMode.layer && _dragTurn.value != null) {
+      _snapQuarterTurns = 0;
+      _startSnap(_dragTurn.value!.angle, 0);
+    }
+    _mode = _DragMode.none;
+  }
+
+  void _startSnap(double from, double to) {
+    _snapFrom = from;
+    _snapTo = to;
+    final remaining = (to - from).abs() / (math.pi / 2);
+    final speed = _session.speed;
+    _snap
+      ..duration = Duration(
+        milliseconds: ((70 + 200 * remaining.clamp(0.0, 1.0)) / speed).round(),
+      )
+      ..forward(from: 0);
+  }
+
+  void _onSnapTick() {
+    final drag = _layerDrag;
+    if (drag == null) return;
+    final t = Curves.easeOutCubic.transform(_snap.value);
+    _dragTurn.value = drag.turnAt(_snapFrom + (_snapTo - _snapFrom) * t);
+  }
+
+  void _onSnapStatus(AnimationStatus status) {
+    if (status != AnimationStatus.completed) return;
+    final move = _layerDrag?.moveFor(_snapQuarterTurns);
+    // Commit and clear the hand turn in the same frame: no visible jump.
+    _layerDrag = null;
+    _grab = null;
+    _dragTurn.value = null;
+    _snap.value = 0;
+    if (move != null) {
+      _controller.commitDirect(move);
+      HapticFeedback.selectionClick();
+    }
+    _maybeStartNext();
+  }
+
+  void _cancelHandTurn() {
+    _snap.stop();
+    _snap.value = 0;
+    _mode = _DragMode.none;
+    _grab = null;
+    _layerDrag = null;
+    _dragTurn.value = null;
   }
 
   void _resetView() {
@@ -136,14 +281,15 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
 
     final target = _orbitTarget;
     if (target != null) {
-      // Critically damped approach toward the default view.
-      final t = 1 - _pow(0.0001, dt);
+      // Exponential approach toward the default view.
+      final t = 1 - math.pow(0.0001, dt).toDouble();
+      final targetYaw = _nearestYaw(current.yaw, target.yaw);
       final next = OrbitAngles(
-        yaw: current.yaw + (_nearestYaw(current.yaw, target.yaw) - current.yaw) * t,
+        yaw: current.yaw + (targetYaw - current.yaw) * t,
         pitch: current.pitch + (target.pitch - current.pitch) * t,
       );
       _orbit.value = next;
-      if ((next.yaw - _nearestYaw(next.yaw, target.yaw)).abs() < 1e-3 &&
+      if ((next.yaw - targetYaw).abs() < 1e-3 &&
           (next.pitch - target.pitch).abs() < 1e-3) {
         _orbit.value = target;
         _orbitTarget = null;
@@ -153,20 +299,17 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
     }
 
     _orbit.value = current.rotatedBy(_velocity.dx * dt, _velocity.dy * dt);
-    _velocity *= _pow(_inertiaDecayPerSecond, dt);
+    _velocity *= math.pow(_inertiaDecayPerSecond, dt).toDouble();
     if (_velocity.distance < 0.02) _orbitTicker.stop();
   }
 
   /// Target yaw equivalent to [target] that is closest to [current], so the
   /// reset animation never spins around more than half a turn.
   static double _nearestYaw(double current, double target) {
-    const fullTurn = 6.283185307179586;
+    const fullTurn = 2 * math.pi;
     final turns = ((current - target) / fullTurn).roundToDouble();
     return target + turns * fullTurn;
   }
-
-  static double _pow(double base, double exponent) =>
-      math.pow(base, exponent).toDouble();
 
   @override
   Widget build(BuildContext context) {
@@ -175,26 +318,34 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
 
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
+      // Report the touch-down point so the grabbed sticker is the one under
+      // the finger, not where the drag slop was exceeded.
+      dragStartBehavior: DragStartBehavior.down,
       onPanStart: _onPanStart,
       onPanUpdate: _onPanUpdate,
       onPanEnd: _onPanEnd,
+      onPanCancel: _onPanCancel,
       onDoubleTap: _resetView,
       child: RepaintBoundary(
         child: AnimatedBuilder(
-          animation: Listenable.merge([_eased, _orbit]),
-          builder: (context, _) => CustomPaint(
-            size: Size.infinite,
-            painter: CubePainter(
-              frame: CubeFrame(
-                cube: session.cube,
-                orbit: _orbit.value,
-                activeMove: _activeMove,
-                progress: _activeMove == null ? 0 : _eased.value,
-                highlighted: widget.highlighted,
-                xray: session.xray,
+          animation: Listenable.merge([_eased, _orbit, _dragTurn]),
+          builder: (context, _) {
+            final active = _activeMove;
+            final turn = _dragTurn.value ??
+                (active == null ? null : LayerTurn.ofMove(active, _eased.value));
+            return CustomPaint(
+              size: Size.infinite,
+              painter: CubePainter(
+                frame: CubeFrame(
+                  cube: session.cube,
+                  orbit: _orbit.value,
+                  turn: turn,
+                  highlighted: widget.highlighted,
+                  xray: session.xray,
+                ),
               ),
-            ),
-          ),
+            );
+          },
         ),
       ),
     );
