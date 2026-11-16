@@ -1,7 +1,7 @@
 # CubeMentor native core.
 #
 # Builds:
-#   cubementor_core  static library with the cube model and solvers
+#   cubementor_core  static library with the cube model, solvers and vision
 #   cubementor       shared library exposing the extern "C" API (Dart FFI)
 #
 # Used by Android (android/app/build.gradle.kts, externalNativeBuild),
@@ -21,6 +21,10 @@ add_library(cubementor_core STATIC
   solver/kociemba.cpp
   solver/lbl.cpp
   solver/solver.cpp
+  vision/color.cpp
+  vision/kmeans.cpp
+  vision/validator.cpp
+  vision/scanner.cpp
 )
 target_include_directories(cubementor_core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 set_target_properties(cubementor_core PROPERTIES POSITION_INDEPENDENT_CODE ON)

@@ -359,4 +359,155 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get explainLblFinalAlign =>
       'סובבו את השכבה העליונה כדי לסיים את הקובייה.';
+
+  @override
+  String scanTitle(int size) {
+    return 'סריקת $size×$size';
+  }
+
+  @override
+  String get scanManualInput => 'הזנת צבעים ידנית';
+
+  @override
+  String get scanUseCamera => 'סריקה במצלמה';
+
+  @override
+  String scanFaceProgress(int current, int total) {
+    return 'פאה $current מתוך $total';
+  }
+
+  @override
+  String get faceUp => 'פאה עליונה';
+
+  @override
+  String get faceRight => 'פאה ימנית';
+
+  @override
+  String get faceFront => 'פאה קדמית';
+
+  @override
+  String get faceDown => 'פאה תחתונה';
+
+  @override
+  String get faceLeft => 'פאה שמאלית';
+
+  @override
+  String get faceBack => 'פאה אחורית';
+
+  @override
+  String get scanHintFront =>
+      'החזיקו את הקובייה כשפאה כלשהי פונה אליכם. זו הפאה הקדמית: שמרו על אותה פאה למעלה לאורך הסריקה.';
+
+  @override
+  String get scanHintRight =>
+      'מהמצב הקדמי, סובבו את כל הקובייה שמאלה פעם אחת כך שהפאה הימנית תפנה אליכם.';
+
+  @override
+  String get scanHintBack => 'מהמצב הקדמי, סובבו את כל הקובייה שמאלה פעמיים.';
+
+  @override
+  String get scanHintLeft => 'מהמצב הקדמי, סובבו את כל הקובייה ימינה פעם אחת.';
+
+  @override
+  String get scanHintUp =>
+      'מהמצב הקדמי, הטו את החלק העליון אליכם כך שיפנה למצלמה.';
+
+  @override
+  String get scanHintDown =>
+      'מהמצב הקדמי, הטו את החלק התחתון אליכם כך שיפנה למצלמה.';
+
+  @override
+  String get scanAlignHint => 'מלאו את הרשת בפאה ולחצו על כפתור הצילום.';
+
+  @override
+  String get scanCapture => 'צילום הפאה';
+
+  @override
+  String get scanTapToRescan => 'הקישו על פאה שנסרקה כדי לסרוק אותה שוב.';
+
+  @override
+  String get scanTooDark => 'חשוך מדי: עברו למקום מואר יותר.';
+
+  @override
+  String get scanGlare => 'יש סנוור: הטו את הקובייה הרחק מהאור.';
+
+  @override
+  String get scanCameraMissing => 'לא נמצאה מצלמה במכשיר.';
+
+  @override
+  String get scanCameraDenied =>
+      'הגישה למצלמה נדחתה. אפשר עדיין להזין את הצבעים ידנית.';
+
+  @override
+  String get scanCameraFailed => 'לא ניתן להפעיל את המצלמה.';
+
+  @override
+  String get scanAllGood => 'כל המדבקות נראות תקינות.';
+
+  @override
+  String scanStickersWrong(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count מדבקות נראות שגויות',
+      one: 'מדבקה אחת נראית שגויה',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get scanCheckCube => 'משהו לא מסתדר';
+
+  @override
+  String scanIssueColors(int count) {
+    return 'כל צבע צריך להופיע בדיוק $count פעמים.';
+  }
+
+  @override
+  String get scanIssueCenters => 'לשני מרכזים יש אותו צבע.';
+
+  @override
+  String get scanIssuePieces =>
+      'המדבקות האלה יוצרות חלקים שלא קיימים בקובייה אמיתית.';
+
+  @override
+  String get scanIssueTwist => 'פינה אחת מסובבת. בדקו את מדבקות הפינות.';
+
+  @override
+  String get scanIssueFlip => 'שפה אחת הפוכה. בדקו את מדבקות השפות.';
+
+  @override
+  String get scanIssueParity => 'נראה ששני חלקים הוחלפו.';
+
+  @override
+  String get scanIssueUnavailable => 'בדיקת הצבעים אינה זמינה במכשיר הזה.';
+
+  @override
+  String scanUncertain(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count מדבקות היו קשות לזיהוי: כדאי להציץ בהן.',
+      one: 'מדבקה אחת הייתה קשה לזיהוי: כדאי להציץ בה.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get scanEditHint => 'הקישו על מדבקה כדי לשנות צבע · לחיצה ארוכה לפלטה';
+
+  @override
+  String get scanRescanFace => 'סריקה חוזרת של פאה';
+
+  @override
+  String get scanCancelRescan => 'חזרה לצבעים';
+
+  @override
+  String get scanPaletteTitle => 'בחרו צבע';
+
+  @override
+  String get scanOpen3d => 'פתיחה בתלת־ממד';
+
+  @override
+  String get scanRestart => 'התחלה מחדש';
 }

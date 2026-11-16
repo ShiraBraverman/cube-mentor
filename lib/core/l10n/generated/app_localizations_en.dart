@@ -364,4 +364,159 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get explainLblFinalAlign => 'Turn the top layer to finish the cube.';
+
+  @override
+  String scanTitle(int size) {
+    return 'Scan $size×$size';
+  }
+
+  @override
+  String get scanManualInput => 'Enter colors by hand';
+
+  @override
+  String get scanUseCamera => 'Scan with the camera';
+
+  @override
+  String scanFaceProgress(int current, int total) {
+    return 'Face $current of $total';
+  }
+
+  @override
+  String get faceUp => 'Top face';
+
+  @override
+  String get faceRight => 'Right face';
+
+  @override
+  String get faceFront => 'Front face';
+
+  @override
+  String get faceDown => 'Bottom face';
+
+  @override
+  String get faceLeft => 'Left face';
+
+  @override
+  String get faceBack => 'Back face';
+
+  @override
+  String get scanHintFront =>
+      'Hold the cube with any face toward you. That is your front: keep the same face on top while you scan.';
+
+  @override
+  String get scanHintRight =>
+      'From the front, turn the whole cube left once so the right face looks at you.';
+
+  @override
+  String get scanHintBack => 'From the front, turn the whole cube left twice.';
+
+  @override
+  String get scanHintLeft => 'From the front, turn the whole cube right once.';
+
+  @override
+  String get scanHintUp =>
+      'From the front, tip the top toward you so it faces the camera.';
+
+  @override
+  String get scanHintDown =>
+      'From the front, tip the bottom toward you so it faces the camera.';
+
+  @override
+  String get scanAlignHint =>
+      'Fill the grid with the face, then tap the shutter.';
+
+  @override
+  String get scanCapture => 'Capture face';
+
+  @override
+  String get scanTapToRescan => 'Tap a scanned face to scan it again.';
+
+  @override
+  String get scanTooDark => 'Too dark: move to brighter light.';
+
+  @override
+  String get scanGlare => 'Glare: tilt the cube away from the light.';
+
+  @override
+  String get scanCameraMissing => 'No camera found on this device.';
+
+  @override
+  String get scanCameraDenied =>
+      'Camera access was denied. You can still enter the colors by hand.';
+
+  @override
+  String get scanCameraFailed => 'The camera could not start.';
+
+  @override
+  String get scanAllGood => 'All stickers look right.';
+
+  @override
+  String scanStickersWrong(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count stickers look wrong',
+      one: '1 sticker looks wrong',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get scanCheckCube => 'Something doesn\'t add up';
+
+  @override
+  String scanIssueColors(int count) {
+    return 'Each color must appear exactly $count times.';
+  }
+
+  @override
+  String get scanIssueCenters => 'Two centers have the same color.';
+
+  @override
+  String get scanIssuePieces =>
+      'These stickers form pieces that don\'t exist on a real cube.';
+
+  @override
+  String get scanIssueTwist =>
+      'One corner is twisted. Check the corner stickers.';
+
+  @override
+  String get scanIssueFlip => 'One edge is flipped. Check the edge stickers.';
+
+  @override
+  String get scanIssueParity => 'Two pieces look swapped.';
+
+  @override
+  String get scanIssueUnavailable =>
+      'Color checking isn\'t available on this device.';
+
+  @override
+  String scanUncertain(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count stickers were hard to read: give them a quick look.',
+      one: '1 sticker was hard to read: give it a quick look.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get scanEditHint =>
+      'Tap a sticker to change its color · Long-press for the palette';
+
+  @override
+  String get scanRescanFace => 'Rescan a face';
+
+  @override
+  String get scanCancelRescan => 'Back to the colors';
+
+  @override
+  String get scanPaletteTitle => 'Pick a color';
+
+  @override
+  String get scanOpen3d => 'Open in 3D';
+
+  @override
+  String get scanRestart => 'Start over';
 }

@@ -36,6 +36,18 @@ CM_API int32_t cm_prepare(int32_t size);
 CM_API int32_t cm_solve(int32_t size, int32_t method, const char* facelets, char* out,
                         int32_t capacity);
 
+/* Classifies scanned sticker colors: [rgb] holds 6 * size^2 * 3 bytes (R, G,
+ * B per sticker) in the facelet order of cm_solve. Writes a NUL-terminated
+ * JSON result (see vision/scanner.hpp) with the same buffer protocol as
+ * cm_solve. */
+CM_API int32_t cm_scan_classify(int32_t size, const uint8_t* rgb, char* out, int32_t capacity);
+
+/* Validates 6 * size^2 facelet colors (any 6 distinct characters).
+ * [confidence] is NULL or one value in [0, 1] per sticker. Writes JSON
+ * {"ok":..,"error":..,"scheme":..,"invalid":[..],"uncertain":[..]}. */
+CM_API int32_t cm_scan_validate(int32_t size, const char* facelets, const float* confidence,
+                                char* out, int32_t capacity);
+
 #ifdef __cplusplus
 }
 #endif

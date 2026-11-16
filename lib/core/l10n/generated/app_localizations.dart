@@ -691,6 +691,252 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Turn the top layer to finish the cube.'**
   String get explainLblFinalAlign;
+
+  /// No description provided for @scanTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan {size}×{size}'**
+  String scanTitle(int size);
+
+  /// No description provided for @scanManualInput.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter colors by hand'**
+  String get scanManualInput;
+
+  /// No description provided for @scanUseCamera.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan with the camera'**
+  String get scanUseCamera;
+
+  /// No description provided for @scanFaceProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Face {current} of {total}'**
+  String scanFaceProgress(int current, int total);
+
+  /// No description provided for @faceUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Top face'**
+  String get faceUp;
+
+  /// No description provided for @faceRight.
+  ///
+  /// In en, this message translates to:
+  /// **'Right face'**
+  String get faceRight;
+
+  /// No description provided for @faceFront.
+  ///
+  /// In en, this message translates to:
+  /// **'Front face'**
+  String get faceFront;
+
+  /// No description provided for @faceDown.
+  ///
+  /// In en, this message translates to:
+  /// **'Bottom face'**
+  String get faceDown;
+
+  /// No description provided for @faceLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'Left face'**
+  String get faceLeft;
+
+  /// No description provided for @faceBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Back face'**
+  String get faceBack;
+
+  /// No description provided for @scanHintFront.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold the cube with any face toward you. That is your front: keep the same face on top while you scan.'**
+  String get scanHintFront;
+
+  /// No description provided for @scanHintRight.
+  ///
+  /// In en, this message translates to:
+  /// **'From the front, turn the whole cube left once so the right face looks at you.'**
+  String get scanHintRight;
+
+  /// No description provided for @scanHintBack.
+  ///
+  /// In en, this message translates to:
+  /// **'From the front, turn the whole cube left twice.'**
+  String get scanHintBack;
+
+  /// No description provided for @scanHintLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'From the front, turn the whole cube right once.'**
+  String get scanHintLeft;
+
+  /// No description provided for @scanHintUp.
+  ///
+  /// In en, this message translates to:
+  /// **'From the front, tip the top toward you so it faces the camera.'**
+  String get scanHintUp;
+
+  /// No description provided for @scanHintDown.
+  ///
+  /// In en, this message translates to:
+  /// **'From the front, tip the bottom toward you so it faces the camera.'**
+  String get scanHintDown;
+
+  /// No description provided for @scanAlignHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Fill the grid with the face, then tap the shutter.'**
+  String get scanAlignHint;
+
+  /// No description provided for @scanCapture.
+  ///
+  /// In en, this message translates to:
+  /// **'Capture face'**
+  String get scanCapture;
+
+  /// No description provided for @scanTapToRescan.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a scanned face to scan it again.'**
+  String get scanTapToRescan;
+
+  /// No description provided for @scanTooDark.
+  ///
+  /// In en, this message translates to:
+  /// **'Too dark: move to brighter light.'**
+  String get scanTooDark;
+
+  /// No description provided for @scanGlare.
+  ///
+  /// In en, this message translates to:
+  /// **'Glare: tilt the cube away from the light.'**
+  String get scanGlare;
+
+  /// No description provided for @scanCameraMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'No camera found on this device.'**
+  String get scanCameraMissing;
+
+  /// No description provided for @scanCameraDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera access was denied. You can still enter the colors by hand.'**
+  String get scanCameraDenied;
+
+  /// No description provided for @scanCameraFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The camera could not start.'**
+  String get scanCameraFailed;
+
+  /// No description provided for @scanAllGood.
+  ///
+  /// In en, this message translates to:
+  /// **'All stickers look right.'**
+  String get scanAllGood;
+
+  /// No description provided for @scanStickersWrong.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 sticker looks wrong} other{{count} stickers look wrong}}'**
+  String scanStickersWrong(int count);
+
+  /// No description provided for @scanCheckCube.
+  ///
+  /// In en, this message translates to:
+  /// **'Something doesn\'t add up'**
+  String get scanCheckCube;
+
+  /// No description provided for @scanIssueColors.
+  ///
+  /// In en, this message translates to:
+  /// **'Each color must appear exactly {count} times.'**
+  String scanIssueColors(int count);
+
+  /// No description provided for @scanIssueCenters.
+  ///
+  /// In en, this message translates to:
+  /// **'Two centers have the same color.'**
+  String get scanIssueCenters;
+
+  /// No description provided for @scanIssuePieces.
+  ///
+  /// In en, this message translates to:
+  /// **'These stickers form pieces that don\'t exist on a real cube.'**
+  String get scanIssuePieces;
+
+  /// No description provided for @scanIssueTwist.
+  ///
+  /// In en, this message translates to:
+  /// **'One corner is twisted. Check the corner stickers.'**
+  String get scanIssueTwist;
+
+  /// No description provided for @scanIssueFlip.
+  ///
+  /// In en, this message translates to:
+  /// **'One edge is flipped. Check the edge stickers.'**
+  String get scanIssueFlip;
+
+  /// No description provided for @scanIssueParity.
+  ///
+  /// In en, this message translates to:
+  /// **'Two pieces look swapped.'**
+  String get scanIssueParity;
+
+  /// No description provided for @scanIssueUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Color checking isn\'t available on this device.'**
+  String get scanIssueUnavailable;
+
+  /// No description provided for @scanUncertain.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 sticker was hard to read: give it a quick look.} other{{count} stickers were hard to read: give them a quick look.}}'**
+  String scanUncertain(int count);
+
+  /// No description provided for @scanEditHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a sticker to change its color · Long-press for the palette'**
+  String get scanEditHint;
+
+  /// No description provided for @scanRescanFace.
+  ///
+  /// In en, this message translates to:
+  /// **'Rescan a face'**
+  String get scanRescanFace;
+
+  /// No description provided for @scanCancelRescan.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to the colors'**
+  String get scanCancelRescan;
+
+  /// No description provided for @scanPaletteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a color'**
+  String get scanPaletteTitle;
+
+  /// No description provided for @scanOpen3d.
+  ///
+  /// In en, this message translates to:
+  /// **'Open in 3D'**
+  String get scanOpen3d;
+
+  /// No description provided for @scanRestart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start over'**
+  String get scanRestart;
 }
 
 class _AppLocalizationsDelegate

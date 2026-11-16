@@ -9,6 +9,13 @@ android {
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
+    // Release lint crashes inside AGP while parsing the camera plugin's
+    // Javadoc (NoSuchMethodError in JavaDocParser); analysis and tests run
+    // through `flutter analyze` / `flutter test` instead.
+    lint {
+        checkReleaseBuilds = false
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17

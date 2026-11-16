@@ -108,19 +108,56 @@ class CubeState {
           if (iy == 0) stickers[kNormalDown] = StickerColor.yellow;
           if (iz == max) stickers[kNormalFront] = StickerColor.green;
           if (iz == 0) stickers[kNormalBack] = StickerColor.blue;
-          cubies.add(Cubie(
-            id: id++,
-            position: (2 * ix - max, 2 * iy - max, 2 * iz - max),
-            stickers: stickers,
-          ));
+          cubies.add(
+            Cubie(
+              id: id++,
+              position: (2 * ix - max, 2 * iy - max, 2 * iz - max),
+              stickers: stickers,
+            ),
+          );
         }
       }
     }
     return CubeState._(size, List.unmodifiable(cubies));
   }
 
+  /// A cube in its home geometry whose stickers show [faces]: for every
+  /// outward normal, `size * size` colors row-major as seen from outside
+  /// (the layout of [faceColors]). Used for scanned or hand-entered cubes.
+  factory CubeState.fromFaceColors(
+    int size,
+    Map<IVec3, List<StickerColor>> faces,
+  ) {
+    final solved = CubeState.solved(size);
+    return CubeState._(
+      size,
+      List.unmodifiable([
+        for (final cubie in solved.cubies)
+          Cubie(
+            id: cubie.id,
+            position: cubie.position,
+            stickers: {
+              for (final normal in cubie.stickers.keys)
+                normal:
+                    faces[normal]![solved._stickerIndex(
+                      cubie.position,
+                      normal,
+                    )],
+            },
+          ),
+      ]),
+    );
+  }
+
   final int size;
   final List<Cubie> cubies;
+
+  /// Row-major index of the sticker at [position] on the face [normal].
+  int _stickerIndex(IVec3 position, IVec3 normal) {
+    final (right, down) = _faceFrame(normal);
+    return layerIndexOf(_dot(position, down)) * size +
+        layerIndexOf(_dot(position, right));
+  }
 
   /// Converts a doubled coordinate to a 0-based layer index.
   int layerIndexOf(int doubledCoord) => (doubledCoord + size - 1) ~/ 2;
@@ -171,8 +208,10 @@ class CubeState {
         color: color,
       ));
     }
-    colors.sort((a, b) =>
-        a.row != b.row ? a.row.compareTo(b.row) : a.col.compareTo(b.col));
+    colors.sort(
+      (a, b) =>
+          a.row != b.row ? a.row.compareTo(b.row) : a.col.compareTo(b.col),
+    );
     return [for (final c in colors) c.color];
   }
 
@@ -186,7 +225,11 @@ class CubeState {
 
   /// Generates a random scramble of [length] moves that avoids turning the
   /// same axis twice in a row (no cancelling or merging moves).
-  static List<CubeMove> randomScramble(int size, {int? length, Random? random}) {
+  static List<CubeMove> randomScramble(
+    int size, {
+    int? length,
+    Random? random,
+  }) {
     final rng = random ?? Random();
     final count = length ?? _defaultScrambleLength(size);
     final faces = ['U', 'D', 'R', 'L', 'F', 'B'];

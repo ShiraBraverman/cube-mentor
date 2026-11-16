@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../core/cube/cube_state.dart';
 import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/solver/cube_solver.dart';
 import '../../core/solver/solve_step.dart';
@@ -14,9 +15,20 @@ import 'widgets/solve_banner.dart';
 /// 3D playground: a full-bleed touch-driven cube, a slim glass action bar,
 /// and an optional collapsible notation pad.
 class Solver3DScreen extends ConsumerStatefulWidget {
-  const Solver3DScreen({super.key, required this.size});
+  const Solver3DScreen({
+    super.key,
+    required this.size,
+    this.initialCube,
+    this.autoSolve,
+  });
 
   final int size;
+
+  /// Cube to start from (e.g. a scanned one) instead of the current session.
+  final CubeState? initialCube;
+
+  /// Solve [initialCube] right away with this method.
+  final SolveMethod? autoSolve;
 
   @override
   ConsumerState<Solver3DScreen> createState() => _Solver3DScreenState();
@@ -30,6 +42,17 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
     super.initState();
     // Build the solver tables in the background while the user plays.
     ref.read(cubeSolverProvider).prepare(widget.size);
+    final cube = widget.initialCube;
+    if (cube != null) {
+      // Providers cannot change while the tree builds: load right after.
+      Future.microtask(() {
+        if (!mounted) return;
+        final controller = ref.read(cubeSessionProvider(widget.size).notifier)
+          ..load(cube);
+        final method = widget.autoSolve;
+        if (method != null && !cube.isSolved) controller.solve(method);
+      });
+    }
   }
 
   @override

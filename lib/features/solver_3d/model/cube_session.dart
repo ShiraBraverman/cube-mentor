@@ -210,7 +210,8 @@ class CubeSessionController extends Notifier<CubeSession> {
     if (!s.isGuiding) return GuidedMove.free;
     final expected = s.playback[s.playbackIndex];
     if (move == expected) return GuidedMove.expected;
-    final sameLayers = move.axis == expected.axis &&
+    final sameLayers =
+        move.axis == expected.axis &&
         move.fromLayer == expected.fromLayer &&
         move.toLayer == expected.toLayer;
     if (sameLayers && expected.isHalfTurn && !move.isHalfTurn) {
@@ -404,6 +405,18 @@ class CubeSessionController extends Notifier<CubeSession> {
 
   void clearSolveError() => state = state.copyWith(clearSolveError: true);
 
+  /// Replaces the cube (e.g. with a scanned one), dropping animations,
+  /// history and any loaded solution.
+  void load(CubeState cube) {
+    assert(cube.size == size);
+    state = CubeSession(
+      cube: cube,
+      speed: state.speed,
+      xray: state.xray,
+      epoch: state.epoch + 1,
+    );
+  }
+
   /// Instantly returns to a solved cube, dropping queued animations.
   void reset() {
     state = CubeSession(
@@ -422,7 +435,10 @@ class CubeSessionController extends Notifier<CubeSession> {
     }
     final move = state.playback[state.playbackIndex];
     state = state.copyWith(
-      queue: [...state.queue, QueuedMove(move, step: state.playbackIndex)],
+      queue: [
+        ...state.queue,
+        QueuedMove(move, step: state.playbackIndex),
+      ],
       log: [...state.log, move],
       playbackIndex: state.playbackIndex + 1,
     );
@@ -435,7 +451,10 @@ class CubeSessionController extends Notifier<CubeSession> {
     final index = state.playbackIndex - 1;
     final move = state.playback[index];
     state = state.copyWith(
-      queue: [...state.queue, QueuedMove(move.inverse, step: index)],
+      queue: [
+        ...state.queue,
+        QueuedMove(move.inverse, step: index),
+      ],
       log: state.log.isEmpty
           ? const []
           : state.log.sublist(0, state.log.length - 1),

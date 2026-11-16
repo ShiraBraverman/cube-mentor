@@ -11,6 +11,8 @@ import 'package:cube_mentor/core/cube/facelets.dart';
 import 'package:cube_mentor/core/ffi/cubementor_bindings.dart';
 import 'package:cube_mentor/core/ffi/native_cube_solver.dart';
 import 'package:cube_mentor/core/solver/solve_step.dart';
+import 'package:cube_mentor/core/vision/color_science.dart';
+import 'package:cube_mentor/core/vision/scan_analyzer.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -40,9 +42,9 @@ void main() {
     expect(cube.isSolved, isTrue);
   }
 
-  CubeState scrambled(int size, Random random) => CubeState.solved(
-    size,
-  ).applyAll(CubeState.randomScramble(size, random: random));
+  CubeState scrambled(int size, Random random) =>
+      CubeState.solved(size)
+          .applyAll(CubeState.randomScramble(size, random: random));
 
   test('reports its version', () {
     expect(bindings!.version, '1.0.0');
@@ -94,14 +96,12 @@ void main() {
   }, skip: missing);
 
   test('handles rotated cubes and slice moves', () {
-    final cube = CubeState.solved(3).applyAll(
-      MoveNotation.parseSequence("M E S x y' R U2 F' z", 3),
-    );
+    final cube = CubeState.solved(3)
+        .applyAll(MoveNotation.parseSequence("M E S x y' R U2 F' z", 3));
     expectSolves(cube, solve(cube, SolveMethod.fast));
     expectSolves(cube, solve(cube, SolveMethod.layerByLayer));
-    final two = CubeState.solved(
-      2,
-    ).applyAll(MoveNotation.parseSequence("x R U' y F2 z' R", 2));
+    final two = CubeState.solved(2)
+        .applyAll(MoveNotation.parseSequence("x R U' y F2 z' R", 2));
     expectSolves(two, solve(two, SolveMethod.fast));
   }, skip: missing);
 
@@ -110,9 +110,7 @@ void main() {
     expect(solve(CubeState.solved(2), SolveMethod.fast).steps, isEmpty);
     expect(
       () => SolvePlan.fromJson(bindings!.solveJson(3, 1, 'WWW')),
-      throwsA(
-        isA<SolveException>().having((e) => e.code, 'code', 'badLength'),
-      ),
+      throwsA(isA<SolveException>().having((e) => e.code, 'code', 'badLength')),
     );
     // Two swapped stickers of one edge: a flipped edge.
     final f = CubeState.solved(3).toFacelets().split('');
@@ -135,5 +133,42 @@ void main() {
       () => solver.solve(CubeState.solved(4), SolveMethod.fast),
       throwsA(isA<SolveException>()),
     );
+  }, skip: missing);
+
+  test('scan pipeline: classifies warm-lit stickers and flags bad ones', () {
+    final analyzer = NativeScanAnalyzer();
+    final random = Random(12);
+    for (final size in [2, 3, 4]) {
+      final facelets = scrambled(size, random).toFacelets();
+      // Warm light: blue channel down, a little noise.
+      final samples = [
+        for (final letter in facelets.split(''))
+          () {
+            final c = kReferenceStickerRgb[stickerColorOf(letter)!]!;
+            int jitter(int v) => (v + random.nextInt(9) - 4).clamp(0, 255);
+            return (
+              r: jitter(c.r),
+              g: jitter((c.g * 0.9).round()),
+              b: jitter((c.b * 0.7).round()),
+            );
+          }(),
+      ];
+      final analysis = analyzer.classify(size, samples);
+      expect(analysis.isValid, isTrue, reason: '${size}x$size');
+      expect(analysis.facelets, facelets);
+      expect(analysis.confidence, hasLength(facelets.length));
+
+      // One sticker changed by hand: the validator points at it.
+      final broken = facelets.replaceRange(
+        size * size,
+        size * size + 1,
+        facelets[size * size] == 'W' ? 'Y' : 'W',
+      );
+      final confidence = List<double>.filled(facelets.length, 0.9)
+        ..[size * size] = 0.05;
+      final check = analyzer.validate(size, broken, confidence: confidence);
+      expect(check.issue, ScanIssue.badColors);
+      expect(check.invalid.first, size * size);
+    }
   }, skip: missing);
 }

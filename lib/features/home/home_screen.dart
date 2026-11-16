@@ -5,6 +5,7 @@ import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/settings/locale_controller.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
+import '../scanner/scanner_screen.dart';
 import '../solver_3d/solver_3d_screen.dart';
 import '../solver_3d/widgets/cube_preview.dart';
 import 'home_controller.dart';
@@ -127,12 +128,16 @@ class HomeScreen extends ConsumerWidget {
                   ),
                   const SizedBox(height: 10),
                   _ModeCard(
+                    key: const ValueKey('mode-scan'),
                     icon: Icons.photo_camera_rounded,
                     title: l10n.modeScanSolve,
                     description: l10n.modeScanSolveDesc,
                     accent: AppColors.accentSecondary,
-                    badge: l10n.comingSoon,
-                    onTap: comingSoon,
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (_) => ScannerScreen(size: selected),
+                      ),
+                    ),
                   ),
                   const SizedBox(height: 10),
                   _ModeCard(

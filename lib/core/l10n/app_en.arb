@@ -213,5 +213,84 @@
   "explainLblYellowCornersAlg": "Cycle the yellow corners into their spots with U R U' L' U R' U' L.",
   "explainLblNextCorner": "Turn the top layer to bring the next unsolved yellow corner to the front-right.",
   "explainLblCornerTwist": "Repeat R' D' R D until yellow faces up. The bottom fixes itself at the end.",
-  "explainLblFinalAlign": "Turn the top layer to finish the cube."
+  "explainLblFinalAlign": "Turn the top layer to finish the cube.",
+  "scanTitle": "Scan {size}×{size}",
+  "@scanTitle": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "scanManualInput": "Enter colors by hand",
+  "scanUseCamera": "Scan with the camera",
+  "scanFaceProgress": "Face {current} of {total}",
+  "@scanFaceProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "faceUp": "Top face",
+  "faceRight": "Right face",
+  "faceFront": "Front face",
+  "faceDown": "Bottom face",
+  "faceLeft": "Left face",
+  "faceBack": "Back face",
+  "scanHintFront": "Hold the cube with any face toward you. That is your front: keep the same face on top while you scan.",
+  "scanHintRight": "From the front, turn the whole cube left once so the right face looks at you.",
+  "scanHintBack": "From the front, turn the whole cube left twice.",
+  "scanHintLeft": "From the front, turn the whole cube right once.",
+  "scanHintUp": "From the front, tip the top toward you so it faces the camera.",
+  "scanHintDown": "From the front, tip the bottom toward you so it faces the camera.",
+  "scanAlignHint": "Fill the grid with the face, then tap the shutter.",
+  "scanCapture": "Capture face",
+  "scanTapToRescan": "Tap a scanned face to scan it again.",
+  "scanTooDark": "Too dark: move to brighter light.",
+  "scanGlare": "Glare: tilt the cube away from the light.",
+  "scanCameraMissing": "No camera found on this device.",
+  "scanCameraDenied": "Camera access was denied. You can still enter the colors by hand.",
+  "scanCameraFailed": "The camera could not start.",
+  "scanAllGood": "All stickers look right.",
+  "scanStickersWrong": "{count, plural, =1{1 sticker looks wrong} other{{count} stickers look wrong}}",
+  "@scanStickersWrong": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "scanCheckCube": "Something doesn't add up",
+  "scanIssueColors": "Each color must appear exactly {count} times.",
+  "@scanIssueColors": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "scanIssueCenters": "Two centers have the same color.",
+  "scanIssuePieces": "These stickers form pieces that don't exist on a real cube.",
+  "scanIssueTwist": "One corner is twisted. Check the corner stickers.",
+  "scanIssueFlip": "One edge is flipped. Check the edge stickers.",
+  "scanIssueParity": "Two pieces look swapped.",
+  "scanIssueUnavailable": "Color checking isn't available on this device.",
+  "scanUncertain": "{count, plural, =1{1 sticker was hard to read: give it a quick look.} other{{count} stickers were hard to read: give them a quick look.}}",
+  "@scanUncertain": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "scanEditHint": "Tap a sticker to change its color · Long-press for the palette",
+  "scanRescanFace": "Rescan a face",
+  "scanCancelRescan": "Back to the colors",
+  "scanPaletteTitle": "Pick a color",
+  "scanOpen3d": "Open in 3D",
+  "scanRestart": "Start over"
 }

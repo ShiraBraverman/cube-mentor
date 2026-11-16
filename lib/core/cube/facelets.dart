@@ -45,3 +45,21 @@ extension CubeFacelets on CubeState {
     return null;
   }
 }
+
+/// Parses the facelet format of [CubeFacelets.toFacelets] (app color
+/// letters). Throws a [FormatException] for a wrong length or letter.
+CubeState cubeFromFacelets(int size, String facelets) {
+  final perFace = size * size;
+  if (facelets.length != 6 * perFace) {
+    throw FormatException('expected ${6 * perFace} facelets', facelets);
+  }
+  final faces = <IVec3, List<StickerColor>>{};
+  for (var face = 0; face < 6; face++) {
+    faces[kFaceletFaceOrder[face]] = [
+      for (var i = face * perFace; i < (face + 1) * perFace; i++)
+        stickerColorOf(facelets[i]) ??
+            (throw FormatException('unknown color', facelets, i)),
+    ];
+  }
+  return CubeState.fromFaceColors(size, faces);
+}
