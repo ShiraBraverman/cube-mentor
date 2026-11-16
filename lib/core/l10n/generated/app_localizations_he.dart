@@ -205,6 +205,23 @@ class AppLocalizationsHe extends AppLocalizations {
   String get nextMove => 'המהלך הבא';
 
   @override
+  String get guideSwipeHint =>
+      'החליקו את השכבה הזוהרת בכיוון החץ, או הקישו על הבא.';
+
+  @override
+  String get guideRotateHint =>
+      'סובבו את כל הקובייה כפי שהחץ מראה: הקישו על הבא.';
+
+  @override
+  String get guideWrongMove => 'עקבו אחרי החץ המודגש';
+
+  @override
+  String get guideExit => 'יציאה מההדרכה';
+
+  @override
+  String get replayStep => 'הצגת הצעד שוב';
+
+  @override
   String get colorWhite => 'לבן';
 
   @override

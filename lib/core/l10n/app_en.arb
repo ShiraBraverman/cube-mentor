@@ -116,6 +116,11 @@
     }
   },
   "nextMove": "Next move",
+  "guideSwipeHint": "Swipe the glowing layer the way the arrow points, or tap Next.",
+  "guideRotateHint": "Turn the whole cube as the arrow shows: tap Next.",
+  "guideWrongMove": "Follow the highlighted arrow",
+  "guideExit": "Exit guide",
+  "replayStep": "Replay step",
   "colorWhite": "white",
   "colorYellow": "yellow",
   "colorGreen": "green",

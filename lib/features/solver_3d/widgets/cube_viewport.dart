@@ -19,13 +19,24 @@ import '../render/cube_painter.dart';
 ///   tick.
 /// * Moves queued in the session (buttons, scramble, playback) are animated
 ///   one at a time.
+/// * During a guided solve the next move is shown with a pulsing 3D arrow.
+///   A hand turn matching it advances the solution (with a firmer haptic);
+///   any other turn springs back with a shake and is not applied.
 class CubeViewport extends ConsumerStatefulWidget {
-  const CubeViewport({super.key, required this.size, this.highlighted = const {}});
+  const CubeViewport({
+    super.key,
+    required this.size,
+    this.highlighted = const {},
+    this.focus = const {},
+  });
 
   final int size;
 
   /// Cubie ids to emphasize.
   final Set<int> highlighted;
+
+  /// Cubie ids of the layer to turn next (kept bright, no outline).
+  final Set<int> focus;
 
   @override
   ConsumerState<CubeViewport> createState() => _CubeViewportState();
@@ -61,6 +72,19 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
   double _snapTo = 0;
   int _snapQuarterTurns = 0;
 
+  /// The released hand turn broke the guided solution and springs back.
+  bool _rejectOnSnap = false;
+
+  // Guide arrow pulse and the "wrong move" shake.
+  late final AnimationController _pulse = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 1400),
+  );
+  late final AnimationController _shake = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 420),
+  );
+
   // Orbit with inertia (radians per second) and the optional reset target.
   late final Ticker _orbitTicker = createTicker(_onOrbitTick);
   final ValueNotifier<CubeOrientation> _orbit = ValueNotifier(
@@ -73,7 +97,10 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => _maybeStartNext());
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _maybeStartNext();
+      if (mounted) _syncPulse(_session);
+    });
   }
 
   @override
@@ -81,6 +108,8 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
     _eased.dispose();
     _turn.dispose();
     _snap.dispose();
+    _pulse.dispose();
+    _shake.dispose();
     _dragTurn.dispose();
     _orbitTicker.dispose();
     _orbit.dispose();
@@ -131,7 +160,21 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
       _cancelHandTurn();
       setState(() => _activeMove = null);
     }
+    if (previous != null && next.rejectedMoves != previous.rejectedMoves) {
+      _shake.forward(from: 0);
+      HapticFeedback.lightImpact();
+    }
+    _syncPulse(next);
     _maybeStartNext();
+  }
+
+  /// Runs the arrow pulse only while an arrow is shown.
+  void _syncPulse(CubeSession session) {
+    if (session.guideMove != null) {
+      if (!_pulse.isAnimating) _pulse.repeat();
+    } else if (_pulse.isAnimating) {
+      _pulse.stop();
+    }
   }
 
   // ---- Gestures ----
@@ -143,6 +186,7 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
       orbit: _orbit.value,
       turn: turn,
       highlighted: widget.highlighted,
+      focus: widget.focus,
       xray: session.xray,
     );
   }
@@ -186,6 +230,7 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
         _layerDrag = drag;
         _mode = _DragMode.layer;
         _dragTurn.value = drag.turnAt(drag.angleFor(_dragTotal));
+        _controller.beginHandTurn();
       case _DragMode.layer:
         final drag = _layerDrag!;
         _dragTurn.value = drag.turnAt(drag.angleFor(_dragTotal));
@@ -204,9 +249,15 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
       case _DragMode.layer:
         final drag = _layerDrag!;
         final angle = _dragTurn.value!.angle;
-        _snapQuarterTurns =
+        var quarterTurns =
             drag.snapQuarterTurns(angle, details.velocity.pixelsPerSecond);
-        _startSnap(angle, _snapQuarterTurns * math.pi / 2);
+        final move = drag.moveFor(quarterTurns);
+        // A turn that breaks the guided solution springs back.
+        _rejectOnSnap =
+            move != null && _controller.judge(move) == GuidedMove.wrong;
+        if (_rejectOnSnap) quarterTurns = 0;
+        _snapQuarterTurns = quarterTurns;
+        _startSnap(angle, quarterTurns * math.pi / 2);
       case _DragMode.pendingLayer:
       case _DragMode.none:
         break;
@@ -216,6 +267,7 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
   void _onPanCancel() {
     if (_mode == _DragMode.layer && _dragTurn.value != null) {
       _snapQuarterTurns = 0;
+      _rejectOnSnap = false;
       _startSnap(_dragTurn.value!.angle, 0);
     }
     _mode = _DragMode.none;
@@ -248,9 +300,20 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
     _grab = null;
     _dragTurn.value = null;
     _snap.value = 0;
-    if (move != null) {
+    final rejected = _rejectOnSnap;
+    _rejectOnSnap = false;
+    _controller.endHandTurn();
+    if (rejected) {
+      _controller.rejectMove();
+    } else if (move != null) {
+      final verdict = _controller.judge(move);
       _controller.commitDirect(move);
-      HapticFeedback.selectionClick();
+      if (verdict == GuidedMove.free) {
+        HapticFeedback.selectionClick();
+      } else {
+        // The user made the expected move: confirm it firmly.
+        HapticFeedback.mediumImpact();
+      }
     }
     _maybeStartNext();
   }
@@ -258,6 +321,7 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
   void _cancelHandTurn() {
     _snap.stop();
     _snap.value = 0;
+    _rejectOnSnap = false;
     _mode = _DragMode.none;
     _grab = null;
     _layerDrag = null;
@@ -309,6 +373,7 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
   Widget build(BuildContext context) {
     ref.listen(cubeSessionProvider(widget.size), _onSessionChanged);
     final session = ref.watch(cubeSessionProvider(widget.size));
+    final guide = session.guideMove;
 
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
@@ -322,20 +387,38 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
       onDoubleTap: _resetView,
       child: RepaintBoundary(
         child: AnimatedBuilder(
-          animation: Listenable.merge([_eased, _orbit, _dragTurn]),
+          animation: Listenable.merge([
+            _eased,
+            _orbit,
+            _dragTurn,
+            _pulse,
+            _shake,
+          ]),
           builder: (context, _) {
             final active = _activeMove;
             final turn = _dragTurn.value ??
                 (active == null ? null : LayerTurn.ofMove(active, _eased.value));
-            return CustomPaint(
-              size: Size.infinite,
-              painter: CubePainter(
-                frame: CubeFrame(
-                  cube: session.cube,
-                  orbit: _orbit.value,
-                  turn: turn,
-                  highlighted: widget.highlighted,
-                  xray: session.xray,
+            // Damped side-to-side wobble after a rejected move.
+            final t = _shake.value;
+            final wobble = _shake.isAnimating
+                ? math.sin(t * math.pi * 6) * (1 - t) * 10
+                : 0.0;
+            return Transform.translate(
+              offset: Offset(wobble, 0),
+              child: CustomPaint(
+                size: Size.infinite,
+                painter: CubePainter(
+                  frame: CubeFrame(
+                    cube: session.cube,
+                    orbit: _orbit.value,
+                    turn: turn,
+                    highlighted: widget.highlighted,
+                    focus: widget.focus,
+                    xray: session.xray,
+                  ),
+                  // Hidden while a layer is held or turning.
+                  guide: turn == null ? guide : null,
+                  guidePhase: _pulse.value,
                 ),
               ),
             );

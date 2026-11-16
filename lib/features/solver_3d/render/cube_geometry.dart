@@ -131,6 +131,7 @@ class CubeFrame {
     required this.orbit,
     this.turn,
     this.highlighted = const {},
+    this.focus = const {},
     this.xray = false,
   });
 
@@ -143,6 +144,10 @@ class CubeFrame {
   /// Cubie ids to emphasize (pedagogical highlighting).
   final Set<int> highlighted;
 
+  /// Cubie ids of the layer the user should turn next; shown at full
+  /// brightness (without an outline) while other cubies are dimmed.
+  final Set<int> focus;
+
   /// Semi-transparent rendering that reveals hidden faces.
   final bool xray;
 
@@ -152,6 +157,7 @@ class CubeFrame {
         orbit: orbit,
         turn: clearTurn ? null : (turn ?? this.turn),
         highlighted: highlighted,
+        focus: focus,
         xray: xray ?? this.xray,
       );
 
@@ -162,6 +168,7 @@ class CubeFrame {
       other.orbit == orbit &&
       other.turn == turn &&
       setEquals(other.highlighted, highlighted) &&
+      setEquals(other.focus, focus) &&
       other.xray == xray;
 
   @override

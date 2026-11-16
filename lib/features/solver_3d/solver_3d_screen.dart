@@ -53,6 +53,24 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
       controller.clearSolveError();
     });
 
+    // A manual move that does not follow the guided solution.
+    ref.listen(cubeSessionProvider(size).select((s) => s.rejectedMoves), (
+      previous,
+      next,
+    ) {
+      if (previous == null || next <= previous) return;
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          SnackBar(
+            key: const ValueKey('guide-wrong-move'),
+            content: Text(l10n.guideWrongMove),
+            behavior: SnackBarBehavior.floating,
+            duration: const Duration(seconds: 2),
+          ),
+        );
+    });
+
     return GlassBackground(
       child: Scaffold(
         appBar: AppBar(
@@ -97,6 +115,7 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
                       child: CubeViewport(
                         size: size,
                         highlighted: solveHighlights(session),
+                        focus: solveFocus(session),
                       ),
                     ),
                     PositionedDirectional(
@@ -178,7 +197,11 @@ class _ActionBar extends ConsumerWidget {
     final l10n = AppLocalizations.of(context);
     final session = ref.watch(cubeSessionProvider(size));
     final controller = ref.read(cubeSessionProvider(size).notifier);
-    final textTheme = Theme.of(context).textTheme;
+    // Playback waits while a layer is held under the finger.
+    final free = !session.isHandTurning;
+    final canUndo = session.hasPlayback
+        ? session.canStepBack
+        : session.log.isNotEmpty;
 
     return GlassCard(
       borderRadius: 24,
@@ -203,7 +226,7 @@ class _ActionBar extends ConsumerWidget {
                           children: [
                             IconButton(
                               tooltip: l10n.previousStep,
-                              onPressed: session.canStepBack
+                              onPressed: free && session.canStepBack
                                   ? controller.stepBack
                                   : null,
                               icon: const Icon(Icons.skip_previous_rounded),
@@ -214,7 +237,7 @@ class _ActionBar extends ConsumerWidget {
                                   : l10n.play,
                               onPressed: session.isPlaying
                                   ? controller.pause
-                                  : (session.canStepForward
+                                  : (free && session.canStepForward
                                         ? controller.play
                                         : null),
                               icon: Icon(
@@ -225,37 +248,29 @@ class _ActionBar extends ConsumerWidget {
                             ),
                             IconButton(
                               tooltip: l10n.nextStep,
-                              onPressed: session.canStepForward
+                              onPressed: free && session.canStepForward
                                   ? controller.stepForward
                                   : null,
                               icon: const Icon(Icons.skip_next_rounded),
                             ),
+                            IconButton(
+                              tooltip: l10n.replayStep,
+                              onPressed: free && session.isIdle
+                                  ? controller.replayStep
+                                  : null,
+                              icon: const Icon(Icons.replay_rounded),
+                            ),
                             const SizedBox(width: 6),
                             Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    l10n.playbackProgress(
-                                      session.playbackIndex,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(4),
+                                child: LinearProgressIndicator(
+                                  value:
+                                      session.playbackIndex /
                                       session.playback.length,
-                                    ),
-                                    style: textTheme.bodySmall?.copyWith(
-                                      color: AppColors.textSecondary,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 4),
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(4),
-                                    child: LinearProgressIndicator(
-                                      value:
-                                          session.playbackIndex /
-                                          session.playback.length,
-                                      minHeight: 4,
-                                      backgroundColor: AppColors.glassBorder,
-                                    ),
-                                  ),
-                                ],
+                                  minHeight: 4,
+                                  backgroundColor: AppColors.glassBorder,
+                                ),
                               ),
                             ),
                             const SizedBox(width: 8),
@@ -272,7 +287,7 @@ class _ActionBar extends ConsumerWidget {
                 child: _ActionButton(
                   icon: Icons.shuffle_rounded,
                   label: l10n.scramble,
-                  onTap: controller.scramble,
+                  onTap: free ? controller.scramble : null,
                 ),
               ),
               const SizedBox(width: 8),
@@ -283,7 +298,7 @@ class _ActionBar extends ConsumerWidget {
                   label: session.isSolving ? l10n.solving : l10n.solve,
                   busy: session.isSolving,
                   primary: true,
-                  onTap: session.isSolving || !session.isIdle
+                  onTap: session.isSolving || !session.isIdle || !free
                       ? null
                       : () => _solve(context, ref),
                 ),
@@ -293,7 +308,7 @@ class _ActionBar extends ConsumerWidget {
                 child: _ActionButton(
                   icon: Icons.undo_rounded,
                   label: l10n.undo,
-                  onTap: session.log.isEmpty ? null : controller.undo,
+                  onTap: free && canUndo ? controller.undo : null,
                 ),
               ),
               const SizedBox(width: 8),

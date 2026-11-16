@@ -2,16 +2,29 @@ import 'dart:ui' as ui;
 
 import 'package:material_ui/material_ui.dart';
 
+import '../../../core/cube/cube_move.dart';
 import '../../../core/theme/app_colors.dart';
 import 'cube_geometry.dart';
+import 'move_arrow.dart';
 
 export 'cube_geometry.dart';
 
 /// Paints an n x n x n cube frame produced by [CubeScene].
 class CubePainter extends CustomPainter {
-  CubePainter({required this.frame, super.repaint});
+  CubePainter({
+    required this.frame,
+    this.guide,
+    this.guidePhase = 0,
+    super.repaint,
+  });
 
   final CubeFrame frame;
+
+  /// Move to point out with a curved arrow, if any.
+  final CubeMove? guide;
+
+  /// Animation phase of the guide arrow, in `[0, 1)`.
+  final double guidePhase;
 
   static const double _stickerInset = 0.86;
   static const double _cornerRound = 0.2;
@@ -31,19 +44,25 @@ class CubePainter extends CustomPainter {
     } else {
       _paintOpaque(canvas, faces);
     }
+    final guide = this.guide;
+    if (guide != null) {
+      MoveArrow.paint(canvas, size, frame, guide, guidePhase);
+    }
   }
 
   void _paintOpaque(Canvas canvas, List<ProjectedFace> faces) {
-    final hasHighlights = frame.highlighted.isNotEmpty;
+    final hasHighlights =
+        frame.highlighted.isNotEmpty || frame.focus.isNotEmpty;
     for (final face in faces) {
       _fill.color = _shaded(AppColors.cubeBody, face.shade);
       canvas.drawPath(_polygon(face.quad), _fill);
 
       final color = face.color;
       if (color == null) continue;
-      final isHighlighted = frame.highlighted.contains(face.cubie.id);
+      final id = face.cubie.id;
+      final isHighlighted = frame.highlighted.contains(id);
       var stickerColor = _shaded(AppColors.stickers[color]!, face.shade);
-      if (hasHighlights && !isHighlighted) {
+      if (hasHighlights && !isHighlighted && !frame.focus.contains(id)) {
         stickerColor = Color.lerp(stickerColor, AppColors.cubeBody, 0.6)!;
       }
       final stickerPath = _roundedSticker(face.quad);
@@ -125,5 +144,8 @@ class CubePainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(CubePainter oldDelegate) => oldDelegate.frame != frame;
+  bool shouldRepaint(CubePainter oldDelegate) =>
+      oldDelegate.frame != frame ||
+      oldDelegate.guide != guide ||
+      oldDelegate.guidePhase != guidePhase;
 }

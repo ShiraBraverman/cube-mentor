@@ -10,7 +10,8 @@ import '../../../core/theme/glass.dart';
 import '../model/cube_session.dart';
 
 /// Glass banner above the cube explaining the current solution step: the
-/// phase, what this move achieves, and the move itself.
+/// phase and progress, what this move achieves, the move itself and how to
+/// make it. Stays up until the cube is solved, then celebrates.
 class SolveBanner extends ConsumerWidget {
   const SolveBanner({super.key, required this.size});
 
@@ -23,8 +24,13 @@ class SolveBanner extends ConsumerWidget {
     if (session.steps.isEmpty) return const SizedBox.shrink();
     final textTheme = Theme.of(context).textTheme;
     final step = session.currentStep;
-    final complete =
-        step == null && session.playbackIndex >= session.steps.length;
+    final index = session.currentStepIndex;
+    final total = session.steps.length;
+    final complete = step == null && index >= total;
+    final controller = ref.read(cubeSessionProvider(size).notifier);
+    final secondary = textTheme.bodySmall?.copyWith(
+      color: AppColors.textSecondary,
+    );
 
     final Widget content;
     if (complete) {
@@ -37,11 +43,18 @@ class SolveBanner extends ConsumerWidget {
           ),
           const SizedBox(width: 12),
           Expanded(
-            child: Text(
-              l10n.solveComplete,
-              style: textTheme.titleMedium?.copyWith(
-                color: AppColors.accentSecondary,
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  l10n.solveComplete,
+                  style: textTheme.titleMedium?.copyWith(
+                    color: AppColors.accentSecondary,
+                  ),
+                ),
+                Text(l10n.solveSummary(total), style: secondary),
+              ],
             ),
           ),
         ],
@@ -49,10 +62,10 @@ class SolveBanner extends ConsumerWidget {
     } else if (step == null) {
       return const SizedBox.shrink();
     } else {
+      final move = session.playback[index];
+      final wholeCube = move.fromLayer == 0 && move.toLayer == size - 1;
       content = Row(
-        key: ValueKey(
-          'solve-step-${session.playbackIndex}-${step.explanationKey}',
-        ),
+        key: ValueKey('solve-step-$index-${step.explanationKey}'),
         children: [
           _MoveChip(notation: step.moveNotation, tooltip: l10n.nextMove),
           const SizedBox(width: 12),
@@ -61,18 +74,38 @@ class SolveBanner extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
-                  solvePhaseTitle(l10n, step.phaseName),
-                  style: textTheme.labelLarge?.copyWith(
-                    color: AppColors.accent,
-                    fontWeight: FontWeight.w700,
-                  ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        solvePhaseTitle(l10n, step.phaseName),
+                        style: textTheme.labelLarge?.copyWith(
+                          color: AppColors.accent,
+                          fontWeight: FontWeight.w700,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      l10n.playbackProgress(index + 1, total),
+                      key: const ValueKey('solve-progress'),
+                      style: secondary,
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 2),
                 Text(
                   solveExplanation(l10n, step),
                   style: textTheme.bodyMedium,
                   maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  wholeCube ? l10n.guideRotateHint : l10n.guideSwipeHint,
+                  style: secondary,
+                  maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
               ],
@@ -84,10 +117,23 @@ class SolveBanner extends ConsumerWidget {
 
     return GlassCard(
       borderRadius: 18,
-      padding: const EdgeInsetsDirectional.fromSTEB(12, 10, 14, 10),
-      child: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 180),
-        child: content,
+      padding: const EdgeInsetsDirectional.fromSTEB(12, 10, 4, 10),
+      child: Row(
+        children: [
+          Expanded(
+            child: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 180),
+              child: content,
+            ),
+          ),
+          IconButton(
+            key: const ValueKey('guide-exit'),
+            tooltip: l10n.guideExit,
+            visualDensity: VisualDensity.compact,
+            onPressed: controller.clearSolution,
+            icon: const Icon(Icons.close_rounded, size: 20),
+          ),
+        ],
       ),
     );
   }
@@ -130,6 +176,18 @@ Set<int> solveHighlights(CubeSession session) {
   return {
     for (final position in step.highlightedCubies)
       ?session.cube.cubieIdAt(position),
+  };
+}
+
+/// Cubie ids of the layer the current step turns, so it stands out on the
+/// cube. Empty for whole-cube rotations (nothing to single out).
+Set<int> solveFocus(CubeSession session) {
+  if (session.currentStep == null) return const {};
+  final move = session.playback[session.currentStepIndex];
+  if (move.fromLayer == 0 && move.toLayer == session.size - 1) return const {};
+  return {
+    for (final cubie in session.cube.cubies)
+      if (session.cube.isAffected(cubie, move)) cubie.id,
   };
 }
 

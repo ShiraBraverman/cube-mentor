@@ -440,6 +440,36 @@ abstract class AppLocalizations {
   /// **'Next move'**
   String get nextMove;
 
+  /// No description provided for @guideSwipeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Swipe the glowing layer the way the arrow points, or tap Next.'**
+  String get guideSwipeHint;
+
+  /// No description provided for @guideRotateHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the whole cube as the arrow shows: tap Next.'**
+  String get guideRotateHint;
+
+  /// No description provided for @guideWrongMove.
+  ///
+  /// In en, this message translates to:
+  /// **'Follow the highlighted arrow'**
+  String get guideWrongMove;
+
+  /// No description provided for @guideExit.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit guide'**
+  String get guideExit;
+
+  /// No description provided for @replayStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Replay step'**
+  String get replayStep;
+
   /// No description provided for @colorWhite.
   ///
   /// In en, this message translates to:

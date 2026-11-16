@@ -211,6 +211,23 @@ class AppLocalizationsEn extends AppLocalizations {
   String get nextMove => 'Next move';
 
   @override
+  String get guideSwipeHint =>
+      'Swipe the glowing layer the way the arrow points, or tap Next.';
+
+  @override
+  String get guideRotateHint =>
+      'Turn the whole cube as the arrow shows: tap Next.';
+
+  @override
+  String get guideWrongMove => 'Follow the highlighted arrow';
+
+  @override
+  String get guideExit => 'Exit guide';
+
+  @override
+  String get replayStep => 'Replay step';
+
+  @override
   String get colorWhite => 'white';
 
   @override

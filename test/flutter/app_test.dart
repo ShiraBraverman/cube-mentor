@@ -6,7 +6,7 @@ import 'package:cube_mentor/core/settings/preferences.dart';
 import 'package:cube_mentor/core/solver/cube_solver.dart';
 import 'package:cube_mentor/core/solver/solve_step.dart';
 import 'package:cube_mentor/features/solver_3d/model/cube_session.dart';
-import 'package:cube_mentor/features/solver_3d/render/cube_geometry.dart';
+import 'package:cube_mentor/features/solver_3d/render/cube_painter.dart';
 import 'package:cube_mentor/features/solver_3d/solver_3d_screen.dart';
 import 'package:cube_mentor/features/solver_3d/widgets/cube_viewport.dart';
 import 'package:flutter/services.dart';
@@ -205,7 +205,8 @@ void main() {
       findsOneWidget,
     );
     expect(find.text("U'"), findsOneWidget);
-    expect(find.text('Step 0 of 2'), findsOneWidget);
+    expect(find.text('Step 1 of 2'), findsOneWidget);
+    expect(find.textContaining('Swipe the glowing layer'), findsOneWidget);
     // The piece the step talks about is highlighted.
     final viewport = tester.widget<CubeViewport>(find.byType(CubeViewport));
     final session = container.read(cubeSessionProvider(3));
@@ -214,7 +215,7 @@ void main() {
     await tester.tap(find.byTooltip('Next'));
     await _advance(tester, 12);
     expect(find.text('White corners'), findsOneWidget);
-    expect(find.text('Step 1 of 2'), findsOneWidget);
+    expect(find.text('Step 2 of 2'), findsOneWidget);
 
     await tester.tap(find.byTooltip('Play'));
     await _advance(tester, 12);
@@ -263,7 +264,10 @@ void main() {
   group('touch gestures', () {
     late List<MethodCall> platformCalls;
 
-    Future<ProviderContainer> openPlayground(WidgetTester tester) async {
+    Future<ProviderContainer> openPlayground(
+      WidgetTester tester, {
+      CubeSolver? solver,
+    }) async {
       platformCalls = [];
       tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
         SystemChannels.platform,
@@ -274,7 +278,7 @@ void main() {
       );
       addTearDown(() => tester.binding.defaultBinaryMessenger
           .setMockMethodCallHandler(SystemChannels.platform, null));
-      await _pumpApp(tester, await _prefs());
+      await _pumpApp(tester, await _prefs(), solver: solver);
       await tester.tap(find.byKey(const ValueKey('mode-playground')));
       await _advance(tester);
       return ProviderScope.containerOf(
@@ -299,6 +303,103 @@ void main() {
           c.method == 'HapticFeedback.vibrate' &&
           c.arguments == 'HapticFeedbackType.selectionClick',
     );
+
+    bool haptic(String type) => platformCalls.any(
+      (c) =>
+          c.method == 'HapticFeedback.vibrate' &&
+          c.arguments == 'HapticFeedbackType.$type',
+    );
+
+    /// Drags the front-right-bottom sticker upward: an R turn.
+    Future<void> swipeR(WidgetTester tester) async {
+      final gesture = await tester.startGesture(
+        stickerOnScreen(tester, (2, 0, 2), kNormalFront),
+      );
+      for (var i = 0; i < 10; i++) {
+        await gesture.moveBy(const Offset(0, -15));
+        await tester.pump(const Duration(milliseconds: 16));
+      }
+      await gesture.up();
+      await _advance(tester, 8);
+    }
+
+    CubePainter painter(WidgetTester tester) =>
+        tester
+                .widgetList<CustomPaint>(
+                  find.descendant(
+                    of: find.byType(CubeViewport),
+                    matching: find.byType(CustomPaint),
+                  ),
+                )
+                .firstWhere((p) => p.painter is CubePainter)
+                .painter!
+            as CubePainter;
+
+    testWidgets('swiping the expected move advances the guided solve', (
+      tester,
+    ) async {
+      final solver = FakeCubeSolver();
+      final container = await openPlayground(tester, solver: solver);
+      final controller = container.read(cubeSessionProvider(3).notifier);
+      controller.commitDirect(_parse('U').inverse);
+      controller.commitDirect(_parse('R').inverse);
+      final start = container.read(cubeSessionProvider(3)).cube;
+      solver.plan = SolvePlan(
+        method: 'kociemba',
+        steps: [
+          SolveStep(
+            cubeState: start.toFacelets(),
+            phaseName: 'kociembaPhase2',
+            moveNotation: 'R',
+            explanationKey: 'kociembaPhase2Explain',
+          ),
+          SolveStep(
+            cubeState: start.apply(_parse('R')).toFacelets(),
+            phaseName: 'kociembaPhase2',
+            moveNotation: 'U',
+            explanationKey: 'kociembaPhase2Explain',
+          ),
+        ],
+      );
+      await tester.tap(find.byKey(const ValueKey('solve')));
+      await _advance(tester, 8);
+      await tester.tap(find.byKey(const ValueKey('solve-fast')));
+      await _advance(tester, 8);
+      expect(find.text('Step 1 of 2'), findsOneWidget);
+      // The arrow points out the expected move; its layer is in focus.
+      expect(painter(tester).guide?.notation, 'R');
+      expect(painter(tester).frame.focus, hasLength(9));
+
+      await swipeR(tester);
+      var session = container.read(cubeSessionProvider(3));
+      expect(session.playbackIndex, 1, reason: 'the swipe advanced the step');
+      expect(session.steps, hasLength(2));
+      expect(haptic('mediumImpact'), isTrue);
+      expect(find.text('Step 2 of 2'), findsOneWidget);
+      expect(painter(tester).guide?.notation, 'U');
+
+      // Another R is the wrong move now: it springs back and is not applied.
+      final before = session.cube;
+      await swipeR(tester);
+      session = container.read(cubeSessionProvider(3));
+      expect(identical(session.cube, before), isTrue);
+      expect(session.playbackIndex, 1);
+      expect(session.isGuiding, isTrue);
+      expect(haptic('lightImpact'), isTrue);
+      expect(find.text('Follow the highlighted arrow'), findsOneWidget);
+
+      // Next animates the remaining move and the solve completes.
+      await tester.tap(find.byTooltip('Next'));
+      await _advance(tester, 12);
+      expect(container.read(cubeSessionProvider(3)).cube.isSolved, isTrue);
+      expect(find.text('Solved! Great job.'), findsOneWidget);
+      expect(painter(tester).guide, isNull);
+
+      // Exiting the guide returns to free play.
+      await tester.tap(find.byKey(const ValueKey('guide-exit')));
+      await _advance(tester, 4);
+      expect(container.read(cubeSessionProvider(3)).hasPlayback, isFalse);
+    });
 
     testWidgets('dragging a sticker turns its layer and clicks on snap', (
       tester,
