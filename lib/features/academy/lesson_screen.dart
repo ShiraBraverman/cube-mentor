@@ -143,7 +143,15 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                               focus: solveFocus(session),
                             ),
                           ),
-                          _Explanation(lesson: _lesson, step: step),
+                          // Long translations scroll inside the card
+                          // instead of squeezing the cube away.
+                          ConstrainedBox(
+                            constraints: BoxConstraints(
+                              maxHeight:
+                                  MediaQuery.sizeOf(context).height * 0.4,
+                            ),
+                            child: _Explanation(lesson: _lesson, step: step),
+                          ),
                           const SizedBox(height: 10),
                           Row(
                             children: [
@@ -240,71 +248,73 @@ class _Explanation extends ConsumerWidget {
     }
     return GlassCard(
       padding: const EdgeInsetsDirectional.fromSTEB(14, 12, 14, 12),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            lessonStepTitle(l10n, step.id),
-            key: const ValueKey('lesson-step-title'),
-            style: textTheme.titleMedium,
-          ),
-          const SizedBox(height: 4),
-          Text(lessonStepBody(l10n, step.id), style: textTheme.bodyMedium),
-          const SizedBox(height: 10),
-          Row(
-            children: [
-              if (notation != null) ...[
-                Container(
-                  constraints: const BoxConstraints(minWidth: 44),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: AppColors.accent.withValues(alpha: 0.18),
-                    border: Border.all(
-                      color: AppColors.accent.withValues(alpha: 0.6),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              lessonStepTitle(l10n, step.id),
+              key: const ValueKey('lesson-step-title'),
+              style: textTheme.titleMedium,
+            ),
+            const SizedBox(height: 4),
+            Text(lessonStepBody(l10n, step.id), style: textTheme.bodyMedium),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                if (notation != null) ...[
+                  Container(
+                    constraints: const BoxConstraints(minWidth: 44),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 4,
                     ),
-                  ),
-                  child: Text(
-                    notation,
-                    textAlign: TextAlign.center,
-                    textDirection: TextDirection.ltr,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 10),
-              ],
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      subtitle,
-                      key: const ValueKey('lesson-move-words'),
-                      style: textTheme.bodySmall?.copyWith(
-                        color: AppColors.accentSecondary,
-                        fontWeight: FontWeight.w600,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: AppColors.accent.withValues(alpha: 0.18),
+                      border: Border.all(
+                        color: AppColors.accent.withValues(alpha: 0.6),
                       ),
                     ),
-                    if (session.guideMove != null)
+                    child: Text(
+                      notation,
+                      textAlign: TextAlign.center,
+                      textDirection: TextDirection.ltr,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                ],
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       Text(
-                        l10n.lessonTryIt,
+                        subtitle,
+                        key: const ValueKey('lesson-move-words'),
                         style: textTheme.bodySmall?.copyWith(
-                          color: AppColors.textSecondary,
+                          color: AppColors.accentSecondary,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
-                  ],
+                      if (session.guideMove != null)
+                        Text(
+                          l10n.lessonTryIt,
+                          style: textTheme.bodySmall?.copyWith(
+                            color: AppColors.textSecondary,
+                          ),
+                        ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

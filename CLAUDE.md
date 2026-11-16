@@ -3,7 +3,7 @@
 ## 1. Product Vision & Scope
 An offline-first, high-performance mobile application (Android-first via Flutter) that scans physical twisty puzzles (2x2, 3x3, 4x4, 5x5, 6x6) via the device camera, solves them rapidly, and provides an interactive 3D visual guide and step-by-step beginner/advanced academy.
 - **No Accounts / No Backend:** 100% offline execution for core features. Zero user registration/login, zero subscriptions.
-- **Localization (i18n):** Full bilingual support (English default + Hebrew with full RTL layout support) inside a single app binary using `flutter_localizations` / `intl`.
+- **Localization (i18n):** 14 languages in a single app binary using `flutter_localizations` / `intl`, with **English (`en`) as the default and fallback**: English, Hebrew (RTL), Spanish, Portuguese (`pt_BR` Brazil + `pt` Portugal), Indonesian, Hindi, Filipino (`fil`), Arabic (RTL), French, German, Russian, Japanese, Korean and Simplified Chinese (`zh`). Users pick a language from the searchable Language sheet on the Home header (native names; LTR/RTL switches automatically); the choice is persisted, and first launch follows the device language when it is supported.
 - **Monetization:** Google AdMob (`google_mobile_ads`):
   - Bottom adaptive Banner ad (never overlapping the 3D canvas).
   - Rewarded Video ads gating 4x4, 5x5, and 6x6 solvers and advanced academy lessons (use official Google Test Ad Unit IDs during development).
@@ -41,7 +41,7 @@ An offline-first, high-performance mobile application (Android-first via Flutter
 │   ├── main.dart
 │   ├── core/
 │   │   ├── ffi/              # Dart FFI bindings to C++ native library
-│   │   ├── l10n/             # ARB files (app_en.arb, app_he.arb)
+│   │   ├── l10n/             # ARB files: app_en.arb (template) + 14 translations
 │   │   ├── theme/            # Dark glassmorphic theme, colors, typography
 │   │   └── ads/              # AdMob service wrapper (Banner & Rewarded)
 │   ├── features/
@@ -77,3 +77,7 @@ An offline-first, high-performance mobile application (Android-first via Flutter
    - **Milestone 5:** AdMob integration (Banner + Rewarded Video) and release build (`flutter build appbundle`).
 4. **Algorithmic Integrity:** Implement proven group-theory tables/pruning for Kociemba and standard Reduction phases for big cubes, verified against automated scramble-and-solve tests (1,000+ random scrambles per cube size).
 5. **Context Hygiene:** Keep modules decoupled and concise. Propose `/compact` after completing each milestone or major feature.
+6. **Localization Rule (all 14 languages, every feature):** Any user-visible string added or changed in any milestone (Big Cubes 4x4-6x6, Academy lessons, Speed Timer, Daily Challenge, Pattern Library, AdMob/Milestone 5 and later) MUST:
+   - be added as a key to `app_en.arb` (with `@key` placeholder metadata) **and** to every other ARB file in the same change: `he`, `es`, `pt`, `pt_BR`, `id`, `hi`, `fil`, `ar`, `fr`, `de`, `ru`, `ja`, `ko`, `zh`, with natural native-quality translations (correct cubing terminology; each language's ICU plural categories, e.g. `one/few/many` in Russian and `two/few/many` in Arabic);
+   - never be hard-coded in Dart; cube notation inside RTL strings (`he`, `ar`) is wrapped in U+2066 ... U+2069 so it reads left to right;
+   - pass `flutter gen-l10n` with no untranslated messages and the per-locale layout test `test/flutter/l10n_test.dart` (no overflow on a 360 dp phone in any language). New screens are added to that test.

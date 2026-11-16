@@ -69,10 +69,10 @@ class AppLocalizationsHe extends AppLocalizations {
   String get language => 'שפה';
 
   @override
-  String get languageEnglish => 'English';
+  String get languageSearch => 'חיפוש שפה';
 
   @override
-  String get languageHebrew => 'עברית';
+  String get languageNoResults => 'אין שפה שמתאימה לחיפוש.';
 
   @override
   String playgroundTitle(int size) {

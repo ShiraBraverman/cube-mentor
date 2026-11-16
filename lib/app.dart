@@ -7,7 +7,7 @@ import 'core/theme/app_theme.dart';
 import 'features/home/home_screen.dart';
 
 /// Root widget. Locale changes rebuild [MaterialApp], which flips text
-/// direction automatically (Hebrew -> RTL).
+/// direction automatically (Hebrew and Arabic -> RTL).
 class CubeMentorApp extends ConsumerWidget {
   const CubeMentorApp({super.key});
 

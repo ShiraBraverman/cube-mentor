@@ -69,8 +69,10 @@ void main() {
   ) async {
     final prefs = await _prefs();
     await _pumpApp(tester, prefs);
+    await tester.tap(find.byKey(const ValueKey('language-button')));
+    await _advance(tester, 8);
     await tester.tap(find.byKey(const ValueKey('lang-he')));
-    await _advance(tester, 4);
+    await _advance(tester, 8);
     expect(find.text('בחרו את הקובייה שלכם'), findsOneWidget);
     expect(_directionOf(tester), TextDirection.rtl);
     expect(prefs.getString('app_locale'), 'he');

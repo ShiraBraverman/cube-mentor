@@ -73,10 +73,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get language => 'Language';
 
   @override
-  String get languageEnglish => 'English';
+  String get languageSearch => 'Search languages';
 
   @override
-  String get languageHebrew => 'עברית';
+  String get languageNoResults => 'No language matches your search.';
 
   @override
   String playgroundTitle(int size) {

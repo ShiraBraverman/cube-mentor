@@ -1,0 +1,1270 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for German (`de`).
+class AppLocalizationsDe extends AppLocalizations {
+  AppLocalizationsDe([String locale = 'de']) : super(locale);
+
+  @override
+  String get appTitle => 'CubeMentor';
+
+  @override
+  String get homeTagline =>
+      'Scanne, löse und meistere jeden Würfel vom 2×2 bis zum 6×6.';
+
+  @override
+  String get chooseCubeSize => 'Wähle deinen Würfel';
+
+  @override
+  String cubeSizeLabel(int size) {
+    return '$size×$size';
+  }
+
+  @override
+  String get cubeLevel2 => 'Einsteiger';
+
+  @override
+  String get cubeLevel3 => 'Klassiker';
+
+  @override
+  String get cubeLevel4 => 'Fortgeschritten';
+
+  @override
+  String get cubeLevel5 => 'Experte';
+
+  @override
+  String get cubeLevel6 => 'Meister';
+
+  @override
+  String get chooseMode => 'Was möchtest du tun?';
+
+  @override
+  String get modePlayground => '3D-Spielwiese';
+
+  @override
+  String get modePlaygroundDesc =>
+      'Drehe Ebenen, verdrehe den Würfel und spiele Züge in 3D ab.';
+
+  @override
+  String get modeScanSolve => 'Scannen & lösen';
+
+  @override
+  String get modeScanSolveDesc =>
+      'Scanne deinen Würfel mit der Kamera und erhalte eine Lösung.';
+
+  @override
+  String get modeAcademy => 'Akademie';
+
+  @override
+  String get modeAcademyDesc =>
+      'Lerne Schritt für Schritt mit interaktiven Lektionen.';
+
+  @override
+  String get comingSoon => 'Demnächst';
+
+  @override
+  String get comingSoonMessage =>
+      'Diese Funktion kommt mit einem der nächsten Updates.';
+
+  @override
+  String get language => 'Sprache';
+
+  @override
+  String get languageSearch => 'Sprache suchen';
+
+  @override
+  String get languageNoResults => 'Keine Sprache passt zu deiner Suche.';
+
+  @override
+  String playgroundTitle(int size) {
+    return '$size×$size-Spielwiese';
+  }
+
+  @override
+  String get scramble => 'Verdrehen';
+
+  @override
+  String get reset => 'Zurücksetzen';
+
+  @override
+  String get undo => 'Rückgängig';
+
+  @override
+  String get speed => 'Tempo';
+
+  @override
+  String get xray => 'Röntgen';
+
+  @override
+  String get prime => 'Gegen';
+
+  @override
+  String get wide => 'Breit';
+
+  @override
+  String layer(int index) {
+    return 'Ebene $index';
+  }
+
+  @override
+  String get cubeRotations => 'Drehungen';
+
+  @override
+  String get play => 'Abspielen';
+
+  @override
+  String get pause => 'Pause';
+
+  @override
+  String get nextStep => 'Weiter';
+
+  @override
+  String get previousStep => 'Zurück';
+
+  @override
+  String get playbackTitle => 'Wiedergabe';
+
+  @override
+  String get playbackEmpty =>
+      'Verdrehe den Würfel, um eine Lösungswiedergabe zu erstellen.';
+
+  @override
+  String playbackProgress(int current, int total) {
+    return 'Schritt $current von $total';
+  }
+
+  @override
+  String moveCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Züge',
+      one: '1 Zug',
+      zero: 'Keine Züge',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get solved => 'Gelöst';
+
+  @override
+  String get scrambled => 'Verdreht';
+
+  @override
+  String get orbitHint =>
+      'Ziehe an einer Reihe, um sie zu drehen · Ziehe am Hintergrund, um die Ansicht zu drehen';
+
+  @override
+  String get notationPad => 'Notationstasten';
+
+  @override
+  String get solve => 'Lösen';
+
+  @override
+  String get solving => 'Wird gelöst…';
+
+  @override
+  String get solveChooseMethod => 'Wie möchtest du ihn lösen?';
+
+  @override
+  String get solveFast => 'Schnell lösen';
+
+  @override
+  String get solveFastDesc =>
+      'Kociembas Zwei-Phasen-Algorithmus · etwa 20 Züge';
+
+  @override
+  String get solveLearn => 'Schritt für Schritt lernen';
+
+  @override
+  String get solveLearnDesc =>
+      'Anfängermethode Ebene für Ebene, mit Erklärungen';
+
+  @override
+  String solveUnavailable(int size) {
+    return 'Der $size×$size-Löser kommt mit einem späteren Update.';
+  }
+
+  @override
+  String get solveAlreadySolved => 'Der Würfel ist bereits gelöst.';
+
+  @override
+  String solveFailed(String reason) {
+    return 'Dieser Würfel lässt sich nicht lösen ($reason).';
+  }
+
+  @override
+  String get solveEngineMissing =>
+      'Die Lösungs-Engine ist auf diesem Gerät nicht verfügbar.';
+
+  @override
+  String get solveComplete => 'Gelöst! Super gemacht.';
+
+  @override
+  String solveSummary(int count) {
+    return '$count Züge';
+  }
+
+  @override
+  String get nextMove => 'Nächster Zug';
+
+  @override
+  String get guideSwipeHint =>
+      'Wische die leuchtende Ebene in Pfeilrichtung oder tippe auf Weiter.';
+
+  @override
+  String get guideRotateHint =>
+      'Drehe den ganzen Würfel wie vom Pfeil gezeigt: Tippe auf Weiter.';
+
+  @override
+  String get guideWrongMove => 'Folge dem markierten Pfeil';
+
+  @override
+  String get guideExit => 'Anleitung beenden';
+
+  @override
+  String get replayStep => 'Schritt wiederholen';
+
+  @override
+  String get colorWhite => 'weiß';
+
+  @override
+  String get colorYellow => 'gelb';
+
+  @override
+  String get colorGreen => 'grün';
+
+  @override
+  String get colorBlue => 'blau';
+
+  @override
+  String get colorRed => 'rot';
+
+  @override
+  String get colorOrange => 'orange';
+
+  @override
+  String get phaseOptimal2x2 => 'Optimale Lösung';
+
+  @override
+  String get phaseKociemba1 => 'Phase 1 · Steine orientieren';
+
+  @override
+  String get phaseKociemba2 => 'Phase 2 · Würfel fertigstellen';
+
+  @override
+  String get phaseLblOrient => 'Würfel halten';
+
+  @override
+  String get phaseLblCross => 'Weißes Kreuz';
+
+  @override
+  String get phaseLblCorners => 'Weiße Ecken';
+
+  @override
+  String get phaseLblMiddle => 'Mittlere Ebene';
+
+  @override
+  String get phaseLblYellowCross => 'Gelbes Kreuz';
+
+  @override
+  String get phaseLblYellowEdges => 'Gelbe Kanten';
+
+  @override
+  String get phaseLblYellowCorners => 'Gelbe Ecken platzieren';
+
+  @override
+  String get phaseLblYellowCornersOrient => 'Gelbe Ecken drehen';
+
+  @override
+  String get explainOptimal2x2 =>
+      'Die kürzestmögliche Lösung, gefunden durch Durchsuchen aller 2×2-Stellungen.';
+
+  @override
+  String get explainKociemba1 =>
+      'Orientiere alle Steine und bringe die Kanten der mittleren Ebene in die mittlere Ebene.';
+
+  @override
+  String get explainKociemba2 =>
+      'Beende nur mit U, D und halben Drehungen, die diese Orientierung erhalten.';
+
+  @override
+  String get explainLblOrient =>
+      'Drehe den ganzen Würfel so, dass die weiße Mitte nach unten zeigt.';
+
+  @override
+  String explainLblCrossEdge(String piece) {
+    return 'Bringe die Kante $piece nach unten neben die weiße Mitte, passend zur Seitenfarbe.';
+  }
+
+  @override
+  String explainLblCornerExtract(String piece) {
+    return 'Die Ecke $piece steckt an der falschen Stelle. Hole sie mit R U R\' U\' nach oben.';
+  }
+
+  @override
+  String explainLblCornerAlign(String piece) {
+    return 'Drehe die obere Ebene, bis die Ecke $piece über ihrem Platz steht.';
+  }
+
+  @override
+  String explainLblCornerInsert(String piece) {
+    return 'Wiederhole R U R\' U\', bis die Ecke $piece an ihrem Platz sitzt.';
+  }
+
+  @override
+  String explainLblMiddleExtract(String piece) {
+    return 'Die Kante $piece ist in der mittleren Ebene, aber falsch. Hole sie nach oben heraus.';
+  }
+
+  @override
+  String explainLblMiddleAlign(String piece) {
+    return 'Drehe die obere Ebene, bis die Seitenfarbe der Kante $piece zu ihrer Mitte passt.';
+  }
+
+  @override
+  String explainLblMiddleRight(String piece) {
+    return 'Setze die Kante $piece nach rechts ein: U R U\' R\' U\' F\' U F.';
+  }
+
+  @override
+  String explainLblMiddleLeft(String piece) {
+    return 'Setze die Kante $piece nach links ein: U\' L\' U L U F U\' F\'.';
+  }
+
+  @override
+  String get explainLblYellowCrossAlign =>
+      'Drehe die obere Ebene, um die gelbe Form für den nächsten Algorithmus auszurichten.';
+
+  @override
+  String get explainLblYellowCrossAlg =>
+      'Baue das gelbe Kreuz mit F R U R\' U\' F\'.';
+
+  @override
+  String get explainLblYellowEdgesAlign =>
+      'Drehe die obere Ebene, bis die gelben Kanten zu ihren Mitten passen.';
+
+  @override
+  String get explainLblYellowEdgesAlg =>
+      'Tausche gelbe Kanten mit R U R\' U R U2 R\' U.';
+
+  @override
+  String get explainLblYellowCornersAlg =>
+      'Bringe die gelben Ecken mit U R U\' L\' U R\' U\' L an ihre Plätze.';
+
+  @override
+  String get explainLblNextCorner =>
+      'Drehe die obere Ebene, um die nächste ungelöste gelbe Ecke nach vorne rechts zu bringen.';
+
+  @override
+  String get explainLblCornerTwist =>
+      'Wiederhole R\' D\' R D, bis Gelb nach oben zeigt. Die untere Ebene ordnet sich am Ende von selbst.';
+
+  @override
+  String get explainLblFinalAlign =>
+      'Drehe die obere Ebene, um den Würfel fertigzustellen.';
+
+  @override
+  String scanTitle(int size) {
+    return '$size×$size scannen';
+  }
+
+  @override
+  String get scanManualInput => 'Farben von Hand eingeben';
+
+  @override
+  String get scanUseCamera => 'Mit der Kamera scannen';
+
+  @override
+  String scanFaceProgress(int current, int total) {
+    return 'Seite $current von $total';
+  }
+
+  @override
+  String get faceUp => 'Obere Seite';
+
+  @override
+  String get faceRight => 'Rechte Seite';
+
+  @override
+  String get faceFront => 'Vordere Seite';
+
+  @override
+  String get faceDown => 'Untere Seite';
+
+  @override
+  String get faceLeft => 'Linke Seite';
+
+  @override
+  String get faceBack => 'Hintere Seite';
+
+  @override
+  String get scanHintFront =>
+      'Halte den Würfel mit einer beliebigen Seite zu dir. Das ist deine Vorderseite: Behalte beim Scannen dieselbe Seite oben.';
+
+  @override
+  String get scanHintRight =>
+      'Drehe den ganzen Würfel von vorne aus einmal nach links, sodass dich die rechte Seite ansieht.';
+
+  @override
+  String get scanHintBack =>
+      'Drehe den ganzen Würfel von vorne aus zweimal nach links.';
+
+  @override
+  String get scanHintLeft =>
+      'Drehe den ganzen Würfel von vorne aus einmal nach rechts.';
+
+  @override
+  String get scanHintUp =>
+      'Kippe von vorne aus die Oberseite zu dir, sodass sie zur Kamera zeigt.';
+
+  @override
+  String get scanHintDown =>
+      'Kippe von vorne aus die Unterseite zu dir, sodass sie zur Kamera zeigt.';
+
+  @override
+  String get scanAlignHint =>
+      'Fülle das Raster mit der Seite aus und tippe dann auf den Auslöser.';
+
+  @override
+  String get scanCapture => 'Seite aufnehmen';
+
+  @override
+  String get scanTapToRescan =>
+      'Tippe auf eine gescannte Seite, um sie erneut zu scannen.';
+
+  @override
+  String get scanTooDark => 'Zu dunkel: Geh an einen helleren Ort.';
+
+  @override
+  String get scanGlare => 'Spiegelung: Neige den Würfel vom Licht weg.';
+
+  @override
+  String get scanCameraMissing =>
+      'Auf diesem Gerät wurde keine Kamera gefunden.';
+
+  @override
+  String get scanCameraDenied =>
+      'Der Kamerazugriff wurde verweigert. Du kannst die Farben trotzdem von Hand eingeben.';
+
+  @override
+  String get scanCameraFailed => 'Die Kamera konnte nicht gestartet werden.';
+
+  @override
+  String get scanAllGood => 'Alle Aufkleber sehen richtig aus.';
+
+  @override
+  String scanStickersWrong(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Aufkleber sehen falsch aus',
+      one: '1 Aufkleber sieht falsch aus',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get scanCheckCube => 'Irgendetwas stimmt nicht';
+
+  @override
+  String scanIssueColors(int count) {
+    return 'Jede Farbe muss genau $count-mal vorkommen.';
+  }
+
+  @override
+  String get scanIssueCenters => 'Zwei Mitten haben dieselbe Farbe.';
+
+  @override
+  String get scanIssuePieces =>
+      'Diese Aufkleber ergeben Steine, die es auf einem echten Würfel nicht gibt.';
+
+  @override
+  String get scanIssueTwist =>
+      'Eine Ecke ist verdreht. Prüfe die Eckaufkleber.';
+
+  @override
+  String get scanIssueFlip =>
+      'Eine Kante ist gekippt. Prüfe die Kantenaufkleber.';
+
+  @override
+  String get scanIssueParity => 'Zwei Steine scheinen vertauscht zu sein.';
+
+  @override
+  String get scanIssueUnavailable =>
+      'Die Farbprüfung ist auf diesem Gerät nicht verfügbar.';
+
+  @override
+  String scanUncertain(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          '$count Aufkleber waren schwer zu erkennen: Wirf kurz einen Blick darauf.',
+      one:
+          'Ein Aufkleber war schwer zu erkennen: Wirf kurz einen Blick darauf.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get scanEditHint =>
+      'Tippe auf einen Aufkleber, um die Farbe zu ändern · Lange drücken für die Palette';
+
+  @override
+  String get scanRescanFace => 'Seite neu scannen';
+
+  @override
+  String get scanCancelRescan => 'Zurück zu den Farben';
+
+  @override
+  String get scanPaletteTitle => 'Farbe wählen';
+
+  @override
+  String get scanOpen3d => 'In 3D öffnen';
+
+  @override
+  String get scanRestart => 'Neu beginnen';
+
+  @override
+  String get modeTimer => 'Speed-Timer';
+
+  @override
+  String get modeTimerDesc =>
+      'Scrambles, Inspektion, Durchschnitte und Bestzeiten.';
+
+  @override
+  String get modeDaily => 'Tägliche Herausforderung';
+
+  @override
+  String get modeDailyDesc =>
+      'Jeden Tag ein neuer Scramble. Halte deine Serie am Leben.';
+
+  @override
+  String get modePatterns => 'Musterbibliothek';
+
+  @override
+  String get modePatternsDesc => 'Schachbrett, Superflip und mehr, in 3D.';
+
+  @override
+  String streakDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count-Tage-Serie',
+      one: '1-Tage-Serie',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get continueLearning => 'Weiterlernen';
+
+  @override
+  String get startLearning => 'Jetzt lernen';
+
+  @override
+  String lessonOf(int index, int total) {
+    return 'Lektion $index von $total';
+  }
+
+  @override
+  String get academyAllDone => 'Alle Lektionen abgeschlossen!';
+
+  @override
+  String get academyTitle => 'Akademie';
+
+  @override
+  String academyProgress(int done, int total) {
+    return '$done von $total Lektionen abgeschlossen';
+  }
+
+  @override
+  String get lessonAdvanced => 'Fortgeschritten';
+
+  @override
+  String get lessonDone => 'Erledigt';
+
+  @override
+  String lessonPartOf(int index, int total) {
+    return 'Teil $index von $total';
+  }
+
+  @override
+  String get lessonBack => 'Zurück';
+
+  @override
+  String get lessonNext => 'Weiter';
+
+  @override
+  String get lessonFinish => 'Lektion abschließen';
+
+  @override
+  String get lessonComplete => 'Lektion abgeschlossen!';
+
+  @override
+  String get lessonNextLesson => 'Nächste Lektion';
+
+  @override
+  String get lessonBackToAcademy => 'Zurück zur Akademie';
+
+  @override
+  String get lessonShowMe => 'Zeig\'s mir';
+
+  @override
+  String get lessonTryIt =>
+      'Du bist dran: Wische die Ebene, die der Pfeil zeigt, oder tippe auf Zeig\'s mir.';
+
+  @override
+  String get lessonLookAround =>
+      'Ziehe am Hintergrund, um den Würfel von allen Seiten zu sehen.';
+
+  @override
+  String get lessonDemoDone => 'Gut gemacht! Tippe auf Weiter.';
+
+  @override
+  String holdPrompt(String top, String front) {
+    return 'Halte den Würfel mit der Mitte $top oben und der Mitte $front zu dir.';
+  }
+
+  @override
+  String get trackBeginner => '3×3 für Anfänger (Ebene für Ebene)';
+
+  @override
+  String get trackCfop => 'Einführung in CFOP';
+
+  @override
+  String get trackTwoByTwo => '2×2 für Anfänger & Ortega';
+
+  @override
+  String get trackBigCubes => 'Große Würfel: Reduktion & Parität';
+
+  @override
+  String moveSentence(String layer, String direction) {
+    return 'Drehe $layer $direction';
+  }
+
+  @override
+  String get moveFaceR => 'die rechte Seite';
+
+  @override
+  String get moveFaceL => 'die linke Seite';
+
+  @override
+  String get moveFaceU => 'die obere Seite';
+
+  @override
+  String get moveFaceD => 'die untere Seite';
+
+  @override
+  String get moveFaceF => 'die vordere Seite';
+
+  @override
+  String get moveFaceB => 'die hintere Seite';
+
+  @override
+  String moveLayerInner(int depth, String face) {
+    return 'Ebene $depth von $face aus';
+  }
+
+  @override
+  String moveLayerWide(int depth, String face) {
+    return '$face ($depth Ebenen tief)';
+  }
+
+  @override
+  String moveLayerBlock(int near, int far, String face) {
+    return 'die Ebenen $near–$far von $face aus';
+  }
+
+  @override
+  String get moveLayerMiddle => 'die mittlere Ebene';
+
+  @override
+  String get moveDirUp => 'nach oben';
+
+  @override
+  String get moveDirDown => 'nach unten';
+
+  @override
+  String get moveDirLeft => 'nach links';
+
+  @override
+  String get moveDirRight => 'nach rechts';
+
+  @override
+  String get moveDirClockwise => 'im Uhrzeigersinn';
+
+  @override
+  String get moveDirCounter => 'gegen den Uhrzeigersinn';
+
+  @override
+  String get moveDirBackClockwise => 'im Uhrzeigersinn, von hinten gesehen';
+
+  @override
+  String get moveDirBackCounter =>
+      'gegen den Uhrzeigersinn, von hinten gesehen';
+
+  @override
+  String get moveDirHalf => 'um eine halbe Drehung (zweimal)';
+
+  @override
+  String get moveRotateX => 'Kippe den ganzen Würfel: Vorne wandert nach oben';
+
+  @override
+  String get moveRotateXPrime =>
+      'Kippe den ganzen Würfel: Vorne wandert nach unten';
+
+  @override
+  String get moveRotateX2 =>
+      'Dreh den ganzen Würfel um: Vorne wandert nach hinten';
+
+  @override
+  String get moveRotateY => 'Drehe den ganzen Würfel: Vorne wandert nach links';
+
+  @override
+  String get moveRotateYPrime =>
+      'Drehe den ganzen Würfel: Vorne wandert nach rechts';
+
+  @override
+  String get moveRotateY2 =>
+      'Drehe den ganzen Würfel halb herum: Hinten kommt nach vorne';
+
+  @override
+  String get moveRotateZ =>
+      'Rolle den ganzen Würfel im Uhrzeigersinn: Oben wandert nach rechts';
+
+  @override
+  String get moveRotateZPrime =>
+      'Rolle den ganzen Würfel gegen den Uhrzeigersinn: Oben wandert nach links';
+
+  @override
+  String get moveRotateZ2 =>
+      'Stell den ganzen Würfel auf den Kopf: Oben wandert nach unten';
+
+  @override
+  String get phaseReductionCenters => 'Mitten';
+
+  @override
+  String get phaseReductionEdges => 'Kanten paaren';
+
+  @override
+  String get phaseReductionEdgeParity => 'Kantenparität';
+
+  @override
+  String get phaseReductionOllParity => 'OLL-Parität';
+
+  @override
+  String get phaseReductionPllParity => 'PLL-Parität';
+
+  @override
+  String get explainReductionCenterBlock =>
+      'Ebenendrehungen, die mehrere Mittelsteine auf einmal an ihren Platz bringen.';
+
+  @override
+  String explainReductionCenterCycle(String piece) {
+    return 'Bringe einen Mittelstein $piece mit einem 3-Zyklus auf seine Seite, ohne fertige Mitten zu stören.';
+  }
+
+  @override
+  String get explainReductionParityCenters =>
+      'Baue die Mitten wieder auf, die die Paritätsdrehung verschoben hat.';
+
+  @override
+  String explainReductionEdgeCycle(String piece) {
+    return 'Füge die Teile der Kante $piece mit einem 3-Zyklus zusammen; die Mitten bleiben gelöst.';
+  }
+
+  @override
+  String get explainReductionEdgeParity =>
+      'Die letzten Kanten lassen sich nicht allein mit 3-Zyklen paaren (Kantenparität). Eine Drehung einer inneren Ebene behebt das.';
+
+  @override
+  String get explainReductionOllParity =>
+      'OLL-Parität: Eine Kante ist gekippt, was auf einem 3×3 unmöglich ist. Dieser Algorithmus kippt sie zurück.';
+
+  @override
+  String get explainReductionPllParity =>
+      'PLL-Parität: Zwei Kanten sind vertauscht, was auf einem 3×3 unmöglich ist. Dieser Algorithmus tauscht sie zurück.';
+
+  @override
+  String get solveFastBigDesc =>
+      'Reduktion: Mitten, Kanten und Parität, dann Kociemba';
+
+  @override
+  String get solveLearnBigDesc =>
+      'Reduktion, abgeschlossen mit der Anfängermethode Ebene für Ebene';
+
+  @override
+  String get patternsTitle => 'Musterbibliothek';
+
+  @override
+  String get patternsHint =>
+      'Tippe auf ein Muster, um es anzusehen, und mach es dann auf deinem eigenen Würfel nach.';
+
+  @override
+  String get patternCheckerboard => 'Schachbrett';
+
+  @override
+  String get patternCubeInCube => 'Würfel im Würfel';
+
+  @override
+  String get patternSuperflip => 'Superflip';
+
+  @override
+  String get patternDots => 'Punkte';
+
+  @override
+  String get patternCross => 'Kreuz';
+
+  @override
+  String get patternPython => 'Python';
+
+  @override
+  String get phasePattern => 'Muster bauen';
+
+  @override
+  String get explainPatternStep =>
+      'Mach jeden Zug auf deinem eigenen Würfel nach. Tippe auf Lösen, um ihn wiederherzustellen.';
+
+  @override
+  String patternTitle(String name, int size) {
+    return '$name · $size×$size';
+  }
+
+  @override
+  String get timerTitle => 'Speed-Timer';
+
+  @override
+  String get timerHoldToStart => 'Gedrückt halten, dann zum Start loslassen';
+
+  @override
+  String get timerReleaseToStart => 'Zum Start loslassen';
+
+  @override
+  String get timerTapToStop => 'Zum Stoppen irgendwo tippen';
+
+  @override
+  String get timerInspecting =>
+      'Inspektion: gedrückt halten, dann zum Start loslassen';
+
+  @override
+  String get timerTapToInspect => 'Tippen für 15 Sekunden Inspektion';
+
+  @override
+  String get timerInspectionToggle => '15 s Inspektion';
+
+  @override
+  String get timerNewScramble => 'Neuer Scramble';
+
+  @override
+  String get timerLoadingScramble => 'Scramble wird erstellt…';
+
+  @override
+  String get timerPb => 'Bestzeit';
+
+  @override
+  String get timerSolves => 'Lösungen';
+
+  @override
+  String get timerPlus2 => '+2';
+
+  @override
+  String get timerDnf => 'DNF';
+
+  @override
+  String get timerDelete => 'Löschen';
+
+  @override
+  String get timerHistory => 'Verlauf';
+
+  @override
+  String get timerNoSolves =>
+      'Noch keine Lösungen. Verdrehe deinen Würfel und los!';
+
+  @override
+  String get timerNewPb => 'Neue Bestzeit!';
+
+  @override
+  String get timerClearHistory => 'Verlauf löschen';
+
+  @override
+  String get timerScrambleHint =>
+      'Weiß oben, Grün vorne halten, dann verdrehen:';
+
+  @override
+  String get dailyTitle => 'Tägliche Herausforderung';
+
+  @override
+  String dailyFor(String date) {
+    return 'Herausforderung vom $date';
+  }
+
+  @override
+  String dailyBestStreak(int count) {
+    return 'Beste Serie: $count';
+  }
+
+  @override
+  String get dailyDone => 'Für heute geschafft! Komm morgen wieder.';
+
+  @override
+  String get dailyNotDone =>
+      'Löse den heutigen Scramble, um deine Serie zu halten.';
+
+  @override
+  String get dailySolveVirtual => 'Am 3D-Würfel lösen';
+
+  @override
+  String get dailyTimeIt => 'Am eigenen Würfel stoppen';
+
+  @override
+  String get dailyHint => 'Tipp';
+
+  @override
+  String dailyHintText(String moves) {
+    return 'Beginne mit dem weißen Kreuz: $moves';
+  }
+
+  @override
+  String get dailyHintFailed => 'Gerade ist kein Tipp verfügbar.';
+
+  @override
+  String get lessonBasics => 'Lerne den Würfel kennen';
+
+  @override
+  String get lessonBasicsDesc => 'Steine, Seiten und Zugnamen.';
+
+  @override
+  String get stepBasicsPieces => 'Drei Arten von Steinen';
+
+  @override
+  String get stepBasicsPiecesBody =>
+      'Mitten bewegen sich nie und geben jeder Seite ihre Farbe. Kanten haben zwei Farben, Ecken drei. Lösen heißt, jede Kante und jede Ecke neben die passenden Mitten zu bringen.';
+
+  @override
+  String get stepBasicsFaces => 'Sechs Seitenbuchstaben';
+
+  @override
+  String get stepBasicsFacesBody =>
+      'R, L, U, D, F und B stehen für die rechte, linke, obere, untere, vordere und hintere Seite. Ein Buchstabe allein bedeutet eine Vierteldrehung im Uhrzeigersinn, als würdest du direkt auf diese Seite schauen.';
+
+  @override
+  String get stepBasicsPrime => 'Gegen- und Doppeldrehungen';
+
+  @override
+  String get stepBasicsPrimeBody =>
+      'Ein Apostroph (R\') dreht in die andere Richtung, gegen den Uhrzeigersinn. Eine 2 (U2) ist eine halbe Drehung: zwei Vierteldrehungen.';
+
+  @override
+  String get lessonCross => 'Weißes Kreuz';
+
+  @override
+  String get lessonCrossDesc => 'Baue unten ein weißes Kreuz.';
+
+  @override
+  String get stepCrossGoal => 'Das Ziel';
+
+  @override
+  String get stepCrossGoalBody =>
+      'Halte Gelb oben. Die vier weißen Kanten liegen unten um die weiße Mitte, jede Seitenfarbe passend zur benachbarten Mitte.';
+
+  @override
+  String get stepCrossTop => 'Kante oben';
+
+  @override
+  String get stepCrossTopBody =>
+      'Suche oben eine weiße Kante. Drehe die obere Ebene, bis ihre Seitenfarbe über der passenden Mitte steht, und drehe diese Seite dann zweimal, um sie nach unten zu bringen.';
+
+  @override
+  String get stepCrossMiddle => 'Kante in der Mitte';
+
+  @override
+  String get stepCrossMiddleBody =>
+      'Eine Kante in der mittleren Ebene muss erst nach oben: Drehe ihre Seite hoch, drehe die obere Ebene aus dem Weg und die Seite zurück, damit das Kreuz heil bleibt. Setze sie dann von oben ein.';
+
+  @override
+  String get lessonCorners => 'Weiße Ecken';
+
+  @override
+  String get lessonCornersDesc => 'Vollende die erste Ebene.';
+
+  @override
+  String get stepCornersInsert => 'Über ihrem Platz';
+
+  @override
+  String get stepCornersInsertBody =>
+      'Drehe die obere Ebene, bis eine weiße Ecke über dem Platz ihrer Farben vorne rechts steht. R U R\' U\' setzt sie ein.';
+
+  @override
+  String get stepCornersRepeat => 'Trigger wiederholen';
+
+  @override
+  String get stepCornersRepeatBody =>
+      'Zeigt Weiß in die falsche Richtung, wiederhole R U R\' U\' über demselben Platz. Jede Ecke ist nach höchstens fünf Wiederholungen gelöst.';
+
+  @override
+  String get lessonMiddle => 'Mittlere Ebene';
+
+  @override
+  String get lessonMiddleDesc => 'Setze die vier mittleren Kanten ein.';
+
+  @override
+  String get stepMiddleRight => 'Kante nach rechts';
+
+  @override
+  String get stepMiddleRightBody =>
+      'Richte eine obere Kante an ihrer Mitte auf der Vorderseite aus. Passt ihre obere Farbe zur rechten Mitte, setze sie mit U R U\' R\' U\' F\' U F ein.';
+
+  @override
+  String get stepMiddleLeft => 'Kante nach links';
+
+  @override
+  String get stepMiddleLeftBody =>
+      'Passt die obere Farbe stattdessen zur linken Mitte, nimm die Spiegelung: U\' L\' U L U F U\' F\'.';
+
+  @override
+  String get lessonLastLayer => 'Gelbes Kreuz & Kanten';
+
+  @override
+  String get lessonLastLayerDesc =>
+      'Baue oben ein Kreuz und richte die Kanten aus.';
+
+  @override
+  String get stepYellowCross => 'Ein Algorithmus';
+
+  @override
+  String get stepYellowCrossBody =>
+      'F R U R\' U\' F\' macht aus einem gelben Punkt ein L, aus einem L eine Linie und aus einer Linie das Kreuz. Halte das L hinten links und die Linie waagerecht.';
+
+  @override
+  String get stepYellowEdges => 'Kanten ausrichten';
+
+  @override
+  String get stepYellowEdgesBody =>
+      'Drehe die obere Ebene, bis zwei Kanten zu ihren Mitten passen. Mit einer hinten und einer rechts tauscht R U R\' U R U2 R\' U die anderen beiden.';
+
+  @override
+  String get lessonLastCorners => 'Gelbe Ecken';
+
+  @override
+  String get lessonLastCornersDesc => 'Platziere und drehe die letzten Ecken.';
+
+  @override
+  String get stepPlaceCorners => 'Platzieren';
+
+  @override
+  String get stepPlaceCornersBody =>
+      'Halte eine Ecke, die schon am richtigen Platz ist, vorne rechts. U R U\' L\' U R\' U\' L bewegt die anderen drei; wiederhole, bis alle vier am Platz sind.';
+
+  @override
+  String get stepTwistCorners => 'Drehen';
+
+  @override
+  String get stepTwistCornersBody =>
+      'Mit einer ungelösten Ecke vorne rechts wiederholst du R\' D\' R D, bis Gelb oben ist, und drehst dann nur die obere Ebene, um die nächste zu holen. Unten sieht es bis ganz zum Schluss chaotisch aus: einfach weitermachen.';
+
+  @override
+  String get lessonCfopIntro => 'Was ist CFOP?';
+
+  @override
+  String get lessonCfopIntroDesc => 'Cross, F2L, OLL, PLL.';
+
+  @override
+  String get stepCfopOverview => 'Vier Phasen';
+
+  @override
+  String get stepCfopOverviewBody =>
+      'Speedcuber lösen das Kreuz, paaren jede Ecke der ersten Ebene mit ihrer Mittelkante (F2L), orientieren die letzte Ebene (OLL) und permutieren sie schließlich (PLL).';
+
+  @override
+  String get stepCfopCross => 'Das Kreuz planen';
+
+  @override
+  String get stepCfopCrossBody =>
+      'Bei CFOP wird das Kreuz während der Inspektion geplant und unten in etwa acht Zügen gebaut.';
+
+  @override
+  String get lessonF2l => 'F2L-Grundlagen';
+
+  @override
+  String get lessonF2lDesc => 'Paare eine Ecke mit ihrer Kante.';
+
+  @override
+  String get stepF2lRight => 'Ein Paar einsetzen';
+
+  @override
+  String get stepF2lRightBody =>
+      'Liegen eine Ecke und ihre Kante oben nebeneinander, bringe sie über ihren Slot und setze sie gemeinsam ein.';
+
+  @override
+  String get stepF2lLeft => 'Linkes Paar';
+
+  @override
+  String get stepF2lLeftBody =>
+      'Derselbe Fall auf der anderen Seite ist die Spiegelung, U\' L\' U L. Mit einer Würfeldrehung (y) kannst du die bequemere Hand nutzen.';
+
+  @override
+  String get lessonOll => '2-Look-OLL';
+
+  @override
+  String get lessonOllDesc => 'Mach die Oberseite gelb.';
+
+  @override
+  String get stepOllCross => 'Zuerst die Kanten';
+
+  @override
+  String get stepOllCrossBody =>
+      '2-Look-OLL beginnt mit dem Gelbes-Kreuz-Algorithmus, den du schon kennst.';
+
+  @override
+  String get stepOllSune => 'Sune';
+
+  @override
+  String get stepOllSuneBody =>
+      'Mit einer gelben Ecke nach oben vorne links orientiert Sune (R U R\' U R U2 R\') die anderen drei. Die meisten anderen Fälle nutzen Sune und seine Spiegelung.';
+
+  @override
+  String get lessonPll => '2-Look-PLL';
+
+  @override
+  String get lessonPllDesc => 'Stelle den Würfel fertig.';
+
+  @override
+  String get stepPllT => 'T-Perm';
+
+  @override
+  String get stepPllTBody =>
+      'Die T-Perm tauscht zwei Ecken und zwei Kanten. Nutze sie, um die Ecken zu platzieren: Halte die zwei zu tauschenden Ecken rechts.';
+
+  @override
+  String get stepPllU => 'U-Perm';
+
+  @override
+  String get stepPllUBody =>
+      'Sind die Ecken fertig, verschiebt die U-Perm drei Kanten zyklisch. Halte die fertige Seite hinten.';
+
+  @override
+  String get lessonTwoFirst => '2×2: erste Ebene';
+
+  @override
+  String get lessonTwoFirstDesc => 'Baue eine Seite mit passenden Ecken.';
+
+  @override
+  String get stepTwoIntro => 'Nur Ecken';
+
+  @override
+  String get stepTwoIntroBody =>
+      'Ein 2×2 ist ein 3×3 ohne Kanten und Mitten. Wähle eine Farbe, baue diese Seite unten und sorge dafür, dass die Seitenfarben benachbarter Ecken zusammenpassen.';
+
+  @override
+  String get stepTwoCorner => 'Ecken einsetzen';
+
+  @override
+  String get stepTwoCornerBody =>
+      'Genau wie die weißen Ecken beim 3×3: Bringe eine Ecke über ihren Platz und wiederhole R U R\' U\', bis sie passt.';
+
+  @override
+  String get lessonTwoOll => 'Oberseite orientieren';
+
+  @override
+  String get lessonTwoOllDesc => 'Ortega-OLL mit Sune.';
+
+  @override
+  String get stepTwoSune => 'Wieder Sune';
+
+  @override
+  String get stepTwoSuneBody =>
+      'Sune macht auch beim 2×2 die Oberseite gelb. Ortega-Löser lernen sieben kurze Fälle; Sune und seine Spiegelung decken die meisten davon ab.';
+
+  @override
+  String get lessonTwoPbl => 'Beide Ebenen permutieren';
+
+  @override
+  String get lessonTwoPblDesc => 'Tausche Ecken, um fertig zu werden.';
+
+  @override
+  String get stepTwoAdjacent => 'Benachbarter Tausch';
+
+  @override
+  String get stepTwoAdjacentBody =>
+      'Müssen zwei benachbarte obere Ecken getauscht werden, halte sie rechts und nutze die T-Perm.';
+
+  @override
+  String get stepTwoDiagonal => 'Diagonaler Tausch';
+
+  @override
+  String get stepTwoDiagonalBody =>
+      'Zwei gegenüberliegende Ecken tauschst du mit der Y-Perm.';
+
+  @override
+  String get lessonBigIntro => 'Steine großer Würfel';
+
+  @override
+  String get lessonBigIntroDesc => 'Mitten, Flügel und Ebenen.';
+
+  @override
+  String get stepBigPieces => 'Keine festen Mitten';
+
+  @override
+  String get stepBigPiecesBody =>
+      'Beim 4×4 hat jede Seite vier bewegliche Mittelsteine, und jede Kante besteht aus zwei Flügeln. Die Reduktion gruppiert sie, sodass sich der Würfel wie ein 3×3 verhält.';
+
+  @override
+  String get stepBigSlices => 'Breite und innere Drehungen';
+
+  @override
+  String get stepBigSlicesBody =>
+      'Rw dreht die beiden rechten Ebenen zusammen. 2R dreht nur die zweite Ebene von rechts. Diese Drehungen bewegen Mitten und Flügel.';
+
+  @override
+  String get lessonBigCenters => 'Mitten';
+
+  @override
+  String get lessonBigCentersDesc => 'Gruppiere die Mittelsteine.';
+
+  @override
+  String get stepBigCenterCycle => 'Ein Mitten-3-Zyklus';
+
+  @override
+  String get stepBigCenterCycleBody =>
+      'Dieser Kommutator bewegt genau drei Mittelsteine und lässt alles andere unberührt, sodass fertige Mitten fertig bleiben.';
+
+  @override
+  String get lessonBigEdges => 'Kanten paaren';
+
+  @override
+  String get lessonBigEdgesDesc => 'Füge Flügel zu ganzen Kanten zusammen.';
+
+  @override
+  String get stepBigEdgePair => 'Paaren & wiederherstellen';
+
+  @override
+  String get stepBigEdgePairBody =>
+      'Uw\' bringt zwei passende Flügel zusammen, R U R\' F R\' F\' R tauscht eine ungepaarte Kante ein, und Uw stellt die Mitten wieder her.';
+
+  @override
+  String get lessonBigParity => 'Parität';
+
+  @override
+  String get lessonBigParityDesc => 'OLL- und PLL-Parität bei geraden Würfeln.';
+
+  @override
+  String get stepBigOllParity => 'OLL-Parität';
+
+  @override
+  String get stepBigOllParityBody =>
+      'Eine einzelne gekippte Kante gibt es auf einem 3×3 nicht. Bei geraden Würfeln kippt dieser Algorithmus die vordere obere Kante zurück. Dabei kann der Rest der oberen Ebene durcheinandergeraten, was die letzten 3×3-Schritte ohnehin beheben.';
+
+  @override
+  String get stepBigPllParity => 'PLL-Parität';
+
+  @override
+  String get stepBigPllParityBody =>
+      'Ganz am Ende zwei vertauschte Kanten? 2R2 U2 2R2 Uw2 2R2 Uw2 tauscht die vordere und die hintere obere Kante.';
+}

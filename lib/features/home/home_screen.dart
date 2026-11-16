@@ -2,7 +2,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../core/l10n/generated/app_localizations.dart';
-import '../../core/settings/locale_controller.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
 import '../academy/academy_screen.dart';
@@ -16,6 +15,7 @@ import '../solver_3d/solver_3d_screen.dart';
 import '../solver_3d/widgets/cube_preview.dart';
 import '../timer/timer_screen.dart';
 import 'home_controller.dart';
+import 'language_sheet.dart';
 
 /// Landing screen: cube size selector (2x2 - 6x6) and mode selection.
 class HomeScreen extends ConsumerWidget {
@@ -49,7 +49,7 @@ class HomeScreen extends ConsumerWidget {
                           style: textTheme.headlineMedium,
                         ),
                       ),
-                      const _LanguageSwitch(),
+                      const LanguageButton(),
                     ],
                   ),
                   const SizedBox(height: 4),
@@ -393,42 +393,6 @@ class _ContinueLearningCard extends ConsumerWidget {
           ),
           const Icon(Icons.arrow_forward_ios_rounded, size: 16),
         ],
-      ),
-    );
-  }
-}
-
-class _LanguageSwitch extends ConsumerWidget {
-  const _LanguageSwitch();
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context);
-    final current = ref.watch(localeProvider);
-    return Tooltip(
-      message: l10n.language,
-      child: SegmentedButton<String>(
-        showSelectedIcon: false,
-        style: SegmentedButton.styleFrom(
-          backgroundColor: AppColors.glassFill,
-          selectedBackgroundColor: AppColors.accent.withValues(alpha: 0.3),
-          side: const BorderSide(color: AppColors.glassBorder),
-          visualDensity: VisualDensity.compact,
-        ),
-        segments: [
-          ButtonSegment(
-            value: 'en',
-            label: Text(l10n.languageEnglish, key: const ValueKey('lang-en')),
-          ),
-          ButtonSegment(
-            value: 'he',
-            label: Text(l10n.languageHebrew, key: const ValueKey('lang-he')),
-          ),
-        ],
-        selected: {current.languageCode},
-        onSelectionChanged: (selection) => ref
-            .read(localeProvider.notifier)
-            .setLocale(Locale(selection.first)),
       ),
     );
   }

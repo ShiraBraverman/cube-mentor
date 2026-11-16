@@ -26,8 +26,8 @@
   "comingSoon": "Coming soon",
   "comingSoonMessage": "This feature is on its way in an upcoming update.",
   "language": "Language",
-  "languageEnglish": "English",
-  "languageHebrew": "עברית",
+  "languageSearch": "Search languages",
+  "languageNoResults": "No language matches your search.",
   "playgroundTitle": "{size}×{size} Playground",
   "@playgroundTitle": {
     "placeholders": {
