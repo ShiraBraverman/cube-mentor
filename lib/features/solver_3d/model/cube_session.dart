@@ -417,6 +417,40 @@ class CubeSessionController extends Notifier<CubeSession> {
     );
   }
 
+  /// Replaces the cube with [start] and loads [moves] as a guided
+  /// solution (a lesson demonstration or a pattern): playback, step arrows
+  /// and hand-turn checking work exactly as for a solver result. Every step
+  /// shares [phase] and [explanation].
+  void loadGuide(
+    CubeState start,
+    List<CubeMove> moves, {
+    required String phase,
+    required String explanation,
+  }) {
+    assert(start.size == size);
+    var cube = start;
+    final steps = <SolveStep>[];
+    for (final move in moves) {
+      steps.add(
+        SolveStep(
+          cubeState: cube.toFacelets(),
+          phaseName: phase,
+          moveNotation: move.notation,
+          explanationKey: explanation,
+        ),
+      );
+      cube = cube.apply(move);
+    }
+    state = CubeSession(
+      cube: start,
+      speed: state.speed,
+      xray: state.xray,
+      epoch: state.epoch + 1,
+      playback: List.unmodifiable(moves),
+      steps: List.unmodifiable(steps),
+    );
+  }
+
   /// Instantly returns to a solved cube, dropping queued animations.
   void reset() {
     state = CubeSession(

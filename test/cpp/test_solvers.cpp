@@ -150,7 +150,7 @@ TEST_CASE("kociemba: solved cube, superflip and invalid input") {
   std::string parity = solved.f;
   std::swap(parity[1], parity[46]);  // U-B edge sticker swapped with B-U sticker = flip
   CHECK(!solveCube(3, SolveMethod::kFast, parity).ok);
-  CHECK(solveCube(5, SolveMethod::kFast, std::string(150, 'W')).error == "unsupported");
+  CHECK(solveCube(7, SolveMethod::kFast, std::string(294, 'W')).error == "unsupported");
 }
 
 // ---- 3x3 layer by layer --------------------------------------------------
@@ -218,7 +218,7 @@ TEST_CASE("lbl: white goes down first and the cross is built on the bottom") {
 // ---- FFI bridge --------------------------------------------------------------
 
 TEST_CASE("ffi: cm_solve writes JSON and reports the needed buffer size") {
-  CHECK(std::strcmp(cm_version(), "1.0.0") == 0);
+  CHECK(std::strcmp(cm_version(), "1.1.0") == 0);
   CHECK(cm_prepare(3) == 0);
   CHECK(cm_prepare(7) == -1);
   FaceletCube cube = cmtest::solvedColored(3);

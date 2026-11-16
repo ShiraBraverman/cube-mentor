@@ -70,6 +70,8 @@ void main() {
             final ranges = [
               for (var l = 0; l < n; l++) (l, l),
               for (var d = 2; d < n; d++) ...[(n - d, n - 1), (0, d - 1)],
+              for (var a = 1; a < n - 1; a++)
+                for (var b = a + 1; b < n - 1; b++) (a, b),
               (0, n - 1),
             ];
             for (final (from, to) in ranges) {
@@ -112,15 +114,32 @@ void main() {
       expect(name(0, 3, 5, 3, 6), '3Rw');
     });
 
-    test('rejects blocks not anchored to a face and full turns', () {
+    test('names inner blocks and rejects full turns', () {
       expect(
-        () => MoveNotation.describe(
-            axis: 0, fromLayer: 1, toLayer: 2, quarterTurns: 1, size: 5),
-        throwsArgumentError,
+        MoveNotation.describe(
+          axis: 0,
+          fromLayer: 1,
+          toLayer: 2,
+          quarterTurns: 1,
+          size: 5,
+        ).notation,
+        "2-3Lw",
       );
       expect(
+        MoveNotation.parse("2-3Rw'", 6),
+        _move(axis: 0, from: 3, to: 4, q: 1),
+      );
+      expect(() => MoveNotation.parse('2-3R', 6), throwsFormatException);
+      expect(() => MoveNotation.parse('3-2Rw', 6), throwsFormatException);
+      expect(() => MoveNotation.parse('2-3x', 6), throwsFormatException);
+      expect(
         () => MoveNotation.describe(
-            axis: 0, fromLayer: 0, toLayer: 0, quarterTurns: 4, size: 3),
+          axis: 0,
+          fromLayer: 0,
+          toLayer: 0,
+          quarterTurns: 4,
+          size: 3,
+        ),
         throwsArgumentError,
       );
     });

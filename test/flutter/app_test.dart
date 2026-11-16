@@ -88,6 +88,8 @@ void main() {
     await _pumpApp(tester, await _prefs());
     await tester.tap(find.byKey(const ValueKey('size-5')));
     await _advance(tester, 2);
+    await tester.ensureVisible(find.byKey(const ValueKey('mode-playground')));
+    await tester.pump();
     await tester.tap(find.byKey(const ValueKey('mode-playground')));
     await _advance(tester);
 
@@ -180,6 +182,8 @@ void main() {
       ),
     );
     await _pumpApp(tester, await _prefs(), solver: solver);
+    await tester.ensureVisible(find.byKey(const ValueKey('mode-playground')));
+    await tester.pump();
     await tester.tap(find.byKey(const ValueKey('mode-playground')));
     await _advance(tester);
     final container = ProviderScope.containerOf(
@@ -233,6 +237,8 @@ void main() {
   testWidgets('a solved cube needs no solution', (tester) async {
     final solver = FakeCubeSolver();
     await _pumpApp(tester, await _prefs(), solver: solver);
+    await tester.ensureVisible(find.byKey(const ValueKey('mode-playground')));
+    await tester.pump();
     await tester.tap(find.byKey(const ValueKey('mode-playground')));
     await _advance(tester);
     await tester.tap(find.byKey(const ValueKey('solve')));
@@ -246,6 +252,8 @@ void main() {
     await _pumpApp(tester, await _prefs(), solver: solver);
     await tester.tap(find.byKey(const ValueKey('size-2')));
     await _advance(tester, 2);
+    await tester.ensureVisible(find.byKey(const ValueKey('mode-playground')));
+    await tester.pump();
     await tester.tap(find.byKey(const ValueKey('mode-playground')));
     await _advance(tester);
     final container = ProviderScope.containerOf(
@@ -276,9 +284,15 @@ void main() {
           return null;
         },
       );
-      addTearDown(() => tester.binding.defaultBinaryMessenger
-          .setMockMethodCallHandler(SystemChannels.platform, null));
+      addTearDown(
+        () => tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+          SystemChannels.platform,
+          null,
+        ),
+      );
       await _pumpApp(tester, await _prefs(), solver: solver);
+      await tester.ensureVisible(find.byKey(const ValueKey('mode-playground')));
+      await tester.pump();
       await tester.tap(find.byKey(const ValueKey('mode-playground')));
       await _advance(tester);
       return ProviderScope.containerOf(
@@ -294,7 +308,8 @@ void main() {
         CubeFrame(cube: CubeState.solved(3), orbit: CubeOrientation.initial),
         size,
       ).firstWhere((f) => f.cubie.position == pos && f.normal == normal);
-      final local = (face.quad[0] + face.quad[1] + face.quad[2] + face.quad[3]) / 4;
+      final local =
+          (face.quad[0] + face.quad[1] + face.quad[2] + face.quad[3]) / 4;
       return tester.getTopLeft(viewport) + local;
     }
 
@@ -447,8 +462,8 @@ void main() {
       tester,
     ) async {
       final container = await openPlayground(tester);
-      final corner = tester.getTopLeft(find.byType(CubeViewport)) +
-          const Offset(12, 12);
+      final corner =
+          tester.getTopLeft(find.byType(CubeViewport)) + const Offset(12, 12);
       await tester.flingFrom(corner, const Offset(200, 120), 900);
       await _advance(tester, 20);
       expect(container.read(cubeSessionProvider(3)).log, isEmpty);

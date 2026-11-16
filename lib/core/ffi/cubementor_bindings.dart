@@ -21,6 +21,18 @@ typedef _SolveDart = int Function(
   int capacity,
 );
 typedef _VersionNative = Pointer<Utf8> Function();
+typedef _ScrambleNative = Int32 Function(
+  Int32 size,
+  Uint32 seed,
+  Pointer<Utf8> out,
+  Int32 capacity,
+);
+typedef _ScrambleDart = int Function(
+  int size,
+  int seed,
+  Pointer<Utf8> out,
+  int capacity,
+);
 typedef _ClassifyNative = Int32 Function(
   Int32 size,
   Pointer<Uint8> rgb,
@@ -61,6 +73,9 @@ class CubeMentorBindings {
       _version = library.lookupFunction<_VersionNative, _VersionNative>(
         'cm_version',
       ),
+      _scramble = library.lookupFunction<_ScrambleNative, _ScrambleDart>(
+        'cm_scramble',
+      ),
       _classify = library.lookupFunction<_ClassifyNative, _ClassifyDart>(
         'cm_scan_classify',
       ),
@@ -71,6 +86,7 @@ class CubeMentorBindings {
   final _PrepareDart _prepare;
   final _SolveDart _solve;
   final Pointer<Utf8> Function() _version;
+  final _ScrambleDart _scramble;
   final _ClassifyDart _classify;
   final _ValidateDart _validate;
 
@@ -121,14 +137,20 @@ class CubeMentorBindings {
   String solveJson(int size, int method, String facelets) {
     final input = facelets.toNativeUtf8();
     try {
+      // Big-cube solutions carry hundreds of steps with their states.
       return _readJson(
-        64 * 1024,
+        size <= 3 ? 64 * 1024 : 1024 * 1024,
         (out, capacity) => _solve(size, method, input, out, capacity),
       );
     } finally {
       malloc.free(input);
     }
   }
+
+  /// Runs `cm_scramble`: a scramble for [size] (2 to 7), the same for the
+  /// same [seed]. Empty for unsupported sizes.
+  String scramble(int size, int seed) =>
+      _readJson(1024, (out, capacity) => _scramble(size, seed, out, capacity));
 
   /// Runs `cm_scan_classify` on `6 * size^2` RGB triples (facelet order).
   String scanClassifyJson(int size, Uint8List rgb) {

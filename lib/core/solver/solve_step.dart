@@ -6,10 +6,12 @@ import '../cube/cube_state.dart';
 
 /// Solving strategies offered by the native core.
 enum SolveMethod {
-  /// Optimal 2x2 search or the Kociemba two-phase 3x3 algorithm.
+  /// Optimal 2x2 search, the Kociemba two-phase 3x3 algorithm, or the
+  /// reduction method (4x4 to 6x6) finished with Kociemba.
   fast(1),
 
-  /// Pedagogical layer-by-layer (beginner's method) 3x3 solver.
+  /// Pedagogical layer-by-layer (beginner's method) 3x3 solver; on big cubes
+  /// the reduction method finished layer by layer.
   layerByLayer(2);
 
   const SolveMethod(this.code);
@@ -98,7 +100,7 @@ class SolvePlan {
     );
   }
 
-  /// `optimal2x2`, `kociemba` or `lbl`.
+  /// `optimal2x2`, `kociemba`, `lbl`, `reduction` or `reductionLbl`.
   final String method;
   final List<SolveStep> steps;
 

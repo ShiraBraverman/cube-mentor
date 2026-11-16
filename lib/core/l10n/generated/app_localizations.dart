@@ -937,6 +937,1290 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Start over'**
   String get scanRestart;
+
+  /// No description provided for @modeTimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Speed timer'**
+  String get modeTimer;
+
+  /// No description provided for @modeTimerDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Scrambles, inspection, averages and personal bests.'**
+  String get modeTimerDesc;
+
+  /// No description provided for @modeDaily.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily challenge'**
+  String get modeDaily;
+
+  /// No description provided for @modeDailyDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'A new scramble every day. Keep your streak alive.'**
+  String get modeDailyDesc;
+
+  /// No description provided for @modePatterns.
+  ///
+  /// In en, this message translates to:
+  /// **'Pattern library'**
+  String get modePatterns;
+
+  /// No description provided for @modePatternsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Checkerboards, superflip and more, played in 3D.'**
+  String get modePatternsDesc;
+
+  /// No description provided for @streakDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1-day streak} other{{count}-day streak}}'**
+  String streakDays(int count);
+
+  /// No description provided for @continueLearning.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue learning'**
+  String get continueLearning;
+
+  /// No description provided for @startLearning.
+  ///
+  /// In en, this message translates to:
+  /// **'Start learning'**
+  String get startLearning;
+
+  /// No description provided for @lessonOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Lesson {index} of {total}'**
+  String lessonOf(int index, int total);
+
+  /// No description provided for @academyAllDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Every lesson completed!'**
+  String get academyAllDone;
+
+  /// No description provided for @academyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Academy'**
+  String get academyTitle;
+
+  /// No description provided for @academyProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'{done} of {total} lessons completed'**
+  String academyProgress(int done, int total);
+
+  /// No description provided for @lessonAdvanced.
+  ///
+  /// In en, this message translates to:
+  /// **'Advanced'**
+  String get lessonAdvanced;
+
+  /// No description provided for @lessonDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get lessonDone;
+
+  /// No description provided for @lessonPartOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Part {index} of {total}'**
+  String lessonPartOf(int index, int total);
+
+  /// No description provided for @lessonBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get lessonBack;
+
+  /// No description provided for @lessonNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get lessonNext;
+
+  /// No description provided for @lessonFinish.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish lesson'**
+  String get lessonFinish;
+
+  /// No description provided for @lessonComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Lesson complete!'**
+  String get lessonComplete;
+
+  /// No description provided for @lessonNextLesson.
+  ///
+  /// In en, this message translates to:
+  /// **'Next lesson'**
+  String get lessonNextLesson;
+
+  /// No description provided for @lessonBackToAcademy.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to the Academy'**
+  String get lessonBackToAcademy;
+
+  /// No description provided for @lessonShowMe.
+  ///
+  /// In en, this message translates to:
+  /// **'Show me'**
+  String get lessonShowMe;
+
+  /// No description provided for @lessonTryIt.
+  ///
+  /// In en, this message translates to:
+  /// **'Your turn: swipe the layer the arrow shows, or tap Show me.'**
+  String get lessonTryIt;
+
+  /// No description provided for @lessonLookAround.
+  ///
+  /// In en, this message translates to:
+  /// **'Drag the background to look at the cube from every side.'**
+  String get lessonLookAround;
+
+  /// No description provided for @lessonDemoDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Nice! Tap Next to continue.'**
+  String get lessonDemoDone;
+
+  /// No description provided for @holdPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold the cube with the {top} center on top and the {front} center facing you.'**
+  String holdPrompt(String top, String front);
+
+  /// No description provided for @trackBeginner.
+  ///
+  /// In en, this message translates to:
+  /// **'Beginner 3×3 (layer by layer)'**
+  String get trackBeginner;
+
+  /// No description provided for @trackCfop.
+  ///
+  /// In en, this message translates to:
+  /// **'Intro to CFOP'**
+  String get trackCfop;
+
+  /// No description provided for @trackTwoByTwo.
+  ///
+  /// In en, this message translates to:
+  /// **'2×2 beginner & Ortega'**
+  String get trackTwoByTwo;
+
+  /// No description provided for @trackBigCubes.
+  ///
+  /// In en, this message translates to:
+  /// **'Big cubes: reduction & parity'**
+  String get trackBigCubes;
+
+  /// No description provided for @moveSentence.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn {layer} {direction}'**
+  String moveSentence(String layer, String direction);
+
+  /// No description provided for @moveFaceR.
+  ///
+  /// In en, this message translates to:
+  /// **'the right face'**
+  String get moveFaceR;
+
+  /// No description provided for @moveFaceL.
+  ///
+  /// In en, this message translates to:
+  /// **'the left face'**
+  String get moveFaceL;
+
+  /// No description provided for @moveFaceU.
+  ///
+  /// In en, this message translates to:
+  /// **'the top face'**
+  String get moveFaceU;
+
+  /// No description provided for @moveFaceD.
+  ///
+  /// In en, this message translates to:
+  /// **'the bottom face'**
+  String get moveFaceD;
+
+  /// No description provided for @moveFaceF.
+  ///
+  /// In en, this message translates to:
+  /// **'the front face'**
+  String get moveFaceF;
+
+  /// No description provided for @moveFaceB.
+  ///
+  /// In en, this message translates to:
+  /// **'the back face'**
+  String get moveFaceB;
+
+  /// No description provided for @moveLayerInner.
+  ///
+  /// In en, this message translates to:
+  /// **'layer {depth} from {face}'**
+  String moveLayerInner(int depth, String face);
+
+  /// No description provided for @moveLayerWide.
+  ///
+  /// In en, this message translates to:
+  /// **'{face} ({depth} layers deep)'**
+  String moveLayerWide(int depth, String face);
+
+  /// No description provided for @moveLayerBlock.
+  ///
+  /// In en, this message translates to:
+  /// **'layers {near}–{far} from {face}'**
+  String moveLayerBlock(int near, int far, String face);
+
+  /// No description provided for @moveLayerMiddle.
+  ///
+  /// In en, this message translates to:
+  /// **'the middle layer'**
+  String get moveLayerMiddle;
+
+  /// No description provided for @moveDirUp.
+  ///
+  /// In en, this message translates to:
+  /// **'up'**
+  String get moveDirUp;
+
+  /// No description provided for @moveDirDown.
+  ///
+  /// In en, this message translates to:
+  /// **'down'**
+  String get moveDirDown;
+
+  /// No description provided for @moveDirLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'to the left'**
+  String get moveDirLeft;
+
+  /// No description provided for @moveDirRight.
+  ///
+  /// In en, this message translates to:
+  /// **'to the right'**
+  String get moveDirRight;
+
+  /// No description provided for @moveDirClockwise.
+  ///
+  /// In en, this message translates to:
+  /// **'clockwise'**
+  String get moveDirClockwise;
+
+  /// No description provided for @moveDirCounter.
+  ///
+  /// In en, this message translates to:
+  /// **'counter-clockwise'**
+  String get moveDirCounter;
+
+  /// No description provided for @moveDirBackClockwise.
+  ///
+  /// In en, this message translates to:
+  /// **'clockwise, as seen from the back'**
+  String get moveDirBackClockwise;
+
+  /// No description provided for @moveDirBackCounter.
+  ///
+  /// In en, this message translates to:
+  /// **'counter-clockwise, as seen from the back'**
+  String get moveDirBackCounter;
+
+  /// No description provided for @moveDirHalf.
+  ///
+  /// In en, this message translates to:
+  /// **'half a turn (twice)'**
+  String get moveDirHalf;
+
+  /// No description provided for @moveRotateX.
+  ///
+  /// In en, this message translates to:
+  /// **'Tilt the whole cube: the front goes up to the top'**
+  String get moveRotateX;
+
+  /// No description provided for @moveRotateXPrime.
+  ///
+  /// In en, this message translates to:
+  /// **'Tilt the whole cube: the front goes down to the bottom'**
+  String get moveRotateXPrime;
+
+  /// No description provided for @moveRotateX2.
+  ///
+  /// In en, this message translates to:
+  /// **'Flip the whole cube over: the front goes to the back'**
+  String get moveRotateX2;
+
+  /// No description provided for @moveRotateY.
+  ///
+  /// In en, this message translates to:
+  /// **'Spin the whole cube: the front goes to the left'**
+  String get moveRotateY;
+
+  /// No description provided for @moveRotateYPrime.
+  ///
+  /// In en, this message translates to:
+  /// **'Spin the whole cube: the front goes to the right'**
+  String get moveRotateYPrime;
+
+  /// No description provided for @moveRotateY2.
+  ///
+  /// In en, this message translates to:
+  /// **'Spin the whole cube half a turn: the back comes to the front'**
+  String get moveRotateY2;
+
+  /// No description provided for @moveRotateZ.
+  ///
+  /// In en, this message translates to:
+  /// **'Roll the whole cube clockwise: the top goes to the right'**
+  String get moveRotateZ;
+
+  /// No description provided for @moveRotateZPrime.
+  ///
+  /// In en, this message translates to:
+  /// **'Roll the whole cube counter-clockwise: the top goes to the left'**
+  String get moveRotateZPrime;
+
+  /// No description provided for @moveRotateZ2.
+  ///
+  /// In en, this message translates to:
+  /// **'Roll the whole cube upside down: the top goes to the bottom'**
+  String get moveRotateZ2;
+
+  /// No description provided for @phaseReductionCenters.
+  ///
+  /// In en, this message translates to:
+  /// **'Centers'**
+  String get phaseReductionCenters;
+
+  /// No description provided for @phaseReductionEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'Pair the edges'**
+  String get phaseReductionEdges;
+
+  /// No description provided for @phaseReductionEdgeParity.
+  ///
+  /// In en, this message translates to:
+  /// **'Edge parity'**
+  String get phaseReductionEdgeParity;
+
+  /// No description provided for @phaseReductionOllParity.
+  ///
+  /// In en, this message translates to:
+  /// **'OLL parity'**
+  String get phaseReductionOllParity;
+
+  /// No description provided for @phaseReductionPllParity.
+  ///
+  /// In en, this message translates to:
+  /// **'PLL parity'**
+  String get phaseReductionPllParity;
+
+  /// No description provided for @explainReductionCenterBlock.
+  ///
+  /// In en, this message translates to:
+  /// **'Slice turns that bring several center pieces home at once.'**
+  String get explainReductionCenterBlock;
+
+  /// No description provided for @explainReductionCenterCycle.
+  ///
+  /// In en, this message translates to:
+  /// **'Bring a {piece} center piece to its face with a 3-cycle that leaves finished centers alone.'**
+  String explainReductionCenterCycle(String piece);
+
+  /// No description provided for @explainReductionParityCenters.
+  ///
+  /// In en, this message translates to:
+  /// **'Rebuild the centers that the parity slice turn moved.'**
+  String get explainReductionParityCenters;
+
+  /// No description provided for @explainReductionEdgeCycle.
+  ///
+  /// In en, this message translates to:
+  /// **'Join the {piece} edge pieces with a 3-cycle; the centers stay solved.'**
+  String explainReductionEdgeCycle(String piece);
+
+  /// No description provided for @explainReductionEdgeParity.
+  ///
+  /// In en, this message translates to:
+  /// **'The last edges can\'t be paired with 3-cycles alone (edge parity). One inner-slice turn fixes that.'**
+  String get explainReductionEdgeParity;
+
+  /// No description provided for @explainReductionOllParity.
+  ///
+  /// In en, this message translates to:
+  /// **'OLL parity: one edge is flipped, which can\'t happen on a 3×3. This algorithm flips it back.'**
+  String get explainReductionOllParity;
+
+  /// No description provided for @explainReductionPllParity.
+  ///
+  /// In en, this message translates to:
+  /// **'PLL parity: two edges are swapped, impossible on a 3×3. This algorithm swaps them back.'**
+  String get explainReductionPllParity;
+
+  /// No description provided for @solveFastBigDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Reduction: centers, edges and parity, then Kociemba'**
+  String get solveFastBigDesc;
+
+  /// No description provided for @solveLearnBigDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Reduction finished with the beginner\'s layer-by-layer method'**
+  String get solveLearnBigDesc;
+
+  /// No description provided for @patternsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pattern library'**
+  String get patternsTitle;
+
+  /// No description provided for @patternsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a pattern to watch it, then follow along on your own cube.'**
+  String get patternsHint;
+
+  /// No description provided for @patternCheckerboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Checkerboard'**
+  String get patternCheckerboard;
+
+  /// No description provided for @patternCubeInCube.
+  ///
+  /// In en, this message translates to:
+  /// **'Cube in a cube'**
+  String get patternCubeInCube;
+
+  /// No description provided for @patternSuperflip.
+  ///
+  /// In en, this message translates to:
+  /// **'Superflip'**
+  String get patternSuperflip;
+
+  /// No description provided for @patternDots.
+  ///
+  /// In en, this message translates to:
+  /// **'Dots'**
+  String get patternDots;
+
+  /// No description provided for @patternCross.
+  ///
+  /// In en, this message translates to:
+  /// **'Cross'**
+  String get patternCross;
+
+  /// No description provided for @patternPython.
+  ///
+  /// In en, this message translates to:
+  /// **'Python'**
+  String get patternPython;
+
+  /// No description provided for @phasePattern.
+  ///
+  /// In en, this message translates to:
+  /// **'Make the pattern'**
+  String get phasePattern;
+
+  /// No description provided for @explainPatternStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Follow each move on your own cube. Tap Solve to bring it back to normal.'**
+  String get explainPatternStep;
+
+  /// No description provided for @patternTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} · {size}×{size}'**
+  String patternTitle(String name, int size);
+
+  /// No description provided for @timerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Speed timer'**
+  String get timerTitle;
+
+  /// No description provided for @timerHoldToStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold, then release to start'**
+  String get timerHoldToStart;
+
+  /// No description provided for @timerReleaseToStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Release to start'**
+  String get timerReleaseToStart;
+
+  /// No description provided for @timerTapToStop.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap anywhere to stop'**
+  String get timerTapToStop;
+
+  /// No description provided for @timerInspecting.
+  ///
+  /// In en, this message translates to:
+  /// **'Inspection: hold, then release to start'**
+  String get timerInspecting;
+
+  /// No description provided for @timerTapToInspect.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to start the 15-second inspection'**
+  String get timerTapToInspect;
+
+  /// No description provided for @timerInspectionToggle.
+  ///
+  /// In en, this message translates to:
+  /// **'15 s inspection'**
+  String get timerInspectionToggle;
+
+  /// No description provided for @timerNewScramble.
+  ///
+  /// In en, this message translates to:
+  /// **'New scramble'**
+  String get timerNewScramble;
+
+  /// No description provided for @timerLoadingScramble.
+  ///
+  /// In en, this message translates to:
+  /// **'Generating a scramble…'**
+  String get timerLoadingScramble;
+
+  /// No description provided for @timerPb.
+  ///
+  /// In en, this message translates to:
+  /// **'Best'**
+  String get timerPb;
+
+  /// No description provided for @timerSolves.
+  ///
+  /// In en, this message translates to:
+  /// **'Solves'**
+  String get timerSolves;
+
+  /// No description provided for @timerPlus2.
+  ///
+  /// In en, this message translates to:
+  /// **'+2'**
+  String get timerPlus2;
+
+  /// No description provided for @timerDnf.
+  ///
+  /// In en, this message translates to:
+  /// **'DNF'**
+  String get timerDnf;
+
+  /// No description provided for @timerDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get timerDelete;
+
+  /// No description provided for @timerHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get timerHistory;
+
+  /// No description provided for @timerNoSolves.
+  ///
+  /// In en, this message translates to:
+  /// **'No solves yet. Scramble your cube and go!'**
+  String get timerNoSolves;
+
+  /// No description provided for @timerNewPb.
+  ///
+  /// In en, this message translates to:
+  /// **'New personal best!'**
+  String get timerNewPb;
+
+  /// No description provided for @timerClearHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear history'**
+  String get timerClearHistory;
+
+  /// No description provided for @timerScrambleHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold white on top and green in front, then scramble:'**
+  String get timerScrambleHint;
+
+  /// No description provided for @dailyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily challenge'**
+  String get dailyTitle;
+
+  /// No description provided for @dailyFor.
+  ///
+  /// In en, this message translates to:
+  /// **'Challenge for {date}'**
+  String dailyFor(String date);
+
+  /// No description provided for @dailyBestStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'Best streak: {count}'**
+  String dailyBestStreak(int count);
+
+  /// No description provided for @dailyDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done for today! Come back tomorrow.'**
+  String get dailyDone;
+
+  /// No description provided for @dailyNotDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve today\'s scramble to keep your streak.'**
+  String get dailyNotDone;
+
+  /// No description provided for @dailySolveVirtual.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve on the 3D cube'**
+  String get dailySolveVirtual;
+
+  /// No description provided for @dailyTimeIt.
+  ///
+  /// In en, this message translates to:
+  /// **'Time it on your cube'**
+  String get dailyTimeIt;
+
+  /// No description provided for @dailyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Hint'**
+  String get dailyHint;
+
+  /// No description provided for @dailyHintText.
+  ///
+  /// In en, this message translates to:
+  /// **'Start with the white cross: {moves}'**
+  String dailyHintText(String moves);
+
+  /// No description provided for @dailyHintFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'No hint is available right now.'**
+  String get dailyHintFailed;
+
+  /// No description provided for @lessonBasics.
+  ///
+  /// In en, this message translates to:
+  /// **'Meet the cube'**
+  String get lessonBasics;
+
+  /// No description provided for @lessonBasicsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Pieces, faces and move names.'**
+  String get lessonBasicsDesc;
+
+  /// No description provided for @stepBasicsPieces.
+  ///
+  /// In en, this message translates to:
+  /// **'Three kinds of pieces'**
+  String get stepBasicsPieces;
+
+  /// No description provided for @stepBasicsPiecesBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Centers never move and give each face its color. Edges have two colors, corners have three. Solving means moving every edge and corner next to the centers that match.'**
+  String get stepBasicsPiecesBody;
+
+  /// No description provided for @stepBasicsFaces.
+  ///
+  /// In en, this message translates to:
+  /// **'Six face letters'**
+  String get stepBasicsFaces;
+
+  /// No description provided for @stepBasicsFacesBody.
+  ///
+  /// In en, this message translates to:
+  /// **'R, L, U, D, F and B are the right, left, up, down, front and back faces. A letter alone means a clockwise quarter turn, as if you looked straight at that face.'**
+  String get stepBasicsFacesBody;
+
+  /// No description provided for @stepBasicsPrime.
+  ///
+  /// In en, this message translates to:
+  /// **'Prime and double turns'**
+  String get stepBasicsPrime;
+
+  /// No description provided for @stepBasicsPrimeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'An apostrophe (R\') turns the other way, counter-clockwise. A 2 (U2) is a half turn: two quarter turns.'**
+  String get stepBasicsPrimeBody;
+
+  /// No description provided for @lessonCross.
+  ///
+  /// In en, this message translates to:
+  /// **'White cross'**
+  String get lessonCross;
+
+  /// No description provided for @lessonCrossDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Build a white cross on the bottom.'**
+  String get lessonCrossDesc;
+
+  /// No description provided for @stepCrossGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'The goal'**
+  String get stepCrossGoal;
+
+  /// No description provided for @stepCrossGoalBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold yellow on top. The four white edges go around the white center on the bottom, each side color matching the center next to it.'**
+  String get stepCrossGoalBody;
+
+  /// No description provided for @stepCrossTop.
+  ///
+  /// In en, this message translates to:
+  /// **'Edge on top'**
+  String get stepCrossTop;
+
+  /// No description provided for @stepCrossTopBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Find a white edge on top. Turn the top until its side color sits above the matching center, then turn that face twice to drop it in.'**
+  String get stepCrossTopBody;
+
+  /// No description provided for @stepCrossMiddle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edge in the middle'**
+  String get stepCrossMiddle;
+
+  /// No description provided for @stepCrossMiddleBody.
+  ///
+  /// In en, this message translates to:
+  /// **'An edge stuck in the middle layer goes up first: turn its side up, move the top out of the way and turn the side back, so the cross stays intact. Then place it from the top.'**
+  String get stepCrossMiddleBody;
+
+  /// No description provided for @lessonCorners.
+  ///
+  /// In en, this message translates to:
+  /// **'White corners'**
+  String get lessonCorners;
+
+  /// No description provided for @lessonCornersDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish the first layer.'**
+  String get lessonCornersDesc;
+
+  /// No description provided for @stepCornersInsert.
+  ///
+  /// In en, this message translates to:
+  /// **'Above its spot'**
+  String get stepCornersInsert;
+
+  /// No description provided for @stepCornersInsertBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the top until a white corner sits above the spot where its colors belong, at the front right. R U R\' U\' then drops it in.'**
+  String get stepCornersInsertBody;
+
+  /// No description provided for @stepCornersRepeat.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat the trigger'**
+  String get stepCornersRepeat;
+
+  /// No description provided for @stepCornersRepeatBody.
+  ///
+  /// In en, this message translates to:
+  /// **'If white faces the wrong way, keep repeating R U R\' U\' over the same spot. Every corner is solved after at most five repeats.'**
+  String get stepCornersRepeatBody;
+
+  /// No description provided for @lessonMiddle.
+  ///
+  /// In en, this message translates to:
+  /// **'Middle layer'**
+  String get lessonMiddle;
+
+  /// No description provided for @lessonMiddleDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Insert the four middle edges.'**
+  String get lessonMiddleDesc;
+
+  /// No description provided for @stepMiddleRight.
+  ///
+  /// In en, this message translates to:
+  /// **'Edge to the right'**
+  String get stepMiddleRight;
+
+  /// No description provided for @stepMiddleRightBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Line up a top edge with its center on the front. If its top color matches the right center, insert it with U R U\' R\' U\' F\' U F.'**
+  String get stepMiddleRightBody;
+
+  /// No description provided for @stepMiddleLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'Edge to the left'**
+  String get stepMiddleLeft;
+
+  /// No description provided for @stepMiddleLeftBody.
+  ///
+  /// In en, this message translates to:
+  /// **'If its top color matches the left center instead, use the mirror: U\' L\' U L U F U\' F\'.'**
+  String get stepMiddleLeftBody;
+
+  /// No description provided for @lessonLastLayer.
+  ///
+  /// In en, this message translates to:
+  /// **'Yellow cross and edges'**
+  String get lessonLastLayer;
+
+  /// No description provided for @lessonLastLayerDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Make a cross on top and match its edges.'**
+  String get lessonLastLayerDesc;
+
+  /// No description provided for @stepYellowCross.
+  ///
+  /// In en, this message translates to:
+  /// **'One algorithm'**
+  String get stepYellowCross;
+
+  /// No description provided for @stepYellowCrossBody.
+  ///
+  /// In en, this message translates to:
+  /// **'F R U R\' U\' F\' turns a yellow dot into an L, an L into a line and a line into the cross. Hold the L at the back left and the line sideways.'**
+  String get stepYellowCrossBody;
+
+  /// No description provided for @stepYellowEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'Match the edges'**
+  String get stepYellowEdges;
+
+  /// No description provided for @stepYellowEdgesBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the top until two edges match their centers. With one at the back and one on the right, R U R\' U R U2 R\' U swaps the other two.'**
+  String get stepYellowEdgesBody;
+
+  /// No description provided for @lessonLastCorners.
+  ///
+  /// In en, this message translates to:
+  /// **'Yellow corners'**
+  String get lessonLastCorners;
+
+  /// No description provided for @lessonLastCornersDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Place and twist the last corners.'**
+  String get lessonLastCornersDesc;
+
+  /// No description provided for @stepPlaceCorners.
+  ///
+  /// In en, this message translates to:
+  /// **'Place them'**
+  String get stepPlaceCorners;
+
+  /// No description provided for @stepPlaceCornersBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold a corner that is already in its spot at the front right. U R U\' L\' U R\' U\' L moves the other three around; repeat until all four are home.'**
+  String get stepPlaceCornersBody;
+
+  /// No description provided for @stepTwistCorners.
+  ///
+  /// In en, this message translates to:
+  /// **'Twist them'**
+  String get stepTwistCorners;
+
+  /// No description provided for @stepTwistCornersBody.
+  ///
+  /// In en, this message translates to:
+  /// **'With an unsolved corner at the front right, repeat R\' D\' R D until yellow is on top, then turn only the top to bring the next one. The bottom looks broken until the very end: keep going.'**
+  String get stepTwistCornersBody;
+
+  /// No description provided for @lessonCfopIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'What is CFOP?'**
+  String get lessonCfopIntro;
+
+  /// No description provided for @lessonCfopIntroDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Cross, F2L, OLL, PLL.'**
+  String get lessonCfopIntroDesc;
+
+  /// No description provided for @stepCfopOverview.
+  ///
+  /// In en, this message translates to:
+  /// **'Four stages'**
+  String get stepCfopOverview;
+
+  /// No description provided for @stepCfopOverviewBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Speedcubers solve the cross, then pair each first-layer corner with its middle edge (F2L), orient the last layer (OLL) and finally permute it (PLL).'**
+  String get stepCfopOverviewBody;
+
+  /// No description provided for @stepCfopCross.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan the cross'**
+  String get stepCfopCross;
+
+  /// No description provided for @stepCfopCrossBody.
+  ///
+  /// In en, this message translates to:
+  /// **'In CFOP the cross is planned during inspection and built on the bottom in about eight moves.'**
+  String get stepCfopCrossBody;
+
+  /// No description provided for @lessonF2l.
+  ///
+  /// In en, this message translates to:
+  /// **'F2L basics'**
+  String get lessonF2l;
+
+  /// No description provided for @lessonF2lDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Pair a corner with its edge.'**
+  String get lessonF2lDesc;
+
+  /// No description provided for @stepF2lRight.
+  ///
+  /// In en, this message translates to:
+  /// **'Insert a pair'**
+  String get stepF2lRight;
+
+  /// No description provided for @stepF2lRightBody.
+  ///
+  /// In en, this message translates to:
+  /// **'When a corner and its edge sit side by side on top, bring them above their slot and insert them together.'**
+  String get stepF2lRightBody;
+
+  /// No description provided for @stepF2lLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'Left-hand pair'**
+  String get stepF2lLeft;
+
+  /// No description provided for @stepF2lLeftBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The same case on the other side is the mirror, U\' L\' U L. Rotating the cube (y) lets you use whichever hand is easier.'**
+  String get stepF2lLeftBody;
+
+  /// No description provided for @lessonOll.
+  ///
+  /// In en, this message translates to:
+  /// **'Two-look OLL'**
+  String get lessonOll;
+
+  /// No description provided for @lessonOllDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Make the top yellow.'**
+  String get lessonOllDesc;
+
+  /// No description provided for @stepOllCross.
+  ///
+  /// In en, this message translates to:
+  /// **'Edges first'**
+  String get stepOllCross;
+
+  /// No description provided for @stepOllCrossBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Two-look OLL starts with the yellow-cross algorithm you already know.'**
+  String get stepOllCrossBody;
+
+  /// No description provided for @stepOllSune.
+  ///
+  /// In en, this message translates to:
+  /// **'Sune'**
+  String get stepOllSune;
+
+  /// No description provided for @stepOllSuneBody.
+  ///
+  /// In en, this message translates to:
+  /// **'With one yellow corner facing up at the front left, Sune (R U R\' U R U2 R\') orients the other three. Most other cases use Sune and its mirror.'**
+  String get stepOllSuneBody;
+
+  /// No description provided for @lessonPll.
+  ///
+  /// In en, this message translates to:
+  /// **'Two-look PLL'**
+  String get lessonPll;
+
+  /// No description provided for @lessonPllDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish the cube.'**
+  String get lessonPllDesc;
+
+  /// No description provided for @stepPllT.
+  ///
+  /// In en, this message translates to:
+  /// **'T-perm'**
+  String get stepPllT;
+
+  /// No description provided for @stepPllTBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The T-perm swaps two corners and two edges. Use it to place the corners: hold the two corners that must swap on the right.'**
+  String get stepPllTBody;
+
+  /// No description provided for @stepPllU.
+  ///
+  /// In en, this message translates to:
+  /// **'U-perm'**
+  String get stepPllU;
+
+  /// No description provided for @stepPllUBody.
+  ///
+  /// In en, this message translates to:
+  /// **'With the corners done, the U-perm cycles three edges. Keep the finished side at the back.'**
+  String get stepPllUBody;
+
+  /// No description provided for @lessonTwoFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'2×2 first layer'**
+  String get lessonTwoFirst;
+
+  /// No description provided for @lessonTwoFirstDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Build one side with matching corners.'**
+  String get lessonTwoFirstDesc;
+
+  /// No description provided for @stepTwoIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Only corners'**
+  String get stepTwoIntro;
+
+  /// No description provided for @stepTwoIntroBody.
+  ///
+  /// In en, this message translates to:
+  /// **'A 2×2 is a 3×3 without edges and centers. Pick a color, build that face on the bottom, and make the side colors of neighbouring corners match.'**
+  String get stepTwoIntroBody;
+
+  /// No description provided for @stepTwoCorner.
+  ///
+  /// In en, this message translates to:
+  /// **'Insert corners'**
+  String get stepTwoCorner;
+
+  /// No description provided for @stepTwoCornerBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Exactly like the 3×3 white corners: bring a corner above its spot and use R U R\' U\' until it fits.'**
+  String get stepTwoCornerBody;
+
+  /// No description provided for @lessonTwoOll.
+  ///
+  /// In en, this message translates to:
+  /// **'Orient the top'**
+  String get lessonTwoOll;
+
+  /// No description provided for @lessonTwoOllDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Ortega OLL with Sune.'**
+  String get lessonTwoOllDesc;
+
+  /// No description provided for @stepTwoSune.
+  ///
+  /// In en, this message translates to:
+  /// **'Sune again'**
+  String get stepTwoSune;
+
+  /// No description provided for @stepTwoSuneBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Sune turns the top yellow on a 2×2 too. Ortega solvers learn seven short cases; Sune and its mirror cover most of them.'**
+  String get stepTwoSuneBody;
+
+  /// No description provided for @lessonTwoPbl.
+  ///
+  /// In en, this message translates to:
+  /// **'Permute both layers'**
+  String get lessonTwoPbl;
+
+  /// No description provided for @lessonTwoPblDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Swap corners to finish.'**
+  String get lessonTwoPblDesc;
+
+  /// No description provided for @stepTwoAdjacent.
+  ///
+  /// In en, this message translates to:
+  /// **'Adjacent swap'**
+  String get stepTwoAdjacent;
+
+  /// No description provided for @stepTwoAdjacentBody.
+  ///
+  /// In en, this message translates to:
+  /// **'When two neighbouring top corners must swap, hold them on the right and use the T-perm.'**
+  String get stepTwoAdjacentBody;
+
+  /// No description provided for @stepTwoDiagonal.
+  ///
+  /// In en, this message translates to:
+  /// **'Diagonal swap'**
+  String get stepTwoDiagonal;
+
+  /// No description provided for @stepTwoDiagonalBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Two corners in opposite spots swap with the Y-perm.'**
+  String get stepTwoDiagonalBody;
+
+  /// No description provided for @lessonBigIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Big cube pieces'**
+  String get lessonBigIntro;
+
+  /// No description provided for @lessonBigIntroDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Centers, wings and slices.'**
+  String get lessonBigIntroDesc;
+
+  /// No description provided for @stepBigPieces.
+  ///
+  /// In en, this message translates to:
+  /// **'No fixed centers'**
+  String get stepBigPieces;
+
+  /// No description provided for @stepBigPiecesBody.
+  ///
+  /// In en, this message translates to:
+  /// **'On a 4×4 each face has four center pieces that move around, and every edge is made of two wings. Reduction groups them so the cube behaves like a 3×3.'**
+  String get stepBigPiecesBody;
+
+  /// No description provided for @stepBigSlices.
+  ///
+  /// In en, this message translates to:
+  /// **'Wide and inner turns'**
+  String get stepBigSlices;
+
+  /// No description provided for @stepBigSlicesBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Rw turns the two right layers together. 2R turns only the second layer from the right. These turns move centers and wings.'**
+  String get stepBigSlicesBody;
+
+  /// No description provided for @lessonBigCenters.
+  ///
+  /// In en, this message translates to:
+  /// **'Centers'**
+  String get lessonBigCenters;
+
+  /// No description provided for @lessonBigCentersDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Group the center pieces.'**
+  String get lessonBigCentersDesc;
+
+  /// No description provided for @stepBigCenterCycle.
+  ///
+  /// In en, this message translates to:
+  /// **'A center 3-cycle'**
+  String get stepBigCenterCycle;
+
+  /// No description provided for @stepBigCenterCycleBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This commutator moves exactly three center pieces and leaves everything else alone, so finished centers stay finished.'**
+  String get stepBigCenterCycleBody;
+
+  /// No description provided for @lessonBigEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'Pair the edges'**
+  String get lessonBigEdges;
+
+  /// No description provided for @lessonBigEdgesDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Join wings into full edges.'**
+  String get lessonBigEdgesDesc;
+
+  /// No description provided for @stepBigEdgePair.
+  ///
+  /// In en, this message translates to:
+  /// **'Pair and restore'**
+  String get stepBigEdgePair;
+
+  /// No description provided for @stepBigEdgePairBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Uw\' lines two matching wings up, R U R\' F R\' F\' R swaps in an unpaired edge, and Uw puts the centers back.'**
+  String get stepBigEdgePairBody;
+
+  /// No description provided for @lessonBigParity.
+  ///
+  /// In en, this message translates to:
+  /// **'Parity'**
+  String get lessonBigParity;
+
+  /// No description provided for @lessonBigParityDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'OLL and PLL parity on even cubes.'**
+  String get lessonBigParityDesc;
+
+  /// No description provided for @stepBigOllParity.
+  ///
+  /// In en, this message translates to:
+  /// **'OLL parity'**
+  String get stepBigOllParity;
+
+  /// No description provided for @stepBigOllParityBody.
+  ///
+  /// In en, this message translates to:
+  /// **'A single flipped edge can\'t happen on a 3×3. On even cubes this algorithm flips the top-front edge back. It may shuffle the rest of the top layer, which the last 3×3 steps fix anyway.'**
+  String get stepBigOllParityBody;
+
+  /// No description provided for @stepBigPllParity.
+  ///
+  /// In en, this message translates to:
+  /// **'PLL parity'**
+  String get stepBigPllParity;
+
+  /// No description provided for @stepBigPllParityBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Two swapped edges at the very end? 2R2 U2 2R2 Uw2 2R2 Uw2 swaps the front and back top edges.'**
+  String get stepBigPllParityBody;
 }
 
 class _AppLocalizationsDelegate

@@ -5,6 +5,7 @@
 #include "../core/notation.hpp"
 #include "kociemba.hpp"
 #include "lbl.hpp"
+#include "reduction.hpp"
 #include "solver_2x2.hpp"
 
 namespace cm {
@@ -47,6 +48,7 @@ void appendEscaped(std::string& out, const std::string& text) {
 void prepareSolvers(int size) {
   if (size == 2) Solver2x2::prepare();
   if (size == 3) KociembaSolver::prepare();
+  if (size >= 4 && size <= 6) ReductionSolver::prepare(size);
 }
 
 SolveResult solveCube(int size, SolveMethod method, const std::string& facelets) {
@@ -60,6 +62,8 @@ SolveResult solveCube(int size, SolveMethod method, const std::string& facelets)
   } else if (size == 3) {
     result = method == SolveMethod::kLayerByLayer ? LblSolver::solve(facelets)
                                                   : KociembaSolver::solve(facelets);
+  } else if (size >= 4 && size <= 6) {
+    result = ReductionSolver::solve(size, facelets, method);
   } else {
     result.error = "unsupported";
     return result;

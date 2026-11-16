@@ -47,9 +47,10 @@ void main() {
           .applyAll(CubeState.randomScramble(size, random: random));
 
   test('reports its version', () {
-    expect(bindings!.version, '1.0.0');
+    expect(bindings!.version, '1.1.0');
     expect(bindings.prepare(3), isTrue);
-    expect(bindings.prepare(6), isFalse);
+    expect(bindings.prepare(4), isTrue);
+    expect(bindings.prepare(7), isFalse);
   }, skip: missing);
 
   test('2x2 optimal solutions from Dart scrambles', () {
@@ -130,9 +131,50 @@ void main() {
     final plan = await solver.solve(cube, SolveMethod.layerByLayer);
     expectSolves(cube, plan);
     expect(
-      () => solver.solve(CubeState.solved(4), SolveMethod.fast),
+      () => solver.solve(CubeState.solved(7), SolveMethod.fast),
       throwsA(isA<SolveException>()),
     );
+  }, skip: missing);
+
+  test('4x4-6x6 reduction solutions replay in Dart with metadata', () {
+    final random = Random(44);
+    for (final size in [4, 5, 6]) {
+      for (final method in SolveMethod.values) {
+        final cube = scrambled(size, random);
+        final plan = solve(cube, method);
+        expect(
+          plan.method,
+          method == SolveMethod.fast ? 'reduction' : 'reductionLbl',
+        );
+        expectSolves(cube, plan);
+        final phases = plan.steps.map((s) => s.phaseName).toSet();
+        expect(phases, containsAll(['reductionCenters', 'reductionEdges']));
+        for (final step in plan.steps) {
+          expect(step.explanationKey, isNotEmpty);
+        }
+      }
+    }
+  }, skip: missing);
+
+  test('NativeCubeSolver solves a 4x4 on a background isolate', () async {
+    final solver = NativeCubeSolver();
+    expect(solver.supports(6, SolveMethod.layerByLayer), isTrue);
+    await solver.prepare(4);
+    final cube = scrambled(4, Random(8));
+    expectSolves(cube, await solver.solve(cube, SolveMethod.fast));
+  }, skip: missing);
+
+  test('scrambles are seeded and valid for every size', () {
+    for (final size in [2, 3, 4, 5, 6]) {
+      final a = bindings!.scramble(size, 20261116);
+      expect(a, bindings.scramble(size, 20261116));
+      expect(a, isNot(bindings.scramble(size, 20261117)));
+      final cube = CubeState.solved(size)
+          .applyAll(MoveNotation.parseSequence(a, size));
+      expect(cube.isSolved, isFalse);
+      if (size <= 3) expectSolves(cube, solve(cube, SolveMethod.fast));
+    }
+    expect(bindings!.scramble(9, 1), isEmpty);
   }, skip: missing);
 
   test('scan pipeline: classifies warm-lit stickers and flags bad ones', () {

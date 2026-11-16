@@ -18,14 +18,14 @@ extern "C" {
 #endif
 
 /* Solve methods. */
-#define CM_METHOD_FAST 1           /* optimal 2x2 / Kociemba 3x3 */
-#define CM_METHOD_LAYER_BY_LAYER 2 /* pedagogical 3x3 */
+#define CM_METHOD_FAST 1           /* optimal 2x2 / Kociemba 3x3 / reduction + Kociemba */
+#define CM_METHOD_LAYER_BY_LAYER 2 /* pedagogical 3x3 / reduction + layer by layer */
 
-/* Native core version, e.g. "1.0.0". */
+/* Native core version, e.g. "1.1.0". */
 CM_API const char* cm_version(void);
 
 /* Builds the lookup tables for a cube size ahead of the first solve.
- * Returns 0 on success, -1 for unsupported sizes. */
+ * Sizes 2 to 6. Returns 0 on success, -1 for unsupported sizes. */
 CM_API int32_t cm_prepare(int32_t size);
 
 /* Solves a cube given as 6 * size^2 facelet colors in U R F D L B face
@@ -35,6 +35,12 @@ CM_API int32_t cm_prepare(int32_t size);
  * was written: call again with a buffer of at least return value + 1. */
 CM_API int32_t cm_solve(int32_t size, int32_t method, const char* facelets, char* out,
                         int32_t capacity);
+
+/* Writes a NUL-terminated scramble ("R U' F2 ...") for a cube of [size]
+ * (2 to 7): random-state for 2x2/3x3, random-move above. The same seed
+ * always gives the same scramble. Same buffer protocol as cm_solve; an
+ * empty string means the size is unsupported. */
+CM_API int32_t cm_scramble(int32_t size, uint32_t seed, char* out, int32_t capacity);
 
 /* Classifies scanned sticker colors: [rgb] holds 6 * size^2 * 3 bytes (R, G,
  * B per sticker) in the facelet order of cm_solve. Writes a NUL-terminated

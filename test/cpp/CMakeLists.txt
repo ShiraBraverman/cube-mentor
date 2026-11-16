@@ -16,6 +16,7 @@ add_executable(cubementor_tests
   test_cube.cpp
   test_solvers.cpp
   test_vision.cpp
+  test_reduction.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/../../src/cpp/ffi_bridge.cpp
 )
 target_link_libraries(cubementor_tests PRIVATE cubementor_core)

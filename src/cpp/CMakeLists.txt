@@ -20,6 +20,8 @@ add_library(cubementor_core STATIC
   solver/solver_2x2.cpp
   solver/kociemba.cpp
   solver/lbl.cpp
+  solver/reduction.cpp
+  solver/scramble.cpp
   solver/solver.cpp
   vision/color.cpp
   vision/kmeans.cpp

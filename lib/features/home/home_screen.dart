@@ -5,9 +5,16 @@ import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/settings/locale_controller.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
+import '../academy/academy_screen.dart';
+import '../academy/model/academy_progress.dart';
+import '../academy/model/lesson_catalog.dart';
+import '../daily/daily_controller.dart';
+import '../daily/daily_screen.dart';
+import '../patterns/patterns_screen.dart';
 import '../scanner/scanner_screen.dart';
 import '../solver_3d/solver_3d_screen.dart';
 import '../solver_3d/widgets/cube_preview.dart';
+import '../timer/timer_screen.dart';
 import 'home_controller.dart';
 
 /// Landing screen: cube size selector (2x2 - 6x6) and mode selection.
@@ -19,12 +26,11 @@ class HomeScreen extends ConsumerWidget {
     final l10n = AppLocalizations.of(context);
     final textTheme = Theme.of(context).textTheme;
     final selected = ref.watch(selectedCubeSizeProvider);
+    final streak = ref.watch(dailyProvider.select((s) => s.streak));
 
-    void comingSoon() {
-      ScaffoldMessenger.of(context)
-        ..hideCurrentSnackBar()
-        ..showSnackBar(SnackBar(content: Text(l10n.comingSoonMessage)));
-    }
+    void open(Widget screen) =>
+        Navigator.of(context)
+            .push(MaterialPageRoute<void>(builder: (_) => screen));
 
     return GlassBackground(
       child: Scaffold(
@@ -111,6 +117,8 @@ class HomeScreen extends ConsumerWidget {
                       ],
                     ),
                   ),
+                  const SizedBox(height: 16),
+                  const _ContinueLearningCard(),
                   const SizedBox(height: 24),
                   Text(l10n.chooseMode, style: textTheme.titleLarge),
                   const SizedBox(height: 12),
@@ -141,12 +149,40 @@ class HomeScreen extends ConsumerWidget {
                   ),
                   const SizedBox(height: 10),
                   _ModeCard(
+                    key: const ValueKey('mode-academy'),
                     icon: Icons.school_rounded,
                     title: l10n.modeAcademy,
                     description: l10n.modeAcademyDesc,
                     accent: AppColors.accentWarm,
-                    badge: l10n.comingSoon,
-                    onTap: comingSoon,
+                    onTap: () => open(const AcademyScreen()),
+                  ),
+                  const SizedBox(height: 10),
+                  _ModeCard(
+                    key: const ValueKey('mode-daily'),
+                    icon: Icons.local_fire_department_rounded,
+                    title: l10n.modeDaily,
+                    description: l10n.modeDailyDesc,
+                    accent: AppColors.accentWarm,
+                    badge: streak > 0 ? l10n.streakDays(streak) : null,
+                    onTap: () => open(const DailyScreen()),
+                  ),
+                  const SizedBox(height: 10),
+                  _ModeCard(
+                    key: const ValueKey('mode-timer'),
+                    icon: Icons.timer_outlined,
+                    title: l10n.modeTimer,
+                    description: l10n.modeTimerDesc,
+                    accent: AppColors.accent,
+                    onTap: () => open(TimerScreen(size: selected)),
+                  ),
+                  const SizedBox(height: 10),
+                  _ModeCard(
+                    key: const ValueKey('mode-patterns'),
+                    icon: Icons.grid_view_rounded,
+                    title: l10n.modePatterns,
+                    description: l10n.modePatternsDesc,
+                    accent: AppColors.accentSecondary,
+                    onTap: () => open(PatternsScreen(initialSize: selected)),
                   ),
                 ],
               ),
@@ -285,6 +321,76 @@ class _ModeCard extends StatelessWidget {
             ),
           ),
           // Mirrors automatically in RTL (matchTextDirection).
+          const Icon(Icons.arrow_forward_ios_rounded, size: 16),
+        ],
+      ),
+    );
+  }
+}
+
+/// "Continue learning" hook: the next Academy lesson and overall progress.
+class _ContinueLearningCard extends ConsumerWidget {
+  const _ContinueLearningCard();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final textTheme = Theme.of(context).textTheme;
+    final progress = ref.watch(academyProgressProvider);
+    final next = progress.nextLesson;
+    final done = progress.completedCount;
+    final total = kLessons.length;
+    return GlassCard(
+      key: const ValueKey('continue-learning'),
+      onTap: () => next == null
+          ? Navigator.of(context).push(
+              MaterialPageRoute<void>(builder: (_) => const AcademyScreen()),
+            )
+          : openLesson(context, ref, next),
+      child: Row(
+        children: [
+          SizedBox.square(
+            dimension: 48,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                CircularProgressIndicator(
+                  value: done / total,
+                  strokeWidth: 4,
+                  backgroundColor: AppColors.glassBorder,
+                  color: AppColors.accentWarm,
+                ),
+                const Icon(Icons.school_rounded, color: AppColors.accentWarm),
+              ],
+            ),
+          ),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  done == 0 ? l10n.startLearning : l10n.continueLearning,
+                  style: textTheme.labelLarge?.copyWith(
+                    color: AppColors.accentWarm,
+                  ),
+                ),
+                Text(
+                  next == null
+                      ? l10n.academyAllDone
+                      : lessonTitle(l10n, next.id),
+                  style: textTheme.titleMedium,
+                ),
+                if (next != null)
+                  Text(
+                    l10n.lessonOf(lessonIndex(next.id) + 1, total),
+                    style: textTheme.bodySmall?.copyWith(
+                      color: AppColors.textSecondary,
+                    ),
+                  ),
+              ],
+            ),
+          ),
           const Icon(Icons.arrow_forward_ios_rounded, size: 16),
         ],
       ),

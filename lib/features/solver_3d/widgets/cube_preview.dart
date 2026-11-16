@@ -5,10 +5,18 @@ import '../render/cube_painter.dart';
 
 /// Lightweight non-interactive cube render, optionally spinning slowly.
 class CubePreview extends StatefulWidget {
-  const CubePreview({super.key, required this.size, this.spin = false});
+  const CubePreview({
+    super.key,
+    required this.size,
+    this.spin = false,
+    this.cube,
+  });
 
   final int size;
   final bool spin;
+
+  /// State to show (e.g. a pattern); solved when null.
+  final CubeState? cube;
 
   @override
   State<CubePreview> createState() => _CubePreviewState();
@@ -24,7 +32,7 @@ class _CubePreviewState extends State<CubePreview>
     vsync: this,
     duration: _fullSpin,
   );
-  late CubeState _cube = CubeState.solved(widget.size);
+  late CubeState _cube = widget.cube ?? CubeState.solved(widget.size);
 
   @override
   void initState() {
@@ -35,7 +43,9 @@ class _CubePreviewState extends State<CubePreview>
   @override
   void didUpdateWidget(CubePreview oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.size != widget.size) _cube = CubeState.solved(widget.size);
+    if (oldWidget.size != widget.size || oldWidget.cube != widget.cube) {
+      _cube = widget.cube ?? CubeState.solved(widget.size);
+    }
     if (widget.spin && !_spin.isAnimating) {
       _spin.repeat();
     } else if (!widget.spin && _spin.isAnimating) {

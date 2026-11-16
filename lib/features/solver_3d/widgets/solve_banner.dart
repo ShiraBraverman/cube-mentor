@@ -4,6 +4,7 @@ import 'package:material_ui/material_ui.dart';
 import '../../../core/cube/facelets.dart';
 import '../../../core/cube/cube_state.dart';
 import '../../../core/l10n/generated/app_localizations.dart';
+import '../../../core/l10n/move_words.dart';
 import '../../../core/solver/solve_step.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/glass.dart';
@@ -102,6 +103,16 @@ class SolveBanner extends ConsumerWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 2),
+                Text(
+                  describeMove(l10n, move, size),
+                  key: const ValueKey('solve-move-words'),
+                  style: textTheme.bodySmall?.copyWith(
+                    color: AppColors.accentSecondary,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
                 Text(
                   wholeCube ? l10n.guideRotateHint : l10n.guideSwipeHint,
                   style: secondary,
@@ -204,6 +215,12 @@ String solvePhaseTitle(AppLocalizations l10n, String phase) => switch (phase) {
   'lblYellowEdges' => l10n.phaseLblYellowEdges,
   'lblYellowCorners' => l10n.phaseLblYellowCorners,
   'lblYellowCornersOrient' => l10n.phaseLblYellowCornersOrient,
+  'reductionCenters' => l10n.phaseReductionCenters,
+  'reductionEdges' => l10n.phaseReductionEdges,
+  'reductionEdgeParity' => l10n.phaseReductionEdgeParity,
+  'reductionOllParity' => l10n.phaseReductionOllParity,
+  'reductionPllParity' => l10n.phaseReductionPllParity,
+  'pattern' => l10n.phasePattern,
   _ => phase,
 };
 
@@ -231,6 +248,14 @@ String solveExplanation(AppLocalizations l10n, SolveStep step) {
     'lblNextCorner' => l10n.explainLblNextCorner,
     'lblCornerTwist' => l10n.explainLblCornerTwist,
     'lblFinalAlign' => l10n.explainLblFinalAlign,
+    'reductionCenterBlock' => l10n.explainReductionCenterBlock,
+    'reductionCenterCycle' => l10n.explainReductionCenterCycle(piece),
+    'reductionParityCenters' => l10n.explainReductionParityCenters,
+    'reductionEdgeCycle' => l10n.explainReductionEdgeCycle(piece),
+    'reductionEdgeParity' => l10n.explainReductionEdgeParity,
+    'reductionOllParity' => l10n.explainReductionOllParity,
+    'reductionPllParity' => l10n.explainReductionPllParity,
+    'patternStep' => l10n.explainPatternStep,
     _ => '',
   };
 }

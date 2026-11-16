@@ -6,6 +6,7 @@
 #include <string>
 #include <vector>
 
+#include "solver/scramble.hpp"
 #include "solver/solver.hpp"
 #include "vision/scanner.hpp"
 
@@ -24,10 +25,10 @@ bool scannableSize(int32_t size) { return size >= 2 && size <= 7; }
 
 extern "C" {
 
-CM_API const char* cm_version(void) { return "1.0.0"; }
+CM_API const char* cm_version(void) { return "1.1.0"; }
 
 CM_API int32_t cm_prepare(int32_t size) {
-  if (size != 2 && size != 3) return -1;
+  if (size < 2 || size > 6) return -1;
   try {
     cm::prepareSolvers(size);
   } catch (const std::exception&) {
@@ -51,6 +52,16 @@ CM_API int32_t cm_solve(int32_t size, int32_t method, const char* facelets, char
     json = R"({"ok":false,"error":"internal"})";
   }
   return writeJson(json, out, capacity);
+}
+
+CM_API int32_t cm_scramble(int32_t size, uint32_t seed, char* out, int32_t capacity) {
+  std::string text;
+  try {
+    text = cm::makeScramble(size, seed);
+  } catch (const std::exception&) {
+    text.clear();
+  }
+  return writeJson(text, out, capacity);
 }
 
 CM_API int32_t cm_scan_classify(int32_t size, const uint8_t* rgb, char* out, int32_t capacity) {

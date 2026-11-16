@@ -14,7 +14,7 @@ class NativeCubeSolver implements CubeSolver {
   @override
   bool supports(int size, SolveMethod method) => switch (size) {
     2 => method == SolveMethod.fast,
-    3 => true,
+    3 || 4 || 5 || 6 => true,
     _ => false,
   };
 

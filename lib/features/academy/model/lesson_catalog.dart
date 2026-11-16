@@ -1,0 +1,480 @@
+// Lesson catalogue (generated from the lesson table; texts live in the
+// ARB files so every lesson is fully localized).
+import '../../../core/cube/cube_state.dart';
+import '../../../core/l10n/generated/app_localizations.dart';
+import 'lesson.dart';
+
+/// Every lesson, in teaching order.
+const List<Lesson> kLessons = [
+  Lesson(
+    id: 'basics',
+    track: LessonTrack.beginner,
+    size: 3,
+    steps: [
+      LessonStep(
+        'basicsPieces',
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'basicsFaces',
+        demo: "R R' U U' F F'",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'basicsPrime',
+        demo: "R' U2",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'cross',
+    track: LessonTrack.beginner,
+    size: 3,
+    steps: [
+      LessonStep(
+        'crossGoal',
+        setup: "z2",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'crossTop',
+        setup: "z2",
+        demo: "U F2",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'crossMiddle',
+        setup: "z2",
+        demo: "R U R' F2",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'corners',
+    track: LessonTrack.beginner,
+    size: 3,
+    steps: [
+      LessonStep(
+        'cornersInsert',
+        setup: "z2",
+        demo: "U R U' R'",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'cornersRepeat',
+        setup: "z2",
+        demo: "R U R' U' R U R' U' R U R' U'",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'middle',
+    track: LessonTrack.beginner,
+    size: 3,
+    steps: [
+      LessonStep(
+        'middleRight',
+        setup: "z2",
+        demo: "U R U' R' U' F' U F",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'middleLeft',
+        setup: "z2",
+        demo: "U' L' U L U F U' F'",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'lastLayer',
+    track: LessonTrack.beginner,
+    size: 3,
+    steps: [
+      LessonStep(
+        'yellowCross',
+        setup: "z2",
+        demo: "F R U R' U' F'",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'yellowEdges',
+        setup: "z2",
+        demo: "R U R' U R U2 R' U",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'lastCorners',
+    track: LessonTrack.beginner,
+    size: 3,
+    steps: [
+      LessonStep(
+        'placeCorners',
+        setup: "z2",
+        demo: "U R U' L' U R' U' L",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'twistCorners',
+        setup: "z2",
+        demo:
+            "R' D' R D R' D' R D U R' D' R D R' D' R D R' D' R D R' D' R D U'",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'cfopIntro',
+    track: LessonTrack.cfop,
+    size: 3,
+    steps: [
+      LessonStep(
+        'cfopOverview',
+        setup: "z2",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'cfopCross',
+        setup: "z2",
+        demo: "R2 D F2",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'f2l',
+    track: LessonTrack.cfop,
+    size: 3,
+    advanced: true,
+    steps: [
+      LessonStep(
+        'f2lRight',
+        setup: "z2",
+        demo: "U R U' R'",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'f2lLeft',
+        setup: "z2",
+        demo: "y' U' L' U L y",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'oll',
+    track: LessonTrack.cfop,
+    size: 3,
+    advanced: true,
+    steps: [
+      LessonStep(
+        'ollCross',
+        setup: "z2",
+        demo: "F R U R' U' F'",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'ollSune',
+        setup: "z2",
+        demo: "R U R' U R U2 R'",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'pll',
+    track: LessonTrack.cfop,
+    size: 3,
+    advanced: true,
+    steps: [
+      LessonStep(
+        'pllT',
+        setup: "z2",
+        demo: "R U R' U' R' F R2 U' R' U' R U R' F'",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'pllU',
+        setup: "z2",
+        demo: "R U' R U R U R U' R' U' R2",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'twoFirst',
+    track: LessonTrack.twoByTwo,
+    size: 2,
+    steps: [
+      LessonStep(
+        'twoIntro',
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'twoCorner',
+        setup: "z2",
+        demo: "U R U' R'",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'twoOll',
+    track: LessonTrack.twoByTwo,
+    size: 2,
+    steps: [
+      LessonStep(
+        'twoSune',
+        setup: "z2",
+        demo: "R U R' U R U2 R'",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'twoPbl',
+    track: LessonTrack.twoByTwo,
+    size: 2,
+    advanced: true,
+    steps: [
+      LessonStep(
+        'twoAdjacent',
+        setup: "z2",
+        demo: "R U R' U' R' F R2 U' R' U' R U R' F'",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'twoDiagonal',
+        setup: "z2",
+        demo: "F R U' R' U' R U R' F' R U R' U' R' F R F'",
+        top: StickerColor.yellow,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'bigIntro',
+    track: LessonTrack.bigCubes,
+    size: 4,
+    steps: [
+      LessonStep(
+        'bigPieces',
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'bigSlices',
+        demo: "Rw Rw' 2R 2R'",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'bigCenters',
+    track: LessonTrack.bigCubes,
+    size: 4,
+    advanced: true,
+    steps: [
+      LessonStep(
+        'bigCenterCycle',
+        demo: "2R U' 2L' U 2R' U' 2L U",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'bigEdges',
+    track: LessonTrack.bigCubes,
+    size: 4,
+    advanced: true,
+    steps: [
+      LessonStep(
+        'bigEdgePair',
+        demo: "Uw' R U R' F R' F' R Uw",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'bigParity',
+    track: LessonTrack.bigCubes,
+    size: 4,
+    advanced: true,
+    steps: [
+      LessonStep(
+        'bigOllParity',
+        demo: "Rw U2 x Rw U2 Rw U2 Rw' U2 Lw U2 Rw' U2 Rw U2 Rw' U2 Rw'",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'bigPllParity',
+        demo: "2R2 U2 2R2 Uw2 2R2 Uw2",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+];
+
+/// Localized title of a lesson.
+String lessonTitle(AppLocalizations l10n, String id) => switch (id) {
+  'basics' => l10n.lessonBasics,
+  'cross' => l10n.lessonCross,
+  'corners' => l10n.lessonCorners,
+  'middle' => l10n.lessonMiddle,
+  'lastLayer' => l10n.lessonLastLayer,
+  'lastCorners' => l10n.lessonLastCorners,
+  'cfopIntro' => l10n.lessonCfopIntro,
+  'f2l' => l10n.lessonF2l,
+  'oll' => l10n.lessonOll,
+  'pll' => l10n.lessonPll,
+  'twoFirst' => l10n.lessonTwoFirst,
+  'twoOll' => l10n.lessonTwoOll,
+  'twoPbl' => l10n.lessonTwoPbl,
+  'bigIntro' => l10n.lessonBigIntro,
+  'bigCenters' => l10n.lessonBigCenters,
+  'bigEdges' => l10n.lessonBigEdges,
+  'bigParity' => l10n.lessonBigParity,
+  _ => id,
+};
+
+/// Localized one-line summary of a lesson.
+String lessonDescription(AppLocalizations l10n, String id) => switch (id) {
+  'basics' => l10n.lessonBasicsDesc,
+  'cross' => l10n.lessonCrossDesc,
+  'corners' => l10n.lessonCornersDesc,
+  'middle' => l10n.lessonMiddleDesc,
+  'lastLayer' => l10n.lessonLastLayerDesc,
+  'lastCorners' => l10n.lessonLastCornersDesc,
+  'cfopIntro' => l10n.lessonCfopIntroDesc,
+  'f2l' => l10n.lessonF2lDesc,
+  'oll' => l10n.lessonOllDesc,
+  'pll' => l10n.lessonPllDesc,
+  'twoFirst' => l10n.lessonTwoFirstDesc,
+  'twoOll' => l10n.lessonTwoOllDesc,
+  'twoPbl' => l10n.lessonTwoPblDesc,
+  'bigIntro' => l10n.lessonBigIntroDesc,
+  'bigCenters' => l10n.lessonBigCentersDesc,
+  'bigEdges' => l10n.lessonBigEdgesDesc,
+  'bigParity' => l10n.lessonBigParityDesc,
+  _ => id,
+};
+
+/// Localized title of a lesson step.
+String lessonStepTitle(AppLocalizations l10n, String id) => switch (id) {
+  'basicsPieces' => l10n.stepBasicsPieces,
+  'basicsFaces' => l10n.stepBasicsFaces,
+  'basicsPrime' => l10n.stepBasicsPrime,
+  'crossGoal' => l10n.stepCrossGoal,
+  'crossTop' => l10n.stepCrossTop,
+  'crossMiddle' => l10n.stepCrossMiddle,
+  'cornersInsert' => l10n.stepCornersInsert,
+  'cornersRepeat' => l10n.stepCornersRepeat,
+  'middleRight' => l10n.stepMiddleRight,
+  'middleLeft' => l10n.stepMiddleLeft,
+  'yellowCross' => l10n.stepYellowCross,
+  'yellowEdges' => l10n.stepYellowEdges,
+  'placeCorners' => l10n.stepPlaceCorners,
+  'twistCorners' => l10n.stepTwistCorners,
+  'cfopOverview' => l10n.stepCfopOverview,
+  'cfopCross' => l10n.stepCfopCross,
+  'f2lRight' => l10n.stepF2lRight,
+  'f2lLeft' => l10n.stepF2lLeft,
+  'ollCross' => l10n.stepOllCross,
+  'ollSune' => l10n.stepOllSune,
+  'pllT' => l10n.stepPllT,
+  'pllU' => l10n.stepPllU,
+  'twoIntro' => l10n.stepTwoIntro,
+  'twoCorner' => l10n.stepTwoCorner,
+  'twoSune' => l10n.stepTwoSune,
+  'twoAdjacent' => l10n.stepTwoAdjacent,
+  'twoDiagonal' => l10n.stepTwoDiagonal,
+  'bigPieces' => l10n.stepBigPieces,
+  'bigSlices' => l10n.stepBigSlices,
+  'bigCenterCycle' => l10n.stepBigCenterCycle,
+  'bigEdgePair' => l10n.stepBigEdgePair,
+  'bigOllParity' => l10n.stepBigOllParity,
+  'bigPllParity' => l10n.stepBigPllParity,
+  _ => id,
+};
+
+/// Localized explanation of a lesson step.
+String lessonStepBody(AppLocalizations l10n, String id) => switch (id) {
+  'basicsPieces' => l10n.stepBasicsPiecesBody,
+  'basicsFaces' => l10n.stepBasicsFacesBody,
+  'basicsPrime' => l10n.stepBasicsPrimeBody,
+  'crossGoal' => l10n.stepCrossGoalBody,
+  'crossTop' => l10n.stepCrossTopBody,
+  'crossMiddle' => l10n.stepCrossMiddleBody,
+  'cornersInsert' => l10n.stepCornersInsertBody,
+  'cornersRepeat' => l10n.stepCornersRepeatBody,
+  'middleRight' => l10n.stepMiddleRightBody,
+  'middleLeft' => l10n.stepMiddleLeftBody,
+  'yellowCross' => l10n.stepYellowCrossBody,
+  'yellowEdges' => l10n.stepYellowEdgesBody,
+  'placeCorners' => l10n.stepPlaceCornersBody,
+  'twistCorners' => l10n.stepTwistCornersBody,
+  'cfopOverview' => l10n.stepCfopOverviewBody,
+  'cfopCross' => l10n.stepCfopCrossBody,
+  'f2lRight' => l10n.stepF2lRightBody,
+  'f2lLeft' => l10n.stepF2lLeftBody,
+  'ollCross' => l10n.stepOllCrossBody,
+  'ollSune' => l10n.stepOllSuneBody,
+  'pllT' => l10n.stepPllTBody,
+  'pllU' => l10n.stepPllUBody,
+  'twoIntro' => l10n.stepTwoIntroBody,
+  'twoCorner' => l10n.stepTwoCornerBody,
+  'twoSune' => l10n.stepTwoSuneBody,
+  'twoAdjacent' => l10n.stepTwoAdjacentBody,
+  'twoDiagonal' => l10n.stepTwoDiagonalBody,
+  'bigPieces' => l10n.stepBigPiecesBody,
+  'bigSlices' => l10n.stepBigSlicesBody,
+  'bigCenterCycle' => l10n.stepBigCenterCycleBody,
+  'bigEdgePair' => l10n.stepBigEdgePairBody,
+  'bigOllParity' => l10n.stepBigOllParityBody,
+  'bigPllParity' => l10n.stepBigPllParityBody,
+  _ => id,
+};
+
+/// Localized name of a track.
+String trackTitle(AppLocalizations l10n, LessonTrack track) => switch (track) {
+  LessonTrack.beginner => l10n.trackBeginner,
+  LessonTrack.cfop => l10n.trackCfop,
+  LessonTrack.twoByTwo => l10n.trackTwoByTwo,
+  LessonTrack.bigCubes => l10n.trackBigCubes,
+};

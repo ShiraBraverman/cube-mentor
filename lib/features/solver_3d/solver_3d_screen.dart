@@ -8,6 +8,7 @@ import '../../core/solver/solve_step.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
 import 'model/cube_session.dart';
+import 'model/guide_script.dart';
 import 'widgets/cube_viewport.dart';
 import 'widgets/move_pad.dart';
 import 'widgets/solve_banner.dart';
@@ -20,6 +21,9 @@ class Solver3DScreen extends ConsumerStatefulWidget {
     required this.size,
     this.initialCube,
     this.autoSolve,
+    this.guide,
+    this.title,
+    this.onSolved,
   });
 
   final int size;
@@ -30,12 +34,23 @@ class Solver3DScreen extends ConsumerStatefulWidget {
   /// Solve [initialCube] right away with this method.
   final SolveMethod? autoSolve;
 
+  /// Moves to guide through from the start (e.g. a pattern), with the
+  /// playback controls and arrows of a solution.
+  final GuideScript? guide;
+
+  /// App bar title; defaults to the playground title.
+  final String? title;
+
+  /// Called once when the user turns [initialCube] into a solved cube.
+  final VoidCallback? onSolved;
+
   @override
   ConsumerState<Solver3DScreen> createState() => _Solver3DScreenState();
 }
 
 class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
   bool _showPad = false;
+  bool _reportedSolved = false;
 
   @override
   void initState() {
@@ -51,6 +66,20 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
           ..load(cube);
         final method = widget.autoSolve;
         if (method != null && !cube.isSolved) controller.solve(method);
+      });
+    }
+    final guide = widget.guide;
+    if (guide != null) {
+      Future.microtask(() {
+        if (!mounted) return;
+        ref
+            .read(cubeSessionProvider(widget.size).notifier)
+            .loadGuide(
+              guide.start,
+              guide.moves,
+              phase: guide.phase,
+              explanation: guide.explanation,
+            );
       });
     }
   }
@@ -94,10 +123,23 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
         );
     });
 
+    // The user solved the cube they started from (e.g. the daily scramble).
+    ref.listen(
+      cubeSessionProvider(size).select((s) => s.isIdle && s.cube.isSolved),
+      (previous, next) {
+        final onSolved = widget.onSolved;
+        if (onSolved == null || _reportedSolved) return;
+        if (previous == false && next) {
+          _reportedSolved = true;
+          onSolved();
+        }
+      },
+    );
+
     return GlassBackground(
       child: Scaffold(
         appBar: AppBar(
-          title: Text(l10n.playgroundTitle(size)),
+          title: Text(widget.title ?? l10n.playgroundTitle(size)),
           actions: [
             _StatusPill(
               label: solved ? l10n.solved : l10n.scrambled,
@@ -374,7 +416,7 @@ extension on _ActionBar {
       final choice = await showModalBottomSheet<SolveMethod>(
         context: context,
         backgroundColor: Colors.transparent,
-        builder: (_) => const _SolveMethodSheet(),
+        builder: (_) => _SolveMethodSheet(size: size),
       );
       if (choice == null) return;
       method = choice;
@@ -385,7 +427,9 @@ extension on _ActionBar {
 
 /// Lets the user pick between the fast solver and the guided method.
 class _SolveMethodSheet extends StatelessWidget {
-  const _SolveMethodSheet();
+  const _SolveMethodSheet({required this.size});
+
+  final int size;
 
   @override
   Widget build(BuildContext context) {
@@ -439,7 +483,7 @@ class _SolveMethodSheet extends StatelessWidget {
                 const ValueKey('solve-fast'),
                 Icons.bolt_rounded,
                 l10n.solveFast,
-                l10n.solveFastDesc,
+                size >= 4 ? l10n.solveFastBigDesc : l10n.solveFastDesc,
                 SolveMethod.fast,
                 AppColors.accent,
               ),
@@ -448,7 +492,7 @@ class _SolveMethodSheet extends StatelessWidget {
                 const ValueKey('solve-learn'),
                 Icons.school_rounded,
                 l10n.solveLearn,
-                l10n.solveLearnDesc,
+                size >= 4 ? l10n.solveLearnBigDesc : l10n.solveLearnDesc,
                 SolveMethod.layerByLayer,
                 AppColors.accentSecondary,
               ),

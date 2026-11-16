@@ -127,13 +127,14 @@ class MoveParseException implements FormatException {
 /// * Face turns: `R`, `U'`, `F2`
 /// * Wide turns: `Rw` (2 layers), `3Rw` (3 layers), lowercase `r` (= `Rw`)
 /// * Single inner slices: `2R`, `3U'`
+/// * Inner blocks: `2-3Rw` (layers 2 to 3 counted from R)
 /// * Middle slices on odd cubes: `M`, `E`, `S`
 /// * Whole-cube rotations: `x`, `y`, `z`
 class MoveNotation {
   MoveNotation._();
 
   static final RegExp _token = RegExp(
-    r"^(\d+)?([UDLRFBudlrfbMESxyz])(w)?(2'|2|')?$",
+    r"^(?:(\d+)-)?(\d+)?([UDLRFBudlrfbMESxyz])(w)?(2'|2|')?$",
   );
 
   /// Parses a whitespace-separated move sequence.
@@ -149,10 +150,14 @@ class MoveNotation {
     final match = _token.firstMatch(token);
     if (match == null) throw MoveParseException('Unknown move', token);
 
-    final prefix = match.group(1);
-    final letter = match.group(2)!;
-    final isWide = match.group(3) != null;
-    final suffix = match.group(4) ?? '';
+    final blockNear = match.group(1);
+    final prefix = match.group(2);
+    final letter = match.group(3)!;
+    final isWide = match.group(4) != null;
+    final suffix = match.group(5) ?? '';
+    if (blockNear != null && (prefix == null || !isWide)) {
+      throw MoveParseException('Inner blocks are written like 2-3Rw', token);
+    }
 
     // Clockwise turns count as one quarter turn in the face's own frame.
     final turnsInFaceFrame = switch (suffix) {
@@ -172,8 +177,15 @@ class MoveNotation {
         'y' => CubeFace.up,
         _ => CubeFace.front,
       };
-      return _build(face, 0, size - 1, turnsInFaceFrame, token, size,
-          rangeIsAbsolute: true);
+      return _build(
+        face,
+        0,
+        size - 1,
+        turnsInFaceFrame,
+        token,
+        size,
+        rangeIsAbsolute: true,
+      );
     }
 
     // Middle slices follow L (M), D (E) and F (S); odd cubes only.
@@ -190,8 +202,15 @@ class MoveNotation {
         _ => CubeFace.front,
       };
       final middle = size ~/ 2;
-      return _build(face, middle, middle, turnsInFaceFrame, token, size,
-          rangeIsAbsolute: true);
+      return _build(
+        face,
+        middle,
+        middle,
+        turnsInFaceFrame,
+        token,
+        size,
+        rangeIsAbsolute: true,
+      );
     }
 
     final isLowercaseWide = letter.toLowerCase() == letter;
@@ -204,7 +223,13 @@ class MoveNotation {
     // Depths are 1-based counts measured from the face inward.
     int nearDepth;
     int farDepth;
-    if (wide) {
+    if (blockNear != null) {
+      nearDepth = int.parse(blockNear);
+      farDepth = depthPrefix!;
+      if (isLowercaseWide || nearDepth < 1 || nearDepth >= farDepth) {
+        throw MoveParseException('Bad inner block', token);
+      }
+    } else if (wide) {
       nearDepth = 1;
       farDepth = depthPrefix ?? 2;
     } else {
@@ -212,16 +237,25 @@ class MoveNotation {
       farDepth = nearDepth;
     }
     if (nearDepth < 1 || farDepth > size || (wide && farDepth < 2)) {
-      throw MoveParseException('Layer depth out of range for ${size}x$size',
-          token);
+      throw MoveParseException(
+        'Layer depth out of range for ${size}x$size',
+        token,
+      );
     }
-    return _build(face, nearDepth - 1, farDepth - 1, turnsInFaceFrame, token,
-        size);
+    return _build(
+      face,
+      nearDepth - 1,
+      farDepth - 1,
+      turnsInFaceFrame,
+      token,
+      size,
+    );
   }
 
   /// Names an arbitrary geometric layer turn in standard notation, e.g. a
   /// turn produced by a touch gesture. Supports single layers, wide turns
-  /// anchored at a face, middle slices and whole-cube rotations.
+  /// anchored at a face, inner blocks, middle slices and whole-cube
+  /// rotations.
   static CubeMove describe({
     required int axis,
     required int fromLayer,
@@ -261,7 +295,12 @@ class MoveNotation {
       final face = positive ? positiveFaces[axis] : negativeFaces[axis];
       token = '${depth == 2 ? '' : depth}${face}w${suffix(positive)}';
     } else {
-      throw ArgumentError('Layers $fromLayer..$toLayer have no notation');
+      // Inner block, named from the nearer face.
+      final positive = fromLayer + toLayer >= size - 1;
+      final near = positive ? size - toLayer : fromLayer + 1;
+      final far = positive ? size - fromLayer : toLayer + 1;
+      final face = positive ? positiveFaces[axis] : negativeFaces[axis];
+      token = '$near-$far${face}w${suffix(positive)}';
     }
     return parse(token, size);
   }

@@ -292,5 +292,354 @@
   "scanCancelRescan": "Back to the colors",
   "scanPaletteTitle": "Pick a color",
   "scanOpen3d": "Open in 3D",
-  "scanRestart": "Start over"
+  "scanRestart": "Start over",
+  "modeTimer": "Speed timer",
+  "modeTimerDesc": "Scrambles, inspection, averages and personal bests.",
+  "modeDaily": "Daily challenge",
+  "modeDailyDesc": "A new scramble every day. Keep your streak alive.",
+  "modePatterns": "Pattern library",
+  "modePatternsDesc": "Checkerboards, superflip and more, played in 3D.",
+  "streakDays": "{count, plural, =1{1-day streak} other{{count}-day streak}}",
+  "@streakDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "continueLearning": "Continue learning",
+  "startLearning": "Start learning",
+  "lessonOf": "Lesson {index} of {total}",
+  "@lessonOf": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "academyAllDone": "Every lesson completed!",
+  "academyTitle": "Academy",
+  "academyProgress": "{done} of {total} lessons completed",
+  "@academyProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "lessonAdvanced": "Advanced",
+  "lessonDone": "Done",
+  "lessonPartOf": "Part {index} of {total}",
+  "@lessonPartOf": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "lessonBack": "Back",
+  "lessonNext": "Next",
+  "lessonFinish": "Finish lesson",
+  "lessonComplete": "Lesson complete!",
+  "lessonNextLesson": "Next lesson",
+  "lessonBackToAcademy": "Back to the Academy",
+  "lessonShowMe": "Show me",
+  "lessonTryIt": "Your turn: swipe the layer the arrow shows, or tap Show me.",
+  "lessonLookAround": "Drag the background to look at the cube from every side.",
+  "lessonDemoDone": "Nice! Tap Next to continue.",
+  "holdPrompt": "Hold the cube with the {top} center on top and the {front} center facing you.",
+  "@holdPrompt": {
+    "placeholders": {
+      "top": {
+        "type": "String"
+      },
+      "front": {
+        "type": "String"
+      }
+    }
+  },
+  "trackBeginner": "Beginner 3×3 (layer by layer)",
+  "trackCfop": "Intro to CFOP",
+  "trackTwoByTwo": "2×2 beginner & Ortega",
+  "trackBigCubes": "Big cubes: reduction & parity",
+  "moveSentence": "Turn {layer} {direction}",
+  "@moveSentence": {
+    "placeholders": {
+      "layer": {
+        "type": "String"
+      },
+      "direction": {
+        "type": "String"
+      }
+    }
+  },
+  "moveFaceR": "the right face",
+  "moveFaceL": "the left face",
+  "moveFaceU": "the top face",
+  "moveFaceD": "the bottom face",
+  "moveFaceF": "the front face",
+  "moveFaceB": "the back face",
+  "moveLayerInner": "layer {depth} from {face}",
+  "@moveLayerInner": {
+    "placeholders": {
+      "depth": {
+        "type": "int"
+      },
+      "face": {
+        "type": "String"
+      }
+    }
+  },
+  "moveLayerWide": "{face} ({depth} layers deep)",
+  "@moveLayerWide": {
+    "placeholders": {
+      "depth": {
+        "type": "int"
+      },
+      "face": {
+        "type": "String"
+      }
+    }
+  },
+  "moveLayerBlock": "layers {near}–{far} from {face}",
+  "@moveLayerBlock": {
+    "placeholders": {
+      "near": {
+        "type": "int"
+      },
+      "far": {
+        "type": "int"
+      },
+      "face": {
+        "type": "String"
+      }
+    }
+  },
+  "moveLayerMiddle": "the middle layer",
+  "moveDirUp": "up",
+  "moveDirDown": "down",
+  "moveDirLeft": "to the left",
+  "moveDirRight": "to the right",
+  "moveDirClockwise": "clockwise",
+  "moveDirCounter": "counter-clockwise",
+  "moveDirBackClockwise": "clockwise, as seen from the back",
+  "moveDirBackCounter": "counter-clockwise, as seen from the back",
+  "moveDirHalf": "half a turn (twice)",
+  "moveRotateX": "Tilt the whole cube: the front goes up to the top",
+  "moveRotateXPrime": "Tilt the whole cube: the front goes down to the bottom",
+  "moveRotateX2": "Flip the whole cube over: the front goes to the back",
+  "moveRotateY": "Spin the whole cube: the front goes to the left",
+  "moveRotateYPrime": "Spin the whole cube: the front goes to the right",
+  "moveRotateY2": "Spin the whole cube half a turn: the back comes to the front",
+  "moveRotateZ": "Roll the whole cube clockwise: the top goes to the right",
+  "moveRotateZPrime": "Roll the whole cube counter-clockwise: the top goes to the left",
+  "moveRotateZ2": "Roll the whole cube upside down: the top goes to the bottom",
+  "phaseReductionCenters": "Centers",
+  "phaseReductionEdges": "Pair the edges",
+  "phaseReductionEdgeParity": "Edge parity",
+  "phaseReductionOllParity": "OLL parity",
+  "phaseReductionPllParity": "PLL parity",
+  "explainReductionCenterBlock": "Slice turns that bring several center pieces home at once.",
+  "explainReductionCenterCycle": "Bring a {piece} center piece to its face with a 3-cycle that leaves finished centers alone.",
+  "@explainReductionCenterCycle": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "explainReductionParityCenters": "Rebuild the centers that the parity slice turn moved.",
+  "explainReductionEdgeCycle": "Join the {piece} edge pieces with a 3-cycle; the centers stay solved.",
+  "@explainReductionEdgeCycle": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "explainReductionEdgeParity": "The last edges can't be paired with 3-cycles alone (edge parity). One inner-slice turn fixes that.",
+  "explainReductionOllParity": "OLL parity: one edge is flipped, which can't happen on a 3×3. This algorithm flips it back.",
+  "explainReductionPllParity": "PLL parity: two edges are swapped, impossible on a 3×3. This algorithm swaps them back.",
+  "solveFastBigDesc": "Reduction: centers, edges and parity, then Kociemba",
+  "solveLearnBigDesc": "Reduction finished with the beginner's layer-by-layer method",
+  "patternsTitle": "Pattern library",
+  "patternsHint": "Tap a pattern to watch it, then follow along on your own cube.",
+  "patternCheckerboard": "Checkerboard",
+  "patternCubeInCube": "Cube in a cube",
+  "patternSuperflip": "Superflip",
+  "patternDots": "Dots",
+  "patternCross": "Cross",
+  "patternPython": "Python",
+  "phasePattern": "Make the pattern",
+  "explainPatternStep": "Follow each move on your own cube. Tap Solve to bring it back to normal.",
+  "patternTitle": "{name} · {size}×{size}",
+  "@patternTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "timerTitle": "Speed timer",
+  "timerHoldToStart": "Hold, then release to start",
+  "timerReleaseToStart": "Release to start",
+  "timerTapToStop": "Tap anywhere to stop",
+  "timerInspecting": "Inspection: hold, then release to start",
+  "timerTapToInspect": "Tap to start the 15-second inspection",
+  "timerInspectionToggle": "15 s inspection",
+  "timerNewScramble": "New scramble",
+  "timerLoadingScramble": "Generating a scramble…",
+  "timerPb": "Best",
+  "timerSolves": "Solves",
+  "timerPlus2": "+2",
+  "timerDnf": "DNF",
+  "timerDelete": "Delete",
+  "timerHistory": "History",
+  "timerNoSolves": "No solves yet. Scramble your cube and go!",
+  "timerNewPb": "New personal best!",
+  "timerClearHistory": "Clear history",
+  "timerScrambleHint": "Hold white on top and green in front, then scramble:",
+  "dailyTitle": "Daily challenge",
+  "dailyFor": "Challenge for {date}",
+  "@dailyFor": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "dailyBestStreak": "Best streak: {count}",
+  "@dailyBestStreak": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dailyDone": "Done for today! Come back tomorrow.",
+  "dailyNotDone": "Solve today's scramble to keep your streak.",
+  "dailySolveVirtual": "Solve on the 3D cube",
+  "dailyTimeIt": "Time it on your cube",
+  "dailyHint": "Hint",
+  "dailyHintText": "Start with the white cross: {moves}",
+  "@dailyHintText": {
+    "placeholders": {
+      "moves": {
+        "type": "String"
+      }
+    }
+  },
+  "dailyHintFailed": "No hint is available right now.",
+  "lessonBasics": "Meet the cube",
+  "lessonBasicsDesc": "Pieces, faces and move names.",
+  "stepBasicsPieces": "Three kinds of pieces",
+  "stepBasicsPiecesBody": "Centers never move and give each face its color. Edges have two colors, corners have three. Solving means moving every edge and corner next to the centers that match.",
+  "stepBasicsFaces": "Six face letters",
+  "stepBasicsFacesBody": "R, L, U, D, F and B are the right, left, up, down, front and back faces. A letter alone means a clockwise quarter turn, as if you looked straight at that face.",
+  "stepBasicsPrime": "Prime and double turns",
+  "stepBasicsPrimeBody": "An apostrophe (R') turns the other way, counter-clockwise. A 2 (U2) is a half turn: two quarter turns.",
+  "lessonCross": "White cross",
+  "lessonCrossDesc": "Build a white cross on the bottom.",
+  "stepCrossGoal": "The goal",
+  "stepCrossGoalBody": "Hold yellow on top. The four white edges go around the white center on the bottom, each side color matching the center next to it.",
+  "stepCrossTop": "Edge on top",
+  "stepCrossTopBody": "Find a white edge on top. Turn the top until its side color sits above the matching center, then turn that face twice to drop it in.",
+  "stepCrossMiddle": "Edge in the middle",
+  "stepCrossMiddleBody": "An edge stuck in the middle layer goes up first: turn its side up, move the top out of the way and turn the side back, so the cross stays intact. Then place it from the top.",
+  "lessonCorners": "White corners",
+  "lessonCornersDesc": "Finish the first layer.",
+  "stepCornersInsert": "Above its spot",
+  "stepCornersInsertBody": "Turn the top until a white corner sits above the spot where its colors belong, at the front right. R U R' U' then drops it in.",
+  "stepCornersRepeat": "Repeat the trigger",
+  "stepCornersRepeatBody": "If white faces the wrong way, keep repeating R U R' U' over the same spot. Every corner is solved after at most five repeats.",
+  "lessonMiddle": "Middle layer",
+  "lessonMiddleDesc": "Insert the four middle edges.",
+  "stepMiddleRight": "Edge to the right",
+  "stepMiddleRightBody": "Line up a top edge with its center on the front. If its top color matches the right center, insert it with U R U' R' U' F' U F.",
+  "stepMiddleLeft": "Edge to the left",
+  "stepMiddleLeftBody": "If its top color matches the left center instead, use the mirror: U' L' U L U F U' F'.",
+  "lessonLastLayer": "Yellow cross and edges",
+  "lessonLastLayerDesc": "Make a cross on top and match its edges.",
+  "stepYellowCross": "One algorithm",
+  "stepYellowCrossBody": "F R U R' U' F' turns a yellow dot into an L, an L into a line and a line into the cross. Hold the L at the back left and the line sideways.",
+  "stepYellowEdges": "Match the edges",
+  "stepYellowEdgesBody": "Turn the top until two edges match their centers. With one at the back and one on the right, R U R' U R U2 R' U swaps the other two.",
+  "lessonLastCorners": "Yellow corners",
+  "lessonLastCornersDesc": "Place and twist the last corners.",
+  "stepPlaceCorners": "Place them",
+  "stepPlaceCornersBody": "Hold a corner that is already in its spot at the front right. U R U' L' U R' U' L moves the other three around; repeat until all four are home.",
+  "stepTwistCorners": "Twist them",
+  "stepTwistCornersBody": "With an unsolved corner at the front right, repeat R' D' R D until yellow is on top, then turn only the top to bring the next one. The bottom looks broken until the very end: keep going.",
+  "lessonCfopIntro": "What is CFOP?",
+  "lessonCfopIntroDesc": "Cross, F2L, OLL, PLL.",
+  "stepCfopOverview": "Four stages",
+  "stepCfopOverviewBody": "Speedcubers solve the cross, then pair each first-layer corner with its middle edge (F2L), orient the last layer (OLL) and finally permute it (PLL).",
+  "stepCfopCross": "Plan the cross",
+  "stepCfopCrossBody": "In CFOP the cross is planned during inspection and built on the bottom in about eight moves.",
+  "lessonF2l": "F2L basics",
+  "lessonF2lDesc": "Pair a corner with its edge.",
+  "stepF2lRight": "Insert a pair",
+  "stepF2lRightBody": "When a corner and its edge sit side by side on top, bring them above their slot and insert them together.",
+  "stepF2lLeft": "Left-hand pair",
+  "stepF2lLeftBody": "The same case on the other side is the mirror, U' L' U L. Rotating the cube (y) lets you use whichever hand is easier.",
+  "lessonOll": "Two-look OLL",
+  "lessonOllDesc": "Make the top yellow.",
+  "stepOllCross": "Edges first",
+  "stepOllCrossBody": "Two-look OLL starts with the yellow-cross algorithm you already know.",
+  "stepOllSune": "Sune",
+  "stepOllSuneBody": "With one yellow corner facing up at the front left, Sune (R U R' U R U2 R') orients the other three. Most other cases use Sune and its mirror.",
+  "lessonPll": "Two-look PLL",
+  "lessonPllDesc": "Finish the cube.",
+  "stepPllT": "T-perm",
+  "stepPllTBody": "The T-perm swaps two corners and two edges. Use it to place the corners: hold the two corners that must swap on the right.",
+  "stepPllU": "U-perm",
+  "stepPllUBody": "With the corners done, the U-perm cycles three edges. Keep the finished side at the back.",
+  "lessonTwoFirst": "2×2 first layer",
+  "lessonTwoFirstDesc": "Build one side with matching corners.",
+  "stepTwoIntro": "Only corners",
+  "stepTwoIntroBody": "A 2×2 is a 3×3 without edges and centers. Pick a color, build that face on the bottom, and make the side colors of neighbouring corners match.",
+  "stepTwoCorner": "Insert corners",
+  "stepTwoCornerBody": "Exactly like the 3×3 white corners: bring a corner above its spot and use R U R' U' until it fits.",
+  "lessonTwoOll": "Orient the top",
+  "lessonTwoOllDesc": "Ortega OLL with Sune.",
+  "stepTwoSune": "Sune again",
+  "stepTwoSuneBody": "Sune turns the top yellow on a 2×2 too. Ortega solvers learn seven short cases; Sune and its mirror cover most of them.",
+  "lessonTwoPbl": "Permute both layers",
+  "lessonTwoPblDesc": "Swap corners to finish.",
+  "stepTwoAdjacent": "Adjacent swap",
+  "stepTwoAdjacentBody": "When two neighbouring top corners must swap, hold them on the right and use the T-perm.",
+  "stepTwoDiagonal": "Diagonal swap",
+  "stepTwoDiagonalBody": "Two corners in opposite spots swap with the Y-perm.",
+  "lessonBigIntro": "Big cube pieces",
+  "lessonBigIntroDesc": "Centers, wings and slices.",
+  "stepBigPieces": "No fixed centers",
+  "stepBigPiecesBody": "On a 4×4 each face has four center pieces that move around, and every edge is made of two wings. Reduction groups them so the cube behaves like a 3×3.",
+  "stepBigSlices": "Wide and inner turns",
+  "stepBigSlicesBody": "Rw turns the two right layers together. 2R turns only the second layer from the right. These turns move centers and wings.",
+  "lessonBigCenters": "Centers",
+  "lessonBigCentersDesc": "Group the center pieces.",
+  "stepBigCenterCycle": "A center 3-cycle",
+  "stepBigCenterCycleBody": "This commutator moves exactly three center pieces and leaves everything else alone, so finished centers stay finished.",
+  "lessonBigEdges": "Pair the edges",
+  "lessonBigEdgesDesc": "Join wings into full edges.",
+  "stepBigEdgePair": "Pair and restore",
+  "stepBigEdgePairBody": "Uw' lines two matching wings up, R U R' F R' F' R swaps in an unpaired edge, and Uw puts the centers back.",
+  "lessonBigParity": "Parity",
+  "lessonBigParityDesc": "OLL and PLL parity on even cubes.",
+  "stepBigOllParity": "OLL parity",
+  "stepBigOllParityBody": "A single flipped edge can't happen on a 3×3. On even cubes this algorithm flips the top-front edge back. It may shuffle the rest of the top layer, which the last 3×3 steps fix anyway.",
+  "stepBigPllParity": "PLL parity",
+  "stepBigPllParityBody": "Two swapped edges at the very end? 2R2 U2 2R2 Uw2 2R2 Uw2 swaps the front and back top edges."
 }

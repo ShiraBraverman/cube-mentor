@@ -519,4 +519,737 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get scanRestart => 'Start over';
+
+  @override
+  String get modeTimer => 'Speed timer';
+
+  @override
+  String get modeTimerDesc =>
+      'Scrambles, inspection, averages and personal bests.';
+
+  @override
+  String get modeDaily => 'Daily challenge';
+
+  @override
+  String get modeDailyDesc =>
+      'A new scramble every day. Keep your streak alive.';
+
+  @override
+  String get modePatterns => 'Pattern library';
+
+  @override
+  String get modePatternsDesc =>
+      'Checkerboards, superflip and more, played in 3D.';
+
+  @override
+  String streakDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count-day streak',
+      one: '1-day streak',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get continueLearning => 'Continue learning';
+
+  @override
+  String get startLearning => 'Start learning';
+
+  @override
+  String lessonOf(int index, int total) {
+    return 'Lesson $index of $total';
+  }
+
+  @override
+  String get academyAllDone => 'Every lesson completed!';
+
+  @override
+  String get academyTitle => 'Academy';
+
+  @override
+  String academyProgress(int done, int total) {
+    return '$done of $total lessons completed';
+  }
+
+  @override
+  String get lessonAdvanced => 'Advanced';
+
+  @override
+  String get lessonDone => 'Done';
+
+  @override
+  String lessonPartOf(int index, int total) {
+    return 'Part $index of $total';
+  }
+
+  @override
+  String get lessonBack => 'Back';
+
+  @override
+  String get lessonNext => 'Next';
+
+  @override
+  String get lessonFinish => 'Finish lesson';
+
+  @override
+  String get lessonComplete => 'Lesson complete!';
+
+  @override
+  String get lessonNextLesson => 'Next lesson';
+
+  @override
+  String get lessonBackToAcademy => 'Back to the Academy';
+
+  @override
+  String get lessonShowMe => 'Show me';
+
+  @override
+  String get lessonTryIt =>
+      'Your turn: swipe the layer the arrow shows, or tap Show me.';
+
+  @override
+  String get lessonLookAround =>
+      'Drag the background to look at the cube from every side.';
+
+  @override
+  String get lessonDemoDone => 'Nice! Tap Next to continue.';
+
+  @override
+  String holdPrompt(String top, String front) {
+    return 'Hold the cube with the $top center on top and the $front center facing you.';
+  }
+
+  @override
+  String get trackBeginner => 'Beginner 3×3 (layer by layer)';
+
+  @override
+  String get trackCfop => 'Intro to CFOP';
+
+  @override
+  String get trackTwoByTwo => '2×2 beginner & Ortega';
+
+  @override
+  String get trackBigCubes => 'Big cubes: reduction & parity';
+
+  @override
+  String moveSentence(String layer, String direction) {
+    return 'Turn $layer $direction';
+  }
+
+  @override
+  String get moveFaceR => 'the right face';
+
+  @override
+  String get moveFaceL => 'the left face';
+
+  @override
+  String get moveFaceU => 'the top face';
+
+  @override
+  String get moveFaceD => 'the bottom face';
+
+  @override
+  String get moveFaceF => 'the front face';
+
+  @override
+  String get moveFaceB => 'the back face';
+
+  @override
+  String moveLayerInner(int depth, String face) {
+    return 'layer $depth from $face';
+  }
+
+  @override
+  String moveLayerWide(int depth, String face) {
+    return '$face ($depth layers deep)';
+  }
+
+  @override
+  String moveLayerBlock(int near, int far, String face) {
+    return 'layers $near–$far from $face';
+  }
+
+  @override
+  String get moveLayerMiddle => 'the middle layer';
+
+  @override
+  String get moveDirUp => 'up';
+
+  @override
+  String get moveDirDown => 'down';
+
+  @override
+  String get moveDirLeft => 'to the left';
+
+  @override
+  String get moveDirRight => 'to the right';
+
+  @override
+  String get moveDirClockwise => 'clockwise';
+
+  @override
+  String get moveDirCounter => 'counter-clockwise';
+
+  @override
+  String get moveDirBackClockwise => 'clockwise, as seen from the back';
+
+  @override
+  String get moveDirBackCounter => 'counter-clockwise, as seen from the back';
+
+  @override
+  String get moveDirHalf => 'half a turn (twice)';
+
+  @override
+  String get moveRotateX => 'Tilt the whole cube: the front goes up to the top';
+
+  @override
+  String get moveRotateXPrime =>
+      'Tilt the whole cube: the front goes down to the bottom';
+
+  @override
+  String get moveRotateX2 =>
+      'Flip the whole cube over: the front goes to the back';
+
+  @override
+  String get moveRotateY => 'Spin the whole cube: the front goes to the left';
+
+  @override
+  String get moveRotateYPrime =>
+      'Spin the whole cube: the front goes to the right';
+
+  @override
+  String get moveRotateY2 =>
+      'Spin the whole cube half a turn: the back comes to the front';
+
+  @override
+  String get moveRotateZ =>
+      'Roll the whole cube clockwise: the top goes to the right';
+
+  @override
+  String get moveRotateZPrime =>
+      'Roll the whole cube counter-clockwise: the top goes to the left';
+
+  @override
+  String get moveRotateZ2 =>
+      'Roll the whole cube upside down: the top goes to the bottom';
+
+  @override
+  String get phaseReductionCenters => 'Centers';
+
+  @override
+  String get phaseReductionEdges => 'Pair the edges';
+
+  @override
+  String get phaseReductionEdgeParity => 'Edge parity';
+
+  @override
+  String get phaseReductionOllParity => 'OLL parity';
+
+  @override
+  String get phaseReductionPllParity => 'PLL parity';
+
+  @override
+  String get explainReductionCenterBlock =>
+      'Slice turns that bring several center pieces home at once.';
+
+  @override
+  String explainReductionCenterCycle(String piece) {
+    return 'Bring a $piece center piece to its face with a 3-cycle that leaves finished centers alone.';
+  }
+
+  @override
+  String get explainReductionParityCenters =>
+      'Rebuild the centers that the parity slice turn moved.';
+
+  @override
+  String explainReductionEdgeCycle(String piece) {
+    return 'Join the $piece edge pieces with a 3-cycle; the centers stay solved.';
+  }
+
+  @override
+  String get explainReductionEdgeParity =>
+      'The last edges can\'t be paired with 3-cycles alone (edge parity). One inner-slice turn fixes that.';
+
+  @override
+  String get explainReductionOllParity =>
+      'OLL parity: one edge is flipped, which can\'t happen on a 3×3. This algorithm flips it back.';
+
+  @override
+  String get explainReductionPllParity =>
+      'PLL parity: two edges are swapped, impossible on a 3×3. This algorithm swaps them back.';
+
+  @override
+  String get solveFastBigDesc =>
+      'Reduction: centers, edges and parity, then Kociemba';
+
+  @override
+  String get solveLearnBigDesc =>
+      'Reduction finished with the beginner\'s layer-by-layer method';
+
+  @override
+  String get patternsTitle => 'Pattern library';
+
+  @override
+  String get patternsHint =>
+      'Tap a pattern to watch it, then follow along on your own cube.';
+
+  @override
+  String get patternCheckerboard => 'Checkerboard';
+
+  @override
+  String get patternCubeInCube => 'Cube in a cube';
+
+  @override
+  String get patternSuperflip => 'Superflip';
+
+  @override
+  String get patternDots => 'Dots';
+
+  @override
+  String get patternCross => 'Cross';
+
+  @override
+  String get patternPython => 'Python';
+
+  @override
+  String get phasePattern => 'Make the pattern';
+
+  @override
+  String get explainPatternStep =>
+      'Follow each move on your own cube. Tap Solve to bring it back to normal.';
+
+  @override
+  String patternTitle(String name, int size) {
+    return '$name · $size×$size';
+  }
+
+  @override
+  String get timerTitle => 'Speed timer';
+
+  @override
+  String get timerHoldToStart => 'Hold, then release to start';
+
+  @override
+  String get timerReleaseToStart => 'Release to start';
+
+  @override
+  String get timerTapToStop => 'Tap anywhere to stop';
+
+  @override
+  String get timerInspecting => 'Inspection: hold, then release to start';
+
+  @override
+  String get timerTapToInspect => 'Tap to start the 15-second inspection';
+
+  @override
+  String get timerInspectionToggle => '15 s inspection';
+
+  @override
+  String get timerNewScramble => 'New scramble';
+
+  @override
+  String get timerLoadingScramble => 'Generating a scramble…';
+
+  @override
+  String get timerPb => 'Best';
+
+  @override
+  String get timerSolves => 'Solves';
+
+  @override
+  String get timerPlus2 => '+2';
+
+  @override
+  String get timerDnf => 'DNF';
+
+  @override
+  String get timerDelete => 'Delete';
+
+  @override
+  String get timerHistory => 'History';
+
+  @override
+  String get timerNoSolves => 'No solves yet. Scramble your cube and go!';
+
+  @override
+  String get timerNewPb => 'New personal best!';
+
+  @override
+  String get timerClearHistory => 'Clear history';
+
+  @override
+  String get timerScrambleHint =>
+      'Hold white on top and green in front, then scramble:';
+
+  @override
+  String get dailyTitle => 'Daily challenge';
+
+  @override
+  String dailyFor(String date) {
+    return 'Challenge for $date';
+  }
+
+  @override
+  String dailyBestStreak(int count) {
+    return 'Best streak: $count';
+  }
+
+  @override
+  String get dailyDone => 'Done for today! Come back tomorrow.';
+
+  @override
+  String get dailyNotDone => 'Solve today\'s scramble to keep your streak.';
+
+  @override
+  String get dailySolveVirtual => 'Solve on the 3D cube';
+
+  @override
+  String get dailyTimeIt => 'Time it on your cube';
+
+  @override
+  String get dailyHint => 'Hint';
+
+  @override
+  String dailyHintText(String moves) {
+    return 'Start with the white cross: $moves';
+  }
+
+  @override
+  String get dailyHintFailed => 'No hint is available right now.';
+
+  @override
+  String get lessonBasics => 'Meet the cube';
+
+  @override
+  String get lessonBasicsDesc => 'Pieces, faces and move names.';
+
+  @override
+  String get stepBasicsPieces => 'Three kinds of pieces';
+
+  @override
+  String get stepBasicsPiecesBody =>
+      'Centers never move and give each face its color. Edges have two colors, corners have three. Solving means moving every edge and corner next to the centers that match.';
+
+  @override
+  String get stepBasicsFaces => 'Six face letters';
+
+  @override
+  String get stepBasicsFacesBody =>
+      'R, L, U, D, F and B are the right, left, up, down, front and back faces. A letter alone means a clockwise quarter turn, as if you looked straight at that face.';
+
+  @override
+  String get stepBasicsPrime => 'Prime and double turns';
+
+  @override
+  String get stepBasicsPrimeBody =>
+      'An apostrophe (R\') turns the other way, counter-clockwise. A 2 (U2) is a half turn: two quarter turns.';
+
+  @override
+  String get lessonCross => 'White cross';
+
+  @override
+  String get lessonCrossDesc => 'Build a white cross on the bottom.';
+
+  @override
+  String get stepCrossGoal => 'The goal';
+
+  @override
+  String get stepCrossGoalBody =>
+      'Hold yellow on top. The four white edges go around the white center on the bottom, each side color matching the center next to it.';
+
+  @override
+  String get stepCrossTop => 'Edge on top';
+
+  @override
+  String get stepCrossTopBody =>
+      'Find a white edge on top. Turn the top until its side color sits above the matching center, then turn that face twice to drop it in.';
+
+  @override
+  String get stepCrossMiddle => 'Edge in the middle';
+
+  @override
+  String get stepCrossMiddleBody =>
+      'An edge stuck in the middle layer goes up first: turn its side up, move the top out of the way and turn the side back, so the cross stays intact. Then place it from the top.';
+
+  @override
+  String get lessonCorners => 'White corners';
+
+  @override
+  String get lessonCornersDesc => 'Finish the first layer.';
+
+  @override
+  String get stepCornersInsert => 'Above its spot';
+
+  @override
+  String get stepCornersInsertBody =>
+      'Turn the top until a white corner sits above the spot where its colors belong, at the front right. R U R\' U\' then drops it in.';
+
+  @override
+  String get stepCornersRepeat => 'Repeat the trigger';
+
+  @override
+  String get stepCornersRepeatBody =>
+      'If white faces the wrong way, keep repeating R U R\' U\' over the same spot. Every corner is solved after at most five repeats.';
+
+  @override
+  String get lessonMiddle => 'Middle layer';
+
+  @override
+  String get lessonMiddleDesc => 'Insert the four middle edges.';
+
+  @override
+  String get stepMiddleRight => 'Edge to the right';
+
+  @override
+  String get stepMiddleRightBody =>
+      'Line up a top edge with its center on the front. If its top color matches the right center, insert it with U R U\' R\' U\' F\' U F.';
+
+  @override
+  String get stepMiddleLeft => 'Edge to the left';
+
+  @override
+  String get stepMiddleLeftBody =>
+      'If its top color matches the left center instead, use the mirror: U\' L\' U L U F U\' F\'.';
+
+  @override
+  String get lessonLastLayer => 'Yellow cross and edges';
+
+  @override
+  String get lessonLastLayerDesc => 'Make a cross on top and match its edges.';
+
+  @override
+  String get stepYellowCross => 'One algorithm';
+
+  @override
+  String get stepYellowCrossBody =>
+      'F R U R\' U\' F\' turns a yellow dot into an L, an L into a line and a line into the cross. Hold the L at the back left and the line sideways.';
+
+  @override
+  String get stepYellowEdges => 'Match the edges';
+
+  @override
+  String get stepYellowEdgesBody =>
+      'Turn the top until two edges match their centers. With one at the back and one on the right, R U R\' U R U2 R\' U swaps the other two.';
+
+  @override
+  String get lessonLastCorners => 'Yellow corners';
+
+  @override
+  String get lessonLastCornersDesc => 'Place and twist the last corners.';
+
+  @override
+  String get stepPlaceCorners => 'Place them';
+
+  @override
+  String get stepPlaceCornersBody =>
+      'Hold a corner that is already in its spot at the front right. U R U\' L\' U R\' U\' L moves the other three around; repeat until all four are home.';
+
+  @override
+  String get stepTwistCorners => 'Twist them';
+
+  @override
+  String get stepTwistCornersBody =>
+      'With an unsolved corner at the front right, repeat R\' D\' R D until yellow is on top, then turn only the top to bring the next one. The bottom looks broken until the very end: keep going.';
+
+  @override
+  String get lessonCfopIntro => 'What is CFOP?';
+
+  @override
+  String get lessonCfopIntroDesc => 'Cross, F2L, OLL, PLL.';
+
+  @override
+  String get stepCfopOverview => 'Four stages';
+
+  @override
+  String get stepCfopOverviewBody =>
+      'Speedcubers solve the cross, then pair each first-layer corner with its middle edge (F2L), orient the last layer (OLL) and finally permute it (PLL).';
+
+  @override
+  String get stepCfopCross => 'Plan the cross';
+
+  @override
+  String get stepCfopCrossBody =>
+      'In CFOP the cross is planned during inspection and built on the bottom in about eight moves.';
+
+  @override
+  String get lessonF2l => 'F2L basics';
+
+  @override
+  String get lessonF2lDesc => 'Pair a corner with its edge.';
+
+  @override
+  String get stepF2lRight => 'Insert a pair';
+
+  @override
+  String get stepF2lRightBody =>
+      'When a corner and its edge sit side by side on top, bring them above their slot and insert them together.';
+
+  @override
+  String get stepF2lLeft => 'Left-hand pair';
+
+  @override
+  String get stepF2lLeftBody =>
+      'The same case on the other side is the mirror, U\' L\' U L. Rotating the cube (y) lets you use whichever hand is easier.';
+
+  @override
+  String get lessonOll => 'Two-look OLL';
+
+  @override
+  String get lessonOllDesc => 'Make the top yellow.';
+
+  @override
+  String get stepOllCross => 'Edges first';
+
+  @override
+  String get stepOllCrossBody =>
+      'Two-look OLL starts with the yellow-cross algorithm you already know.';
+
+  @override
+  String get stepOllSune => 'Sune';
+
+  @override
+  String get stepOllSuneBody =>
+      'With one yellow corner facing up at the front left, Sune (R U R\' U R U2 R\') orients the other three. Most other cases use Sune and its mirror.';
+
+  @override
+  String get lessonPll => 'Two-look PLL';
+
+  @override
+  String get lessonPllDesc => 'Finish the cube.';
+
+  @override
+  String get stepPllT => 'T-perm';
+
+  @override
+  String get stepPllTBody =>
+      'The T-perm swaps two corners and two edges. Use it to place the corners: hold the two corners that must swap on the right.';
+
+  @override
+  String get stepPllU => 'U-perm';
+
+  @override
+  String get stepPllUBody =>
+      'With the corners done, the U-perm cycles three edges. Keep the finished side at the back.';
+
+  @override
+  String get lessonTwoFirst => '2×2 first layer';
+
+  @override
+  String get lessonTwoFirstDesc => 'Build one side with matching corners.';
+
+  @override
+  String get stepTwoIntro => 'Only corners';
+
+  @override
+  String get stepTwoIntroBody =>
+      'A 2×2 is a 3×3 without edges and centers. Pick a color, build that face on the bottom, and make the side colors of neighbouring corners match.';
+
+  @override
+  String get stepTwoCorner => 'Insert corners';
+
+  @override
+  String get stepTwoCornerBody =>
+      'Exactly like the 3×3 white corners: bring a corner above its spot and use R U R\' U\' until it fits.';
+
+  @override
+  String get lessonTwoOll => 'Orient the top';
+
+  @override
+  String get lessonTwoOllDesc => 'Ortega OLL with Sune.';
+
+  @override
+  String get stepTwoSune => 'Sune again';
+
+  @override
+  String get stepTwoSuneBody =>
+      'Sune turns the top yellow on a 2×2 too. Ortega solvers learn seven short cases; Sune and its mirror cover most of them.';
+
+  @override
+  String get lessonTwoPbl => 'Permute both layers';
+
+  @override
+  String get lessonTwoPblDesc => 'Swap corners to finish.';
+
+  @override
+  String get stepTwoAdjacent => 'Adjacent swap';
+
+  @override
+  String get stepTwoAdjacentBody =>
+      'When two neighbouring top corners must swap, hold them on the right and use the T-perm.';
+
+  @override
+  String get stepTwoDiagonal => 'Diagonal swap';
+
+  @override
+  String get stepTwoDiagonalBody =>
+      'Two corners in opposite spots swap with the Y-perm.';
+
+  @override
+  String get lessonBigIntro => 'Big cube pieces';
+
+  @override
+  String get lessonBigIntroDesc => 'Centers, wings and slices.';
+
+  @override
+  String get stepBigPieces => 'No fixed centers';
+
+  @override
+  String get stepBigPiecesBody =>
+      'On a 4×4 each face has four center pieces that move around, and every edge is made of two wings. Reduction groups them so the cube behaves like a 3×3.';
+
+  @override
+  String get stepBigSlices => 'Wide and inner turns';
+
+  @override
+  String get stepBigSlicesBody =>
+      'Rw turns the two right layers together. 2R turns only the second layer from the right. These turns move centers and wings.';
+
+  @override
+  String get lessonBigCenters => 'Centers';
+
+  @override
+  String get lessonBigCentersDesc => 'Group the center pieces.';
+
+  @override
+  String get stepBigCenterCycle => 'A center 3-cycle';
+
+  @override
+  String get stepBigCenterCycleBody =>
+      'This commutator moves exactly three center pieces and leaves everything else alone, so finished centers stay finished.';
+
+  @override
+  String get lessonBigEdges => 'Pair the edges';
+
+  @override
+  String get lessonBigEdgesDesc => 'Join wings into full edges.';
+
+  @override
+  String get stepBigEdgePair => 'Pair and restore';
+
+  @override
+  String get stepBigEdgePairBody =>
+      'Uw\' lines two matching wings up, R U R\' F R\' F\' R swaps in an unpaired edge, and Uw puts the centers back.';
+
+  @override
+  String get lessonBigParity => 'Parity';
+
+  @override
+  String get lessonBigParityDesc => 'OLL and PLL parity on even cubes.';
+
+  @override
+  String get stepBigOllParity => 'OLL parity';
+
+  @override
+  String get stepBigOllParityBody =>
+      'A single flipped edge can\'t happen on a 3×3. On even cubes this algorithm flips the top-front edge back. It may shuffle the rest of the top layer, which the last 3×3 steps fix anyway.';
+
+  @override
+  String get stepBigPllParity => 'PLL parity';
+
+  @override
+  String get stepBigPllParityBody =>
+      'Two swapped edges at the very end? 2R2 U2 2R2 Uw2 2R2 Uw2 swaps the front and back top edges.';
 }
