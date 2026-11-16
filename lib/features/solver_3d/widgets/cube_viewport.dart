@@ -63,9 +63,11 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
 
   // Orbit with inertia (radians per second) and the optional reset target.
   late final Ticker _orbitTicker = createTicker(_onOrbitTick);
-  final ValueNotifier<OrbitAngles> _orbit = ValueNotifier(OrbitAngles.initial);
+  final ValueNotifier<CubeOrientation> _orbit = ValueNotifier(
+    CubeOrientation.initial,
+  );
   Offset _velocity = Offset.zero;
-  OrbitAngles? _orbitTarget;
+  CubeOrientation? _orbitTarget;
   Duration _lastOrbitTick = Duration.zero;
 
   @override
@@ -177,7 +179,7 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
     switch (_mode) {
       case _DragMode.orbit:
         final d = details.delta * _orbitSensitivity;
-        _orbit.value = _orbit.value.rotatedBy(d.dx, d.dy);
+        _orbit.value = _orbit.value.rotatedOnScreen(d.dx, d.dy);
       case _DragMode.pendingLayer:
         final drag = _grab!.resolve(_dragTotal);
         if (drag == null) return;
@@ -264,7 +266,7 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
 
   void _resetView() {
     _velocity = Offset.zero;
-    _orbitTarget = OrbitAngles.initial;
+    _orbitTarget = CubeOrientation.initial;
     _startOrbitTicker();
   }
 
@@ -281,34 +283,26 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
 
     final target = _orbitTarget;
     if (target != null) {
-      // Exponential approach toward the default view.
+      // Exponential approach toward the default view along the shortest
+      // arc, however many times the cube was tumbled.
       final t = 1 - math.pow(0.0001, dt).toDouble();
-      final targetYaw = _nearestYaw(current.yaw, target.yaw);
-      final next = OrbitAngles(
-        yaw: current.yaw + (targetYaw - current.yaw) * t,
-        pitch: current.pitch + (target.pitch - current.pitch) * t,
-      );
-      _orbit.value = next;
-      if ((next.yaw - targetYaw).abs() < 1e-3 &&
-          (next.pitch - target.pitch).abs() < 1e-3) {
+      final next = current.lerpTo(target, t);
+      if (next.angleTo(target) < 1e-3) {
         _orbit.value = target;
         _orbitTarget = null;
         _orbitTicker.stop();
+      } else {
+        _orbit.value = next;
       }
       return;
     }
 
-    _orbit.value = current.rotatedBy(_velocity.dx * dt, _velocity.dy * dt);
+    _orbit.value = current.rotatedOnScreen(
+      _velocity.dx * dt,
+      _velocity.dy * dt,
+    );
     _velocity *= math.pow(_inertiaDecayPerSecond, dt).toDouble();
     if (_velocity.distance < 0.02) _orbitTicker.stop();
-  }
-
-  /// Target yaw equivalent to [target] that is closest to [current], so the
-  /// reset animation never spins around more than half a turn.
-  static double _nearestYaw(double current, double target) {
-    const fullTurn = 2 * math.pi;
-    final turns = ((current - target) / fullTurn).roundToDouble();
-    return target + turns * fullTurn;
   }
 
   @override

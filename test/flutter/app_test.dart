@@ -149,7 +149,7 @@ void main() {
       final viewport = find.byType(CubeViewport);
       final size = tester.getSize(viewport);
       final face = CubeScene.build(
-        CubeFrame(cube: CubeState.solved(3), orbit: OrbitAngles.initial),
+        CubeFrame(cube: CubeState.solved(3), orbit: CubeOrientation.initial),
         size,
       ).firstWhere((f) => f.cubie.position == pos && f.normal == normal);
       final local = (face.quad[0] + face.quad[1] + face.quad[2] + face.quad[3]) / 4;

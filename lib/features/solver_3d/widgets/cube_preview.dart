@@ -17,6 +17,8 @@ class CubePreview extends StatefulWidget {
 class _CubePreviewState extends State<CubePreview>
     with SingleTickerProviderStateMixin {
   static const _fullSpin = Duration(seconds: 14);
+  static const _initialYaw = -0.62;
+  static const _initialPitch = 0.5;
 
   late final AnimationController _spin = AnimationController(
     vsync: this,
@@ -57,9 +59,9 @@ class _CubePreviewState extends State<CubePreview>
           painter: CubePainter(
             frame: CubeFrame(
               cube: _cube,
-              orbit: OrbitAngles(
-                yaw: OrbitAngles.initial.yaw + _spin.value * 6.283185307179586,
-                pitch: OrbitAngles.initial.pitch,
+              orbit: CubeOrientation.fromYawPitch(
+                yaw: _initialYaw + _spin.value * 6.283185307179586,
+                pitch: _initialPitch,
               ),
             ),
           ),

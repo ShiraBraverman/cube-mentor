@@ -7,7 +7,7 @@ import 'package:cube_mentor/features/solver_3d/interaction/layer_drag.dart';
 import 'package:cube_mentor/features/solver_3d/render/cube_painter.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
-import 'package:vector_math/vector_math_64.dart' show Vector3;
+import 'package:vector_math/vector_math_64.dart' show Matrix3, Vector3;
 
 const _viewport = Size(400, 400);
 
@@ -40,7 +40,7 @@ CubeMove? dragMove(
 void main() {
   final solved3 = CubeFrame(
     cube: CubeState.solved(3),
-    orbit: OrbitAngles.initial,
+    orbit: CubeOrientation.initial,
   );
 
   void paintFrame(CubeFrame frame, [Size size = _viewport]) {
@@ -49,9 +49,62 @@ void main() {
     recorder.endRecording().dispose();
   }
 
+  group('free orientation', () {
+    Set<IVec3> visibleFaces(CubeOrientation orbit) => CubeScene.build(
+      CubeFrame(cube: CubeState.solved(3), orbit: orbit),
+      _viewport,
+    ).map((f) => f.normal).toSet();
+
+    test('matches the classic yaw/pitch view matrix', () {
+      final m = CubeProjection.viewMatrix(CubeOrientation.initial);
+      final expected = Matrix3Ref.yawPitch(-0.62, 0.5);
+      for (var i = 0; i < 9; i++) {
+        expect(m.storage[i], closeTo(expected.storage[i], 1e-9));
+      }
+    });
+
+    test('rolls vertically without limit and comes back after 360 degrees', () {
+      for (final turns in [1, 3]) {
+        var o = CubeOrientation.initial;
+        final steps = 90 * turns;
+        for (var i = 0; i < steps; i++) {
+          o = o.rotatedOnScreen(0, 2 * math.pi * turns / steps);
+        }
+        expect(o.angleTo(CubeOrientation.initial), lessThan(1e-6));
+      }
+      // A long chain of drags stays a pure rotation (no skew or scaling).
+      var o = CubeOrientation.initial;
+      for (var i = 0; i < 5000; i++) {
+        o = o.rotatedOnScreen(0.031, -0.047);
+      }
+      final m = o.matrix;
+      expect(m.determinant(), closeTo(1, 1e-9));
+      final mt = m.transposed()..multiply(m);
+      for (var i = 0; i < 9; i++) {
+        expect(mt.storage[i], closeTo(Matrix3.identity().storage[i], 1e-9));
+      }
+    });
+
+    test('tumbling over the top reveals the bottom face', () {
+      expect(visibleFaces(CubeOrientation.initial), isNot(contains(kNormalDown)));
+      final flipped = CubeOrientation.initial.rotatedOnScreen(0, math.pi);
+      expect(visibleFaces(flipped), contains(kNormalDown));
+    });
+
+    test('reset interpolation takes the shortest arc and converges', () {
+      var o = CubeOrientation.initial.rotatedOnScreen(2.0, 5.0);
+      final start = o.angleTo(CubeOrientation.initial);
+      expect(start, lessThanOrEqualTo(math.pi + 1e-9));
+      for (var i = 0; i < 60; i++) {
+        o = o.lerpTo(CubeOrientation.initial, 0.25);
+      }
+      expect(o.angleTo(CubeOrientation.initial), lessThan(1e-3));
+    });
+  });
+
   group('projection', () {
     test('default view shows the U, F and R faces', () {
-      final view = CubeProjection.viewMatrix(OrbitAngles.initial);
+      final view = CubeProjection.viewMatrix(CubeOrientation.initial);
       final camera = view.transposed().transformed(
         Vector3(0, 0, CubeProjection.cameraDistance),
       );
@@ -66,7 +119,8 @@ void main() {
       for (var yaw = 0.0; yaw < 6.3; yaw += 0.7) {
         for (var pitch = -1.4; pitch <= 1.4; pitch += 0.7) {
           final view =
-              CubeProjection.viewMatrix(OrbitAngles(yaw: yaw, pitch: pitch));
+              CubeProjection.viewMatrix(
+                CubeOrientation.fromYawPitch(yaw: yaw, pitch: pitch));
           for (final x in [-1.0, 1.0]) {
             for (final y in [-1.0, 1.0]) {
               for (final z in [-1.0, 1.0]) {
@@ -100,7 +154,7 @@ void main() {
     test('an idle solved cube shows exactly three faces of stickers', () {
       for (final n in [2, 3, 4, 5, 6]) {
         final faces = CubeScene.build(
-          CubeFrame(cube: CubeState.solved(n), orbit: OrbitAngles.initial),
+          CubeFrame(cube: CubeState.solved(n), orbit: CubeOrientation.initial),
           _viewport,
         );
         expect(faces.where((f) => f.color != null), hasLength(3 * n * n));
@@ -204,7 +258,7 @@ void main() {
     for (final n in [2, 4, 5, 6]) {
       final frame = CubeFrame(
         cube: CubeState.solved(n),
-        orbit: OrbitAngles.initial,
+        orbit: CubeOrientation.initial,
       );
       final max = n - 1;
       // Second column from the right on the front face (first for 2x2).
@@ -226,24 +280,30 @@ void main() {
         if (n >= 3) MoveNotation.parse('Rw2', n),
         MoveNotation.parse("y'", n),
       ];
-      paintFrame(CubeFrame(cube: cube, orbit: OrbitAngles.initial));
+      paintFrame(CubeFrame(cube: cube, orbit: CubeOrientation.initial));
       for (final move in moves) {
         for (final progress in [0.0, 0.33, 0.5, 1.0]) {
           paintFrame(CubeFrame(
             cube: cube,
-            orbit: const OrbitAngles(yaw: 2.4, pitch: -0.8),
+            orbit: CubeOrientation.fromYawPitch(yaw: 2.4, pitch: -0.8),
             turn: LayerTurn.ofMove(move, progress),
           ));
         }
       }
       paintFrame(CubeFrame(
         cube: cube,
-        orbit: OrbitAngles.initial,
+        orbit: CubeOrientation.initial,
         highlighted: const {0, 1, 2},
         xray: true,
         turn: LayerTurn.ofMove(moves.first, 0.4),
       ));
-      paintFrame(CubeFrame(cube: cube, orbit: OrbitAngles.initial), Size.zero);
+      paintFrame(CubeFrame(cube: cube, orbit: CubeOrientation.initial), Size.zero);
     });
   }
+}
+
+/// Reference turntable matrix (yaw around +y, then pitch around +x).
+abstract final class Matrix3Ref {
+  static Matrix3 yawPitch(double yaw, double pitch) =>
+      Matrix3.rotationX(pitch).multiplied(Matrix3.rotationY(yaw));
 }

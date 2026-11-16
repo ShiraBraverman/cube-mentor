@@ -2,35 +2,85 @@ import 'dart:math' as math;
 import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
-import 'package:vector_math/vector_math_64.dart' show Matrix3, Vector3;
+import 'package:vector_math/vector_math_64.dart' show Matrix3, Quaternion, Vector3;
 
 import '../../../core/cube/cube_move.dart';
 import '../../../core/cube/cube_state.dart';
 
-/// Camera orientation around the cube, in radians.
+/// Free (unclamped) orientation of the cube relative to the camera, stored as
+/// a unit quaternion so the cube can be tumbled any number of full turns in
+/// any direction without gimbal limits.
 @immutable
-class OrbitAngles {
-  const OrbitAngles({required this.yaw, required this.pitch});
+class CubeOrientation {
+  const CubeOrientation._(this._x, this._y, this._z, this._w);
+
+  factory CubeOrientation._of(Quaternion q) {
+    final n = q.normalized();
+    return CubeOrientation._(n.x, n.y, n.z, n.w);
+  }
+
+  /// Turntable-style construction: [yaw] around +y, then [pitch] around +x.
+  factory CubeOrientation.fromYawPitch({
+    required double yaw,
+    required double pitch,
+  }) => CubeOrientation._of(
+    Quaternion.axisAngle(Vector3(1, 0, 0), pitch) *
+        Quaternion.axisAngle(Vector3(0, 1, 0), yaw),
+  );
 
   /// Default three-quarter view showing the U, F and R faces.
-  static const OrbitAngles initial = OrbitAngles(yaw: -0.62, pitch: 0.5);
-
-  static const double maxPitch = 1.45;
-
-  final double yaw;
-  final double pitch;
-
-  OrbitAngles rotatedBy(double dYaw, double dPitch) => OrbitAngles(
-    yaw: yaw + dYaw,
-    pitch: (pitch + dPitch).clamp(-maxPitch, maxPitch),
+  static final CubeOrientation initial = CubeOrientation.fromYawPitch(
+    yaw: -0.62,
+    pitch: 0.5,
   );
+
+  final double _x;
+  final double _y;
+  final double _z;
+  final double _w;
+
+  Quaternion get _quaternion => Quaternion(_x, _y, _z, _w);
+
+  /// Model-to-view rotation.
+  Matrix3 get matrix => _quaternion.asRotationMatrix();
+
+  /// Trackball rotation in screen space: horizontal finger travel spins the
+  /// cube around the screen's vertical axis, vertical travel around the
+  /// screen's horizontal axis. Angles in radians; no limits.
+  CubeOrientation rotatedOnScreen(double dx, double dy) => CubeOrientation._of(
+    Quaternion.axisAngle(Vector3(1, 0, 0), dy) *
+        Quaternion.axisAngle(Vector3(0, 1, 0), dx) *
+        _quaternion,
+  );
+
+  /// Interpolates along the shortest arc toward [target] (normalized lerp,
+  /// which is plenty for short UI animations).
+  CubeOrientation lerpTo(CubeOrientation target, double t) {
+    final sign = _dot(target) < 0 ? -1.0 : 1.0;
+    return CubeOrientation._of(Quaternion(
+      _x + (target._x * sign - _x) * t,
+      _y + (target._y * sign - _y) * t,
+      _z + (target._z * sign - _z) * t,
+      _w + (target._w * sign - _w) * t,
+    ));
+  }
+
+  /// Rotation angle (radians) separating this orientation from [other].
+  double angleTo(CubeOrientation other) =>
+      2 * math.acos(_dot(other).abs().clamp(0.0, 1.0));
+
+  double _dot(CubeOrientation o) => _x * o._x + _y * o._y + _z * o._z + _w * o._w;
 
   @override
   bool operator ==(Object other) =>
-      other is OrbitAngles && other.yaw == yaw && other.pitch == pitch;
+      other is CubeOrientation &&
+      other._x == _x &&
+      other._y == _y &&
+      other._z == _z &&
+      other._w == _w;
 
   @override
-  int get hashCode => Object.hash(yaw, pitch);
+  int get hashCode => Object.hash(_x, _y, _z, _w);
 }
 
 /// A block of layers rotated by an arbitrary angle: either an animated move
@@ -85,7 +135,7 @@ class CubeFrame {
   });
 
   final CubeState cube;
-  final OrbitAngles orbit;
+  final CubeOrientation orbit;
 
   /// Layers currently rotated away from their committed position.
   final LayerTurn? turn;
@@ -126,10 +176,9 @@ abstract final class CubeProjection {
 
   static const double _boundingRadius = 1.7320508; // sqrt(3)
 
-  /// View rotation: yaw around +y, then pitch around +x. vector_math rotation
-  /// matrices are counter-clockwise around +axis, like the model's turns.
-  static Matrix3 viewMatrix(OrbitAngles orbit) =>
-      Matrix3.rotationX(orbit.pitch).multiplied(Matrix3.rotationY(orbit.yaw));
+  /// Model-to-view rotation. vector_math rotation matrices are
+  /// counter-clockwise around +axis, like the model's quarter turns.
+  static Matrix3 viewMatrix(CubeOrientation orbit) => orbit.matrix;
 
   /// Counter-clockwise rotation by [angle] around +[axis].
   static Matrix3 axisRotation(int axis, double angle) => switch (axis) {
