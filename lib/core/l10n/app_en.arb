@@ -80,5 +80,133 @@
   "solved": "Solved",
   "scrambled": "Scrambled",
   "orbitHint": "Drag a row to turn it · Drag the background to orbit",
-  "notationPad": "Notation pad"
+  "notationPad": "Notation pad",
+  "solve": "Solve",
+  "solving": "Solving…",
+  "solveChooseMethod": "How do you want to solve it?",
+  "solveFast": "Fast solve",
+  "solveFastDesc": "Kociemba two-phase algorithm · about 20 moves",
+  "solveLearn": "Learn step by step",
+  "solveLearnDesc": "Beginner's layer-by-layer method with explanations",
+  "solveUnavailable": "The {size}×{size} solver arrives in a later update.",
+  "@solveUnavailable": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "solveAlreadySolved": "The cube is already solved.",
+  "solveFailed": "This cube can't be solved ({reason}).",
+  "@solveFailed": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "solveEngineMissing": "The solving engine isn't available on this device.",
+  "solveComplete": "Solved! Great job.",
+  "solveSummary": "{count} moves",
+  "@solveSummary": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "nextMove": "Next move",
+  "colorWhite": "white",
+  "colorYellow": "yellow",
+  "colorGreen": "green",
+  "colorBlue": "blue",
+  "colorRed": "red",
+  "colorOrange": "orange",
+  "phaseOptimal2x2": "Optimal solution",
+  "phaseKociemba1": "Phase 1 · Orient the pieces",
+  "phaseKociemba2": "Phase 2 · Finish the cube",
+  "phaseLblOrient": "Hold the cube",
+  "phaseLblCross": "White cross",
+  "phaseLblCorners": "White corners",
+  "phaseLblMiddle": "Middle layer",
+  "phaseLblYellowCross": "Yellow cross",
+  "phaseLblYellowEdges": "Yellow edges",
+  "phaseLblYellowCorners": "Place the yellow corners",
+  "phaseLblYellowCornersOrient": "Twist the yellow corners",
+  "explainOptimal2x2": "The shortest possible solution, found by searching every 2×2 position.",
+  "explainKociemba1": "Orient every piece and gather the middle-layer edges into the middle layer.",
+  "explainKociemba2": "Finish with U, D and half turns only, which keep that orientation.",
+  "explainLblOrient": "Turn the whole cube so the white center points down.",
+  "explainLblCrossEdge": "Bring the {piece} edge down next to the white center, matching its side color.",
+  "@explainLblCrossEdge": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "explainLblCornerExtract": "The {piece} corner is stuck in the wrong spot. Lift it to the top with R U R' U'.",
+  "@explainLblCornerExtract": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "explainLblCornerAlign": "Turn the top layer until the {piece} corner sits above its slot.",
+  "@explainLblCornerAlign": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "explainLblCornerInsert": "Repeat R U R' U' until the {piece} corner drops into place.",
+  "@explainLblCornerInsert": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "explainLblMiddleExtract": "The {piece} edge is in the middle layer but wrong. Pop it out to the top.",
+  "@explainLblMiddleExtract": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "explainLblMiddleAlign": "Turn the top layer so the {piece} edge's side color matches its center.",
+  "@explainLblMiddleAlign": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "explainLblMiddleRight": "Insert the {piece} edge to the right: U R U' R' U' F' U F.",
+  "@explainLblMiddleRight": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "explainLblMiddleLeft": "Insert the {piece} edge to the left: U' L' U L U F U' F'.",
+  "@explainLblMiddleLeft": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "explainLblYellowCrossAlign": "Turn the top layer to place the yellow shape for the next algorithm.",
+  "explainLblYellowCrossAlg": "Build the yellow cross with F R U R' U' F'.",
+  "explainLblYellowEdgesAlign": "Turn the top layer to line the yellow edges up with their centers.",
+  "explainLblYellowEdgesAlg": "Swap yellow edges with R U R' U R U2 R' U.",
+  "explainLblYellowCornersAlg": "Cycle the yellow corners into their spots with U R U' L' U R' U' L.",
+  "explainLblNextCorner": "Turn the top layer to bring the next unsolved yellow corner to the front-right.",
+  "explainLblCornerTwist": "Repeat R' D' R D until yellow faces up. The bottom fixes itself at the end.",
+  "explainLblFinalAlign": "Turn the top layer to finish the cube."
 }

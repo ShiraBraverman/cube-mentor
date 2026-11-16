@@ -1,0 +1,200 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:material_ui/material_ui.dart';
+
+import '../../../core/cube/facelets.dart';
+import '../../../core/cube/cube_state.dart';
+import '../../../core/l10n/generated/app_localizations.dart';
+import '../../../core/solver/solve_step.dart';
+import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/glass.dart';
+import '../model/cube_session.dart';
+
+/// Glass banner above the cube explaining the current solution step: the
+/// phase, what this move achieves, and the move itself.
+class SolveBanner extends ConsumerWidget {
+  const SolveBanner({super.key, required this.size});
+
+  final int size;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final session = ref.watch(cubeSessionProvider(size));
+    if (session.steps.isEmpty) return const SizedBox.shrink();
+    final textTheme = Theme.of(context).textTheme;
+    final step = session.currentStep;
+    final complete =
+        step == null && session.playbackIndex >= session.steps.length;
+
+    final Widget content;
+    if (complete) {
+      content = Row(
+        key: const ValueKey('solve-complete'),
+        children: [
+          const Icon(
+            Icons.celebration_rounded,
+            color: AppColors.accentSecondary,
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Text(
+              l10n.solveComplete,
+              style: textTheme.titleMedium?.copyWith(
+                color: AppColors.accentSecondary,
+              ),
+            ),
+          ),
+        ],
+      );
+    } else if (step == null) {
+      return const SizedBox.shrink();
+    } else {
+      content = Row(
+        key: ValueKey(
+          'solve-step-${session.playbackIndex}-${step.explanationKey}',
+        ),
+        children: [
+          _MoveChip(notation: step.moveNotation, tooltip: l10n.nextMove),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  solvePhaseTitle(l10n, step.phaseName),
+                  style: textTheme.labelLarge?.copyWith(
+                    color: AppColors.accent,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  solveExplanation(l10n, step),
+                  style: textTheme.bodyMedium,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
+          ),
+        ],
+      );
+    }
+
+    return GlassCard(
+      borderRadius: 18,
+      padding: const EdgeInsetsDirectional.fromSTEB(12, 10, 14, 10),
+      child: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 180),
+        child: content,
+      ),
+    );
+  }
+}
+
+class _MoveChip extends StatelessWidget {
+  const _MoveChip({required this.notation, required this.tooltip});
+
+  final String notation;
+  final String tooltip;
+
+  @override
+  Widget build(BuildContext context) {
+    return Tooltip(
+      message: tooltip,
+      child: Container(
+        constraints: const BoxConstraints(minWidth: 52),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          color: AppColors.accent.withValues(alpha: 0.18),
+          border: Border.all(color: AppColors.accent.withValues(alpha: 0.6)),
+        ),
+        child: Text(
+          notation,
+          textAlign: TextAlign.center,
+          // Notation always reads left to right.
+          textDirection: TextDirection.ltr,
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
+        ),
+      ),
+    );
+  }
+}
+
+/// Cubie ids to highlight for the current step of [session].
+Set<int> solveHighlights(CubeSession session) {
+  final step = session.currentStep;
+  if (step == null) return const {};
+  return {
+    for (final position in step.highlightedCubies)
+      ?session.cube.cubieIdAt(position),
+  };
+}
+
+/// Localized title of a solver phase key.
+String solvePhaseTitle(AppLocalizations l10n, String phase) => switch (phase) {
+  'optimal2x2' => l10n.phaseOptimal2x2,
+  'kociembaPhase1' => l10n.phaseKociemba1,
+  'kociembaPhase2' => l10n.phaseKociemba2,
+  'lblOrient' => l10n.phaseLblOrient,
+  'lblCross' => l10n.phaseLblCross,
+  'lblCorners' => l10n.phaseLblCorners,
+  'lblMiddle' => l10n.phaseLblMiddle,
+  'lblYellowCross' => l10n.phaseLblYellowCross,
+  'lblYellowEdges' => l10n.phaseLblYellowEdges,
+  'lblYellowCorners' => l10n.phaseLblYellowCorners,
+  'lblYellowCornersOrient' => l10n.phaseLblYellowCornersOrient,
+  _ => phase,
+};
+
+/// Localized explanation of a step's sub-goal.
+String solveExplanation(AppLocalizations l10n, SolveStep step) {
+  final piece = pieceName(l10n, step.pieceColors);
+  return switch (step.explanationKey) {
+    'optimal2x2Explain' => l10n.explainOptimal2x2,
+    'kociembaPhase1Explain' => l10n.explainKociemba1,
+    'kociembaPhase2Explain' => l10n.explainKociemba2,
+    'lblOrientExplain' => l10n.explainLblOrient,
+    'lblCrossEdge' => l10n.explainLblCrossEdge(piece),
+    'lblCornerExtract' => l10n.explainLblCornerExtract(piece),
+    'lblCornerAlign' => l10n.explainLblCornerAlign(piece),
+    'lblCornerInsert' => l10n.explainLblCornerInsert(piece),
+    'lblMiddleExtract' => l10n.explainLblMiddleExtract(piece),
+    'lblMiddleAlign' => l10n.explainLblMiddleAlign(piece),
+    'lblMiddleRight' => l10n.explainLblMiddleRight(piece),
+    'lblMiddleLeft' => l10n.explainLblMiddleLeft(piece),
+    'lblYellowCrossAlign' => l10n.explainLblYellowCrossAlign,
+    'lblYellowCrossAlg' => l10n.explainLblYellowCrossAlg,
+    'lblYellowEdgesAlign' => l10n.explainLblYellowEdgesAlign,
+    'lblYellowEdgesAlg' => l10n.explainLblYellowEdgesAlg,
+    'lblYellowCornersAlg' => l10n.explainLblYellowCornersAlg,
+    'lblNextCorner' => l10n.explainLblNextCorner,
+    'lblCornerTwist' => l10n.explainLblCornerTwist,
+    'lblFinalAlign' => l10n.explainLblFinalAlign,
+    _ => '',
+  };
+}
+
+/// Localized piece name from color letters, e.g. "WR" -> "white-red".
+String pieceName(AppLocalizations l10n, String letters) => [
+  for (final letter in letters.split(''))
+    switch (stickerColorOf(letter)) {
+      StickerColor.white => l10n.colorWhite,
+      StickerColor.yellow => l10n.colorYellow,
+      StickerColor.green => l10n.colorGreen,
+      StickerColor.blue => l10n.colorBlue,
+      StickerColor.red => l10n.colorRed,
+      StickerColor.orange => l10n.colorOrange,
+      null => letter,
+    },
+].join('-');
+
+/// Localized message for a solver error key.
+String solveErrorText(AppLocalizations l10n, String code, int size) =>
+    switch (code) {
+      'unsupported' => l10n.solveUnavailable(size),
+      'unavailable' => l10n.solveEngineMissing,
+      _ => l10n.solveFailed(code),
+    };

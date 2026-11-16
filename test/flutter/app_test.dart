@@ -1,6 +1,10 @@
 import 'package:cube_mentor/app.dart';
+import 'package:cube_mentor/core/cube/cube_move.dart';
 import 'package:cube_mentor/core/cube/cube_state.dart';
+import 'package:cube_mentor/core/cube/facelets.dart';
 import 'package:cube_mentor/core/settings/preferences.dart';
+import 'package:cube_mentor/core/solver/cube_solver.dart';
+import 'package:cube_mentor/core/solver/solve_step.dart';
 import 'package:cube_mentor/features/solver_3d/model/cube_session.dart';
 import 'package:cube_mentor/features/solver_3d/render/cube_geometry.dart';
 import 'package:cube_mentor/features/solver_3d/solver_3d_screen.dart';
@@ -11,18 +15,27 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'fake_cube_solver.dart';
+
 Future<SharedPreferences> _prefs([Map<String, Object> values = const {}]) {
   SharedPreferences.setMockInitialValues(values);
   return SharedPreferences.getInstance();
 }
 
-Future<void> _pumpApp(WidgetTester tester, SharedPreferences prefs) async {
+Future<void> _pumpApp(
+  WidgetTester tester,
+  SharedPreferences prefs, {
+  CubeSolver? solver,
+}) async {
   tester.view.physicalSize = const Size(1080, 2340);
   tester.view.devicePixelRatio = 2.75;
   addTearDown(tester.view.reset);
   await tester.pumpWidget(
     ProviderScope(
-      overrides: [sharedPreferencesProvider.overrideWithValue(prefs)],
+      overrides: [
+        sharedPreferencesProvider.overrideWithValue(prefs),
+        cubeSolverProvider.overrideWithValue(solver ?? FakeCubeSolver()),
+      ],
       child: const CubeMentorApp(),
     ),
   );
@@ -109,17 +122,142 @@ void main() {
     expect(find.text('R'), findsNothing);
 
     await tester.tap(find.text('Scramble'));
-    await _advance(tester, 4);
-    expect(find.text('Step 0 of 60'), findsOneWidget);
     // 60 fast scramble turns at 90 ms (135 ms for half turns) each.
     await _advance(tester, 200);
     expect(session().isIdle, isTrue);
     expect(session().cube.isSolved, isFalse);
+    expect(session().hasPlayback, isFalse);
+
+    // Big-cube solvers arrive in Milestone 4.
+    await tester.tap(find.byKey(const ValueKey('solve')));
+    await _advance(tester, 4);
+    expect(
+      find.text('The 5×5 solver arrives in a later update.'),
+      findsOneWidget,
+    );
+    expect(session().hasPlayback, isFalse);
+    // Let the snack bar finish its entrance, time out and leave so it does
+    // not cover the action bar.
+    await _advance(tester, 6);
+    await tester.pump(const Duration(seconds: 5));
+    await _advance(tester, 6);
 
     await tester.tap(find.text('Reset'));
     await _advance(tester, 2);
     expect(session().cube.isSolved, isTrue);
     expect(session().hasPlayback, isFalse);
+  });
+
+  testWidgets('guided solve shows explained, highlighted steps', (
+    tester,
+  ) async {
+    // Scramble "R U"; the canned plan undoes it with LBL metadata.
+    final scrambled = CubeState.solved(3).applyAll([
+      for (final t in ['R', 'U']) _parse(t),
+    ]);
+    final afterFirst = scrambled.apply(_parse("U'"));
+    final solver = FakeCubeSolver(
+      plan: SolvePlan(
+        method: 'lbl',
+        steps: [
+          SolveStep(
+            cubeState: scrambled.toFacelets(),
+            phaseName: 'lblCross',
+            moveNotation: "U'",
+            explanationKey: 'lblCrossEdge',
+            pieceColors: 'WR',
+            highlightedCubies: const [(0, 2, 2)],
+          ),
+          SolveStep(
+            cubeState: afterFirst.toFacelets(),
+            phaseName: 'lblCorners',
+            moveNotation: "R'",
+            explanationKey: 'lblCornerInsert',
+            pieceColors: 'WRG',
+            highlightedCubies: const [(2, 2, 2)],
+          ),
+        ],
+      ),
+    );
+    await _pumpApp(tester, await _prefs(), solver: solver);
+    await tester.tap(find.byKey(const ValueKey('mode-playground')));
+    await _advance(tester);
+    final container = ProviderScope.containerOf(
+      tester.element(find.byType(CubeViewport)),
+    );
+    final controller = container.read(cubeSessionProvider(3).notifier);
+    controller.turnNotation('R');
+    controller.turnNotation('U');
+    await _advance(tester, 16);
+    expect(container.read(cubeSessionProvider(3)).isIdle, isTrue);
+
+    await tester.tap(find.byKey(const ValueKey('solve')));
+    await _advance(tester, 8);
+    expect(find.text('How do you want to solve it?'), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('solve-learn')));
+    await _advance(tester, 8);
+    expect(solver.calls, [SolveMethod.layerByLayer]);
+
+    // Banner: phase, localized explanation and the move to make.
+    expect(find.text('White cross'), findsOneWidget);
+    expect(
+      find.textContaining('Bring the white-red edge down'),
+      findsOneWidget,
+    );
+    expect(find.text("U'"), findsOneWidget);
+    expect(find.text('Step 0 of 2'), findsOneWidget);
+    // The piece the step talks about is highlighted.
+    final viewport = tester.widget<CubeViewport>(find.byType(CubeViewport));
+    final session = container.read(cubeSessionProvider(3));
+    expect(viewport.highlighted, {session.cube.cubieIdAt((0, 2, 2))});
+
+    await tester.tap(find.byTooltip('Next'));
+    await _advance(tester, 12);
+    expect(find.text('White corners'), findsOneWidget);
+    expect(find.text('Step 1 of 2'), findsOneWidget);
+
+    await tester.tap(find.byTooltip('Play'));
+    await _advance(tester, 12);
+    expect(container.read(cubeSessionProvider(3)).cube.isSolved, isTrue);
+    expect(find.text('Solved! Great job.'), findsOneWidget);
+    expect(find.text('Solved'), findsOneWidget);
+
+    // Stepping back replays the solution in reverse.
+    await tester.tap(find.byTooltip('Previous'));
+    await _advance(tester, 12);
+    expect(container.read(cubeSessionProvider(3)).cube.isSolved, isFalse);
+    expect(find.text('White corners'), findsOneWidget);
+  });
+
+  testWidgets('a solved cube needs no solution', (tester) async {
+    final solver = FakeCubeSolver();
+    await _pumpApp(tester, await _prefs(), solver: solver);
+    await tester.tap(find.byKey(const ValueKey('mode-playground')));
+    await _advance(tester);
+    await tester.tap(find.byKey(const ValueKey('solve')));
+    await _advance(tester, 4);
+    expect(find.text('The cube is already solved.'), findsOneWidget);
+    expect(solver.calls, isEmpty);
+  });
+
+  testWidgets('solver errors are reported', (tester) async {
+    final solver = FakeCubeSolver();
+    await _pumpApp(tester, await _prefs(), solver: solver);
+    await tester.tap(find.byKey(const ValueKey('size-2')));
+    await _advance(tester, 2);
+    await tester.tap(find.byKey(const ValueKey('mode-playground')));
+    await _advance(tester);
+    final container = ProviderScope.containerOf(
+      tester.element(find.byType(CubeViewport)),
+    );
+    container.read(cubeSessionProvider(2).notifier).turnNotation('R');
+    await _advance(tester, 10);
+    // 2x2 only has the fast method: no method sheet.
+    await tester.tap(find.byKey(const ValueKey('solve')));
+    await _advance(tester, 4);
+    expect(solver.calls, [SolveMethod.fast]);
+    expect(find.text("This cube can't be solved (internal)."), findsOneWidget);
+    expect(container.read(cubeSessionProvider(2)).hasPlayback, isFalse);
   });
 
   group('touch gestures', () {
@@ -223,3 +361,5 @@ void main() {
     });
   });
 }
+
+CubeMove _parse(String token) => MoveNotation.parse(token, 3);

@@ -2,11 +2,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../core/l10n/generated/app_localizations.dart';
+import '../../core/solver/cube_solver.dart';
+import '../../core/solver/solve_step.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
 import 'model/cube_session.dart';
 import 'widgets/cube_viewport.dart';
 import 'widgets/move_pad.dart';
+import 'widgets/solve_banner.dart';
 
 /// 3D playground: a full-bleed touch-driven cube, a slim glass action bar,
 /// and an optional collapsible notation pad.
@@ -23,12 +26,32 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
   bool _showPad = false;
 
   @override
+  void initState() {
+    super.initState();
+    // Build the solver tables in the background while the user plays.
+    ref.read(cubeSolverProvider).prepare(widget.size);
+  }
+
+  @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final size = widget.size;
     final session = ref.watch(cubeSessionProvider(size));
     final controller = ref.read(cubeSessionProvider(size).notifier);
     final solved = session.isIdle && session.cube.isSolved;
+
+    ref.listen(cubeSessionProvider(size).select((s) => s.solveError), (
+      _,
+      error,
+    ) {
+      if (error == null) return;
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          SnackBar(content: Text(solveErrorText(l10n, error, size))),
+        );
+      controller.clearSolveError();
+    });
 
     return GlassBackground(
       child: Scaffold(
@@ -70,20 +93,37 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
               Expanded(
                 child: Stack(
                   children: [
-                    Positioned.fill(child: CubeViewport(size: size)),
+                    Positioned.fill(
+                      child: CubeViewport(
+                        size: size,
+                        highlighted: solveHighlights(session),
+                      ),
+                    ),
                     PositionedDirectional(
-                      bottom: 6,
-                      start: 16,
-                      end: 16,
-                      child: IgnorePointer(
-                        child: Text(
-                          l10n.orbitHint,
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.bodySmall
-                              ?.copyWith(color: AppColors.textSecondary),
+                      top: 8,
+                      start: 12,
+                      end: 12,
+                      child: Center(
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(maxWidth: 560),
+                          child: SolveBanner(size: size),
                         ),
                       ),
                     ),
+                    if (session.steps.isEmpty)
+                      PositionedDirectional(
+                        bottom: 6,
+                        start: 16,
+                        end: 16,
+                        child: IgnorePointer(
+                          child: Text(
+                            l10n.orbitHint,
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context).textTheme.bodySmall
+                                ?.copyWith(color: AppColors.textSecondary),
+                          ),
+                        ),
+                      ),
                   ],
                 ),
               ),
@@ -91,7 +131,12 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 560),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(12, 6, 12, 12),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                      12,
+                      6,
+                      12,
+                      12,
+                    ),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -148,65 +193,75 @@ class _ActionBar extends ConsumerWidget {
                 ? const SizedBox(width: double.infinity)
                 : Padding(
                     padding: const EdgeInsetsDirectional.only(bottom: 4),
-                    child: Row(
-                      // Media controls keep LTR order in every locale,
-                      // following Material's bidirectionality guidelines.
-                      textDirection: TextDirection.ltr,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
-                        IconButton(
-                          tooltip: l10n.previousStep,
-                          onPressed:
-                              session.canStepBack ? controller.stepBack : null,
-                          icon: const Icon(Icons.skip_previous_rounded),
-                        ),
-                        IconButton.filledTonal(
-                          tooltip: session.isPlaying ? l10n.pause : l10n.play,
-                          onPressed: session.isPlaying
-                              ? controller.pause
-                              : (session.canStepForward
-                                    ? controller.play
-                                    : null),
-                          icon: Icon(
-                            session.isPlaying
-                                ? Icons.pause_rounded
-                                : Icons.play_arrow_rounded,
-                          ),
-                        ),
-                        IconButton(
-                          tooltip: l10n.nextStep,
-                          onPressed: session.canStepForward
-                              ? controller.stepForward
-                              : null,
-                          icon: const Icon(Icons.skip_next_rounded),
-                        ),
-                        const SizedBox(width: 6),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                l10n.playbackProgress(
-                                  session.playbackIndex,
-                                  session.playback.length,
-                                ),
-                                style: textTheme.bodySmall?.copyWith(
-                                  color: AppColors.textSecondary,
-                                ),
+                        Row(
+                          // Media controls keep LTR order in every locale,
+                          // following Material's bidirectionality guidelines.
+                          textDirection: TextDirection.ltr,
+                          children: [
+                            IconButton(
+                              tooltip: l10n.previousStep,
+                              onPressed: session.canStepBack
+                                  ? controller.stepBack
+                                  : null,
+                              icon: const Icon(Icons.skip_previous_rounded),
+                            ),
+                            IconButton.filledTonal(
+                              tooltip: session.isPlaying
+                                  ? l10n.pause
+                                  : l10n.play,
+                              onPressed: session.isPlaying
+                                  ? controller.pause
+                                  : (session.canStepForward
+                                        ? controller.play
+                                        : null),
+                              icon: Icon(
+                                session.isPlaying
+                                    ? Icons.pause_rounded
+                                    : Icons.play_arrow_rounded,
                               ),
-                              const SizedBox(height: 4),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(4),
-                                child: LinearProgressIndicator(
-                                  value: session.playbackIndex /
+                            ),
+                            IconButton(
+                              tooltip: l10n.nextStep,
+                              onPressed: session.canStepForward
+                                  ? controller.stepForward
+                                  : null,
+                              icon: const Icon(Icons.skip_next_rounded),
+                            ),
+                            const SizedBox(width: 6),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    l10n.playbackProgress(
+                                      session.playbackIndex,
                                       session.playback.length,
-                                  minHeight: 4,
-                                  backgroundColor: AppColors.glassBorder,
-                                ),
+                                    ),
+                                    style: textTheme.bodySmall?.copyWith(
+                                      color: AppColors.textSecondary,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 4),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(4),
+                                    child: LinearProgressIndicator(
+                                      value:
+                                          session.playbackIndex /
+                                          session.playback.length,
+                                      minHeight: 4,
+                                      backgroundColor: AppColors.glassBorder,
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
+                            ),
+                            const SizedBox(width: 8),
+                          ],
                         ),
-                        const SizedBox(width: 8),
+                        _SpeedSlider(size: size),
                       ],
                     ),
                   ),
@@ -218,7 +273,19 @@ class _ActionBar extends ConsumerWidget {
                   icon: Icons.shuffle_rounded,
                   label: l10n.scramble,
                   onTap: controller.scramble,
+                ),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: _ActionButton(
+                  key: const ValueKey('solve'),
+                  icon: Icons.auto_fix_high_rounded,
+                  label: session.isSolving ? l10n.solving : l10n.solve,
+                  busy: session.isSolving,
                   primary: true,
+                  onTap: session.isSolving || !session.isIdle
+                      ? null
+                      : () => _solve(context, ref),
                 ),
               ),
               const SizedBox(width: 8),
@@ -245,6 +312,151 @@ class _ActionBar extends ConsumerWidget {
   }
 }
 
+extension on _ActionBar {
+  Future<void> _solve(BuildContext context, WidgetRef ref) async {
+    final l10n = AppLocalizations.of(context);
+    final session = ref.read(cubeSessionProvider(size));
+    final controller = ref.read(cubeSessionProvider(size).notifier);
+    final solver = ref.read(cubeSolverProvider);
+    final messenger = ScaffoldMessenger.of(context);
+    void say(String message) => messenger
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text(message)));
+
+    if (session.cube.isSolved) {
+      say(l10n.solveAlreadySolved);
+      return;
+    }
+    if (!solver.supports(size, SolveMethod.fast)) {
+      say(l10n.solveUnavailable(size));
+      return;
+    }
+    var method = SolveMethod.fast;
+    if (solver.supports(size, SolveMethod.layerByLayer)) {
+      final choice = await showModalBottomSheet<SolveMethod>(
+        context: context,
+        backgroundColor: Colors.transparent,
+        builder: (_) => const _SolveMethodSheet(),
+      );
+      if (choice == null) return;
+      method = choice;
+    }
+    await controller.solve(method);
+  }
+}
+
+/// Lets the user pick between the fast solver and the guided method.
+class _SolveMethodSheet extends StatelessWidget {
+  const _SolveMethodSheet();
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final textTheme = Theme.of(context).textTheme;
+    Widget option(
+      Key key,
+      IconData icon,
+      String title,
+      String description,
+      SolveMethod method,
+      Color accent,
+    ) => GlassCard(
+      key: key,
+      onTap: () => Navigator.of(context).pop(method),
+      child: Row(
+        children: [
+          Icon(icon, color: accent, size: 28),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(title, style: textTheme.titleMedium),
+                const SizedBox(height: 2),
+                Text(
+                  description,
+                  style: textTheme.bodySmall?.copyWith(
+                    color: AppColors.textSecondary,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsetsDirectional.fromSTEB(12, 0, 12, 12),
+        child: GlassCard(
+          padding: const EdgeInsetsDirectional.fromSTEB(14, 16, 14, 14),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(l10n.solveChooseMethod, style: textTheme.titleLarge),
+              const SizedBox(height: 12),
+              option(
+                const ValueKey('solve-fast'),
+                Icons.bolt_rounded,
+                l10n.solveFast,
+                l10n.solveFastDesc,
+                SolveMethod.fast,
+                AppColors.accent,
+              ),
+              const SizedBox(height: 10),
+              option(
+                const ValueKey('solve-learn'),
+                Icons.school_rounded,
+                l10n.solveLearn,
+                l10n.solveLearnDesc,
+                SolveMethod.layerByLayer,
+                AppColors.accentSecondary,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Animation speed of queued moves and solution playback.
+class _SpeedSlider extends ConsumerWidget {
+  const _SpeedSlider({required this.size});
+
+  final int size;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final speed = ref.watch(cubeSessionProvider(size).select((s) => s.speed));
+    return Row(
+      children: [
+        const SizedBox(width: 8),
+        const Icon(
+          Icons.speed_rounded,
+          size: 18,
+          color: AppColors.textSecondary,
+        ),
+        const SizedBox(width: 6),
+        Text(l10n.speed, style: Theme.of(context).textTheme.bodySmall),
+        Expanded(
+          child: Slider(
+            value: speed,
+            min: 0.25,
+            max: 3,
+            divisions: 11,
+            label: '${speed.toStringAsFixed(2)}×',
+            onChanged: ref.read(cubeSessionProvider(size).notifier).setSpeed,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
 /// Collapsible advanced controls: notation buttons and animation speed.
 class _NotationPanel extends ConsumerWidget {
   const _NotationPanel({required this.size});
@@ -253,7 +465,6 @@ class _NotationPanel extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context);
     final session = ref.watch(cubeSessionProvider(size));
     final controller = ref.read(cubeSessionProvider(size).notifier);
 
@@ -264,27 +475,9 @@ class _NotationPanel extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           MovePad(size: size, onMove: controller.turnNotation),
-          Row(
-            children: [
-              const Icon(
-                Icons.speed_rounded,
-                size: 18,
-                color: AppColors.textSecondary,
-              ),
-              const SizedBox(width: 6),
-              Text(l10n.speed, style: Theme.of(context).textTheme.bodySmall),
-              Expanded(
-                child: Slider(
-                  value: session.speed,
-                  min: 0.25,
-                  max: 3,
-                  divisions: 11,
-                  label: '${session.speed.toStringAsFixed(2)}×',
-                  onChanged: controller.setSpeed,
-                ),
-              ),
-            ],
-          ),
+          // Shown here only while the playback bar (with its own slider) is
+          // hidden.
+          if (!session.hasPlayback) _SpeedSlider(size: size),
         ],
       ),
     );
@@ -293,16 +486,21 @@ class _NotationPanel extends ConsumerWidget {
 
 class _ActionButton extends StatelessWidget {
   const _ActionButton({
+    super.key,
     required this.icon,
     required this.label,
     required this.onTap,
     this.primary = false,
+    this.busy = false,
   });
 
   final IconData icon;
   final String label;
   final VoidCallback? onTap;
   final bool primary;
+
+  /// Shows a spinner instead of the icon.
+  final bool busy;
 
   @override
   Widget build(BuildContext context) {
@@ -322,7 +520,12 @@ class _ActionButton extends StatelessWidget {
         ),
       ),
       onPressed: onTap,
-      icon: Icon(icon, size: 18),
+      icon: busy
+          ? const SizedBox.square(
+              dimension: 16,
+              child: CircularProgressIndicator(strokeWidth: 2),
+            )
+          : Icon(icon, size: 18),
       label: FittedBox(child: Text(label)),
     );
   }

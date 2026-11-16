@@ -5,6 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/cube/cube_move.dart';
 import '../../../core/cube/cube_state.dart';
+import '../../../core/solver/cube_solver.dart';
+import '../../../core/solver/solve_step.dart';
 
 /// A move waiting to be animated. [fast] moves (e.g. scrambles) use a
 /// shortened animation.
@@ -29,6 +31,9 @@ class CubeSession {
     this.speed = 1.0,
     this.xray = false,
     this.epoch = 0,
+    this.steps = const [],
+    this.isSolving = false,
+    this.solveError,
   });
 
   /// State with every animation already committed.
@@ -40,9 +45,17 @@ class CubeSession {
   /// All moves applied (or queued) since the cube was last solved/reset.
   final List<CubeMove> log;
 
-  /// A step-by-step sequence for the playback controls. Until the solver
-  /// engines land (Milestone 2) this is the reversed scramble.
+  /// A step-by-step solution for the playback controls.
   final List<CubeMove> playback;
+
+  /// Pedagogical metadata of each [playback] move (same length).
+  final List<SolveStep> steps;
+
+  /// A solve request is running on the native core.
+  final bool isSolving;
+
+  /// Error key of the last failed solve request, if any.
+  final String? solveError;
   final int playbackIndex;
   final bool isPlaying;
 
@@ -62,6 +75,13 @@ class CubeSession {
   bool get canStepForward => playbackIndex < playback.length;
 
   bool get canStepBack => playbackIndex > 0;
+
+  /// The step to explain right now: the one being animated, or the next one
+  /// when idle. Null without a solution or once it is complete.
+  SolveStep? get currentStep {
+    final index = isIdle ? playbackIndex : playbackIndex - 1;
+    return index >= 0 && index < steps.length ? steps[index] : null;
+  }
 
   /// Base duration of a quarter turn at speed 1.0.
   static const Duration baseQuarterTurn = Duration(milliseconds: 320);
@@ -83,6 +103,10 @@ class CubeSession {
     double? speed,
     bool? xray,
     int? epoch,
+    List<SolveStep>? steps,
+    bool? isSolving,
+    String? solveError,
+    bool clearSolveError = false,
   }) => CubeSession(
     cube: cube ?? this.cube,
     queue: queue ?? this.queue,
@@ -93,6 +117,9 @@ class CubeSession {
     speed: speed ?? this.speed,
     xray: xray ?? this.xray,
     epoch: epoch ?? this.epoch,
+    steps: steps ?? this.steps,
+    isSolving: isSolving ?? this.isSolving,
+    solveError: clearSolveError ? null : (solveError ?? this.solveError),
   );
 }
 
@@ -104,6 +131,7 @@ class CubeSessionController extends Notifier<CubeSession> {
   CubeSessionController(this.size, {this.random});
 
   final int size;
+
   /// Optional seeded RNG for deterministic scrambles (tests).
   final Random? random;
 
@@ -117,6 +145,7 @@ class CubeSessionController extends Notifier<CubeSession> {
       queue: [...state.queue, QueuedMove(move)],
       log: [...state.log, move],
       playback: const [],
+      steps: const [],
       playbackIndex: 0,
       isPlaying: false,
     );
@@ -132,6 +161,7 @@ class CubeSessionController extends Notifier<CubeSession> {
       cube: cube,
       log: cube.isSolved ? const [] : [...state.log, move],
       playback: const [],
+      steps: const [],
       playbackIndex: 0,
       isPlaying: false,
     );
@@ -147,27 +177,60 @@ class CubeSessionController extends Notifier<CubeSession> {
       queue: [...state.queue, QueuedMove(last.inverse)],
       log: state.log.sublist(0, state.log.length - 1),
       playback: const [],
+      steps: const [],
       playbackIndex: 0,
       isPlaying: false,
     );
   }
 
-  /// Scrambles from the current state and prepares a playback sequence that
-  /// returns the cube to solved.
+  /// Scrambles from the current state.
   void scramble() {
     final moves = CubeState.randomScramble(size, random: random);
-    final log = [...state.log, ...moves];
     state = state.copyWith(
-      queue: [
-        ...state.queue,
-        for (final m in moves) QueuedMove(m, fast: true),
-      ],
-      log: log,
-      playback: [for (final m in log.reversed) m.inverse],
+      queue: [...state.queue, for (final m in moves) QueuedMove(m, fast: true)],
+      log: [...state.log, ...moves],
+      playback: const [],
+      steps: const [],
       playbackIndex: 0,
       isPlaying: false,
     );
   }
+
+  /// Asks the solver for a solution of the current cube and loads it into
+  /// the playback controls. Ignored while moves are animating; the result is
+  /// dropped if the cube changed in the meantime.
+  Future<void> solve(SolveMethod method) async {
+    if (state.isSolving || !state.isIdle) return;
+    final cube = state.cube;
+    final epoch = state.epoch;
+    state = state.copyWith(isSolving: true, clearSolveError: true);
+    final SolvePlan plan;
+    try {
+      plan = await ref.read(cubeSolverProvider).solve(cube, method);
+    } on SolveException catch (error) {
+      if (ref.mounted) {
+        state = state.copyWith(isSolving: false, solveError: error.code);
+      }
+      return;
+    }
+    if (!ref.mounted) return;
+    if (!identical(state.cube, cube) || state.epoch != epoch || !state.isIdle) {
+      state = state.copyWith(isSolving: false);
+      return;
+    }
+    state = state.copyWith(
+      isSolving: false,
+      playback: List.unmodifiable([
+        for (final step in plan.steps)
+          MoveNotation.parse(step.moveNotation, size),
+      ]),
+      steps: plan.steps,
+      playbackIndex: 0,
+      isPlaying: false,
+    );
+  }
+
+  void clearSolveError() => state = state.copyWith(clearSolveError: true);
 
   /// Instantly returns to a solved cube, dropping queued animations.
   void reset() {
@@ -198,7 +261,9 @@ class CubeSessionController extends Notifier<CubeSession> {
     final move = state.playback[index];
     state = state.copyWith(
       queue: [...state.queue, QueuedMove(move.inverse)],
-      log: state.log.isEmpty ? const [] : state.log.sublist(0, state.log.length - 1),
+      log: state.log.isEmpty
+          ? const []
+          : state.log.sublist(0, state.log.length - 1),
       playbackIndex: index,
       isPlaying: false,
     );

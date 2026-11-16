@@ -355,6 +355,312 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Notation pad'**
   String get notationPad;
+
+  /// No description provided for @solve.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve'**
+  String get solve;
+
+  /// No description provided for @solving.
+  ///
+  /// In en, this message translates to:
+  /// **'Solving…'**
+  String get solving;
+
+  /// No description provided for @solveChooseMethod.
+  ///
+  /// In en, this message translates to:
+  /// **'How do you want to solve it?'**
+  String get solveChooseMethod;
+
+  /// No description provided for @solveFast.
+  ///
+  /// In en, this message translates to:
+  /// **'Fast solve'**
+  String get solveFast;
+
+  /// No description provided for @solveFastDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Kociemba two-phase algorithm · about 20 moves'**
+  String get solveFastDesc;
+
+  /// No description provided for @solveLearn.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn step by step'**
+  String get solveLearn;
+
+  /// No description provided for @solveLearnDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Beginner\'s layer-by-layer method with explanations'**
+  String get solveLearnDesc;
+
+  /// No description provided for @solveUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'The {size}×{size} solver arrives in a later update.'**
+  String solveUnavailable(int size);
+
+  /// No description provided for @solveAlreadySolved.
+  ///
+  /// In en, this message translates to:
+  /// **'The cube is already solved.'**
+  String get solveAlreadySolved;
+
+  /// No description provided for @solveFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'This cube can\'t be solved ({reason}).'**
+  String solveFailed(String reason);
+
+  /// No description provided for @solveEngineMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'The solving engine isn\'t available on this device.'**
+  String get solveEngineMissing;
+
+  /// No description provided for @solveComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Solved! Great job.'**
+  String get solveComplete;
+
+  /// No description provided for @solveSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} moves'**
+  String solveSummary(int count);
+
+  /// No description provided for @nextMove.
+  ///
+  /// In en, this message translates to:
+  /// **'Next move'**
+  String get nextMove;
+
+  /// No description provided for @colorWhite.
+  ///
+  /// In en, this message translates to:
+  /// **'white'**
+  String get colorWhite;
+
+  /// No description provided for @colorYellow.
+  ///
+  /// In en, this message translates to:
+  /// **'yellow'**
+  String get colorYellow;
+
+  /// No description provided for @colorGreen.
+  ///
+  /// In en, this message translates to:
+  /// **'green'**
+  String get colorGreen;
+
+  /// No description provided for @colorBlue.
+  ///
+  /// In en, this message translates to:
+  /// **'blue'**
+  String get colorBlue;
+
+  /// No description provided for @colorRed.
+  ///
+  /// In en, this message translates to:
+  /// **'red'**
+  String get colorRed;
+
+  /// No description provided for @colorOrange.
+  ///
+  /// In en, this message translates to:
+  /// **'orange'**
+  String get colorOrange;
+
+  /// No description provided for @phaseOptimal2x2.
+  ///
+  /// In en, this message translates to:
+  /// **'Optimal solution'**
+  String get phaseOptimal2x2;
+
+  /// No description provided for @phaseKociemba1.
+  ///
+  /// In en, this message translates to:
+  /// **'Phase 1 · Orient the pieces'**
+  String get phaseKociemba1;
+
+  /// No description provided for @phaseKociemba2.
+  ///
+  /// In en, this message translates to:
+  /// **'Phase 2 · Finish the cube'**
+  String get phaseKociemba2;
+
+  /// No description provided for @phaseLblOrient.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold the cube'**
+  String get phaseLblOrient;
+
+  /// No description provided for @phaseLblCross.
+  ///
+  /// In en, this message translates to:
+  /// **'White cross'**
+  String get phaseLblCross;
+
+  /// No description provided for @phaseLblCorners.
+  ///
+  /// In en, this message translates to:
+  /// **'White corners'**
+  String get phaseLblCorners;
+
+  /// No description provided for @phaseLblMiddle.
+  ///
+  /// In en, this message translates to:
+  /// **'Middle layer'**
+  String get phaseLblMiddle;
+
+  /// No description provided for @phaseLblYellowCross.
+  ///
+  /// In en, this message translates to:
+  /// **'Yellow cross'**
+  String get phaseLblYellowCross;
+
+  /// No description provided for @phaseLblYellowEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'Yellow edges'**
+  String get phaseLblYellowEdges;
+
+  /// No description provided for @phaseLblYellowCorners.
+  ///
+  /// In en, this message translates to:
+  /// **'Place the yellow corners'**
+  String get phaseLblYellowCorners;
+
+  /// No description provided for @phaseLblYellowCornersOrient.
+  ///
+  /// In en, this message translates to:
+  /// **'Twist the yellow corners'**
+  String get phaseLblYellowCornersOrient;
+
+  /// No description provided for @explainOptimal2x2.
+  ///
+  /// In en, this message translates to:
+  /// **'The shortest possible solution, found by searching every 2×2 position.'**
+  String get explainOptimal2x2;
+
+  /// No description provided for @explainKociemba1.
+  ///
+  /// In en, this message translates to:
+  /// **'Orient every piece and gather the middle-layer edges into the middle layer.'**
+  String get explainKociemba1;
+
+  /// No description provided for @explainKociemba2.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish with U, D and half turns only, which keep that orientation.'**
+  String get explainKociemba2;
+
+  /// No description provided for @explainLblOrient.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the whole cube so the white center points down.'**
+  String get explainLblOrient;
+
+  /// No description provided for @explainLblCrossEdge.
+  ///
+  /// In en, this message translates to:
+  /// **'Bring the {piece} edge down next to the white center, matching its side color.'**
+  String explainLblCrossEdge(String piece);
+
+  /// No description provided for @explainLblCornerExtract.
+  ///
+  /// In en, this message translates to:
+  /// **'The {piece} corner is stuck in the wrong spot. Lift it to the top with R U R\' U\'.'**
+  String explainLblCornerExtract(String piece);
+
+  /// No description provided for @explainLblCornerAlign.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the top layer until the {piece} corner sits above its slot.'**
+  String explainLblCornerAlign(String piece);
+
+  /// No description provided for @explainLblCornerInsert.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat R U R\' U\' until the {piece} corner drops into place.'**
+  String explainLblCornerInsert(String piece);
+
+  /// No description provided for @explainLblMiddleExtract.
+  ///
+  /// In en, this message translates to:
+  /// **'The {piece} edge is in the middle layer but wrong. Pop it out to the top.'**
+  String explainLblMiddleExtract(String piece);
+
+  /// No description provided for @explainLblMiddleAlign.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the top layer so the {piece} edge\'s side color matches its center.'**
+  String explainLblMiddleAlign(String piece);
+
+  /// No description provided for @explainLblMiddleRight.
+  ///
+  /// In en, this message translates to:
+  /// **'Insert the {piece} edge to the right: U R U\' R\' U\' F\' U F.'**
+  String explainLblMiddleRight(String piece);
+
+  /// No description provided for @explainLblMiddleLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'Insert the {piece} edge to the left: U\' L\' U L U F U\' F\'.'**
+  String explainLblMiddleLeft(String piece);
+
+  /// No description provided for @explainLblYellowCrossAlign.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the top layer to place the yellow shape for the next algorithm.'**
+  String get explainLblYellowCrossAlign;
+
+  /// No description provided for @explainLblYellowCrossAlg.
+  ///
+  /// In en, this message translates to:
+  /// **'Build the yellow cross with F R U R\' U\' F\'.'**
+  String get explainLblYellowCrossAlg;
+
+  /// No description provided for @explainLblYellowEdgesAlign.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the top layer to line the yellow edges up with their centers.'**
+  String get explainLblYellowEdgesAlign;
+
+  /// No description provided for @explainLblYellowEdgesAlg.
+  ///
+  /// In en, this message translates to:
+  /// **'Swap yellow edges with R U R\' U R U2 R\' U.'**
+  String get explainLblYellowEdgesAlg;
+
+  /// No description provided for @explainLblYellowCornersAlg.
+  ///
+  /// In en, this message translates to:
+  /// **'Cycle the yellow corners into their spots with U R U\' L\' U R\' U\' L.'**
+  String get explainLblYellowCornersAlg;
+
+  /// No description provided for @explainLblNextCorner.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the top layer to bring the next unsolved yellow corner to the front-right.'**
+  String get explainLblNextCorner;
+
+  /// No description provided for @explainLblCornerTwist.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat R\' D\' R D until yellow faces up. The bottom fixes itself at the end.'**
+  String get explainLblCornerTwist;
+
+  /// No description provided for @explainLblFinalAlign.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the top layer to finish the cube.'**
+  String get explainLblFinalAlign;
 }
 
 class _AppLocalizationsDelegate

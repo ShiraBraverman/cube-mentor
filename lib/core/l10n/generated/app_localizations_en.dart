@@ -159,4 +159,192 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get notationPad => 'Notation pad';
+
+  @override
+  String get solve => 'Solve';
+
+  @override
+  String get solving => 'Solving…';
+
+  @override
+  String get solveChooseMethod => 'How do you want to solve it?';
+
+  @override
+  String get solveFast => 'Fast solve';
+
+  @override
+  String get solveFastDesc => 'Kociemba two-phase algorithm · about 20 moves';
+
+  @override
+  String get solveLearn => 'Learn step by step';
+
+  @override
+  String get solveLearnDesc =>
+      'Beginner\'s layer-by-layer method with explanations';
+
+  @override
+  String solveUnavailable(int size) {
+    return 'The $size×$size solver arrives in a later update.';
+  }
+
+  @override
+  String get solveAlreadySolved => 'The cube is already solved.';
+
+  @override
+  String solveFailed(String reason) {
+    return 'This cube can\'t be solved ($reason).';
+  }
+
+  @override
+  String get solveEngineMissing =>
+      'The solving engine isn\'t available on this device.';
+
+  @override
+  String get solveComplete => 'Solved! Great job.';
+
+  @override
+  String solveSummary(int count) {
+    return '$count moves';
+  }
+
+  @override
+  String get nextMove => 'Next move';
+
+  @override
+  String get colorWhite => 'white';
+
+  @override
+  String get colorYellow => 'yellow';
+
+  @override
+  String get colorGreen => 'green';
+
+  @override
+  String get colorBlue => 'blue';
+
+  @override
+  String get colorRed => 'red';
+
+  @override
+  String get colorOrange => 'orange';
+
+  @override
+  String get phaseOptimal2x2 => 'Optimal solution';
+
+  @override
+  String get phaseKociemba1 => 'Phase 1 · Orient the pieces';
+
+  @override
+  String get phaseKociemba2 => 'Phase 2 · Finish the cube';
+
+  @override
+  String get phaseLblOrient => 'Hold the cube';
+
+  @override
+  String get phaseLblCross => 'White cross';
+
+  @override
+  String get phaseLblCorners => 'White corners';
+
+  @override
+  String get phaseLblMiddle => 'Middle layer';
+
+  @override
+  String get phaseLblYellowCross => 'Yellow cross';
+
+  @override
+  String get phaseLblYellowEdges => 'Yellow edges';
+
+  @override
+  String get phaseLblYellowCorners => 'Place the yellow corners';
+
+  @override
+  String get phaseLblYellowCornersOrient => 'Twist the yellow corners';
+
+  @override
+  String get explainOptimal2x2 =>
+      'The shortest possible solution, found by searching every 2×2 position.';
+
+  @override
+  String get explainKociemba1 =>
+      'Orient every piece and gather the middle-layer edges into the middle layer.';
+
+  @override
+  String get explainKociemba2 =>
+      'Finish with U, D and half turns only, which keep that orientation.';
+
+  @override
+  String get explainLblOrient =>
+      'Turn the whole cube so the white center points down.';
+
+  @override
+  String explainLblCrossEdge(String piece) {
+    return 'Bring the $piece edge down next to the white center, matching its side color.';
+  }
+
+  @override
+  String explainLblCornerExtract(String piece) {
+    return 'The $piece corner is stuck in the wrong spot. Lift it to the top with R U R\' U\'.';
+  }
+
+  @override
+  String explainLblCornerAlign(String piece) {
+    return 'Turn the top layer until the $piece corner sits above its slot.';
+  }
+
+  @override
+  String explainLblCornerInsert(String piece) {
+    return 'Repeat R U R\' U\' until the $piece corner drops into place.';
+  }
+
+  @override
+  String explainLblMiddleExtract(String piece) {
+    return 'The $piece edge is in the middle layer but wrong. Pop it out to the top.';
+  }
+
+  @override
+  String explainLblMiddleAlign(String piece) {
+    return 'Turn the top layer so the $piece edge\'s side color matches its center.';
+  }
+
+  @override
+  String explainLblMiddleRight(String piece) {
+    return 'Insert the $piece edge to the right: U R U\' R\' U\' F\' U F.';
+  }
+
+  @override
+  String explainLblMiddleLeft(String piece) {
+    return 'Insert the $piece edge to the left: U\' L\' U L U F U\' F\'.';
+  }
+
+  @override
+  String get explainLblYellowCrossAlign =>
+      'Turn the top layer to place the yellow shape for the next algorithm.';
+
+  @override
+  String get explainLblYellowCrossAlg =>
+      'Build the yellow cross with F R U R\' U\' F\'.';
+
+  @override
+  String get explainLblYellowEdgesAlign =>
+      'Turn the top layer to line the yellow edges up with their centers.';
+
+  @override
+  String get explainLblYellowEdgesAlg =>
+      'Swap yellow edges with R U R\' U R U2 R\' U.';
+
+  @override
+  String get explainLblYellowCornersAlg =>
+      'Cycle the yellow corners into their spots with U R U\' L\' U R\' U\' L.';
+
+  @override
+  String get explainLblNextCorner =>
+      'Turn the top layer to bring the next unsolved yellow corner to the front-right.';
+
+  @override
+  String get explainLblCornerTwist =>
+      'Repeat R\' D\' R D until yellow faces up. The bottom fixes itself at the end.';
+
+  @override
+  String get explainLblFinalAlign => 'Turn the top layer to finish the cube.';
 }

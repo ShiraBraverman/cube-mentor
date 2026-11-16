@@ -1,18 +1,25 @@
 import 'dart:math';
 
+import 'package:cube_mentor/core/solver/cube_solver.dart';
+import 'package:cube_mentor/core/solver/solve_step.dart';
 import 'package:cube_mentor/features/solver_3d/model/cube_session.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'fake_cube_solver.dart';
+
 void main() {
   late ProviderContainer container;
+  late FakeCubeSolver solver;
 
   setUp(() {
+    solver = FakeCubeSolver();
     container = ProviderContainer(
       overrides: [
         cubeSessionProvider.overrideWith2(
           (size) => CubeSessionController(size, random: Random(42)),
         ),
+        cubeSolverProvider.overrideWithValue(solver),
       ],
     );
   });
@@ -27,6 +34,23 @@ void main() {
     while (read(size).queue.isNotEmpty) {
       ctrl(size).commitHead();
     }
+  }
+
+  /// Loads a solution that undoes the session's move log.
+  Future<void> solveByUndoing(int size) {
+    solver.plan = SolvePlan(
+      method: 'test',
+      steps: [
+        for (final m in read(size).log.reversed)
+          SolveStep(
+            cubeState: '',
+            phaseName: 'kociembaPhase2',
+            moveNotation: m.inverse.notation,
+            explanationKey: 'kociembaPhase2Explain',
+          ),
+      ],
+    );
+    return ctrl(size).solve(SolveMethod.fast);
   }
 
   test('turns are queued, then committed one at a time', () {
@@ -55,13 +79,16 @@ void main() {
     sub.close();
   });
 
-  test('scramble builds a playback that solves the cube', () {
+  test('a solution plays back to solved', () async {
     final sub = container.listen(cubeSessionProvider(3), (_, _) {});
     ctrl(3).scramble();
     expect(read(3).queue.every((q) => q.fast), isTrue);
     drain(3);
     expect(read(3).cube.isSolved, isFalse);
+    expect(read(3).hasPlayback, isFalse);
+    await solveByUndoing(3);
     expect(read(3).playback, hasLength(20));
+    expect(read(3).steps, hasLength(20));
 
     ctrl(3).play();
     expect(read(3).isPlaying, isTrue);
@@ -72,10 +99,11 @@ void main() {
     sub.close();
   });
 
-  test('step back and forward through the playback', () {
+  test('step back and forward through the playback', () async {
     final sub = container.listen(cubeSessionProvider(2), (_, _) {});
     ctrl(2).scramble();
     drain(2);
+    await solveByUndoing(2);
     final scrambled = read(2).cube;
     ctrl(2)
       ..stepForward()
@@ -84,16 +112,24 @@ void main() {
       ..stepBack();
     drain(2);
     expect(read(2).playbackIndex, 0);
-    expect(read(2).cube.isSolved, scrambled.isSolved);
+    expect(read(2).cube.toString(), scrambled.toString());
+    expect(read(2).cube.isSolved, isFalse);
     expect(read(2).log, hasLength(11));
+    ctrl(2).stepForward();
+    drain(2);
+    expect(read(2).playbackIndex, 1);
     sub.close();
   });
 
-  test('a manual turn discards the playback', () {
+  test('a manual turn discards the playback', () async {
     final sub = container.listen(cubeSessionProvider(3), (_, _) {});
     ctrl(3).scramble();
+    drain(3);
+    await solveByUndoing(3);
+    expect(read(3).hasPlayback, isTrue);
     ctrl(3).turnNotation('F');
     expect(read(3).hasPlayback, isFalse);
+    expect(read(3).steps, isEmpty);
     sub.close();
   });
 
