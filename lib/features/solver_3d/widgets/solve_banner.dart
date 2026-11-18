@@ -100,6 +100,7 @@ class SolveBanner extends ConsumerWidget {
                   Row(
                     children: [
                       Expanded(
+                        flex: 3,
                         child: Text(
                           solvePhaseTitle(l10n, step.phaseName),
                           style: textTheme.labelLarge?.copyWith(
@@ -110,10 +111,16 @@ class SolveBanner extends ConsumerWidget {
                         ),
                       ),
                       const SizedBox(width: 8),
-                      Text(
-                        l10n.playbackProgress(index + 1, total),
-                        key: const ValueKey('solve-progress'),
-                        style: secondary,
+                      // Long translations of the counter shrink too.
+                      Flexible(
+                        flex: 2,
+                        child: Text(
+                          l10n.playbackProgress(index + 1, total),
+                          key: const ValueKey('solve-progress'),
+                          style: secondary,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                     ],
                   ),
@@ -135,12 +142,15 @@ class SolveBanner extends ConsumerWidget {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                Text(
-                  wholeCube ? l10n.guideRotateHint : l10n.guideSwipeHint,
-                  style: secondary,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
+                if (session.stepHint case final hint?)
+                  StepHintText(hint: hint)
+                else
+                  Text(
+                    wholeCube ? l10n.guideRotateHint : l10n.guideSwipeHint,
+                    style: secondary,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
               ],
             ),
           ),
@@ -227,12 +237,58 @@ Set<int> solveHighlights(CubeSession session) {
 /// cube. Empty for whole-cube rotations (nothing to single out).
 Set<int> solveFocus(CubeSession session) {
   if (session.currentStep == null) return const {};
-  final move = session.playback[session.currentStepIndex];
-  if (move.fromLayer == 0 && move.toLayer == session.size - 1) return const {};
+  // While a step is half made by hand, only what is left of it glows.
+  final moves = session.isIdle && session.partial.isNotEmpty
+      ? session.remainingMoves
+      : [session.playback[session.currentStepIndex]];
   return {
-    for (final cubie in session.cube.cubies)
-      if (session.cube.isAffected(cubie, move)) cubie.id,
+    for (final move in moves)
+      if (move.fromLayer != 0 || move.toLayer != session.size - 1)
+        for (final cubie in session.cube.cubies)
+          if (session.cube.isAffected(cubie, move)) cubie.id,
   };
+}
+
+/// Mid-move encouragement once part of a double or wide turn was swiped.
+class StepHintText extends StatelessWidget {
+  const StepHintText({super.key, required this.hint});
+
+  final StepHint hint;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    return Row(
+      key: ValueKey('step-hint-${hint.name}'),
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Padding(
+          padding: EdgeInsetsDirectional.only(top: 1, end: 4),
+          child: Icon(
+            Icons.thumb_up_alt_rounded,
+            size: 14,
+            color: AppColors.accentSecondary,
+          ),
+        ),
+        Expanded(
+          child: Text(
+            switch (hint) {
+              StepHint.halfway => l10n.halfTurnHalfway,
+              StepHint.wideInner => l10n.wideTurnInner,
+              StepHint.wideOuter => l10n.wideTurnOuter,
+              StepHint.wideMore => l10n.wideTurnMore,
+            },
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+              color: AppColors.accentSecondary,
+              fontWeight: FontWeight.w600,
+            ),
+            maxLines: 3,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+      ],
+    );
+  }
 }
 
 /// Localized title of a solver phase key.

@@ -115,12 +115,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get pause => '一時停止';
 
   @override
-  String get nextStep => '次へ';
-
-  @override
-  String get previousStep => '前へ';
-
-  @override
   String get playbackTitle => '再生';
 
   @override
@@ -198,6 +192,21 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get nextMove => '次の手';
+
+  @override
+  String get previousMove => '前の手';
+
+  @override
+  String get halfTurnHalfway => 'いいですね、半分できました！同じ向きにもう一度回すと180°回転の完成です。';
+
+  @override
+  String get wideTurnInner => 'いいですね！続けて隣の内側の層をスワイプすると、ワイド回転が完成します。';
+
+  @override
+  String get wideTurnOuter => 'いいですね！続けて隣の外側の層をスワイプすると、ワイド回転が完成します。';
+
+  @override
+  String get wideTurnMore => 'いいですね！光っている層を1つずつスワイプして、ワイド回転を完成させましょう。';
 
   @override
   String get guideSwipeHint => '光っている層を矢印の方向にスワイプするか、「次へ」をタップしてください。';
@@ -628,10 +637,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get lessonBackToAcademy => 'アカデミーに戻る';
 
   @override
-  String get lessonShowMe => 'お手本';
-
-  @override
-  String get lessonTryIt => 'あなたの番です。矢印の層をスワイプするか、「お手本」をタップしてください。';
+  String get lessonTryIt => 'あなたの番です。矢印の層をスワイプするか、「次の手」をタップしてください。';
 
   @override
   String get lessonLookAround => '背景をドラッグすると、キューブをいろいろな角度から見られます。';

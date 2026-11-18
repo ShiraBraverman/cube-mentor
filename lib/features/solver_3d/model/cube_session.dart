@@ -39,12 +39,87 @@ enum GuidedMove {
   /// Exactly the expected move: the solution advances.
   expected,
 
-  /// One quarter of an expected half turn: accepted, the other quarter is
-  /// still to go.
+  /// Part of the expected move: one quarter of a half turn (`R` toward
+  /// `R2`) or one layer of a wide turn (`R` or `r` toward `Rw`). Accepted;
+  /// the step stays open until the rest is swiped.
   partial,
 
   /// Anything else: rejected so the cube keeps matching the solution.
   wrong,
+}
+
+/// What is still missing from a step made partly by hand.
+enum StepHint {
+  /// A half turn is halfway: one more quarter turn the same way.
+  halfway,
+
+  /// A wide turn still needs its inner layer.
+  wideInner,
+
+  /// A wide turn still needs its outer layer.
+  wideOuter,
+
+  /// A wide turn still needs several layers.
+  wideMore,
+}
+
+/// Quarter turns already made on each layer of [expected] by [done].
+Map<int, int> _layerProgress(CubeMove expected, List<CubeMove> done) => {
+  for (var layer = expected.fromLayer; layer <= expected.toLayer; layer++)
+    layer:
+        done
+            .where((m) => m.affectsLayer(layer))
+            .fold(0, (sum, m) => sum + m.quarterTurns) %
+        4,
+};
+
+/// Whether turning a layer from [before] to [after] quarter turns moves it
+/// toward [target] without overshooting: a quarter turn needs its exact
+/// direction, a half turn can start either way but must continue that way.
+bool _advances(int before, int after, int target) {
+  if (before == target) return false;
+  if (target == 2) return before == 0 || after == 2;
+  return before == 0 && after == target;
+}
+
+/// The moves still needed to finish [expected] after [done], as few layer
+/// blocks as possible, outer layers first.
+List<CubeMove> _remainingMoves(
+  CubeMove expected,
+  List<CubeMove> done,
+  int size,
+) {
+  if (done.isEmpty) return [expected];
+  final progress = _layerProgress(expected, done);
+  final moves = <CubeMove>[];
+  int? from;
+  var owed = 0;
+  void flush(int to) {
+    final start = from;
+    if (start == null || owed == 0) return;
+    moves.add(
+      MoveNotation.describe(
+        axis: expected.axis,
+        fromLayer: start,
+        toLayer: to,
+        quarterTurns: owed,
+        size: size,
+      ),
+    );
+  }
+
+  for (var layer = expected.fromLayer; layer <= expected.toLayer; layer++) {
+    final left = (expected.quarterTurns - progress[layer]! + 4) % 4;
+    if (from == null || left != owed) {
+      flush(layer - 1);
+      from = layer;
+      owed = left;
+    }
+  }
+  flush(expected.toLayer);
+  int edge(CubeMove m) => min(m.fromLayer, size - 1 - m.toLayer);
+  moves.sort((a, b) => edge(a).compareTo(edge(b)));
+  return moves;
 }
 
 /// Immutable state of an interactive 3D cube session.
@@ -66,6 +141,7 @@ class CubeSession {
     this.isHandTurning = false,
     this.rejectedMoves = 0,
     this.solvedWith,
+    this.partial = const [],
   });
 
   /// State with every animation already committed.
@@ -100,6 +176,12 @@ class CubeSession {
   /// Solver method of the loaded solution; null for lesson demonstrations
   /// and patterns (they cannot be re-solved another way).
   final SolveMethod? solvedWith;
+
+  /// Hand moves already made toward the current step without finishing it
+  /// (the first quarter of `R2`, one layer of `Rw`). The step still counts
+  /// as one; [playbackIndex] advances once the rest is swiped.
+  final List<CubeMove> partial;
+
   final int playbackIndex;
   final bool isPlaying;
 
@@ -118,7 +200,7 @@ class CubeSession {
 
   bool get canStepForward => playbackIndex < playback.length;
 
-  bool get canStepBack => playbackIndex > 0;
+  bool get canStepBack => playbackIndex > 0 || partial.isNotEmpty;
 
   /// A solution is loaded and not finished: manual moves are checked
   /// against it instead of discarding it.
@@ -146,9 +228,36 @@ class CubeSession {
 
   /// The move the user should make next, shown with an arrow on the cube.
   /// Only set while the cube is at rest and waiting for the user.
+  /// After part of a step was swiped, it points at what is left.
   CubeMove? get guideMove => isGuiding && isIdle && !isPlaying && !isHandTurning
-      ? playback[playbackIndex]
+      ? remainingMoves.first
       : null;
+
+  /// What is left of the current step: the whole move, or the layers and
+  /// quarter turns not yet swiped. Empty without a step in progress.
+  List<CubeMove> get remainingMoves => isGuiding
+      ? _remainingMoves(playback[playbackIndex], partial, size)
+      : const [];
+
+  /// Encouragement for a step that was made partly by hand, or null.
+  StepHint? get stepHint {
+    if (partial.isEmpty || !isGuiding) return null;
+    final expected = playback[playbackIndex];
+    final progress = _layerProgress(expected, partial);
+    final target = expected.quarterTurns;
+    if (progress.values.any((a) => a != 0 && a != target)) {
+      return StepHint.halfway;
+    }
+    final untouched = [
+      for (final MapEntry(key: layer, value: a) in progress.entries)
+        if (a == 0) layer,
+    ];
+    if (untouched.length != 1) return StepHint.wideMore;
+    final layer = untouched.single;
+    return layer == 0 || layer == size - 1
+        ? StepHint.wideOuter
+        : StepHint.wideInner;
+  }
 
   /// Base duration of a quarter turn at speed 1.0.
   static const Duration baseQuarterTurn = Duration(milliseconds: 320);
@@ -177,6 +286,7 @@ class CubeSession {
     bool? isHandTurning,
     int? rejectedMoves,
     SolveMethod? solvedWith,
+    List<CubeMove>? partial,
   }) => CubeSession(
     cube: cube ?? this.cube,
     queue: queue ?? this.queue,
@@ -193,6 +303,10 @@ class CubeSession {
     isHandTurning: isHandTurning ?? this.isHandTurning,
     rejectedMoves: rejectedMoves ?? this.rejectedMoves,
     solvedWith: solvedWith ?? this.solvedWith,
+    // A new solution or step always starts afresh.
+    partial:
+        partial ??
+        (playback != null || playbackIndex != null ? const [] : this.partial),
   );
 }
 
@@ -216,15 +330,27 @@ class CubeSessionController extends Notifier<CubeSession> {
     final s = state;
     if (!s.isGuiding) return GuidedMove.free;
     final expected = s.playback[s.playbackIndex];
-    if (move == expected) return GuidedMove.expected;
-    final sameLayers =
-        move.axis == expected.axis &&
-        move.fromLayer == expected.fromLayer &&
-        move.toLayer == expected.toLayer;
-    if (sameLayers && expected.isHalfTurn && !move.isHalfTurn) {
-      return GuidedMove.partial;
+    if (s.partial.isEmpty && move == expected) return GuidedMove.expected;
+    // Otherwise the move must turn some of the step's layers further toward
+    // the goal: a quarter of a half turn, or one slice of a wide turn, in
+    // either order.
+    if (move.axis != expected.axis ||
+        move.fromLayer < expected.fromLayer ||
+        move.toLayer > expected.toLayer) {
+      return GuidedMove.wrong;
     }
-    return GuidedMove.wrong;
+    final progress = _layerProgress(expected, s.partial);
+    final target = expected.quarterTurns;
+    var finished = true;
+    for (final MapEntry(key: layer, value: before) in progress.entries) {
+      var after = before;
+      if (move.affectsLayer(layer)) {
+        after = (before + move.quarterTurns) % 4;
+        if (!_advances(before, after, target)) return GuidedMove.wrong;
+      }
+      if (after != target) finished = false;
+    }
+    return finished ? GuidedMove.expected : GuidedMove.partial;
   }
 
   /// Performs a user move. During a guided solve the move must follow the
@@ -281,42 +407,16 @@ class CubeSessionController extends Notifier<CubeSession> {
         return verdict;
       case GuidedMove.expected:
       case GuidedMove.partial:
-        var playback = s.playback;
-        var steps = s.steps;
+        // Either way it stays one step: the index moves on only once the
+        // whole move is made.
         final index = s.playbackIndex;
-        if (verdict == GuidedMove.partial) {
-          // Split the half turn into this quarter and an identical second
-          // quarter, so stepping back stays exact.
-          final step = steps[index];
-          SolveStep quarter(String cubeState) => SolveStep(
-            cubeState: cubeState,
-            phaseName: step.phaseName,
-            moveNotation: move.notation,
-            explanationKey: step.explanationKey,
-            highlightedCubies: step.highlightedCubies,
-            pieceColors: step.pieceColors,
-          );
-          final before = s.cube.applyAll(s.queue.map((q) => q.move));
-          playback = List.unmodifiable([
-            ...playback.sublist(0, index),
-            move,
-            move,
-            ...playback.sublist(index + 1),
-          ]);
-          steps = List.unmodifiable([
-            ...steps.sublist(0, index),
-            quarter(step.cubeState),
-            quarter(before.apply(move).toFacelets()),
-            ...steps.sublist(index + 1),
-          ]);
-        }
+        final done = verdict == GuidedMove.expected;
         state = s.copyWith(
           cube: animate ? null : s.cube.apply(move),
           queue: animate ? [...s.queue, QueuedMove(move, step: index)] : null,
           log: [...s.log, move],
-          playback: playback,
-          steps: steps,
-          playbackIndex: index + 1,
+          playbackIndex: done ? index + 1 : index,
+          partial: done ? const [] : [...s.partial, move],
           isPlaying: false,
         );
         return verdict;
@@ -486,19 +586,36 @@ class CubeSessionController extends Notifier<CubeSession> {
       state = state.copyWith(isPlaying: false);
       return;
     }
-    final move = state.playback[state.playbackIndex];
+    // A step made partly by hand is finished with only what is left of it.
+    final moves = state.remainingMoves;
     state = state.copyWith(
       queue: [
         ...state.queue,
-        QueuedMove(move, step: state.playbackIndex),
+        for (final move in moves) QueuedMove(move, step: state.playbackIndex),
       ],
-      log: [...state.log, move],
+      log: [...state.log, ...moves],
       playbackIndex: state.playbackIndex + 1,
     );
   }
 
   void stepBack() {
     if (state.isHandTurning || state.isPreviewing || !state.canStepBack) {
+      return;
+    }
+    final partial = state.partial;
+    if (partial.isNotEmpty) {
+      // Unwinds a half-made step back to its start.
+      final index = state.playbackIndex;
+      state = state.copyWith(
+        queue: [
+          ...state.queue,
+          for (final move in partial.reversed)
+            QueuedMove(move.inverse, step: index),
+        ],
+        log: state.log.sublist(0, max(0, state.log.length - partial.length)),
+        partial: const [],
+        isPlaying: false,
+      );
       return;
     }
     final index = state.playbackIndex - 1;
@@ -526,7 +643,8 @@ class CubeSessionController extends Notifier<CubeSession> {
     final List<CubeMove> moves;
     if (s.canStepForward) {
       index = s.playbackIndex;
-      moves = [s.playback[index], s.playback[index].inverse];
+      final left = s.remainingMoves;
+      moves = [...left, for (final m in left.reversed) m.inverse];
     } else {
       index = s.playbackIndex - 1;
       moves = [s.playback[index].inverse, s.playback[index]];

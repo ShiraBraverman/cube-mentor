@@ -24,7 +24,9 @@ void main() {
     });
 
     test('R brings the front colors up the right column of U', () {
-      final f = CubeState.solved(3).apply(MoveNotation.parse('R', 3)).toFacelets();
+      final f = CubeState.solved(3)
+          .apply(MoveNotation.parse('R', 3))
+          .toFacelets();
       // Same expectation as the C++ notation test.
       expect([f[2], f[5], f[8]], ['G', 'G', 'G']);
       expect([f[20], f[26]], ['Y', 'Y']);
@@ -62,9 +64,9 @@ void main() {
       double meanX(List<Offset> p) =>
           p.map((o) => o.dx).reduce((a, b) => a + b) / p.length;
       expect(meanX(arrow('R')), greaterThan(meanX(arrow('L'))));
-      double length(List<Offset> p) => [
-        for (var i = 1; i < p.length; i++) (p[i] - p[i - 1]).distance,
-      ].reduce((a, b) => a + b);
+      double length(List<Offset> p) =>
+          [for (var i = 1; i < p.length; i++) (p[i] - p[i - 1]).distance]
+              .reduce((a, b) => a + b);
       expect(length(arrow('U2')), greaterThan(length(arrow('U')) * 1.5));
     });
   });
@@ -198,7 +200,10 @@ void main() {
     test('the expected hand move advances the guided solution', () async {
       await guide(['R', 'U']);
       expect(session().guideMove?.notation, 'R');
-      expect(controller().judge(MoveNotation.parse('R', 3)), GuidedMove.expected);
+      expect(
+        controller().judge(MoveNotation.parse('R', 3)),
+        GuidedMove.expected,
+      );
       controller().commitDirect(MoveNotation.parse('R', 3));
       expect(session().playbackIndex, 1);
       expect(session().steps, hasLength(2));
@@ -234,27 +239,121 @@ void main() {
       expect(session().currentStep?.moveNotation, 'U');
     });
 
-    test('a half turn can be made as two quarter turns', () async {
+    test('a double turn is one step made with two quarter swipes', () async {
       await guide(['R2', 'U']);
+      expect(session().playback.map((m) => m.notation), ['R2', 'U']);
       final quarter = MoveNotation.parse("R'", 3);
       expect(controller().judge(quarter), GuidedMove.partial);
       controller().commitDirect(quarter);
-      expect(session().playback.map((m) => m.notation), ["R'", "R'", 'U']);
-      expect(session().playbackIndex, 1);
-      expect(session().currentStep?.cubeState, session().cube.toFacelets());
+      // Still one step: halfway, with the arrow on the second quarter.
+      expect(session().playback.map((m) => m.notation), ['R2', 'U']);
+      expect(session().playbackIndex, 0);
+      expect(session().currentStep?.moveNotation, 'R2');
+      expect(session().stepHint, StepHint.halfway);
+      expect(session().guideMove?.notation, "R'");
       // The second quarter must go the same way.
       expect(controller().judge(MoveNotation.parse('R', 3)), GuidedMove.wrong);
+      expect(controller().judge(MoveNotation.parse('U', 3)), GuidedMove.wrong);
+      expect(controller().judge(quarter), GuidedMove.expected);
       controller().commitDirect(quarter);
+      expect(session().playbackIndex, 1);
+      expect(session().stepHint, isNull);
+      expect(session().currentStep?.cubeState, session().cube.toFacelets());
       controller().commitDirect(MoveNotation.parse('U', 3));
       expect(session().cube.isSolved, isTrue);
 
-      // Stepping back retraces the split steps exactly.
-      for (var i = 0; i < 3; i++) {
+      // Stepping back retraces whole steps.
+      for (var i = 0; i < 2; i++) {
         controller().stepBack();
         drain();
       }
       expect(session().playbackIndex, 0);
       expect(session().cube.toFacelets(), session().steps.first.cubeState);
+    });
+
+    test('Next and Previous finish or undo a half-made step', () async {
+      await guide(['R2', 'U']);
+      final start = session().cube.toFacelets();
+      controller().commitDirect(MoveNotation.parse('R', 3));
+      expect(session().canStepBack, isTrue);
+      controller().stepBack();
+      drain();
+      expect(session().partial, isEmpty);
+      expect(session().playbackIndex, 0);
+      expect(session().cube.toFacelets(), start);
+
+      controller().commitDirect(MoveNotation.parse('R', 3));
+      controller().stepForward();
+      expect(session().queue.single.move.notation, 'R', reason: 'the rest');
+      drain();
+      expect(session().playbackIndex, 1);
+      expect(session().currentStep?.cubeState, session().cube.toFacelets());
+    });
+
+    group('wide turns on a 4x4', () {
+      CubeSessionController ctrl4() =>
+          container.read(cubeSessionProvider(4).notifier);
+      CubeSession session4() => container.read(cubeSessionProvider(4));
+      CubeMove m4(String token) => MoveNotation.parse(token, 4);
+
+      void load4(List<String> moves) {
+        final sub = container.listen(cubeSessionProvider(4), (_, _) {});
+        addTearDown(sub.close);
+        final parsed = [for (final m in moves) m4(m)];
+        ctrl4().loadGuide(
+          CubeState.solved(4).applyAll(parsed.reversed.map((m) => m.inverse)),
+          parsed,
+          phase: 'pattern',
+          explanation: 'patternStep',
+        );
+      }
+
+      test('Rw can be swiped outer layer first, then inner', () {
+        load4(['Rw', 'U']);
+        expect(ctrl4().judge(m4('R')), GuidedMove.partial);
+        ctrl4().commitDirect(m4('R'));
+        expect(session4().playbackIndex, 0);
+        expect(session4().stepHint, StepHint.wideInner);
+        expect(session4().guideMove?.notation, '2R');
+        // Only the inner layer, the same way, completes it.
+        expect(ctrl4().judge(m4("2R'")), GuidedMove.wrong);
+        expect(ctrl4().judge(m4('R')), GuidedMove.wrong);
+        expect(ctrl4().judge(m4('L')), GuidedMove.wrong);
+        expect(ctrl4().judge(m4('2R')), GuidedMove.expected);
+        ctrl4().commitDirect(m4('2R'));
+        expect(session4().playbackIndex, 1, reason: 'one step for Rw');
+        expect(session4().stepHint, isNull);
+        expect(session4().cube.toFacelets(), session4().steps[1].cubeState);
+      });
+
+      test('Rw can be swiped inner layer first, then outer', () {
+        load4(['Rw']);
+        ctrl4().commitDirect(m4('2R'));
+        expect(session4().stepHint, StepHint.wideOuter);
+        expect(session4().guideMove?.notation, 'R');
+        ctrl4().commitDirect(m4('R'));
+        expect(session4().isComplete, isTrue);
+        expect(session4().cube.isSolved, isTrue);
+      });
+
+      test('Uw2 mixes quarter and half swipes on both layers', () {
+        load4(['Uw2']);
+        ctrl4().commitDirect(m4('U'));
+        expect(session4().stepHint, StepHint.halfway);
+        ctrl4().commitDirect(m4('2U2'));
+        expect(session4().guideMove?.notation, 'U');
+        expect(ctrl4().judge(m4("U'")), GuidedMove.wrong);
+        ctrl4().commitDirect(m4('U'));
+        expect(session4().isComplete, isTrue);
+        expect(session4().cube.isSolved, isTrue);
+      });
+
+      test('the notation pad can make the wide turn in one go', () {
+        load4(['Fw']);
+        expect(ctrl4().judge(m4('Fw')), GuidedMove.expected);
+        ctrl4().turnNotation('Fw');
+        expect(session4().playbackIndex, 1);
+      });
     });
 
     test('undo steps back through the solution', () async {

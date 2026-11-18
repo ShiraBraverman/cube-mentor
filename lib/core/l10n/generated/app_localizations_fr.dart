@@ -40,7 +40,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get cubeLevel6 => 'Maître';
 
   @override
-  String get chooseMode => 'Que voulez-vous faire ';
+  String get chooseMode => 'Que voulez-vous faire ?';
 
   @override
   String get modePlayground => 'Bac à sable 3D';
@@ -121,12 +121,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get pause => 'Pause';
 
   @override
-  String get nextStep => 'Suivant';
-
-  @override
-  String get previousStep => 'Précédent';
-
-  @override
   String get playbackTitle => 'Lecture';
 
   @override
@@ -199,7 +193,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Le moteur de résolution n\'est pas disponible sur cet appareil.';
 
   @override
-  String get solveComplete => 'Résolu  Bravo.';
+  String get solveComplete => 'Résolu ! Bravo.';
 
   @override
   String solveSummary(int count) {
@@ -210,12 +204,31 @@ class AppLocalizationsFr extends AppLocalizations {
   String get nextMove => 'Mouvement suivant';
 
   @override
+  String get previousMove => 'Mouvement précédent';
+
+  @override
+  String get halfTurnHalfway =>
+      'Bien, vous êtes à mi-chemin ! Tournez-la encore une fois dans le même sens pour faire un demi-tour (180°).';
+
+  @override
+  String get wideTurnInner =>
+      'Super ! Faites maintenant glisser la couche intérieure voisine pour terminer le tour large.';
+
+  @override
+  String get wideTurnOuter =>
+      'Super ! Faites maintenant glisser la couche extérieure voisine pour terminer le tour large.';
+
+  @override
+  String get wideTurnMore =>
+      'Super ! Continuez à faire glisser les couches lumineuses une par une pour terminer le tour large.';
+
+  @override
   String get guideSwipeHint =>
       'Faites glisser la couche lumineuse dans le sens de la flèche, ou touchez Suivant.';
 
   @override
   String get guideRotateHint =>
-      'Tournez le cube entier comme l\'indique la flèche  touchez Suivant.';
+      'Tournez le cube entier comme l\'indique la flèche : touchez Suivant.';
 
   @override
   String get guideWrongMove => 'Suivez la flèche en surbrillance';
@@ -372,12 +385,12 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String explainLblMiddleRight(String piece) {
-    return 'Insérez l\'arête $piece à droite  U R U\' R\' U\' F\' U F.';
+    return 'Insérez l\'arête $piece à droite : U R U\' R\' U\' F\' U F.';
   }
 
   @override
   String explainLblMiddleLeft(String piece) {
-    return 'Insérez l\'arête $piece à gauche  U\' L\' U L U F U\' F\'.';
+    return 'Insérez l\'arête $piece à gauche : U\' L\' U L U F U\' F\'.';
   }
 
   @override
@@ -448,7 +461,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get scanHintFront =>
-      'Tenez le cube avec n\'importe quelle face vers vous. C\'est votre face avant  gardez la même face en haut pendant le scan.';
+      'Tenez le cube avec n\'importe quelle face vers vous. C\'est votre face avant : gardez la même face en haut pendant le scan.';
 
   @override
   String get scanHintRight =>
@@ -569,8 +582,8 @@ class AppLocalizationsFr extends AppLocalizations {
       count,
       locale: localeName,
       other:
-          '$count autocollants étaient difficiles à lire  jetez-y un coup d\'œil.',
-      one: 'Un autocollant était difficile à lire  jetez-y un coup d\'œil.',
+          '$count autocollants étaient difficiles à lire : jetez-y un coup d\'œil.',
+      one: 'Un autocollant était difficile à lire : jetez-y un coup d\'œil.',
     );
     return '$_temp0';
   }
@@ -637,7 +650,7 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get academyAllDone => 'Toutes les leçons sont terminées ';
+  String get academyAllDone => 'Toutes les leçons sont terminées !';
 
   @override
   String get academyTitle => 'Académie';
@@ -668,7 +681,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get lessonFinish => 'Terminer la leçon';
 
   @override
-  String get lessonComplete => 'Leçon terminée ';
+  String get lessonComplete => 'Leçon terminée !';
 
   @override
   String get lessonNextLesson => 'Leçon suivante';
@@ -677,18 +690,15 @@ class AppLocalizationsFr extends AppLocalizations {
   String get lessonBackToAcademy => 'Retour à l\'Académie';
 
   @override
-  String get lessonShowMe => 'Montrez-moi';
-
-  @override
   String get lessonTryIt =>
-      'À vous  faites glisser la couche indiquée par la flèche, ou touchez Montrez-moi.';
+      'À vous : faites glisser la couche indiquée par la flèche, ou touchez Mouvement suivant.';
 
   @override
   String get lessonLookAround =>
       'Faites glisser le fond pour voir le cube sous tous les angles.';
 
   @override
-  String get lessonDemoDone => 'Bien joué  Touchez Suivant pour continuer.';
+  String get lessonDemoDone => 'Bien joué ! Touchez Suivant pour continuer.';
 
   @override
   String holdPrompt(String top, String front) {
@@ -705,7 +715,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get trackTwoByTwo => '2×2 débutant et Ortega';
 
   @override
-  String get trackBigCubes => 'Grands cubes  réduction et parité';
+  String get trackBigCubes => 'Grands cubes : réduction et parité';
 
   @override
   String moveSentence(String layer, String direction) {
@@ -777,39 +787,39 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get moveRotateX =>
-      'Basculez le cube entier  l\'avant monte vers le haut';
+      'Basculez le cube entier : l\'avant monte vers le haut';
 
   @override
   String get moveRotateXPrime =>
-      'Basculez le cube entier  l\'avant descend vers le bas';
+      'Basculez le cube entier : l\'avant descend vers le bas';
 
   @override
   String get moveRotateX2 =>
-      'Retournez le cube entier  l\'avant passe à l\'arrière';
+      'Retournez le cube entier : l\'avant passe à l\'arrière';
 
   @override
   String get moveRotateY =>
-      'Pivotez le cube entier  l\'avant va vers la gauche';
+      'Pivotez le cube entier : l\'avant va vers la gauche';
 
   @override
   String get moveRotateYPrime =>
-      'Pivotez le cube entier  l\'avant va vers la droite';
+      'Pivotez le cube entier : l\'avant va vers la droite';
 
   @override
   String get moveRotateY2 =>
-      'Pivotez le cube entier d\'un demi-tour  l\'arrière vient devant';
+      'Pivotez le cube entier d\'un demi-tour : l\'arrière vient devant';
 
   @override
   String get moveRotateZ =>
-      'Roulez le cube entier dans le sens horaire  le haut va vers la droite';
+      'Roulez le cube entier dans le sens horaire : le haut va vers la droite';
 
   @override
   String get moveRotateZPrime =>
-      'Roulez le cube entier dans le sens antihoraire  le haut va vers la gauche';
+      'Roulez le cube entier dans le sens antihoraire : le haut va vers la gauche';
 
   @override
   String get moveRotateZ2 =>
-      'Mettez le cube entier à l\'envers  le haut passe en bas';
+      'Mettez le cube entier à l\'envers : le haut passe en bas';
 
   @override
   String get phaseReductionCenters => 'Centres';
@@ -841,7 +851,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String explainReductionEdgeCycle(String piece) {
-    return 'Assemblez les pièces de l\'arête $piece avec un 3-cycle  les centres restent résolus.';
+    return 'Assemblez les pièces de l\'arête $piece avec un 3-cycle ; les centres restent résolus.';
   }
 
   @override
@@ -850,11 +860,11 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get explainReductionOllParity =>
-      'Parité OLL  une arête est retournée, ce qui est impossible sur un 3×3. Cet algorithme la remet dans le bon sens.';
+      'Parité OLL : une arête est retournée, ce qui est impossible sur un 3×3. Cet algorithme la remet dans le bon sens.';
 
   @override
   String get explainReductionPllParity =>
-      'Parité PLL  deux arêtes sont échangées, ce qui est impossible sur un 3×3. Cet algorithme les remet en place.';
+      'Parité PLL : deux arêtes sont échangées, ce qui est impossible sur un 3×3. Cet algorithme les remet en place.';
 
   @override
   String get patternsTitle => 'Bibliothèque de motifs';
@@ -907,7 +917,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get timerInspecting =>
-      'Inspection  maintenez, puis relâchez pour démarrer';
+      'Inspection : maintenez, puis relâchez pour démarrer';
 
   @override
   String get timerTapToInspect =>
@@ -942,16 +952,16 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get timerNoSolves =>
-      'Aucune résolution pour l\'instant. Mélangez votre cube et c\'est parti ';
+      'Aucune résolution pour l\'instant. Mélangez votre cube et c\'est parti !';
 
   @override
-  String get timerNewPb => 'Nouveau record personnel ';
+  String get timerNewPb => 'Nouveau record personnel !';
 
   @override
   String get timerClearHistory => 'Effacer l\'historique';
 
   @override
-  String get timerScrambleHint => 'Blanc en haut, vert devant, puis mélangez ';
+  String get timerScrambleHint => 'Blanc en haut, vert devant, puis mélangez :';
 
   @override
   String get dailyTitle => 'Défi du jour';
@@ -963,11 +973,11 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String dailyBestStreak(int count) {
-    return 'Meilleure série  $count';
+    return 'Meilleure série : $count';
   }
 
   @override
-  String get dailyDone => 'C\'est fait pour aujourd\'hui  Revenez demain.';
+  String get dailyDone => 'C\'est fait pour aujourd\'hui ! Revenez demain.';
 
   @override
   String get dailyNotDone =>
@@ -984,7 +994,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String dailyHintText(String moves) {
-    return 'Commencez par la croix blanche  $moves';
+    return 'Commencez par la croix blanche : $moves';
   }
 
   @override
@@ -1016,7 +1026,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get stepBasicsPrimeBody =>
-      'Une apostrophe (R\') tourne dans l\'autre sens, antihoraire. Un 2 (U2) est un demi-tour  deux quarts de tour.';
+      'Une apostrophe (R\') tourne dans l\'autre sens, antihoraire. Un 2 (U2) est un demi-tour : deux quarts de tour.';
 
   @override
   String get stepCrossGoal => 'L\'objectif';
@@ -1037,7 +1047,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get stepCrossMiddleBody =>
-      'Une arête coincée dans la couche du milieu remonte d\'abord  tournez sa face latérale vers le haut, écartez la couche du haut puis remettez la face latérale, pour garder la croix intacte. Placez-la ensuite depuis le haut.';
+      'Une arête coincée dans la couche du milieu remonte d\'abord : tournez sa face latérale vers le haut, écartez la couche du haut puis remettez la face latérale, pour garder la croix intacte. Placez-la ensuite depuis le haut.';
 
   @override
   String get stepCornersInsert => 'Au-dessus de sa place';
@@ -1065,7 +1075,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get stepMiddleLeftBody =>
-      'Si sa couleur du dessus correspond plutôt au centre de gauche, utilisez le miroir  U\' L\' U L U F U\' F\'.';
+      'Si sa couleur du dessus correspond plutôt au centre de gauche, utilisez le miroir : U\' L\' U L U F U\' F\'.';
 
   @override
   String get stepYellowCross => 'Un seul algorithme';
@@ -1086,17 +1096,17 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get stepPlaceCornersBody =>
-      'Tenez en avant à droite un coin déjà à sa place. U R U\' L\' U R\' U\' L déplace les trois autres  répétez jusqu\'à ce que les quatre soient en place.';
+      'Tenez en avant à droite un coin déjà à sa place. U R U\' L\' U R\' U\' L déplace les trois autres : répétez jusqu\'à ce que les quatre soient en place.';
 
   @override
   String get stepTwistCorners => 'Orientez-les';
 
   @override
   String get stepTwistCornersBody =>
-      'Avec un coin non résolu en avant à droite, répétez R\' D\' R D jusqu\'à ce que le jaune soit en haut, puis tournez seulement la couche du haut pour amener le suivant. Le bas semble cassé jusqu\'à la toute fin  continuez.';
+      'Avec un coin non résolu en avant à droite, répétez R\' D\' R D jusqu\'à ce que le jaune soit en haut, puis tournez seulement la couche du haut pour amener le suivant. Le bas semble cassé jusqu\'à la toute fin : continuez.';
 
   @override
-  String get lessonCfopIntro => 'Qu\'est-ce que le CFOP ';
+  String get lessonCfopIntro => 'Qu\'est-ce que le CFOP ?';
 
   @override
   String get lessonCfopIntroDesc => 'Croix, F2L, OLL, PLL.';
@@ -1166,7 +1176,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get stepPllTBody =>
-      'La T-perm échange deux coins et deux arêtes. Utilisez-la pour placer les coins  tenez à droite les deux coins à échanger.';
+      'La T-perm échange deux coins et deux arêtes. Utilisez-la pour placer les coins : tenez à droite les deux coins à échanger.';
 
   @override
   String get stepPllU => 'U-perm';
@@ -1193,7 +1203,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get stepTwoCornerBody =>
-      'Exactement comme les coins blancs du 3×3  amenez un coin au-dessus de sa place et faites R U R\' U\' jusqu\'à ce qu\'il s\'y mette.';
+      'Exactement comme les coins blancs du 3×3 : amenez un coin au-dessus de sa place et faites R U R\' U\' jusqu\'à ce qu\'il s\'y mette.';
 
   @override
   String get lessonTwoOll => 'Orientez le dessus';
@@ -1206,7 +1216,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get stepTwoSuneBody =>
-      'Le Sune rend aussi le dessus jaune sur un 2×2. Avec la méthode Ortega, on apprend sept cas courts  le Sune et son miroir couvrent la plupart d\'entre eux.';
+      'Le Sune rend aussi le dessus jaune sur un 2×2. Avec la méthode Ortega, on apprend sept cas courts ; le Sune et son miroir couvrent la plupart d\'entre eux.';
 
   @override
   String get lessonTwoPbl => 'Permutez les deux couches';
@@ -1292,5 +1302,5 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get stepBigPllParityBody =>
-      'Deux arêtes échangées tout à la fin  2R2 U2 2R2 Uw2 2R2 Uw2 échange les arêtes avant et arrière du haut.';
+      'Deux arêtes échangées tout à la fin ? 2R2 U2 2R2 Uw2 2R2 Uw2 échange les arêtes avant et arrière du haut.';
 }

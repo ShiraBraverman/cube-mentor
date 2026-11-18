@@ -119,12 +119,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pause => 'Pause';
 
   @override
-  String get nextStep => 'Next';
-
-  @override
-  String get previousStep => 'Previous';
-
-  @override
   String get playbackTitle => 'Playback';
 
   @override
@@ -205,6 +199,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get nextMove => 'Next move';
+
+  @override
+  String get previousMove => 'Previous move';
+
+  @override
+  String get halfTurnHalfway =>
+      'Nice, halfway there! Turn it once more for a double turn (180°).';
+
+  @override
+  String get wideTurnInner =>
+      'Great! Now swipe the inner adjacent layer to complete the wide turn.';
+
+  @override
+  String get wideTurnOuter =>
+      'Great! Now swipe the outer layer next to it to complete the wide turn.';
+
+  @override
+  String get wideTurnMore =>
+      'Great! Keep swiping the glowing layers one at a time to complete the wide turn.';
 
   @override
   String get guideSwipeHint =>
@@ -668,11 +681,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get lessonBackToAcademy => 'Back to the Academy';
 
   @override
-  String get lessonShowMe => 'Show me';
-
-  @override
   String get lessonTryIt =>
-      'Your turn: swipe the layer the arrow shows, or tap Show me.';
+      'Your turn: swipe the layer the arrow shows, or tap Next move.';
 
   @override
   String get lessonLookAround =>

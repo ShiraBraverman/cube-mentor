@@ -115,12 +115,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get pause => '暂停';
 
   @override
-  String get nextStep => '下一步';
-
-  @override
-  String get previousStep => '上一步';
-
-  @override
   String get playbackTitle => '回放';
 
   @override
@@ -198,6 +192,21 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get nextMove => '下一步';
+
+  @override
+  String get previousMove => '上一步';
+
+  @override
+  String get halfTurnHalfway => '很好，已经完成一半！同一层朝同一方向再转一次，就完成 180° 转动。';
+
+  @override
+  String get wideTurnInner => '太棒了！现在滑动相邻的内层，完成双层转动。';
+
+  @override
+  String get wideTurnOuter => '太棒了！现在滑动相邻的外层，完成双层转动。';
+
+  @override
+  String get wideTurnMore => '太棒了！继续逐层滑动发光的层，完成双层转动。';
 
   @override
   String get guideSwipeHint => '按箭头方向滑动发光的层，或点按“下一步”。';
@@ -624,10 +633,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get lessonBackToAcademy => '返回学院';
 
   @override
-  String get lessonShowMe => '演示给我看';
-
-  @override
-  String get lessonTryIt => '轮到你了：滑动箭头所指的层，或点按“演示给我看”。';
+  String get lessonTryIt => '轮到你了：滑动箭头所指的层，或点按“下一步”。';
 
   @override
   String get lessonLookAround => '拖动背景，从各个角度观察魔方。';

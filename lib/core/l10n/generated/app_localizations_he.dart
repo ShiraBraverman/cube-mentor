@@ -115,12 +115,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get pause => 'השהה';
 
   @override
-  String get nextStep => 'הבא';
-
-  @override
-  String get previousStep => 'הקודם';
-
-  @override
   String get playbackTitle => 'הפעלה';
 
   @override
@@ -200,6 +194,25 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get nextMove => 'המהלך הבא';
+
+  @override
+  String get previousMove => 'המהלך הקודם';
+
+  @override
+  String get halfTurnHalfway =>
+      'יפה, הגעתם לחצי! סובבו אותה פעם נוספת לאותו כיוון לסיבוב כפול (180°).';
+
+  @override
+  String get wideTurnInner =>
+      'מצוין! עכשיו החליקו את השכבה הפנימית הסמוכה כדי להשלים את הסיבוב הרחב.';
+
+  @override
+  String get wideTurnOuter =>
+      'מצוין! עכשיו החליקו את השכבה החיצונית שלידה כדי להשלים את הסיבוב הרחב.';
+
+  @override
+  String get wideTurnMore =>
+      'מצוין! המשיכו להחליק את השכבות הזוהרות אחת אחת כדי להשלים את הסיבוב הרחב.';
 
   @override
   String get guideSwipeHint =>
@@ -656,11 +669,8 @@ class AppLocalizationsHe extends AppLocalizations {
   String get lessonBackToAcademy => 'חזרה לאקדמיה';
 
   @override
-  String get lessonShowMe => 'הראו לי';
-
-  @override
   String get lessonTryIt =>
-      'תורכם: החליקו את השכבה שהחץ מראה, או הקישו על \"הראו לי\".';
+      'תורכם: החליקו את השכבה שהחץ מראה, או הקישו על \"המהלך הבא\".';
 
   @override
   String get lessonLookAround =>

@@ -120,12 +120,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get pause => 'I-pause';
 
   @override
-  String get nextStep => 'Susunod';
-
-  @override
-  String get previousStep => 'Nakaraan';
-
-  @override
   String get playbackTitle => 'Playback';
 
   @override
@@ -207,6 +201,25 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get nextMove => 'Susunod na galaw';
+
+  @override
+  String get previousMove => 'Nakaraang galaw';
+
+  @override
+  String get halfTurnHalfway =>
+      'Ayos, kalahati na! Iikot pa ito nang isang beses sa parehong direksyon para sa double turn (180°).';
+
+  @override
+  String get wideTurnInner =>
+      'Galing! Ngayon, i-swipe ang katabing inner layer para makumpleto ang wide turn.';
+
+  @override
+  String get wideTurnOuter =>
+      'Galing! Ngayon, i-swipe ang katabing outer layer para makumpleto ang wide turn.';
+
+  @override
+  String get wideTurnMore =>
+      'Galing! Ituloy ang pag-swipe sa mga umiilaw na layer, isa-isa, para makumpleto ang wide turn.';
 
   @override
   String get guideSwipeHint =>
@@ -675,11 +688,8 @@ class AppLocalizationsFil extends AppLocalizations {
   String get lessonBackToAcademy => 'Bumalik sa Akademya';
 
   @override
-  String get lessonShowMe => 'Ipakita';
-
-  @override
   String get lessonTryIt =>
-      'Ikaw naman: i-swipe ang layer na itinuturo ng arrow, o i-tap ang Ipakita.';
+      'Ikaw naman: i-swipe ang layer na itinuturo ng arrow, o i-tap ang Susunod na galaw.';
 
   @override
   String get lessonLookAround =>

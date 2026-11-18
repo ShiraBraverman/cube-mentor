@@ -321,18 +321,6 @@ abstract class AppLocalizations {
   /// **'Pause'**
   String get pause;
 
-  /// No description provided for @nextStep.
-  ///
-  /// In en, this message translates to:
-  /// **'Next'**
-  String get nextStep;
-
-  /// No description provided for @previousStep.
-  ///
-  /// In en, this message translates to:
-  /// **'Previous'**
-  String get previousStep;
-
   /// No description provided for @playbackTitle.
   ///
   /// In en, this message translates to:
@@ -458,6 +446,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Next move'**
   String get nextMove;
+
+  /// No description provided for @previousMove.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous move'**
+  String get previousMove;
+
+  /// No description provided for @halfTurnHalfway.
+  ///
+  /// In en, this message translates to:
+  /// **'Nice, halfway there! Turn it once more for a double turn (180°).'**
+  String get halfTurnHalfway;
+
+  /// No description provided for @wideTurnInner.
+  ///
+  /// In en, this message translates to:
+  /// **'Great! Now swipe the inner adjacent layer to complete the wide turn.'**
+  String get wideTurnInner;
+
+  /// No description provided for @wideTurnOuter.
+  ///
+  /// In en, this message translates to:
+  /// **'Great! Now swipe the outer layer next to it to complete the wide turn.'**
+  String get wideTurnOuter;
+
+  /// No description provided for @wideTurnMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Great! Keep swiping the glowing layers one at a time to complete the wide turn.'**
+  String get wideTurnMore;
 
   /// No description provided for @guideSwipeHint.
   ///
@@ -1203,16 +1221,10 @@ abstract class AppLocalizations {
   /// **'Back to the Academy'**
   String get lessonBackToAcademy;
 
-  /// No description provided for @lessonShowMe.
-  ///
-  /// In en, this message translates to:
-  /// **'Show me'**
-  String get lessonShowMe;
-
   /// No description provided for @lessonTryIt.
   ///
   /// In en, this message translates to:
-  /// **'Your turn: swipe the layer the arrow shows, or tap Show me.'**
+  /// **'Your turn: swipe the layer the arrow shows, or tap Next move.'**
   String get lessonTryIt;
 
   /// No description provided for @lessonLookAround.

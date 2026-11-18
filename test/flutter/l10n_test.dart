@@ -20,6 +20,8 @@ import 'package:cube_mentor/features/scanner/camera/frame_sampler.dart';
 import 'package:cube_mentor/features/scanner/model/scan_session.dart';
 import 'package:cube_mentor/features/scanner/scanner_screen.dart';
 import 'package:cube_mentor/features/scanner/widgets/lighting_tip.dart';
+import 'package:cube_mentor/features/solver_3d/model/cube_session.dart';
+import 'package:cube_mentor/features/solver_3d/model/guide_script.dart';
 import 'package:cube_mentor/features/solver_3d/solver_3d_screen.dart';
 import 'package:cube_mentor/features/timer/timer_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -337,6 +339,38 @@ void main() {
       expect(find.byKey(const ValueKey('crown-substep')), findsOneWidget);
       expect(find.byKey(const ValueKey('solve-mode')), findsOneWidget);
       expect(tester.takeException(), isNull, reason: 'guided banner');
+
+      // Mid-move prompts on a 4x4: a wide turn half swiped (Rw after R),
+      // then a double turn half swiped (R2 after R).
+      final wide = [
+        for (final m in ['Rw', 'R2']) MoveNotation.parse(m, 4),
+      ];
+      await show(
+        Solver3DScreen(
+          size: 4,
+          guide: GuideScript(
+            start: CubeState.solved(4)
+                .applyAll(wide.reversed.map((m) => m.inverse)),
+            moves: wide,
+            phase: 'pattern',
+            explanation: 'patternStep',
+          ),
+        ),
+        scroll: false,
+      );
+      final big = ProviderScope.containerOf(
+        tester.element(find.byType(Solver3DScreen)),
+      ).read(cubeSessionProvider(4).notifier);
+      big.commitDirect(MoveNotation.parse('R', 4));
+      await _advance(tester, 4);
+      expect(find.byKey(const ValueKey('step-hint-wideInner')), findsOneWidget);
+      expect(tester.takeException(), isNull, reason: 'wide turn hint');
+      big
+        ..commitDirect(MoveNotation.parse('2R', 4))
+        ..commitDirect(MoveNotation.parse('R', 4));
+      await _advance(tester, 4);
+      expect(find.byKey(const ValueKey('step-hint-halfway')), findsOneWidget);
+      expect(tester.takeException(), isNull, reason: 'double turn hint');
 
       // The language sheet itself.
       await show(const HomeScreen(), scroll: false);

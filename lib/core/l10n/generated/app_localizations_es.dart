@@ -120,12 +120,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get pause => 'Pausa';
 
   @override
-  String get nextStep => 'Siguiente';
-
-  @override
-  String get previousStep => 'Anterior';
-
-  @override
   String get playbackTitle => 'Reproducción';
 
   @override
@@ -207,6 +201,25 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get nextMove => 'Siguiente movimiento';
+
+  @override
+  String get previousMove => 'Movimiento anterior';
+
+  @override
+  String get halfTurnHalfway =>
+      '¡Bien, ya vas por la mitad! Gírala una vez más en el mismo sentido para completar el medio giro (180°).';
+
+  @override
+  String get wideTurnInner =>
+      '¡Genial! Ahora desliza la capa interior contigua para completar el giro doble.';
+
+  @override
+  String get wideTurnOuter =>
+      '¡Genial! Ahora desliza la capa exterior contigua para completar el giro doble.';
+
+  @override
+  String get wideTurnMore =>
+      '¡Genial! Sigue deslizando las capas iluminadas una a una para completar el giro doble.';
 
   @override
   String get guideSwipeHint =>
@@ -674,11 +687,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get lessonBackToAcademy => 'Volver a la Academia';
 
   @override
-  String get lessonShowMe => 'Muéstramelo';
-
-  @override
   String get lessonTryIt =>
-      'Tu turno: desliza la capa que indica la flecha o toca Muéstramelo.';
+      'Tu turno: desliza la capa que indica la flecha o toca Siguiente movimiento.';
 
   @override
   String get lessonLookAround =>

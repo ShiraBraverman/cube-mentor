@@ -117,12 +117,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get pause => 'إيقاف مؤقت';
 
   @override
-  String get nextStep => 'التالي';
-
-  @override
-  String get previousStep => 'السابق';
-
-  @override
   String get playbackTitle => 'التشغيل';
 
   @override
@@ -204,6 +198,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get nextMove => 'الحركة التالية';
+
+  @override
+  String get previousMove => 'الحركة السابقة';
+
+  @override
+  String get halfTurnHalfway =>
+      'أحسنت، وصلت إلى المنتصف! أدرها مرة أخرى في الاتجاه نفسه لإكمال الدورة المزدوجة (180°).';
+
+  @override
+  String get wideTurnInner =>
+      'رائع! الآن اسحب الطبقة الداخلية المجاورة لإكمال الدورة العريضة.';
+
+  @override
+  String get wideTurnOuter =>
+      'رائع! الآن اسحب الطبقة الخارجية المجاورة لإكمال الدورة العريضة.';
+
+  @override
+  String get wideTurnMore =>
+      'رائع! واصل سحب الطبقات المضيئة واحدة تلو الأخرى لإكمال الدورة العريضة.';
 
   @override
   String get guideSwipeHint =>
@@ -672,11 +685,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get lessonBackToAcademy => 'العودة إلى الأكاديمية';
 
   @override
-  String get lessonShowMe => 'أرني';
-
-  @override
   String get lessonTryIt =>
-      'دورك: اسحب الطبقة التي يشير إليها السهم، أو اضغط أرني.';
+      'دورك: اسحب الطبقة التي يشير إليها السهم، أو اضغط الحركة التالية.';
 
   @override
   String get lessonLookAround => 'اسحب الخلفية لرؤية المكعب من كل الجهات.';

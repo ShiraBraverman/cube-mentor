@@ -223,7 +223,7 @@ void main() {
     final session = container.read(cubeSessionProvider(3));
     expect(viewport.highlighted, {session.cube.cubieIdAt((0, 2, 2))});
 
-    await tester.tap(find.byTooltip('Next'));
+    await tester.tap(find.byKey(const ValueKey('playback-next')));
     await _advance(tester, 12);
     expect(find.text('1.2 First crown corners'), findsOneWidget);
     expect(find.text('Step 2 of 2'), findsOneWidget);
@@ -235,7 +235,7 @@ void main() {
     expect(find.text('Solved'), findsOneWidget);
 
     // Stepping back replays the solution in reverse.
-    await tester.tap(find.byTooltip('Previous'));
+    await tester.tap(find.byKey(const ValueKey('playback-prev')));
     await _advance(tester, 12);
     expect(container.read(cubeSessionProvider(3)).cube.isSolved, isFalse);
     expect(find.text('1.2 First crown corners'), findsOneWidget);
@@ -417,7 +417,7 @@ void main() {
       expect(find.text('Follow the highlighted arrow'), findsOneWidget);
 
       // Next animates the remaining move and the solve completes.
-      await tester.tap(find.byTooltip('Next'));
+      await tester.tap(find.byKey(const ValueKey('playback-next')));
       await _advance(tester, 12);
       expect(container.read(cubeSessionProvider(3)).cube.isSolved, isTrue);
       expect(find.text('Solved! Great job.'), findsOneWidget);

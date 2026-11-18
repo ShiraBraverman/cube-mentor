@@ -120,12 +120,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get pause => 'Пауза';
 
   @override
-  String get nextStep => 'Далее';
-
-  @override
-  String get previousStep => 'Назад';
-
-  @override
   String get playbackTitle => 'Воспроизведение';
 
   @override
@@ -209,6 +203,25 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get nextMove => 'Следующий ход';
+
+  @override
+  String get previousMove => 'Предыдущий ход';
+
+  @override
+  String get halfTurnHalfway =>
+      'Отлично, полпути позади! Поверните слой ещё раз в ту же сторону — получится двойной поворот (180°).';
+
+  @override
+  String get wideTurnInner =>
+      'Здорово! Теперь проведите соседний внутренний слой, чтобы завершить широкий ход.';
+
+  @override
+  String get wideTurnOuter =>
+      'Здорово! Теперь проведите соседний внешний слой, чтобы завершить широкий ход.';
+
+  @override
+  String get wideTurnMore =>
+      'Здорово! Проводите подсвеченные слои по одному, чтобы завершить широкий ход.';
 
   @override
   String get guideSwipeHint =>
@@ -679,11 +692,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get lessonBackToAcademy => 'Вернуться в Академию';
 
   @override
-  String get lessonShowMe => 'Показать';
-
-  @override
   String get lessonTryIt =>
-      'Ваша очередь: проведите слой, указанный стрелкой, или нажмите «Показать».';
+      'Ваша очередь: проведите слой, указанный стрелкой, или нажмите «Следующий ход».';
 
   @override
   String get lessonLookAround =>

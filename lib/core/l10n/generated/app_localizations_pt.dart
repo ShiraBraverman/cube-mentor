@@ -119,12 +119,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get pause => 'Pausa';
 
   @override
-  String get nextStep => 'Seguinte';
-
-  @override
-  String get previousStep => 'Anterior';
-
-  @override
   String get playbackTitle => 'Reprodução';
 
   @override
@@ -206,6 +200,25 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get nextMove => 'Movimento seguinte';
+
+  @override
+  String get previousMove => 'Movimento anterior';
+
+  @override
+  String get halfTurnHalfway =>
+      'Boa, já vai a meio! Rode-a mais uma vez no mesmo sentido para fazer a meia-volta (180°).';
+
+  @override
+  String get wideTurnInner =>
+      'Ótimo! Agora deslize a camada interior ao lado para completar a rotação dupla.';
+
+  @override
+  String get wideTurnOuter =>
+      'Ótimo! Agora deslize a camada exterior ao lado para completar a rotação dupla.';
+
+  @override
+  String get wideTurnMore =>
+      'Ótimo! Continue a deslizar as camadas iluminadas, uma de cada vez, para completar a rotação dupla.';
 
   @override
   String get guideSwipeHint =>
@@ -675,11 +688,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get lessonBackToAcademy => 'Voltar à Academia';
 
   @override
-  String get lessonShowMe => 'Mostrar';
-
-  @override
   String get lessonTryIt =>
-      'A sua vez: deslize a camada que a seta indica ou toque em Mostrar.';
+      'A sua vez: deslize a camada que a seta indica ou toque em Movimento seguinte.';
 
   @override
   String get lessonLookAround =>
@@ -1408,12 +1418,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get pause => 'Pausar';
 
   @override
-  String get nextStep => 'Próximo';
-
-  @override
-  String get previousStep => 'Anterior';
-
-  @override
   String get playbackTitle => 'Reprodução';
 
   @override
@@ -1495,6 +1499,25 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get nextMove => 'Próximo movimento';
+
+  @override
+  String get previousMove => 'Movimento anterior';
+
+  @override
+  String get halfTurnHalfway =>
+      'Boa, já está na metade! Gire mais uma vez no mesmo sentido para fazer a meia-volta (180°).';
+
+  @override
+  String get wideTurnInner =>
+      'Ótimo! Agora deslize a camada interna vizinha para completar o giro duplo.';
+
+  @override
+  String get wideTurnOuter =>
+      'Ótimo! Agora deslize a camada externa vizinha para completar o giro duplo.';
+
+  @override
+  String get wideTurnMore =>
+      'Ótimo! Continue deslizando as camadas iluminadas, uma de cada vez, para completar o giro duplo.';
 
   @override
   String get guideSwipeHint =>
@@ -1962,11 +1985,8 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get lessonBackToAcademy => 'Voltar à Academia';
 
   @override
-  String get lessonShowMe => 'Mostrar';
-
-  @override
   String get lessonTryIt =>
-      'Sua vez: deslize a camada que a seta mostra ou toque em Mostrar.';
+      'Sua vez: deslize a camada que a seta mostra ou toque em Próximo movimento.';
 
   @override
   String get lessonLookAround =>

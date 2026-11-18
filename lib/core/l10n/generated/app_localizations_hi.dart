@@ -117,12 +117,6 @@ class AppLocalizationsHi extends AppLocalizations {
   String get pause => 'रोकें';
 
   @override
-  String get nextStep => 'अगला';
-
-  @override
-  String get previousStep => 'पिछला';
-
-  @override
   String get playbackTitle => 'प्लेबैक';
 
   @override
@@ -203,6 +197,25 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get nextMove => 'अगली चाल';
+
+  @override
+  String get previousMove => 'पिछली चाल';
+
+  @override
+  String get halfTurnHalfway =>
+      'बढ़िया, आधा हो गया! डबल टर्न (180°) के लिए इसे उसी दिशा में एक बार और घुमाएँ।';
+
+  @override
+  String get wideTurnInner =>
+      'शानदार! अब वाइड घुमाव पूरा करने के लिए बगल वाली अंदरूनी परत स्वाइप करें।';
+
+  @override
+  String get wideTurnOuter =>
+      'शानदार! अब वाइड घुमाव पूरा करने के लिए बगल वाली बाहरी परत स्वाइप करें।';
+
+  @override
+  String get wideTurnMore =>
+      'शानदार! वाइड घुमाव पूरा करने के लिए चमकती परतों को एक-एक करके स्वाइप करते रहें।';
 
   @override
   String get guideSwipeHint =>
@@ -664,11 +677,8 @@ class AppLocalizationsHi extends AppLocalizations {
   String get lessonBackToAcademy => 'अकादमी पर वापस जाएँ';
 
   @override
-  String get lessonShowMe => 'मुझे दिखाएँ';
-
-  @override
   String get lessonTryIt =>
-      'अब आपकी बारी: तीर जो परत दिखा रहा है उसे स्वाइप करें, या मुझे दिखाएँ दबाएँ।';
+      'अब आपकी बारी: तीर जो परत दिखा रहा है उसे स्वाइप करें, या अगली चाल दबाएँ।';
 
   @override
   String get lessonLookAround =>

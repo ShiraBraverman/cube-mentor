@@ -262,9 +262,23 @@ void main() {
     );
     expect(container.read(cubeSessionProvider(3)).playback, hasLength(6));
 
-    await tester.tap(find.byKey(const ValueKey('lesson-show')));
-    await _advance(tester, 60);
-    expect(container.read(cubeSessionProvider(3)).isComplete, isTrue);
+    // No auto-play in lessons: the learner steps one move at a time.
+    expect(find.byKey(const ValueKey('lesson-show')), findsNothing);
+    expect(find.byTooltip('Play'), findsNothing);
+    CubeSession session() => container.read(cubeSessionProvider(3));
+    await tester.tap(find.byKey(const ValueKey('lesson-next-move')));
+    await _advance(tester, 12);
+    expect(session().playbackIndex, 1);
+    expect(session().isPlaying, isFalse, reason: 'one move, then it waits');
+    await tester.tap(find.byKey(const ValueKey('lesson-prev-move')));
+    await _advance(tester, 12);
+    expect(session().playbackIndex, 0);
+    expect(session().cube.isSolved, isTrue);
+    for (var i = 0; i < 6; i++) {
+      await tester.tap(find.byKey(const ValueKey('lesson-next-move')));
+      await _advance(tester, 12);
+    }
+    expect(session().isComplete, isTrue);
     expect(find.text('Nice! Tap Next to continue.'), findsOneWidget);
 
     await tester.tap(find.byKey(const ValueKey('lesson-next')));

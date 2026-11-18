@@ -115,12 +115,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get pause => '일시정지';
 
   @override
-  String get nextStep => '다음';
-
-  @override
-  String get previousStep => '이전';
-
-  @override
   String get playbackTitle => '재생';
 
   @override
@@ -198,6 +192,21 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get nextMove => '다음 동작';
+
+  @override
+  String get previousMove => '이전 동작';
+
+  @override
+  String get halfTurnHalfway => '좋아요, 절반 왔어요! 같은 방향으로 한 번 더 돌리면 180° 회전이 완성돼요.';
+
+  @override
+  String get wideTurnInner => '잘했어요! 이제 옆의 안쪽 층을 밀어 와이드 회전을 완성하세요.';
+
+  @override
+  String get wideTurnOuter => '잘했어요! 이제 옆의 바깥쪽 층을 밀어 와이드 회전을 완성하세요.';
+
+  @override
+  String get wideTurnMore => '잘했어요! 빛나는 층을 하나씩 계속 밀어 와이드 회전을 완성하세요.';
 
   @override
   String get guideSwipeHint => '빛나는 층을 화살표 방향으로 밀거나 다음을 탭하세요.';
@@ -628,10 +637,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get lessonBackToAcademy => '아카데미로 돌아가기';
 
   @override
-  String get lessonShowMe => '보여 주기';
-
-  @override
-  String get lessonTryIt => '이제 해 보세요: 화살표가 가리키는 층을 밀거나 보여 주기를 탭하세요.';
+  String get lessonTryIt => '이제 해 보세요: 화살표가 가리키는 층을 밀거나 다음 동작을 탭하세요.';
 
   @override
   String get lessonLookAround => '배경을 드래그해 큐브를 여러 방향에서 살펴보세요.';

@@ -121,12 +121,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get pause => 'Jeda';
 
   @override
-  String get nextStep => 'Berikutnya';
-
-  @override
-  String get previousStep => 'Sebelumnya';
-
-  @override
   String get playbackTitle => 'Pemutaran';
 
   @override
@@ -206,6 +200,25 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get nextMove => 'Gerakan berikutnya';
+
+  @override
+  String get previousMove => 'Gerakan sebelumnya';
+
+  @override
+  String get halfTurnHalfway =>
+      'Bagus, sudah setengah jalan! Putar sekali lagi ke arah yang sama untuk putaran ganda (180°).';
+
+  @override
+  String get wideTurnInner =>
+      'Hebat! Sekarang geser lapisan dalam di sebelahnya untuk menyelesaikan putaran lebar.';
+
+  @override
+  String get wideTurnOuter =>
+      'Hebat! Sekarang geser lapisan luar di sebelahnya untuk menyelesaikan putaran lebar.';
+
+  @override
+  String get wideTurnMore =>
+      'Hebat! Terus geser lapisan yang menyala satu per satu untuk menyelesaikan putaran lebar.';
 
   @override
   String get guideSwipeHint =>
@@ -666,11 +679,8 @@ class AppLocalizationsId extends AppLocalizations {
   String get lessonBackToAcademy => 'Kembali ke Akademi';
 
   @override
-  String get lessonShowMe => 'Tunjukkan';
-
-  @override
   String get lessonTryIt =>
-      'Giliranmu: geser lapisan yang ditunjuk panah, atau ketuk Tunjukkan.';
+      'Giliranmu: geser lapisan yang ditunjuk panah, atau ketuk Gerakan berikutnya.';
 
   @override
   String get lessonLookAround =>

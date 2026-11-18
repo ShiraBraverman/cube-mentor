@@ -15,8 +15,9 @@ import 'model/lesson_catalog.dart';
 import 'widgets/hold_prompt.dart';
 
 /// Plays one lesson: each part pairs a plain-language explanation and an
-/// orientation prompt with a live 3D demonstration the learner can watch
-/// ("Show me") or follow with their own swipes (arrows guide every move).
+/// orientation prompt with a live 3D demonstration the learner steps
+/// through one move at a time (Previous move / Next move) or follows with
+/// their own swipes (arrows guide every move).
 class LessonScreen extends ConsumerStatefulWidget {
   const LessonScreen({super.key, required this.lesson});
 
@@ -64,20 +65,6 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
   void _goTo(int step) {
     setState(() => _step = step);
     _loadStep();
-  }
-
-  void _showMe() {
-    final controller = ref.read(cubeSessionProvider(_lesson.size).notifier);
-    final session = ref.read(cubeSessionProvider(_lesson.size));
-    if (!session.hasPlayback || !session.isIdle) return;
-    if (session.isComplete) {
-      _loadStep();
-      Future.microtask(() {
-        if (mounted) controller.play();
-      });
-    } else {
-      controller.play();
-    }
   }
 
   Future<void> _finish() async {
@@ -152,11 +139,17 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                             ),
                             child: _Explanation(lesson: _lesson, step: step),
                           ),
-                          const SizedBox(height: 10),
+                          // One move at a time: no auto-play in lessons, so
+                          // learners never rush through a demonstration.
+                          if (session.hasPlayback) ...[
+                            const SizedBox(height: 8),
+                            _MoveStepper(size: size),
+                          ],
+                          const SizedBox(height: 8),
                           Row(
                             children: [
                               Expanded(
-                                child: FilledButton.tonalIcon(
+                                child: TextButton.icon(
                                   key: const ValueKey('lesson-back'),
                                   onPressed: _step > 0
                                       ? () => _goTo(_step - 1)
@@ -166,23 +159,6 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                                     size: 18,
                                   ),
                                   label: Text(l10n.lessonBack),
-                                ),
-                              ),
-                              const SizedBox(width: 8),
-                              Expanded(
-                                child: FilledButton.tonalIcon(
-                                  key: const ValueKey('lesson-show'),
-                                  onPressed:
-                                      session.hasPlayback &&
-                                          session.isIdle &&
-                                          !session.isPlaying
-                                      ? _showMe
-                                      : null,
-                                  icon: const Icon(
-                                    Icons.play_arrow_rounded,
-                                    size: 18,
-                                  ),
-                                  label: Text(l10n.lessonShowMe),
                                 ),
                               ),
                               const SizedBox(width: 8),
@@ -216,6 +192,46 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
           ),
         ),
       ),
+    );
+  }
+}
+
+/// Previous move / Next move through the part's demonstration.
+class _MoveStepper extends ConsumerWidget {
+  const _MoveStepper({required this.size});
+
+  final int size;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final session = ref.watch(cubeSessionProvider(size));
+    final controller = ref.read(cubeSessionProvider(size).notifier);
+    final free = !session.isHandTurning && !session.isPreviewing;
+    Widget label(String text) =>
+        FittedBox(fit: BoxFit.scaleDown, child: Text(text, maxLines: 1));
+    return Row(
+      children: [
+        Expanded(
+          child: FilledButton.tonalIcon(
+            key: const ValueKey('lesson-prev-move'),
+            onPressed: free && session.canStepBack ? controller.stepBack : null,
+            icon: const Icon(Icons.skip_previous_rounded, size: 18),
+            label: label(l10n.previousMove),
+          ),
+        ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: FilledButton.tonalIcon(
+            key: const ValueKey('lesson-next-move'),
+            onPressed: free && session.canStepForward
+                ? controller.stepForward
+                : null,
+            icon: const Icon(Icons.skip_next_rounded, size: 18),
+            label: label(l10n.nextMove),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -301,7 +317,9 @@ class _Explanation extends ConsumerWidget {
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      if (session.guideMove != null)
+                      if (session.stepHint case final hint?)
+                        StepHintText(hint: hint)
+                      else if (session.guideMove != null)
                         Text(
                           l10n.lessonTryIt,
                           style: textTheme.bodySmall?.copyWith(

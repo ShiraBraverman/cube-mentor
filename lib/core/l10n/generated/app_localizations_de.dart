@@ -120,12 +120,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get pause => 'Pause';
 
   @override
-  String get nextStep => 'Weiter';
-
-  @override
-  String get previousStep => 'Zurück';
-
-  @override
   String get playbackTitle => 'Wiedergabe';
 
   @override
@@ -207,6 +201,25 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get nextMove => 'Nächster Zug';
+
+  @override
+  String get previousMove => 'Vorheriger Zug';
+
+  @override
+  String get halfTurnHalfway =>
+      'Gut, schon halb geschafft! Dreh sie noch einmal in dieselbe Richtung für eine Doppeldrehung (180°).';
+
+  @override
+  String get wideTurnInner =>
+      'Super! Wische jetzt die angrenzende innere Ebene, um die breite Drehung abzuschließen.';
+
+  @override
+  String get wideTurnOuter =>
+      'Super! Wische jetzt die angrenzende äußere Ebene, um die breite Drehung abzuschließen.';
+
+  @override
+  String get wideTurnMore =>
+      'Super! Wische die leuchtenden Ebenen nacheinander weiter, um die breite Drehung abzuschließen.';
 
   @override
   String get guideSwipeHint =>
@@ -677,11 +690,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get lessonBackToAcademy => 'Zurück zur Akademie';
 
   @override
-  String get lessonShowMe => 'Zeig\'s mir';
-
-  @override
   String get lessonTryIt =>
-      'Du bist dran: Wische die Ebene, die der Pfeil zeigt, oder tippe auf Zeig\'s mir.';
+      'Du bist dran: Wische die Ebene, die der Pfeil zeigt, oder tippe auf Nächster Zug.';
 
   @override
   String get lessonLookAround =>

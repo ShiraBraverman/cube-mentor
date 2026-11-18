@@ -291,7 +291,8 @@ class _ActionBar extends ConsumerWidget {
                           textDirection: TextDirection.ltr,
                           children: [
                             IconButton(
-                              tooltip: l10n.previousStep,
+                              key: const ValueKey('playback-prev'),
+                              tooltip: l10n.previousMove,
                               onPressed: free && session.canStepBack
                                   ? controller.stepBack
                                   : null,
@@ -313,7 +314,8 @@ class _ActionBar extends ConsumerWidget {
                               ),
                             ),
                             IconButton(
-                              tooltip: l10n.nextStep,
+                              key: const ValueKey('playback-next'),
+                              tooltip: l10n.nextMove,
                               onPressed: free && session.canStepForward
                                   ? controller.stepForward
                                   : null,
