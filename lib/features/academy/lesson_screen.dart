@@ -5,6 +5,7 @@ import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/l10n/move_words.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
+import '../../core/theme/ui_kit.dart';
 import '../solver_3d/model/cube_session.dart';
 import '../solver_3d/widgets/cube_viewport.dart';
 import '../solver_3d/widgets/solve_banner.dart';
@@ -105,7 +106,12 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 640),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(14, 4, 14, 12),
+                padding: const EdgeInsetsDirectional.fromSTEB(
+                  AppSpace.md,
+                  AppSpace.xxs,
+                  AppSpace.md,
+                  AppSpace.md,
+                ),
                 child: _finished
                     ? _Completed(lesson: _lesson)
                     : _showIntro
@@ -126,13 +132,9 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                               ),
                               const SizedBox(width: 12),
                               Expanded(
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(4),
-                                  child: LinearProgressIndicator(
-                                    value: (_step + 1) / steps,
-                                    minHeight: 4,
-                                    backgroundColor: AppColors.glassBorder,
-                                  ),
+                                child: GlowProgressBar(
+                                  value: (_step + 1) / steps,
+                                  height: 6,
                                 ),
                               ),
                             ],
@@ -144,10 +146,19 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                             front: step.front,
                           ),
                           Expanded(
-                            child: CubeViewport(
-                              size: size,
-                              highlighted: solveHighlights(session),
-                              focus: solveFocus(session),
+                            child: Stack(
+                              children: [
+                                const Positioned.fill(
+                                  child: CubeStage(intensity: 0.7),
+                                ),
+                                Positioned.fill(
+                                  child: CubeViewport(
+                                    size: size,
+                                    highlighted: solveHighlights(session),
+                                    focus: solveFocus(session),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           // Long translations scroll inside the card
@@ -181,7 +192,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                                   label: Text(l10n.lessonBack),
                                 ),
                               ),
-                              const SizedBox(width: 8),
+                              const SizedBox(width: AppSpace.sm),
                               Expanded(
                                 child: FilledButton.icon(
                                   key: const ValueKey('lesson-next'),

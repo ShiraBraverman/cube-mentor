@@ -8,6 +8,7 @@ import '../../core/solver/cube_solver.dart';
 import '../../core/solver/solve_step.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
+import '../../core/theme/ui_kit.dart';
 import '../academy/widgets/lesson_intro.dart';
 import 'model/cube_session.dart';
 import 'model/guide_script.dart';
@@ -206,6 +207,7 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
               Expanded(
                 child: Stack(
                   children: [
+                    const Positioned.fill(child: CubeStage(intensity: 0.8)),
                     Positioned.fill(
                       child: CubeViewport(
                         size: size,
@@ -214,9 +216,9 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
                       ),
                     ),
                     PositionedDirectional(
-                      top: 8,
-                      start: 12,
-                      end: 12,
+                      top: AppSpace.xs,
+                      start: AppSpace.md,
+                      end: AppSpace.md,
                       child: Center(
                         child: ConstrainedBox(
                           constraints: const BoxConstraints(maxWidth: 560),
@@ -226,9 +228,9 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
                     ),
                     if (session.steps.isEmpty)
                       PositionedDirectional(
-                        bottom: 6,
-                        start: 16,
-                        end: 16,
+                        bottom: AppSpace.xs,
+                        start: AppSpace.lg,
+                        end: AppSpace.lg,
                         child: IgnorePointer(
                           child: Text(
                             l10n.orbitHint,
@@ -246,10 +248,10 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
                   constraints: const BoxConstraints(maxWidth: 560),
                   child: Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(
-                      12,
-                      6,
-                      12,
-                      12,
+                      AppSpace.md,
+                      AppSpace.xs,
+                      AppSpace.md,
+                      AppSpace.md,
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -299,8 +301,8 @@ class _ActionBar extends ConsumerWidget {
         : session.log.isNotEmpty;
 
     return GlassCard(
-      borderRadius: 24,
-      padding: const EdgeInsetsDirectional.fromSTEB(10, 8, 10, 8),
+      borderRadius: AppRadius.lg,
+      padding: const EdgeInsetsDirectional.all(AppSpace.sm - 2),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -359,15 +361,11 @@ class _ActionBar extends ConsumerWidget {
                             ),
                             const SizedBox(width: 6),
                             Expanded(
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(4),
-                                child: LinearProgressIndicator(
-                                  value:
-                                      session.playbackIndex /
-                                      session.playback.length,
-                                  minHeight: 4,
-                                  backgroundColor: AppColors.glassBorder,
-                                ),
+                              child: GlowProgressBar(
+                                value:
+                                    session.playbackIndex /
+                                    session.playback.length,
+                                height: 6,
                               ),
                             ),
                             const SizedBox(width: 8),
@@ -387,7 +385,7 @@ class _ActionBar extends ConsumerWidget {
                   onTap: free ? controller.scramble : null,
                 ),
               ),
-              const SizedBox(width: 8),
+              const SizedBox(width: AppSpace.xs),
               Expanded(
                 child: _ActionButton(
                   key: const ValueKey('solve'),
@@ -400,7 +398,7 @@ class _ActionBar extends ConsumerWidget {
                       : () => _solve(context, ref),
                 ),
               ),
-              const SizedBox(width: 8),
+              const SizedBox(width: AppSpace.xs),
               Expanded(
                 child: _ActionButton(
                   icon: Icons.undo_rounded,
@@ -408,7 +406,7 @@ class _ActionBar extends ConsumerWidget {
                   onTap: free && canUndo ? controller.undo : null,
                 ),
               ),
-              const SizedBox(width: 8),
+              const SizedBox(width: AppSpace.xs),
               Expanded(
                 child: _ActionButton(
                   icon: Icons.restart_alt_rounded,
@@ -536,26 +534,35 @@ class _ActionButton extends StatelessWidget {
     final style = primary
         ? FilledButton.styleFrom(
             backgroundColor: AppColors.accent,
-            foregroundColor: AppColors.backgroundBottom,
+            foregroundColor: AppColors.onAccent,
+            shadowColor: AppColors.accent,
+            elevation: onTap == null ? 0 : 6,
           )
         : FilledButton.styleFrom(
             backgroundColor: AppColors.glassFillStrong,
             foregroundColor: AppColors.textPrimary,
           );
-    return FilledButton.icon(
+    return FilledButton(
       style: style.copyWith(
+        minimumSize: const WidgetStatePropertyAll(Size(0, 64)),
         padding: const WidgetStatePropertyAll(
-          EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+          EdgeInsets.symmetric(horizontal: AppSpace.xxs, vertical: AppSpace.xs),
         ),
       ),
       onPressed: onTap,
-      icon: busy
-          ? const SizedBox.square(
-              dimension: 16,
-              child: CircularProgressIndicator(strokeWidth: 2),
-            )
-          : Icon(icon, size: 18),
-      label: FittedBox(child: Text(label)),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          busy
+              ? const SizedBox.square(
+                  dimension: 22,
+                  child: CircularProgressIndicator(strokeWidth: 2.5),
+                )
+              : Icon(icon, size: 22),
+          const SizedBox(height: AppSpace.xxs),
+          FittedBox(child: Text(label, maxLines: 1)),
+        ],
+      ),
     );
   }
 }
@@ -567,19 +574,9 @@ class _StatusPill extends StatelessWidget {
   final bool positive;
 
   @override
-  Widget build(BuildContext context) {
-    final color = positive ? AppColors.accentSecondary : AppColors.accentWarm;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(999),
-        color: color.withValues(alpha: 0.15),
-        border: Border.all(color: color.withValues(alpha: 0.6)),
-      ),
-      child: Text(
-        label,
-        style: TextStyle(color: color, fontWeight: FontWeight.w600),
-      ),
-    );
-  }
+  Widget build(BuildContext context) => AppPill(
+    label: label,
+    color: positive ? AppColors.accentSecondary : AppColors.accentWarm,
+    icon: positive ? Icons.check_circle_rounded : Icons.shuffle_rounded,
+  );
 }

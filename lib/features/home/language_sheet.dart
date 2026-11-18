@@ -19,8 +19,8 @@ class LanguageButton extends ConsumerWidget {
       message: l10n.language,
       child: GlassCard(
         key: const ValueKey('language-button'),
-        borderRadius: 14,
-        padding: const EdgeInsetsDirectional.fromSTEB(10, 8, 12, 8),
+        borderRadius: AppRadius.sm,
+        padding: const EdgeInsetsDirectional.fromSTEB(12, 12, 14, 12),
         onTap: () => showLanguageSheet(context),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -95,7 +95,13 @@ class _LanguageSheetState extends ConsumerState<LanguageSheet> {
             padding: const EdgeInsetsDirectional.fromSTEB(12, 0, 12, 12),
             child: GlassCard(
               blur: 28,
-              padding: const EdgeInsetsDirectional.fromSTEB(14, 16, 14, 8),
+              borderRadius: AppRadius.lg,
+              padding: const EdgeInsetsDirectional.fromSTEB(
+                AppSpace.gutter,
+                AppSpace.gutter,
+                AppSpace.gutter,
+                AppSpace.xs,
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -108,21 +114,6 @@ class _LanguageSheetState extends ConsumerState<LanguageSheet> {
                     decoration: InputDecoration(
                       hintText: l10n.languageSearch,
                       prefixIcon: const Icon(Icons.search_rounded),
-                      isDense: true,
-                      filled: true,
-                      fillColor: AppColors.glassFill,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(14),
-                        borderSide: const BorderSide(
-                          color: AppColors.glassBorder,
-                        ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(14),
-                        borderSide: const BorderSide(
-                          color: AppColors.glassBorder,
-                        ),
-                      ),
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -182,9 +173,9 @@ class _LanguageTile extends ConsumerWidget {
     return GlassCard(
       key: ValueKey('lang-${language.tag}'),
       selected: selected,
-      borderRadius: 14,
+      borderRadius: AppRadius.sm,
       blur: 0,
-      padding: const EdgeInsetsDirectional.fromSTEB(12, 10, 12, 10),
+      padding: const EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
       onTap: () {
         ref.read(localeProvider.notifier).setLocale(language.locale);
         Navigator.of(context).pop();

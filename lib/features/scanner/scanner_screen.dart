@@ -8,6 +8,7 @@ import '../../core/solver/cube_solver.dart';
 import '../../core/solver/solve_step.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
+import '../../core/theme/ui_kit.dart';
 import '../../core/vision/scan_analyzer.dart';
 import '../solver_3d/solver_3d_screen.dart';
 import 'camera/camera_scan_view.dart';
@@ -100,7 +101,12 @@ class _ScannerScreenState extends ConsumerState<ScannerScreen> {
         body: SafeArea(
           top: false,
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 4, 16, 16),
+            padding: const EdgeInsetsDirectional.fromSTEB(
+              AppSpace.gutter,
+              AppSpace.xxs,
+              AppSpace.gutter,
+              AppSpace.md,
+            ),
             child: capturing
                 ? _captureBody(l10n, session)
                 : _ReviewBody(
@@ -131,7 +137,12 @@ class _ScannerScreenState extends ConsumerState<ScannerScreen> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         GlassCard(
-          padding: const EdgeInsetsDirectional.fromSTEB(14, 12, 8, 12),
+          padding: const EdgeInsetsDirectional.fromSTEB(
+            AppSpace.md,
+            AppSpace.md,
+            AppSpace.xs,
+            AppSpace.md,
+          ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -375,28 +386,36 @@ class _CameraProblemView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Icon(
-            Icons.no_photography_rounded,
-            size: 48,
-            color: AppColors.textSecondary,
+    // Scrolls when the space left under the scan guide is short (small
+    // phones, long translations).
+    return LayoutBuilder(
+      builder: (context, constraints) => SingleChildScrollView(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(minHeight: constraints.maxHeight),
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const AccentIcon(
+                  icon: Icons.no_photography_rounded,
+                  color: AppColors.textSecondary,
+                ),
+                const SizedBox(height: AppSpace.sm),
+                Text(switch (problem) {
+                  CameraProblem.denied => l10n.scanCameraDenied,
+                  CameraProblem.failed => l10n.scanCameraFailed,
+                  CameraProblem.missing => l10n.scanCameraMissing,
+                }, textAlign: TextAlign.center),
+                const SizedBox(height: AppSpace.md),
+                FilledButton.icon(
+                  onPressed: onManual,
+                  icon: const Icon(Icons.edit_rounded),
+                  label: Text(l10n.scanManualInput),
+                ),
+              ],
+            ),
           ),
-          const SizedBox(height: 12),
-          Text(switch (problem) {
-            CameraProblem.denied => l10n.scanCameraDenied,
-            CameraProblem.failed => l10n.scanCameraFailed,
-            CameraProblem.missing => l10n.scanCameraMissing,
-          }, textAlign: TextAlign.center),
-          const SizedBox(height: 16),
-          FilledButton.icon(
-            onPressed: onManual,
-            icon: const Icon(Icons.edit_rounded),
-            label: Text(l10n.scanManualInput),
-          ),
-        ],
+        ),
       ),
     );
   }
@@ -528,10 +547,10 @@ class _StatusCard extends StatelessWidget {
     final detail = valid
         ? (uncertain > 0 ? l10n.scanUncertain(uncertain) : null)
         : issueText(l10n, analysis?.issue ?? ScanIssue.unavailable, session);
-    final color = valid ? AppColors.accentSecondary : const Color(0xFFFF6B6B);
+    final color = valid ? AppColors.accentSecondary : AppColors.danger;
     return GlassCard(
       key: const ValueKey('scan-status'),
-      padding: const EdgeInsets.all(14),
+      padding: const EdgeInsets.all(AppSpace.md),
       child: Row(
         children: [
           Icon(

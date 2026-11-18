@@ -5,6 +5,7 @@ import '../../core/cube/cube_state.dart';
 import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
+import '../../core/theme/ui_kit.dart';
 import '../home/home_controller.dart';
 import '../solver_3d/model/guide_script.dart';
 import '../solver_3d/solver_3d_screen.dart';
@@ -45,7 +46,12 @@ class _PatternsScreenState extends ConsumerState<PatternsScreen> {
               child: CustomScrollView(
                 slivers: [
                   SliverPadding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(16, 4, 16, 8),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                      AppSpace.gutter,
+                      AppSpace.xxs,
+                      AppSpace.gutter,
+                      AppSpace.md,
+                    ),
                     sliver: SliverToBoxAdapter(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,9 +62,10 @@ class _PatternsScreenState extends ConsumerState<PatternsScreen> {
                               color: AppColors.textSecondary,
                             ),
                           ),
-                          const SizedBox(height: 10),
+                          const SizedBox(height: AppSpace.md),
                           Wrap(
-                            spacing: 6,
+                            spacing: AppSpace.xs,
+                            runSpacing: AppSpace.xs,
                             children: [
                               for (final size in kCubeSizes)
                                 ChoiceChip(
@@ -75,19 +82,14 @@ class _PatternsScreenState extends ConsumerState<PatternsScreen> {
                     ),
                   ),
                   SliverPadding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(
-                      16,
-                      4,
-                      16,
-                      24,
-                    ),
+                    padding: kPagePadding,
                     sliver: SliverGrid.builder(
                       gridDelegate:
                           const SliverGridDelegateWithMaxCrossAxisExtent(
                             maxCrossAxisExtent: 220,
-                            mainAxisSpacing: 10,
-                            crossAxisSpacing: 10,
-                            childAspectRatio: 0.9,
+                            mainAxisSpacing: AppSpace.sm,
+                            crossAxisSpacing: AppSpace.sm,
+                            childAspectRatio: 0.82,
                           ),
                       itemCount: patterns.length,
                       itemBuilder: (context, i) =>
@@ -118,7 +120,12 @@ class _PatternCard extends StatelessWidget {
     final name = patternName(l10n, pattern.id);
     return GlassCard(
       key: ValueKey('pattern-${pattern.id}'),
-      padding: const EdgeInsetsDirectional.fromSTEB(8, 8, 8, 10),
+      padding: const EdgeInsetsDirectional.fromSTEB(
+        AppSpace.sm,
+        AppSpace.sm,
+        AppSpace.sm,
+        AppSpace.md,
+      ),
       onTap: () => Navigator.of(context).push(
         MaterialPageRoute<void>(
           builder: (_) => Solver3DScreen(
@@ -138,8 +145,14 @@ class _PatternCard extends StatelessWidget {
           Expanded(
             child: CubePreview(size: size, cube: pattern.stateFor(size)),
           ),
-          const SizedBox(height: 6),
-          Text(name, style: textTheme.titleSmall, textAlign: TextAlign.center),
+          const SizedBox(height: AppSpace.xs),
+          Text(
+            name,
+            style: textTheme.titleSmall,
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
           Text(
             l10n.solveSummary(moves.length),
             style: textTheme.bodySmall?.copyWith(

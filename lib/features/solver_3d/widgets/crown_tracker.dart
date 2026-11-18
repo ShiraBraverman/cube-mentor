@@ -24,11 +24,12 @@ class CrownTracker extends StatelessWidget {
         for (var crown = 1; crown <= kCrowns; crown++) ...[
           if (crown > 1)
             Container(
-              width: 8,
+              width: 10,
               height: 2,
-              color: crown <= active
-                  ? AppColors.accentSecondary
-                  : AppColors.glassBorder,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(1),
+                color: crown <= active ? AppColors.gold : AppColors.glassBorder,
+              ),
             ),
           _CrownBadge(
             key: ValueKey('crown-$crown'),
@@ -54,15 +55,11 @@ class _CrownBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final (Color fill, Color border, Color ink) = switch (state) {
-      _CrownState.done => (
-        AppColors.accentSecondary.withValues(alpha: 0.85),
-        AppColors.accentSecondary,
-        AppColors.cubeBody,
-      ),
+      _CrownState.done => (AppColors.gold, AppColors.gold, AppColors.onAccent),
       _CrownState.active => (
-        AppColors.accent.withValues(alpha: 0.28),
-        AppColors.accent,
-        Colors.white,
+        AppColors.gold.withValues(alpha: 0.18),
+        AppColors.gold,
+        AppColors.gold,
       ),
       _CrownState.pending => (
         Colors.transparent,
@@ -73,13 +70,24 @@ class _CrownBadge extends StatelessWidget {
     return Semantics(
       label: '$crown',
       selected: state == _CrownState.active,
-      child: Container(
-        width: 26,
-        height: 26,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 260),
+        curve: Curves.easeOut,
+        width: 28,
+        height: 28,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: fill,
           border: Border.all(color: border, width: 1.5),
+          boxShadow: state == _CrownState.pending
+              ? null
+              : [
+                  BoxShadow(
+                    color: AppColors.gold.withValues(alpha: 0.4),
+                    blurRadius: 12,
+                    spreadRadius: -3,
+                  ),
+                ],
         ),
         alignment: Alignment.center,
         child: state == _CrownState.done
@@ -184,10 +192,7 @@ class CrownHeader extends StatelessWidget {
               child: Text(
                 '${step.subStepLabel} $subStepTitle',
                 key: const ValueKey('crown-substep'),
-                style: textTheme.labelLarge?.copyWith(
-                  color: AppColors.accent,
-                  fontWeight: FontWeight.w700,
-                ),
+                style: textTheme.titleSmall?.copyWith(color: AppColors.gold),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -240,7 +245,8 @@ class SolveMethodToggle extends ConsumerWidget {
                   },
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 180),
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+              constraints: const BoxConstraints(minHeight: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(14),
                 color: selected

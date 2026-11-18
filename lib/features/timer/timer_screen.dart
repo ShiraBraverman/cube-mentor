@@ -7,6 +7,7 @@ import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/settings/clock.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
+import '../../core/theme/ui_kit.dart';
 import '../home/home_controller.dart';
 import 'model/solve_record.dart';
 import 'model/timer_controller.dart';
@@ -141,7 +142,12 @@ class _TimerScreenState extends ConsumerState<TimerScreen>
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 640),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(14, 4, 14, 12),
+                padding: const EdgeInsetsDirectional.fromSTEB(
+                  AppSpace.gutter,
+                  AppSpace.xxs,
+                  AppSpace.gutter,
+                  AppSpace.md,
+                ),
                 child: Column(
                   children: [
                     if (!busy && widget.scramble == null)
@@ -150,7 +156,7 @@ class _TimerScreenState extends ConsumerState<TimerScreen>
                         onSelect: (size) => setState(() => _size = size),
                       ),
                     if (!busy) ...[
-                      const SizedBox(height: 8),
+                      const SizedBox(height: AppSpace.md),
                       _ScrambleCard(
                         state: state,
                         onRefresh: notifier.newScramble,
@@ -171,7 +177,7 @@ class _TimerScreenState extends ConsumerState<TimerScreen>
                     ),
                     if (!busy) ...[
                       _StatsRow(history: state.history),
-                      const SizedBox(height: 8),
+                      const SizedBox(height: AppSpace.sm),
                       if (state.last != null)
                         _LastSolveActions(size: _size, state: state),
                     ],
@@ -203,7 +209,8 @@ class _SizePicker extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     return Wrap(
-      spacing: 6,
+      spacing: AppSpace.xs,
+      runSpacing: AppSpace.xs,
       alignment: WrapAlignment.center,
       children: [
         for (final size in kCubeSizes)
@@ -230,20 +237,20 @@ class _ScrambleCard extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final scramble = state.scramble;
     return GlassCard(
-      padding: const EdgeInsetsDirectional.fromSTEB(14, 10, 6, 10),
+      padding: const EdgeInsetsDirectional.fromSTEB(
+        AppSpace.md + 2,
+        AppSpace.md,
+        AppSpace.xs,
+        AppSpace.md,
+      ),
       child: Row(
         children: [
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  l10n.timerScrambleHint,
-                  style: textTheme.bodySmall?.copyWith(
-                    color: AppColors.textSecondary,
-                  ),
-                ),
-                const SizedBox(height: 4),
+                Text(l10n.timerScrambleHint, style: textTheme.bodySmall),
+                const SizedBox(height: AppSpace.xs),
                 Text(
                   scramble ?? l10n.timerLoadingScramble,
                   key: const ValueKey('timer-scramble'),
@@ -251,7 +258,8 @@ class _ScrambleCard extends StatelessWidget {
                   textDirection: TextDirection.ltr,
                   style: textTheme.titleMedium?.copyWith(
                     fontFeatures: const [FontFeature.tabularFigures()],
-                    height: 1.4,
+                    letterSpacing: 0.5,
+                    height: 1.5,
                   ),
                 ),
               ],
@@ -300,7 +308,7 @@ class _TimeDisplay extends StatelessWidget {
         time = state.holdFromInspection
             ? _countdown(now - state.inspectionStartedAt)
             : formatTime(0);
-        color = ready ? AppColors.accentSecondary : const Color(0xFFFF5A5F);
+        color = ready ? AppColors.accentSecondary : AppColors.danger;
         hint = ready ? l10n.timerReleaseToStart : l10n.timerHoldToStart;
       case TimerPhase.idle:
         final last = state.last;
@@ -313,31 +321,43 @@ class _TimeDisplay extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         if (state.phase == TimerPhase.idle && state.newBest)
-          Text(
-            l10n.timerNewPb,
+          AppPill(
             key: const ValueKey('timer-new-pb'),
-            style: textTheme.titleMedium?.copyWith(
-              color: AppColors.accentSecondary,
-            ),
+            label: l10n.timerNewPb,
+            color: AppColors.gold,
+            icon: Icons.emoji_events_rounded,
           ),
+        const SizedBox(height: AppSpace.xs),
         FittedBox(
-          child: Text(
-            time,
-            key: const ValueKey('timer-display'),
-            textDirection: TextDirection.ltr,
-            style: textTheme.displayLarge?.copyWith(
-              fontSize: 88,
-              fontWeight: FontWeight.w800,
+          child: AnimatedDefaultTextStyle(
+            duration: const Duration(milliseconds: 160),
+            style: textTheme.displayLarge!.copyWith(
+              fontSize: 96,
               color: color,
               fontFeatures: const [FontFeature.tabularFigures()],
+              shadows: [
+                Shadow(
+                  color:
+                      (color == AppColors.textPrimary
+                              ? AppColors.accent
+                              : color)
+                          .withValues(alpha: 0.45),
+                  blurRadius: 32,
+                ),
+              ],
+            ),
+            child: Text(
+              time,
+              key: const ValueKey('timer-display'),
+              textDirection: TextDirection.ltr,
             ),
           ),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: AppSpace.sm),
         Text(
           hint,
           textAlign: TextAlign.center,
-          style: textTheme.bodyMedium?.copyWith(color: AppColors.textSecondary),
+          style: textTheme.bodyLarge?.copyWith(color: AppColors.textSecondary),
         ),
       ],
     );
@@ -362,19 +382,24 @@ class _StatsRow extends StatelessWidget {
     Widget stat(String key, String label, String value) => Expanded(
       child: Column(
         children: [
-          Text(
-            label,
-            style: Theme.of(context).textTheme.labelSmall
-                ?.copyWith(color: AppColors.textSecondary),
+          FittedBox(
+            child: Text(
+              label,
+              maxLines: 1,
+              style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                color: key == 'pb' ? AppColors.gold : AppColors.textSecondary,
+              ),
+            ),
           ),
-          const SizedBox(height: 2),
+          const SizedBox(height: AppSpace.xxs),
           FittedBox(
             child: Text(
               value,
               key: ValueKey('timer-stat-$key'),
               textDirection: TextDirection.ltr,
               style: const TextStyle(
-                fontWeight: FontWeight.w700,
+                fontSize: 16,
+                fontWeight: FontWeight.w800,
                 fontFeatures: [FontFeature.tabularFigures()],
               ),
             ),
@@ -383,7 +408,12 @@ class _StatsRow extends StatelessWidget {
       ),
     );
     return GlassCard(
-      padding: const EdgeInsetsDirectional.fromSTEB(6, 10, 6, 10),
+      padding: const EdgeInsetsDirectional.fromSTEB(
+        AppSpace.xs,
+        AppSpace.md,
+        AppSpace.xs,
+        AppSpace.md,
+      ),
       child: Row(
         children: [
           stat('pb', l10n.timerPb, best == null ? '–' : formatTime(best)),
@@ -410,8 +440,9 @@ class _LastSolveActions extends ConsumerWidget {
     final index = state.history.length - 1;
     final penalty = state.history[index].penalty;
     Penalty toggle(Penalty p) => penalty == p ? Penalty.none : p;
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Wrap(
+      alignment: WrapAlignment.center,
+      runSpacing: AppSpace.xs,
       children: [
         FilterChip(
           key: const ValueKey('timer-plus2'),
@@ -458,7 +489,14 @@ class _HistorySheet extends ConsumerWidget {
             maxHeight: MediaQuery.sizeOf(context).height * 0.7,
           ),
           child: GlassCard(
-            padding: const EdgeInsetsDirectional.fromSTEB(14, 14, 6, 8),
+            blur: 28,
+            borderRadius: AppRadius.lg,
+            padding: const EdgeInsetsDirectional.fromSTEB(
+              AppSpace.gutter,
+              AppSpace.gutter,
+              AppSpace.xs,
+              AppSpace.sm,
+            ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,

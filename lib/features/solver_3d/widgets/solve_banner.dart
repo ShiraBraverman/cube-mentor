@@ -159,9 +159,17 @@ class SolveBanner extends ConsumerWidget {
       );
     }
 
+    // The active step glows; a finished solve glows mint.
     return GlassCard(
-      borderRadius: 18,
-      padding: const EdgeInsetsDirectional.fromSTEB(12, 10, 4, 10),
+      selected: true,
+      accent: complete ? AppColors.accentSecondary : AppColors.accent,
+      borderRadius: AppRadius.md,
+      padding: const EdgeInsetsDirectional.fromSTEB(
+        AppSpace.md,
+        AppSpace.sm,
+        AppSpace.xxs,
+        AppSpace.sm,
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

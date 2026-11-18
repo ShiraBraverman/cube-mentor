@@ -194,11 +194,7 @@ class _CubeNetState extends State<CubeNet> with SingleTickerProviderStateMixin {
               borderRadius: radius,
               border: invalid
                   ? Border.all(
-                      color: Color.lerp(
-                        const Color(0xFFFF3B30),
-                        Colors.white,
-                        t,
-                      )!,
+                      color: Color.lerp(AppColors.danger, Colors.white, t)!,
                       width: math.max(2, extent * 0.1),
                     )
                   : uncertain
@@ -210,8 +206,7 @@ class _CubeNetState extends State<CubeNet> with SingleTickerProviderStateMixin {
               boxShadow: invalid
                   ? [
                       BoxShadow(
-                        color: const Color(0xFFFF3B30)
-                            .withValues(alpha: 0.6 * t),
+                        color: AppColors.danger.withValues(alpha: 0.6 * t),
                         blurRadius: 10,
                       ),
                     ]
