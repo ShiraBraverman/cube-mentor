@@ -427,13 +427,34 @@ class AppLocalizationsAr extends AppLocalizations {
   String get scanCapture => 'التقاط الوجه';
 
   @override
+  String get scanTurnLeft => 'أدر المكعب كله إلى اليسار';
+
+  @override
+  String get scanTurnRight => 'أدر المكعب كله إلى اليمين';
+
+  @override
+  String get scanTipTop => 'أمِل الجزء العلوي نحوك';
+
+  @override
+  String get scanTipBottom => 'أمِل الجزء السفلي نحوك';
+
+  @override
+  String get scanGlareTip =>
+      'تم رصد وهج: أمِل المكعب قليلًا، أو أمسك هاتفك فوقه لحجب الضوء العلوي.';
+
+  @override
+  String get scanDimTip =>
+      'الإضاءة خافتة جدًا: انتقل إلى مكان أكثر إضاءة أو شغّل الكشاف.';
+
+  @override
+  String get scanTorch => 'الكشاف';
+
+  @override
+  String get scanGuideLabel =>
+      'دليل المسح: الأوجه الممسوحة تظهر بألوانها. اضغط على وجه ممسوح لمسحه مرة أخرى.';
+
+  @override
   String get scanTapToRescan => 'اضغط على وجه ممسوح لمسحه مرة أخرى.';
-
-  @override
-  String get scanTooDark => 'الإضاءة خافتة جدًا: انتقل إلى مكان أكثر إضاءة.';
-
-  @override
-  String get scanGlare => 'يوجد وهج: أمِل المكعب بعيدًا عن الضوء.';
 
   @override
   String get scanCameraMissing => 'لم يتم العثور على كاميرا في هذا الجهاز.';

@@ -426,14 +426,35 @@ class AppLocalizationsHi extends AppLocalizations {
   String get scanCapture => 'फ़ेस कैप्चर करें';
 
   @override
+  String get scanTurnLeft => 'पूरे क्यूब को बाईं ओर घुमाएँ';
+
+  @override
+  String get scanTurnRight => 'पूरे क्यूब को दाईं ओर घुमाएँ';
+
+  @override
+  String get scanTipTop => 'ऊपरी हिस्से को अपनी ओर झुकाएँ';
+
+  @override
+  String get scanTipBottom => 'निचले हिस्से को अपनी ओर झुकाएँ';
+
+  @override
+  String get scanGlareTip =>
+      'चमक दिख रही है: क्यूब को थोड़ा झुकाएँ, या ऊपर की रोशनी रोकने के लिए फ़ोन को उसके ऊपर रखें।';
+
+  @override
+  String get scanDimTip =>
+      'रोशनी बहुत कम है: ज़्यादा रोशनी वाली जगह पर जाएँ या फ़्लैशलाइट चालू करें।';
+
+  @override
+  String get scanTorch => 'फ़्लैशलाइट';
+
+  @override
+  String get scanGuideLabel =>
+      'स्कैन गाइड: स्कैन किए गए फ़ेस रंग में दिखते हैं। किसी स्कैन किए गए फ़ेस को दोबारा स्कैन करने के लिए उस पर टैप करें।';
+
+  @override
   String get scanTapToRescan =>
       'किसी स्कैन किए गए फ़ेस को दोबारा स्कैन करने के लिए उस पर टैप करें।';
-
-  @override
-  String get scanTooDark => 'बहुत अँधेरा है: ज़्यादा रोशनी वाली जगह पर जाएँ।';
-
-  @override
-  String get scanGlare => 'चमक है: क्यूब को रोशनी से दूर झुकाएँ।';
 
   @override
   String get scanCameraMissing => 'इस डिवाइस पर कोई कैमरा नहीं मिला।';

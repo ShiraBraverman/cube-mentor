@@ -436,15 +436,35 @@ class AppLocalizationsFr extends AppLocalizations {
   String get scanCapture => 'Capturer la face';
 
   @override
+  String get scanTurnLeft => 'Tournez le cube entier vers la gauche';
+
+  @override
+  String get scanTurnRight => 'Tournez le cube entier vers la droite';
+
+  @override
+  String get scanTipTop => 'Basculez le haut vers vous';
+
+  @override
+  String get scanTipBottom => 'Basculez le bas vers vous';
+
+  @override
+  String get scanGlareTip =>
+      'Reflets détectés : inclinez légèrement le cube ou placez votre téléphone au-dessus pour masquer la lumière du plafond.';
+
+  @override
+  String get scanDimTip =>
+      'Trop sombre : placez-vous à la lumière ou allumez la lampe torche.';
+
+  @override
+  String get scanTorch => 'Lampe torche';
+
+  @override
+  String get scanGuideLabel =>
+      'Guide de scan : les faces scannées sont en couleur. Touchez une face scannée pour la scanner à nouveau.';
+
+  @override
   String get scanTapToRescan =>
       'Touchez une face scannée pour la scanner à nouveau.';
-
-  @override
-  String get scanTooDark => 'Trop sombre  placez-vous à la lumière.';
-
-  @override
-  String get scanGlare =>
-      'Reflets  inclinez le cube pour l\'éloigner de la lumière.';
 
   @override
   String get scanCameraMissing =>

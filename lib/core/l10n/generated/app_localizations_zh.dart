@@ -404,13 +404,31 @@ class AppLocalizationsZh extends AppLocalizations {
   String get scanCapture => '拍摄此面';
 
   @override
+  String get scanTurnLeft => '将整个魔方向左转';
+
+  @override
+  String get scanTurnRight => '将整个魔方向右转';
+
+  @override
+  String get scanTipTop => '把顶面朝你翻转';
+
+  @override
+  String get scanTipBottom => '把底面朝你翻转';
+
+  @override
+  String get scanGlareTip => '检测到反光：稍微倾斜魔方，或把手机举在魔方上方挡住顶灯。';
+
+  @override
+  String get scanDimTip => '光线太暗：请换到更亮的地方，或打开手电筒。';
+
+  @override
+  String get scanTorch => '手电筒';
+
+  @override
+  String get scanGuideLabel => '扫描指南：已扫描的面会显示颜色。点按已扫描的面可重新扫描。';
+
+  @override
   String get scanTapToRescan => '点按已扫描的面可重新扫描。';
-
-  @override
-  String get scanTooDark => '光线太暗：请换到更亮的地方。';
-
-  @override
-  String get scanGlare => '有反光：请把魔方稍微偏离光源。';
 
   @override
   String get scanCameraMissing => '此设备上没有找到相机。';

@@ -434,14 +434,35 @@ class AppLocalizationsPt extends AppLocalizations {
   String get scanCapture => 'Capturar face';
 
   @override
+  String get scanTurnLeft => 'Rode o cubo inteiro para a esquerda';
+
+  @override
+  String get scanTurnRight => 'Rode o cubo inteiro para a direita';
+
+  @override
+  String get scanTipTop => 'Incline o topo na sua direção';
+
+  @override
+  String get scanTipBottom => 'Incline a base na sua direção';
+
+  @override
+  String get scanGlareTip =>
+      'Reflexo detetado: incline ligeiramente o cubo ou segure o telemóvel por cima dele para tapar a luz do teto.';
+
+  @override
+  String get scanDimTip =>
+      'Pouca luz: procure um sítio mais iluminado ou ligue a lanterna.';
+
+  @override
+  String get scanTorch => 'Lanterna';
+
+  @override
+  String get scanGuideLabel =>
+      'Guia de digitalização: as faces digitalizadas aparecem a cores. Toque numa face digitalizada para a digitalizar de novo.';
+
+  @override
   String get scanTapToRescan =>
       'Toque numa face digitalizada para a digitalizar de novo.';
-
-  @override
-  String get scanTooDark => 'Demasiado escuro: procure mais luz.';
-
-  @override
-  String get scanGlare => 'Reflexo: incline o cubo para longe da luz.';
 
   @override
   String get scanCameraMissing =>
@@ -1699,14 +1720,35 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get scanCapture => 'Capturar face';
 
   @override
+  String get scanTurnLeft => 'Gire o cubo inteiro para a esquerda';
+
+  @override
+  String get scanTurnRight => 'Gire o cubo inteiro para a direita';
+
+  @override
+  String get scanTipTop => 'Incline o topo na sua direção';
+
+  @override
+  String get scanTipBottom => 'Incline a base na sua direção';
+
+  @override
+  String get scanGlareTip =>
+      'Reflexo detectado: incline um pouco o cubo ou segure o celular acima dele para bloquear a luz do teto.';
+
+  @override
+  String get scanDimTip =>
+      'Pouca luz: vá para um lugar mais iluminado ou ligue a lanterna.';
+
+  @override
+  String get scanTorch => 'Lanterna';
+
+  @override
+  String get scanGuideLabel =>
+      'Guia de escaneamento: as faces escaneadas aparecem em cores. Toque em uma face escaneada para escaneá-la de novo.';
+
+  @override
   String get scanTapToRescan =>
       'Toque em uma face escaneada para escaneá-la de novo.';
-
-  @override
-  String get scanTooDark => 'Muito escuro: procure um lugar mais iluminado.';
-
-  @override
-  String get scanGlare => 'Reflexo: incline o cubo para longe da luz.';
 
   @override
   String get scanCameraMissing => 'Nenhuma câmera encontrada neste aparelho.';

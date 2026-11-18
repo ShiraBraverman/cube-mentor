@@ -825,23 +825,59 @@ abstract class AppLocalizations {
   /// **'Capture face'**
   String get scanCapture;
 
+  /// No description provided for @scanTurnLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the whole cube to the left'**
+  String get scanTurnLeft;
+
+  /// No description provided for @scanTurnRight.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the whole cube to the right'**
+  String get scanTurnRight;
+
+  /// No description provided for @scanTipTop.
+  ///
+  /// In en, this message translates to:
+  /// **'Tip the top toward you'**
+  String get scanTipTop;
+
+  /// No description provided for @scanTipBottom.
+  ///
+  /// In en, this message translates to:
+  /// **'Tip the bottom toward you'**
+  String get scanTipBottom;
+
+  /// No description provided for @scanGlareTip.
+  ///
+  /// In en, this message translates to:
+  /// **'Glare detected: tilt the cube slightly, or hold your phone over it to block the overhead light.'**
+  String get scanGlareTip;
+
+  /// No description provided for @scanDimTip.
+  ///
+  /// In en, this message translates to:
+  /// **'Too dim: move to brighter light or turn on the flashlight.'**
+  String get scanDimTip;
+
+  /// No description provided for @scanTorch.
+  ///
+  /// In en, this message translates to:
+  /// **'Flashlight'**
+  String get scanTorch;
+
+  /// No description provided for @scanGuideLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan guide: scanned faces in color. Tap a scanned face to scan it again.'**
+  String get scanGuideLabel;
+
   /// No description provided for @scanTapToRescan.
   ///
   /// In en, this message translates to:
   /// **'Tap a scanned face to scan it again.'**
   String get scanTapToRescan;
-
-  /// No description provided for @scanTooDark.
-  ///
-  /// In en, this message translates to:
-  /// **'Too dark: move to brighter light.'**
-  String get scanTooDark;
-
-  /// No description provided for @scanGlare.
-  ///
-  /// In en, this message translates to:
-  /// **'Glare: tilt the cube away from the light.'**
-  String get scanGlare;
 
   /// No description provided for @scanCameraMissing.
   ///

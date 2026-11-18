@@ -433,15 +433,35 @@ class AppLocalizationsId extends AppLocalizations {
   String get scanCapture => 'Ambil sisi';
 
   @override
+  String get scanTurnLeft => 'Putar seluruh kubus ke kiri';
+
+  @override
+  String get scanTurnRight => 'Putar seluruh kubus ke kanan';
+
+  @override
+  String get scanTipTop => 'Miringkan bagian atas ke arahmu';
+
+  @override
+  String get scanTipBottom => 'Miringkan bagian bawah ke arahmu';
+
+  @override
+  String get scanGlareTip =>
+      'Ada silau: miringkan kubus sedikit, atau pegang ponsel di atasnya untuk menghalangi lampu dari atas.';
+
+  @override
+  String get scanDimTip =>
+      'Terlalu redup: pindah ke tempat yang lebih terang atau nyalakan senter.';
+
+  @override
+  String get scanTorch => 'Senter';
+
+  @override
+  String get scanGuideLabel =>
+      'Panduan pindai: sisi yang sudah dipindai tampil berwarna. Ketuk sisi yang sudah dipindai untuk memindainya lagi.';
+
+  @override
   String get scanTapToRescan =>
       'Ketuk sisi yang sudah dipindai untuk memindainya lagi.';
-
-  @override
-  String get scanTooDark =>
-      'Terlalu gelap: pindah ke tempat yang lebih terang.';
-
-  @override
-  String get scanGlare => 'Silau: miringkan kubus menjauhi cahaya.';
 
   @override
   String get scanCameraMissing => 'Tidak ada kamera di perangkat ini.';

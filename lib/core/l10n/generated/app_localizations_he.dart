@@ -423,13 +423,33 @@ class AppLocalizationsHe extends AppLocalizations {
   String get scanCapture => 'צילום הפאה';
 
   @override
+  String get scanTurnLeft => 'סובבו את כל הקובייה שמאלה';
+
+  @override
+  String get scanTurnRight => 'סובבו את כל הקובייה ימינה';
+
+  @override
+  String get scanTipTop => 'הטו את הפאה העליונה אליכם';
+
+  @override
+  String get scanTipBottom => 'הטו את הפאה התחתונה אליכם';
+
+  @override
+  String get scanGlareTip =>
+      'זוהה בוהק: הטו מעט את הקובייה, או החזיקו את הטלפון מעליה כדי לחסום את האור מלמעלה.';
+
+  @override
+  String get scanDimTip => 'חשוך מדי: עברו למקום מואר יותר או הדליקו את הפנס.';
+
+  @override
+  String get scanTorch => 'פנס';
+
+  @override
+  String get scanGuideLabel =>
+      'מדריך סריקה: פאות שנסרקו מוצגות בצבע. הקישו על פאה שנסרקה כדי לסרוק אותה שוב.';
+
+  @override
   String get scanTapToRescan => 'הקישו על פאה שנסרקה כדי לסרוק אותה שוב.';
-
-  @override
-  String get scanTooDark => 'חשוך מדי: עברו למקום מואר יותר.';
-
-  @override
-  String get scanGlare => 'יש סנוור: הטו את הקובייה הרחק מהאור.';
 
   @override
   String get scanCameraMissing => 'לא נמצאה מצלמה במכשיר.';

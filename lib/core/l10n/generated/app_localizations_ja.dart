@@ -406,13 +406,33 @@ class AppLocalizationsJa extends AppLocalizations {
   String get scanCapture => '面を撮影';
 
   @override
+  String get scanTurnLeft => 'キューブ全体を左に回す';
+
+  @override
+  String get scanTurnRight => 'キューブ全体を右に回す';
+
+  @override
+  String get scanTipTop => '上面を手前に倒す';
+
+  @override
+  String get scanTipBottom => '下面を手前に起こす';
+
+  @override
+  String get scanGlareTip =>
+      '反射を検出しました。キューブを少し傾けるか、スマホをキューブの上にかざして天井の光をさえぎってください。';
+
+  @override
+  String get scanDimTip => '暗すぎます。明るい場所に移動するか、ライトを点けてください。';
+
+  @override
+  String get scanTorch => 'ライト';
+
+  @override
+  String get scanGuideLabel =>
+      'スキャンガイド：スキャン済みの面はカラーで表示されます。スキャン済みの面をタップすると撮り直せます。';
+
+  @override
   String get scanTapToRescan => 'スキャン済みの面をタップすると撮り直せます。';
-
-  @override
-  String get scanTooDark => '暗すぎます。明るい場所に移動してください。';
-
-  @override
-  String get scanGlare => '反射しています。キューブを光から少し傾けてください。';
 
   @override
   String get scanCameraMissing => 'このデバイスにカメラが見つかりません。';

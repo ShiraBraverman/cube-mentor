@@ -406,13 +406,33 @@ class AppLocalizationsKo extends AppLocalizations {
   String get scanCapture => '면 촬영';
 
   @override
+  String get scanTurnLeft => '큐브 전체를 왼쪽으로 돌리세요';
+
+  @override
+  String get scanTurnRight => '큐브 전체를 오른쪽으로 돌리세요';
+
+  @override
+  String get scanTipTop => '윗면을 내 쪽으로 기울이세요';
+
+  @override
+  String get scanTipBottom => '아랫면을 내 쪽으로 기울이세요';
+
+  @override
+  String get scanGlareTip =>
+      '빛 반사가 감지됐어요. 큐브를 살짝 기울이거나 휴대폰으로 위를 가려 천장 조명을 막아 보세요.';
+
+  @override
+  String get scanDimTip => '너무 어두워요. 밝은 곳으로 이동하거나 손전등을 켜세요.';
+
+  @override
+  String get scanTorch => '손전등';
+
+  @override
+  String get scanGuideLabel =>
+      '스캔 가이드: 스캔한 면은 색으로 표시됩니다. 스캔한 면을 탭하면 다시 스캔할 수 있어요.';
+
+  @override
   String get scanTapToRescan => '스캔한 면을 탭하면 다시 스캔할 수 있습니다.';
-
-  @override
-  String get scanTooDark => '너무 어두워요. 밝은 곳으로 이동하세요.';
-
-  @override
-  String get scanGlare => '빛 반사가 있어요. 큐브를 빛에서 살짝 기울이세요.';
 
   @override
   String get scanCameraMissing => '이 기기에서 카메라를 찾을 수 없습니다.';

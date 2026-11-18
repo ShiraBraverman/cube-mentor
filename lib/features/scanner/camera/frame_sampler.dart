@@ -86,10 +86,33 @@ class CameraFrame {
   }
 }
 
-/// Averaged color of one grid cell plus how much of it is blown out.
-typedef CellSample = ({Rgb color, double clipped});
+/// Averaged color of one grid cell plus the share of it that is specular
+/// glare (see [isSpecular]).
+typedef CellSample = ({Rgb color, double glare});
 
 enum LightingHint { ok, tooDark, glare }
+
+/// CIELAB thresholds of a specular highlight: almost maximal lightness L*
+/// with almost no chroma C*, i.e. the light source reflected instead of the
+/// sticker color. A white sticker lit normally stays well below this.
+const double kGlareMinL = 93;
+const double kGlareMaxChroma = 9;
+
+/// Cells darker than this mean L* make colors unreliable.
+const double kDimMaxMeanL = 24;
+
+/// Share of a cell covered by glare before it is reported.
+const double kGlareCellShare = 0.3;
+
+/// Whether one pixel is a specular reflection (washed out by glare).
+bool isSpecular(Rgb p) {
+  if (p.r >= 250 && p.g >= 250 && p.b >= 250) return true;
+  // Cheap reject before the Lab conversion: highlights are bright.
+  if (p.r + p.g + p.b < 3 * 215) return false;
+  final lab = labOf(p);
+  final chroma = math.sqrt(lab.a * lab.a + lab.b * lab.b);
+  return lab.l >= kGlareMinL && chroma <= kGlareMaxChroma;
+}
 
 /// Square alignment grid inside a preview of [size]: 80% of the shorter
 /// side, centered. Returned in normalized (0..1) preview coordinates.
@@ -131,7 +154,7 @@ List<CellSample> sampleGrid(
     for (var row = 0; row < n; row++)
       for (var col = 0; col < n; col++)
         () {
-          var r = 0, g = 0, b = 0, clipped = 0;
+          var r = 0, g = 0, b = 0, glare = 0;
           for (var i = 0; i < lattice; i++) {
             for (var j = 0; j < lattice; j++) {
               final u =
@@ -148,7 +171,7 @@ List<CellSample> sampleGrid(
               r += p.r;
               g += p.g;
               b += p.b;
-              if (p.r > 245 && p.g > 245 && p.b > 245) clipped++;
+              if (isSpecular(p)) glare++;
             }
           }
           const count = lattice * lattice;
@@ -158,20 +181,61 @@ List<CellSample> sampleGrid(
               g: (g / count).round(),
               b: (b / count).round(),
             ),
-            clipped: clipped / count,
+            glare: glare / count,
           );
         }(),
   ];
 }
 
-/// Warns about lighting that makes colors unreliable.
+/// Grid cells (row-major) whose stickers are washed out by glare.
+Set<int> glareCells(List<CellSample> cells) => {
+  for (var i = 0; i < cells.length; i++)
+    if (cells[i].glare >= kGlareCellShare) i,
+};
+
+/// Warns about lighting that makes colors unreliable: specular glare on any
+/// sticker, or a frame too dim to tell colors apart (mean L*).
 LightingHint assessLighting(List<CellSample> cells) {
   if (cells.isEmpty) return LightingHint.ok;
-  if (cells.any((c) => c.clipped > 0.35)) return LightingHint.glare;
-  final luma =
-      cells
-          .map((c) => 0.299 * c.color.r + 0.587 * c.color.g + 0.114 * c.color.b)
-          .reduce((a, b) => a + b) /
-      cells.length;
-  return luma < 45 ? LightingHint.tooDark : LightingHint.ok;
+  if (glareCells(cells).isNotEmpty) return LightingHint.glare;
+  final meanL =
+      cells.map((c) => labOf(c.color).l).reduce((a, b) => a + b) / cells.length;
+  return meanL < kDimMaxMeanL ? LightingHint.tooDark : LightingHint.ok;
+}
+
+/// Smooths per-frame lighting readings so the tip neither flickers nor
+/// lingers: a problem must be seen in [showAfter] frames in a row to
+/// appear, and good light in [hideAfter] frames in a row to clear it.
+class LightingMonitor {
+  LightingMonitor({this.showAfter = 3, this.hideAfter = 6});
+
+  final int showAfter;
+  final int hideAfter;
+
+  LightingHint _shown = LightingHint.ok;
+  LightingHint _candidate = LightingHint.ok;
+  int _streak = 0;
+
+  LightingHint get hint => _shown;
+
+  /// Feeds one frame's reading; returns the hint to show.
+  LightingHint add(LightingHint reading) {
+    if (reading == _shown) {
+      _streak = 0;
+      _candidate = reading;
+      return _shown;
+    }
+    if (reading == _candidate) {
+      _streak++;
+    } else {
+      _candidate = reading;
+      _streak = 1;
+    }
+    final needed = reading == LightingHint.ok ? hideAfter : showAfter;
+    if (_streak >= needed) {
+      _shown = reading;
+      _streak = 0;
+    }
+    return _shown;
+  }
 }

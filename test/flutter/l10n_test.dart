@@ -3,6 +3,7 @@ import 'package:cube_mentor/core/cube/cube_state.dart';
 import 'package:cube_mentor/core/l10n/generated/app_localizations.dart';
 import 'package:cube_mentor/core/scramble/scrambler.dart';
 import 'package:cube_mentor/core/settings/clock.dart';
+import 'package:cube_mentor/core/vision/scan_analyzer.dart';
 import 'package:cube_mentor/core/settings/locale_controller.dart';
 import 'package:cube_mentor/core/settings/preferences.dart';
 import 'package:cube_mentor/core/solver/cube_solver.dart';
@@ -13,6 +14,10 @@ import 'package:cube_mentor/features/academy/model/lesson_catalog.dart';
 import 'package:cube_mentor/features/daily/daily_screen.dart';
 import 'package:cube_mentor/features/home/home_screen.dart';
 import 'package:cube_mentor/features/patterns/patterns_screen.dart';
+import 'package:cube_mentor/features/scanner/camera/frame_sampler.dart';
+import 'package:cube_mentor/features/scanner/model/scan_session.dart';
+import 'package:cube_mentor/features/scanner/scanner_screen.dart';
+import 'package:cube_mentor/features/scanner/widgets/lighting_tip.dart';
 import 'package:cube_mentor/features/solver_3d/solver_3d_screen.dart';
 import 'package:cube_mentor/features/timer/timer_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -21,7 +26,9 @@ import 'package:material_ui/material_ui.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'fake_cube_solver.dart';
+import 'fake_scan_analyzer.dart';
 import 'fake_scrambler.dart';
+import 'scanner_test.dart' show faceSamples, scrambledFacelets;
 import 'test_app.dart';
 
 Future<void> _advance(WidgetTester tester, [int frames = 12]) async {
@@ -230,6 +237,7 @@ void main() {
               scramblerProvider.overrideWithValue(FakeScrambler()),
               cubeSolverProvider.overrideWithValue(FakeCubeSolver()),
               clockProvider.overrideWithValue(() => DateTime(2026, 11, 16, 8)),
+              scanAnalyzerProvider.overrideWithValue(FakeScanAnalyzer()),
             ],
             child: testApp(screen, locale: language.locale),
           ),
@@ -254,6 +262,35 @@ void main() {
       await show(const TimerScreen(size: 3));
       await show(const DailyScreen());
       await show(const PatternsScreen());
+
+      // The scanner while capturing: guide, two-step turn prompt, pills.
+      await show(const ScannerScreen(size: 3, cameraOverride: false));
+      final scanner = ProviderScope.containerOf(
+        tester.element(find.byType(ScannerScreen)),
+      );
+      final scan = scanner.read(scanSessionProvider(3).notifier)..restart();
+      final truth = scrambledFacelets(3, 6);
+      for (final face in [kFaceF, kFaceR, kFaceB, kFaceL]) {
+        scan.capture(faceSamples(truth, 3, face));
+      }
+      await _advance(tester, 40);
+      expect(tester.takeException(), isNull, reason: 'scanner capture');
+
+      // Lighting tips inside a preview-sized box.
+      for (final hint in [LightingHint.glare, LightingHint.tooDark]) {
+        await show(
+          Scaffold(
+            body: Center(
+              child: SizedBox(
+                width: 328,
+                child: LightingTip(hint: hint, onTorch: () {}),
+              ),
+            ),
+          ),
+          scroll: false,
+        );
+        expect(tester.takeException(), isNull, reason: hint.name);
+      }
 
       // The playground with its solve-method sheet.
       await show(Solver3DScreen(size: 4, initialCube: CubeState.solved(4)));

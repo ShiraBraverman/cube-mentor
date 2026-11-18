@@ -429,13 +429,34 @@ class AppLocalizationsEn extends AppLocalizations {
   String get scanCapture => 'Capture face';
 
   @override
+  String get scanTurnLeft => 'Turn the whole cube to the left';
+
+  @override
+  String get scanTurnRight => 'Turn the whole cube to the right';
+
+  @override
+  String get scanTipTop => 'Tip the top toward you';
+
+  @override
+  String get scanTipBottom => 'Tip the bottom toward you';
+
+  @override
+  String get scanGlareTip =>
+      'Glare detected: tilt the cube slightly, or hold your phone over it to block the overhead light.';
+
+  @override
+  String get scanDimTip =>
+      'Too dim: move to brighter light or turn on the flashlight.';
+
+  @override
+  String get scanTorch => 'Flashlight';
+
+  @override
+  String get scanGuideLabel =>
+      'Scan guide: scanned faces in color. Tap a scanned face to scan it again.';
+
+  @override
   String get scanTapToRescan => 'Tap a scanned face to scan it again.';
-
-  @override
-  String get scanTooDark => 'Too dark: move to brighter light.';
-
-  @override
-  String get scanGlare => 'Glare: tilt the cube away from the light.';
 
   @override
   String get scanCameraMissing => 'No camera found on this device.';

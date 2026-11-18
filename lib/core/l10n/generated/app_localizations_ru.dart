@@ -435,14 +435,35 @@ class AppLocalizationsRu extends AppLocalizations {
   String get scanCapture => 'Снять грань';
 
   @override
+  String get scanTurnLeft => 'Поверните весь кубик влево';
+
+  @override
+  String get scanTurnRight => 'Поверните весь кубик вправо';
+
+  @override
+  String get scanTipTop => 'Наклоните верх к себе';
+
+  @override
+  String get scanTipBottom => 'Наклоните низ к себе';
+
+  @override
+  String get scanGlareTip =>
+      'Обнаружен блик: слегка наклоните кубик или держите телефон над ним, чтобы закрыть верхний свет.';
+
+  @override
+  String get scanDimTip =>
+      'Слишком темно: перейдите туда, где светлее, или включите фонарик.';
+
+  @override
+  String get scanTorch => 'Фонарик';
+
+  @override
+  String get scanGuideLabel =>
+      'Подсказка сканирования: отсканированные грани показаны в цвете. Нажмите на отсканированную грань, чтобы отсканировать её заново.';
+
+  @override
   String get scanTapToRescan =>
       'Нажмите на отсканированную грань, чтобы отсканировать её заново.';
-
-  @override
-  String get scanTooDark => 'Слишком темно: перейдите туда, где светлее.';
-
-  @override
-  String get scanGlare => 'Блики: отверните кубик от света.';
 
   @override
   String get scanCameraMissing => 'На этом устройстве не найдена камера.';

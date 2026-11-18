@@ -34,6 +34,7 @@ class ScanSession {
     required this.size,
     required this.phase,
     required this.face,
+    this.turnFrom,
     this.samples = const {},
     this.stickers = const [],
     this.confidence,
@@ -47,6 +48,11 @@ class ScanSession {
 
   /// Face being captured (facelet face index).
   final int face;
+
+  /// Face that was just captured: the user turns the cube from it to
+  /// [face]. Null at the start and when a face is picked for a rescan (the
+  /// cube may be held any way then).
+  final int? turnFrom;
 
   /// Raw camera samples per captured face, row-major.
   final Map<int, List<Rgb>> samples;
@@ -90,6 +96,8 @@ class ScanSession {
   ScanSession copyWith({
     ScanPhase? phase,
     int? face,
+    int? turnFrom,
+    bool clearTurnFrom = false,
     Map<int, List<Rgb>>? samples,
     List<StickerColor>? stickers,
     List<double>? confidence,
@@ -101,6 +109,7 @@ class ScanSession {
     size: size,
     phase: phase ?? this.phase,
     face: face ?? this.face,
+    turnFrom: clearTurnFrom ? null : (turnFrom ?? this.turnFrom),
     samples: samples ?? this.samples,
     stickers: stickers ?? this.stickers,
     confidence: clearConfidence ? null : (confidence ?? this.confidence),
@@ -135,7 +144,12 @@ class ScanSessionController extends Notifier<ScanSession> {
     };
     final next = kScanOrder.where((f) => !samples.containsKey(f));
     if (next.isNotEmpty) {
-      state = state.copyWith(samples: samples, face: next.first);
+      // The user is holding the face just captured: turn from there.
+      state = state.copyWith(
+        samples: samples,
+        face: next.first,
+        turnFrom: state.face,
+      );
       return;
     }
     _classify(samples, rescanned: state.face);
@@ -144,7 +158,12 @@ class ScanSessionController extends Notifier<ScanSession> {
   /// Captures [face] again; the other faces (and hand edits on them) stay.
   void rescanFace(int face) {
     if (state.manual && state.samples.length < 6) return;
-    state = state.copyWith(phase: ScanPhase.capture, face: face, manual: false);
+    state = state.copyWith(
+      phase: ScanPhase.capture,
+      face: face,
+      clearTurnFrom: true,
+      manual: false,
+    );
   }
 
   /// Back to the review once every face is captured (cancels a rescan).

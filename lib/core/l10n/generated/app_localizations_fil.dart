@@ -434,14 +434,34 @@ class AppLocalizationsFil extends AppLocalizations {
   String get scanCapture => 'Kunan ang mukha';
 
   @override
+  String get scanTurnLeft => 'Paikutin pakaliwa ang buong cube';
+
+  @override
+  String get scanTurnRight => 'Paikutin pakanan ang buong cube';
+
+  @override
+  String get scanTipTop => 'Ikiling ang itaas papunta sa iyo';
+
+  @override
+  String get scanTipBottom => 'Ikiling ang ibaba papunta sa iyo';
+
+  @override
+  String get scanGlareTip =>
+      'May silaw: ikiling nang kaunti ang cube, o itapat ang phone sa ibabaw nito para matakpan ang ilaw sa itaas.';
+
+  @override
+  String get scanDimTip =>
+      'Masyadong madilim: lumipat sa mas maliwanag na lugar o buksan ang flashlight.';
+
+  @override
+  String get scanTorch => 'Flashlight';
+
+  @override
+  String get scanGuideLabel =>
+      'Gabay sa pag-scan: may kulay ang mga na-scan na mukha. I-tap ang na-scan na mukha para i-scan ito ulit.';
+
+  @override
   String get scanTapToRescan => 'I-tap ang na-scan na mukha para i-scan ulit.';
-
-  @override
-  String get scanTooDark =>
-      'Masyadong madilim: lumipat sa mas maliwanag na lugar.';
-
-  @override
-  String get scanGlare => 'May silaw: ikiling ang cube palayo sa ilaw.';
 
   @override
   String get scanCameraMissing => 'Walang nakitang camera sa device na ito.';

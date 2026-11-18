@@ -7,6 +7,7 @@ import '../../../core/cube/cube_state.dart';
 import '../../../core/l10n/generated/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/vision/color_science.dart';
+import '../widgets/lighting_tip.dart';
 import 'frame_sampler.dart';
 
 /// Live camera preview with an `n x n` alignment grid. Every grid cell shows
@@ -49,7 +50,14 @@ class _CameraScanViewState extends State<CameraScanView>
 
   /// Exponential moving average of each cell's color (r, g, b).
   List<List<double>>? _smoothed;
+  final LightingMonitor _monitor = LightingMonitor();
   LightingHint _lighting = LightingHint.ok;
+
+  /// Cells currently washed out by glare, outlined on the grid.
+  Set<int> _glare = const {};
+
+  bool _torch = false;
+  bool _hasTorch = true;
 
   static const _frameInterval = Duration(milliseconds: 110);
   static const _smoothing = 0.45;
@@ -121,9 +129,23 @@ class _CameraScanViewState extends State<CameraScanView>
     }
   }
 
+  Future<void> _toggleTorch() async {
+    final controller = _controller;
+    if (controller == null) return;
+    final on = !_torch;
+    try {
+      await controller.setFlashMode(on ? FlashMode.torch : FlashMode.off);
+      if (mounted) setState(() => _torch = on);
+    } on CameraException {
+      // No flash unit (front cameras, some tablets): hide the button.
+      if (mounted) setState(() => _hasTorch = false);
+    }
+  }
+
   void _stop() {
     final controller = _controller;
     _controller = null;
+    _torch = false;
     if (controller == null) return;
     if (controller.value.isStreamingImages) {
       controller.stopImageStream().catchError((_) {});
@@ -167,9 +189,11 @@ class _CameraScanViewState extends State<CameraScanView>
             ];
           }(),
       ];
+      final lighting = _monitor.add(assessLighting(cells));
       setState(() {
         _smoothed = next;
-        _lighting = assessLighting(cells);
+        _lighting = lighting;
+        _glare = lighting == LightingHint.glare ? glareCells(cells) : const {};
       });
     } finally {
       _busy = false;
@@ -220,30 +244,53 @@ class _CameraScanViewState extends State<CameraScanView>
                     borderRadius: BorderRadius.circular(20),
                     child: CameraPreview(
                       controller,
-                      child: _GridOverlay(n: widget.size, colors: colors),
+                      child: Stack(
+                        children: [
+                          Positioned.fill(
+                            child: _GridOverlay(
+                              n: widget.size,
+                              colors: colors,
+                              glare: _glare,
+                            ),
+                          ),
+                          // Non-intrusive: above the grid, never over it.
+                          PositionedDirectional(
+                            top: 8,
+                            start: 8,
+                            end: 8,
+                            child: Center(
+                              child: AnimatedSwitcher(
+                                duration: const Duration(milliseconds: 250),
+                                child: LightingTip(
+                                  key: ValueKey(_lighting),
+                                  hint: _lighting,
+                                  torchOn: _torch,
+                                  onTorch: _hasTorch ? _toggleTorch : null,
+                                ),
+                              ),
+                            ),
+                          ),
+                          if (_hasTorch)
+                            PositionedDirectional(
+                              bottom: 8,
+                              end: 8,
+                              child: IconButton.filledTonal(
+                                key: const ValueKey('scan-torch-toggle'),
+                                tooltip: l10n.scanTorch,
+                                onPressed: _toggleTorch,
+                                icon: Icon(
+                                  _torch
+                                      ? Icons.flashlight_off_rounded
+                                      : Icons.flashlight_on_rounded,
+                                ),
+                              ),
+                            ),
+                        ],
+                      ),
                     ),
                   ),
           ),
         ),
-        if (_lighting != LightingHint.ok)
-          Padding(
-            padding: const EdgeInsets.only(top: 8),
-            child: Chip(
-              key: const ValueKey('scan-lighting'),
-              avatar: Icon(
-                _lighting == LightingHint.glare
-                    ? Icons.wb_sunny_rounded
-                    : Icons.nights_stay_rounded,
-                size: 18,
-                color: AppColors.accentWarm,
-              ),
-              label: Text(
-                _lighting == LightingHint.glare
-                    ? l10n.scanGlare
-                    : l10n.scanTooDark,
-              ),
-            ),
-          ),
         const SizedBox(height: 10),
         Row(
           children: [
@@ -266,10 +313,17 @@ class _CameraScanViewState extends State<CameraScanView>
 
 /// The alignment grid drawn over the preview, with each cell's live color.
 class _GridOverlay extends StatelessWidget {
-  const _GridOverlay({required this.n, required this.colors});
+  const _GridOverlay({
+    required this.n,
+    required this.colors,
+    this.glare = const {},
+  });
 
   final int n;
   final List<Rgb>? colors;
+
+  /// Cells to outline as washed out by glare.
+  final Set<int> glare;
 
   @override
   Widget build(BuildContext context) {
@@ -293,7 +347,10 @@ class _GridOverlay extends StatelessWidget {
                   top: grid.top + row * cell,
                   width: cell,
                   height: cell,
-                  child: _Cell(color: colors?[row * n + col]),
+                  child: _Cell(
+                    color: colors?[row * n + col],
+                    glare: glare.contains(row * n + col),
+                  ),
                 ),
           ],
         );
@@ -303,9 +360,10 @@ class _GridOverlay extends StatelessWidget {
 }
 
 class _Cell extends StatelessWidget {
-  const _Cell({required this.color});
+  const _Cell({required this.color, this.glare = false});
 
   final Rgb? color;
+  final bool glare;
 
   @override
   Widget build(BuildContext context) {
@@ -318,8 +376,10 @@ class _Cell extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          color: Colors.white.withValues(alpha: 0.85),
-          width: 2,
+          color: glare
+              ? AppColors.accentWarm
+              : Colors.white.withValues(alpha: 0.85),
+          width: glare ? 3 : 2,
         ),
       ),
       alignment: Alignment.bottomRight,
@@ -339,7 +399,7 @@ class _Cell extends StatelessWidget {
   }
 }
 
-/// Mid-capture sticker color guess for one face (used by the progress net).
+/// Mid-capture sticker color guess for one face (used by the scan guide).
 List<StickerColor> previewColors(List<Rgb> samples) => [
   for (final s in samples) nearestStickerColor(s),
 ];

@@ -435,14 +435,35 @@ class AppLocalizationsEs extends AppLocalizations {
   String get scanCapture => 'Capturar cara';
 
   @override
+  String get scanTurnLeft => 'Gira el cubo entero hacia la izquierda';
+
+  @override
+  String get scanTurnRight => 'Gira el cubo entero hacia la derecha';
+
+  @override
+  String get scanTipTop => 'Inclina la parte superior hacia ti';
+
+  @override
+  String get scanTipBottom => 'Inclina la parte inferior hacia ti';
+
+  @override
+  String get scanGlareTip =>
+      'Hay reflejos: inclina un poco el cubo o pon el móvil encima para tapar la luz del techo.';
+
+  @override
+  String get scanDimTip =>
+      'Muy poca luz: busca un lugar más iluminado o enciende la linterna.';
+
+  @override
+  String get scanTorch => 'Linterna';
+
+  @override
+  String get scanGuideLabel =>
+      'Guía de escaneo: las caras escaneadas aparecen en color. Toca una cara escaneada para volver a escanearla.';
+
+  @override
   String get scanTapToRescan =>
       'Toca una cara escaneada para volver a escanearla.';
-
-  @override
-  String get scanTooDark => 'Demasiado oscuro: busca más luz.';
-
-  @override
-  String get scanGlare => 'Reflejos: inclina el cubo para alejarlo de la luz.';
 
   @override
   String get scanCameraMissing =>

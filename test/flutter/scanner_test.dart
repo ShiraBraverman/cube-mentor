@@ -240,11 +240,12 @@ void main() {
     });
 
     test('warns about dark frames and glare', () {
-      CellSample cell(int v, [double clipped = 0]) =>
-          (color: (r: v, g: v, b: v), clipped: clipped);
+      CellSample cell(int v, [double glare = 0]) =>
+          (color: (r: v, g: v, b: v), glare: glare);
       expect(assessLighting([cell(120), cell(200)]), LightingHint.ok);
       expect(assessLighting([cell(20), cell(30)]), LightingHint.tooDark);
       expect(assessLighting([cell(255, 0.8), cell(90)]), LightingHint.glare);
+      expect(glareCells([cell(255, 0.8), cell(90), cell(250, 0.3)]), {0, 2});
     });
 
     test('live preview guesses standard colors', () {
@@ -393,7 +394,8 @@ void main() {
       await tester.pump();
       await tester.tap(find.byKey(const ValueKey('scan-rescan-$kFaceB')));
       await tester.pump();
-      expect(find.text('Back face'), findsOneWidget);
+      // The face name also appears on its pill.
+      expect(find.text('Back face'), findsNWidgets(2));
       expect(find.text('Face 3 of 6'), findsOneWidget);
       await tester.tap(find.byKey(const ValueKey('scan-cancel-rescan')));
       await tester.pump();

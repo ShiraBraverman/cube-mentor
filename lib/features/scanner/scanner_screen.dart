@@ -12,7 +12,9 @@ import '../../core/vision/scan_analyzer.dart';
 import '../solver_3d/solver_3d_screen.dart';
 import 'camera/camera_scan_view.dart';
 import 'model/scan_session.dart';
+import 'model/scan_turns.dart';
 import 'widgets/cube_net.dart';
+import 'widgets/mini_cube.dart';
 
 /// Scan & Solve: capture the six faces with the camera (or enter them by
 /// hand), fix any flagged sticker on the net, then solve in the 3D viewport.
@@ -115,65 +117,107 @@ class _ScannerScreenState extends ConsumerState<ScannerScreen> {
   Widget _captureBody(AppLocalizations l10n, ScanSession session) {
     final textTheme = Theme.of(context).textTheme;
     final rescanning = session.isCaptured && session.stickers.isNotEmpty;
-    final progress = CubeNet(
-      size: size,
-      stickers: [
-        for (var face = 0; face < 6; face++)
-          ...switch (session.samples[face]) {
-            final samples? => previewColors(samples),
-            null => List<StickerColor?>.filled(session.perFace, null),
-          },
-      ],
-      currentFace: session.face,
-      faceKeyPrefix: 'scan-face',
-      onFaceTap: (face) {
-        if (session.samples.containsKey(face)) _controller.rescanFace(face);
-      },
-    );
+    final turnFrom = session.turnFrom;
+    final turns = turnFrom == null
+        ? const <({ScanTurn turn, int face})>[]
+        : scanTurns(turnFrom, session.face);
+    void rescan(int face) {
+      if (face != session.face && session.samples.containsKey(face)) {
+        _controller.rescanFace(face);
+      }
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         GlassCard(
-          padding: const EdgeInsets.all(14),
-          child: Column(
+          padding: const EdgeInsetsDirectional.fromSTEB(14, 12, 8, 12),
+          child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                l10n.scanFaceProgress(session.captureStep, 6),
-                key: const ValueKey('scan-step'),
-                style: textTheme.labelLarge?.copyWith(color: AppColors.accent),
-              ),
-              const SizedBox(height: 2),
-              Text(
-                faceName(l10n, session.face),
-                style: textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.w700,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      l10n.scanFaceProgress(session.captureStep, 6),
+                      key: const ValueKey('scan-step'),
+                      style: textTheme.labelLarge?.copyWith(
+                        color: AppColors.accent,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      faceName(l10n, session.face),
+                      style: textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    const SizedBox(height: 6),
+                    if (turns.isEmpty)
+                      Text(
+                        faceHint(l10n, session.face),
+                        style: textTheme.bodyMedium,
+                      )
+                    else
+                      for (var i = 0; i < turns.length; i++)
+                        _TurnStep(
+                          key: ValueKey('scan-turn-$i'),
+                          turn: turns[i].turn,
+                          number: turns.length > 1 ? i + 1 : null,
+                        ),
+                    const SizedBox(height: 4),
+                    Text(
+                      session.samples.isEmpty
+                          ? l10n.scanAlignHint
+                          : l10n.scanTapToRescan,
+                      style: textTheme.bodySmall?.copyWith(
+                        color: AppColors.textSecondary,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(height: 4),
-              Text(faceHint(l10n, session.face), style: textTheme.bodyMedium),
-              const SizedBox(height: 4),
-              Text(
-                session.samples.isEmpty
-                    ? l10n.scanAlignHint
-                    : l10n.scanTapToRescan,
-                style: textTheme.bodySmall?.copyWith(
-                  color: AppColors.textSecondary,
+              const SizedBox(width: 6),
+              SizedBox(
+                width: 112,
+                height: 112,
+                child: MiniCube(
+                  key: const ValueKey('scan-minicube'),
+                  size: size,
+                  face: session.face,
+                  turnFrom: turnFrom,
+                  semanticLabel: l10n.scanGuideLabel,
+                  stickers: [
+                    for (var face = 0; face < 6; face++)
+                      ...switch (session.samples[face]) {
+                        final samples? => previewColors(samples),
+                        null => List<StickerColor?>.filled(
+                          session.perFace,
+                          null,
+                        ),
+                      },
+                  ],
+                  onFaceTap: rescan,
                 ),
               ),
-              if (rescanning)
-                Align(
-                  alignment: AlignmentDirectional.centerEnd,
-                  child: TextButton(
-                    key: const ValueKey('scan-cancel-rescan'),
-                    onPressed: _controller.cancelRescan,
-                    child: Text(l10n.scanCancelRescan),
-                  ),
-                ),
             ],
           ),
         ),
-        const SizedBox(height: 12),
+        const SizedBox(height: 8),
+        _FacePills(
+          current: session.face,
+          scanned: session.samples.keys.toSet(),
+          onTap: rescan,
+          trailing: rescanning
+              ? TextButton(
+                  key: const ValueKey('scan-cancel-rescan'),
+                  onPressed: _controller.cancelRescan,
+                  child: Text(l10n.scanCancelRescan),
+                )
+              : null,
+        ),
+        const SizedBox(height: 8),
         Expanded(
           child: _problem != null || !widget.cameraSupported
               ? _CameraProblemView(
@@ -186,10 +230,138 @@ class _ScannerScreenState extends ConsumerState<ScannerScreen> {
                   onCapture: _controller.capture,
                   onUnavailable: (problem) =>
                       setState(() => _problem = problem),
-                  footer: SizedBox(height: 96, child: progress),
                 ),
         ),
       ],
+    );
+  }
+}
+
+/// One quarter turn of the physical cube, with a matching arrow icon.
+class _TurnStep extends StatelessWidget {
+  const _TurnStep({super.key, required this.turn, this.number});
+
+  final ScanTurn turn;
+
+  /// Position in a multi-step turn (1, 2), shown before the icon.
+  final int? number;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final (IconData icon, String text) = switch (turn) {
+      ScanTurn.left => (Icons.rotate_left_rounded, l10n.scanTurnLeft),
+      ScanTurn.right => (Icons.rotate_right_rounded, l10n.scanTurnRight),
+      ScanTurn.tipTop => (Icons.arrow_downward_rounded, l10n.scanTipTop),
+      ScanTurn.tipBottom => (Icons.arrow_upward_rounded, l10n.scanTipBottom),
+    };
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 2),
+      child: Row(
+        children: [
+          if (number != null)
+            Padding(
+              padding: const EdgeInsetsDirectional.only(end: 4),
+              child: Text(
+                '$number',
+                style: Theme.of(context).textTheme.labelLarge
+                    ?.copyWith(color: AppColors.accentWarm),
+              ),
+            ),
+          Icon(icon, size: 20, color: AppColors.accentWarm),
+          const SizedBox(width: 6),
+          Expanded(
+            child: Text(
+              text,
+              style: Theme.of(context).textTheme.bodyMedium
+                  ?.copyWith(fontWeight: FontWeight.w600),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// One pill per face in scan order: scanned ones can be tapped to rescan.
+class _FacePills extends StatelessWidget {
+  const _FacePills({
+    required this.current,
+    required this.scanned,
+    required this.onTap,
+    this.trailing,
+  });
+
+  final int current;
+  final Set<int> scanned;
+  final ValueChanged<int> onTap;
+  final Widget? trailing;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final textTheme = Theme.of(context).textTheme;
+    // The pills scroll; the cancel button stays in reach at the end.
+    return Row(
+      children: [
+        Expanded(
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                for (final face in kScanOrder) ...[
+                  _pill(face, l10n, textTheme),
+                  const SizedBox(width: 6),
+                ],
+              ],
+            ),
+          ),
+        ),
+        ?trailing,
+      ],
+    );
+  }
+
+  Widget _pill(int face, AppLocalizations l10n, TextTheme textTheme) {
+    final isCurrent = face == current;
+    final done = scanned.contains(face);
+    return Material(
+      type: MaterialType.transparency,
+      child: InkWell(
+        key: ValueKey('scan-pill-$face'),
+        borderRadius: BorderRadius.circular(16),
+        onTap: done && !isCurrent ? () => onTap(face) : null,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            color: isCurrent
+                ? AppColors.accent.withValues(alpha: 0.25)
+                : AppColors.glassFill,
+            border: Border.all(
+              color: isCurrent ? AppColors.accent : AppColors.glassBorder,
+            ),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                done
+                    ? Icons.check_circle_rounded
+                    : (isCurrent
+                          ? Icons.photo_camera_rounded
+                          : Icons.radio_button_unchecked_rounded),
+                size: 14,
+                color: done
+                    ? AppColors.accentSecondary
+                    : AppColors.textSecondary,
+              ),
+              const SizedBox(width: 4),
+              Text(faceName(l10n, face), style: textTheme.labelMedium),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

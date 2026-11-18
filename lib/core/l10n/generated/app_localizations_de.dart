@@ -435,14 +435,35 @@ class AppLocalizationsDe extends AppLocalizations {
   String get scanCapture => 'Seite aufnehmen';
 
   @override
+  String get scanTurnLeft => 'Drehe den ganzen Würfel nach links';
+
+  @override
+  String get scanTurnRight => 'Drehe den ganzen Würfel nach rechts';
+
+  @override
+  String get scanTipTop => 'Kippe die Oberseite zu dir';
+
+  @override
+  String get scanTipBottom => 'Kippe die Unterseite zu dir';
+
+  @override
+  String get scanGlareTip =>
+      'Spiegelung erkannt: Neige den Würfel etwas oder halte dein Handy darüber, um das Deckenlicht abzuschirmen.';
+
+  @override
+  String get scanDimTip =>
+      'Zu dunkel: Geh an einen helleren Ort oder schalte die Taschenlampe ein.';
+
+  @override
+  String get scanTorch => 'Taschenlampe';
+
+  @override
+  String get scanGuideLabel =>
+      'Scan-Anleitung: Gescannte Seiten sind farbig. Tippe auf eine gescannte Seite, um sie neu zu scannen.';
+
+  @override
   String get scanTapToRescan =>
       'Tippe auf eine gescannte Seite, um sie erneut zu scannen.';
-
-  @override
-  String get scanTooDark => 'Zu dunkel: Geh an einen helleren Ort.';
-
-  @override
-  String get scanGlare => 'Spiegelung: Neige den Würfel vom Licht weg.';
 
   @override
   String get scanCameraMissing =>
