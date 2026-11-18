@@ -1288,4 +1288,175 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get stepBigPllParityBody =>
       'Two swapped edges at the very end? 2R2 U2 2R2 Uw2 2R2 Uw2 swaps the front and back top edges.';
+
+  @override
+  String get introGoalHeading => 'What\'s the goal?';
+
+  @override
+  String get introHowHeading => 'How do we do it?';
+
+  @override
+  String get introStart => 'Got it, start step by step';
+
+  @override
+  String get introShowGoal => 'Show the goal';
+
+  @override
+  String get introStateStart => 'Start';
+
+  @override
+  String get introStateGoal => 'Goal';
+
+  @override
+  String get introPlayMorph => 'Play from start to goal';
+
+  @override
+  String get introGoalBasics =>
+      'Learn to read the cube: its pieces, its six faces and how the move letters turn them.';
+
+  @override
+  String get introGoalCross =>
+      'Make a white plus sign where every white edge also matches the center color beside it.';
+
+  @override
+  String get introGoalCorners =>
+      'Fill in the four white corners so the first crown, the whole white layer, is complete.';
+
+  @override
+  String get introGoalMiddle =>
+      'Place the four middle-layer edges so the first two layers are solved.';
+
+  @override
+  String get introGoalYellowCross =>
+      'Make a yellow plus sign on top; the side colors don\'t need to match yet.';
+
+  @override
+  String get introGoalYellowEdges =>
+      'Line up every yellow cross edge with the center color on its side.';
+
+  @override
+  String get introGoalYellowCorners =>
+      'Move every yellow corner to its own spot, even if it is still twisted.';
+
+  @override
+  String get introGoalTwistCorners =>
+      'Twist the yellow corners the right way so the whole cube is solved.';
+
+  @override
+  String get introGoalCfopIntro =>
+      'See the speedcubing plan: cross, first two layers, then the last layer in two looks.';
+
+  @override
+  String get introGoalF2l =>
+      'Insert each white corner together with its middle edge, finishing two layers at once.';
+
+  @override
+  String get introGoalOll =>
+      'Make the whole top face yellow with one or two algorithms.';
+
+  @override
+  String get introGoalPll =>
+      'Move the last-layer pieces to their spots to finish the cube.';
+
+  @override
+  String get introGoalTwoFirst => 'Build one complete white layer on the 2×2.';
+
+  @override
+  String get introGoalTwoOll => 'Make the top face of the 2×2 all yellow.';
+
+  @override
+  String get introGoalTwoPbl =>
+      'Swap the last corners into place to solve the 2×2.';
+
+  @override
+  String get introGoalBigIntro =>
+      'Meet the 4×4: centers, edge pairs and corners, and the moves that turn them.';
+
+  @override
+  String get introGoalBigCenters =>
+      'Gather each face\'s center pieces into one solid block of color.';
+
+  @override
+  String get introGoalBigEdges =>
+      'Pair up matching edge pieces so every edge looks like a single 3×3 edge.';
+
+  @override
+  String get introGoalBigParity =>
+      'Fix the two 4×4 cases a 3×3 never has: one flipped edge or two swapped edges.';
+
+  @override
+  String get introHowBasics =>
+      'Centers never move, so they tell you each face\'s color.\nEach letter turns one face a quarter turn clockwise.\nAn apostrophe (\') turns it back; a 2 turns it twice.';
+
+  @override
+  String get introHowCross =>
+      'Hold yellow on top: the white cross is built on the bottom.\nFind a white edge and line its side color up with the matching center.\nTurn that face twice to drop the edge into place.';
+
+  @override
+  String get introHowCorners =>
+      'Bring a white corner above its empty spot.\nRepeat R U R\' U\' until it drops in the right way round.\nDo the same for the other three corners.';
+
+  @override
+  String get introHowMiddle =>
+      'Find a top edge without yellow and match its front color to a center.\nSend it right or left with a short 8-move algorithm.\nThe white layer comes back intact every time.';
+
+  @override
+  String get introHowYellowCross =>
+      'Look at the top: a dot, an L or a line.\nHold it as shown and do F R U R\' U\' F\'.\nRepeat until the yellow cross appears.';
+
+  @override
+  String get introHowYellowEdges =>
+      'Turn the top until two edges match their centers.\nHold them at the back and right, then do R U R\' U R U2 R\' U.\nRepeat until all four edges match.';
+
+  @override
+  String get introHowYellowCorners =>
+      'A corner is in its spot when its colors match the three faces around it.\nKeep a placed corner at the front right.\nU R U\' L\' U R\' U\' L cycles the other three until they all fit.';
+
+  @override
+  String get introHowTwistCorners =>
+      'Hold an unsolved corner at the front right.\nRepeat R\' D\' R D until its yellow faces up.\nTurn only the top for the next one; the bottom fixes itself at the end.';
+
+  @override
+  String get introHowCfopIntro =>
+      'Cross: four edges, planned during inspection.\nF2L: each corner goes in together with its edge.\nOLL makes the top yellow, then PLL moves the pieces home.';
+
+  @override
+  String get introHowF2l =>
+      'Find a corner and its matching edge in the top layer.\nPair them up above their slot.\nDrop the pair in with three or four moves.';
+
+  @override
+  String get introHowOll =>
+      'First the yellow cross with F R U R\' U\' F\'.\nThen orient the corners, for example with Sune.\nRecognize the case by the yellow you see.';
+
+  @override
+  String get introHowPll =>
+      'The top is already all yellow.\nThe T-perm swaps corners; the U-perm cycles three edges.\nRead the side colors to choose the algorithm.';
+
+  @override
+  String get introHowTwoFirst =>
+      'A 2×2 is only corners, like a 3×3 without edges.\nBring each white corner above its spot.\nRepeat R U R\' U\' until it drops in.';
+
+  @override
+  String get introHowTwoOll =>
+      'Keep the white layer at the bottom.\nSune (R U R\' U R U2 R\') twists the top corners.\nRepeat from the right angle until the top is all yellow.';
+
+  @override
+  String get introHowTwoPbl =>
+      'Look for a side where two corners already match.\nAdjacent swap: one T-perm style algorithm.\nDiagonal swap: one longer algorithm.';
+
+  @override
+  String get introHowBigIntro =>
+      'No center is fixed: four center pieces make up each face color.\nWide moves like Rw turn two layers at once.\nInner moves like 2R turn just one inner slice.';
+
+  @override
+  String get introHowBigCenters =>
+      'Build two opposite centers first.\nInner slices swap center pieces without breaking finished ones.\nFinish the last four centers the same way.';
+
+  @override
+  String get introHowBigEdges =>
+      'Find two edge pieces with the same colors.\nLine them up side by side with an inner slice.\nPut the pair away and bring the centers back.';
+
+  @override
+  String get introHowBigParity =>
+      'Solve the 4×4 like a 3×3 until it gets stuck.\nOne flipped edge: the long OLL parity algorithm.\nTwo swapped edges: 2R2 U2 2R2 Uw2 2R2 Uw2.';
 }

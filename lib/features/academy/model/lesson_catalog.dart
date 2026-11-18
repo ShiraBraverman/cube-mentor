@@ -388,6 +388,62 @@ Lesson? _lessonById(String id) {
   return null;
 }
 
+/// The beginner lesson teaching sub-step [crown].[subStep], if any.
+Lesson? lessonForSubStep(int crown, int subStep) {
+  for (final lesson in kLessons) {
+    if (lesson.crown == crown && lesson.subStep == subStep) return lesson;
+  }
+  return null;
+}
+
+/// One plain sentence on what the cube looks like after a lesson.
+String introGoalText(AppLocalizations l10n, String id) => switch (id) {
+  'basics' => l10n.introGoalBasics,
+  'cross' => l10n.introGoalCross,
+  'corners' => l10n.introGoalCorners,
+  'middle' => l10n.introGoalMiddle,
+  'yellowCross' => l10n.introGoalYellowCross,
+  'yellowEdges' => l10n.introGoalYellowEdges,
+  'yellowCorners' => l10n.introGoalYellowCorners,
+  'twistCorners' => l10n.introGoalTwistCorners,
+  'cfopIntro' => l10n.introGoalCfopIntro,
+  'f2l' => l10n.introGoalF2l,
+  'oll' => l10n.introGoalOll,
+  'pll' => l10n.introGoalPll,
+  'twoFirst' => l10n.introGoalTwoFirst,
+  'twoOll' => l10n.introGoalTwoOll,
+  'twoPbl' => l10n.introGoalTwoPbl,
+  'bigIntro' => l10n.introGoalBigIntro,
+  'bigCenters' => l10n.introGoalBigCenters,
+  'bigEdges' => l10n.introGoalBigEdges,
+  'bigParity' => l10n.introGoalBigParity,
+  _ => '',
+};
+
+/// Two or three short lines (one per bullet) on how a lesson gets there.
+String introHowText(AppLocalizations l10n, String id) => switch (id) {
+  'basics' => l10n.introHowBasics,
+  'cross' => l10n.introHowCross,
+  'corners' => l10n.introHowCorners,
+  'middle' => l10n.introHowMiddle,
+  'yellowCross' => l10n.introHowYellowCross,
+  'yellowEdges' => l10n.introHowYellowEdges,
+  'yellowCorners' => l10n.introHowYellowCorners,
+  'twistCorners' => l10n.introHowTwistCorners,
+  'cfopIntro' => l10n.introHowCfopIntro,
+  'f2l' => l10n.introHowF2l,
+  'oll' => l10n.introHowOll,
+  'pll' => l10n.introHowPll,
+  'twoFirst' => l10n.introHowTwoFirst,
+  'twoOll' => l10n.introHowTwoOll,
+  'twoPbl' => l10n.introHowTwoPbl,
+  'bigIntro' => l10n.introHowBigIntro,
+  'bigCenters' => l10n.introHowBigCenters,
+  'bigEdges' => l10n.introHowBigEdges,
+  'bigParity' => l10n.introHowBigParity,
+  _ => '',
+};
+
 /// Localized title of a lesson. Beginner's-method lessons are named after
 /// their sub-step, exactly as the guided solver shows it ("3.3 ...").
 String lessonTitle(AppLocalizations l10n, String id) {

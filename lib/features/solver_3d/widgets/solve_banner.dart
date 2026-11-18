@@ -10,6 +10,7 @@ import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/glass.dart';
 import '../model/cube_session.dart';
 import '../../../core/l10n/crown_words.dart';
+import '../../academy/widgets/lesson_intro.dart';
 import 'crown_tracker.dart';
 
 /// Glass banner above the cube explaining the current solution step: the
@@ -178,6 +179,18 @@ class SolveBanner extends ConsumerWidget {
                   child: content,
                 ),
               ),
+              if (!complete && step != null && step.hasCrown)
+                IconButton(
+                  key: const ValueKey('solve-intro-open'),
+                  tooltip: l10n.introShowGoal,
+                  visualDensity: VisualDensity.compact,
+                  onPressed: () => showSubStepIntro(
+                    context,
+                    crown: step.crown,
+                    subStep: step.subStep,
+                  ),
+                  icon: const Icon(Icons.flag_circle_outlined, size: 20),
+                ),
               IconButton(
                 key: const ValueKey('guide-exit'),
                 tooltip: l10n.guideExit,

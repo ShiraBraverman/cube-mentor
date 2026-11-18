@@ -8,6 +8,7 @@ import '../../core/solver/cube_solver.dart';
 import '../../core/solver/solve_step.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
+import '../academy/widgets/lesson_intro.dart';
 import 'model/cube_session.dart';
 import 'model/guide_script.dart';
 import 'widgets/cube_viewport.dart';
@@ -52,6 +53,21 @@ class Solver3DScreen extends ConsumerStatefulWidget {
 class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
   bool _showPad = false;
   bool _reportedSolved = false;
+
+  /// Sub-steps of the loaded guided solution whose goal card was shown.
+  final Set<String> _introsShown = {};
+  List<SolveStep>? _introSteps;
+
+  /// The 3-crown sub-step waiting for the user's hand, e.g. `2.1`; null
+  /// while nothing guided waits (auto-play, animations, other methods).
+  static String? _waitingSubStep(CubeSession s) {
+    if (!s.isGuiding || s.isPlaying || !s.isIdle || s.isHandTurning) {
+      return null;
+    }
+    final step = s.currentStep;
+    if (step == null || !step.hasCrown) return null;
+    return step.subStepLabel;
+  }
 
   @override
   void initState() {
@@ -122,6 +138,19 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
             duration: const Duration(seconds: 2),
           ),
         );
+    });
+
+    // Each new sub-step of a guided solve opens with its goal card.
+    ref.listen(cubeSessionProvider(size).select(_waitingSubStep), (_, label) {
+      if (label == null) return;
+      final current = ref.read(cubeSessionProvider(size));
+      if (!identical(current.steps, _introSteps)) {
+        _introSteps = current.steps;
+        _introsShown.clear();
+      }
+      if (!_introsShown.add(label)) return;
+      final step = current.currentStep!;
+      showSubStepIntro(context, crown: step.crown, subStep: step.subStep);
     });
 
     // The user solved the cube they started from (e.g. the daily scramble).

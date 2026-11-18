@@ -1218,4 +1218,156 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get stepBigPllParityBody =>
       '最后有两个棱块互换了？2R2 U2 2R2 Uw2 2R2 Uw2 会交换顶层前后两个棱块。';
+
+  @override
+  String get introGoalHeading => '目标是什么？';
+
+  @override
+  String get introHowHeading => '怎么做？';
+
+  @override
+  String get introStart => '明白了，开始分步学习';
+
+  @override
+  String get introShowGoal => '查看目标';
+
+  @override
+  String get introStateStart => '开始';
+
+  @override
+  String get introStateGoal => '目标';
+
+  @override
+  String get introPlayMorph => '从开始播放到目标';
+
+  @override
+  String get introGoalBasics => '学会读懂魔方：它的块、六个面，以及转动符号怎样转动它们。';
+
+  @override
+  String get introGoalCross => '拼出白色十字，并让每个白色棱块的侧面颜色与相邻中心一致。';
+
+  @override
+  String get introGoalCorners => '放好四个白色角块，完成第一个王冠，也就是整个白色层。';
+
+  @override
+  String get introGoalMiddle => '放好中间层的四个棱块，前两层就完成了。';
+
+  @override
+  String get introGoalYellowCross => '在顶面拼出黄色十字；侧面颜色暂时不用对齐。';
+
+  @override
+  String get introGoalYellowEdges => '让黄色十字的每个棱块与它所在侧的中心颜色一致。';
+
+  @override
+  String get introGoalYellowCorners => '把每个黄色角块移到自己的位置，即使它还没转正。';
+
+  @override
+  String get introGoalTwistCorners => '把黄色角块转到正确颜色，整个魔方就完成了。';
+
+  @override
+  String get introGoalCfopIntro => '了解速拧的思路：十字、前两层，再分两步完成最后一层。';
+
+  @override
+  String get introGoalF2l => '把每个白色角块和它的中层棱块一起放入，一次完成两层。';
+
+  @override
+  String get introGoalOll => '用一两个公式让整个顶面变成黄色。';
+
+  @override
+  String get introGoalPll => '把最后一层的块移到正确位置，完成魔方。';
+
+  @override
+  String get introGoalTwoFirst => '在 2×2 上完成一整层白色。';
+
+  @override
+  String get introGoalTwoOll => '让 2×2 的顶面全部变成黄色。';
+
+  @override
+  String get introGoalTwoPbl => '交换最后的角块，完成 2×2。';
+
+  @override
+  String get introGoalBigIntro => '认识 4×4：中心块、棱块对、角块，以及转动它们的符号。';
+
+  @override
+  String get introGoalBigCenters => '把每个面的中心块拼成一整块同色区域。';
+
+  @override
+  String get introGoalBigEdges => '把颜色相同的棱块配对，让每条棱看起来像 3×3 的一个棱块。';
+
+  @override
+  String get introGoalBigParity => '解决 3×3 不会出现的两种 4×4 情况：一个翻转的棱块，或两个互换的棱块。';
+
+  @override
+  String get introHowBasics =>
+      '中心块从不移动，所以它们决定每个面的颜色。\n每个字母把一个面顺时针转 90°。\n撇号（\'）表示反方向，2 表示转两次。';
+
+  @override
+  String get introHowCross =>
+      '黄色朝上拿：白色十字在底面完成。\n找到一个白色棱块，把它的侧面颜色对准相同颜色的中心。\n把这个面转两次，让棱块落到位。';
+
+  @override
+  String get introHowCorners =>
+      '把一个白色角块转到它的空位上方。\n重复 R U R\' U\'，直到它以正确方向落入。\n其余三个角块也照做。';
+
+  @override
+  String get introHowMiddle =>
+      '找一个不含黄色的顶层棱块，把它的前面颜色对准中心。\n用一个 8 步的短公式把它送到右边或左边。\n白色层每次都会完好地回来。';
+
+  @override
+  String get introHowYellowCross =>
+      '看顶面：一个点、一个 L 形或一条线。\n按图示拿好，做 F R U R\' U\' F\'。\n重复直到出现黄色十字。';
+
+  @override
+  String get introHowYellowEdges =>
+      '转动顶层，直到有两个棱块与中心对齐。\n把它们放在后面和右边，然后做 R U R\' U R U2 R\' U。\n重复直到四个都对齐。';
+
+  @override
+  String get introHowYellowCorners =>
+      '角块的颜色与周围三个面一致时，它就在正确位置。\n把一个已归位的角块放在右前方。\nU R U\' L\' U R\' U\' L 轮换另外三个，直到全部归位。';
+
+  @override
+  String get introHowTwistCorners =>
+      '把一个未完成的角块拿在右前方。\n重复 R\' D\' R D，直到它的黄色朝上。\n下一个只转顶层；底层最后会自己复原。';
+
+  @override
+  String get introHowCfopIntro =>
+      '十字：在观察时规划好四个棱块。\nF2L：每个角块和它的棱块一起放入。\nOLL 让顶面全黄，然后 PLL 把各块送回原位。';
+
+  @override
+  String get introHowF2l => '在顶层找到一个角块和与它配对的棱块。\n在槽位上方把它们组成一对。\n用三四步把这一对放进去。';
+
+  @override
+  String get introHowOll =>
+      '先用 F R U R\' U\' F\' 做出黄色十字。\n再调整角块朝向，例如用 Sune。\n根据看到的黄色图案识别情况。';
+
+  @override
+  String get introHowPll =>
+      '顶面已经全是黄色。\nT-perm 交换角块；U-perm 轮换三个棱块。\n看侧面颜色来选择公式。';
+
+  @override
+  String get introHowTwoFirst =>
+      '2×2 只有角块，就像没有棱块的 3×3。\n把每个白色角块转到它的位置上方。\n重复 R U R\' U\'，直到它落入。';
+
+  @override
+  String get introHowTwoOll =>
+      '白色层保持在底部。\nSune（R U R\' U R U2 R\'）会翻转顶层角块。\n从正确角度重复，直到顶面全黄。';
+
+  @override
+  String get introHowTwoPbl =>
+      '找一个已有两个角块对齐的侧面。\n相邻交换：一个类似 T-perm 的公式。\n对角交换：一个稍长的公式。';
+
+  @override
+  String get introHowBigIntro =>
+      '没有固定的中心：四个中心块组成一个面的颜色。\n像 Rw 这样的双层转动一次转两层。\n像 2R 这样的内层转动只转一个内层。';
+
+  @override
+  String get introHowBigCenters =>
+      '先拼好两个相对的中心。\n用内层交换中心块，不会破坏已拼好的中心。\n用同样方法完成最后四个中心。';
+
+  @override
+  String get introHowBigEdges => '找到两个颜色相同的棱块。\n用内层把它们并排对齐。\n把这一对移开，再把中心恢复。';
+
+  @override
+  String get introHowBigParity =>
+      '像 3×3 一样还原 4×4，直到卡住。\n一个翻转的棱块：较长的 OLL 奇偶公式。\n两个互换的棱块：2R2 U2 2R2 Uw2 2R2 Uw2。';
 }

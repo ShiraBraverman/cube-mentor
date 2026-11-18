@@ -1289,4 +1289,174 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get stepBigPllParityBody =>
       'حافتان متبادلتان في النهاية تمامًا؟ الخوارزمية ⁦2R2 U2 2R2 Uw2 2R2 Uw2⁩ تبدّل الحافتين العلويتين الأمامية والخلفية.';
+
+  @override
+  String get introGoalHeading => 'ما الهدف؟';
+
+  @override
+  String get introHowHeading => 'كيف نفعل ذلك؟';
+
+  @override
+  String get introStart => 'فهمت، لنبدأ خطوة بخطوة';
+
+  @override
+  String get introShowGoal => 'عرض الهدف';
+
+  @override
+  String get introStateStart => 'البداية';
+
+  @override
+  String get introStateGoal => 'الهدف';
+
+  @override
+  String get introPlayMorph => 'تشغيل من البداية إلى الهدف';
+
+  @override
+  String get introGoalBasics =>
+      'تعلّم قراءة المكعب: قطعه ووجوهه الستة وكيف تديرها حروف الحركات.';
+
+  @override
+  String get introGoalCross =>
+      'كوّن صليبًا أبيض تطابق فيه كل حافة بيضاء أيضًا لون المركز المجاور لها.';
+
+  @override
+  String get introGoalCorners =>
+      'أكمل الزوايا البيضاء الأربع ليكتمل التاج الأول، أي الطبقة البيضاء كلها.';
+
+  @override
+  String get introGoalMiddle =>
+      'ضع حواف الطبقة الوسطى الأربع لتُحل الطبقتان الأوليان.';
+
+  @override
+  String get introGoalYellowCross =>
+      'كوّن صليبًا أصفر في الأعلى؛ لا يلزم أن تتطابق الألوان الجانبية بعد.';
+
+  @override
+  String get introGoalYellowEdges =>
+      'حاذِ كل حافة من حواف الصليب الأصفر مع لون المركز على جانبها.';
+
+  @override
+  String get introGoalYellowCorners =>
+      'انقل كل زاوية صفراء إلى مكانها، حتى لو كانت ما تزال ملتوية.';
+
+  @override
+  String get introGoalTwistCorners =>
+      'أدر الزوايا الصفراء إلى ألوانها الصحيحة ليُحل المكعب كله.';
+
+  @override
+  String get introGoalCfopIntro =>
+      'تعرّف على خطة الحل السريع: الصليب، ثم الطبقتان الأوليان، ثم الطبقة الأخيرة على مرحلتين.';
+
+  @override
+  String get introGoalF2l =>
+      'أدخل كل زاوية بيضاء مع حافتها الوسطى لتنهي طبقتين دفعة واحدة.';
+
+  @override
+  String get introGoalOll => 'اجعل الوجه العلوي كله أصفر بخوارزمية أو اثنتين.';
+
+  @override
+  String get introGoalPll =>
+      'انقل قطع الطبقة الأخيرة إلى أماكنها لتنهي المكعب.';
+
+  @override
+  String get introGoalTwoFirst => 'ابنِ طبقة بيضاء كاملة على مكعب 2×2.';
+
+  @override
+  String get introGoalTwoOll => 'اجعل الوجه العلوي لمكعب 2×2 أصفر بالكامل.';
+
+  @override
+  String get introGoalTwoPbl =>
+      'بدّل الزوايا الأخيرة إلى أماكنها لتحل مكعب 2×2.';
+
+  @override
+  String get introGoalBigIntro =>
+      'تعرّف على مكعب 4×4: المراكز وأزواج الحواف والزوايا، والحركات التي تديرها.';
+
+  @override
+  String get introGoalBigCenters =>
+      'اجمع القطع المركزية لكل وجه في كتلة واحدة من لون واحد.';
+
+  @override
+  String get introGoalBigEdges =>
+      'اجمع قطع الحواف المتطابقة أزواجًا لتبدو كل حافة مثل حافة واحدة في 3×3.';
+
+  @override
+  String get introGoalBigParity =>
+      'أصلح حالتي 4×4 اللتين لا تحدثان في 3×3: حافة مقلوبة واحدة أو حافتان متبادلتان.';
+
+  @override
+  String get introHowBasics =>
+      'المراكز لا تتحرك أبدًا، لذا فهي تحدد لون كل وجه.\nكل حرف يدير وجهًا واحدًا ربع دورة باتجاه عقارب الساعة.\nالفاصلة العليا (⁦\'⁩) تدير بالعكس، والرقم 2 يدير مرتين.';
+
+  @override
+  String get introHowCross =>
+      'أمسك المكعب والأصفر في الأعلى: الصليب الأبيض يُبنى في الأسفل.\nابحث عن حافة بيضاء وحاذِ لونها الجانبي مع المركز المناسب.\nأدر ذلك الوجه مرتين لتنزل الحافة إلى مكانها.';
+
+  @override
+  String get introHowCorners =>
+      'أحضر زاوية بيضاء فوق مكانها الفارغ.\nكرّر ⁦R U R\' U\'⁩ حتى تدخل في الاتجاه الصحيح.\nافعل الشيء نفسه مع الزوايا الثلاث الأخرى.';
+
+  @override
+  String get introHowMiddle =>
+      'ابحث عن حافة علوية بلا أصفر وطابق لونها الأمامي مع مركز.\nأرسلها يمينًا أو يسارًا بخوارزمية قصيرة من 8 حركات.\nتعود الطبقة البيضاء سليمة في كل مرة.';
+
+  @override
+  String get introHowYellowCross =>
+      'انظر إلى الأعلى: نقطة أو شكل L أو خط.\nأمسكه كما في الصورة ونفّذ ⁦F R U R\' U\' F\'⁩.\nكرّر حتى يظهر الصليب الأصفر.';
+
+  @override
+  String get introHowYellowEdges =>
+      'أدر الطبقة العليا حتى تطابق حافتان مركزيهما.\nضعهما في الخلف واليمين ثم نفّذ ⁦R U R\' U R U2 R\' U⁩.\nكرّر حتى تتطابق الحواف الأربع.';
+
+  @override
+  String get introHowYellowCorners =>
+      'تكون الزاوية في مكانها عندما تطابق ألوانها الوجوه الثلاثة حولها.\nاترك زاوية صحيحة المكان في الأمام يمينًا.\nالخوارزمية ⁦U R U\' L\' U R\' U\' L⁩ تدوّر الزوايا الثلاث الأخرى حتى تستقر كلها.';
+
+  @override
+  String get introHowTwistCorners =>
+      'أمسك زاوية غير محلولة في الأمام يمينًا.\nكرّر ⁦R\' D\' R D⁩ حتى يصبح لونها الأصفر في الأعلى.\nأدر الطبقة العليا فقط للزاوية التالية؛ الطبقة السفلى تُصلح نفسها في النهاية.';
+
+  @override
+  String get introHowCfopIntro =>
+      'الصليب: أربع حواف تُخطط لها أثناء الفحص.\nF2L: تدخل كل زاوية مع حافتها معًا.\nOLL يجعل الوجه العلوي أصفر، ثم PLL يعيد القطع إلى أماكنها.';
+
+  @override
+  String get introHowF2l =>
+      'ابحث عن زاوية والحافة المطابقة لها في الطبقة العليا.\nاجمعهما زوجًا فوق خانتهما.\nأدخل الزوج بثلاث أو أربع حركات.';
+
+  @override
+  String get introHowOll =>
+      'أولًا الصليب الأصفر بـ ⁦F R U R\' U\' F\'⁩.\nثم وجّه الزوايا، مثلًا بخوارزمية Sune.\nتعرّف على الحالة من شكل الأصفر الذي تراه.';
+
+  @override
+  String get introHowPll =>
+      'الوجه العلوي أصفر بالكامل بالفعل.\nT-perm يبدّل الزوايا، وU-perm يدوّر ثلاث حواف.\nاقرأ الألوان الجانبية لتختار الخوارزمية.';
+
+  @override
+  String get introHowTwoFirst =>
+      'مكعب 2×2 زوايا فقط، مثل 3×3 بلا حواف.\nأحضر كل زاوية بيضاء فوق مكانها.\nكرّر ⁦R U R\' U\'⁩ حتى تدخل.';
+
+  @override
+  String get introHowTwoOll =>
+      'أبقِ الطبقة البيضاء في الأسفل.\nخوارزمية Sune ‏(⁦R U R\' U R U2 R\'⁩) تدير الزوايا العلوية.\nكرّر من الزاوية الصحيحة حتى يصبح الأعلى كله أصفر.';
+
+  @override
+  String get introHowTwoPbl =>
+      'ابحث عن جانب فيه زاويتان متطابقتان بالفعل.\nتبديل متجاور: خوارزمية واحدة على نمط T-perm.\nتبديل قطري: خوارزمية واحدة أطول قليلًا.';
+
+  @override
+  String get introHowBigIntro =>
+      'لا يوجد مركز ثابت: أربع قطع مركزية تكوّن لون كل وجه.\nالحركات العريضة مثل ⁦Rw⁩ تدير طبقتين معًا.\nالحركات الداخلية مثل ⁦2R⁩ تدير شريحة داخلية واحدة فقط.';
+
+  @override
+  String get introHowBigCenters =>
+      'ابنِ مركزين متقابلين أولًا.\nالشرائح الداخلية تبدّل القطع المركزية دون إفساد المراكز المكتملة.\nأكمل المراكز الأربعة الأخيرة بالطريقة نفسها.';
+
+  @override
+  String get introHowBigEdges =>
+      'ابحث عن قطعتي حافة بالألوان نفسها.\nحاذِهما جنبًا إلى جنب بشريحة داخلية.\nأبعد الزوج جانبًا وأعد المراكز.';
+
+  @override
+  String get introHowBigParity =>
+      'حل مكعب 4×4 مثل 3×3 حتى تتوقف.\nحافة مقلوبة واحدة: خوارزمية تكافؤ OLL الطويلة.\nحافتان متبادلتان: ⁦2R2 U2 2R2 Uw2 2R2 Uw2⁩.';
 }

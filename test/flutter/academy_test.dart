@@ -245,6 +245,26 @@ void main() {
 
     await tester.tap(find.byKey(const ValueKey('continue-learning')));
     await _advance(tester);
+
+    // The lesson opens on its goal card: live preview, goal and how-to.
+    expect(find.byKey(const ValueKey('lesson-intro')), findsOneWidget);
+    expect(find.byKey(const ValueKey('intro-preview')), findsOneWidget);
+    expect(find.text("What's the goal?"), findsOneWidget);
+    expect(find.textContaining('Learn to read the cube'), findsOneWidget);
+    expect(find.textContaining('Centers never move'), findsOneWidget);
+    expect(find.text('Part 1 of 3'), findsNothing);
+    expect(find.byKey(const ValueKey('lesson-intro-open')), findsNothing);
+    await tester.tap(find.byKey(const ValueKey('intro-start')));
+    await _advance(tester);
+    expect(find.byKey(const ValueKey('lesson-intro')), findsNothing);
+    expect(find.text('Part 1 of 3'), findsOneWidget);
+
+    // The flag in the header reopens it mid-lesson.
+    await tester.tap(find.byKey(const ValueKey('lesson-intro-open')));
+    await _advance(tester);
+    expect(find.byKey(const ValueKey('lesson-intro')), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('intro-start')));
+    await _advance(tester);
     expect(find.text('Part 1 of 3'), findsOneWidget);
     expect(find.text('Three kinds of pieces'), findsOneWidget);
     expect(

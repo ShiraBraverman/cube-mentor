@@ -13,6 +13,7 @@ import 'model/academy_progress.dart';
 import 'model/lesson.dart';
 import 'model/lesson_catalog.dart';
 import 'widgets/hold_prompt.dart';
+import 'widgets/lesson_intro.dart';
 
 /// Plays one lesson: each part pairs a plain-language explanation and an
 /// orientation prompt with a live 3D demonstration the learner steps
@@ -30,6 +31,9 @@ class LessonScreen extends ConsumerStatefulWidget {
 class _LessonScreenState extends ConsumerState<LessonScreen> {
   int _step = 0;
   bool _finished = false;
+
+  /// The "before -> after" goal card shows first, and again on request.
+  bool _showIntro = true;
 
   Lesson get _lesson => widget.lesson;
   LessonStep get _current => _lesson.steps[_step];
@@ -83,7 +87,18 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
 
     return GlassBackground(
       child: Scaffold(
-        appBar: AppBar(title: Text(lessonTitle(l10n, _lesson.id))),
+        appBar: AppBar(
+          title: Text(lessonTitle(l10n, _lesson.id)),
+          actions: [
+            if (!_finished && !_showIntro)
+              IconButton(
+                key: const ValueKey('lesson-intro-open'),
+                tooltip: l10n.introShowGoal,
+                onPressed: () => setState(() => _showIntro = true),
+                icon: const Icon(Icons.flag_circle_outlined),
+              ),
+          ],
+        ),
         body: SafeArea(
           top: false,
           child: Center(
@@ -93,6 +108,11 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                 padding: const EdgeInsetsDirectional.fromSTEB(14, 4, 14, 12),
                 child: _finished
                     ? _Completed(lesson: _lesson)
+                    : _showIntro
+                    ? LessonIntroCard(
+                        lesson: _lesson,
+                        onStart: () => setState(() => _showIntro = false),
+                      )
                     : Column(
                         children: [
                           Row(

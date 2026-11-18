@@ -27,6 +27,7 @@ class CubePainter extends CustomPainter {
   final double guidePhase;
 
   static const double _stickerInset = 0.86;
+  static const Color _mutedSticker = Color(0xFF3A3F4B);
   static const double _cornerRound = 0.2;
 
   final Paint _fill = Paint()..isAntiAlias = true;
@@ -61,8 +62,16 @@ class CubePainter extends CustomPainter {
       if (color == null) continue;
       final id = face.cubie.id;
       final isHighlighted = frame.highlighted.contains(id);
-      var stickerColor = _shaded(AppColors.stickers[color]!, face.shade);
-      if (hasHighlights && !isHighlighted && !frame.focus.contains(id)) {
+      final muted = frame.muted.contains(id);
+      var stickerColor = _shaded(
+        muted ? _mutedSticker : AppColors.stickers[color]!,
+        face.shade,
+      );
+      // Gray pieces stay flat: neither dimmed further nor outlined.
+      if (!muted &&
+          hasHighlights &&
+          !isHighlighted &&
+          !frame.focus.contains(id)) {
         stickerColor = Color.lerp(stickerColor, AppColors.cubeBody, 0.6)!;
       }
       final stickerPath = _roundedSticker(face.quad);

@@ -206,6 +206,18 @@ void main() {
     await _advance(tester, 8);
     expect(solver.calls, [SolveMethod.layerByLayer]);
 
+    // The first sub-step opens with its goal card; dismiss it to play.
+    expect(
+      tester
+          .widget<Text>(find.byKey(const ValueKey('substep-intro-title')))
+          .data,
+      '1.1 White cross',
+    );
+    expect(find.byKey(const ValueKey('intro-preview')), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('intro-start')));
+    await _advance(tester, 12);
+    expect(find.byKey(const ValueKey('lesson-intro')), findsNothing);
+
     // Banner: crown tracker, sub-step, explanation and the move to make.
     expect(find.text('Crown 1 of 3 · First crown'), findsOneWidget);
     expect(find.text('1.1 White cross'), findsOneWidget);
@@ -225,8 +237,25 @@ void main() {
 
     await tester.tap(find.byKey(const ValueKey('playback-next')));
     await _advance(tester, 12);
+    // A new sub-step: its goal card first.
+    expect(
+      tester
+          .widget<Text>(find.byKey(const ValueKey('substep-intro-title')))
+          .data,
+      '1.2 First crown corners',
+    );
+    await tester.tap(find.byKey(const ValueKey('intro-start')));
+    await _advance(tester, 12);
     expect(find.text('1.2 First crown corners'), findsOneWidget);
     expect(find.text('Step 2 of 2'), findsOneWidget);
+
+    // The flag in the banner reopens the card at any time.
+    await tester.tap(find.byKey(const ValueKey('solve-intro-open')));
+    await _advance(tester, 12);
+    expect(find.byKey(const ValueKey('lesson-intro')), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('intro-start')));
+    await _advance(tester, 12);
+    expect(find.byKey(const ValueKey('lesson-intro')), findsNothing);
 
     await tester.tap(find.byTooltip('Play'));
     await _advance(tester, 12);

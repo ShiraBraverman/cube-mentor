@@ -1288,4 +1288,176 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get stepBigPllParityBody =>
       'Dua rusuk tertukar di bagian paling akhir? 2R2 U2 2R2 Uw2 2R2 Uw2 menukar rusuk atas depan dan belakang.';
+
+  @override
+  String get introGoalHeading => 'Apa tujuannya?';
+
+  @override
+  String get introHowHeading => 'Bagaimana caranya?';
+
+  @override
+  String get introStart => 'Paham, mulai langkah demi langkah';
+
+  @override
+  String get introShowGoal => 'Lihat tujuan';
+
+  @override
+  String get introStateStart => 'Awal';
+
+  @override
+  String get introStateGoal => 'Tujuan';
+
+  @override
+  String get introPlayMorph => 'Putar dari awal ke tujuan';
+
+  @override
+  String get introGoalBasics =>
+      'Belajar membaca kubus: kepingnya, keenam sisinya, dan cara huruf gerakan memutarnya.';
+
+  @override
+  String get introGoalCross =>
+      'Buat silang putih yang setiap rusuk putihnya juga cocok dengan warna pusat di sebelahnya.';
+
+  @override
+  String get introGoalCorners =>
+      'Isi keempat sudut putih sehingga mahkota pertama, seluruh lapisan putih, selesai.';
+
+  @override
+  String get introGoalMiddle =>
+      'Tempatkan keempat rusuk lapisan tengah sehingga dua lapisan pertama selesai.';
+
+  @override
+  String get introGoalYellowCross =>
+      'Buat silang kuning di atas; warna sampingnya belum perlu cocok.';
+
+  @override
+  String get introGoalYellowEdges =>
+      'Cocokkan setiap rusuk silang kuning dengan warna pusat di sisinya.';
+
+  @override
+  String get introGoalYellowCorners =>
+      'Pindahkan setiap sudut kuning ke tempatnya, meskipun masih terpelintir.';
+
+  @override
+  String get introGoalTwistCorners =>
+      'Putar sudut kuning ke arah yang benar sehingga seluruh kubus selesai.';
+
+  @override
+  String get introGoalCfopIntro =>
+      'Kenali rencana speedcubing: silang, dua lapisan pertama, lalu lapisan terakhir dalam dua tahap.';
+
+  @override
+  String get introGoalF2l =>
+      'Masukkan setiap sudut putih bersama rusuk tengahnya dan selesaikan dua lapisan sekaligus.';
+
+  @override
+  String get introGoalOll =>
+      'Buat seluruh sisi atas kuning dengan satu atau dua algoritma.';
+
+  @override
+  String get introGoalPll =>
+      'Pindahkan keping lapisan terakhir ke tempatnya untuk menyelesaikan kubus.';
+
+  @override
+  String get introGoalTwoFirst =>
+      'Buat satu lapisan putih yang lengkap pada 2×2.';
+
+  @override
+  String get introGoalTwoOll => 'Buat seluruh sisi atas 2×2 berwarna kuning.';
+
+  @override
+  String get introGoalTwoPbl =>
+      'Tukar sudut terakhir ke tempatnya untuk menyelesaikan 2×2.';
+
+  @override
+  String get introGoalBigIntro =>
+      'Kenali 4×4: pusat, pasangan rusuk, sudut, dan gerakan yang memutarnya.';
+
+  @override
+  String get introGoalBigCenters =>
+      'Kumpulkan keping pusat tiap sisi menjadi satu blok berwarna sama.';
+
+  @override
+  String get introGoalBigEdges =>
+      'Pasangkan keping rusuk yang cocok sehingga setiap rusuk tampak seperti satu rusuk 3×3.';
+
+  @override
+  String get introGoalBigParity =>
+      'Atasi dua kasus 4×4 yang tidak ada di 3×3: satu rusuk terbalik atau dua rusuk tertukar.';
+
+  @override
+  String get introHowBasics =>
+      'Pusat tidak pernah berpindah, jadi pusat menunjukkan warna tiap sisi.\nSetiap huruf memutar satu sisi seperempat putaran searah jarum jam.\nTanda petik (\') memutar balik; angka 2 memutar dua kali.';
+
+  @override
+  String get introHowCross =>
+      'Pegang kuning di atas: silang putih dibuat di bawah.\nCari rusuk putih dan sejajarkan warna sampingnya dengan pusat yang cocok.\nPutar sisi itu dua kali untuk menurunkan rusuk ke tempatnya.';
+
+  @override
+  String get introHowCorners =>
+      'Bawa sudut putih ke atas tempat kosongnya.\nUlangi R U R\' U\' sampai sudut masuk dengan arah yang benar.\nLakukan hal yang sama untuk tiga sudut lainnya.';
+
+  @override
+  String get introHowMiddle =>
+      'Cari rusuk atas tanpa kuning dan cocokkan warna depannya dengan pusat.\nKirim ke kanan atau ke kiri dengan algoritma pendek 8 gerakan.\nLapisan putih selalu kembali utuh.';
+
+  @override
+  String get introHowYellowCross =>
+      'Lihat sisi atas: titik, huruf L, atau garis.\nPegang seperti contoh lalu lakukan F R U R\' U\' F\'.\nUlangi sampai silang kuning muncul.';
+
+  @override
+  String get introHowYellowEdges =>
+      'Putar lapisan atas sampai dua rusuk cocok dengan pusatnya.\nTaruh keduanya di belakang dan kanan, lalu lakukan R U R\' U R U2 R\' U.\nUlangi sampai keempat rusuk cocok.';
+
+  @override
+  String get introHowYellowCorners =>
+      'Sudut ada di tempatnya jika warnanya cocok dengan tiga sisi di sekitarnya.\nTaruh satu sudut yang sudah benar di depan kanan.\nU R U\' L\' U R\' U\' L menggilir tiga sudut lainnya sampai semuanya pas.';
+
+  @override
+  String get introHowTwistCorners =>
+      'Pegang sudut yang belum beres di depan kanan.\nUlangi R\' D\' R D sampai warna kuningnya menghadap atas.\nPutar hanya lapisan atas untuk sudut berikutnya; lapisan bawah beres sendiri di akhir.';
+
+  @override
+  String get introHowCfopIntro =>
+      'Silang: empat rusuk yang direncanakan saat inspeksi.\nF2L: setiap sudut masuk bersama rusuknya.\nOLL membuat sisi atas kuning, lalu PLL memindahkan keping ke tempatnya.';
+
+  @override
+  String get introHowF2l =>
+      'Cari sudut dan rusuk pasangannya di lapisan atas.\nPasangkan keduanya di atas slotnya.\nMasukkan pasangan itu dengan tiga atau empat gerakan.';
+
+  @override
+  String get introHowOll =>
+      'Pertama silang kuning dengan F R U R\' U\' F\'.\nLalu orientasikan sudut, misalnya dengan Sune.\nKenali kasusnya dari pola kuning yang terlihat.';
+
+  @override
+  String get introHowPll =>
+      'Sisi atas sudah kuning semua.\nT-perm menukar sudut; U-perm menggilir tiga rusuk.\nBaca warna samping untuk memilih algoritma.';
+
+  @override
+  String get introHowTwoFirst =>
+      '2×2 hanya berisi sudut, seperti 3×3 tanpa rusuk.\nBawa setiap sudut putih ke atas tempatnya.\nUlangi R U R\' U\' sampai sudut masuk.';
+
+  @override
+  String get introHowTwoOll =>
+      'Biarkan lapisan putih di bawah.\nSune (R U R\' U R U2 R\') memutar sudut-sudut atas.\nUlangi dari sudut pandang yang tepat sampai sisi atas kuning semua.';
+
+  @override
+  String get introHowTwoPbl =>
+      'Cari sisi yang dua sudutnya sudah cocok.\nTukar bersebelahan: satu algoritma bergaya T-perm.\nTukar diagonal: satu algoritma yang sedikit lebih panjang.';
+
+  @override
+  String get introHowBigIntro =>
+      'Tidak ada pusat yang tetap: empat keping pusat membentuk warna tiap sisi.\nGerakan lebar seperti Rw memutar dua lapisan sekaligus.\nGerakan dalam seperti 2R hanya memutar satu irisan dalam.';
+
+  @override
+  String get introHowBigCenters =>
+      'Buat dulu dua pusat yang berseberangan.\nIrisan dalam menukar keping pusat tanpa merusak pusat yang sudah jadi.\nSelesaikan empat pusat terakhir dengan cara yang sama.';
+
+  @override
+  String get introHowBigEdges =>
+      'Cari dua keping rusuk dengan warna yang sama.\nJajarkan keduanya dengan irisan dalam.\nSimpan pasangan itu lalu kembalikan pusatnya.';
+
+  @override
+  String get introHowBigParity =>
+      'Selesaikan 4×4 seperti 3×3 sampai macet.\nSatu rusuk terbalik: algoritma panjang paritas OLL.\nDua rusuk tertukar: 2R2 U2 2R2 Uw2 2R2 Uw2.';
 }

@@ -1224,4 +1224,159 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get stepBigPllParityBody =>
       '最後の最後でエッジ2つが入れ替わっている？2R2 U2 2R2 Uw2 2R2 Uw2で上面の手前と奥のエッジを入れ替えます。';
+
+  @override
+  String get introGoalHeading => '目標は？';
+
+  @override
+  String get introHowHeading => 'どうやるの？';
+
+  @override
+  String get introStart => 'わかった、1手ずつ始める';
+
+  @override
+  String get introShowGoal => '目標を見る';
+
+  @override
+  String get introStateStart => 'スタート';
+
+  @override
+  String get introStateGoal => 'ゴール';
+
+  @override
+  String get introPlayMorph => 'スタートからゴールまで再生';
+
+  @override
+  String get introGoalBasics => 'キューブの読み方を覚えましょう。パーツ、6つの面、そして回転記号の動きです。';
+
+  @override
+  String get introGoalCross => '白いエッジが隣のセンターの色ともそろった白クロスを作ります。';
+
+  @override
+  String get introGoalCorners => '白いコーナー4つを入れて、第1の王冠（白い層全体）を完成させます。';
+
+  @override
+  String get introGoalMiddle => '中段のエッジ4つを入れて、下の2層を完成させます。';
+
+  @override
+  String get introGoalYellowCross => '上面に黄色いクロスを作ります。側面の色はまだそろわなくて大丈夫です。';
+
+  @override
+  String get introGoalYellowEdges => '黄色いクロスの各エッジを、その側のセンターの色に合わせます。';
+
+  @override
+  String get introGoalYellowCorners => '黄色いコーナーを、ねじれていてもよいので正しい位置に移します。';
+
+  @override
+  String get introGoalTwistCorners => '黄色いコーナーを正しい向きにひねって、キューブを完成させます。';
+
+  @override
+  String get introGoalCfopIntro => 'スピードキュービングの流れを知りましょう：クロス、F2L、最後の層を2段階で。';
+
+  @override
+  String get introGoalF2l => '白いコーナーを中段のエッジと一緒に入れて、2層を同時に仕上げます。';
+
+  @override
+  String get introGoalOll => '1〜2個の手順で上面をすべて黄色にします。';
+
+  @override
+  String get introGoalPll => '最後の層のパーツを正しい位置に移して完成させます。';
+
+  @override
+  String get introGoalTwoFirst => '2×2で白い層を1つ完成させます。';
+
+  @override
+  String get introGoalTwoOll => '2×2の上面をすべて黄色にします。';
+
+  @override
+  String get introGoalTwoPbl => '最後のコーナーを入れ替えて2×2を完成させます。';
+
+  @override
+  String get introGoalBigIntro => '4×4を知りましょう：センター、エッジのペア、コーナー、そしてそれらを回す記号です。';
+
+  @override
+  String get introGoalBigCenters => '各面のセンターパーツを1色のブロックにまとめます。';
+
+  @override
+  String get introGoalBigEdges => '同じ色のエッジパーツをペアにして、どのエッジも3×3のエッジ1つに見えるようにします。';
+
+  @override
+  String get introGoalBigParity =>
+      '3×3では起きない4×4の2つのケースを直します：エッジ1つの反転か、エッジ2つの入れ替わり。';
+
+  @override
+  String get introHowBasics =>
+      'センターは動かないので、各面の色を決めています。\n各記号は1つの面を時計回りに90°回します。\nアポストロフィ（\'）は逆回り、2は2回まわします。';
+
+  @override
+  String get introHowCross =>
+      '黄色を上にして持ち、白クロスは下に作ります。\n白いエッジを見つけ、横の色を同じ色のセンターに合わせます。\nその面を2回まわして、エッジを定位置に下ろします。';
+
+  @override
+  String get introHowCorners =>
+      '白いコーナーを空いている場所の上に運びます。\n正しい向きで入るまでR U R\' U\'をくり返します。\n残り3つのコーナーも同じようにします。';
+
+  @override
+  String get introHowMiddle =>
+      '黄色を含まない上のエッジを探し、前の色をセンターに合わせます。\n8手の短い手順で右か左に送ります。\n白い層は毎回元どおりに戻ります。';
+
+  @override
+  String get introHowYellowCross =>
+      '上面を見ます：点、L字、または線。\n図のように持ってF R U R\' U\' F\'を回します。\n黄色いクロスができるまでくり返します。';
+
+  @override
+  String get introHowYellowEdges =>
+      '2つのエッジがセンターとそろうまで上段を回します。\nその2つを奥と右に置いてR U R\' U R U2 R\' Uを回します。\n4つともそろうまでくり返します。';
+
+  @override
+  String get introHowYellowCorners =>
+      '3色がまわりの3面と一致すれば、コーナーは正しい位置です。\n位置の合ったコーナーを右手前に置きます。\nU R U\' L\' U R\' U\' Lで残り3つが入れ替わり、全部そろうまで続けます。';
+
+  @override
+  String get introHowTwistCorners =>
+      '未完成のコーナーを右手前に持ちます。\n黄色が上を向くまでR\' D\' R Dをくり返します。\n次のコーナーへは上段だけ回します。下段は最後に自然に戻ります。';
+
+  @override
+  String get introHowCfopIntro =>
+      'クロス：インスペクション中に4つのエッジを計画します。\nF2L：コーナーとエッジをペアで入れます。\nOLLで上面を黄色にし、PLLでパーツを元の位置に戻します。';
+
+  @override
+  String get introHowF2l =>
+      '上段でコーナーと対応するエッジを見つけます。\nスロットの上でペアにします。\n3〜4手でペアを入れます。';
+
+  @override
+  String get introHowOll =>
+      'まずF R U R\' U\' F\'で黄色いクロス。\n次にSuneなどでコーナーの向きをそろえます。\n見えている黄色の形でケースを見分けます。';
+
+  @override
+  String get introHowPll =>
+      '上面はすでに全部黄色です。\nT-permはコーナーを交換し、U-permは3つのエッジを回します。\n側面の色を見て手順を選びます。';
+
+  @override
+  String get introHowTwoFirst =>
+      '2×2はコーナーだけ。エッジのない3×3のようなものです。\n白いコーナーをそれぞれ定位置の上に運びます。\n入るまでR U R\' U\'をくり返します。';
+
+  @override
+  String get introHowTwoOll =>
+      '白い層は下のままにします。\nSune（R U R\' U R U2 R\'）で上のコーナーをひねります。\n正しい角度から、上面が全部黄色になるまでくり返します。';
+
+  @override
+  String get introHowTwoPbl =>
+      '2つのコーナーがすでにそろっている面を探します。\n隣どうしの交換：T-perm風の手順を1つ。\n対角の交換：少し長い手順を1つ。';
+
+  @override
+  String get introHowBigIntro =>
+      '固定されたセンターはなく、4つのセンターパーツで面の色が決まります。\nRwのようなワイド回転は2層を同時に回します。\n2Rのような内側の回転は内側の1層だけを回します。';
+
+  @override
+  String get introHowBigCenters =>
+      'まず向かい合う2つのセンターを作ります。\n内側の層を使えば、完成したセンターを崩さずにパーツを入れ替えられます。\n残り4つのセンターも同じように仕上げます。';
+
+  @override
+  String get introHowBigEdges =>
+      '同じ色のエッジパーツを2つ見つけます。\n内側の層でそれらを横に並べます。\nペアを退避させて、センターを元に戻します。';
+
+  @override
+  String get introHowBigParity =>
+      '行き詰まるまで4×4を3×3のように解きます。\nエッジ1つの反転：長いOLLパリティ手順。\nエッジ2つの入れ替わり：2R2 U2 2R2 Uw2 2R2 Uw2。';
 }

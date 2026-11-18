@@ -1301,4 +1301,176 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get stepBigPllParityBody =>
       'Ganz am Ende zwei vertauschte Kanten? 2R2 U2 2R2 Uw2 2R2 Uw2 tauscht die vordere und die hintere obere Kante.';
+
+  @override
+  String get introGoalHeading => 'Was ist das Ziel?';
+
+  @override
+  String get introHowHeading => 'Wie geht das?';
+
+  @override
+  String get introStart => 'Verstanden, Schritt für Schritt starten';
+
+  @override
+  String get introShowGoal => 'Ziel anzeigen';
+
+  @override
+  String get introStateStart => 'Start';
+
+  @override
+  String get introStateGoal => 'Ziel';
+
+  @override
+  String get introPlayMorph => 'Vom Start bis zum Ziel abspielen';
+
+  @override
+  String get introGoalBasics =>
+      'Lerne, den Würfel zu lesen: seine Teile, seine sechs Seiten und wie die Zugbuchstaben sie drehen.';
+
+  @override
+  String get introGoalCross =>
+      'Baue ein weißes Kreuz, bei dem jede weiße Kante auch zur Farbe des Mittelstücks daneben passt.';
+
+  @override
+  String get introGoalCorners =>
+      'Setze die vier weißen Ecken ein, damit die erste Krone, die ganze weiße Ebene, fertig ist.';
+
+  @override
+  String get introGoalMiddle =>
+      'Setze die vier Kanten der mittleren Ebene ein, damit die ersten zwei Ebenen gelöst sind.';
+
+  @override
+  String get introGoalYellowCross =>
+      'Baue oben ein gelbes Kreuz; die Seitenfarben müssen noch nicht passen.';
+
+  @override
+  String get introGoalYellowEdges =>
+      'Richte jede Kante des gelben Kreuzes an der Farbe des Mittelstücks auf ihrer Seite aus.';
+
+  @override
+  String get introGoalYellowCorners =>
+      'Bring jede gelbe Ecke an ihren Platz, auch wenn sie noch verdreht ist.';
+
+  @override
+  String get introGoalTwistCorners =>
+      'Dreh die gelben Ecken richtig herum, damit der ganze Würfel gelöst ist.';
+
+  @override
+  String get introGoalCfopIntro =>
+      'Lerne den Speedcubing-Plan kennen: Kreuz, die ersten zwei Ebenen, dann die letzte Ebene in zwei Schritten.';
+
+  @override
+  String get introGoalF2l =>
+      'Setze jede weiße Ecke zusammen mit ihrer Mittelkante ein und löse zwei Ebenen auf einmal.';
+
+  @override
+  String get introGoalOll =>
+      'Mach die ganze Oberseite mit ein oder zwei Algorithmen gelb.';
+
+  @override
+  String get introGoalPll =>
+      'Bring die Teile der letzten Ebene an ihren Platz, um den Würfel fertigzustellen.';
+
+  @override
+  String get introGoalTwoFirst =>
+      'Baue auf dem 2×2 eine komplette weiße Ebene.';
+
+  @override
+  String get introGoalTwoOll => 'Mach die ganze Oberseite des 2×2 gelb.';
+
+  @override
+  String get introGoalTwoPbl =>
+      'Tausche die letzten Ecken an ihren Platz, um den 2×2 zu lösen.';
+
+  @override
+  String get introGoalBigIntro =>
+      'Lerne den 4×4 kennen: Mittelstücke, Kantenpaare und Ecken und die Züge, die sie drehen.';
+
+  @override
+  String get introGoalBigCenters =>
+      'Sammle die Mittelteile jeder Seite zu einem einfarbigen Block.';
+
+  @override
+  String get introGoalBigEdges =>
+      'Füge passende Kantenteile zusammen, sodass jede Kante wie eine einzige 3×3-Kante aussieht.';
+
+  @override
+  String get introGoalBigParity =>
+      'Behebe die zwei 4×4-Fälle, die es beim 3×3 nie gibt: eine gekippte Kante oder zwei vertauschte Kanten.';
+
+  @override
+  String get introHowBasics =>
+      'Mittelstücke bewegen sich nie, sie zeigen die Farbe jeder Seite.\nJeder Buchstabe dreht eine Seite eine Vierteldrehung im Uhrzeigersinn.\nEin Apostroph (\') dreht zurück, eine 2 dreht zweimal.';
+
+  @override
+  String get introHowCross =>
+      'Halte Gelb oben: Das weiße Kreuz entsteht unten.\nSuche eine weiße Kante und richte ihre Seitenfarbe am passenden Mittelstück aus.\nDreh diese Seite zweimal, um die Kante an ihren Platz zu bringen.';
+
+  @override
+  String get introHowCorners =>
+      'Bring eine weiße Ecke über ihren leeren Platz.\nWiederhole R U R\' U\', bis sie richtig herum einrastet.\nMach dasselbe mit den anderen drei Ecken.';
+
+  @override
+  String get introHowMiddle =>
+      'Suche eine obere Kante ohne Gelb und richte ihre vordere Farbe an einem Mittelstück aus.\nSchick sie mit einem kurzen Algorithmus aus 8 Zügen nach rechts oder links.\nDie weiße Ebene kommt jedes Mal unversehrt zurück.';
+
+  @override
+  String get introHowYellowCross =>
+      'Schau nach oben: ein Punkt, ein L oder eine Linie.\nHalte es wie gezeigt und mach F R U R\' U\' F\'.\nWiederhole, bis das gelbe Kreuz erscheint.';
+
+  @override
+  String get introHowYellowEdges =>
+      'Dreh die obere Ebene, bis zwei Kanten zu ihren Mittelstücken passen.\nHalte sie hinten und rechts und mach dann R U R\' U R U2 R\' U.\nWiederhole, bis alle vier Kanten passen.';
+
+  @override
+  String get introHowYellowCorners =>
+      'Eine Ecke sitzt richtig, wenn ihre Farben zu den drei Seiten um sie herum passen.\nHalte eine richtig platzierte Ecke vorne rechts.\nU R U\' L\' U R\' U\' L tauscht die anderen drei, bis alle passen.';
+
+  @override
+  String get introHowTwistCorners =>
+      'Halte eine ungelöste Ecke vorne rechts.\nWiederhole R\' D\' R D, bis ihr Gelb nach oben zeigt.\nDreh für die nächste nur die obere Ebene; unten ordnet sich am Ende alles von selbst.';
+
+  @override
+  String get introHowCfopIntro =>
+      'Kreuz: vier Kanten, geplant während der Inspektion.\nF2L: Jede Ecke geht zusammen mit ihrer Kante hinein.\nOLL macht die Oberseite gelb, dann bringt PLL die Teile an ihren Platz.';
+
+  @override
+  String get introHowF2l =>
+      'Suche eine Ecke und ihre passende Kante in der oberen Ebene.\nFüge sie über ihrem Slot zu einem Paar zusammen.\nSetz das Paar mit drei oder vier Zügen ein.';
+
+  @override
+  String get introHowOll =>
+      'Zuerst das gelbe Kreuz mit F R U R\' U\' F\'.\nDann die Ecken ausrichten, zum Beispiel mit dem Sune.\nErkenne den Fall am sichtbaren Gelb.';
+
+  @override
+  String get introHowPll =>
+      'Die Oberseite ist bereits ganz gelb.\nDie T-Perm tauscht Ecken, die U-Perm verschiebt drei Kanten.\nLies die Seitenfarben, um den Algorithmus zu wählen.';
+
+  @override
+  String get introHowTwoFirst =>
+      'Ein 2×2 hat nur Ecken, wie ein 3×3 ohne Kanten.\nBring jede weiße Ecke über ihren Platz.\nWiederhole R U R\' U\', bis sie einrastet.';
+
+  @override
+  String get introHowTwoOll =>
+      'Lass die weiße Ebene unten.\nDer Sune (R U R\' U R U2 R\') verdreht die oberen Ecken.\nWiederhole aus dem richtigen Winkel, bis oben alles gelb ist.';
+
+  @override
+  String get introHowTwoPbl =>
+      'Suche eine Seite, auf der zwei Ecken schon passen.\nBenachbarter Tausch: ein Algorithmus im T-Perm-Stil.\nDiagonaler Tausch: ein etwas längerer Algorithmus.';
+
+  @override
+  String get introHowBigIntro =>
+      'Kein Mittelstück ist fest: Vier Mittelteile bilden die Farbe jeder Seite.\nBreite Züge wie Rw drehen zwei Ebenen auf einmal.\nInnere Züge wie 2R drehen nur eine innere Scheibe.';
+
+  @override
+  String get introHowBigCenters =>
+      'Baue zuerst zwei gegenüberliegende Mitten.\nInnere Scheiben tauschen Mittelteile, ohne fertige Mitten zu zerstören.\nVervollständige die letzten vier Mitten genauso.';
+
+  @override
+  String get introHowBigEdges =>
+      'Suche zwei Kantenteile mit denselben Farben.\nBring sie mit einer inneren Scheibe nebeneinander.\nLeg das Paar beiseite und stell die Mitten wieder her.';
+
+  @override
+  String get introHowBigParity =>
+      'Löse den 4×4 wie einen 3×3, bis es hakt.\nEine gekippte Kante: der lange OLL-Paritätsalgorithmus.\nZwei vertauschte Kanten: 2R2 U2 2R2 Uw2 2R2 Uw2.';
 }

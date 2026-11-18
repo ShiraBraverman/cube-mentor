@@ -1272,4 +1272,175 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get stepBigPllParityBody =>
       'שתי צלעות מוחלפות ממש בסוף? ⁦2R2 U2 2R2 Uw2 2R2 Uw2⁩ מחליף בין הצלע העליונה־קדמית לעליונה־אחורית.';
+
+  @override
+  String get introGoalHeading => 'מה המטרה?';
+
+  @override
+  String get introHowHeading => 'איך עושים את זה?';
+
+  @override
+  String get introStart => 'הבנתי, בוא נתחיל';
+
+  @override
+  String get introShowGoal => 'הצגת המטרה';
+
+  @override
+  String get introStateStart => 'התחלה';
+
+  @override
+  String get introStateGoal => 'מטרה';
+
+  @override
+  String get introPlayMorph => 'הפעלה מההתחלה עד המטרה';
+
+  @override
+  String get introGoalBasics =>
+      'לומדים לקרוא את הקובייה: החלקים, שש הפאות ואיך אותיות המהלכים מסובבות אותן.';
+
+  @override
+  String get introGoalCross =>
+      'בונים איקס לבן שבו כל צלע לבנה מתאימה גם לצבע המרכז שלידה.';
+
+  @override
+  String get introGoalCorners =>
+      'משלימים את ארבע הפינות הלבנות, וכך הכתר הראשון – כל השכבה הלבנה – גמור.';
+
+  @override
+  String get introGoalMiddle =>
+      'מציבים את ארבע הצלעות של השכבה האמצעית, וכך שתי השכבות הראשונות פתורות.';
+
+  @override
+  String get introGoalYellowCross =>
+      'בונים איקס צהוב למעלה; צבעי הצדדים עוד לא חייבים להתאים.';
+
+  @override
+  String get introGoalYellowEdges =>
+      'מתאימים כל צלע של האיקס הצהוב לצבע המרכז שבצד שלה.';
+
+  @override
+  String get introGoalYellowCorners =>
+      'מעבירים כל פינה צהובה למקום שלה, גם אם היא עדיין מסובבת.';
+
+  @override
+  String get introGoalTwistCorners =>
+      'מסובבים את הפינות הצהובות לצבעים הנכונים, וכל הקובייה פתורה.';
+
+  @override
+  String get introGoalCfopIntro =>
+      'מכירים את התוכנית של הספידקיובינג: איקס, שתי שכבות ראשונות, ואז השכבה האחרונה בשני מבטים.';
+
+  @override
+  String get introGoalF2l =>
+      'מכניסים כל פינה לבנה יחד עם הצלע האמצעית שלה, ומסיימים שתי שכבות בבת אחת.';
+
+  @override
+  String get introGoalOll =>
+      'צובעים את כל הפאה העליונה בצהוב באלגוריתם אחד או שניים.';
+
+  @override
+  String get introGoalPll =>
+      'מעבירים את חלקי השכבה האחרונה למקומם ומסיימים את הקובייה.';
+
+  @override
+  String get introGoalTwoFirst => 'בונים שכבה לבנה שלמה אחת בקובייה 2×2.';
+
+  @override
+  String get introGoalTwoOll => 'צובעים את כל הפאה העליונה של ה־2×2 בצהוב.';
+
+  @override
+  String get introGoalTwoPbl =>
+      'מחליפים את הפינות האחרונות למקומן ופותרים את ה־2×2.';
+
+  @override
+  String get introGoalBigIntro =>
+      'מכירים את ה־4×4: מרכזים, זוגות צלעות ופינות, והמהלכים שמסובבים אותם.';
+
+  @override
+  String get introGoalBigCenters =>
+      'אוספים את חלקי המרכז של כל פאה לגוש אחד בצבע אחיד.';
+
+  @override
+  String get introGoalBigEdges =>
+      'מצמידים חלקי צלע תואמים, כך שכל צלע נראית כמו צלע אחת של 3×3.';
+
+  @override
+  String get introGoalBigParity =>
+      'מתקנים את שני המקרים של 4×4 שאין ב־3×3: צלע הפוכה אחת או שתי צלעות מוחלפות.';
+
+  @override
+  String get introHowBasics =>
+      'המרכזים לא זזים, ולכן הם קובעים את צבע כל פאה.\nכל אות מסובבת פאה אחת רבע סיבוב עם כיוון השעון.\nגרש (\') מסובב בחזרה, ו־2 מסובב פעמיים.';
+
+  @override
+  String get introHowCross =>
+      'מחזיקים צהוב למעלה: האיקס הלבן נבנה למטה.\nמוצאים צלע לבנה ומיישרים את הצבע הצדדי שלה מול המרכז המתאים.\nמסובבים את הפאה הזאת פעמיים כדי להוריד את הצלע למקומה.';
+
+  @override
+  String get introHowCorners =>
+      'מביאים פינה לבנה מעל המקום הריק שלה.\nחוזרים על ⁦R U R\' U\'⁩ עד שהיא נכנסת בכיוון הנכון.\nעושים אותו דבר לשלוש הפינות האחרות.';
+
+  @override
+  String get introHowMiddle =>
+      'מוצאים צלע עליונה בלי צהוב ומתאימים את הצבע הקדמי שלה למרכז.\nשולחים אותה ימינה או שמאלה באלגוריתם קצר של 8 מהלכים.\nהשכבה הלבנה חוזרת שלמה בכל פעם.';
+
+  @override
+  String get introHowYellowCross =>
+      'מסתכלים למעלה: נקודה, L או קו.\nמחזיקים כמו בתמונה ועושים ⁦F R U R\' U\' F\'⁩.\nחוזרים עד שמופיע האיקס הצהוב.';
+
+  @override
+  String get introHowYellowEdges =>
+      'מסובבים את הפאה העליונה עד ששתי צלעות מתאימות למרכזים שלהן.\nמחזיקים אותן מאחור ומימין ועושים ⁦R U R\' U R U2 R\' U⁩.\nחוזרים עד שכל ארבע הצלעות מתאימות.';
+
+  @override
+  String get introHowYellowCorners =>
+      'פינה נמצאת במקומה כשהצבעים שלה מתאימים לשלוש הפאות סביבה.\nמשאירים פינה שכבר במקום בקדמי־ימני.\n⁦U R U\' L\' U R\' U\' L⁩ מסובב את שלוש האחרות עד שכולן מתאימות.';
+
+  @override
+  String get introHowTwistCorners =>
+      'מחזיקים פינה לא פתורה בקדמי־ימני.\nחוזרים על ⁦R\' D\' R D⁩ עד שהצהוב שלה פונה למעלה.\nמסובבים רק את הפאה העליונה לפינה הבאה; השכבה התחתונה מסתדרת לבד בסוף.';
+
+  @override
+  String get introHowCfopIntro =>
+      'איקס: ארבע צלעות שמתכננים בזמן הבדיקה.\nF2L: כל פינה נכנסת יחד עם הצלע שלה.\nOLL צובע את הפאה העליונה בצהוב, ואז PLL מחזיר את החלקים למקום.';
+
+  @override
+  String get introHowF2l =>
+      'מוצאים פינה ואת הצלע המתאימה לה בשכבה העליונה.\nמחברים אותן לזוג מעל החריץ שלהן.\nמורידים את הזוג פנימה בשלושה–ארבעה מהלכים.';
+
+  @override
+  String get introHowOll =>
+      'קודם האיקס הצהוב עם ⁦F R U R\' U\' F\'⁩.\nאחר כך מסובבים את הפינות, למשל עם Sune.\nמזהים את המקרה לפי הצהוב שרואים.';
+
+  @override
+  String get introHowPll =>
+      'הפאה העליונה כבר כולה צהובה.\nT-perm מחליף פינות; U-perm מסובב שלוש צלעות.\nקוראים את צבעי הצדדים כדי לבחור אלגוריתם.';
+
+  @override
+  String get introHowTwoFirst =>
+      'קובייה 2×2 היא רק פינות, כמו 3×3 בלי צלעות.\nמביאים כל פינה לבנה מעל המקום שלה.\nחוזרים על ⁦R U R\' U\'⁩ עד שהיא נכנסת.';
+
+  @override
+  String get introHowTwoOll =>
+      'משאירים את השכבה הלבנה למטה.\nSune ‏(⁦R U R\' U R U2 R\'⁩) מסובב את הפינות העליונות.\nחוזרים מהזווית הנכונה עד שכל הפאה העליונה צהובה.';
+
+  @override
+  String get introHowTwoPbl =>
+      'מחפשים צד שבו שתי פינות כבר מתאימות.\nהחלפה סמוכה: אלגוריתם אחד בסגנון T-perm.\nהחלפה אלכסונית: אלגוריתם אחד ארוך יותר.';
+
+  @override
+  String get introHowBigIntro =>
+      'אין מרכז קבוע: ארבעה חלקי מרכז יוצרים את צבע הפאה.\nמהלכים רחבים כמו ⁦Rw⁩ מסובבים שתי שכבות יחד.\nמהלכים פנימיים כמו ⁦2R⁩ מסובבים רק פרוסה פנימית אחת.';
+
+  @override
+  String get introHowBigCenters =>
+      'בונים קודם שני מרכזים נגדיים.\nפרוסות פנימיות מחליפות חלקי מרכז בלי לפרק מרכזים גמורים.\nמסיימים את ארבעת המרכזים האחרונים באותה דרך.';
+
+  @override
+  String get introHowBigEdges =>
+      'מוצאים שני חלקי צלע באותם צבעים.\nמיישרים אותם זה ליד זה עם פרוסה פנימית.\nמזיזים את הזוג הצידה ומחזירים את המרכזים.';
+
+  @override
+  String get introHowBigParity =>
+      'פותרים את ה־4×4 כמו 3×3 עד שנתקעים.\nצלע הפוכה אחת: אלגוריתם הזוגיות הארוך של OLL.\nשתי צלעות מוחלפות: ⁦2R2 U2 2R2 Uw2 2R2 Uw2⁩.';
 }

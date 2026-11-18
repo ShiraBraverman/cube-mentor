@@ -287,9 +287,18 @@ void main() {
 
       await show(const HomeScreen());
       await show(const AcademyScreen());
-      await show(
-        LessonScreen(lesson: kLessons.firstWhere((l) => l.id == 'bigParity')),
-      );
+      // Lessons open on their goal card, then the lesson itself.
+      for (final id in ['bigParity', 'twistCorners']) {
+        await show(
+          LessonScreen(lesson: kLessons.firstWhere((l) => l.id == id)),
+        );
+        expect(find.byKey(const ValueKey('lesson-intro')), findsOneWidget);
+        await tester.ensureVisible(find.byKey(const ValueKey('intro-start')));
+        await tester.tap(find.byKey(const ValueKey('intro-start')));
+        await _advance(tester, 4);
+        expect(find.byKey(const ValueKey('lesson-part')), findsOneWidget);
+        expect(tester.takeException(), isNull, reason: 'lesson $id');
+      }
       await show(const TimerScreen(size: 3));
       await show(const DailyScreen());
       await show(const PatternsScreen());

@@ -1303,4 +1303,176 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get stepBigPllParityBody =>
       'Deux arêtes échangées tout à la fin ? 2R2 U2 2R2 Uw2 2R2 Uw2 échange les arêtes avant et arrière du haut.';
+
+  @override
+  String get introGoalHeading => 'Quel est le but ?';
+
+  @override
+  String get introHowHeading => 'Comment fait-on ?';
+
+  @override
+  String get introStart => 'Compris, commencer pas à pas';
+
+  @override
+  String get introShowGoal => 'Voir l\'objectif';
+
+  @override
+  String get introStateStart => 'Départ';
+
+  @override
+  String get introStateGoal => 'Objectif';
+
+  @override
+  String get introPlayMorph => 'Lire du départ à l\'objectif';
+
+  @override
+  String get introGoalBasics =>
+      'Apprenez à lire le cube : ses pièces, ses six faces et comment les lettres des mouvements les tournent.';
+
+  @override
+  String get introGoalCross =>
+      'Formez une croix blanche dont chaque arête blanche correspond aussi au centre voisin.';
+
+  @override
+  String get introGoalCorners =>
+      'Placez les quatre coins blancs : la première couronne, toute la couche blanche, est terminée.';
+
+  @override
+  String get introGoalMiddle =>
+      'Placez les quatre arêtes de la couche du milieu pour résoudre les deux premières couches.';
+
+  @override
+  String get introGoalYellowCross =>
+      'Formez une croix jaune en haut ; les couleurs des côtés n\'ont pas encore besoin de correspondre.';
+
+  @override
+  String get introGoalYellowEdges =>
+      'Alignez chaque arête de la croix jaune avec le centre de son côté.';
+
+  @override
+  String get introGoalYellowCorners =>
+      'Amenez chaque coin jaune à sa place, même s\'il est encore tourné.';
+
+  @override
+  String get introGoalTwistCorners =>
+      'Tournez les coins jaunes dans le bon sens pour résoudre tout le cube.';
+
+  @override
+  String get introGoalCfopIntro =>
+      'Découvrez le plan du speedcubing : croix, deux premières couches, puis dernière couche en deux étapes.';
+
+  @override
+  String get introGoalF2l =>
+      'Insérez chaque coin blanc avec son arête du milieu et terminez deux couches à la fois.';
+
+  @override
+  String get introGoalOll =>
+      'Rendez toute la face du haut jaune avec un ou deux algorithmes.';
+
+  @override
+  String get introGoalPll =>
+      'Ramenez les pièces de la dernière couche à leur place pour finir le cube.';
+
+  @override
+  String get introGoalTwoFirst =>
+      'Construisez une couche blanche complète sur le 2×2.';
+
+  @override
+  String get introGoalTwoOll => 'Rendez toute la face du haut du 2×2 jaune.';
+
+  @override
+  String get introGoalTwoPbl =>
+      'Échangez les derniers coins pour résoudre le 2×2.';
+
+  @override
+  String get introGoalBigIntro =>
+      'Découvrez le 4×4 : centres, paires d\'arêtes et coins, et les mouvements qui les tournent.';
+
+  @override
+  String get introGoalBigCenters =>
+      'Rassemblez les pièces centrales de chaque face en un bloc d\'une seule couleur.';
+
+  @override
+  String get introGoalBigEdges =>
+      'Appariez les pièces d\'arête identiques pour que chaque arête ressemble à une arête de 3×3.';
+
+  @override
+  String get introGoalBigParity =>
+      'Corrigez les deux cas du 4×4 qu\'un 3×3 n\'a jamais : une arête retournée ou deux arêtes échangées.';
+
+  @override
+  String get introHowBasics =>
+      'Les centres ne bougent jamais : ils donnent la couleur de chaque face.\nChaque lettre tourne une face d\'un quart de tour dans le sens horaire.\nUne apostrophe (\') tourne dans l\'autre sens ; un 2 tourne deux fois.';
+
+  @override
+  String get introHowCross =>
+      'Tenez le jaune en haut : la croix blanche se construit en bas.\nTrouvez une arête blanche et alignez sa couleur latérale avec le bon centre.\nTournez cette face deux fois pour descendre l\'arête à sa place.';
+
+  @override
+  String get introHowCorners =>
+      'Amenez un coin blanc au-dessus de sa place vide.\nRépétez R U R\' U\' jusqu\'à ce qu\'il entre dans le bon sens.\nFaites de même pour les trois autres coins.';
+
+  @override
+  String get introHowMiddle =>
+      'Trouvez une arête du haut sans jaune et alignez sa couleur avant avec un centre.\nEnvoyez-la à droite ou à gauche avec un court algorithme de 8 mouvements.\nLa couche blanche revient intacte à chaque fois.';
+
+  @override
+  String get introHowYellowCross =>
+      'Regardez le dessus : un point, un L ou une ligne.\nTenez-le comme montré et faites F R U R\' U\' F\'.\nRépétez jusqu\'à voir la croix jaune.';
+
+  @override
+  String get introHowYellowEdges =>
+      'Tournez le haut jusqu\'à ce que deux arêtes correspondent à leurs centres.\nPlacez-les derrière et à droite, puis faites R U R\' U R U2 R\' U.\nRépétez jusqu\'à ce que les quatre correspondent.';
+
+  @override
+  String get introHowYellowCorners =>
+      'Un coin est à sa place quand ses couleurs correspondent aux trois faces qui l\'entourent.\nGardez un coin déjà placé en avant à droite.\nU R U\' L\' U R\' U\' L fait tourner les trois autres jusqu\'à ce qu\'ils soient tous en place.';
+
+  @override
+  String get introHowTwistCorners =>
+      'Tenez un coin non résolu en avant à droite.\nRépétez R\' D\' R D jusqu\'à ce que son jaune soit en haut.\nTournez seulement le haut pour le suivant ; le bas se répare tout seul à la fin.';
+
+  @override
+  String get introHowCfopIntro =>
+      'Croix : quatre arêtes planifiées pendant l\'inspection.\nF2L : chaque coin entre avec son arête.\nL\'OLL rend le dessus jaune, puis la PLL remet les pièces en place.';
+
+  @override
+  String get introHowF2l =>
+      'Trouvez un coin et son arête dans la couche du haut.\nAssociez-les au-dessus de leur emplacement.\nInsérez la paire en trois ou quatre mouvements.';
+
+  @override
+  String get introHowOll =>
+      'D\'abord la croix jaune avec F R U R\' U\' F\'.\nPuis orientez les coins, par exemple avec le Sune.\nReconnaissez le cas au jaune que vous voyez.';
+
+  @override
+  String get introHowPll =>
+      'Le dessus est déjà entièrement jaune.\nLa T-perm échange des coins ; la U-perm fait tourner trois arêtes.\nLisez les couleurs des côtés pour choisir l\'algorithme.';
+
+  @override
+  String get introHowTwoFirst =>
+      'Un 2×2 n\'a que des coins, comme un 3×3 sans arêtes.\nAmenez chaque coin blanc au-dessus de sa place.\nRépétez R U R\' U\' jusqu\'à ce qu\'il entre.';
+
+  @override
+  String get introHowTwoOll =>
+      'Gardez la couche blanche en bas.\nLe Sune (R U R\' U R U2 R\') tourne les coins du haut.\nRépétez depuis le bon angle jusqu\'à ce que le dessus soit tout jaune.';
+
+  @override
+  String get introHowTwoPbl =>
+      'Cherchez un côté où deux coins correspondent déjà.\nÉchange adjacent : un algorithme de type T-perm.\nÉchange en diagonale : un algorithme un peu plus long.';
+
+  @override
+  String get introHowBigIntro =>
+      'Aucun centre n\'est fixe : quatre pièces centrales forment la couleur de chaque face.\nLes tours larges comme Rw tournent deux couches à la fois.\nLes tours internes comme 2R tournent une seule tranche intérieure.';
+
+  @override
+  String get introHowBigCenters =>
+      'Construisez d\'abord deux centres opposés.\nLes tranches intérieures échangent des pièces centrales sans casser les centres finis.\nTerminez les quatre derniers centres de la même façon.';
+
+  @override
+  String get introHowBigEdges =>
+      'Trouvez deux pièces d\'arête aux mêmes couleurs.\nAlignez-les côte à côte avec une tranche intérieure.\nRangez la paire et remettez les centres en place.';
+
+  @override
+  String get introHowBigParity =>
+      'Résolvez le 4×4 comme un 3×3 jusqu\'à être bloqué.\nUne arête retournée : le long algorithme de parité OLL.\nDeux arêtes échangées : 2R2 U2 2R2 Uw2 2R2 Uw2.';
 }

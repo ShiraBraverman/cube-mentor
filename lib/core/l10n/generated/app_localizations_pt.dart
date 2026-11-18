@@ -1302,6 +1302,177 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get stepBigPllParityBody =>
       'Duas arestas trocadas mesmo no fim? 2R2 U2 2R2 Uw2 2R2 Uw2 troca as arestas de cima da frente e de trás.';
+
+  @override
+  String get introGoalHeading => 'Qual é o objetivo?';
+
+  @override
+  String get introHowHeading => 'Como se faz?';
+
+  @override
+  String get introStart => 'Percebi, começar passo a passo';
+
+  @override
+  String get introShowGoal => 'Ver o objetivo';
+
+  @override
+  String get introStateStart => 'Início';
+
+  @override
+  String get introStateGoal => 'Objetivo';
+
+  @override
+  String get introPlayMorph => 'Reproduzir do início ao objetivo';
+
+  @override
+  String get introGoalBasics =>
+      'Aprenda a ler o cubo: as peças, as seis faces e como as letras dos movimentos as rodam.';
+
+  @override
+  String get introGoalCross =>
+      'Forme uma cruz branca em que cada aresta branca também combine com o centro ao lado.';
+
+  @override
+  String get introGoalCorners =>
+      'Complete os quatro cantos brancos: a primeira coroa, toda a camada branca, fica pronta.';
+
+  @override
+  String get introGoalMiddle =>
+      'Coloque as quatro arestas da camada do meio para resolver as duas primeiras camadas.';
+
+  @override
+  String get introGoalYellowCross =>
+      'Forme uma cruz amarela em cima; as cores laterais ainda não precisam combinar.';
+
+  @override
+  String get introGoalYellowEdges =>
+      'Alinhe cada aresta da cruz amarela com o centro do seu lado.';
+
+  @override
+  String get introGoalYellowCorners =>
+      'Leve cada canto amarelo para o seu lugar, mesmo que ainda esteja torcido.';
+
+  @override
+  String get introGoalTwistCorners =>
+      'Torça os cantos amarelos para a cor certa e o cubo fica resolvido.';
+
+  @override
+  String get introGoalCfopIntro =>
+      'Conheça o plano do speedcubing: cruz, duas primeiras camadas e a última camada em dois passos.';
+
+  @override
+  String get introGoalF2l =>
+      'Insira cada canto branco junto com a aresta do meio e termine duas camadas de uma vez.';
+
+  @override
+  String get introGoalOll =>
+      'Deixe toda a face de cima amarela com um ou dois algoritmos.';
+
+  @override
+  String get introGoalPll =>
+      'Leve as peças da última camada para o lugar e termine o cubo.';
+
+  @override
+  String get introGoalTwoFirst => 'Monte uma camada branca completa no 2×2.';
+
+  @override
+  String get introGoalTwoOll => 'Deixe toda a face de cima do 2×2 amarela.';
+
+  @override
+  String get introGoalTwoPbl =>
+      'Troque os últimos cantos para o lugar e resolva o 2×2.';
+
+  @override
+  String get introGoalBigIntro =>
+      'Conheça o 4×4: centros, pares de arestas e cantos, e os movimentos que os mexem.';
+
+  @override
+  String get introGoalBigCenters =>
+      'Junte as peças de centro de cada face num bloco de uma só cor.';
+
+  @override
+  String get introGoalBigEdges =>
+      'Junte as peças de aresta iguais para cada aresta parecer uma aresta de 3×3.';
+
+  @override
+  String get introGoalBigParity =>
+      'Corrija os dois casos do 4×4 que um 3×3 nunca tem: uma aresta virada ou duas arestas trocadas.';
+
+  @override
+  String get introHowBasics =>
+      'Os centros nunca se mexem: indicam a cor de cada face.\nCada letra roda uma face um quarto de volta no sentido horário.\nUm apóstrofo (\') roda para trás; um 2 roda duas vezes.';
+
+  @override
+  String get introHowCross =>
+      'Segure o amarelo em cima: a cruz branca é feita em baixo.\nEncontre uma aresta branca e alinhe a cor lateral com o centro certo.\nRode essa face duas vezes para a descer para o lugar.';
+
+  @override
+  String get introHowCorners =>
+      'Leve um canto branco para cima do seu espaço vazio.\nRepita R U R\' U\' até ele entrar na posição certa.\nFaça o mesmo com os outros três cantos.';
+
+  @override
+  String get introHowMiddle =>
+      'Encontre uma aresta de cima sem amarelo e alinhe a cor da frente com um centro.\nMande-a para a direita ou para a esquerda com um algoritmo curto de 8 movimentos.\nA camada branca volta intacta todas as vezes.';
+
+  @override
+  String get introHowYellowCross =>
+      'Olhe para o topo: um ponto, um L ou uma linha.\nSegure como na imagem e faça F R U R\' U\' F\'.\nRepita até a cruz amarela aparecer.';
+
+  @override
+  String get introHowYellowEdges =>
+      'Rode o topo até duas arestas combinarem com os centros.\nColoque-as atrás e à direita e faça R U R\' U R U2 R\' U.\nRepita até as quatro combinarem.';
+
+  @override
+  String get introHowYellowCorners =>
+      'Um canto está no lugar quando as cores combinam com as três faces à volta.\nMantenha um canto já colocado à frente, à direita.\nU R U\' L\' U R\' U\' L troca os outros três até todos encaixarem.';
+
+  @override
+  String get introHowTwistCorners =>
+      'Segure um canto por resolver à frente, à direita.\nRepita R\' D\' R D até o amarelo ficar virado para cima.\nRode só o topo para o canto seguinte; a camada de baixo arruma-se sozinha no fim.';
+
+  @override
+  String get introHowCfopIntro =>
+      'Cruz: quatro arestas planeadas durante a inspeção.\nF2L: cada canto entra junto com a sua aresta.\nA OLL põe o topo amarelo e a PLL leva as peças para o lugar.';
+
+  @override
+  String get introHowF2l =>
+      'Encontre um canto e a aresta dele na camada de cima.\nJunte-os em par por cima do seu espaço.\nEncaixe o par com três ou quatro movimentos.';
+
+  @override
+  String get introHowOll =>
+      'Primeiro a cruz amarela com F R U R\' U\' F\'.\nDepois oriente os cantos, por exemplo com o Sune.\nReconheça o caso pelo amarelo que vê.';
+
+  @override
+  String get introHowPll =>
+      'O topo já está todo amarelo.\nA T-perm troca cantos; a U-perm move três arestas.\nLeia as cores laterais para escolher o algoritmo.';
+
+  @override
+  String get introHowTwoFirst =>
+      'Um 2×2 só tem cantos, como um 3×3 sem arestas.\nLeve cada canto branco para cima do seu lugar.\nRepita R U R\' U\' até ele entrar.';
+
+  @override
+  String get introHowTwoOll =>
+      'Mantenha a camada branca em baixo.\nO Sune (R U R\' U R U2 R\') roda os cantos de cima.\nRepita a partir do ângulo certo até o topo ficar todo amarelo.';
+
+  @override
+  String get introHowTwoPbl =>
+      'Procure um lado onde dois cantos já combinam.\nTroca adjacente: um algoritmo no estilo T-perm.\nTroca diagonal: um algoritmo um pouco mais longo.';
+
+  @override
+  String get introHowBigIntro =>
+      'Nenhum centro é fixo: quatro peças de centro formam a cor de cada face.\nRotações duplas como Rw rodam duas camadas de uma vez.\nRotações interiores como 2R rodam só uma camada interior.';
+
+  @override
+  String get introHowBigCenters =>
+      'Monte primeiro dois centros opostos.\nAs camadas interiores trocam peças de centro sem desfazer os centros prontos.\nTermine os últimos quatro centros da mesma forma.';
+
+  @override
+  String get introHowBigEdges =>
+      'Encontre duas peças de aresta com as mesmas cores.\nAlinhe-as lado a lado com uma camada interior.\nTire o par do caminho e devolva os centros ao lugar.';
+
+  @override
+  String get introHowBigParity =>
+      'Resolva o 4×4 como um 3×3 até ficar preso.\nUma aresta virada: o algoritmo longo de paridade OLL.\nDuas arestas trocadas: 2R2 U2 2R2 Uw2 2R2 Uw2.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -2594,4 +2765,175 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get stepBigPllParityBody =>
       'Dois meios trocados bem no final? 2R2 U2 2R2 Uw2 2R2 Uw2 troca os meios de cima da frente e de trás.';
+
+  @override
+  String get introGoalHeading => 'Qual é o objetivo?';
+
+  @override
+  String get introHowHeading => 'Como fazer?';
+
+  @override
+  String get introStart => 'Entendi, começar passo a passo';
+
+  @override
+  String get introShowGoal => 'Ver o objetivo';
+
+  @override
+  String get introStateStart => 'Início';
+
+  @override
+  String get introStateGoal => 'Objetivo';
+
+  @override
+  String get introPlayMorph => 'Reproduzir do início ao objetivo';
+
+  @override
+  String get introGoalBasics =>
+      'Aprenda a ler o cubo: as peças, as seis faces e como as letras dos movimentos as giram.';
+
+  @override
+  String get introGoalCross =>
+      'Forme uma cruz branca em que cada aresta branca também combine com o centro ao lado.';
+
+  @override
+  String get introGoalCorners =>
+      'Complete os quatro cantos brancos: a primeira coroa, toda a camada branca, fica pronta.';
+
+  @override
+  String get introGoalMiddle =>
+      'Coloque as quatro arestas da camada do meio para resolver as duas primeiras camadas.';
+
+  @override
+  String get introGoalYellowCross =>
+      'Forme uma cruz amarela em cima; as cores laterais ainda não precisam combinar.';
+
+  @override
+  String get introGoalYellowEdges =>
+      'Alinhe cada aresta da cruz amarela com o centro do seu lado.';
+
+  @override
+  String get introGoalYellowCorners =>
+      'Leve cada canto amarelo para o seu lugar, mesmo que ainda esteja torcido.';
+
+  @override
+  String get introGoalTwistCorners =>
+      'Torça os cantos amarelos para a cor certa e o cubo fica resolvido.';
+
+  @override
+  String get introGoalCfopIntro =>
+      'Conheça o plano do speedcubing: cruz, duas primeiras camadas e a última camada em dois passos.';
+
+  @override
+  String get introGoalF2l =>
+      'Insira cada canto branco junto com a aresta do meio e termine duas camadas de uma vez.';
+
+  @override
+  String get introGoalOll =>
+      'Deixe toda a face de cima amarela com um ou dois algoritmos.';
+
+  @override
+  String get introGoalPll =>
+      'Leve as peças da última camada para o lugar e termine o cubo.';
+
+  @override
+  String get introGoalTwoFirst => 'Monte uma camada branca completa no 2×2.';
+
+  @override
+  String get introGoalTwoOll => 'Deixe toda a face de cima do 2×2 amarela.';
+
+  @override
+  String get introGoalTwoPbl =>
+      'Troque os últimos cantos para o lugar e resolva o 2×2.';
+
+  @override
+  String get introGoalBigIntro =>
+      'Conheça o 4×4: centros, pares de arestas e cantos, e os movimentos que os mexem.';
+
+  @override
+  String get introGoalBigCenters =>
+      'Junte as peças de centro de cada face em um bloco de uma cor só.';
+
+  @override
+  String get introGoalBigEdges =>
+      'Junte as peças de aresta iguais para cada aresta parecer uma aresta de 3×3.';
+
+  @override
+  String get introGoalBigParity =>
+      'Corrija os dois casos do 4×4 que um 3×3 nunca tem: uma aresta virada ou duas arestas trocadas.';
+
+  @override
+  String get introHowBasics =>
+      'Os centros nunca se mexem: indicam a cor de cada face.\nCada letra gira uma face um quarto de volta no sentido horário.\nUm apóstrofo (\') gira para trás; um 2 gira duas vezes.';
+
+  @override
+  String get introHowCross =>
+      'Segure o amarelo em cima: a cruz branca é montada embaixo.\nEncontre uma aresta branca e alinhe a cor lateral com o centro certo.\nGire essa face duas vezes para descê-la até o lugar.';
+
+  @override
+  String get introHowCorners =>
+      'Leve um canto branco para cima do seu espaço vazio.\nRepita R U R\' U\' até ele entrar na posição certa.\nFaça o mesmo com os outros três cantos.';
+
+  @override
+  String get introHowMiddle =>
+      'Encontre uma aresta de cima sem amarelo e alinhe a cor da frente com um centro.\nMande-a para a direita ou para a esquerda com um algoritmo curto de 8 movimentos.\nA camada branca volta intacta todas as vezes.';
+
+  @override
+  String get introHowYellowCross =>
+      'Olhe para o topo: um ponto, um L ou uma linha.\nSegure como na imagem e faça F R U R\' U\' F\'.\nRepita até a cruz amarela aparecer.';
+
+  @override
+  String get introHowYellowEdges =>
+      'Gire o topo até duas arestas combinarem com os centros.\nColoque-as atrás e à direita e faça R U R\' U R U2 R\' U.\nRepita até as quatro combinarem.';
+
+  @override
+  String get introHowYellowCorners =>
+      'Um canto está no lugar quando as cores combinam com as três faces ao redor.\nMantenha um canto já colocado à frente, à direita.\nU R U\' L\' U R\' U\' L troca os outros três até todos encaixarem.';
+
+  @override
+  String get introHowTwistCorners =>
+      'Segure um canto não resolvido à frente, à direita.\nRepita R\' D\' R D até o amarelo ficar virado para cima.\nGire só o topo para o próximo canto; a camada de baixo se arruma sozinha no final.';
+
+  @override
+  String get introHowCfopIntro =>
+      'Cruz: quatro arestas planejadas durante a inspeção.\nF2L: cada canto entra junto com a sua aresta.\nA OLL deixa o topo amarelo e a PLL leva as peças para o lugar.';
+
+  @override
+  String get introHowF2l =>
+      'Encontre um canto e a aresta dele na camada de cima.\nJunte-os em par por cima do seu espaço.\nEncaixe o par com três ou quatro movimentos.';
+
+  @override
+  String get introHowOll =>
+      'Primeiro a cruz amarela com F R U R\' U\' F\'.\nDepois oriente os cantos, por exemplo com o Sune.\nReconheça o caso pelo amarelo que vê.';
+
+  @override
+  String get introHowPll =>
+      'O topo já está todo amarelo.\nA T-perm troca cantos; a U-perm move três arestas.\nLeia as cores laterais para escolher o algoritmo.';
+
+  @override
+  String get introHowTwoFirst =>
+      'Um 2×2 só tem cantos, como um 3×3 sem arestas.\nLeve cada canto branco para cima do seu lugar.\nRepita R U R\' U\' até ele entrar.';
+
+  @override
+  String get introHowTwoOll =>
+      'Mantenha a camada branca embaixo.\nO Sune (R U R\' U R U2 R\') gira os cantos de cima.\nRepita a partir do ângulo certo até o topo ficar todo amarelo.';
+
+  @override
+  String get introHowTwoPbl =>
+      'Procure um lado onde dois cantos já combinam.\nTroca adjacente: um algoritmo no estilo T-perm.\nTroca diagonal: um algoritmo um pouco mais longo.';
+
+  @override
+  String get introHowBigIntro =>
+      'Nenhum centro é fixo: quatro peças de centro formam a cor de cada face.\nGiros duplos como Rw giram duas camadas de uma vez.\nGiros internos como 2R giram só uma camada interna.';
+
+  @override
+  String get introHowBigCenters =>
+      'Monte primeiro dois centros opostos.\nAs camadas internas trocam peças de centro sem desfazer os centros prontos.\nTermine os últimos quatro centros da mesma forma.';
+
+  @override
+  String get introHowBigEdges =>
+      'Encontre duas peças de aresta com as mesmas cores.\nAlinhe-as lado a lado com uma camada interna.\nTire o par do caminho e devolva os centros ao lugar.';
+
+  @override
+  String get introHowBigParity =>
+      'Resolva o 4×4 como um 3×3 até ficar preso.\nUma aresta virada: o algoritmo longo de paridade OLL.\nDuas arestas trocadas: 2R2 U2 2R2 Uw2 2R2 Uw2.';
 }

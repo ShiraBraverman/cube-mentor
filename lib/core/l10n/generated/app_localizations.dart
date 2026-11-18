@@ -2294,6 +2294,276 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Two swapped edges at the very end? 2R2 U2 2R2 Uw2 2R2 Uw2 swaps the front and back top edges.'**
   String get stepBigPllParityBody;
+
+  /// No description provided for @introGoalHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s the goal?'**
+  String get introGoalHeading;
+
+  /// No description provided for @introHowHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'How do we do it?'**
+  String get introHowHeading;
+
+  /// No description provided for @introStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Got it, start step by step'**
+  String get introStart;
+
+  /// No description provided for @introShowGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Show the goal'**
+  String get introShowGoal;
+
+  /// No description provided for @introStateStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start'**
+  String get introStateStart;
+
+  /// No description provided for @introStateGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Goal'**
+  String get introStateGoal;
+
+  /// No description provided for @introPlayMorph.
+  ///
+  /// In en, this message translates to:
+  /// **'Play from start to goal'**
+  String get introPlayMorph;
+
+  /// No description provided for @introGoalBasics.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn to read the cube: its pieces, its six faces and how the move letters turn them.'**
+  String get introGoalBasics;
+
+  /// No description provided for @introGoalCross.
+  ///
+  /// In en, this message translates to:
+  /// **'Make a white plus sign where every white edge also matches the center color beside it.'**
+  String get introGoalCross;
+
+  /// No description provided for @introGoalCorners.
+  ///
+  /// In en, this message translates to:
+  /// **'Fill in the four white corners so the first crown, the whole white layer, is complete.'**
+  String get introGoalCorners;
+
+  /// No description provided for @introGoalMiddle.
+  ///
+  /// In en, this message translates to:
+  /// **'Place the four middle-layer edges so the first two layers are solved.'**
+  String get introGoalMiddle;
+
+  /// No description provided for @introGoalYellowCross.
+  ///
+  /// In en, this message translates to:
+  /// **'Make a yellow plus sign on top; the side colors don\'t need to match yet.'**
+  String get introGoalYellowCross;
+
+  /// No description provided for @introGoalYellowEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'Line up every yellow cross edge with the center color on its side.'**
+  String get introGoalYellowEdges;
+
+  /// No description provided for @introGoalYellowCorners.
+  ///
+  /// In en, this message translates to:
+  /// **'Move every yellow corner to its own spot, even if it is still twisted.'**
+  String get introGoalYellowCorners;
+
+  /// No description provided for @introGoalTwistCorners.
+  ///
+  /// In en, this message translates to:
+  /// **'Twist the yellow corners the right way so the whole cube is solved.'**
+  String get introGoalTwistCorners;
+
+  /// No description provided for @introGoalCfopIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'See the speedcubing plan: cross, first two layers, then the last layer in two looks.'**
+  String get introGoalCfopIntro;
+
+  /// No description provided for @introGoalF2l.
+  ///
+  /// In en, this message translates to:
+  /// **'Insert each white corner together with its middle edge, finishing two layers at once.'**
+  String get introGoalF2l;
+
+  /// No description provided for @introGoalOll.
+  ///
+  /// In en, this message translates to:
+  /// **'Make the whole top face yellow with one or two algorithms.'**
+  String get introGoalOll;
+
+  /// No description provided for @introGoalPll.
+  ///
+  /// In en, this message translates to:
+  /// **'Move the last-layer pieces to their spots to finish the cube.'**
+  String get introGoalPll;
+
+  /// No description provided for @introGoalTwoFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Build one complete white layer on the 2×2.'**
+  String get introGoalTwoFirst;
+
+  /// No description provided for @introGoalTwoOll.
+  ///
+  /// In en, this message translates to:
+  /// **'Make the top face of the 2×2 all yellow.'**
+  String get introGoalTwoOll;
+
+  /// No description provided for @introGoalTwoPbl.
+  ///
+  /// In en, this message translates to:
+  /// **'Swap the last corners into place to solve the 2×2.'**
+  String get introGoalTwoPbl;
+
+  /// No description provided for @introGoalBigIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Meet the 4×4: centers, edge pairs and corners, and the moves that turn them.'**
+  String get introGoalBigIntro;
+
+  /// No description provided for @introGoalBigCenters.
+  ///
+  /// In en, this message translates to:
+  /// **'Gather each face\'s center pieces into one solid block of color.'**
+  String get introGoalBigCenters;
+
+  /// No description provided for @introGoalBigEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'Pair up matching edge pieces so every edge looks like a single 3×3 edge.'**
+  String get introGoalBigEdges;
+
+  /// No description provided for @introGoalBigParity.
+  ///
+  /// In en, this message translates to:
+  /// **'Fix the two 4×4 cases a 3×3 never has: one flipped edge or two swapped edges.'**
+  String get introGoalBigParity;
+
+  /// No description provided for @introHowBasics.
+  ///
+  /// In en, this message translates to:
+  /// **'Centers never move, so they tell you each face\'s color.\nEach letter turns one face a quarter turn clockwise.\nAn apostrophe (\') turns it back; a 2 turns it twice.'**
+  String get introHowBasics;
+
+  /// No description provided for @introHowCross.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold yellow on top: the white cross is built on the bottom.\nFind a white edge and line its side color up with the matching center.\nTurn that face twice to drop the edge into place.'**
+  String get introHowCross;
+
+  /// No description provided for @introHowCorners.
+  ///
+  /// In en, this message translates to:
+  /// **'Bring a white corner above its empty spot.\nRepeat R U R\' U\' until it drops in the right way round.\nDo the same for the other three corners.'**
+  String get introHowCorners;
+
+  /// No description provided for @introHowMiddle.
+  ///
+  /// In en, this message translates to:
+  /// **'Find a top edge without yellow and match its front color to a center.\nSend it right or left with a short 8-move algorithm.\nThe white layer comes back intact every time.'**
+  String get introHowMiddle;
+
+  /// No description provided for @introHowYellowCross.
+  ///
+  /// In en, this message translates to:
+  /// **'Look at the top: a dot, an L or a line.\nHold it as shown and do F R U R\' U\' F\'.\nRepeat until the yellow cross appears.'**
+  String get introHowYellowCross;
+
+  /// No description provided for @introHowYellowEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the top until two edges match their centers.\nHold them at the back and right, then do R U R\' U R U2 R\' U.\nRepeat until all four edges match.'**
+  String get introHowYellowEdges;
+
+  /// No description provided for @introHowYellowCorners.
+  ///
+  /// In en, this message translates to:
+  /// **'A corner is in its spot when its colors match the three faces around it.\nKeep a placed corner at the front right.\nU R U\' L\' U R\' U\' L cycles the other three until they all fit.'**
+  String get introHowYellowCorners;
+
+  /// No description provided for @introHowTwistCorners.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold an unsolved corner at the front right.\nRepeat R\' D\' R D until its yellow faces up.\nTurn only the top for the next one; the bottom fixes itself at the end.'**
+  String get introHowTwistCorners;
+
+  /// No description provided for @introHowCfopIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Cross: four edges, planned during inspection.\nF2L: each corner goes in together with its edge.\nOLL makes the top yellow, then PLL moves the pieces home.'**
+  String get introHowCfopIntro;
+
+  /// No description provided for @introHowF2l.
+  ///
+  /// In en, this message translates to:
+  /// **'Find a corner and its matching edge in the top layer.\nPair them up above their slot.\nDrop the pair in with three or four moves.'**
+  String get introHowF2l;
+
+  /// No description provided for @introHowOll.
+  ///
+  /// In en, this message translates to:
+  /// **'First the yellow cross with F R U R\' U\' F\'.\nThen orient the corners, for example with Sune.\nRecognize the case by the yellow you see.'**
+  String get introHowOll;
+
+  /// No description provided for @introHowPll.
+  ///
+  /// In en, this message translates to:
+  /// **'The top is already all yellow.\nThe T-perm swaps corners; the U-perm cycles three edges.\nRead the side colors to choose the algorithm.'**
+  String get introHowPll;
+
+  /// No description provided for @introHowTwoFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'A 2×2 is only corners, like a 3×3 without edges.\nBring each white corner above its spot.\nRepeat R U R\' U\' until it drops in.'**
+  String get introHowTwoFirst;
+
+  /// No description provided for @introHowTwoOll.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep the white layer at the bottom.\nSune (R U R\' U R U2 R\') twists the top corners.\nRepeat from the right angle until the top is all yellow.'**
+  String get introHowTwoOll;
+
+  /// No description provided for @introHowTwoPbl.
+  ///
+  /// In en, this message translates to:
+  /// **'Look for a side where two corners already match.\nAdjacent swap: one T-perm style algorithm.\nDiagonal swap: one longer algorithm.'**
+  String get introHowTwoPbl;
+
+  /// No description provided for @introHowBigIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'No center is fixed: four center pieces make up each face color.\nWide moves like Rw turn two layers at once.\nInner moves like 2R turn just one inner slice.'**
+  String get introHowBigIntro;
+
+  /// No description provided for @introHowBigCenters.
+  ///
+  /// In en, this message translates to:
+  /// **'Build two opposite centers first.\nInner slices swap center pieces without breaking finished ones.\nFinish the last four centers the same way.'**
+  String get introHowBigCenters;
+
+  /// No description provided for @introHowBigEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'Find two edge pieces with the same colors.\nLine them up side by side with an inner slice.\nPut the pair away and bring the centers back.'**
+  String get introHowBigEdges;
+
+  /// No description provided for @introHowBigParity.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve the 4×4 like a 3×3 until it gets stuck.\nOne flipped edge: the long OLL parity algorithm.\nTwo swapped edges: 2R2 U2 2R2 Uw2 2R2 Uw2.'**
+  String get introHowBigParity;
 }
 
 class _AppLocalizationsDelegate

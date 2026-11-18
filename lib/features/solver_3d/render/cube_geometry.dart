@@ -132,6 +132,7 @@ class CubeFrame {
     this.turn,
     this.highlighted = const {},
     this.focus = const {},
+    this.muted = const {},
     this.xray = false,
   });
 
@@ -148,6 +149,9 @@ class CubeFrame {
   /// brightness (without an outline) while other cubies are dimmed.
   final Set<int> focus;
 
+  /// Cubie ids drawn in plain gray: pieces that do not matter for a goal.
+  final Set<int> muted;
+
   /// Semi-transparent rendering that reveals hidden faces.
   final bool xray;
 
@@ -158,6 +162,7 @@ class CubeFrame {
         turn: clearTurn ? null : (turn ?? this.turn),
         highlighted: highlighted,
         focus: focus,
+        muted: muted,
         xray: xray ?? this.xray,
       );
 
@@ -169,6 +174,7 @@ class CubeFrame {
       other.turn == turn &&
       setEquals(other.highlighted, highlighted) &&
       setEquals(other.focus, focus) &&
+      setEquals(other.muted, muted) &&
       other.xray == xray;
 
   @override

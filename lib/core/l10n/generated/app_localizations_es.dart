@@ -1298,4 +1298,176 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get stepBigPllParityBody =>
       '¿Dos aristas intercambiadas al final? 2R2 U2 2R2 Uw2 2R2 Uw2 intercambia las aristas superiores delantera y trasera.';
+
+  @override
+  String get introGoalHeading => '¿Cuál es el objetivo?';
+
+  @override
+  String get introHowHeading => '¿Cómo se hace?';
+
+  @override
+  String get introStart => 'Entendido, empezar paso a paso';
+
+  @override
+  String get introShowGoal => 'Ver el objetivo';
+
+  @override
+  String get introStateStart => 'Inicio';
+
+  @override
+  String get introStateGoal => 'Objetivo';
+
+  @override
+  String get introPlayMorph => 'Reproducir del inicio al objetivo';
+
+  @override
+  String get introGoalBasics =>
+      'Aprende a leer el cubo: sus piezas, sus seis caras y cómo las giran las letras de los movimientos.';
+
+  @override
+  String get introGoalCross =>
+      'Forma una cruz blanca en la que cada arista blanca coincida también con el centro de al lado.';
+
+  @override
+  String get introGoalCorners =>
+      'Coloca las cuatro esquinas blancas para completar la primera corona, toda la capa blanca.';
+
+  @override
+  String get introGoalMiddle =>
+      'Coloca las cuatro aristas de la capa media para resolver las dos primeras capas.';
+
+  @override
+  String get introGoalYellowCross =>
+      'Forma una cruz amarilla arriba; los colores laterales aún no tienen que coincidir.';
+
+  @override
+  String get introGoalYellowEdges =>
+      'Alinea cada arista de la cruz amarilla con el centro de su lado.';
+
+  @override
+  String get introGoalYellowCorners =>
+      'Lleva cada esquina amarilla a su sitio, aunque todavía esté girada.';
+
+  @override
+  String get introGoalTwistCorners =>
+      'Gira las esquinas amarillas hasta su color correcto para resolver todo el cubo.';
+
+  @override
+  String get introGoalCfopIntro =>
+      'Descubre el plan del speedcubing: cruz, dos primeras capas y la última capa en dos pasos.';
+
+  @override
+  String get introGoalF2l =>
+      'Inserta cada esquina blanca junto con su arista media y termina dos capas a la vez.';
+
+  @override
+  String get introGoalOll =>
+      'Pon amarilla toda la cara de arriba con uno o dos algoritmos.';
+
+  @override
+  String get introGoalPll =>
+      'Lleva las piezas de la última capa a su sitio para terminar el cubo.';
+
+  @override
+  String get introGoalTwoFirst => 'Arma una capa blanca completa en el 2×2.';
+
+  @override
+  String get introGoalTwoOll =>
+      'Pon toda la cara de arriba del 2×2 en amarillo.';
+
+  @override
+  String get introGoalTwoPbl =>
+      'Intercambia las últimas esquinas para resolver el 2×2.';
+
+  @override
+  String get introGoalBigIntro =>
+      'Conoce el 4×4: centros, parejas de aristas y esquinas, y los movimientos que los giran.';
+
+  @override
+  String get introGoalBigCenters =>
+      'Junta las piezas de centro de cada cara en un bloque de un solo color.';
+
+  @override
+  String get introGoalBigEdges =>
+      'Empareja las piezas de arista para que cada arista parezca una sola arista de 3×3.';
+
+  @override
+  String get introGoalBigParity =>
+      'Corrige los dos casos del 4×4 que un 3×3 nunca tiene: una arista volteada o dos aristas intercambiadas.';
+
+  @override
+  String get introHowBasics =>
+      'Los centros nunca se mueven: indican el color de cada cara.\nCada letra gira una cara un cuarto de vuelta en sentido horario.\nUn apóstrofo (\') gira hacia atrás; un 2 gira dos veces.';
+
+  @override
+  String get introHowCross =>
+      'Sujeta el amarillo arriba: la cruz blanca se arma abajo.\nBusca una arista blanca y alinea su color lateral con su centro.\nGira esa cara dos veces para bajarla a su sitio.';
+
+  @override
+  String get introHowCorners =>
+      'Lleva una esquina blanca encima de su hueco.\nRepite R U R\' U\' hasta que entre bien orientada.\nHaz lo mismo con las otras tres esquinas.';
+
+  @override
+  String get introHowMiddle =>
+      'Busca una arista de arriba sin amarillo y alinea su color frontal con un centro.\nEnvíala a la derecha o a la izquierda con un algoritmo corto de 8 movimientos.\nLa capa blanca vuelve intacta cada vez.';
+
+  @override
+  String get introHowYellowCross =>
+      'Mira la cara de arriba: un punto, una L o una línea.\nSujétala como se muestra y haz F R U R\' U\' F\'.\nRepite hasta que aparezca la cruz amarilla.';
+
+  @override
+  String get introHowYellowEdges =>
+      'Gira la capa de arriba hasta que dos aristas coincidan con sus centros.\nPonlas atrás y a la derecha y haz R U R\' U R U2 R\' U.\nRepite hasta que coincidan las cuatro.';
+
+  @override
+  String get introHowYellowCorners =>
+      'Una esquina está en su sitio cuando sus colores coinciden con las tres caras que la rodean.\nDeja una esquina ya colocada delante a la derecha.\nU R U\' L\' U R\' U\' L mueve las otras tres hasta que encajen todas.';
+
+  @override
+  String get introHowTwistCorners =>
+      'Sujeta una esquina sin resolver delante a la derecha.\nRepite R\' D\' R D hasta que su amarillo mire hacia arriba.\nGira solo la capa de arriba para la siguiente; la de abajo se arregla sola al final.';
+
+  @override
+  String get introHowCfopIntro =>
+      'Cruz: cuatro aristas planeadas durante la inspección.\nF2L: cada esquina entra junto con su arista.\nOLL pone amarilla la cara de arriba y PLL lleva las piezas a su sitio.';
+
+  @override
+  String get introHowF2l =>
+      'Busca una esquina y su arista en la capa de arriba.\nEmparéjalas encima de su hueco.\nMete la pareja con tres o cuatro movimientos.';
+
+  @override
+  String get introHowOll =>
+      'Primero la cruz amarilla con F R U R\' U\' F\'.\nLuego orienta las esquinas, por ejemplo con el Sune.\nReconoce el caso por el amarillo que ves.';
+
+  @override
+  String get introHowPll =>
+      'La cara de arriba ya es toda amarilla.\nLa T-perm intercambia esquinas; la U-perm mueve tres aristas.\nLee los colores laterales para elegir el algoritmo.';
+
+  @override
+  String get introHowTwoFirst =>
+      'Un 2×2 solo tiene esquinas, como un 3×3 sin aristas.\nLleva cada esquina blanca encima de su sitio.\nRepite R U R\' U\' hasta que entre.';
+
+  @override
+  String get introHowTwoOll =>
+      'Mantén la capa blanca abajo.\nEl Sune (R U R\' U R U2 R\') gira las esquinas de arriba.\nRepite desde el ángulo correcto hasta que toda la cara sea amarilla.';
+
+  @override
+  String get introHowTwoPbl =>
+      'Busca un lado donde dos esquinas ya coincidan.\nIntercambio adyacente: un algoritmo tipo T-perm.\nIntercambio diagonal: un algoritmo algo más largo.';
+
+  @override
+  String get introHowBigIntro =>
+      'Ningún centro es fijo: cuatro piezas de centro forman el color de cada cara.\nLos giros dobles como Rw mueven dos capas a la vez.\nLos giros internos como 2R mueven solo una capa interior.';
+
+  @override
+  String get introHowBigCenters =>
+      'Arma primero dos centros opuestos.\nLas capas interiores cambian piezas de centro sin romper los terminados.\nTermina los últimos cuatro centros igual.';
+
+  @override
+  String get introHowBigEdges =>
+      'Busca dos piezas de arista con los mismos colores.\nAlinéalas una junto a otra con una capa interior.\nAparta la pareja y devuelve los centros a su sitio.';
+
+  @override
+  String get introHowBigParity =>
+      'Resuelve el 4×4 como un 3×3 hasta que te atasques.\nUna arista volteada: el algoritmo largo de paridad OLL.\nDos aristas intercambiadas: 2R2 U2 2R2 Uw2 2R2 Uw2.';
 }
