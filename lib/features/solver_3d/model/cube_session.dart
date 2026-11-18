@@ -65,6 +65,7 @@ class CubeSession {
     this.solveError,
     this.isHandTurning = false,
     this.rejectedMoves = 0,
+    this.solvedWith,
   });
 
   /// State with every animation already committed.
@@ -95,6 +96,10 @@ class CubeSession {
   /// Counts manual moves rejected during a guided solve, so the UI can
   /// react (shake, hint) to each one.
   final int rejectedMoves;
+
+  /// Solver method of the loaded solution; null for lesson demonstrations
+  /// and patterns (they cannot be re-solved another way).
+  final SolveMethod? solvedWith;
   final int playbackIndex;
   final bool isPlaying;
 
@@ -171,6 +176,7 @@ class CubeSession {
     bool clearSolveError = false,
     bool? isHandTurning,
     int? rejectedMoves,
+    SolveMethod? solvedWith,
   }) => CubeSession(
     cube: cube ?? this.cube,
     queue: queue ?? this.queue,
@@ -186,6 +192,7 @@ class CubeSession {
     solveError: clearSolveError ? null : (solveError ?? this.solveError),
     isHandTurning: isHandTurning ?? this.isHandTurning,
     rejectedMoves: rejectedMoves ?? this.rejectedMoves,
+    solvedWith: solvedWith ?? this.solvedWith,
   );
 }
 
@@ -400,7 +407,19 @@ class CubeSessionController extends Notifier<CubeSession> {
       steps: plan.steps,
       playbackIndex: 0,
       isPlaying: false,
+      solvedWith: method,
     );
+  }
+
+  /// Switches the loaded solution to [method] (guided 3 crowns or fast),
+  /// solving again from the cube as it is now. Ignored while a move is
+  /// animating or held, or when that method is already loaded.
+  Future<void> resolveWith(SolveMethod method) async {
+    if (!state.isIdle || state.isHandTurning || state.isSolving) return;
+    if (state.hasPlayback && state.solvedWith == method) return;
+    clearSolution();
+    if (state.cube.isSolved) return;
+    await solve(method);
   }
 
   void clearSolveError() => state = state.copyWith(clearSolveError: true);

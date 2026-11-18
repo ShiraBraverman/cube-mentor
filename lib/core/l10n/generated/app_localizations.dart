@@ -393,23 +393,11 @@ abstract class AppLocalizations {
   /// **'Solving…'**
   String get solving;
 
-  /// No description provided for @solveChooseMethod.
-  ///
-  /// In en, this message translates to:
-  /// **'How do you want to solve it?'**
-  String get solveChooseMethod;
-
   /// No description provided for @solveFast.
   ///
   /// In en, this message translates to:
   /// **'Fast solve'**
   String get solveFast;
-
-  /// No description provided for @solveFastDesc.
-  ///
-  /// In en, this message translates to:
-  /// **'Kociemba two-phase algorithm · about 20 moves'**
-  String get solveFastDesc;
 
   /// No description provided for @solveLearn.
   ///
@@ -417,11 +405,17 @@ abstract class AppLocalizations {
   /// **'Learn step by step'**
   String get solveLearn;
 
-  /// No description provided for @solveLearnDesc.
+  /// No description provided for @solveModeGuided.
   ///
   /// In en, this message translates to:
-  /// **'Beginner\'s layer-by-layer method with explanations'**
-  String get solveLearnDesc;
+  /// **'Guided (3 crowns)'**
+  String get solveModeGuided;
+
+  /// No description provided for @solveModeFast.
+  ///
+  /// In en, this message translates to:
+  /// **'Fast (optimal)'**
+  String get solveModeFast;
 
   /// No description provided for @solveUnavailable.
   ///
@@ -549,12 +543,6 @@ abstract class AppLocalizations {
   /// **'Phase 2 · Finish the cube'**
   String get phaseKociemba2;
 
-  /// No description provided for @phaseLblOrient.
-  ///
-  /// In en, this message translates to:
-  /// **'Hold the cube'**
-  String get phaseLblOrient;
-
   /// No description provided for @phaseLblCross.
   ///
   /// In en, this message translates to:
@@ -564,13 +552,13 @@ abstract class AppLocalizations {
   /// No description provided for @phaseLblCorners.
   ///
   /// In en, this message translates to:
-  /// **'White corners'**
+  /// **'First crown corners'**
   String get phaseLblCorners;
 
   /// No description provided for @phaseLblMiddle.
   ///
   /// In en, this message translates to:
-  /// **'Middle layer'**
+  /// **'Middle layer edges'**
   String get phaseLblMiddle;
 
   /// No description provided for @phaseLblYellowCross.
@@ -582,20 +570,104 @@ abstract class AppLocalizations {
   /// No description provided for @phaseLblYellowEdges.
   ///
   /// In en, this message translates to:
-  /// **'Yellow edges'**
+  /// **'Align the yellow cross edges'**
   String get phaseLblYellowEdges;
 
   /// No description provided for @phaseLblYellowCorners.
   ///
   /// In en, this message translates to:
-  /// **'Place the yellow corners'**
+  /// **'Position the yellow corners'**
   String get phaseLblYellowCorners;
 
   /// No description provided for @phaseLblYellowCornersOrient.
   ///
   /// In en, this message translates to:
-  /// **'Twist the yellow corners'**
+  /// **'Orient the yellow corners'**
   String get phaseLblYellowCornersOrient;
+
+  /// No description provided for @crownFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'First crown'**
+  String get crownFirst;
+
+  /// No description provided for @crownSecond.
+  ///
+  /// In en, this message translates to:
+  /// **'Second crown'**
+  String get crownSecond;
+
+  /// No description provided for @crownThird.
+  ///
+  /// In en, this message translates to:
+  /// **'Third crown'**
+  String get crownThird;
+
+  /// No description provided for @crownFirstGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'White face and first layer'**
+  String get crownFirstGoal;
+
+  /// No description provided for @crownSecondGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Middle layer'**
+  String get crownSecondGoal;
+
+  /// No description provided for @crownThirdGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Yellow face and last layer'**
+  String get crownThirdGoal;
+
+  /// No description provided for @crownProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Crown {current} of {total}'**
+  String crownProgress(int current, int total);
+
+  /// No description provided for @subStepGoal11.
+  ///
+  /// In en, this message translates to:
+  /// **'Form a white cross where every white edge also matches the center color beside it.'**
+  String get subStepGoal11;
+
+  /// No description provided for @subStepGoal12.
+  ///
+  /// In en, this message translates to:
+  /// **'Insert the 4 white corners into their matching slots to finish the white face and the whole first ring.'**
+  String get subStepGoal12;
+
+  /// No description provided for @subStepGoal21.
+  ///
+  /// In en, this message translates to:
+  /// **'Insert the 4 middle-layer edges without disturbing the first crown.'**
+  String get subStepGoal21;
+
+  /// No description provided for @subStepGoal31.
+  ///
+  /// In en, this message translates to:
+  /// **'Form a yellow cross on the last layer.'**
+  String get subStepGoal31;
+
+  /// No description provided for @subStepGoal32.
+  ///
+  /// In en, this message translates to:
+  /// **'Swap the yellow cross edges until each one matches its side center.'**
+  String get subStepGoal32;
+
+  /// No description provided for @subStepGoal33.
+  ///
+  /// In en, this message translates to:
+  /// **'Move the 4 yellow corners to their correct places, even if they are still twisted.'**
+  String get subStepGoal33;
+
+  /// No description provided for @subStepGoal34.
+  ///
+  /// In en, this message translates to:
+  /// **'Twist each yellow corner in place until every sticker matches and the cube is solved.'**
+  String get subStepGoal34;
 
   /// No description provided for @explainOptimal2x2.
   ///
@@ -1164,7 +1236,7 @@ abstract class AppLocalizations {
   /// No description provided for @trackBeginner.
   ///
   /// In en, this message translates to:
-  /// **'Beginner 3×3 (layer by layer)'**
+  /// **'Beginner 3×3: the 3 crowns'**
   String get trackBeginner;
 
   /// No description provided for @trackCfop.
@@ -1430,18 +1502,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'PLL parity: two edges are swapped, impossible on a 3×3. This algorithm swaps them back.'**
   String get explainReductionPllParity;
-
-  /// No description provided for @solveFastBigDesc.
-  ///
-  /// In en, this message translates to:
-  /// **'Reduction: centers, edges and parity, then Kociemba'**
-  String get solveFastBigDesc;
-
-  /// No description provided for @solveLearnBigDesc.
-  ///
-  /// In en, this message translates to:
-  /// **'Reduction finished with the beginner\'s layer-by-layer method'**
-  String get solveLearnBigDesc;
 
   /// No description provided for @patternsTitle.
   ///
@@ -1731,18 +1791,6 @@ abstract class AppLocalizations {
   /// **'An apostrophe (R\') turns the other way, counter-clockwise. A 2 (U2) is a half turn: two quarter turns.'**
   String get stepBasicsPrimeBody;
 
-  /// No description provided for @lessonCross.
-  ///
-  /// In en, this message translates to:
-  /// **'White cross'**
-  String get lessonCross;
-
-  /// No description provided for @lessonCrossDesc.
-  ///
-  /// In en, this message translates to:
-  /// **'Build a white cross on the bottom.'**
-  String get lessonCrossDesc;
-
   /// No description provided for @stepCrossGoal.
   ///
   /// In en, this message translates to:
@@ -1779,18 +1827,6 @@ abstract class AppLocalizations {
   /// **'An edge stuck in the middle layer goes up first: turn its side up, move the top out of the way and turn the side back, so the cross stays intact. Then place it from the top.'**
   String get stepCrossMiddleBody;
 
-  /// No description provided for @lessonCorners.
-  ///
-  /// In en, this message translates to:
-  /// **'White corners'**
-  String get lessonCorners;
-
-  /// No description provided for @lessonCornersDesc.
-  ///
-  /// In en, this message translates to:
-  /// **'Finish the first layer.'**
-  String get lessonCornersDesc;
-
   /// No description provided for @stepCornersInsert.
   ///
   /// In en, this message translates to:
@@ -1814,18 +1850,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'If white faces the wrong way, keep repeating R U R\' U\' over the same spot. Every corner is solved after at most five repeats.'**
   String get stepCornersRepeatBody;
-
-  /// No description provided for @lessonMiddle.
-  ///
-  /// In en, this message translates to:
-  /// **'Middle layer'**
-  String get lessonMiddle;
-
-  /// No description provided for @lessonMiddleDesc.
-  ///
-  /// In en, this message translates to:
-  /// **'Insert the four middle edges.'**
-  String get lessonMiddleDesc;
 
   /// No description provided for @stepMiddleRight.
   ///
@@ -1851,18 +1875,6 @@ abstract class AppLocalizations {
   /// **'If its top color matches the left center instead, use the mirror: U\' L\' U L U F U\' F\'.'**
   String get stepMiddleLeftBody;
 
-  /// No description provided for @lessonLastLayer.
-  ///
-  /// In en, this message translates to:
-  /// **'Yellow cross and edges'**
-  String get lessonLastLayer;
-
-  /// No description provided for @lessonLastLayerDesc.
-  ///
-  /// In en, this message translates to:
-  /// **'Make a cross on top and match its edges.'**
-  String get lessonLastLayerDesc;
-
   /// No description provided for @stepYellowCross.
   ///
   /// In en, this message translates to:
@@ -1886,18 +1898,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Turn the top until two edges match their centers. With one at the back and one on the right, R U R\' U R U2 R\' U swaps the other two.'**
   String get stepYellowEdgesBody;
-
-  /// No description provided for @lessonLastCorners.
-  ///
-  /// In en, this message translates to:
-  /// **'Yellow corners'**
-  String get lessonLastCorners;
-
-  /// No description provided for @lessonLastCornersDesc.
-  ///
-  /// In en, this message translates to:
-  /// **'Place and twist the last corners.'**
-  String get lessonLastCornersDesc;
 
   /// No description provided for @stepPlaceCorners.
   ///

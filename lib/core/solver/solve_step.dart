@@ -31,6 +31,8 @@ class SolveStep {
     required this.explanationKey,
     this.highlightedCubies = const [],
     this.pieceColors = '',
+    this.crown = 0,
+    this.subStep = 0,
   });
 
   factory SolveStep.fromJson(Map<String, dynamic> json) => SolveStep(
@@ -39,6 +41,8 @@ class SolveStep {
     moveNotation: json['move'] as String,
     explanationKey: json['explanation'] as String,
     pieceColors: (json['piece'] as String?) ?? '',
+    crown: (json['crown'] as int?) ?? 0,
+    subStep: (json['subStep'] as int?) ?? 0,
     highlightedCubies: [
       for (final p in (json['highlight'] as List<dynamic>? ?? const []))
         _vec(p as List<dynamic>),
@@ -64,12 +68,25 @@ class SolveStep {
   /// Color letters of the piece the explanation talks about (may be empty).
   final String pieceColors;
 
+  /// Beginner's-method stage: crown 1..3 (first layer, middle layer, last
+  /// layer) and the sub-step within it, so `(3, 3)` is "3.3 Position the
+  /// yellow corners". Zero for steps of other methods.
+  final int crown;
+  final int subStep;
+
+  /// Whether this step belongs to the 3-crown beginner's method.
+  bool get hasCrown => crown > 0;
+
+  /// Sub-step label such as `2.1`, or empty.
+  String get subStepLabel => hasCrown ? '$crown.$subStep' : '';
+
   Map<String, Object> toJson() => {
     'state': cubeState,
     'phase': phaseName,
     'move': moveNotation,
     'explanation': explanationKey,
     'piece': pieceColors,
+    if (hasCrown) ...{'crown': crown, 'subStep': subStep},
     'highlight': [
       for (final (x, y, z) in highlightedCubies) [x, y, z],
     ],

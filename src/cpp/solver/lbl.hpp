@@ -1,14 +1,18 @@
 // Pedagogical layer-by-layer (beginner's method) 3x3x3 solver.
 //
-// Phases, each producing explained, highlighted steps:
-//   1. lblOrient              hold the cube with the white center down
-//   2. lblCross               white cross, one edge at a time (shortest moves)
-//   3. lblCorners             white corners with the R U R' U' trigger
-//   4. lblMiddle              middle-layer edges (right / left insertions)
-//   5. lblYellowCross         F R U R' U' F'
-//   6. lblYellowEdges         R U R' U R U2 R' U
-//   7. lblYellowCorners       U R U' L' U R' U' L (place corners)
-//   8. lblYellowCornersOrient R' D' R D (twist corners), then align U
+// Three crowns, seven sub-steps (see kLblStages); every step is tagged with
+// its crown and sub-step:
+//   Crown 1 (first layer)
+//     1.1 lblCross               hold white down (one rotation), then the
+//                                white cross matching the side centers
+//     1.2 lblCorners             white corners with the R U R' U' trigger
+//   Crown 2 (middle layer)
+//     2.1 lblMiddle              middle-layer edges (right / left insertions)
+//   Crown 3 (last layer)
+//     3.1 lblYellowCross         F R U R' U' F'
+//     3.2 lblYellowEdges         R U R' U R U2 R' U
+//     3.3 lblYellowCorners       U R U' L' U R' U' L (position corners)
+//     3.4 lblYellowCornersOrient R' D' R D (twist corners), then align U
 #pragma once
 
 #include <string>

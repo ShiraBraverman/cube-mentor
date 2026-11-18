@@ -47,7 +47,7 @@ void main() {
           .applyAll(CubeState.randomScramble(size, random: random));
 
   test('reports its version', () {
-    expect(bindings!.version, '1.1.0');
+    expect(bindings!.version, '1.2.0');
     expect(bindings.prepare(3), isTrue);
     expect(bindings.prepare(4), isTrue);
     expect(bindings.prepare(7), isFalse);
@@ -88,7 +88,22 @@ void main() {
       // White starts on top in the app's color scheme, so the solution
       // begins by turning the cube over.
       expect(plan.steps.first.moveNotation, 'x2');
-      final cross = plan.steps.firstWhere((s) => s.phaseName == 'lblCross');
+      // Every step carries its crown and sub-step, in syllabus order.
+      var last = (0, 0);
+      for (final step in plan.steps) {
+        final stage = (step.crown, step.subStep);
+        expect(step.hasCrown, isTrue, reason: step.phaseName);
+        expect(
+          stage.$1 > last.$1 || (stage.$1 == last.$1 && stage.$2 >= last.$2),
+          isTrue,
+        );
+        last = stage;
+      }
+      expect(plan.steps.first.subStepLabel, '1.1');
+      expect(plan.steps.last.crown, 3);
+      final cross = plan.steps.firstWhere(
+        (s) => s.phaseName == 'lblCross' && s.explanationKey == 'lblCrossEdge',
+      );
       expect(cross.pieceColors, startsWith('W'));
       expect(cross.highlightedCubies, hasLength(1));
       // Round-trips through the AI Coach JSON shape.

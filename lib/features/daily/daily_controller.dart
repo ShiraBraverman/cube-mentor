@@ -140,8 +140,7 @@ class DailyController extends Notifier<DailyState> {
           .solve(cube, SolveMethod.layerByLayer);
       final moves = [
         for (final step in plan.steps)
-          if (step.phaseName == 'lblOrient' || step.phaseName == 'lblCross')
-            step.moveNotation,
+          if (step.phaseName == 'lblCross') step.moveNotation,
       ];
       if (ref.mounted) state = state.copyWith(hint: moves, hintFailed: false);
     } on SolveException {

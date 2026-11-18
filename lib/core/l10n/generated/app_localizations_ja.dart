@@ -161,19 +161,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get solving => '解いています…';
 
   @override
-  String get solveChooseMethod => 'どの方法で解きますか？';
-
-  @override
   String get solveFast => '高速で解く';
-
-  @override
-  String get solveFastDesc => 'Kociembaの2フェーズアルゴリズム · 約20手';
 
   @override
   String get solveLearn => '一歩ずつ学ぶ';
 
   @override
-  String get solveLearnDesc => '解説付きの初心者向けLBL法（層ごと）';
+  String get solveModeGuided => 'ガイド付き（3クラウン）';
+
+  @override
+  String get solveModeFast => '高速（最適）';
 
   @override
   String solveUnavailable(int size) {
@@ -245,28 +242,69 @@ class AppLocalizationsJa extends AppLocalizations {
   String get phaseKociemba2 => 'フェーズ2 · キューブを完成させる';
 
   @override
-  String get phaseLblOrient => 'キューブを持つ';
-
-  @override
   String get phaseLblCross => '白クロス';
 
   @override
-  String get phaseLblCorners => '白コーナー';
+  String get phaseLblCorners => '1段目のコーナー';
 
   @override
-  String get phaseLblMiddle => '中段';
+  String get phaseLblMiddle => '中段のエッジ';
 
   @override
   String get phaseLblYellowCross => '黄クロス';
 
   @override
-  String get phaseLblYellowEdges => '黄エッジ';
+  String get phaseLblYellowEdges => '黄クロスのエッジをそろえる';
 
   @override
-  String get phaseLblYellowCorners => '黄コーナーの位置合わせ';
+  String get phaseLblYellowCorners => '黄コーナーの位置をそろえる';
 
   @override
-  String get phaseLblYellowCornersOrient => '黄コーナーの向き合わせ';
+  String get phaseLblYellowCornersOrient => '黄コーナーの向きをそろえる';
+
+  @override
+  String get crownFirst => '第1クラウン';
+
+  @override
+  String get crownSecond => '第2クラウン';
+
+  @override
+  String get crownThird => '第3クラウン';
+
+  @override
+  String get crownFirstGoal => '白い面と1段目';
+
+  @override
+  String get crownSecondGoal => '中段';
+
+  @override
+  String get crownThirdGoal => '黄色い面と最終段';
+
+  @override
+  String crownProgress(int current, int total) {
+    return 'クラウン $current/$total';
+  }
+
+  @override
+  String get subStepGoal11 => '白いエッジが隣のセンターの色ともそろった白クロスを作ります。';
+
+  @override
+  String get subStepGoal12 => '4つの白いコーナーを正しい場所に入れて、白い面と1段目全体を完成させます。';
+
+  @override
+  String get subStepGoal21 => '第1クラウンを崩さずに、中段の4つのエッジを入れます。';
+
+  @override
+  String get subStepGoal31 => '最終段に黄色の十字を作ります。';
+
+  @override
+  String get subStepGoal32 => '黄クロスのエッジを入れ替えて、それぞれ側面のセンターとそろえます。';
+
+  @override
+  String get subStepGoal33 => '4つの黄色いコーナーを正しい位置に移します。向きはまだそろっていなくてもかまいません。';
+
+  @override
+  String get subStepGoal34 => '黄色いコーナーをその場でひねり、すべてのステッカーをそろえてキューブを完成させます。';
 
   @override
   String get explainOptimal2x2 => '2×2のすべての状態を探索して見つけた、最短の解法です。';
@@ -607,7 +645,7 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => '3×3初心者（LBL法）';
+  String get trackBeginner => '3×3初心者：3つのクラウン';
 
   @override
   String get trackCfop => 'CFOP入門';
@@ -755,12 +793,6 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get explainReductionPllParity =>
       'PLLパリティ：エッジが2つ入れ替わっています。3×3ではありえない状態です。この手順で元に戻します。';
-
-  @override
-  String get solveFastBigDesc => 'リダクション：センター、エッジ、パリティの後にKociemba';
-
-  @override
-  String get solveLearnBigDesc => 'リダクションの後、初心者向けLBL法で仕上げ';
 
   @override
   String get patternsTitle => '模様ライブラリ';
@@ -918,12 +950,6 @@ class AppLocalizationsJa extends AppLocalizations {
       'アポストロフィ（R\'）は反対方向、つまり反時計回りです。2（U2）は180度、つまり90度を2回です。';
 
   @override
-  String get lessonCross => '白クロス';
-
-  @override
-  String get lessonCrossDesc => '下面に白い十字を作ります。';
-
-  @override
   String get stepCrossGoal => 'ゴール';
 
   @override
@@ -945,12 +971,6 @@ class AppLocalizationsJa extends AppLocalizations {
       '中段にあるエッジは、まず上に出します。その側面を上に回し、上の層をずらしてから側面を戻せば、クロスは崩れません。そのあと上から入れます。';
 
   @override
-  String get lessonCorners => '白コーナー';
-
-  @override
-  String get lessonCornersDesc => '1段目を完成させます。';
-
-  @override
   String get stepCornersInsert => '入る場所の真上へ';
 
   @override
@@ -963,12 +983,6 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get stepCornersRepeatBody =>
       '白の向きが違うときは、同じ場所でR U R\' U\'をくり返します。どのコーナーも最大5回で完成します。';
-
-  @override
-  String get lessonMiddle => '中段';
-
-  @override
-  String get lessonMiddleDesc => '中段の4つのエッジを入れます。';
 
   @override
   String get stepMiddleRight => '右に入れる';
@@ -985,12 +999,6 @@ class AppLocalizationsJa extends AppLocalizations {
       '上側の色が左のセンターと同じなら、左右反転の手順U\' L\' U L U F U\' F\'を使います。';
 
   @override
-  String get lessonLastLayer => '黄クロスとエッジ';
-
-  @override
-  String get lessonLastLayerDesc => '上面に十字を作り、エッジをそろえます。';
-
-  @override
   String get stepYellowCross => 'ひとつの手順';
 
   @override
@@ -1003,12 +1011,6 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get stepYellowEdgesBody =>
       '2つのエッジがセンターとそろうまで上の層を回します。1つが奥、1つが右にある状態で、R U R\' U R U2 R\' Uを使うと残り2つが入れ替わります。';
-
-  @override
-  String get lessonLastCorners => '黄コーナー';
-
-  @override
-  String get lessonLastCornersDesc => '最後のコーナーの位置と向きをそろえます。';
 
   @override
   String get stepPlaceCorners => '位置をそろえる';

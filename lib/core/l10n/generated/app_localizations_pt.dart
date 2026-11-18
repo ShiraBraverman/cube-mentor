@@ -168,21 +168,16 @@ class AppLocalizationsPt extends AppLocalizations {
   String get solving => 'A resolver…';
 
   @override
-  String get solveChooseMethod => 'Como quer resolvê-lo?';
-
-  @override
   String get solveFast => 'Solução rápida';
-
-  @override
-  String get solveFastDesc =>
-      'Algoritmo de duas fases de Kociemba · cerca de 20 movimentos';
 
   @override
   String get solveLearn => 'Aprender passo a passo';
 
   @override
-  String get solveLearnDesc =>
-      'Método para iniciantes camada a camada, com explicações';
+  String get solveModeGuided => 'Guiado (3 coroas)';
+
+  @override
+  String get solveModeFast => 'Rápido (ótimo)';
 
   @override
   String solveUnavailable(int size) {
@@ -257,28 +252,75 @@ class AppLocalizationsPt extends AppLocalizations {
   String get phaseKociemba2 => 'Fase 2 · Terminar o cubo';
 
   @override
-  String get phaseLblOrient => 'Segure o cubo';
-
-  @override
   String get phaseLblCross => 'Cruz branca';
 
   @override
-  String get phaseLblCorners => 'Cantos brancos';
+  String get phaseLblCorners => 'Cantos da primeira coroa';
 
   @override
-  String get phaseLblMiddle => 'Camada do meio';
+  String get phaseLblMiddle => 'Arestas da camada do meio';
 
   @override
   String get phaseLblYellowCross => 'Cruz amarela';
 
   @override
-  String get phaseLblYellowEdges => 'Arestas amarelas';
+  String get phaseLblYellowEdges => 'Alinhar as arestas da cruz amarela';
 
   @override
   String get phaseLblYellowCorners => 'Posicionar os cantos amarelos';
 
   @override
   String get phaseLblYellowCornersOrient => 'Orientar os cantos amarelos';
+
+  @override
+  String get crownFirst => 'Primeira coroa';
+
+  @override
+  String get crownSecond => 'Segunda coroa';
+
+  @override
+  String get crownThird => 'Terceira coroa';
+
+  @override
+  String get crownFirstGoal => 'Face branca e primeira camada';
+
+  @override
+  String get crownSecondGoal => 'Camada do meio';
+
+  @override
+  String get crownThirdGoal => 'Face amarela e última camada';
+
+  @override
+  String crownProgress(int current, int total) {
+    return 'Coroa $current de $total';
+  }
+
+  @override
+  String get subStepGoal11 =>
+      'Forme uma cruz branca em que cada aresta branca também condiga com o centro ao lado.';
+
+  @override
+  String get subStepGoal12 =>
+      'Encaixe os 4 cantos brancos nos seus lugares para completar a face branca e todo o primeiro anel.';
+
+  @override
+  String get subStepGoal21 =>
+      'Encaixe as 4 arestas da camada do meio sem desfazer a primeira coroa.';
+
+  @override
+  String get subStepGoal31 => 'Forme uma cruz amarela na última camada.';
+
+  @override
+  String get subStepGoal32 =>
+      'Troque as arestas da cruz amarela até cada uma condizer com o centro do seu lado.';
+
+  @override
+  String get subStepGoal33 =>
+      'Leve os 4 cantos amarelos para os lugares certos, mesmo que ainda estejam torcidos.';
+
+  @override
+  String get subStepGoal34 =>
+      'Rode cada canto amarelo no lugar até todos os autocolantes condizerem e o cubo ficar resolvido.';
 
   @override
   String get explainOptimal2x2 =>
@@ -652,7 +694,7 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => '3×3 iniciante (camada a camada)';
+  String get trackBeginner => '3×3 iniciante: as 3 coroas';
 
   @override
   String get trackCfop => 'Introdução ao CFOP';
@@ -810,14 +852,6 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get explainReductionPllParity =>
       'Paridade de PLL: duas arestas estão trocadas, o que é impossível num 3×3. Este algoritmo destroca-as.';
-
-  @override
-  String get solveFastBigDesc =>
-      'Redução: centros, arestas e paridade, depois Kociemba';
-
-  @override
-  String get solveLearnBigDesc =>
-      'Redução terminada com o método para iniciantes camada a camada';
 
   @override
   String get patternsTitle => 'Biblioteca de padrões';
@@ -982,12 +1016,6 @@ class AppLocalizationsPt extends AppLocalizations {
       'Um apóstrofo (R\') roda no sentido inverso, contrário aos ponteiros do relógio. Um 2 (U2) é meia-volta: dois quartos de volta.';
 
   @override
-  String get lessonCross => 'Cruz branca';
-
-  @override
-  String get lessonCrossDesc => 'Forme uma cruz branca na face de baixo.';
-
-  @override
   String get stepCrossGoal => 'O objetivo';
 
   @override
@@ -1009,12 +1037,6 @@ class AppLocalizationsPt extends AppLocalizations {
       'Uma aresta presa na camada do meio sobe primeiro: rode a sua lateral para cima, afaste a camada de cima e volte a rodar a lateral, para a cruz se manter. Depois coloque-a a partir de cima.';
 
   @override
-  String get lessonCorners => 'Cantos brancos';
-
-  @override
-  String get lessonCornersDesc => 'Termine a primeira camada.';
-
-  @override
   String get stepCornersInsert => 'Por cima do seu lugar';
 
   @override
@@ -1027,12 +1049,6 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get stepCornersRepeatBody =>
       'Se o branco estiver virado para o lado errado, continue a repetir R U R\' U\' sobre o mesmo lugar. Cada canto fica resolvido com cinco repetições, no máximo.';
-
-  @override
-  String get lessonMiddle => 'Camada do meio';
-
-  @override
-  String get lessonMiddleDesc => 'Insira as quatro arestas do meio.';
 
   @override
   String get stepMiddleRight => 'Aresta para a direita';
@@ -1049,13 +1065,6 @@ class AppLocalizationsPt extends AppLocalizations {
       'Se a cor de cima condisser com o centro da esquerda, use o espelho: U\' L\' U L U F U\' F\'.';
 
   @override
-  String get lessonLastLayer => 'Cruz e arestas amarelas';
-
-  @override
-  String get lessonLastLayerDesc =>
-      'Faça uma cruz em cima e alinhe as arestas.';
-
-  @override
   String get stepYellowCross => 'Um só algoritmo';
 
   @override
@@ -1068,12 +1077,6 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get stepYellowEdgesBody =>
       'Rode a camada de cima até duas arestas condizerem com os seus centros. Com uma atrás e outra à direita, R U R\' U R U2 R\' U troca as outras duas.';
-
-  @override
-  String get lessonLastCorners => 'Cantos amarelos';
-
-  @override
-  String get lessonLastCornersDesc => 'Posicione e oriente os últimos cantos.';
 
   @override
   String get stepPlaceCorners => 'Posicione-os';
@@ -1454,21 +1457,16 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get solving => 'Resolvendo…';
 
   @override
-  String get solveChooseMethod => 'Como você quer resolver?';
-
-  @override
   String get solveFast => 'Solução rápida';
-
-  @override
-  String get solveFastDesc =>
-      'Algoritmo de duas fases de Kociemba · cerca de 20 movimentos';
 
   @override
   String get solveLearn => 'Aprender passo a passo';
 
   @override
-  String get solveLearnDesc =>
-      'Método iniciante camada por camada, com explicações';
+  String get solveModeGuided => 'Guiado (3 coroas)';
+
+  @override
+  String get solveModeFast => 'Rápido (ótimo)';
 
   @override
   String solveUnavailable(int size) {
@@ -1543,28 +1541,75 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get phaseKociemba2 => 'Fase 2 · Terminar o cubo';
 
   @override
-  String get phaseLblOrient => 'Segure o cubo';
-
-  @override
   String get phaseLblCross => 'Cruz branca';
 
   @override
-  String get phaseLblCorners => 'Quinas brancas';
+  String get phaseLblCorners => 'Quinas da primeira coroa';
 
   @override
-  String get phaseLblMiddle => 'Camada do meio';
+  String get phaseLblMiddle => 'Meios da camada do meio';
 
   @override
   String get phaseLblYellowCross => 'Cruz amarela';
 
   @override
-  String get phaseLblYellowEdges => 'Meios amarelos';
+  String get phaseLblYellowEdges => 'Alinhar os meios da cruz amarela';
 
   @override
   String get phaseLblYellowCorners => 'Posicionar as quinas amarelas';
 
   @override
   String get phaseLblYellowCornersOrient => 'Orientar as quinas amarelas';
+
+  @override
+  String get crownFirst => 'Primeira coroa';
+
+  @override
+  String get crownSecond => 'Segunda coroa';
+
+  @override
+  String get crownThird => 'Terceira coroa';
+
+  @override
+  String get crownFirstGoal => 'Face branca e primeira camada';
+
+  @override
+  String get crownSecondGoal => 'Camada do meio';
+
+  @override
+  String get crownThirdGoal => 'Face amarela e última camada';
+
+  @override
+  String crownProgress(int current, int total) {
+    return 'Coroa $current de $total';
+  }
+
+  @override
+  String get subStepGoal11 =>
+      'Monte uma cruz branca em que cada meio branco também combine com o centro ao lado.';
+
+  @override
+  String get subStepGoal12 =>
+      'Encaixe as 4 quinas brancas nos seus lugares para completar a face branca e todo o primeiro anel.';
+
+  @override
+  String get subStepGoal21 =>
+      'Encaixe os 4 meios da camada do meio sem desfazer a primeira coroa.';
+
+  @override
+  String get subStepGoal31 => 'Monte uma cruz amarela na última camada.';
+
+  @override
+  String get subStepGoal32 =>
+      'Troque os meios da cruz amarela até cada um combinar com o centro do seu lado.';
+
+  @override
+  String get subStepGoal33 =>
+      'Leve as 4 quinas amarelas para os lugares certos, mesmo que ainda estejam torcidas.';
+
+  @override
+  String get subStepGoal34 =>
+      'Gire cada quina amarela no lugar até todos os adesivos combinarem e o cubo ficar resolvido.';
 
   @override
   String get explainOptimal2x2 =>
@@ -1936,7 +1981,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get trackBeginner => '3×3 iniciante (camada por camada)';
+  String get trackBeginner => '3×3 iniciante: as 3 coroas';
 
   @override
   String get trackCfop => 'Introdução ao CFOP';
@@ -2092,14 +2137,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get explainReductionPllParity =>
       'Paridade de PLL: dois meios estão trocados, o que é impossível em um 3×3. Este algoritmo os destroca.';
-
-  @override
-  String get solveFastBigDesc =>
-      'Redução: centros, meios e paridade, depois Kociemba';
-
-  @override
-  String get solveLearnBigDesc =>
-      'Redução terminada com o método iniciante camada por camada';
 
   @override
   String get patternsTitle => 'Biblioteca de padrões';
@@ -2263,12 +2300,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Um apóstrofo (R\') gira para o outro lado, no sentido anti-horário. Um 2 (U2) é meia-volta: dois quartos de volta.';
 
   @override
-  String get lessonCross => 'Cruz branca';
-
-  @override
-  String get lessonCrossDesc => 'Monte uma cruz branca na face de baixo.';
-
-  @override
   String get stepCrossGoal => 'O objetivo';
 
   @override
@@ -2290,12 +2321,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Um meio preso na camada do meio sobe primeiro: gire a lateral dele para cima, tire a camada de cima do caminho e volte a lateral, assim a cruz não se desfaz. Depois posicione-o por cima.';
 
   @override
-  String get lessonCorners => 'Quinas brancas';
-
-  @override
-  String get lessonCornersDesc => 'Termine a primeira camada.';
-
-  @override
   String get stepCornersInsert => 'Sobre o seu lugar';
 
   @override
@@ -2308,12 +2333,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get stepCornersRepeatBody =>
       'Se o branco estiver virado para o lado errado, continue repetindo R U R\' U\' sobre o mesmo lugar. Toda quina fica resolvida em no máximo cinco repetições.';
-
-  @override
-  String get lessonMiddle => 'Camada do meio';
-
-  @override
-  String get lessonMiddleDesc => 'Insira os quatro meios da camada do meio.';
 
   @override
   String get stepMiddleRight => 'Meio para a direita';
@@ -2330,12 +2349,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Se a cor de cima combinar com o centro da esquerda, use o espelho: U\' L\' U L U F U\' F\'.';
 
   @override
-  String get lessonLastLayer => 'Cruz e meios amarelos';
-
-  @override
-  String get lessonLastLayerDesc => 'Faça uma cruz em cima e alinhe os meios.';
-
-  @override
   String get stepYellowCross => 'Um só algoritmo';
 
   @override
@@ -2348,12 +2361,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get stepYellowEdgesBody =>
       'Gire a camada de cima até dois meios combinarem com seus centros. Com um atrás e outro à direita, R U R\' U R U2 R\' U troca os outros dois.';
-
-  @override
-  String get lessonLastCorners => 'Quinas amarelas';
-
-  @override
-  String get lessonLastCornersDesc => 'Posicione e oriente as últimas quinas.';
 
   @override
   String get stepPlaceCorners => 'Posicione';

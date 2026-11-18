@@ -9,6 +9,8 @@ import 'lesson_screen.dart';
 import 'model/academy_progress.dart';
 import 'model/lesson.dart';
 import 'model/lesson_catalog.dart';
+import '../../core/l10n/crown_words.dart';
+import '../solver_3d/widgets/crown_tracker.dart';
 
 /// Opens [lesson], first asking the reward gate when it is advanced.
 Future<void> openLesson(
@@ -84,7 +86,10 @@ class AcademyScreen extends ConsumerWidget {
                     const SizedBox(height: 8),
                     for (final lesson in kLessons.where(
                       (l) => l.track == track,
-                    ))
+                    )) ...[
+                      // A header opens each crown of the beginner's method.
+                      if (lesson.crown > 0 && lesson.subStep == 1)
+                        _CrownSectionHeader(crown: lesson.crown),
                       Padding(
                         padding: const EdgeInsetsDirectional.only(bottom: 8),
                         child: _LessonTile(
@@ -93,6 +98,7 @@ class AcademyScreen extends ConsumerWidget {
                           done: progress.isDone(lesson.id),
                         ),
                       ),
+                    ],
                   ],
                 ],
               ),
@@ -204,4 +210,48 @@ class _Badge extends StatelessWidget {
           ?.copyWith(color: color, fontWeight: FontWeight.w700),
     ),
   );
+}
+
+/// "First crown · White face and first layer" above that crown's lessons.
+class _CrownSectionHeader extends StatelessWidget {
+  const _CrownSectionHeader({required this.crown});
+
+  final int crown;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final textTheme = Theme.of(context).textTheme;
+    return Padding(
+      key: ValueKey('academy-crown-$crown'),
+      padding: const EdgeInsetsDirectional.fromSTEB(4, 6, 4, 6),
+      child: Row(
+        children: [
+          CrownTracker(active: crown),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text.rich(
+              TextSpan(
+                children: [
+                  TextSpan(
+                    text: crownName(l10n, crown),
+                    style: textTheme.titleSmall?.copyWith(
+                      color: AppColors.accent,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  TextSpan(
+                    text: ' · ${crownGoal(l10n, crown)}',
+                    style: textTheme.bodySmall?.copyWith(
+                      color: AppColors.textSecondary,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }

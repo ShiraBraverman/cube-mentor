@@ -170,21 +170,16 @@ class AppLocalizationsFr extends AppLocalizations {
   String get solving => 'Résolution…';
 
   @override
-  String get solveChooseMethod => 'Comment voulez-vous le résoudre ';
-
-  @override
   String get solveFast => 'Résolution rapide';
-
-  @override
-  String get solveFastDesc =>
-      'Algorithme en deux phases de Kociemba · environ 20 mouvements';
 
   @override
   String get solveLearn => 'Apprendre pas à pas';
 
   @override
-  String get solveLearnDesc =>
-      'Méthode débutant couche par couche, avec explications';
+  String get solveModeGuided => 'Guidé (3 couronnes)';
+
+  @override
+  String get solveModeFast => 'Rapide (optimal)';
 
   @override
   String solveUnavailable(int size) {
@@ -259,28 +254,75 @@ class AppLocalizationsFr extends AppLocalizations {
   String get phaseKociemba2 => 'Phase 2 · Terminer le cube';
 
   @override
-  String get phaseLblOrient => 'Tenez le cube';
-
-  @override
   String get phaseLblCross => 'Croix blanche';
 
   @override
-  String get phaseLblCorners => 'Coins blancs';
+  String get phaseLblCorners => 'Coins de la première couronne';
 
   @override
-  String get phaseLblMiddle => 'Couche du milieu';
+  String get phaseLblMiddle => 'Arêtes de la couche du milieu';
 
   @override
   String get phaseLblYellowCross => 'Croix jaune';
 
   @override
-  String get phaseLblYellowEdges => 'Arêtes jaunes';
+  String get phaseLblYellowEdges => 'Aligner les arêtes de la croix jaune';
 
   @override
   String get phaseLblYellowCorners => 'Placer les coins jaunes';
 
   @override
   String get phaseLblYellowCornersOrient => 'Orienter les coins jaunes';
+
+  @override
+  String get crownFirst => 'Première couronne';
+
+  @override
+  String get crownSecond => 'Deuxième couronne';
+
+  @override
+  String get crownThird => 'Troisième couronne';
+
+  @override
+  String get crownFirstGoal => 'Face blanche et première couche';
+
+  @override
+  String get crownSecondGoal => 'Couche du milieu';
+
+  @override
+  String get crownThirdGoal => 'Face jaune et dernière couche';
+
+  @override
+  String crownProgress(int current, int total) {
+    return 'Couronne $current sur $total';
+  }
+
+  @override
+  String get subStepGoal11 =>
+      'Formez une croix blanche dont chaque arête blanche correspond aussi au centre voisin.';
+
+  @override
+  String get subStepGoal12 =>
+      'Insérez les 4 coins blancs à leur place pour terminer la face blanche et toute la première couronne.';
+
+  @override
+  String get subStepGoal21 =>
+      'Insérez les 4 arêtes de la couche du milieu sans défaire la première couronne.';
+
+  @override
+  String get subStepGoal31 => 'Formez une croix jaune sur la dernière couche.';
+
+  @override
+  String get subStepGoal32 =>
+      'Échangez les arêtes de la croix jaune jusqu\'à ce que chacune corresponde à son centre latéral.';
+
+  @override
+  String get subStepGoal33 =>
+      'Amenez les 4 coins jaunes à leur place, même s’ils sont encore tournés.';
+
+  @override
+  String get subStepGoal34 =>
+      'Tournez chaque coin jaune sur place jusqu\'à ce que tous les autocollants correspondent et que le cube soit résolu.';
 
   @override
   String get explainOptimal2x2 =>
@@ -654,7 +696,7 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => '3×3 débutant (couche par couche)';
+  String get trackBeginner => '3×3 débutant : les 3 couronnes';
 
   @override
   String get trackCfop => 'Introduction au CFOP';
@@ -813,14 +855,6 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get explainReductionPllParity =>
       'Parité PLL  deux arêtes sont échangées, ce qui est impossible sur un 3×3. Cet algorithme les remet en place.';
-
-  @override
-  String get solveFastBigDesc =>
-      'Réduction  centres, arêtes et parité, puis Kociemba';
-
-  @override
-  String get solveLearnBigDesc =>
-      'Réduction terminée avec la méthode débutant couche par couche';
 
   @override
   String get patternsTitle => 'Bibliothèque de motifs';
@@ -985,12 +1019,6 @@ class AppLocalizationsFr extends AppLocalizations {
       'Une apostrophe (R\') tourne dans l\'autre sens, antihoraire. Un 2 (U2) est un demi-tour  deux quarts de tour.';
 
   @override
-  String get lessonCross => 'Croix blanche';
-
-  @override
-  String get lessonCrossDesc => 'Formez une croix blanche en bas.';
-
-  @override
   String get stepCrossGoal => 'L\'objectif';
 
   @override
@@ -1012,12 +1040,6 @@ class AppLocalizationsFr extends AppLocalizations {
       'Une arête coincée dans la couche du milieu remonte d\'abord  tournez sa face latérale vers le haut, écartez la couche du haut puis remettez la face latérale, pour garder la croix intacte. Placez-la ensuite depuis le haut.';
 
   @override
-  String get lessonCorners => 'Coins blancs';
-
-  @override
-  String get lessonCornersDesc => 'Terminez la première couche.';
-
-  @override
   String get stepCornersInsert => 'Au-dessus de sa place';
 
   @override
@@ -1030,12 +1052,6 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get stepCornersRepeatBody =>
       'Si le blanc est orienté du mauvais côté, continuez à répéter R U R\' U\' au même endroit. Chaque coin est résolu en cinq répétitions au maximum.';
-
-  @override
-  String get lessonMiddle => 'Couche du milieu';
-
-  @override
-  String get lessonMiddleDesc => 'Insérez les quatre arêtes du milieu.';
 
   @override
   String get stepMiddleRight => 'Arête vers la droite';
@@ -1052,13 +1068,6 @@ class AppLocalizationsFr extends AppLocalizations {
       'Si sa couleur du dessus correspond plutôt au centre de gauche, utilisez le miroir  U\' L\' U L U F U\' F\'.';
 
   @override
-  String get lessonLastLayer => 'Croix et arêtes jaunes';
-
-  @override
-  String get lessonLastLayerDesc =>
-      'Faites une croix en haut et alignez ses arêtes.';
-
-  @override
   String get stepYellowCross => 'Un seul algorithme';
 
   @override
@@ -1071,12 +1080,6 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get stepYellowEdgesBody =>
       'Tournez la couche du haut jusqu\'à ce que deux arêtes correspondent à leurs centres. Avec l\'une à l\'arrière et l\'autre à droite, R U R\' U R U2 R\' U échange les deux autres.';
-
-  @override
-  String get lessonLastCorners => 'Coins jaunes';
-
-  @override
-  String get lessonLastCornersDesc => 'Placez et orientez les derniers coins.';
 
   @override
   String get stepPlaceCorners => 'Placez-les';

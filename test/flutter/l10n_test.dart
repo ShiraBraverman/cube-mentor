@@ -1,4 +1,5 @@
 import 'package:cube_mentor/app.dart';
+import 'package:cube_mentor/core/cube/cube_move.dart';
 import 'package:cube_mentor/core/cube/cube_state.dart';
 import 'package:cube_mentor/core/l10n/generated/app_localizations.dart';
 import 'package:cube_mentor/core/scramble/scrambler.dart';
@@ -7,6 +8,7 @@ import 'package:cube_mentor/core/vision/scan_analyzer.dart';
 import 'package:cube_mentor/core/settings/locale_controller.dart';
 import 'package:cube_mentor/core/settings/preferences.dart';
 import 'package:cube_mentor/core/solver/cube_solver.dart';
+import 'package:cube_mentor/core/solver/solve_step.dart';
 import 'package:cube_mentor/features/academy/academy_screen.dart';
 import 'package:cube_mentor/features/academy/lesson_screen.dart';
 import 'package:cube_mentor/features/academy/model/lesson.dart';
@@ -229,13 +231,40 @@ void main() {
       SharedPreferences.setMockInitialValues({'app_locale': language.tag});
       final prefs = await SharedPreferences.getInstance();
 
+      // A guided (3-crown) plan for the playground banner.
+      final guided = FakeCubeSolver(
+        plan: const SolvePlan(
+          method: 'lbl',
+          steps: [
+            SolveStep(
+              cubeState: '',
+              phaseName: 'lblYellowCorners',
+              moveNotation: "U'",
+              explanationKey: 'lblYellowCornersAlg',
+              crown: 3,
+              subStep: 3,
+            ),
+            SolveStep(
+              cubeState: '',
+              phaseName: 'lblYellowCornersOrient',
+              moveNotation: "R'",
+              explanationKey: 'lblCornerTwist',
+              crown: 3,
+              subStep: 4,
+            ),
+          ],
+        ),
+      );
+
       Future<void> show(Widget screen, {bool scroll = true}) async {
         await tester.pumpWidget(
           ProviderScope(
+            // A fresh scope (and screen state) for every screen.
+            key: UniqueKey(),
             overrides: [
               sharedPreferencesProvider.overrideWithValue(prefs),
               scramblerProvider.overrideWithValue(FakeScrambler()),
-              cubeSolverProvider.overrideWithValue(FakeCubeSolver()),
+              cubeSolverProvider.overrideWithValue(guided),
               clockProvider.overrideWithValue(() => DateTime(2026, 11, 16, 8)),
               scanAnalyzerProvider.overrideWithValue(FakeScanAnalyzer()),
             ],
@@ -292,12 +321,22 @@ void main() {
         expect(tester.takeException(), isNull, reason: hint.name);
       }
 
-      // The playground with its solve-method sheet.
+      // The playground, then a guided solve: crown tracker, sub-step title
+      // with the step counter, and the Guided / Fast toggle.
       await show(Solver3DScreen(size: 4, initialCube: CubeState.solved(4)));
-      await show(const Solver3DScreen(size: 6));
+      await show(
+        Solver3DScreen(
+          size: 3,
+          initialCube: CubeState.solved(3)
+              .applyAll(MoveNotation.parseSequence('R U', 3)),
+        ),
+        scroll: false,
+      );
       await tester.tap(find.byKey(const ValueKey('solve')));
       await _advance(tester, 8);
-      expect(tester.takeException(), isNull);
+      expect(find.byKey(const ValueKey('crown-substep')), findsOneWidget);
+      expect(find.byKey(const ValueKey('solve-mode')), findsOneWidget);
+      expect(tester.takeException(), isNull, reason: 'guided banner');
 
       // The language sheet itself.
       await show(const HomeScreen(), scroll: false);

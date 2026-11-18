@@ -17,7 +17,9 @@ SolveResult solveCube(int size, SolveMethod method, const std::string& facelets)
 /// Serializes a result as compact JSON:
 /// {"ok":true,"method":"lbl","millis":1.2,"steps":[{"move":"R","state":"...",
 ///  "phase":"lblCross","explanation":"lblCrossEdge","piece":"WR",
-///  "highlight":[[2,-2,0]]}]}  or  {"ok":false,"error":"parity"}
+///  "crown":1,"subStep":1,"highlight":[[2,-2,0]]}]}
+/// or {"ok":false,"error":"parity"}. "crown"/"subStep" appear on
+/// layer-by-layer steps only.
 std::string toJson(const SolveResult& result);
 
 }  // namespace cm

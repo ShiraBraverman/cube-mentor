@@ -171,19 +171,16 @@ class AppLocalizationsRu extends AppLocalizations {
   String get solving => 'Сборка…';
 
   @override
-  String get solveChooseMethod => 'Как вы хотите его собрать?';
-
-  @override
   String get solveFast => 'Быстрая сборка';
-
-  @override
-  String get solveFastDesc => 'Двухфазный алгоритм Коцембы · около 20 ходов';
 
   @override
   String get solveLearn => 'Учиться шаг за шагом';
 
   @override
-  String get solveLearnDesc => 'Послойный метод для начинающих с объяснениями';
+  String get solveModeGuided => 'С подсказками (3 короны)';
+
+  @override
+  String get solveModeFast => 'Быстро (оптимально)';
 
   @override
   String solveUnavailable(int size) {
@@ -258,28 +255,75 @@ class AppLocalizationsRu extends AppLocalizations {
   String get phaseKociemba2 => 'Фаза 2 · Завершение';
 
   @override
-  String get phaseLblOrient => 'Возьмите кубик';
-
-  @override
   String get phaseLblCross => 'Белый крест';
 
   @override
-  String get phaseLblCorners => 'Белые углы';
+  String get phaseLblCorners => 'Углы первой короны';
 
   @override
-  String get phaseLblMiddle => 'Средний слой';
+  String get phaseLblMiddle => 'Рёбра среднего слоя';
 
   @override
   String get phaseLblYellowCross => 'Жёлтый крест';
 
   @override
-  String get phaseLblYellowEdges => 'Жёлтые рёбра';
+  String get phaseLblYellowEdges => 'Выравнивание рёбер жёлтого креста';
 
   @override
-  String get phaseLblYellowCorners => 'Расставить жёлтые углы';
+  String get phaseLblYellowCorners => 'Расстановка жёлтых углов';
 
   @override
-  String get phaseLblYellowCornersOrient => 'Развернуть жёлтые углы';
+  String get phaseLblYellowCornersOrient => 'Ориентация жёлтых углов';
+
+  @override
+  String get crownFirst => 'Первая корона';
+
+  @override
+  String get crownSecond => 'Вторая корона';
+
+  @override
+  String get crownThird => 'Третья корона';
+
+  @override
+  String get crownFirstGoal => 'Белая грань и первый слой';
+
+  @override
+  String get crownSecondGoal => 'Средний слой';
+
+  @override
+  String get crownThirdGoal => 'Жёлтая грань и последний слой';
+
+  @override
+  String crownProgress(int current, int total) {
+    return 'Корона $current из $total';
+  }
+
+  @override
+  String get subStepGoal11 =>
+      'Соберите белый крест, в котором каждое белое ребро совпадает и с соседним центром.';
+
+  @override
+  String get subStepGoal12 =>
+      'Вставьте 4 белых угла на свои места, чтобы завершить белую грань и всё первое кольцо.';
+
+  @override
+  String get subStepGoal21 =>
+      'Вставьте 4 ребра среднего слоя, не разрушая первую корону.';
+
+  @override
+  String get subStepGoal31 => 'Соберите жёлтый крест на последнем слое.';
+
+  @override
+  String get subStepGoal32 =>
+      'Меняйте рёбра жёлтого креста местами, пока каждое не совпадёт со своим боковым центром.';
+
+  @override
+  String get subStepGoal33 =>
+      'Поставьте 4 жёлтых угла на правильные места, даже если они ещё повёрнуты.';
+
+  @override
+  String get subStepGoal34 =>
+      'Поворачивайте каждый жёлтый угол на месте, пока все наклейки не совпадут и кубик не будет собран.';
 
   @override
   String get explainOptimal2x2 =>
@@ -654,7 +698,7 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => '3×3 для начинающих (послойно)';
+  String get trackBeginner => '3×3 для начинающих: 3 короны';
 
   @override
   String get trackCfop => 'Введение в CFOP';
@@ -809,14 +853,6 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get explainReductionPllParity =>
       'PLL-паритет: два ребра поменялись местами, что невозможно на 3×3. Этот алгоритм меняет их обратно.';
-
-  @override
-  String get solveFastBigDesc =>
-      'Редукция: центры, рёбра и паритет, затем Коцемба';
-
-  @override
-  String get solveLearnBigDesc =>
-      'Редукция, завершённая послойным методом для начинающих';
 
   @override
   String get patternsTitle => 'Библиотека узоров';
@@ -979,12 +1015,6 @@ class AppLocalizationsRu extends AppLocalizations {
       'Апостроф (R\') — поворот в другую сторону, против часовой стрелки. Двойка (U2) — пол-оборота, то есть две четверти.';
 
   @override
-  String get lessonCross => 'Белый крест';
-
-  @override
-  String get lessonCrossDesc => 'Соберите белый крест внизу.';
-
-  @override
   String get stepCrossGoal => 'Цель';
 
   @override
@@ -1006,12 +1036,6 @@ class AppLocalizationsRu extends AppLocalizations {
       'Ребро, застрявшее в среднем слое, сначала поднимите: поверните его боковую грань вверх, уберите верхний слой в сторону и верните боковую грань, чтобы крест не разрушился. Затем поставьте ребро сверху.';
 
   @override
-  String get lessonCorners => 'Белые углы';
-
-  @override
-  String get lessonCornersDesc => 'Закончите первый слой.';
-
-  @override
   String get stepCornersInsert => 'Над своим местом';
 
   @override
@@ -1024,12 +1048,6 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get stepCornersRepeatBody =>
       'Если белый цвет смотрит не туда, продолжайте повторять R U R\' U\' над тем же местом. Любой угол собирается не более чем за пять повторов.';
-
-  @override
-  String get lessonMiddle => 'Средний слой';
-
-  @override
-  String get lessonMiddleDesc => 'Вставьте четыре средних ребра.';
 
   @override
   String get stepMiddleRight => 'Ребро вправо';
@@ -1046,12 +1064,6 @@ class AppLocalizationsRu extends AppLocalizations {
       'Если верхний цвет совпадает с левым центром, используйте зеркальный вариант: U\' L\' U L U F U\' F\'.';
 
   @override
-  String get lessonLastLayer => 'Жёлтый крест и рёбра';
-
-  @override
-  String get lessonLastLayerDesc => 'Соберите крест сверху и совместите рёбра.';
-
-  @override
   String get stepYellowCross => 'Один алгоритм';
 
   @override
@@ -1064,12 +1076,6 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get stepYellowEdgesBody =>
       'Вращайте верх, пока два ребра не совпадут со своими центрами. Если одно сзади, а другое справа, R U R\' U R U2 R\' U поменяет местами два оставшихся.';
-
-  @override
-  String get lessonLastCorners => 'Жёлтые углы';
-
-  @override
-  String get lessonLastCornersDesc => 'Расставьте и разверните последние углы.';
 
   @override
   String get stepPlaceCorners => 'Расставьте';

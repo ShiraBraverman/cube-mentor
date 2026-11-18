@@ -166,19 +166,16 @@ class AppLocalizationsHi extends AppLocalizations {
   String get solving => 'हल हो रहा है…';
 
   @override
-  String get solveChooseMethod => 'आप इसे कैसे हल करना चाहते हैं?';
-
-  @override
   String get solveFast => 'तेज़ हल';
-
-  @override
-  String get solveFastDesc => 'कोसिएम्बा का टू-फ़ेज़ एल्गोरिदम · लगभग 20 चालें';
 
   @override
   String get solveLearn => 'कदम-दर-कदम सीखें';
 
   @override
-  String get solveLearnDesc => 'व्याख्या के साथ शुरुआती परत-दर-परत तरीका';
+  String get solveModeGuided => 'गाइडेड (3 मुकुट)';
+
+  @override
+  String get solveModeFast => 'तेज़ (ऑप्टिमल)';
 
   @override
   String solveUnavailable(int size) {
@@ -251,28 +248,75 @@ class AppLocalizationsHi extends AppLocalizations {
   String get phaseKociemba2 => 'चरण 2 · क्यूब पूरा करें';
 
   @override
-  String get phaseLblOrient => 'क्यूब पकड़ें';
-
-  @override
   String get phaseLblCross => 'सफ़ेद क्रॉस';
 
   @override
-  String get phaseLblCorners => 'सफ़ेद कोने';
+  String get phaseLblCorners => 'पहले मुकुट के कोने';
 
   @override
-  String get phaseLblMiddle => 'बीच की परत';
+  String get phaseLblMiddle => 'बीच की परत के एज';
 
   @override
   String get phaseLblYellowCross => 'पीला क्रॉस';
 
   @override
-  String get phaseLblYellowEdges => 'पीले एज';
+  String get phaseLblYellowEdges => 'पीले क्रॉस के एज मिलाएँ';
 
   @override
-  String get phaseLblYellowCorners => 'पीले कोने जगह पर रखें';
+  String get phaseLblYellowCorners => 'पीले कोनों को सही जगह रखें';
 
   @override
-  String get phaseLblYellowCornersOrient => 'पीले कोने घुमाएँ';
+  String get phaseLblYellowCornersOrient => 'पीले कोनों की दिशा ठीक करें';
+
+  @override
+  String get crownFirst => 'पहला मुकुट';
+
+  @override
+  String get crownSecond => 'दूसरा मुकुट';
+
+  @override
+  String get crownThird => 'तीसरा मुकुट';
+
+  @override
+  String get crownFirstGoal => 'सफ़ेद फ़ेस और पहली परत';
+
+  @override
+  String get crownSecondGoal => 'बीच की परत';
+
+  @override
+  String get crownThirdGoal => 'पीला फ़ेस और आख़िरी परत';
+
+  @override
+  String crownProgress(int current, int total) {
+    return 'मुकुट $current / $total';
+  }
+
+  @override
+  String get subStepGoal11 =>
+      'ऐसा सफ़ेद क्रॉस बनाएँ जिसमें हर सफ़ेद एज बगल वाले केंद्र के रंग से भी मेल खाए।';
+
+  @override
+  String get subStepGoal12 =>
+      'सफ़ेद फ़ेस और पूरी पहली परत पूरी करने के लिए 4 सफ़ेद कोनों को उनकी सही जगह डालें।';
+
+  @override
+  String get subStepGoal21 =>
+      'पहले मुकुट को बिगाड़े बिना बीच की परत के 4 एज डालें।';
+
+  @override
+  String get subStepGoal31 => 'आख़िरी परत पर पीला क्रॉस बनाएँ।';
+
+  @override
+  String get subStepGoal32 =>
+      'पीले क्रॉस के एज तब तक बदलें जब तक हर एज अपने साइड के केंद्र से मेल न खाए।';
+
+  @override
+  String get subStepGoal33 =>
+      '4 पीले कोनों को उनकी सही जगह पर लाएँ, भले ही वे अभी मुड़े हुए हों।';
+
+  @override
+  String get subStepGoal34 =>
+      'हर पीले कोने को उसी जगह घुमाएँ जब तक सारे स्टिकर मेल न खाएँ और क्यूब हल न हो जाए।';
 
   @override
   String get explainOptimal2x2 =>
@@ -639,7 +683,7 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => 'शुरुआती 3×3 (परत-दर-परत)';
+  String get trackBeginner => 'शुरुआती 3×3: 3 मुकुट';
 
   @override
   String get trackCfop => 'CFOP का परिचय';
@@ -798,13 +842,6 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get explainReductionPllParity =>
       'PLL पैरिटी: दो एज आपस में बदले हुए हैं, जो 3×3 पर असंभव है। यह एल्गोरिदम उन्हें वापस बदल देता है।';
-
-  @override
-  String get solveFastBigDesc => 'रिडक्शन: केंद्र, एज और पैरिटी, फिर कोसिएम्बा';
-
-  @override
-  String get solveLearnBigDesc =>
-      'रिडक्शन, फिर शुरुआती परत-दर-परत तरीके से पूरा';
 
   @override
   String get patternsTitle => 'पैटर्न लाइब्रेरी';
@@ -969,12 +1006,6 @@ class AppLocalizationsHi extends AppLocalizations {
       'एपॉस्ट्रॉफ़ी (R\') का मतलब है उलटी दिशा में, यानी घड़ी की उलटी दिशा में घुमाना। 2 (U2) का मतलब है आधा घुमाव: दो चौथाई घुमाव।';
 
   @override
-  String get lessonCross => 'सफ़ेद क्रॉस';
-
-  @override
-  String get lessonCrossDesc => 'नीचे एक सफ़ेद क्रॉस बनाएँ।';
-
-  @override
   String get stepCrossGoal => 'लक्ष्य';
 
   @override
@@ -996,12 +1027,6 @@ class AppLocalizationsHi extends AppLocalizations {
       'बीच की परत में फँसा एज पहले ऊपर जाता है: उसकी साइड को ऊपर घुमाएँ, ऊपरी परत को रास्ते से हटाएँ और साइड को वापस घुमाएँ, ताकि क्रॉस न टूटे। फिर उसे ऊपर से रखें।';
 
   @override
-  String get lessonCorners => 'सफ़ेद कोने';
-
-  @override
-  String get lessonCornersDesc => 'पहली परत पूरी करें।';
-
-  @override
   String get stepCornersInsert => 'अपनी जगह के ऊपर';
 
   @override
@@ -1014,12 +1039,6 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get stepCornersRepeatBody =>
       'अगर सफ़ेद गलत दिशा में है, तो उसी जगह पर R U R\' U\' दोहराते रहें। हर कोना ज़्यादा से ज़्यादा पाँच बार में हल हो जाता है।';
-
-  @override
-  String get lessonMiddle => 'बीच की परत';
-
-  @override
-  String get lessonMiddleDesc => 'बीच के चारों एज डालें।';
 
   @override
   String get stepMiddleRight => 'एज दाईं ओर';
@@ -1036,12 +1055,6 @@ class AppLocalizationsHi extends AppLocalizations {
       'अगर उसका ऊपरी रंग बाएँ केंद्र से मेल खाता है, तो उलटा रूप इस्तेमाल करें: U\' L\' U L U F U\' F\'।';
 
   @override
-  String get lessonLastLayer => 'पीला क्रॉस और एज';
-
-  @override
-  String get lessonLastLayerDesc => 'ऊपर क्रॉस बनाएँ और उसके एज मिलाएँ।';
-
-  @override
   String get stepYellowCross => 'एक ही एल्गोरिदम';
 
   @override
@@ -1054,12 +1067,6 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get stepYellowEdgesBody =>
       'ऊपरी परत घुमाएँ जब तक दो एज अपने केंद्रों से मेल न खाएँ। एक पीछे और एक दाईं ओर हो, तो R U R\' U R U2 R\' U बाकी दो की अदला-बदली कर देता है।';
-
-  @override
-  String get lessonLastCorners => 'पीले कोने';
-
-  @override
-  String get lessonLastCornersDesc => 'आख़िरी कोनों को जगह पर रखें और घुमाएँ।';
 
   @override
   String get stepPlaceCorners => 'जगह पर रखें';

@@ -168,21 +168,16 @@ class AppLocalizationsId extends AppLocalizations {
   String get solving => 'Menyelesaikan…';
 
   @override
-  String get solveChooseMethod => 'Bagaimana kamu ingin menyelesaikannya?';
-
-  @override
   String get solveFast => 'Selesaikan cepat';
-
-  @override
-  String get solveFastDesc =>
-      'Algoritma dua fase Kociemba · sekitar 20 gerakan';
 
   @override
   String get solveLearn => 'Belajar langkah demi langkah';
 
   @override
-  String get solveLearnDesc =>
-      'Metode pemula lapis demi lapis, lengkap dengan penjelasan';
+  String get solveModeGuided => 'Terpandu (3 mahkota)';
+
+  @override
+  String get solveModeFast => 'Cepat (optimal)';
 
   @override
   String solveUnavailable(int size) {
@@ -257,28 +252,75 @@ class AppLocalizationsId extends AppLocalizations {
   String get phaseKociemba2 => 'Fase 2 · Selesaikan kubus';
 
   @override
-  String get phaseLblOrient => 'Pegang kubus';
-
-  @override
   String get phaseLblCross => 'Silang putih';
 
   @override
-  String get phaseLblCorners => 'Sudut putih';
+  String get phaseLblCorners => 'Sudut mahkota pertama';
 
   @override
-  String get phaseLblMiddle => 'Lapisan tengah';
+  String get phaseLblMiddle => 'Rusuk lapisan tengah';
 
   @override
   String get phaseLblYellowCross => 'Silang kuning';
 
   @override
-  String get phaseLblYellowEdges => 'Rusuk kuning';
+  String get phaseLblYellowEdges => 'Selaraskan rusuk silang kuning';
 
   @override
   String get phaseLblYellowCorners => 'Tempatkan sudut kuning';
 
   @override
-  String get phaseLblYellowCornersOrient => 'Putar sudut kuning';
+  String get phaseLblYellowCornersOrient => 'Orientasikan sudut kuning';
+
+  @override
+  String get crownFirst => 'Mahkota pertama';
+
+  @override
+  String get crownSecond => 'Mahkota kedua';
+
+  @override
+  String get crownThird => 'Mahkota ketiga';
+
+  @override
+  String get crownFirstGoal => 'Sisi putih dan lapisan pertama';
+
+  @override
+  String get crownSecondGoal => 'Lapisan tengah';
+
+  @override
+  String get crownThirdGoal => 'Sisi kuning dan lapisan terakhir';
+
+  @override
+  String crownProgress(int current, int total) {
+    return 'Mahkota $current dari $total';
+  }
+
+  @override
+  String get subStepGoal11 =>
+      'Bentuk silang putih yang setiap rusuk putihnya juga cocok dengan warna pusat di sebelahnya.';
+
+  @override
+  String get subStepGoal12 =>
+      'Masukkan 4 sudut putih ke slotnya untuk menyelesaikan sisi putih dan seluruh cincin pertama.';
+
+  @override
+  String get subStepGoal21 =>
+      'Masukkan 4 rusuk lapisan tengah tanpa merusak mahkota pertama.';
+
+  @override
+  String get subStepGoal31 => 'Bentuk silang kuning di lapisan terakhir.';
+
+  @override
+  String get subStepGoal32 =>
+      'Tukar rusuk silang kuning sampai masing-masing cocok dengan pusat sisinya.';
+
+  @override
+  String get subStepGoal33 =>
+      'Pindahkan 4 sudut kuning ke tempat yang benar, meskipun masih terpelintir.';
+
+  @override
+  String get subStepGoal34 =>
+      'Putar setiap sudut kuning di tempatnya sampai semua stiker cocok dan kubus selesai.';
 
   @override
   String get explainOptimal2x2 =>
@@ -643,7 +685,7 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => '3×3 pemula (lapis demi lapis)';
+  String get trackBeginner => '3×3 pemula: 3 mahkota';
 
   @override
   String get trackCfop => 'Pengenalan CFOP';
@@ -801,14 +843,6 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get explainReductionPllParity =>
       'Paritas PLL: dua rusuk tertukar, hal yang mustahil pada 3×3. Algoritma ini menukarnya kembali.';
-
-  @override
-  String get solveFastBigDesc =>
-      'Reduksi: pusat, rusuk, dan paritas, lalu Kociemba';
-
-  @override
-  String get solveLearnBigDesc =>
-      'Reduksi, diselesaikan dengan metode pemula lapis demi lapis';
 
   @override
   String get patternsTitle => 'Pustaka pola';
@@ -970,12 +1004,6 @@ class AppLocalizationsId extends AppLocalizations {
       'Tanda petik (R\') berarti putar ke arah sebaliknya, berlawanan arah jarum jam. Angka 2 (U2) berarti setengah putaran: dua kali seperempat putaran.';
 
   @override
-  String get lessonCross => 'Silang putih';
-
-  @override
-  String get lessonCrossDesc => 'Bentuk silang putih di bagian bawah.';
-
-  @override
   String get stepCrossGoal => 'Tujuannya';
 
   @override
@@ -997,12 +1025,6 @@ class AppLocalizationsId extends AppLocalizations {
       'Rusuk yang tersangkut di lapisan tengah dinaikkan dulu: putar sisinya ke atas, geser lapisan atas agar tidak menghalangi, lalu kembalikan sisinya supaya silang tetap utuh. Setelah itu tempatkan dari atas.';
 
   @override
-  String get lessonCorners => 'Sudut putih';
-
-  @override
-  String get lessonCornersDesc => 'Selesaikan lapisan pertama.';
-
-  @override
   String get stepCornersInsert => 'Di atas tempatnya';
 
   @override
@@ -1015,12 +1037,6 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get stepCornersRepeatBody =>
       'Jika putih menghadap ke arah yang salah, terus ulangi R U R\' U\' di tempat yang sama. Setiap sudut selesai paling banyak dalam lima kali ulangan.';
-
-  @override
-  String get lessonMiddle => 'Lapisan tengah';
-
-  @override
-  String get lessonMiddleDesc => 'Masukkan keempat rusuk tengah.';
 
   @override
   String get stepMiddleRight => 'Rusuk ke kanan';
@@ -1037,13 +1053,6 @@ class AppLocalizationsId extends AppLocalizations {
       'Jika warna atasnya cocok dengan pusat kiri, gunakan versi cerminnya: U\' L\' U L U F U\' F\'.';
 
   @override
-  String get lessonLastLayer => 'Silang & rusuk kuning';
-
-  @override
-  String get lessonLastLayerDesc =>
-      'Buat silang di atas dan cocokkan rusuknya.';
-
-  @override
   String get stepYellowCross => 'Satu algoritma';
 
   @override
@@ -1056,12 +1065,6 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get stepYellowEdgesBody =>
       'Putar lapisan atas sampai dua rusuk cocok dengan pusatnya. Dengan satu di belakang dan satu di kanan, R U R\' U R U2 R\' U menukar dua rusuk lainnya.';
-
-  @override
-  String get lessonLastCorners => 'Sudut kuning';
-
-  @override
-  String get lessonLastCornersDesc => 'Tempatkan dan putar sudut terakhir.';
 
   @override
   String get stepPlaceCorners => 'Tempatkan';

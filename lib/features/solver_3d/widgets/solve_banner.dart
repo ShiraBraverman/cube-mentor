@@ -9,6 +9,8 @@ import '../../../core/solver/solve_step.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/glass.dart';
 import '../model/cube_session.dart';
+import '../../../core/l10n/crown_words.dart';
+import 'crown_tracker.dart';
 
 /// Glass banner above the cube explaining the current solution step: the
 /// phase and progress, what this move achieves, the move itself and how to
@@ -35,6 +37,7 @@ class SolveBanner extends ConsumerWidget {
 
     final Widget content;
     if (complete) {
+      final guided = session.steps.any((s) => s.hasCrown);
       content = Row(
         key: const ValueKey('solve-complete'),
         children: [
@@ -43,6 +46,11 @@ class SolveBanner extends ConsumerWidget {
             color: AppColors.accentSecondary,
           ),
           const SizedBox(width: 12),
+          // All three crowns finished.
+          if (guided) ...[
+            const CrownTracker(active: kCrowns + 1),
+            const SizedBox(width: 12),
+          ],
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,26 +83,40 @@ class SolveBanner extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Row(
-                  children: [
-                    Expanded(
+                if (step.hasCrown)
+                  CrownHeader(
+                    step: step,
+                    subStepTitle: subStepTitle(l10n, step.crown, step.subStep),
+                    trailing: Padding(
+                      padding: const EdgeInsetsDirectional.only(start: 8),
                       child: Text(
-                        solvePhaseTitle(l10n, step.phaseName),
-                        style: textTheme.labelLarge?.copyWith(
-                          color: AppColors.accent,
-                          fontWeight: FontWeight.w700,
-                        ),
-                        overflow: TextOverflow.ellipsis,
+                        l10n.playbackProgress(index + 1, total),
+                        key: const ValueKey('solve-progress'),
+                        style: secondary,
                       ),
                     ),
-                    const SizedBox(width: 8),
-                    Text(
-                      l10n.playbackProgress(index + 1, total),
-                      key: const ValueKey('solve-progress'),
-                      style: secondary,
-                    ),
-                  ],
-                ),
+                  )
+                else
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          solvePhaseTitle(l10n, step.phaseName),
+                          style: textTheme.labelLarge?.copyWith(
+                            color: AppColors.accent,
+                            fontWeight: FontWeight.w700,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        l10n.playbackProgress(index + 1, total),
+                        key: const ValueKey('solve-progress'),
+                        style: secondary,
+                      ),
+                    ],
+                  ),
                 const SizedBox(height: 2),
                 Text(
                   solveExplanation(l10n, step),
@@ -129,20 +151,31 @@ class SolveBanner extends ConsumerWidget {
     return GlassCard(
       borderRadius: 18,
       padding: const EdgeInsetsDirectional.fromSTEB(12, 10, 4, 10),
-      child: Row(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Expanded(
-            child: AnimatedSwitcher(
-              duration: const Duration(milliseconds: 180),
-              child: content,
+          // Guided (3 crowns) / Fast; outside the per-step animation.
+          if (!complete)
+            Padding(
+              padding: const EdgeInsetsDirectional.only(end: 8, bottom: 6),
+              child: SolveMethodToggle(size: size),
             ),
-          ),
-          IconButton(
-            key: const ValueKey('guide-exit'),
-            tooltip: l10n.guideExit,
-            visualDensity: VisualDensity.compact,
-            onPressed: controller.clearSolution,
-            icon: const Icon(Icons.close_rounded, size: 20),
+          Row(
+            children: [
+              Expanded(
+                child: AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 180),
+                  child: content,
+                ),
+              ),
+              IconButton(
+                key: const ValueKey('guide-exit'),
+                tooltip: l10n.guideExit,
+                visualDensity: VisualDensity.compact,
+                onPressed: controller.clearSolution,
+                icon: const Icon(Icons.close_rounded, size: 20),
+              ),
+            ],
           ),
         ],
       ),
@@ -207,7 +240,6 @@ String solvePhaseTitle(AppLocalizations l10n, String phase) => switch (phase) {
   'optimal2x2' => l10n.phaseOptimal2x2,
   'kociembaPhase1' => l10n.phaseKociemba1,
   'kociembaPhase2' => l10n.phaseKociemba2,
-  'lblOrient' => l10n.phaseLblOrient,
   'lblCross' => l10n.phaseLblCross,
   'lblCorners' => l10n.phaseLblCorners,
   'lblMiddle' => l10n.phaseLblMiddle,

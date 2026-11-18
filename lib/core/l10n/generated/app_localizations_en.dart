@@ -167,20 +167,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get solving => 'Solving…';
 
   @override
-  String get solveChooseMethod => 'How do you want to solve it?';
-
-  @override
   String get solveFast => 'Fast solve';
-
-  @override
-  String get solveFastDesc => 'Kociemba two-phase algorithm · about 20 moves';
 
   @override
   String get solveLearn => 'Learn step by step';
 
   @override
-  String get solveLearnDesc =>
-      'Beginner\'s layer-by-layer method with explanations';
+  String get solveModeGuided => 'Guided (3 crowns)';
+
+  @override
+  String get solveModeFast => 'Fast (optimal)';
 
   @override
   String solveUnavailable(int size) {
@@ -255,28 +251,75 @@ class AppLocalizationsEn extends AppLocalizations {
   String get phaseKociemba2 => 'Phase 2 · Finish the cube';
 
   @override
-  String get phaseLblOrient => 'Hold the cube';
-
-  @override
   String get phaseLblCross => 'White cross';
 
   @override
-  String get phaseLblCorners => 'White corners';
+  String get phaseLblCorners => 'First crown corners';
 
   @override
-  String get phaseLblMiddle => 'Middle layer';
+  String get phaseLblMiddle => 'Middle layer edges';
 
   @override
   String get phaseLblYellowCross => 'Yellow cross';
 
   @override
-  String get phaseLblYellowEdges => 'Yellow edges';
+  String get phaseLblYellowEdges => 'Align the yellow cross edges';
 
   @override
-  String get phaseLblYellowCorners => 'Place the yellow corners';
+  String get phaseLblYellowCorners => 'Position the yellow corners';
 
   @override
-  String get phaseLblYellowCornersOrient => 'Twist the yellow corners';
+  String get phaseLblYellowCornersOrient => 'Orient the yellow corners';
+
+  @override
+  String get crownFirst => 'First crown';
+
+  @override
+  String get crownSecond => 'Second crown';
+
+  @override
+  String get crownThird => 'Third crown';
+
+  @override
+  String get crownFirstGoal => 'White face and first layer';
+
+  @override
+  String get crownSecondGoal => 'Middle layer';
+
+  @override
+  String get crownThirdGoal => 'Yellow face and last layer';
+
+  @override
+  String crownProgress(int current, int total) {
+    return 'Crown $current of $total';
+  }
+
+  @override
+  String get subStepGoal11 =>
+      'Form a white cross where every white edge also matches the center color beside it.';
+
+  @override
+  String get subStepGoal12 =>
+      'Insert the 4 white corners into their matching slots to finish the white face and the whole first ring.';
+
+  @override
+  String get subStepGoal21 =>
+      'Insert the 4 middle-layer edges without disturbing the first crown.';
+
+  @override
+  String get subStepGoal31 => 'Form a yellow cross on the last layer.';
+
+  @override
+  String get subStepGoal32 =>
+      'Swap the yellow cross edges until each one matches its side center.';
+
+  @override
+  String get subStepGoal33 =>
+      'Move the 4 yellow corners to their correct places, even if they are still twisted.';
+
+  @override
+  String get subStepGoal34 =>
+      'Twist each yellow corner in place until every sticker matches and the cube is solved.';
 
   @override
   String get explainOptimal2x2 =>
@@ -644,7 +687,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => 'Beginner 3×3 (layer by layer)';
+  String get trackBeginner => 'Beginner 3×3: the 3 crowns';
 
   @override
   String get trackCfop => 'Intro to CFOP';
@@ -801,14 +844,6 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get explainReductionPllParity =>
       'PLL parity: two edges are swapped, impossible on a 3×3. This algorithm swaps them back.';
-
-  @override
-  String get solveFastBigDesc =>
-      'Reduction: centers, edges and parity, then Kociemba';
-
-  @override
-  String get solveLearnBigDesc =>
-      'Reduction finished with the beginner\'s layer-by-layer method';
 
   @override
   String get patternsTitle => 'Pattern library';
@@ -969,12 +1004,6 @@ class AppLocalizationsEn extends AppLocalizations {
       'An apostrophe (R\') turns the other way, counter-clockwise. A 2 (U2) is a half turn: two quarter turns.';
 
   @override
-  String get lessonCross => 'White cross';
-
-  @override
-  String get lessonCrossDesc => 'Build a white cross on the bottom.';
-
-  @override
   String get stepCrossGoal => 'The goal';
 
   @override
@@ -996,12 +1025,6 @@ class AppLocalizationsEn extends AppLocalizations {
       'An edge stuck in the middle layer goes up first: turn its side up, move the top out of the way and turn the side back, so the cross stays intact. Then place it from the top.';
 
   @override
-  String get lessonCorners => 'White corners';
-
-  @override
-  String get lessonCornersDesc => 'Finish the first layer.';
-
-  @override
   String get stepCornersInsert => 'Above its spot';
 
   @override
@@ -1014,12 +1037,6 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get stepCornersRepeatBody =>
       'If white faces the wrong way, keep repeating R U R\' U\' over the same spot. Every corner is solved after at most five repeats.';
-
-  @override
-  String get lessonMiddle => 'Middle layer';
-
-  @override
-  String get lessonMiddleDesc => 'Insert the four middle edges.';
 
   @override
   String get stepMiddleRight => 'Edge to the right';
@@ -1036,12 +1053,6 @@ class AppLocalizationsEn extends AppLocalizations {
       'If its top color matches the left center instead, use the mirror: U\' L\' U L U F U\' F\'.';
 
   @override
-  String get lessonLastLayer => 'Yellow cross and edges';
-
-  @override
-  String get lessonLastLayerDesc => 'Make a cross on top and match its edges.';
-
-  @override
   String get stepYellowCross => 'One algorithm';
 
   @override
@@ -1054,12 +1065,6 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get stepYellowEdgesBody =>
       'Turn the top until two edges match their centers. With one at the back and one on the right, R U R\' U R U2 R\' U swaps the other two.';
-
-  @override
-  String get lessonLastCorners => 'Yellow corners';
-
-  @override
-  String get lessonLastCornersDesc => 'Place and twist the last corners.';
 
   @override
   String get stepPlaceCorners => 'Place them';

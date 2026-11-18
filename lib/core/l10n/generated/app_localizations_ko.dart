@@ -161,19 +161,16 @@ class AppLocalizationsKo extends AppLocalizations {
   String get solving => '푸는 중…';
 
   @override
-  String get solveChooseMethod => '어떤 방법으로 풀까요?';
-
-  @override
   String get solveFast => '빠르게 풀기';
-
-  @override
-  String get solveFastDesc => 'Kociemba 2단계 알고리즘 · 약 20수';
 
   @override
   String get solveLearn => '단계별로 배우기';
 
   @override
-  String get solveLearnDesc => '설명이 포함된 초보자용 층별 공식(LBL)';
+  String get solveModeGuided => '가이드 (3 크라운)';
+
+  @override
+  String get solveModeFast => '빠르게 (최적)';
 
   @override
   String solveUnavailable(int size) {
@@ -245,28 +242,69 @@ class AppLocalizationsKo extends AppLocalizations {
   String get phaseKociemba2 => '2단계 · 큐브 완성하기';
 
   @override
-  String get phaseLblOrient => '큐브 잡기';
-
-  @override
   String get phaseLblCross => '흰색 십자';
 
   @override
-  String get phaseLblCorners => '흰색 코너';
+  String get phaseLblCorners => '첫 번째 크라운의 코너';
 
   @override
-  String get phaseLblMiddle => '가운데 층';
+  String get phaseLblMiddle => '가운데 층 엣지';
 
   @override
   String get phaseLblYellowCross => '노란색 십자';
 
   @override
-  String get phaseLblYellowEdges => '노란색 엣지';
+  String get phaseLblYellowEdges => '노란색 십자 엣지 맞추기';
 
   @override
   String get phaseLblYellowCorners => '노란색 코너 위치 맞추기';
 
   @override
   String get phaseLblYellowCornersOrient => '노란색 코너 방향 맞추기';
+
+  @override
+  String get crownFirst => '첫 번째 크라운';
+
+  @override
+  String get crownSecond => '두 번째 크라운';
+
+  @override
+  String get crownThird => '세 번째 크라운';
+
+  @override
+  String get crownFirstGoal => '흰색 면과 첫 번째 층';
+
+  @override
+  String get crownSecondGoal => '가운데 층';
+
+  @override
+  String get crownThirdGoal => '노란색 면과 마지막 층';
+
+  @override
+  String crownProgress(int current, int total) {
+    return '크라운 $current/$total';
+  }
+
+  @override
+  String get subStepGoal11 => '흰색 엣지가 옆 센터 색과도 맞는 흰색 십자를 만드세요.';
+
+  @override
+  String get subStepGoal12 => '흰색 코너 4개를 제자리에 넣어 흰색 면과 첫 번째 층 전체를 완성하세요.';
+
+  @override
+  String get subStepGoal21 => '첫 번째 크라운을 흐트러뜨리지 않고 가운데 층 엣지 4개를 넣으세요.';
+
+  @override
+  String get subStepGoal31 => '마지막 층에 노란색 십자를 만드세요.';
+
+  @override
+  String get subStepGoal32 => '노란색 십자 엣지를 바꿔 각 엣지가 옆면 센터와 맞도록 하세요.';
+
+  @override
+  String get subStepGoal33 => '노란색 코너 4개를 올바른 자리로 옮기세요. 아직 비틀려 있어도 괜찮아요.';
+
+  @override
+  String get subStepGoal34 => '노란색 코너를 제자리에서 돌려 모든 스티커가 맞고 큐브가 완성되도록 하세요.';
 
   @override
   String get explainOptimal2x2 => '2×2의 모든 상태를 탐색해서 찾은 가장 짧은 해법입니다.';
@@ -607,7 +645,7 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => '3×3 초보자 (층별 공식)';
+  String get trackBeginner => '3×3 초보자: 3개의 크라운';
 
   @override
   String get trackCfop => 'CFOP 입문';
@@ -756,12 +794,6 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get explainReductionPllParity =>
       'PLL 패리티: 엣지 두 개가 서로 바뀌어 있는데, 3×3에서는 불가능한 상태입니다. 이 공식으로 되돌립니다.';
-
-  @override
-  String get solveFastBigDesc => '리덕션: 센터, 엣지, 패리티 후 Kociemba';
-
-  @override
-  String get solveLearnBigDesc => '리덕션 후 초보자용 층별 공식으로 마무리';
 
   @override
   String get patternsTitle => '패턴 라이브러리';
@@ -919,12 +951,6 @@ class AppLocalizationsKo extends AppLocalizations {
       '아포스트로피(R\')는 반대 방향, 즉 반시계 방향입니다. 2(U2)는 반 바퀴, 즉 90도를 두 번입니다.';
 
   @override
-  String get lessonCross => '흰색 십자';
-
-  @override
-  String get lessonCrossDesc => '아랫면에 흰색 십자를 만드세요.';
-
-  @override
   String get stepCrossGoal => '목표';
 
   @override
@@ -946,12 +972,6 @@ class AppLocalizationsKo extends AppLocalizations {
       '가운데 층에 낀 엣지는 먼저 위로 올립니다. 그 옆면을 위로 돌리고, 윗층을 비켜 놓은 뒤 옆면을 되돌리면 십자가 그대로 유지됩니다. 그다음 위에서 넣으세요.';
 
   @override
-  String get lessonCorners => '흰색 코너';
-
-  @override
-  String get lessonCornersDesc => '첫 번째 층을 완성하세요.';
-
-  @override
   String get stepCornersInsert => '자리 바로 위로';
 
   @override
@@ -964,12 +984,6 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get stepCornersRepeatBody =>
       '흰색이 다른 방향을 보고 있다면 같은 자리에서 R U R\' U\'를 계속 반복하세요. 어떤 코너든 최대 다섯 번이면 맞춰집니다.';
-
-  @override
-  String get lessonMiddle => '가운데 층';
-
-  @override
-  String get lessonMiddleDesc => '가운데 엣지 네 개를 넣으세요.';
 
   @override
   String get stepMiddleRight => '오른쪽으로 넣기';
@@ -986,12 +1000,6 @@ class AppLocalizationsKo extends AppLocalizations {
       '윗면 색이 왼쪽 센터와 같으면 대칭 공식 U\' L\' U L U F U\' F\'를 쓰세요.';
 
   @override
-  String get lessonLastLayer => '노란색 십자와 엣지';
-
-  @override
-  String get lessonLastLayerDesc => '윗면에 십자를 만들고 엣지를 맞추세요.';
-
-  @override
   String get stepYellowCross => '하나의 공식';
 
   @override
@@ -1004,12 +1012,6 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get stepYellowEdgesBody =>
       '엣지 두 개가 센터와 맞을 때까지 윗층을 돌리세요. 하나는 뒤, 하나는 오른쪽에 두고 R U R\' U R U2 R\' U를 하면 나머지 두 개가 바뀝니다.';
-
-  @override
-  String get lessonLastCorners => '노란색 코너';
-
-  @override
-  String get lessonLastCornersDesc => '마지막 코너의 위치와 방향을 맞추세요.';
 
   @override
   String get stepPlaceCorners => '위치 맞추기';

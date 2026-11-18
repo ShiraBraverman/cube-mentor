@@ -161,19 +161,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get solving => '正在还原…';
 
   @override
-  String get solveChooseMethod => '你想怎么还原？';
-
-  @override
   String get solveFast => '快速还原';
-
-  @override
-  String get solveFastDesc => 'Kociemba 两阶段算法 · 约 20 步';
 
   @override
   String get solveLearn => '一步步学习';
 
   @override
-  String get solveLearnDesc => '带讲解的新手层先法';
+  String get solveModeGuided => '引导（三顶皇冠）';
+
+  @override
+  String get solveModeFast => '快速（最优）';
 
   @override
   String solveUnavailable(int size) {
@@ -245,28 +242,69 @@ class AppLocalizationsZh extends AppLocalizations {
   String get phaseKociemba2 => '阶段 2 · 完成还原';
 
   @override
-  String get phaseLblOrient => '拿好魔方';
-
-  @override
   String get phaseLblCross => '白色十字';
 
   @override
-  String get phaseLblCorners => '白色角块';
+  String get phaseLblCorners => '第一层角块';
 
   @override
-  String get phaseLblMiddle => '中层';
+  String get phaseLblMiddle => '中层棱块';
 
   @override
   String get phaseLblYellowCross => '黄色十字';
 
   @override
-  String get phaseLblYellowEdges => '黄色棱块';
+  String get phaseLblYellowEdges => '对齐黄色十字的棱块';
 
   @override
   String get phaseLblYellowCorners => '归位黄色角块';
 
   @override
   String get phaseLblYellowCornersOrient => '翻转黄色角块';
+
+  @override
+  String get crownFirst => '第一顶皇冠';
+
+  @override
+  String get crownSecond => '第二顶皇冠';
+
+  @override
+  String get crownThird => '第三顶皇冠';
+
+  @override
+  String get crownFirstGoal => '白色面与第一层';
+
+  @override
+  String get crownSecondGoal => '中层';
+
+  @override
+  String get crownThirdGoal => '黄色面与最后一层';
+
+  @override
+  String crownProgress(int current, int total) {
+    return '第 $current 顶皇冠，共 $total 顶';
+  }
+
+  @override
+  String get subStepGoal11 => '拼出白色十字，并让每个白色棱块的侧面颜色与相邻中心一致。';
+
+  @override
+  String get subStepGoal12 => '把 4 个白色角块放入对应位置，完成白色面和整个第一层。';
+
+  @override
+  String get subStepGoal21 => '在不破坏第一顶皇冠的前提下，插入中层的 4 个棱块。';
+
+  @override
+  String get subStepGoal31 => '在最后一层拼出黄色十字。';
+
+  @override
+  String get subStepGoal32 => '交换黄色十字的棱块，直到每个棱块都与侧面中心对齐。';
+
+  @override
+  String get subStepGoal33 => '把 4 个黄色角块移到正确的位置，即使它们的朝向还不对。';
+
+  @override
+  String get subStepGoal34 => '原地翻转每个黄色角块，直到所有贴纸对齐、魔方还原。';
 
   @override
   String get explainOptimal2x2 => '通过搜索 2×2 的所有状态找到的最短解法。';
@@ -603,7 +641,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => '3×3 新手（层先法）';
+  String get trackBeginner => '3×3 新手：三顶皇冠';
 
   @override
   String get trackCfop => 'CFOP 入门';
@@ -751,12 +789,6 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get explainReductionPllParity =>
       'PLL 奇偶：有两个棱块互换，这在 3×3 上不可能出现。这个公式会把它们换回来。';
-
-  @override
-  String get solveFastBigDesc => '降阶：中心、棱块和奇偶校验，然后用 Kociemba';
-
-  @override
-  String get solveLearnBigDesc => '降阶后用新手层先法完成';
 
   @override
   String get patternsTitle => '图案库';
@@ -914,12 +946,6 @@ class AppLocalizationsZh extends AppLocalizations {
       '撇号（R\'）表示反方向，也就是逆时针转动。数字 2（U2）表示转半圈，即转两个 90 度。';
 
   @override
-  String get lessonCross => '白色十字';
-
-  @override
-  String get lessonCrossDesc => '在底面拼出白色十字。';
-
-  @override
   String get stepCrossGoal => '目标';
 
   @override
@@ -941,12 +967,6 @@ class AppLocalizationsZh extends AppLocalizations {
       '卡在中层的棱块要先提上来：把它所在的侧面向上转，移开顶层，再把侧面转回去，这样十字不会被破坏。然后从顶层把它放好。';
 
   @override
-  String get lessonCorners => '白色角块';
-
-  @override
-  String get lessonCornersDesc => '完成第一层。';
-
-  @override
   String get stepCornersInsert => '移到目标位置上方';
 
   @override
@@ -959,12 +979,6 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get stepCornersRepeatBody =>
       '如果白色朝向不对，就在同一位置继续重复 R U R\' U\'。每个角块最多重复五次就能还原。';
-
-  @override
-  String get lessonMiddle => '中层';
-
-  @override
-  String get lessonMiddleDesc => '插入中层的四个棱块。';
 
   @override
   String get stepMiddleRight => '向右插入';
@@ -981,12 +995,6 @@ class AppLocalizationsZh extends AppLocalizations {
       '如果它朝上的颜色与左边中心相同，就用镜像公式：U\' L\' U L U F U\' F\'。';
 
   @override
-  String get lessonLastLayer => '黄色十字和棱块';
-
-  @override
-  String get lessonLastLayerDesc => '在顶面做出十字并对齐棱块。';
-
-  @override
   String get stepYellowCross => '一个公式就够';
 
   @override
@@ -999,12 +1007,6 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get stepYellowEdgesBody =>
       '转动顶层，直到两个棱块与中心对齐。让其中一个在后面、一个在右边，用 R U R\' U R U2 R\' U 交换另外两个。';
-
-  @override
-  String get lessonLastCorners => '黄色角块';
-
-  @override
-  String get lessonLastCornersDesc => '归位并翻转最后的角块。';
 
   @override
   String get stepPlaceCorners => '归位';

@@ -163,19 +163,16 @@ class AppLocalizationsHe extends AppLocalizations {
   String get solving => 'פותר…';
 
   @override
-  String get solveChooseMethod => 'איך תרצו לפתור?';
-
-  @override
   String get solveFast => 'פתרון מהיר';
-
-  @override
-  String get solveFastDesc => 'אלגוריתם קוצ\'יאמבה דו־שלבי · כ־20 מהלכים';
 
   @override
   String get solveLearn => 'ללמוד צעד אחר צעד';
 
   @override
-  String get solveLearnDesc => 'שיטת המתחילים שכבה אחר שכבה, עם הסברים';
+  String get solveModeGuided => 'מודרך (3 כתרים)';
+
+  @override
+  String get solveModeFast => 'מהיר (אופטימלי)';
 
   @override
   String solveUnavailable(int size) {
@@ -249,28 +246,75 @@ class AppLocalizationsHe extends AppLocalizations {
   String get phaseKociemba2 => 'שלב 2 · סיום הקובייה';
 
   @override
-  String get phaseLblOrient => 'אחיזת הקובייה';
+  String get phaseLblCross => 'איקס לבן מותאם למרכזים';
 
   @override
-  String get phaseLblCross => 'צלב לבן';
+  String get phaseLblCorners => 'פינות הכתר הראשון';
 
   @override
-  String get phaseLblCorners => 'פינות לבנות';
+  String get phaseLblMiddle => 'השלמת השכבה האמצעית';
 
   @override
-  String get phaseLblMiddle => 'השכבה האמצעית';
+  String get phaseLblYellowCross => 'איקס צהוב';
 
   @override
-  String get phaseLblYellowCross => 'צלב צהוב';
+  String get phaseLblYellowEdges => 'התאמת מרכזי האיקס הצהוב';
 
   @override
-  String get phaseLblYellowEdges => 'צלעות צהובות';
+  String get phaseLblYellowCorners => 'מיקום הפינות למקומן';
 
   @override
-  String get phaseLblYellowCorners => 'מיקום הפינות הצהובות';
+  String get phaseLblYellowCornersOrient => 'סיבוב הפינות לצבעים הנכונים';
 
   @override
-  String get phaseLblYellowCornersOrient => 'סיבוב הפינות הצהובות';
+  String get crownFirst => 'הכתר הראשון';
+
+  @override
+  String get crownSecond => 'הכתר השני';
+
+  @override
+  String get crownThird => 'הכתר השלישי';
+
+  @override
+  String get crownFirstGoal => 'הפאה הלבנה והשכבה הראשונה';
+
+  @override
+  String get crownSecondGoal => 'השכבה האמצעית';
+
+  @override
+  String get crownThirdGoal => 'הפאה הצהובה והשכבה האחרונה';
+
+  @override
+  String crownProgress(int current, int total) {
+    return 'כתר $current מתוך $total';
+  }
+
+  @override
+  String get subStepGoal11 =>
+      'בונים איקס לבן שבו כל צלע לבנה מתאימה גם לצבע המרכז שלידה.';
+
+  @override
+  String get subStepGoal12 =>
+      'מכניסים את 4 הפינות הלבנות למקומן המתאים כדי להשלים את הפאה הלבנה ואת כל הטבעת הראשונה.';
+
+  @override
+  String get subStepGoal21 =>
+      'מכניסים את 4 צלעות השכבה האמצעית בלי לפרק את הכתר הראשון.';
+
+  @override
+  String get subStepGoal31 => 'בונים איקס צהוב בשכבה האחרונה.';
+
+  @override
+  String get subStepGoal32 =>
+      'מחליפים את צלעות האיקס הצהוב עד שכל אחת מתאימה למרכז הצד שלה.';
+
+  @override
+  String get subStepGoal33 =>
+      'מעבירים את 4 הפינות הצהובות למקום הנכון שלהן, גם אם הן עדיין מסובבות.';
+
+  @override
+  String get subStepGoal34 =>
+      'מסובבים כל פינה צהובה במקומה עד שכל המדבקות מתאימות והקובייה פתורה.';
 
   @override
   String get explainOptimal2x2 =>
@@ -334,7 +378,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get explainLblYellowCrossAlg =>
-      'בנו את הצלב הצהוב עם ⁦F R U R\' U\' F\'⁩.';
+      'בנו את האיקס הצהוב עם ⁦F R U R\' U\' F\'⁩.';
 
   @override
   String get explainLblYellowEdgesAlign =>
@@ -631,7 +675,7 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => 'מתחילים 3×3 (שכבה אחר שכבה)';
+  String get trackBeginner => 'מתחילים 3×3: שלושת הכתרים';
 
   @override
   String get trackCfop => 'מבוא ל־CFOP';
@@ -786,13 +830,6 @@ class AppLocalizationsHe extends AppLocalizations {
       'פריטי PLL: שתי צלעות מוחלפות – דבר בלתי אפשרי ב־3×3. האלגוריתם הזה מחליף אותן בחזרה.';
 
   @override
-  String get solveFastBigDesc => 'רדוקציה: מרכזים, צלעות ופריטי, ואז קוציאמבה';
-
-  @override
-  String get solveLearnBigDesc =>
-      'רדוקציה שמסתיימת בשיטת המתחילים, שכבה אחר שכבה';
-
-  @override
   String get patternsTitle => 'ספריית דוגמאות';
 
   @override
@@ -917,7 +954,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String dailyHintText(String moves) {
-    return 'התחילו מהצלב הלבן: $moves';
+    return 'התחילו מהאיקס הלבן: $moves';
   }
 
   @override
@@ -951,12 +988,6 @@ class AppLocalizationsHe extends AppLocalizations {
       'גרש (⁦R\'⁩) מסובב לכיוון השני, נגד כיוון השעון. הספרה 2 (⁦U2⁩) היא חצי סיבוב: שני רבעי סיבוב.';
 
   @override
-  String get lessonCross => 'הצלב הלבן';
-
-  @override
-  String get lessonCrossDesc => 'בונים צלב לבן בתחתית.';
-
-  @override
   String get stepCrossGoal => 'המטרה';
 
   @override
@@ -975,13 +1006,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get stepCrossMiddleBody =>
-      'צלע שתקועה בשכבה האמצעית עולה קודם למעלה: מסובבים את הצד שלה למעלה, מזיזים את הפאה העליונה ומחזירים את הצד, כדי לא לפרק את הצלב. אחר כך ממקמים אותה מלמעלה.';
-
-  @override
-  String get lessonCorners => 'הפינות הלבנות';
-
-  @override
-  String get lessonCornersDesc => 'מסיימים את השכבה הראשונה.';
+      'צלע שתקועה בשכבה האמצעית עולה קודם למעלה: מסובבים את הצד שלה למעלה, מזיזים את הפאה העליונה ומחזירים את הצד, כדי לא לפרק את האיקס. אחר כך ממקמים אותה מלמעלה.';
 
   @override
   String get stepCornersInsert => 'מעל המקום שלה';
@@ -998,12 +1023,6 @@ class AppLocalizationsHe extends AppLocalizations {
       'אם הלבן פונה לכיוון הלא נכון, חזרו על ⁦R U R\' U\'⁩ מעל אותו מקום. כל פינה מסתדרת אחרי חמש חזרות לכל היותר.';
 
   @override
-  String get lessonMiddle => 'השכבה האמצעית';
-
-  @override
-  String get lessonMiddleDesc => 'מכניסים את ארבע צלעות האמצע.';
-
-  @override
   String get stepMiddleRight => 'צלע ימינה';
 
   @override
@@ -1018,17 +1037,11 @@ class AppLocalizationsHe extends AppLocalizations {
       'אם הצבע העליון תואם דווקא למרכז השמאלי, השתמשו בתמונת המראה: ⁦U\' L\' U L U F U\' F\'⁩.';
 
   @override
-  String get lessonLastLayer => 'הצלב הצהוב והצלעות';
-
-  @override
-  String get lessonLastLayerDesc => 'יוצרים צלב למעלה ומתאימים את הצלעות.';
-
-  @override
   String get stepYellowCross => 'אלגוריתם אחד';
 
   @override
   String get stepYellowCrossBody =>
-      '⁦F R U R\' U\' F\'⁩ הופך נקודה צהובה ל־L, את ה־L לקו ואת הקו לצלב. החזיקו את ה־L מאחור משמאל ואת הקו לרוחב.';
+      '⁦F R U R\' U\' F\'⁩ הופך נקודה צהובה ל־L, את ה־L לקו ואת הקו לאיקס. החזיקו את ה־L מאחור משמאל ואת הקו לרוחב.';
 
   @override
   String get stepYellowEdges => 'מתאימים את הצלעות';
@@ -1036,12 +1049,6 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get stepYellowEdgesBody =>
       'סובבו את הפאה העליונה עד ששתי צלעות תואמות למרכזים. כשאחת מאחור ואחת מימין, ⁦R U R\' U R U2 R\' U⁩ מחליף בין השתיים האחרות.';
-
-  @override
-  String get lessonLastCorners => 'הפינות הצהובות';
-
-  @override
-  String get lessonLastCornersDesc => 'ממקמים ומסובבים את הפינות האחרונות.';
 
   @override
   String get stepPlaceCorners => 'ממקמים';
@@ -1108,7 +1115,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get stepOllCrossBody =>
-      'OLL בשני מבטים מתחיל באלגוריתם של הצלב הצהוב שכבר מכירים.';
+      'OLL בשני מבטים מתחיל באלגוריתם של האיקס הצהוב שכבר מכירים.';
 
   @override
   String get stepOllSune => 'סון (Sune)';

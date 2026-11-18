@@ -169,21 +169,16 @@ class AppLocalizationsEs extends AppLocalizations {
   String get solving => 'Resolviendo…';
 
   @override
-  String get solveChooseMethod => '¿Cómo quieres resolverlo?';
-
-  @override
   String get solveFast => 'Solución rápida';
-
-  @override
-  String get solveFastDesc =>
-      'Algoritmo de dos fases de Kociemba · unos 20 movimientos';
 
   @override
   String get solveLearn => 'Aprender paso a paso';
 
   @override
-  String get solveLearnDesc =>
-      'Método principiante capa por capa, con explicaciones';
+  String get solveModeGuided => 'Guiado (3 coronas)';
+
+  @override
+  String get solveModeFast => 'Rápido (óptimo)';
 
   @override
   String solveUnavailable(int size) {
@@ -258,28 +253,75 @@ class AppLocalizationsEs extends AppLocalizations {
   String get phaseKociemba2 => 'Fase 2 · Terminar el cubo';
 
   @override
-  String get phaseLblOrient => 'Sujeta el cubo';
-
-  @override
   String get phaseLblCross => 'Cruz blanca';
 
   @override
-  String get phaseLblCorners => 'Esquinas blancas';
+  String get phaseLblCorners => 'Esquinas de la primera corona';
 
   @override
-  String get phaseLblMiddle => 'Capa media';
+  String get phaseLblMiddle => 'Aristas de la capa media';
 
   @override
   String get phaseLblYellowCross => 'Cruz amarilla';
 
   @override
-  String get phaseLblYellowEdges => 'Aristas amarillas';
+  String get phaseLblYellowEdges => 'Alinear las aristas de la cruz amarilla';
 
   @override
   String get phaseLblYellowCorners => 'Colocar las esquinas amarillas';
 
   @override
   String get phaseLblYellowCornersOrient => 'Orientar las esquinas amarillas';
+
+  @override
+  String get crownFirst => 'Primera corona';
+
+  @override
+  String get crownSecond => 'Segunda corona';
+
+  @override
+  String get crownThird => 'Tercera corona';
+
+  @override
+  String get crownFirstGoal => 'Cara blanca y primera capa';
+
+  @override
+  String get crownSecondGoal => 'Capa media';
+
+  @override
+  String get crownThirdGoal => 'Cara amarilla y última capa';
+
+  @override
+  String crownProgress(int current, int total) {
+    return 'Corona $current de $total';
+  }
+
+  @override
+  String get subStepGoal11 =>
+      'Forma una cruz blanca en la que cada arista blanca coincida también con el centro de al lado.';
+
+  @override
+  String get subStepGoal12 =>
+      'Inserta las 4 esquinas blancas en sus huecos para completar la cara blanca y todo el primer anillo.';
+
+  @override
+  String get subStepGoal21 =>
+      'Inserta las 4 aristas de la capa media sin deshacer la primera corona.';
+
+  @override
+  String get subStepGoal31 => 'Forma una cruz amarilla en la última capa.';
+
+  @override
+  String get subStepGoal32 =>
+      'Intercambia las aristas de la cruz amarilla hasta que cada una coincida con su centro lateral.';
+
+  @override
+  String get subStepGoal33 =>
+      'Lleva las 4 esquinas amarillas a su sitio, aunque todavía estén giradas.';
+
+  @override
+  String get subStepGoal34 =>
+      'Gira cada esquina amarilla en su sitio hasta que todas las pegatinas coincidan y el cubo quede resuelto.';
 
   @override
   String get explainOptimal2x2 =>
@@ -651,7 +693,7 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => '3×3 principiante (capa por capa)';
+  String get trackBeginner => '3×3 principiante: las 3 coronas';
 
   @override
   String get trackCfop => 'Introducción a CFOP';
@@ -807,14 +849,6 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get explainReductionPllParity =>
       'Paridad PLL: dos aristas están intercambiadas, algo imposible en un 3×3. Este algoritmo las devuelve a su sitio.';
-
-  @override
-  String get solveFastBigDesc =>
-      'Reducción: centros, aristas y paridad, y luego Kociemba';
-
-  @override
-  String get solveLearnBigDesc =>
-      'Reducción terminada con el método principiante capa por capa';
 
   @override
   String get patternsTitle => 'Biblioteca de patrones';
@@ -979,12 +1013,6 @@ class AppLocalizationsEs extends AppLocalizations {
       'Un apóstrofo (R\') gira al revés, en sentido antihorario. Un 2 (U2) es media vuelta: dos cuartos de vuelta.';
 
   @override
-  String get lessonCross => 'Cruz blanca';
-
-  @override
-  String get lessonCrossDesc => 'Forma una cruz blanca en la cara inferior.';
-
-  @override
   String get stepCrossGoal => 'El objetivo';
 
   @override
@@ -1006,12 +1034,6 @@ class AppLocalizationsEs extends AppLocalizations {
       'Una arista atascada en la capa media sube primero: gira su lateral hacia arriba, aparta la capa superior y devuelve el lateral, para no romper la cruz. Luego colócala desde arriba.';
 
   @override
-  String get lessonCorners => 'Esquinas blancas';
-
-  @override
-  String get lessonCornersDesc => 'Termina la primera capa.';
-
-  @override
   String get stepCornersInsert => 'Encima de su sitio';
 
   @override
@@ -1024,12 +1046,6 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get stepCornersRepeatBody =>
       'Si el blanco mira hacia el lado equivocado, sigue repitiendo R U R\' U\' sobre el mismo hueco. Cada esquina queda resuelta en cinco repeticiones como mucho.';
-
-  @override
-  String get lessonMiddle => 'Capa media';
-
-  @override
-  String get lessonMiddleDesc => 'Inserta las cuatro aristas de la capa media.';
 
   @override
   String get stepMiddleRight => 'Arista a la derecha';
@@ -1046,13 +1062,6 @@ class AppLocalizationsEs extends AppLocalizations {
       'Si su color superior coincide con el centro izquierdo, usa el espejo: U\' L\' U L U F U\' F\'.';
 
   @override
-  String get lessonLastLayer => 'Cruz y aristas amarillas';
-
-  @override
-  String get lessonLastLayerDesc =>
-      'Forma una cruz arriba y empareja sus aristas.';
-
-  @override
   String get stepYellowCross => 'Un solo algoritmo';
 
   @override
@@ -1065,12 +1074,6 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get stepYellowEdgesBody =>
       'Gira la capa superior hasta que dos aristas coincidan con sus centros. Con una atrás y otra a la derecha, R U R\' U R U2 R\' U intercambia las otras dos.';
-
-  @override
-  String get lessonLastCorners => 'Esquinas amarillas';
-
-  @override
-  String get lessonLastCornersDesc => 'Coloca y orienta las últimas esquinas.';
 
   @override
   String get stepPlaceCorners => 'Colócalas';

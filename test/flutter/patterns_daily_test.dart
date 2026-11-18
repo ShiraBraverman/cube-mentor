@@ -234,7 +234,7 @@ void main() {
           steps: [
             SolveStep(
               cubeState: '',
-              phaseName: 'lblOrient',
+              phaseName: 'lblCross',
               moveNotation: 'x2',
               explanationKey: 'lblOrientExplain',
             ),

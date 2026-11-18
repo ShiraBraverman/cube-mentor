@@ -167,19 +167,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get solving => 'جارٍ الحل…';
 
   @override
-  String get solveChooseMethod => 'كيف تريد حله؟';
-
-  @override
   String get solveFast => 'حل سريع';
-
-  @override
-  String get solveFastDesc => 'خوارزمية كوتسيمبا ذات المرحلتين · نحو 20 حركة';
 
   @override
   String get solveLearn => 'تعلّم خطوة بخطوة';
 
   @override
-  String get solveLearnDesc => 'طريقة المبتدئين طبقةً بطبقة مع الشرح';
+  String get solveModeGuided => 'موجَّه (3 تيجان)';
+
+  @override
+  String get solveModeFast => 'سريع (الأمثل)';
 
   @override
   String solveUnavailable(int size) {
@@ -252,28 +249,75 @@ class AppLocalizationsAr extends AppLocalizations {
   String get phaseKociemba2 => 'المرحلة 2 · إنهاء المكعب';
 
   @override
-  String get phaseLblOrient => 'أمسك المكعب';
-
-  @override
   String get phaseLblCross => 'الصليب الأبيض';
 
   @override
-  String get phaseLblCorners => 'الزوايا البيضاء';
+  String get phaseLblCorners => 'زوايا التاج الأول';
 
   @override
-  String get phaseLblMiddle => 'الطبقة الوسطى';
+  String get phaseLblMiddle => 'حواف الطبقة الوسطى';
 
   @override
   String get phaseLblYellowCross => 'الصليب الأصفر';
 
   @override
-  String get phaseLblYellowEdges => 'الحواف الصفراء';
+  String get phaseLblYellowEdges => 'محاذاة حواف الصليب الأصفر';
 
   @override
-  String get phaseLblYellowCorners => 'ترتيب الزوايا الصفراء';
+  String get phaseLblYellowCorners => 'وضع الزوايا الصفراء في أماكنها';
 
   @override
-  String get phaseLblYellowCornersOrient => 'تدوير الزوايا الصفراء';
+  String get phaseLblYellowCornersOrient => 'توجيه الزوايا الصفراء';
+
+  @override
+  String get crownFirst => 'التاج الأول';
+
+  @override
+  String get crownSecond => 'التاج الثاني';
+
+  @override
+  String get crownThird => 'التاج الثالث';
+
+  @override
+  String get crownFirstGoal => 'الوجه الأبيض والطبقة الأولى';
+
+  @override
+  String get crownSecondGoal => 'الطبقة الوسطى';
+
+  @override
+  String get crownThirdGoal => 'الوجه الأصفر والطبقة الأخيرة';
+
+  @override
+  String crownProgress(int current, int total) {
+    return 'التاج $current من $total';
+  }
+
+  @override
+  String get subStepGoal11 =>
+      'كوّن صليبًا أبيض تطابق فيه كل حافة بيضاء أيضًا لون المركز المجاور لها.';
+
+  @override
+  String get subStepGoal12 =>
+      'أدخل الزوايا البيضاء الأربع في أماكنها لإكمال الوجه الأبيض والحلقة الأولى كلها.';
+
+  @override
+  String get subStepGoal21 =>
+      'أدخل حواف الطبقة الوسطى الأربع دون إفساد التاج الأول.';
+
+  @override
+  String get subStepGoal31 => 'كوّن صليبًا أصفر في الطبقة الأخيرة.';
+
+  @override
+  String get subStepGoal32 =>
+      'بدّل حواف الصليب الأصفر حتى تطابق كل منها مركز جانبها.';
+
+  @override
+  String get subStepGoal33 =>
+      'انقل الزوايا الصفراء الأربع إلى أماكنها الصحيحة حتى لو كانت ما زالت ملتوية.';
+
+  @override
+  String get subStepGoal34 =>
+      'دوّر كل زاوية صفراء في مكانها حتى تتطابق كل الملصقات ويُحل المكعب.';
 
   @override
   String get explainOptimal2x2 =>
@@ -646,7 +690,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => '3×3 للمبتدئين (طبقةً بطبقة)';
+  String get trackBeginner => '3×3 للمبتدئين: التيجان الثلاثة';
 
   @override
   String get trackCfop => 'مقدمة إلى CFOP';
@@ -802,14 +846,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get explainReductionPllParity =>
       'تكافؤ PLL: هناك حافتان متبادلتان، وهذا مستحيل في مكعب 3×3. هذه الخوارزمية تعيدهما إلى مكانيهما.';
-
-  @override
-  String get solveFastBigDesc =>
-      'الاختزال: المراكز والحواف والتكافؤ، ثم كوتسيمبا';
-
-  @override
-  String get solveLearnBigDesc =>
-      'الاختزال، ثم الإنهاء بطريقة المبتدئين طبقةً بطبقة';
 
   @override
   String get patternsTitle => 'مكتبة الأنماط';
@@ -969,12 +1005,6 @@ class AppLocalizationsAr extends AppLocalizations {
       'الفاصلة العليا (⁦R\'⁩) تعني الدوران في الاتجاه الآخر، عكس عقارب الساعة. والرقم 2 (⁦U2⁩) يعني نصف دورة: ربعا دورة.';
 
   @override
-  String get lessonCross => 'الصليب الأبيض';
-
-  @override
-  String get lessonCrossDesc => 'كوّن صليبًا أبيض في الأسفل.';
-
-  @override
   String get stepCrossGoal => 'الهدف';
 
   @override
@@ -996,12 +1026,6 @@ class AppLocalizationsAr extends AppLocalizations {
       'الحافة العالقة في الطبقة الوسطى تُرفع أولًا: أدر وجهها الجانبي إلى الأعلى، وأبعد الطبقة العليا عن الطريق، ثم أعد الوجه الجانبي حتى يبقى الصليب سليمًا. بعد ذلك ضعها من الأعلى.';
 
   @override
-  String get lessonCorners => 'الزوايا البيضاء';
-
-  @override
-  String get lessonCornersDesc => 'أكمل الطبقة الأولى.';
-
-  @override
   String get stepCornersInsert => 'فوق مكانها';
 
   @override
@@ -1014,12 +1038,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get stepCornersRepeatBody =>
       'إذا كان الأبيض متجهًا إلى الجهة الخطأ، فاستمر في تكرار ⁦R U R\' U\'⁩ فوق المكان نفسه. تُحل كل زاوية بخمس تكرارات على الأكثر.';
-
-  @override
-  String get lessonMiddle => 'الطبقة الوسطى';
-
-  @override
-  String get lessonMiddleDesc => 'أدخل الحواف الوسطى الأربع.';
 
   @override
   String get stepMiddleRight => 'حافة إلى اليمين';
@@ -1036,12 +1054,6 @@ class AppLocalizationsAr extends AppLocalizations {
       'إذا طابق لونها العلوي المركز الأيسر بدلًا من ذلك، فاستخدم الخوارزمية المعكوسة: ⁦U\' L\' U L U F U\' F\'⁩.';
 
   @override
-  String get lessonLastLayer => 'الصليب والحواف الصفراء';
-
-  @override
-  String get lessonLastLayerDesc => 'كوّن صليبًا في الأعلى وطابق حوافه.';
-
-  @override
   String get stepYellowCross => 'خوارزمية واحدة';
 
   @override
@@ -1054,12 +1066,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get stepYellowEdgesBody =>
       'أدر الطبقة العليا حتى تطابق حافتان مركزيهما. عندما تكون إحداهما في الخلف والأخرى على اليمين، تبدّل ⁦R U R\' U R U2 R\' U⁩ الحافتين الأخريين.';
-
-  @override
-  String get lessonLastCorners => 'الزوايا الصفراء';
-
-  @override
-  String get lessonLastCornersDesc => 'رتّب آخر الزوايا ودوّرها.';
 
   @override
   String get stepPlaceCorners => 'رتّبها';

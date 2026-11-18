@@ -174,6 +174,12 @@ class Builder {
     step.move = token;
     step.cubeState = cube_.f;
     step.phase = phase_;
+    for (const LblStage& stage : kLblStages) {
+      if (phase_ == stage.phase) {
+        step.crown = stage.crown;
+        step.subStep = stage.subStep;
+      }
+    }
     step.explanation = focus.explanation;
     step.piece = focus.piece;
     step.highlight = positionsOf(focus.pieces);
@@ -204,7 +210,8 @@ class Builder {
   // ---- Phases --------------------------------------------------------------
 
   void orient() {
-    phase_ = "lblOrient";
+    // Holding white down is the first move of 1.1 (the white cross).
+    phase_ = "lblCross";
     white_ = center(kD);
     for (int face = 0; face < 6; ++face) {
       if (center(face) == 'W') white_ = 'W';

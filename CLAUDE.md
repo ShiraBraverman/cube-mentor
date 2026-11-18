@@ -24,7 +24,7 @@ An offline-first, high-performance mobile application (Android-first via Flutter
   - **Solvers:**
     - `2x2`: Optimal BFS/IDA* solver (< 1ms).
     - `3x3 Fast`: Kociemba Two-Phase Algorithm (< 5ms).
-    - `3x3 Academy`: Pedagogical Layer-by-Layer (LBL) / CFOP state machine returning structured `SolveStep` objects.
+    - `3x3 Academy`: Pedagogical Layer-by-Layer (LBL) / CFOP state machine returning structured `SolveStep` objects. The LBL method follows the classic **3 crowns / 7 sub-steps** (1.1 white cross, 1.2 first-crown corners, 2.1 middle-layer edges, 3.1 yellow cross, 3.2 align yellow cross edges, 3.3 position yellow corners, 3.4 orient yellow corners); every step carries `crown` and `subStep`, it is the default guided method (Fast/Kociemba is a toggle), and the Academy beginner track has one lesson per sub-step.
     - `4x4, 5x5, 6x6`: Reduction Method engine (Centers -> Edge Pairing -> 3x3 reduction -> OLL/PLL Parity resolution).
   - **Computer Vision Pipeline (OpenCV C++):**
     - Real-time camera frame processing (`camera` plugin buffer) with a dynamic $N \times N$ screen overlay grid.

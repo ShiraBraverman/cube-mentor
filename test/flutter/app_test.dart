@@ -171,6 +171,8 @@ void main() {
             explanationKey: 'lblCrossEdge',
             pieceColors: 'WR',
             highlightedCubies: const [(0, 2, 2)],
+            crown: 1,
+            subStep: 1,
           ),
           SolveStep(
             cubeState: afterFirst.toFacelets(),
@@ -179,6 +181,8 @@ void main() {
             explanationKey: 'lblCornerInsert',
             pieceColors: 'WRG',
             highlightedCubies: const [(2, 2, 2)],
+            crown: 1,
+            subStep: 2,
           ),
         ],
       ),
@@ -197,15 +201,16 @@ void main() {
     await _advance(tester, 16);
     expect(container.read(cubeSessionProvider(3)).isIdle, isTrue);
 
+    // Solve defaults to the guided 3-crown method: no question asked.
     await tester.tap(find.byKey(const ValueKey('solve')));
-    await _advance(tester, 8);
-    expect(find.text('How do you want to solve it?'), findsOneWidget);
-    await tester.tap(find.byKey(const ValueKey('solve-learn')));
     await _advance(tester, 8);
     expect(solver.calls, [SolveMethod.layerByLayer]);
 
-    // Banner: phase, localized explanation and the move to make.
-    expect(find.text('White cross'), findsOneWidget);
+    // Banner: crown tracker, sub-step, explanation and the move to make.
+    expect(find.text('Crown 1 of 3 · First crown'), findsOneWidget);
+    expect(find.text('1.1 White cross'), findsOneWidget);
+    expect(find.byKey(const ValueKey('crown-1')), findsOneWidget);
+    expect(find.byKey(const ValueKey('solve-mode')), findsOneWidget);
     expect(
       find.textContaining('Bring the white-red edge down'),
       findsOneWidget,
@@ -220,7 +225,7 @@ void main() {
 
     await tester.tap(find.byTooltip('Next'));
     await _advance(tester, 12);
-    expect(find.text('White corners'), findsOneWidget);
+    expect(find.text('1.2 First crown corners'), findsOneWidget);
     expect(find.text('Step 2 of 2'), findsOneWidget);
 
     await tester.tap(find.byTooltip('Play'));
@@ -233,7 +238,15 @@ void main() {
     await tester.tap(find.byTooltip('Previous'));
     await _advance(tester, 12);
     expect(container.read(cubeSessionProvider(3)).cube.isSolved, isFalse);
-    expect(find.text('White corners'), findsOneWidget);
+    expect(find.text('1.2 First crown corners'), findsOneWidget);
+
+    // The toggle re-solves from here with the fast solver, and remembers it.
+    await tester.tap(find.byKey(const ValueKey('solve-mode-fast')));
+    await _advance(tester, 8);
+    expect(solver.calls, [SolveMethod.layerByLayer, SolveMethod.fast]);
+    expect(container.read(cubeSessionProvider(3)).solvedWith, SolveMethod.fast);
+    final prefs = container.read(sharedPreferencesProvider);
+    expect(prefs.getString('solve_method'), 'fast');
   });
 
   testWidgets('a solved cube needs no solution', (tester) async {
@@ -379,8 +392,6 @@ void main() {
         ],
       );
       await tester.tap(find.byKey(const ValueKey('solve')));
-      await _advance(tester, 8);
-      await tester.tap(find.byKey(const ValueKey('solve-fast')));
       await _advance(tester, 8);
       expect(find.text('Step 1 of 2'), findsOneWidget);
       // The arrow points out the expected move; its layer is in focus.

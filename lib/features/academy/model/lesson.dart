@@ -56,6 +56,8 @@ class Lesson {
     required this.size,
     required this.steps,
     this.advanced = false,
+    this.crown = 0,
+    this.subStep = 0,
   });
 
   final String id;
@@ -68,4 +70,12 @@ class Lesson {
   /// Advanced lessons can later be unlocked with a rewarded ad
   /// (see `RewardGate`).
   final bool advanced;
+
+  /// Beginner's-method stage this lesson teaches, matching the solver's
+  /// tags: crown 1..3 and sub-step (e.g. 3.3). Zero for other lessons.
+  final int crown;
+  final int subStep;
+
+  /// `1.1` .. `3.4`, or empty.
+  String get subStepLabel => crown > 0 ? '$crown.$subStep' : '';
 }

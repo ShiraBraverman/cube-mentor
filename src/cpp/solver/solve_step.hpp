@@ -25,6 +25,29 @@ struct SolveStep {
   std::string piece;
   /// Cubie positions (doubled coordinates) to highlight before the move.
   std::vector<Vec3> highlight;
+  /// Beginner's-method stage: crown 1..3 (first layer, middle layer, last
+  /// layer) and the sub-step within it (1.1, 1.2, 2.1, 3.1 .. 3.4). Zero
+  /// for steps outside the layer-by-layer method.
+  int crown = 0;
+  int subStep = 0;
+};
+
+/// The seven layer-by-layer phases in solving order, grouped into the three
+/// crowns of the classic beginner's method.
+struct LblStage {
+  const char* phase;
+  int crown;
+  int subStep;
+};
+
+inline constexpr LblStage kLblStages[7] = {
+    {"lblCross", 1, 1},          // 1.1 white cross matching the side centers
+    {"lblCorners", 1, 2},        // 1.2 first-crown corners
+    {"lblMiddle", 2, 1},         // 2.1 middle-layer edges
+    {"lblYellowCross", 3, 1},    // 3.1 yellow cross
+    {"lblYellowEdges", 3, 2},    // 3.2 align the yellow cross edges
+    {"lblYellowCorners", 3, 3},  // 3.3 position the yellow corners
+    {"lblYellowCornersOrient", 3, 4},  // 3.4 orient the yellow corners
 };
 
 enum class SolveMethod : int {

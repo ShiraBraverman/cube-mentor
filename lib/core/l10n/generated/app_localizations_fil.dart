@@ -169,20 +169,16 @@ class AppLocalizationsFil extends AppLocalizations {
   String get solving => 'Nilulutas…';
 
   @override
-  String get solveChooseMethod => 'Paano mo gustong lutasin ito?';
-
-  @override
   String get solveFast => 'Mabilis na solusyon';
-
-  @override
-  String get solveFastDesc => 'Two-phase algorithm ni Kociemba · mga 20 galaw';
 
   @override
   String get solveLearn => 'Matuto nang hakbang-hakbang';
 
   @override
-  String get solveLearnDesc =>
-      'Pambaguhang paraang layer-by-layer, may paliwanag';
+  String get solveModeGuided => 'May gabay (3 korona)';
+
+  @override
+  String get solveModeFast => 'Mabilis (optimal)';
 
   @override
   String solveUnavailable(int size) {
@@ -257,28 +253,76 @@ class AppLocalizationsFil extends AppLocalizations {
   String get phaseKociemba2 => 'Phase 2 · Tapusin ang cube';
 
   @override
-  String get phaseLblOrient => 'Hawakan ang cube';
-
-  @override
   String get phaseLblCross => 'Puting cross';
 
   @override
-  String get phaseLblCorners => 'Mga puting kanto';
+  String get phaseLblCorners => 'Mga kanto ng unang korona';
 
   @override
-  String get phaseLblMiddle => 'Gitnang layer';
+  String get phaseLblMiddle => 'Mga edge ng gitnang layer';
 
   @override
   String get phaseLblYellowCross => 'Dilaw na cross';
 
   @override
-  String get phaseLblYellowEdges => 'Mga dilaw na edge';
+  String get phaseLblYellowEdges => 'Itugma ang mga edge ng dilaw na cross';
 
   @override
-  String get phaseLblYellowCorners => 'Ilagay ang mga dilaw na kanto';
+  String get phaseLblYellowCorners =>
+      'Ilagay sa puwesto ang mga dilaw na kanto';
 
   @override
   String get phaseLblYellowCornersOrient => 'Pihitin ang mga dilaw na kanto';
+
+  @override
+  String get crownFirst => 'Unang korona';
+
+  @override
+  String get crownSecond => 'Ikalawang korona';
+
+  @override
+  String get crownThird => 'Ikatlong korona';
+
+  @override
+  String get crownFirstGoal => 'Puting mukha at unang layer';
+
+  @override
+  String get crownSecondGoal => 'Gitnang layer';
+
+  @override
+  String get crownThirdGoal => 'Dilaw na mukha at huling layer';
+
+  @override
+  String crownProgress(int current, int total) {
+    return 'Korona $current ng $total';
+  }
+
+  @override
+  String get subStepGoal11 =>
+      'Bumuo ng puting cross kung saan tugma rin ang bawat puting edge sa kulay ng center na katabi nito.';
+
+  @override
+  String get subStepGoal12 =>
+      'Ipasok ang 4 na puting kanto sa kanilang puwesto para makumpleto ang puting mukha at ang buong unang singsing.';
+
+  @override
+  String get subStepGoal21 =>
+      'Ipasok ang 4 na edge ng gitnang layer nang hindi sinisira ang unang korona.';
+
+  @override
+  String get subStepGoal31 => 'Bumuo ng dilaw na cross sa huling layer.';
+
+  @override
+  String get subStepGoal32 =>
+      'Pagpalitin ang mga edge ng dilaw na cross hanggang tumugma ang bawat isa sa center ng gilid nito.';
+
+  @override
+  String get subStepGoal33 =>
+      'Ilipat ang 4 na dilaw na kanto sa tamang puwesto, kahit nakapihit pa sila.';
+
+  @override
+  String get subStepGoal34 =>
+      'Pihitin sa puwesto ang bawat dilaw na kanto hanggang tumugma ang lahat ng sticker at malutas ang cube.';
 
   @override
   String get explainOptimal2x2 =>
@@ -650,7 +694,7 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => '3×3 pambaguhan (layer-by-layer)';
+  String get trackBeginner => '3×3 pambaguhan: ang 3 korona';
 
   @override
   String get trackCfop => 'Panimula sa CFOP';
@@ -810,14 +854,6 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get explainReductionPllParity =>
       'PLL parity: may dalawang edge na nagkapalit, na imposible sa 3×3. Ibabalik sila ng algorithm na ito.';
-
-  @override
-  String get solveFastBigDesc =>
-      'Reduction: mga center, edge at parity, saka Kociemba';
-
-  @override
-  String get solveLearnBigDesc =>
-      'Reduction na tinapos gamit ang pambaguhang layer-by-layer';
 
   @override
   String get patternsTitle => 'Library ng pattern';
@@ -983,12 +1019,6 @@ class AppLocalizationsFil extends AppLocalizations {
       'Ang apostrophe (R\') ay ikot sa kabilang direksyon, counter-clockwise. Ang 2 (U2) ay kalahating ikot: dalawang quarter turn.';
 
   @override
-  String get lessonCross => 'Puting cross';
-
-  @override
-  String get lessonCrossDesc => 'Bumuo ng puting cross sa ibaba.';
-
-  @override
   String get stepCrossGoal => 'Ang layunin';
 
   @override
@@ -1010,12 +1040,6 @@ class AppLocalizationsFil extends AppLocalizations {
       'Ang edge na naipit sa gitnang layer ay iangat muna: iikot pataas ang gilid nito, iusog ang itaas, at ibalik ang gilid para buo pa rin ang cross. Saka ito ilagay mula sa itaas.';
 
   @override
-  String get lessonCorners => 'Mga puting kanto';
-
-  @override
-  String get lessonCornersDesc => 'Tapusin ang unang layer.';
-
-  @override
   String get stepCornersInsert => 'Sa ibabaw ng puwesto nito';
 
   @override
@@ -1028,12 +1052,6 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get stepCornersRepeatBody =>
       'Kung mali ang harap ng puti, ulit-ulitin lang ang R U R\' U\' sa parehong puwesto. Lulutas ang bawat kanto sa hindi hihigit sa limang ulit.';
-
-  @override
-  String get lessonMiddle => 'Gitnang layer';
-
-  @override
-  String get lessonMiddleDesc => 'Ipasok ang apat na gitnang edge.';
 
   @override
   String get stepMiddleRight => 'Edge pakanan';
@@ -1050,13 +1068,6 @@ class AppLocalizationsFil extends AppLocalizations {
       'Kung sa kaliwang center naman tugma ang kulay nito sa itaas, gamitin ang mirror: U\' L\' U L U F U\' F\'.';
 
   @override
-  String get lessonLastLayer => 'Dilaw na cross at mga edge';
-
-  @override
-  String get lessonLastLayerDesc =>
-      'Gumawa ng cross sa itaas at itugma ang mga edge.';
-
-  @override
   String get stepYellowCross => 'Isang algorithm';
 
   @override
@@ -1069,12 +1080,6 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get stepYellowEdgesBody =>
       'Paikutin ang itaas hanggang tumugma ang dalawang edge sa kanilang center. Kapag nasa likod ang isa at nasa kanan ang isa, pagpapalitin ng R U R\' U R U2 R\' U ang dalawa pa.';
-
-  @override
-  String get lessonLastCorners => 'Mga dilaw na kanto';
-
-  @override
-  String get lessonLastCornersDesc => 'Ilagay at pihitin ang mga huling kanto.';
 
   @override
   String get stepPlaceCorners => 'Ilagay ang mga ito';

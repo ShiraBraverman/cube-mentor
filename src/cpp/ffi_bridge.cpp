@@ -25,7 +25,7 @@ bool scannableSize(int32_t size) { return size >= 2 && size <= 7; }
 
 extern "C" {
 
-CM_API const char* cm_version(void) { return "1.1.0"; }
+CM_API const char* cm_version(void) { return "1.2.0"; }
 
 CM_API int32_t cm_prepare(int32_t size) {
   if (size < 2 || size > 6) return -1;

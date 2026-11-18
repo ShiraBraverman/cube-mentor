@@ -2,6 +2,7 @@ import 'package:cube_mentor/app.dart';
 import 'package:cube_mentor/core/cube/cube_move.dart';
 import 'package:cube_mentor/core/cube/cube_state.dart';
 import 'package:cube_mentor/core/cube/facelets.dart';
+import 'package:cube_mentor/core/l10n/crown_words.dart';
 import 'package:cube_mentor/core/l10n/generated/app_localizations.dart';
 import 'package:cube_mentor/core/l10n/move_words.dart';
 import 'package:cube_mentor/core/settings/preferences.dart';
@@ -29,7 +30,7 @@ Future<void> _advance(WidgetTester tester, [int frames = 12]) async {
 void main() {
   group('lesson catalogue', () {
     test('every demonstration parses and ends on a solved cube', () {
-      expect(kLessons, hasLength(17));
+      expect(kLessons, hasLength(19));
       final ids = <String>{};
       for (final lesson in kLessons) {
         expect(ids.add(lesson.id), isTrue, reason: 'duplicate ${lesson.id}');
@@ -47,6 +48,46 @@ void main() {
           }
         }
       }
+    });
+
+    test('the beginner track is the 3-crown, 7-sub-step syllabus', () {
+      final beginner = [
+        for (final lesson in kLessons)
+          if (lesson.crown > 0) (lesson.crown, lesson.subStep),
+      ];
+      // One lesson per sub-step, in the solver's order.
+      expect(beginner, [for (final s in kLblSubSteps) (s.crown, s.subStep)]);
+      expect(
+        kLessons.where((l) => l.track == LessonTrack.beginner).map((l) => l.id),
+        [
+          'basics',
+          'cross',
+          'corners',
+          'middle',
+          'yellowCross',
+          'yellowEdges',
+          'yellowCorners',
+          'twistCorners',
+        ],
+      );
+      expect(
+        lessonTitle(_en, 'yellowCorners'),
+        '3.3 Position the yellow corners',
+      );
+      expect(
+        lessonTitle(_he, 'twistCorners'),
+        '3.4 סיבוב הפינות לצבעים הנכונים',
+      );
+      expect(lessonTitle(_he, 'corners'), '1.2 פינות הכתר הראשון');
+      expect(lessonTitle(_he, 'middle'), '2.1 השלמת השכבה האמצעית');
+      expect(lessonTitle(_he, 'yellowEdges'), '3.2 התאמת מרכזי האיקס הצהוב');
+      expect(crownName(_he, 1), 'הכתר הראשון');
+      expect(crownName(_he, 2), 'הכתר השני');
+      expect(crownName(_he, 3), 'הכתר השלישי');
+      expect(
+        lessonDescription(_en, 'middle'),
+        'Insert the 4 middle-layer edges without disturbing the first crown.',
+      );
     });
 
     test('covers every track, with advanced lessons marked', () {
@@ -200,7 +241,7 @@ void main() {
     await tester.pump(const Duration(milliseconds: 100));
     expect(find.text('Start learning'), findsOneWidget);
     expect(find.text('Meet the cube'), findsOneWidget);
-    expect(find.text('Lesson 1 of 17'), findsOneWidget);
+    expect(find.text('Lesson 1 of 19'), findsOneWidget);
 
     await tester.tap(find.byKey(const ValueKey('continue-learning')));
     await _advance(tester);
@@ -237,8 +278,9 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('lesson-back-academy')));
     await _advance(tester);
     expect(find.text('Continue learning'), findsOneWidget);
-    expect(find.text('White cross'), findsOneWidget);
-    expect(find.text('Lesson 2 of 17'), findsOneWidget);
+    // The next lesson is named after its sub-step, like the solver.
+    expect(find.text('1.1 White cross'), findsOneWidget);
+    expect(find.text('Lesson 2 of 19'), findsOneWidget);
   });
 
   testWidgets('the Academy lists every track in Hebrew, right to left', (
@@ -265,8 +307,10 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('mode-academy')));
     await _advance(tester);
     expect(find.text('אקדמיה'), findsOneWidget);
-    expect(find.text('0 מתוך 17 שיעורים הושלמו'), findsOneWidget);
-    expect(find.text('מתחילים 3×3 (שכבה אחר שכבה)'), findsOneWidget);
+    expect(find.text('0 מתוך 19 שיעורים הושלמו'), findsOneWidget);
+    expect(find.text('מתחילים 3×3: שלושת הכתרים'), findsOneWidget);
+    expect(find.text('1.1 איקס לבן מותאם למרכזים'), findsOneWidget);
+    expect(find.byKey(const ValueKey('academy-crown-1')), findsOneWidget);
     expect(
       Directionality.of(tester.element(find.text('אקדמיה'))),
       TextDirection.rtl,

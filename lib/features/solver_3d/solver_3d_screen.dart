@@ -3,6 +3,7 @@ import 'package:material_ui/material_ui.dart';
 
 import '../../core/cube/cube_state.dart';
 import '../../core/l10n/generated/app_localizations.dart';
+import '../../core/settings/solve_preference.dart';
 import '../../core/solver/cube_solver.dart';
 import '../../core/solver/solve_step.dart';
 import '../../core/theme/app_colors.dart';
@@ -411,96 +412,11 @@ extension on _ActionBar {
       say(l10n.solveUnavailable(size));
       return;
     }
-    var method = SolveMethod.fast;
-    if (solver.supports(size, SolveMethod.layerByLayer)) {
-      final choice = await showModalBottomSheet<SolveMethod>(
-        context: context,
-        backgroundColor: Colors.transparent,
-        builder: (_) => _SolveMethodSheet(size: size),
-      );
-      if (choice == null) return;
-      method = choice;
-    }
+    // The guided 3-crown method by default; the banner toggles to fast.
+    final method = solver.supports(size, SolveMethod.layerByLayer)
+        ? ref.read(solvePreferenceProvider)
+        : SolveMethod.fast;
     await controller.solve(method);
-  }
-}
-
-/// Lets the user pick between the fast solver and the guided method.
-class _SolveMethodSheet extends StatelessWidget {
-  const _SolveMethodSheet({required this.size});
-
-  final int size;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-    final textTheme = Theme.of(context).textTheme;
-    Widget option(
-      Key key,
-      IconData icon,
-      String title,
-      String description,
-      SolveMethod method,
-      Color accent,
-    ) => GlassCard(
-      key: key,
-      onTap: () => Navigator.of(context).pop(method),
-      child: Row(
-        children: [
-          Icon(icon, color: accent, size: 28),
-          const SizedBox(width: 14),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(title, style: textTheme.titleMedium),
-                const SizedBox(height: 2),
-                Text(
-                  description,
-                  style: textTheme.bodySmall?.copyWith(
-                    color: AppColors.textSecondary,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(12, 0, 12, 12),
-        child: GlassCard(
-          padding: const EdgeInsetsDirectional.fromSTEB(14, 16, 14, 14),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(l10n.solveChooseMethod, style: textTheme.titleLarge),
-              const SizedBox(height: 12),
-              option(
-                const ValueKey('solve-fast'),
-                Icons.bolt_rounded,
-                l10n.solveFast,
-                size >= 4 ? l10n.solveFastBigDesc : l10n.solveFastDesc,
-                SolveMethod.fast,
-                AppColors.accent,
-              ),
-              const SizedBox(height: 10),
-              option(
-                const ValueKey('solve-learn'),
-                Icons.school_rounded,
-                l10n.solveLearn,
-                size >= 4 ? l10n.solveLearnBigDesc : l10n.solveLearnDesc,
-                SolveMethod.layerByLayer,
-                AppColors.accentSecondary,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
   }
 }
 

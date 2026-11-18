@@ -1,6 +1,8 @@
-// Lesson catalogue (generated from the lesson table; texts live in the
-// ARB files so every lesson is fully localized).
+// Lesson catalogue (texts live in the ARB files so every lesson is fully
+// localized). The beginner track follows the 3-crown / 7-sub-step
+// syllabus, one lesson per sub-step, matching the guided solver.
 import '../../../core/cube/cube_state.dart';
+import '../../../core/l10n/crown_words.dart';
 import '../../../core/l10n/generated/app_localizations.dart';
 import 'lesson.dart';
 
@@ -34,6 +36,8 @@ const List<Lesson> kLessons = [
     id: 'cross',
     track: LessonTrack.beginner,
     size: 3,
+    crown: 1,
+    subStep: 1,
     steps: [
       LessonStep(
         'crossGoal',
@@ -61,6 +65,8 @@ const List<Lesson> kLessons = [
     id: 'corners',
     track: LessonTrack.beginner,
     size: 3,
+    crown: 1,
+    subStep: 2,
     steps: [
       LessonStep(
         'cornersInsert',
@@ -82,6 +88,8 @@ const List<Lesson> kLessons = [
     id: 'middle',
     track: LessonTrack.beginner,
     size: 3,
+    crown: 2,
+    subStep: 1,
     steps: [
       LessonStep(
         'middleRight',
@@ -100,9 +108,11 @@ const List<Lesson> kLessons = [
     ],
   ),
   Lesson(
-    id: 'lastLayer',
+    id: 'yellowCross',
     track: LessonTrack.beginner,
     size: 3,
+    crown: 3,
+    subStep: 1,
     steps: [
       LessonStep(
         'yellowCross',
@@ -111,6 +121,15 @@ const List<Lesson> kLessons = [
         top: StickerColor.yellow,
         front: StickerColor.green,
       ),
+    ],
+  ),
+  Lesson(
+    id: 'yellowEdges',
+    track: LessonTrack.beginner,
+    size: 3,
+    crown: 3,
+    subStep: 2,
+    steps: [
       LessonStep(
         'yellowEdges',
         setup: "z2",
@@ -121,9 +140,11 @@ const List<Lesson> kLessons = [
     ],
   ),
   Lesson(
-    id: 'lastCorners',
+    id: 'yellowCorners',
     track: LessonTrack.beginner,
     size: 3,
+    crown: 3,
+    subStep: 3,
     steps: [
       LessonStep(
         'placeCorners',
@@ -132,6 +153,15 @@ const List<Lesson> kLessons = [
         top: StickerColor.yellow,
         front: StickerColor.green,
       ),
+    ],
+  ),
+  Lesson(
+    id: 'twistCorners',
+    track: LessonTrack.beginner,
+    size: 3,
+    crown: 3,
+    subStep: 4,
+    steps: [
       LessonStep(
         'twistCorners',
         setup: "z2",
@@ -351,14 +381,26 @@ const List<Lesson> kLessons = [
   ),
 ];
 
-/// Localized title of a lesson.
-String lessonTitle(AppLocalizations l10n, String id) => switch (id) {
+Lesson? _lessonById(String id) {
+  for (final lesson in kLessons) {
+    if (lesson.id == id) return lesson;
+  }
+  return null;
+}
+
+/// Localized title of a lesson. Beginner's-method lessons are named after
+/// their sub-step, exactly as the guided solver shows it ("3.3 ...").
+String lessonTitle(AppLocalizations l10n, String id) {
+  final lesson = _lessonById(id);
+  if (lesson != null && lesson.crown > 0) {
+    return '${lesson.subStepLabel} '
+        '${subStepTitle(l10n, lesson.crown, lesson.subStep)}';
+  }
+  return _lessonTitle(l10n, id);
+}
+
+String _lessonTitle(AppLocalizations l10n, String id) => switch (id) {
   'basics' => l10n.lessonBasics,
-  'cross' => l10n.lessonCross,
-  'corners' => l10n.lessonCorners,
-  'middle' => l10n.lessonMiddle,
-  'lastLayer' => l10n.lessonLastLayer,
-  'lastCorners' => l10n.lessonLastCorners,
   'cfopIntro' => l10n.lessonCfopIntro,
   'f2l' => l10n.lessonF2l,
   'oll' => l10n.lessonOll,
@@ -373,14 +415,18 @@ String lessonTitle(AppLocalizations l10n, String id) => switch (id) {
   _ => id,
 };
 
-/// Localized one-line summary of a lesson.
-String lessonDescription(AppLocalizations l10n, String id) => switch (id) {
+/// Localized one-line summary of a lesson (a sub-step's goal for the
+/// beginner's method).
+String lessonDescription(AppLocalizations l10n, String id) {
+  final lesson = _lessonById(id);
+  if (lesson != null && lesson.crown > 0) {
+    return subStepGoal(l10n, lesson.crown, lesson.subStep);
+  }
+  return _lessonDescription(l10n, id);
+}
+
+String _lessonDescription(AppLocalizations l10n, String id) => switch (id) {
   'basics' => l10n.lessonBasicsDesc,
-  'cross' => l10n.lessonCrossDesc,
-  'corners' => l10n.lessonCornersDesc,
-  'middle' => l10n.lessonMiddleDesc,
-  'lastLayer' => l10n.lessonLastLayerDesc,
-  'lastCorners' => l10n.lessonLastCornersDesc,
   'cfopIntro' => l10n.lessonCfopIntroDesc,
   'f2l' => l10n.lessonF2lDesc,
   'oll' => l10n.lessonOllDesc,

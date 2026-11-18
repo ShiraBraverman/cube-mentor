@@ -169,21 +169,16 @@ class AppLocalizationsDe extends AppLocalizations {
   String get solving => 'Wird gelöst…';
 
   @override
-  String get solveChooseMethod => 'Wie möchtest du ihn lösen?';
-
-  @override
   String get solveFast => 'Schnell lösen';
-
-  @override
-  String get solveFastDesc =>
-      'Kociembas Zwei-Phasen-Algorithmus · etwa 20 Züge';
 
   @override
   String get solveLearn => 'Schritt für Schritt lernen';
 
   @override
-  String get solveLearnDesc =>
-      'Anfängermethode Ebene für Ebene, mit Erklärungen';
+  String get solveModeGuided => 'Geführt (3 Kronen)';
+
+  @override
+  String get solveModeFast => 'Schnell (optimal)';
 
   @override
   String solveUnavailable(int size) {
@@ -258,28 +253,75 @@ class AppLocalizationsDe extends AppLocalizations {
   String get phaseKociemba2 => 'Phase 2 · Würfel fertigstellen';
 
   @override
-  String get phaseLblOrient => 'Würfel halten';
-
-  @override
   String get phaseLblCross => 'Weißes Kreuz';
 
   @override
-  String get phaseLblCorners => 'Weiße Ecken';
+  String get phaseLblCorners => 'Ecken der ersten Krone';
 
   @override
-  String get phaseLblMiddle => 'Mittlere Ebene';
+  String get phaseLblMiddle => 'Kanten der mittleren Ebene';
 
   @override
   String get phaseLblYellowCross => 'Gelbes Kreuz';
 
   @override
-  String get phaseLblYellowEdges => 'Gelbe Kanten';
+  String get phaseLblYellowEdges => 'Kanten des gelben Kreuzes ausrichten';
 
   @override
   String get phaseLblYellowCorners => 'Gelbe Ecken platzieren';
 
   @override
   String get phaseLblYellowCornersOrient => 'Gelbe Ecken drehen';
+
+  @override
+  String get crownFirst => 'Erste Krone';
+
+  @override
+  String get crownSecond => 'Zweite Krone';
+
+  @override
+  String get crownThird => 'Dritte Krone';
+
+  @override
+  String get crownFirstGoal => 'Weiße Seite und erste Ebene';
+
+  @override
+  String get crownSecondGoal => 'Mittlere Ebene';
+
+  @override
+  String get crownThirdGoal => 'Gelbe Seite und letzte Ebene';
+
+  @override
+  String crownProgress(int current, int total) {
+    return 'Krone $current von $total';
+  }
+
+  @override
+  String get subStepGoal11 =>
+      'Baue ein weißes Kreuz, bei dem jede weiße Kante auch zur benachbarten Mitte passt.';
+
+  @override
+  String get subStepGoal12 =>
+      'Setze die 4 weißen Ecken an ihre Plätze, um die weiße Seite und den ganzen ersten Ring fertigzustellen.';
+
+  @override
+  String get subStepGoal21 =>
+      'Setze die 4 Kanten der mittleren Ebene ein, ohne die erste Krone zu zerstören.';
+
+  @override
+  String get subStepGoal31 => 'Baue ein gelbes Kreuz auf der letzten Ebene.';
+
+  @override
+  String get subStepGoal32 =>
+      'Tausche die Kanten des gelben Kreuzes, bis jede zu ihrer seitlichen Mitte passt.';
+
+  @override
+  String get subStepGoal33 =>
+      'Bringe die 4 gelben Ecken an ihre richtigen Plätze, auch wenn sie noch verdreht sind.';
+
+  @override
+  String get subStepGoal34 =>
+      'Drehe jede gelbe Ecke an ihrem Platz, bis alle Aufkleber passen und der Würfel gelöst ist.';
 
   @override
   String get explainOptimal2x2 =>
@@ -654,7 +696,7 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => '3×3 für Anfänger (Ebene für Ebene)';
+  String get trackBeginner => '3×3 für Anfänger: die 3 Kronen';
 
   @override
   String get trackCfop => 'Einführung in CFOP';
@@ -812,14 +854,6 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get explainReductionPllParity =>
       'PLL-Parität: Zwei Kanten sind vertauscht, was auf einem 3×3 unmöglich ist. Dieser Algorithmus tauscht sie zurück.';
-
-  @override
-  String get solveFastBigDesc =>
-      'Reduktion: Mitten, Kanten und Parität, dann Kociemba';
-
-  @override
-  String get solveLearnBigDesc =>
-      'Reduktion, abgeschlossen mit der Anfängermethode Ebene für Ebene';
 
   @override
   String get patternsTitle => 'Musterbibliothek';
@@ -983,12 +1017,6 @@ class AppLocalizationsDe extends AppLocalizations {
       'Ein Apostroph (R\') dreht in die andere Richtung, gegen den Uhrzeigersinn. Eine 2 (U2) ist eine halbe Drehung: zwei Vierteldrehungen.';
 
   @override
-  String get lessonCross => 'Weißes Kreuz';
-
-  @override
-  String get lessonCrossDesc => 'Baue unten ein weißes Kreuz.';
-
-  @override
   String get stepCrossGoal => 'Das Ziel';
 
   @override
@@ -1010,12 +1038,6 @@ class AppLocalizationsDe extends AppLocalizations {
       'Eine Kante in der mittleren Ebene muss erst nach oben: Drehe ihre Seite hoch, drehe die obere Ebene aus dem Weg und die Seite zurück, damit das Kreuz heil bleibt. Setze sie dann von oben ein.';
 
   @override
-  String get lessonCorners => 'Weiße Ecken';
-
-  @override
-  String get lessonCornersDesc => 'Vollende die erste Ebene.';
-
-  @override
   String get stepCornersInsert => 'Über ihrem Platz';
 
   @override
@@ -1028,12 +1050,6 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get stepCornersRepeatBody =>
       'Zeigt Weiß in die falsche Richtung, wiederhole R U R\' U\' über demselben Platz. Jede Ecke ist nach höchstens fünf Wiederholungen gelöst.';
-
-  @override
-  String get lessonMiddle => 'Mittlere Ebene';
-
-  @override
-  String get lessonMiddleDesc => 'Setze die vier mittleren Kanten ein.';
 
   @override
   String get stepMiddleRight => 'Kante nach rechts';
@@ -1050,13 +1066,6 @@ class AppLocalizationsDe extends AppLocalizations {
       'Passt die obere Farbe stattdessen zur linken Mitte, nimm die Spiegelung: U\' L\' U L U F U\' F\'.';
 
   @override
-  String get lessonLastLayer => 'Gelbes Kreuz & Kanten';
-
-  @override
-  String get lessonLastLayerDesc =>
-      'Baue oben ein Kreuz und richte die Kanten aus.';
-
-  @override
   String get stepYellowCross => 'Ein Algorithmus';
 
   @override
@@ -1069,12 +1078,6 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get stepYellowEdgesBody =>
       'Drehe die obere Ebene, bis zwei Kanten zu ihren Mitten passen. Mit einer hinten und einer rechts tauscht R U R\' U R U2 R\' U die anderen beiden.';
-
-  @override
-  String get lessonLastCorners => 'Gelbe Ecken';
-
-  @override
-  String get lessonLastCornersDesc => 'Platziere und drehe die letzten Ecken.';
 
   @override
   String get stepPlaceCorners => 'Platzieren';

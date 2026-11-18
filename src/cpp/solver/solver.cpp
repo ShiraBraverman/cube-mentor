@@ -105,6 +105,9 @@ std::string toJson(const SolveResult& result) {
     appendEscaped(out, s.explanation);
     out += ",\"piece\":";
     appendEscaped(out, s.piece);
+    if (s.crown > 0) {
+      out += ",\"crown\":" + std::to_string(s.crown) + ",\"subStep\":" + std::to_string(s.subStep);
+    }
     out += ",\"highlight\":[";
     for (size_t h = 0; h < s.highlight.size(); ++h) {
       if (h > 0) out += ',';

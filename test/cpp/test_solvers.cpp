@@ -1,6 +1,7 @@
 // Solver tests: 1,000+ random scrambles per solver, verified by replaying
 // every solution on the facelet model.
 #include <algorithm>
+#include <array>
 #include <chrono>
 #include <cstring>
 #include <random>
@@ -157,13 +158,12 @@ TEST_CASE("kociemba: solved cube, superflip and invalid input") {
 
 TEST_CASE("lbl: 1000 random scrambles solve with structured steps") {
   std::mt19937 rng(99);
-  const std::vector<std::string> order = {
-      "lblOrient",     "lblCross",       "lblCorners",       "lblMiddle",
-      "lblYellowCross", "lblYellowEdges", "lblYellowCorners", "lblYellowCornersOrient"};
   double total = 0;
   double worst = 0;
   long moves = 0;
   int longest = 0;
+  // How many scrambles needed each sub-step (some may already be solved).
+  std::array<int, 7> seen{};
   for (int i = 0; i < kScrambles; ++i) {
     FaceletCube cube = cmtest::solvedColored(3);
     cmtest::applyTokens(cube, cmtest::randomScramble(rng, 25, true, true));
@@ -172,30 +172,70 @@ TEST_CASE("lbl: 1000 random scrambles solve with structured steps") {
     const double ms = millisSince(start);
     REQUIRE(result.ok);
     REQUIRE(replaySolves(cube.f, 3, result));
-    int lastPhase = 0;
+    int lastStage = 0;
+    std::array<bool, 7> present{};
     for (const SolveStep& step : result.steps) {
-      const auto it = std::find(order.begin(), order.end(), step.phase);
-      REQUIRE(it != order.end());
-      const int phase = static_cast<int>(it - order.begin());
-      CHECK(phase >= lastPhase);  // phases never go backwards
-      lastPhase = phase;
+      // Every step belongs to exactly one of the 7 sub-steps, tagged with
+      // the matching crown, and the sub-steps run strictly in order.
+      int stage = -1;
+      for (int k = 0; k < 7; ++k) {
+        if (step.phase == kLblStages[k].phase) stage = k;
+      }
+      REQUIRE(stage >= 0);
+      CHECK(step.crown == kLblStages[stage].crown);
+      CHECK(step.subStep == kLblStages[stage].subStep);
+      CHECK(stage >= lastStage);  // 1.1 -> 1.2 -> 2.1 -> 3.1 .. 3.4
+      lastStage = stage;
+      present[stage] = true;
       CHECK(!step.explanation.empty());
       CHECK(step.cubeState.size() == 54);
       for (const Vec3& p : step.highlight) {
         CHECK(std::abs(p.x) <= 2 && std::abs(p.y) <= 2 && std::abs(p.z) <= 2);
       }
-      if (step.phase == "lblCross" || step.phase == "lblCorners" || step.phase == "lblMiddle") {
+      if (step.explanation != "lblOrientExplain" &&
+          (step.phase == "lblCross" || step.phase == "lblCorners" || step.phase == "lblMiddle")) {
         CHECK(!step.piece.empty());
         CHECK(step.highlight.size() == 1);
       }
     }
+    for (int k = 0; k < 7; ++k) seen[k] += present[k];
     total += ms;
     worst = std::max(worst, ms);
     moves += static_cast<long>(result.steps.size());
     longest = std::max(longest, static_cast<int>(result.steps.size()));
   }
+  // The first three sub-steps are needed by every real scramble; the last
+  // layer ones by most (a few happen to be done already).
+  for (int k = 0; k < 3; ++k) CHECK(seen[k] == kScrambles);
+  for (int k = 3; k < 7; ++k) CHECK(seen[k] > kScrambles / 2);
   std::printf("    avg %.3f ms, worst %.3f ms, avg %.1f moves, longest %d\n", total / kScrambles,
               worst, static_cast<double>(moves) / kScrambles, longest);
+  std::printf("    sub-steps used: 1.1 %d, 1.2 %d, 2.1 %d, 3.1 %d, 3.2 %d, 3.3 %d, 3.4 %d\n",
+              seen[0], seen[1], seen[2], seen[3], seen[4], seen[5], seen[6]);
+}
+
+TEST_CASE("lbl: three crowns, seven sub-steps, in order") {
+  // A scramble that needs every sub-step: the emitted (crown, sub-step)
+  // sequence, with repeats collapsed, is exactly the beginner's syllabus.
+  std::mt19937 rng(7);
+  bool checked = false;
+  for (int attempt = 0; attempt < 50 && !checked; ++attempt) {
+    FaceletCube cube = cmtest::solvedColored(3);
+    cmtest::applyTokens(cube, cmtest::randomScramble(rng, 25, true, true));
+    const SolveResult result = solveCube(3, SolveMethod::kLayerByLayer, cube.f);
+    REQUIRE(result.ok);
+    std::vector<std::pair<int, int>> order;
+    for (const SolveStep& step : result.steps) {
+      const std::pair<int, int> stage{step.crown, step.subStep};
+      if (order.empty() || order.back() != stage) order.push_back(stage);
+    }
+    if (order.size() != 7) continue;
+    const std::vector<std::pair<int, int>> syllabus = {{1, 1}, {1, 2}, {2, 1}, {3, 1},
+                                                      {3, 2}, {3, 3}, {3, 4}};
+    CHECK(order == syllabus);
+    checked = true;
+  }
+  CHECK(checked);
 }
 
 TEST_CASE("lbl: white goes down first and the cross is built on the bottom") {
@@ -205,20 +245,34 @@ TEST_CASE("lbl: white goes down first and the cross is built on the bottom") {
   REQUIRE(result.ok);
   REQUIRE(!result.steps.empty());
   CHECK(result.steps.front().move == "x2");  // white starts on top
-  CHECK(result.steps.front().phase == "lblOrient");
+  // Holding white down opens 1.1 (white cross).
+  CHECK(result.steps.front().phase == "lblCross");
+  CHECK(result.steps.front().explanation == "lblOrientExplain");
+  CHECK(result.steps.front().crown == 1);
+  CHECK(result.steps.front().subStep == 1);
   // Once the cross phase ends, the four bottom edges are white.
   FaceletCube replay = cube;
   for (const SolveStep& step : result.steps) {
-    if (step.phase != "lblOrient" && step.phase != "lblCross") break;
+    if (step.phase != "lblCross") break;
     cmtest::applyTokens(replay, {step.move});
   }
   for (int i : {1, 3, 5, 7}) CHECK(replay.f[kD * 9 + i] == 'W');
 }
 
+TEST_CASE("lbl: JSON carries the crown and sub-step, fast steps do not") {
+  FaceletCube cube = cmtest::solvedColored(3);
+  cmtest::applyTokens(cube, {"R", "U", "F"});
+  const std::string lbl = toJson(solveCube(3, SolveMethod::kLayerByLayer, cube.f));
+  CHECK(lbl.find("\"crown\":1,\"subStep\":1") != std::string::npos);
+  CHECK(lbl.find("\"crown\":3,\"subStep\":4") != std::string::npos);
+  const std::string fast = toJson(solveCube(3, SolveMethod::kFast, cube.f));
+  CHECK(fast.find("\"crown\"") == std::string::npos);
+}
+
 // ---- FFI bridge --------------------------------------------------------------
 
 TEST_CASE("ffi: cm_solve writes JSON and reports the needed buffer size") {
-  CHECK(std::strcmp(cm_version(), "1.1.0") == 0);
+  CHECK(std::strcmp(cm_version(), "1.2.0") == 0);
   CHECK(cm_prepare(3) == 0);
   CHECK(cm_prepare(7) == -1);
   FaceletCube cube = cmtest::solvedColored(3);
