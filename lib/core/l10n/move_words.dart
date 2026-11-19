@@ -88,3 +88,113 @@ String holdPrompt(
   StickerColor top,
   StickerColor front,
 ) => l10n.holdPrompt(colorName(l10n, top), colorName(l10n, front));
+
+/// Arrow shown with a move instruction, as the move looks from the front.
+enum MoveArrow { up, down, left, right, clockwise, counterClockwise }
+
+/// A move as plain words and an arrow ("Right side — Up", "Top row —
+/// Left"), so the main UI never needs the notation letters.
+class MoveInstruction {
+  const MoveInstruction({
+    required this.layer,
+    required this.direction,
+    required this.arrow,
+    required this.half,
+  });
+
+  /// Which part turns: "Right side", "Top row", "Whole cube"...
+  final String layer;
+
+  /// Which way: "Up", "Clockwise", "Double turn (180°)"...
+  final String direction;
+
+  /// Way the arrow points; for a half turn, either way works.
+  final MoveArrow arrow;
+
+  /// A 180-degree turn.
+  final bool half;
+
+  /// "Right side — Up".
+  String text(AppLocalizations l10n) => l10n.moveInstruction(layer, direction);
+}
+
+/// The short instruction and arrow for [move] on a cube of [size].
+MoveInstruction moveInstruction(
+  AppLocalizations l10n,
+  CubeMove move,
+  int size,
+) {
+  final q = move.quarterTurns % 4;
+  final half = q == 2;
+  final wholeCube = move.fromLayer == 0 && move.toLayer == size - 1;
+  final middle =
+      !wholeCube &&
+      size.isOdd &&
+      move.fromLayer == size ~/ 2 &&
+      move.toLayer == size ~/ 2;
+  // Rotations follow R, U and F; M follows L, E follows D, S follows F.
+  final positive = wholeCube
+      ? true
+      : middle
+      ? move.axis == 2
+      : move.fromLayer + move.toLayer >= size - 1;
+  final letter = positive ? 'RUF'[move.axis] : 'LDB'[move.axis];
+  final face = _shortFace(l10n, letter);
+
+  final String layer;
+  if (wholeCube) {
+    layer = l10n.dirWholeCube;
+  } else if (middle) {
+    layer = l10n.dirMiddle;
+  } else if (move.fromLayer == move.toLayer) {
+    final depth = positive ? size - move.fromLayer : move.fromLayer + 1;
+    layer = depth == 1 ? face : l10n.dirLayerInner(depth, face);
+  } else if (move.toLayer == size - 1 || move.fromLayer == 0) {
+    final depth = positive ? size - move.fromLayer : move.toLayer + 1;
+    layer = l10n.dirLayerWide(depth, face);
+  } else {
+    final near = positive ? size - move.toLayer : move.fromLayer + 1;
+    final far = positive ? size - move.fromLayer : move.toLayer + 1;
+    layer = l10n.dirLayerBlock(near, far, face);
+  }
+
+  // A half turn shows the clockwise way; either way gets there.
+  final clockwise = half || (positive ? q == 3 : q == 1);
+  final (arrow, word) = switch (letter) {
+    'R' =>
+      clockwise ? (MoveArrow.up, l10n.dirUp) : (MoveArrow.down, l10n.dirDown),
+    'L' =>
+      clockwise ? (MoveArrow.down, l10n.dirDown) : (MoveArrow.up, l10n.dirUp),
+    'U' =>
+      clockwise
+          ? (MoveArrow.left, l10n.dirLeft)
+          : (MoveArrow.right, l10n.dirRight),
+    'D' =>
+      clockwise
+          ? (MoveArrow.right, l10n.dirRight)
+          : (MoveArrow.left, l10n.dirLeft),
+    'F' =>
+      clockwise
+          ? (MoveArrow.clockwise, l10n.dirClockwise)
+          : (MoveArrow.counterClockwise, l10n.dirCounter),
+    _ =>
+      clockwise
+          ? (MoveArrow.counterClockwise, l10n.dirBackClockwise)
+          : (MoveArrow.clockwise, l10n.dirBackCounter),
+  };
+  return MoveInstruction(
+    layer: layer,
+    direction: half ? l10n.dirHalf : word,
+    arrow: arrow,
+    half: half,
+  );
+}
+
+String _shortFace(AppLocalizations l10n, String letter) => switch (letter) {
+  'R' => l10n.dirFaceR,
+  'L' => l10n.dirFaceL,
+  'U' => l10n.dirFaceU,
+  'D' => l10n.dirFaceD,
+  'F' => l10n.dirFaceF,
+  _ => l10n.dirFaceB,
+};

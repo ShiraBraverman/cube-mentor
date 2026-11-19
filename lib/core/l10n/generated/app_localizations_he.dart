@@ -1452,4 +1452,97 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get introHowBigParity =>
       'פותרים את ה־4×4 כמו 3×3 עד שנתקעים.\nצלע הפוכה אחת: אלגוריתם הזוגיות הארוך של OLL.\nשתי צלעות מוחלפות: ⁦2R2 U2 2R2 Uw2 2R2 Uw2⁩.';
+
+  @override
+  String get dirFaceR => 'צד ימין';
+
+  @override
+  String get dirFaceL => 'צד שמאל';
+
+  @override
+  String get dirFaceU => 'שורה עליונה';
+
+  @override
+  String get dirFaceD => 'שורה תחתונה';
+
+  @override
+  String get dirFaceF => 'פאה קדמית';
+
+  @override
+  String get dirFaceB => 'פאה אחורית';
+
+  @override
+  String get dirMiddle => 'פרוסה אמצעית';
+
+  @override
+  String get dirWholeCube => 'כל הקובייה';
+
+  @override
+  String dirLayerInner(int depth, String face) {
+    return '$face, שכבה $depth';
+  }
+
+  @override
+  String dirLayerWide(int depth, String face) {
+    return '$face, $depth שכבות לעומק';
+  }
+
+  @override
+  String dirLayerBlock(int near, int far, String face) {
+    return '$face, שכבות $near–$far';
+  }
+
+  @override
+  String get dirUp => 'למעלה';
+
+  @override
+  String get dirDown => 'למטה';
+
+  @override
+  String get dirLeft => 'שמאלה';
+
+  @override
+  String get dirRight => 'ימינה';
+
+  @override
+  String get dirClockwise => 'עם כיוון השעון';
+
+  @override
+  String get dirCounter => 'נגד כיוון השעון';
+
+  @override
+  String get dirBackClockwise => 'עם כיוון השעון, במבט מאחור';
+
+  @override
+  String get dirBackCounter => 'נגד כיוון השעון, במבט מאחור';
+
+  @override
+  String get dirHalf => 'סיבוב כפול (180°)';
+
+  @override
+  String moveInstruction(String layer, String direction) {
+    return '$layer — $direction';
+  }
+
+  @override
+  String get solveCollapse => 'הסתרת הפרטים';
+
+  @override
+  String get solveExpand => 'הצגת הפרטים';
+
+  @override
+  String get dailyScrambleSteps => 'ערבוב צעד אחר צעד';
+
+  @override
+  String get dailyScrambleGuide => 'מדריך ערבוב בתלת־ממד';
+
+  @override
+  String get dailyScrambleGuideTitle => 'מדריך ערבוב';
+
+  @override
+  String get phaseDailyScramble => 'מערבבים את הקובייה של היום';
+
+  @override
+  String get explainDailyScramble =>
+      'מתחילים מקובייה פתורה, לבן למעלה וירוק מלפנים, ומעתיקים כל סיבוב לקובייה האמיתית.';
 }

@@ -1,11 +1,16 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../core/cube/cube_move.dart';
+import '../../core/cube/cube_state.dart';
 import '../../core/l10n/generated/app_localizations.dart';
+import '../../core/l10n/move_words.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
 import '../../core/theme/ui_kit.dart';
+import '../solver_3d/model/guide_script.dart';
 import '../solver_3d/solver_3d_screen.dart';
+import '../solver_3d/widgets/move_instruction.dart';
 import '../timer/timer_screen.dart';
 import 'daily_controller.dart';
 
@@ -36,6 +41,9 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
     final date = MaterialLocalizations.of(context).formatMediumDate(state.date);
     final cube = state.cube;
     final hint = state.hint;
+    final scramble = state.scramble == null
+        ? null
+        : MoveNotation.parseSequence(state.scramble!, kDailySize);
     final lit = state.streak > 0;
 
     return GlassBackground(
@@ -123,21 +131,57 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
                         ],
                       ),
                       const SizedBox(height: AppSpace.md),
-                      Text(l10n.timerScrambleHint, style: textTheme.bodySmall),
-                      const SizedBox(height: AppSpace.xs),
                       Text(
-                        state.scramble ?? l10n.timerLoadingScramble,
-                        key: const ValueKey('daily-scramble'),
-                        textDirection: TextDirection.ltr,
-                        style: textTheme.titleLarge?.copyWith(
-                          height: 1.5,
-                          letterSpacing: 0.5,
+                        l10n.dailyScrambleSteps,
+                        style: textTheme.titleSmall?.copyWith(
+                          color: AppColors.accent,
                         ),
                       ),
+                      const SizedBox(height: 2),
+                      Text(l10n.timerScrambleHint, style: textTheme.bodySmall),
+                      const SizedBox(height: AppSpace.sm),
+                      if (scramble == null)
+                        Text(
+                          l10n.timerLoadingScramble,
+                          key: const ValueKey('daily-scramble'),
+                        )
+                      else
+                        _ScrambleSteps(
+                          key: const ValueKey('daily-scramble'),
+                          moves: scramble,
+                        ),
                     ],
                   ),
                 ),
                 const SizedBox(height: AppSpace.lg),
+                // Turn by turn on the 3D cube, with arrows, to scramble a
+                // solved real cube into today's challenge.
+                FilledButton.tonalIcon(
+                  key: const ValueKey('daily-scramble-guide'),
+                  style: FilledButton.styleFrom(
+                    backgroundColor: AppColors.accent.withValues(alpha: 0.2),
+                    foregroundColor: AppColors.textPrimary,
+                  ),
+                  onPressed: scramble == null
+                      ? null
+                      : () => Navigator.of(context).push(
+                          MaterialPageRoute<void>(
+                            builder: (_) => Solver3DScreen(
+                              size: kDailySize,
+                              title: l10n.dailyScrambleGuideTitle,
+                              guide: GuideScript(
+                                start: CubeState.solved(kDailySize),
+                                moves: scramble,
+                                phase: 'dailyScramble',
+                                explanation: 'dailyScrambleStep',
+                              ),
+                            ),
+                          ),
+                        ),
+                  icon: const Icon(Icons.shuffle_rounded),
+                  label: Text(l10n.dailyScrambleGuide),
+                ),
+                const SizedBox(height: AppSpace.sm),
                 FilledButton.icon(
                   key: const ValueKey('daily-virtual'),
                   onPressed: cube == null
@@ -207,8 +251,17 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
                             hint == null
                                 ? l10n.dailyHintFailed
                                 // Notation reads left to right in any locale.
+                                // Plain words, no notation letters.
                                 : l10n.dailyHintText(
-                                    '\u2066${hint.join(' ')}\u2069',
+                                    hint
+                                        .map(
+                                          (m) => moveInstruction(
+                                            l10n,
+                                            MoveNotation.parse(m, kDailySize),
+                                            kDailySize,
+                                          ).text(l10n),
+                                        )
+                                        .join(' · '),
                                   ),
                             key: const ValueKey('daily-hint-text'),
                             style: textTheme.bodyLarge,
@@ -223,6 +276,42 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
           ),
         ),
       ),
+    );
+  }
+}
+
+/// Today's scramble as numbered steps: an arrow and plain words each.
+class _ScrambleSteps extends StatelessWidget {
+  const _ScrambleSteps({super.key, required this.moves});
+
+  final List<CubeMove> moves;
+
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    return Column(
+      children: [
+        for (final (i, move) in moves.indexed)
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 3),
+            child: MoveInstructionTile(
+              key: ValueKey('daily-step-$i'),
+              move: move,
+              size: kDailySize,
+              badgeSize: 34,
+              dense: true,
+              leading: SizedBox(
+                width: 28,
+                child: Text(
+                  '${i + 1}',
+                  style: textTheme.labelLarge?.copyWith(
+                    color: AppColors.textTertiary,
+                  ),
+                ),
+              ),
+            ),
+          ),
+      ],
     );
   }
 }

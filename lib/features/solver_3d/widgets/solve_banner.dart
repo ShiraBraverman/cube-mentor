@@ -4,7 +4,6 @@ import 'package:material_ui/material_ui.dart';
 import '../../../core/cube/facelets.dart';
 import '../../../core/cube/cube_state.dart';
 import '../../../core/l10n/generated/app_localizations.dart';
-import '../../../core/l10n/move_words.dart';
 import '../../../core/solver/solve_step.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/glass.dart';
@@ -12,17 +11,28 @@ import '../model/cube_session.dart';
 import '../../../core/l10n/crown_words.dart';
 import '../../academy/widgets/lesson_intro.dart';
 import 'crown_tracker.dart';
+import 'move_instruction.dart';
 
-/// Glass banner above the cube explaining the current solution step: the
-/// phase and progress, what this move achieves, the move itself and how to
-/// make it. Stays up until the cube is solved, then celebrates.
-class SolveBanner extends ConsumerWidget {
+/// Dock under the cube explaining the current solution step: an arrow and
+/// plain words for the move ("Right side — Up"), then (expandable) the
+/// phase and progress, what this move achieves and how to make it. It never
+/// covers the cube. Collapsing it only hides the details: the solution stays
+/// loaded until "Exit guide". Celebrates once the cube is solved.
+class SolveBanner extends ConsumerStatefulWidget {
   const SolveBanner({super.key, required this.size});
 
   final int size;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<SolveBanner> createState() => _SolveBannerState();
+}
+
+class _SolveBannerState extends ConsumerState<SolveBanner> {
+  bool _expanded = true;
+
+  @override
+  Widget build(BuildContext context) {
+    final size = widget.size;
     final l10n = AppLocalizations.of(context);
     final session = ref.watch(cubeSessionProvider(size));
     if (session.steps.isEmpty) return const SizedBox.shrink();
@@ -36,208 +46,230 @@ class SolveBanner extends ConsumerWidget {
       color: AppColors.textSecondary,
     );
 
-    final Widget content;
     if (complete) {
       final guided = session.steps.any((s) => s.hasCrown);
-      content = Row(
-        key: const ValueKey('solve-complete'),
-        children: [
-          const Icon(
-            Icons.celebration_rounded,
-            color: AppColors.accentSecondary,
-          ),
-          const SizedBox(width: 12),
-          // All three crowns finished.
-          if (guided) ...[
-            const CrownTracker(active: kCrowns + 1),
+      return GlassCard(
+        selected: true,
+        accent: AppColors.accentSecondary,
+        borderRadius: AppRadius.md,
+        padding: const EdgeInsetsDirectional.fromSTEB(
+          AppSpace.md,
+          AppSpace.sm,
+          AppSpace.xxs,
+          AppSpace.sm,
+        ),
+        child: Row(
+          key: const ValueKey('solve-complete'),
+          children: [
+            const Icon(
+              Icons.celebration_rounded,
+              color: AppColors.accentSecondary,
+            ),
             const SizedBox(width: 12),
-          ],
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  l10n.solveComplete,
-                  style: textTheme.titleMedium?.copyWith(
-                    color: AppColors.accentSecondary,
-                  ),
-                ),
-                Text(l10n.solveSummary(total), style: secondary),
-              ],
-            ),
-          ),
-        ],
-      );
-    } else if (step == null) {
-      return const SizedBox.shrink();
-    } else {
-      final move = session.playback[index];
-      final wholeCube = move.fromLayer == 0 && move.toLayer == size - 1;
-      content = Row(
-        key: ValueKey('solve-step-$index-${step.explanationKey}'),
-        children: [
-          _MoveChip(notation: step.moveNotation, tooltip: l10n.nextMove),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                if (step.hasCrown)
-                  CrownHeader(
-                    step: step,
-                    subStepTitle: subStepTitle(l10n, step.crown, step.subStep),
-                    trailing: Padding(
-                      padding: const EdgeInsetsDirectional.only(start: 8),
-                      child: Text(
-                        l10n.playbackProgress(index + 1, total),
-                        key: const ValueKey('solve-progress'),
-                        style: secondary,
-                      ),
-                    ),
-                  )
-                else
-                  Row(
-                    children: [
-                      Expanded(
-                        flex: 3,
-                        child: Text(
-                          solvePhaseTitle(l10n, step.phaseName),
-                          style: textTheme.labelLarge?.copyWith(
-                            color: AppColors.accent,
-                            fontWeight: FontWeight.w700,
-                          ),
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      // Long translations of the counter shrink too.
-                      Flexible(
-                        flex: 2,
-                        child: Text(
-                          l10n.playbackProgress(index + 1, total),
-                          key: const ValueKey('solve-progress'),
-                          style: secondary,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ],
-                  ),
-                const SizedBox(height: 2),
-                Text(
-                  solveExplanation(l10n, step),
-                  style: textTheme.bodyMedium,
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  describeMove(l10n, move, size),
-                  key: const ValueKey('solve-move-words'),
-                  style: textTheme.bodySmall?.copyWith(
-                    color: AppColors.accentSecondary,
-                    fontWeight: FontWeight.w600,
-                  ),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                if (session.stepHint case final hint?)
-                  StepHintText(hint: hint)
-                else
+            // All three crowns finished.
+            if (guided) ...[
+              const CrownTracker(active: kCrowns + 1),
+              const SizedBox(width: 12),
+            ],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
                   Text(
-                    wholeCube ? l10n.guideRotateHint : l10n.guideSwipeHint,
-                    style: secondary,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
+                    l10n.solveComplete,
+                    style: textTheme.titleMedium?.copyWith(
+                      color: AppColors.accentSecondary,
+                    ),
                   ),
-              ],
+                  Text(l10n.solveSummary(total), style: secondary),
+                ],
+              ),
             ),
-          ),
-        ],
+            IconButton(
+              key: const ValueKey('guide-exit'),
+              tooltip: l10n.guideExit,
+              visualDensity: VisualDensity.compact,
+              onPressed: controller.clearSolution,
+              icon: const Icon(Icons.close_rounded, size: 20),
+            ),
+          ],
+        ),
       );
     }
+    if (step == null) return const SizedBox.shrink();
 
-    // The active step glows; a finished solve glows mint.
-    return GlassCard(
-      selected: true,
-      accent: complete ? AppColors.accentSecondary : AppColors.accent,
-      borderRadius: AppRadius.md,
-      padding: const EdgeInsetsDirectional.fromSTEB(
-        AppSpace.md,
-        AppSpace.sm,
-        AppSpace.xxs,
-        AppSpace.sm,
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          // Guided (3 crowns) / Fast; outside the per-step animation.
-          if (!complete)
-            Padding(
-              padding: const EdgeInsetsDirectional.only(end: 8, bottom: 6),
-              child: SolveMethodToggle(size: size),
+    final move = session.playback[index];
+    final wholeCube = move.fromLayer == 0 && move.toLayer == size - 1;
+    // Half made by hand: show what is left of the move.
+    final shown = session.guideMove ?? move;
+
+    final header = Row(
+      children: [
+        Expanded(
+          child: AnimatedSwitcher(
+            duration: const Duration(milliseconds: 180),
+            child: MoveInstructionTile(
+              key: ValueKey('solve-move-$index-${shown.notation}'),
+              move: shown,
+              size: size,
+              badgeSize: 46,
             ),
+          ),
+        ),
+        if (!_expanded)
+          Padding(
+            padding: const EdgeInsetsDirectional.only(start: 6),
+            child: Text(
+              l10n.playbackProgress(index + 1, total),
+              key: const ValueKey('solve-progress'),
+              style: secondary,
+            ),
+          ),
+        if (step.hasCrown)
+          IconButton(
+            key: const ValueKey('solve-intro-open'),
+            tooltip: l10n.introShowGoal,
+            visualDensity: VisualDensity.compact,
+            onPressed: () => showSubStepIntro(
+              context,
+              crown: step.crown,
+              subStep: step.subStep,
+            ),
+            icon: const Icon(Icons.flag_circle_outlined, size: 20),
+          ),
+        IconButton(
+          key: const ValueKey('solve-collapse'),
+          tooltip: _expanded ? l10n.solveCollapse : l10n.solveExpand,
+          visualDensity: VisualDensity.compact,
+          onPressed: () => setState(() => _expanded = !_expanded),
+          icon: Icon(
+            _expanded
+                ? Icons.keyboard_arrow_down_rounded
+                : Icons.keyboard_arrow_up_rounded,
+          ),
+        ),
+      ],
+    );
+
+    final details = Column(
+      key: const ValueKey('solve-details'),
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const SizedBox(height: AppSpace.xs),
+        if (step.hasCrown)
+          CrownHeader(
+            step: step,
+            subStepTitle: subStepTitle(l10n, step.crown, step.subStep),
+            trailing: Padding(
+              padding: const EdgeInsetsDirectional.only(start: 8),
+              child: Text(
+                l10n.playbackProgress(index + 1, total),
+                key: const ValueKey('solve-progress'),
+                style: secondary,
+              ),
+            ),
+          )
+        else
           Row(
             children: [
               Expanded(
-                child: AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 180),
-                  child: content,
+                flex: 3,
+                child: Text(
+                  solvePhaseTitle(l10n, step.phaseName),
+                  style: textTheme.labelLarge?.copyWith(
+                    color: AppColors.accent,
+                    fontWeight: FontWeight.w700,
+                  ),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
-              if (!complete && step != null && step.hasCrown)
-                IconButton(
-                  key: const ValueKey('solve-intro-open'),
-                  tooltip: l10n.introShowGoal,
-                  visualDensity: VisualDensity.compact,
-                  onPressed: () => showSubStepIntro(
-                    context,
-                    crown: step.crown,
-                    subStep: step.subStep,
-                  ),
-                  icon: const Icon(Icons.flag_circle_outlined, size: 20),
+              const SizedBox(width: 8),
+              // Long translations of the counter shrink too.
+              Flexible(
+                flex: 2,
+                child: Text(
+                  l10n.playbackProgress(index + 1, total),
+                  key: const ValueKey('solve-progress'),
+                  style: secondary,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
-              IconButton(
-                key: const ValueKey('guide-exit'),
-                tooltip: l10n.guideExit,
-                visualDensity: VisualDensity.compact,
-                onPressed: controller.clearSolution,
-                icon: const Icon(Icons.close_rounded, size: 20),
               ),
             ],
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class _MoveChip extends StatelessWidget {
-  const _MoveChip({required this.notation, required this.tooltip});
-
-  final String notation;
-  final String tooltip;
-
-  @override
-  Widget build(BuildContext context) {
-    return Tooltip(
-      message: tooltip,
-      child: Container(
-        constraints: const BoxConstraints(minWidth: 52),
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          color: AppColors.accent.withValues(alpha: 0.18),
-          border: Border.all(color: AppColors.accent.withValues(alpha: 0.6)),
+        const SizedBox(height: 2),
+        Text(
+          solveExplanation(l10n, step),
+          key: const ValueKey('solve-explanation'),
+          style: textTheme.bodyMedium,
         ),
-        child: Text(
-          notation,
-          textAlign: TextAlign.center,
-          // Notation always reads left to right.
-          textDirection: TextDirection.ltr,
-          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
+        const SizedBox(height: 2),
+        if (session.stepHint case final hint?)
+          StepHintText(hint: hint)
+        else
+          Text(
+            wholeCube ? l10n.guideRotateHint : l10n.guideSwipeHint,
+            style: secondary,
+          ),
+      ],
+    );
+
+    // The active step glows.
+    return GlassCard(
+      key: const ValueKey('solve-dock'),
+      selected: true,
+      accent: AppColors.accent,
+      borderRadius: AppRadius.md,
+      padding: const EdgeInsetsDirectional.fromSTEB(
+        AppSpace.sm,
+        AppSpace.xs,
+        AppSpace.xxs,
+        AppSpace.xs,
+      ),
+      child: AnimatedSize(
+        duration: const Duration(milliseconds: 200),
+        curve: Curves.easeOutCubic,
+        alignment: Alignment.topCenter,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            header,
+            if (_expanded)
+              // Long explanations scroll inside the dock, never over the cube.
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxHeight: MediaQuery.sizeOf(context).height * 0.16,
+                ),
+                child: SingleChildScrollView(
+                  padding: const EdgeInsetsDirectional.only(end: AppSpace.xs),
+                  child: details,
+                ),
+              ),
+            if (_expanded) ...[
+              const SizedBox(height: AppSpace.xs),
+              Row(
+                children: [
+                  Expanded(child: SolveMethodToggle(size: size)),
+                  const SizedBox(width: AppSpace.xs),
+                  Flexible(
+                    child: TextButton.icon(
+                      key: const ValueKey('guide-exit'),
+                      onPressed: controller.clearSolution,
+                      icon: const Icon(Icons.logout_rounded, size: 18),
+                      label: Text(
+                        l10n.guideExit,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ],
         ),
       ),
     );
@@ -330,6 +362,7 @@ String solvePhaseTitle(AppLocalizations l10n, String phase) => switch (phase) {
   'reductionOllParity' => l10n.phaseReductionOllParity,
   'reductionPllParity' => l10n.phaseReductionPllParity,
   'pattern' => l10n.phasePattern,
+  'dailyScramble' => l10n.phaseDailyScramble,
   _ => phase,
 };
 
@@ -365,6 +398,7 @@ String solveExplanation(AppLocalizations l10n, SolveStep step) {
     'reductionOllParity' => l10n.explainReductionOllParity,
     'reductionPllParity' => l10n.explainReductionPllParity,
     'patternStep' => l10n.explainPatternStep,
+    'dailyScrambleStep' => l10n.explainDailyScramble,
     _ => '',
   };
 }

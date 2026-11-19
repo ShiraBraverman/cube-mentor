@@ -1479,4 +1479,97 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get introHowBigParity =>
       'Resuelve el 4×4 como un 3×3 hasta que te atasques.\nUna arista volteada: el algoritmo largo de paridad OLL.\nDos aristas intercambiadas: 2R2 U2 2R2 Uw2 2R2 Uw2.';
+
+  @override
+  String get dirFaceR => 'Lado derecho';
+
+  @override
+  String get dirFaceL => 'Lado izquierdo';
+
+  @override
+  String get dirFaceU => 'Fila superior';
+
+  @override
+  String get dirFaceD => 'Fila inferior';
+
+  @override
+  String get dirFaceF => 'Cara frontal';
+
+  @override
+  String get dirFaceB => 'Cara trasera';
+
+  @override
+  String get dirMiddle => 'Capa central';
+
+  @override
+  String get dirWholeCube => 'Cubo entero';
+
+  @override
+  String dirLayerInner(int depth, String face) {
+    return '$face, capa $depth';
+  }
+
+  @override
+  String dirLayerWide(int depth, String face) {
+    return '$face, $depth capas de profundidad';
+  }
+
+  @override
+  String dirLayerBlock(int near, int far, String face) {
+    return '$face, capas $near–$far';
+  }
+
+  @override
+  String get dirUp => 'Arriba';
+
+  @override
+  String get dirDown => 'Abajo';
+
+  @override
+  String get dirLeft => 'Izquierda';
+
+  @override
+  String get dirRight => 'Derecha';
+
+  @override
+  String get dirClockwise => 'Horario';
+
+  @override
+  String get dirCounter => 'Antihorario';
+
+  @override
+  String get dirBackClockwise => 'Horario, visto desde atrás';
+
+  @override
+  String get dirBackCounter => 'Antihorario, visto desde atrás';
+
+  @override
+  String get dirHalf => 'Giro de 180° (dos veces)';
+
+  @override
+  String moveInstruction(String layer, String direction) {
+    return '$layer — $direction';
+  }
+
+  @override
+  String get solveCollapse => 'Ocultar detalles';
+
+  @override
+  String get solveExpand => 'Mostrar detalles';
+
+  @override
+  String get dailyScrambleSteps => 'Mezcla paso a paso';
+
+  @override
+  String get dailyScrambleGuide => 'Guía de mezcla en 3D';
+
+  @override
+  String get dailyScrambleGuideTitle => 'Guía de mezcla';
+
+  @override
+  String get phaseDailyScramble => 'Mezcla el cubo de hoy';
+
+  @override
+  String get explainDailyScramble =>
+      'Empieza con un cubo resuelto, blanco arriba y verde al frente, y copia cada giro en tu cubo real.';
 }

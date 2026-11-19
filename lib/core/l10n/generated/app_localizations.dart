@@ -2582,6 +2582,174 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Solve the 4×4 like a 3×3 until it gets stuck.\nOne flipped edge: the long OLL parity algorithm.\nTwo swapped edges: 2R2 U2 2R2 Uw2 2R2 Uw2.'**
   String get introHowBigParity;
+
+  /// No description provided for @dirFaceR.
+  ///
+  /// In en, this message translates to:
+  /// **'Right side'**
+  String get dirFaceR;
+
+  /// No description provided for @dirFaceL.
+  ///
+  /// In en, this message translates to:
+  /// **'Left side'**
+  String get dirFaceL;
+
+  /// No description provided for @dirFaceU.
+  ///
+  /// In en, this message translates to:
+  /// **'Top row'**
+  String get dirFaceU;
+
+  /// No description provided for @dirFaceD.
+  ///
+  /// In en, this message translates to:
+  /// **'Bottom row'**
+  String get dirFaceD;
+
+  /// No description provided for @dirFaceF.
+  ///
+  /// In en, this message translates to:
+  /// **'Front face'**
+  String get dirFaceF;
+
+  /// No description provided for @dirFaceB.
+  ///
+  /// In en, this message translates to:
+  /// **'Back face'**
+  String get dirFaceB;
+
+  /// No description provided for @dirMiddle.
+  ///
+  /// In en, this message translates to:
+  /// **'Middle slice'**
+  String get dirMiddle;
+
+  /// No description provided for @dirWholeCube.
+  ///
+  /// In en, this message translates to:
+  /// **'Whole cube'**
+  String get dirWholeCube;
+
+  /// No description provided for @dirLayerInner.
+  ///
+  /// In en, this message translates to:
+  /// **'{face}, layer {depth}'**
+  String dirLayerInner(int depth, String face);
+
+  /// No description provided for @dirLayerWide.
+  ///
+  /// In en, this message translates to:
+  /// **'{face}, {depth} layers deep'**
+  String dirLayerWide(int depth, String face);
+
+  /// No description provided for @dirLayerBlock.
+  ///
+  /// In en, this message translates to:
+  /// **'{face}, layers {near}–{far}'**
+  String dirLayerBlock(int near, int far, String face);
+
+  /// No description provided for @dirUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Up'**
+  String get dirUp;
+
+  /// No description provided for @dirDown.
+  ///
+  /// In en, this message translates to:
+  /// **'Down'**
+  String get dirDown;
+
+  /// No description provided for @dirLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'Left'**
+  String get dirLeft;
+
+  /// No description provided for @dirRight.
+  ///
+  /// In en, this message translates to:
+  /// **'Right'**
+  String get dirRight;
+
+  /// No description provided for @dirClockwise.
+  ///
+  /// In en, this message translates to:
+  /// **'Clockwise'**
+  String get dirClockwise;
+
+  /// No description provided for @dirCounter.
+  ///
+  /// In en, this message translates to:
+  /// **'Counter-clockwise'**
+  String get dirCounter;
+
+  /// No description provided for @dirBackClockwise.
+  ///
+  /// In en, this message translates to:
+  /// **'Clockwise, seen from behind'**
+  String get dirBackClockwise;
+
+  /// No description provided for @dirBackCounter.
+  ///
+  /// In en, this message translates to:
+  /// **'Counter-clockwise, seen from behind'**
+  String get dirBackCounter;
+
+  /// No description provided for @dirHalf.
+  ///
+  /// In en, this message translates to:
+  /// **'Double turn (180°)'**
+  String get dirHalf;
+
+  /// No description provided for @moveInstruction.
+  ///
+  /// In en, this message translates to:
+  /// **'{layer} — {direction}'**
+  String moveInstruction(String layer, String direction);
+
+  /// No description provided for @solveCollapse.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide details'**
+  String get solveCollapse;
+
+  /// No description provided for @solveExpand.
+  ///
+  /// In en, this message translates to:
+  /// **'Show details'**
+  String get solveExpand;
+
+  /// No description provided for @dailyScrambleSteps.
+  ///
+  /// In en, this message translates to:
+  /// **'Scramble step by step'**
+  String get dailyScrambleSteps;
+
+  /// No description provided for @dailyScrambleGuide.
+  ///
+  /// In en, this message translates to:
+  /// **'3D scramble guide'**
+  String get dailyScrambleGuide;
+
+  /// No description provided for @dailyScrambleGuideTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Scramble guide'**
+  String get dailyScrambleGuideTitle;
+
+  /// No description provided for @phaseDailyScramble.
+  ///
+  /// In en, this message translates to:
+  /// **'Scramble today\'s cube'**
+  String get phaseDailyScramble;
+
+  /// No description provided for @explainDailyScramble.
+  ///
+  /// In en, this message translates to:
+  /// **'Start from a solved cube, white on top and green in front, and copy each turn on your real cube.'**
+  String get explainDailyScramble;
 }
 
 class _AppLocalizationsDelegate

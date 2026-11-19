@@ -172,7 +172,8 @@ void main() {
     expect(session.playback, hasLength(8));
     expect(session.cube.isSolved, isTrue);
     expect(find.text('Make the pattern'), findsOneWidget);
-    expect(find.text('Turn the top face to the left'), findsOneWidget);
+    expect(find.text('Top row'), findsOneWidget);
+    expect(find.text('Left'), findsOneWidget);
   });
 
   group('daily challenge', () {
@@ -300,12 +301,43 @@ void main() {
     await tester.pump();
     await tester.pump();
     expect(find.text('2-day streak'), findsOneWidget);
-    expect(find.text(FakeScrambler.daily), findsOneWidget);
+    // The scramble as numbered arrow steps, not letters.
+    expect(find.text(FakeScrambler.daily), findsNothing);
+    final scramble = MoveNotation.parseSequence(FakeScrambler.daily, 3);
+    expect(find.byKey(const ValueKey('daily-step-0')), findsOneWidget);
+    expect(find.text('Front face — Clockwise'), findsWidgets);
+
+    // The 3D scramble guide starts from a solved cube and plays today's
+    // scramble step by step with the solver's dock and arrows.
+    await tester.scrollUntilVisible(
+      find.byKey(const ValueKey('daily-scramble-guide')),
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.pump();
+    await tester.tap(find.byKey(const ValueKey('daily-scramble-guide')));
+    await _advance(tester);
+    final guide = ProviderScope.containerOf(
+      tester.element(find.byType(Solver3DScreen)),
+    ).read(cubeSessionProvider(3));
+    expect(guide.cube.isSolved, isTrue);
+    expect(guide.playback, scramble);
+    expect(find.text('Scramble guide'), findsOneWidget);
+    expect(find.text("Scramble today's cube"), findsOneWidget);
+    expect(find.byKey(const ValueKey('solve-dock')), findsOneWidget);
+    await tester.pageBack();
+    await _advance(tester);
     expect(
       find.text("Solve today's scramble to keep your streak."),
       findsOneWidget,
     );
 
+    await tester.scrollUntilVisible(
+      find.byKey(const ValueKey('daily-virtual')),
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.pump();
     await tester.tap(find.byKey(const ValueKey('daily-virtual')));
     await _advance(tester);
     expect(find.byType(Solver3DScreen), findsOneWidget);
@@ -325,6 +357,12 @@ void main() {
 
     await tester.pageBack();
     await _advance(tester);
+    await tester.scrollUntilVisible(
+      find.byKey(const ValueKey('daily-streak')),
+      -200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.pump();
     expect(find.text('3-day streak'), findsOneWidget);
     expect(find.text('Done for today! Come back tomorrow.'), findsOneWidget);
     expect(prefs.getString('daily_last_day'), '2026-11-16');

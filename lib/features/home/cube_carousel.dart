@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 import 'dart:ui' show ImageFilter;
 
-import 'package:flutter/gestures.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
@@ -10,6 +9,7 @@ import '../../core/cube/cube_state.dart';
 import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/ui_kit.dart';
+import '../solver_3d/interaction/eager_pan.dart';
 import '../solver_3d/render/cube_painter.dart';
 import '../solver_3d/widgets/cube_preview.dart';
 import 'home_controller.dart';
@@ -246,10 +246,10 @@ class _CubeCarouselState extends ConsumerState<CubeCarousel>
                   key: const ValueKey('cube-carousel'),
                   behavior: HitTestBehavior.opaque,
                   gestures: {
-                    _HeroDragRecognizer:
+                    EagerPanGestureRecognizer:
                         GestureRecognizerFactoryWithHandlers<
-                          _HeroDragRecognizer
-                        >(_HeroDragRecognizer.new, (r) {
+                          EagerPanGestureRecognizer
+                        >(EagerPanGestureRecognizer.new, (r) {
                           r
                             ..onStart = _onDragStart
                             ..onUpdate = _onDragUpdate
@@ -322,20 +322,6 @@ class _CubeCarouselState extends ConsumerState<CubeCarousel>
       ],
     );
   }
-}
-
-/// Accepts a drag after half the usual slop, so it wins over the home
-/// page's vertical scrolling and orbiting feels immediate.
-class _HeroDragRecognizer extends PanGestureRecognizer {
-  _HeroDragRecognizer({super.debugOwner});
-
-  @override
-  bool hasSufficientGlobalDistanceToAccept(
-    PointerDeviceKind pointerDeviceKind,
-    double? deviceTouchSlop,
-  ) =>
-      globalDistanceMoved.abs() >
-      computeHitSlop(pointerDeviceKind, gestureSettings) / 2;
 }
 
 /// Frosted gray silhouette of a cube with a "?" badge.

@@ -276,7 +276,9 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('lesson-next')));
     await _advance(tester, 4);
     expect(find.text('Six face letters'), findsOneWidget);
-    expect(find.text('Turn the right face up'), findsOneWidget);
+    expect(find.text('Right side'), findsOneWidget);
+    expect(find.text('Up'), findsOneWidget);
+    expect(find.byKey(const ValueKey('move-arrow-up')), findsOneWidget);
     final container = ProviderScope.containerOf(
       tester.element(find.byType(Scaffold).last),
     );

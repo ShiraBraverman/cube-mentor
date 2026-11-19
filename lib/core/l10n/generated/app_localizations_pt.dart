@@ -1482,6 +1482,99 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get introHowBigParity =>
       'Resolva o 4×4 como um 3×3 até ficar preso.\nUma aresta virada: o algoritmo longo de paridade OLL.\nDuas arestas trocadas: 2R2 U2 2R2 Uw2 2R2 Uw2.';
+
+  @override
+  String get dirFaceR => 'Lado direito';
+
+  @override
+  String get dirFaceL => 'Lado esquerdo';
+
+  @override
+  String get dirFaceU => 'Fila de cima';
+
+  @override
+  String get dirFaceD => 'Fila de baixo';
+
+  @override
+  String get dirFaceF => 'Face da frente';
+
+  @override
+  String get dirFaceB => 'Face de trás';
+
+  @override
+  String get dirMiddle => 'Camada do meio';
+
+  @override
+  String get dirWholeCube => 'Cubo inteiro';
+
+  @override
+  String dirLayerInner(int depth, String face) {
+    return '$face, camada $depth';
+  }
+
+  @override
+  String dirLayerWide(int depth, String face) {
+    return '$face, $depth camadas de profundidade';
+  }
+
+  @override
+  String dirLayerBlock(int near, int far, String face) {
+    return '$face, camadas $near–$far';
+  }
+
+  @override
+  String get dirUp => 'Para cima';
+
+  @override
+  String get dirDown => 'Para baixo';
+
+  @override
+  String get dirLeft => 'Para a esquerda';
+
+  @override
+  String get dirRight => 'Para a direita';
+
+  @override
+  String get dirClockwise => 'Sentido horário';
+
+  @override
+  String get dirCounter => 'Sentido anti-horário';
+
+  @override
+  String get dirBackClockwise => 'Sentido horário, visto de trás';
+
+  @override
+  String get dirBackCounter => 'Sentido anti-horário, visto de trás';
+
+  @override
+  String get dirHalf => 'Meia-volta (180°)';
+
+  @override
+  String moveInstruction(String layer, String direction) {
+    return '$layer — $direction';
+  }
+
+  @override
+  String get solveCollapse => 'Ocultar detalhes';
+
+  @override
+  String get solveExpand => 'Mostrar detalhes';
+
+  @override
+  String get dailyScrambleSteps => 'Baralhar passo a passo';
+
+  @override
+  String get dailyScrambleGuide => 'Guia de baralhar em 3D';
+
+  @override
+  String get dailyScrambleGuideTitle => 'Guia de baralhar';
+
+  @override
+  String get phaseDailyScramble => 'Baralhe o cubo de hoje';
+
+  @override
+  String get explainDailyScramble =>
+      'Comece com um cubo resolvido, branco em cima e verde à frente, e copie cada rotação no seu cubo real.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -2954,4 +3047,97 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get introHowBigParity =>
       'Resolva o 4×4 como um 3×3 até ficar preso.\nUma aresta virada: o algoritmo longo de paridade OLL.\nDuas arestas trocadas: 2R2 U2 2R2 Uw2 2R2 Uw2.';
+
+  @override
+  String get dirFaceR => 'Lado direito';
+
+  @override
+  String get dirFaceL => 'Lado esquerdo';
+
+  @override
+  String get dirFaceU => 'Fileira de cima';
+
+  @override
+  String get dirFaceD => 'Fileira de baixo';
+
+  @override
+  String get dirFaceF => 'Face da frente';
+
+  @override
+  String get dirFaceB => 'Face de trás';
+
+  @override
+  String get dirMiddle => 'Camada do meio';
+
+  @override
+  String get dirWholeCube => 'Cubo inteiro';
+
+  @override
+  String dirLayerInner(int depth, String face) {
+    return '$face, camada $depth';
+  }
+
+  @override
+  String dirLayerWide(int depth, String face) {
+    return '$face, $depth camadas de profundidade';
+  }
+
+  @override
+  String dirLayerBlock(int near, int far, String face) {
+    return '$face, camadas $near–$far';
+  }
+
+  @override
+  String get dirUp => 'Para cima';
+
+  @override
+  String get dirDown => 'Para baixo';
+
+  @override
+  String get dirLeft => 'Para a esquerda';
+
+  @override
+  String get dirRight => 'Para a direita';
+
+  @override
+  String get dirClockwise => 'Sentido horário';
+
+  @override
+  String get dirCounter => 'Sentido anti-horário';
+
+  @override
+  String get dirBackClockwise => 'Sentido horário, visto de trás';
+
+  @override
+  String get dirBackCounter => 'Sentido anti-horário, visto de trás';
+
+  @override
+  String get dirHalf => 'Meia-volta (180°)';
+
+  @override
+  String moveInstruction(String layer, String direction) {
+    return '$layer — $direction';
+  }
+
+  @override
+  String get solveCollapse => 'Ocultar detalhes';
+
+  @override
+  String get solveExpand => 'Mostrar detalhes';
+
+  @override
+  String get dailyScrambleSteps => 'Embaralhar passo a passo';
+
+  @override
+  String get dailyScrambleGuide => 'Guia de embaralhamento em 3D';
+
+  @override
+  String get dailyScrambleGuideTitle => 'Guia de embaralhamento';
+
+  @override
+  String get phaseDailyScramble => 'Embaralhe o cubo de hoje';
+
+  @override
+  String get explainDailyScramble =>
+      'Comece com um cubo resolvido, branco em cima e verde na frente, e copie cada giro no seu cubo real.';
 }

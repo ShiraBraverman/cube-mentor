@@ -1388,4 +1388,97 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get introHowBigParity =>
       '行き詰まるまで4×4を3×3のように解きます。\nエッジ1つの反転：長いOLLパリティ手順。\nエッジ2つの入れ替わり：2R2 U2 2R2 Uw2 2R2 Uw2。';
+
+  @override
+  String get dirFaceR => '右側';
+
+  @override
+  String get dirFaceL => '左側';
+
+  @override
+  String get dirFaceU => '上の段';
+
+  @override
+  String get dirFaceD => '下の段';
+
+  @override
+  String get dirFaceF => '前面';
+
+  @override
+  String get dirFaceB => '背面';
+
+  @override
+  String get dirMiddle => '中央の層';
+
+  @override
+  String get dirWholeCube => 'キューブ全体';
+
+  @override
+  String dirLayerInner(int depth, String face) {
+    return '$face・$depth層目';
+  }
+
+  @override
+  String dirLayerWide(int depth, String face) {
+    return '$face・$depth層分';
+  }
+
+  @override
+  String dirLayerBlock(int near, int far, String face) {
+    return '$face・$near〜$far層目';
+  }
+
+  @override
+  String get dirUp => '上へ';
+
+  @override
+  String get dirDown => '下へ';
+
+  @override
+  String get dirLeft => '左へ';
+
+  @override
+  String get dirRight => '右へ';
+
+  @override
+  String get dirClockwise => '時計回り';
+
+  @override
+  String get dirCounter => '反時計回り';
+
+  @override
+  String get dirBackClockwise => '時計回り（後ろから見て）';
+
+  @override
+  String get dirBackCounter => '反時計回り（後ろから見て）';
+
+  @override
+  String get dirHalf => '2回転（180°）';
+
+  @override
+  String moveInstruction(String layer, String direction) {
+    return '$layer — $direction';
+  }
+
+  @override
+  String get solveCollapse => '詳細を隠す';
+
+  @override
+  String get solveExpand => '詳細を表示';
+
+  @override
+  String get dailyScrambleSteps => '1手ずつスクランブル';
+
+  @override
+  String get dailyScrambleGuide => '3Dスクランブルガイド';
+
+  @override
+  String get dailyScrambleGuideTitle => 'スクランブルガイド';
+
+  @override
+  String get phaseDailyScramble => '今日のキューブを崩す';
+
+  @override
+  String get explainDailyScramble =>
+      '白を上、緑を手前にした完成キューブから始めて、各回転を実物のキューブでまねしましょう。';
 }

@@ -1484,4 +1484,97 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get introHowBigParity =>
       'Résolvez le 4×4 comme un 3×3 jusqu\'à être bloqué.\nUne arête retournée : le long algorithme de parité OLL.\nDeux arêtes échangées : 2R2 U2 2R2 Uw2 2R2 Uw2.';
+
+  @override
+  String get dirFaceR => 'Côté droit';
+
+  @override
+  String get dirFaceL => 'Côté gauche';
+
+  @override
+  String get dirFaceU => 'Rangée du haut';
+
+  @override
+  String get dirFaceD => 'Rangée du bas';
+
+  @override
+  String get dirFaceF => 'Face avant';
+
+  @override
+  String get dirFaceB => 'Face arrière';
+
+  @override
+  String get dirMiddle => 'Tranche du milieu';
+
+  @override
+  String get dirWholeCube => 'Cube entier';
+
+  @override
+  String dirLayerInner(int depth, String face) {
+    return '$face, couche $depth';
+  }
+
+  @override
+  String dirLayerWide(int depth, String face) {
+    return '$face, $depth couches de profondeur';
+  }
+
+  @override
+  String dirLayerBlock(int near, int far, String face) {
+    return '$face, couches $near–$far';
+  }
+
+  @override
+  String get dirUp => 'Vers le haut';
+
+  @override
+  String get dirDown => 'Vers le bas';
+
+  @override
+  String get dirLeft => 'Vers la gauche';
+
+  @override
+  String get dirRight => 'Vers la droite';
+
+  @override
+  String get dirClockwise => 'Sens horaire';
+
+  @override
+  String get dirCounter => 'Sens antihoraire';
+
+  @override
+  String get dirBackClockwise => 'Sens horaire, vu de l\'arrière';
+
+  @override
+  String get dirBackCounter => 'Sens antihoraire, vu de l\'arrière';
+
+  @override
+  String get dirHalf => 'Double tour (180°)';
+
+  @override
+  String moveInstruction(String layer, String direction) {
+    return '$layer — $direction';
+  }
+
+  @override
+  String get solveCollapse => 'Masquer les détails';
+
+  @override
+  String get solveExpand => 'Afficher les détails';
+
+  @override
+  String get dailyScrambleSteps => 'Mélange pas à pas';
+
+  @override
+  String get dailyScrambleGuide => 'Guide de mélange en 3D';
+
+  @override
+  String get dailyScrambleGuideTitle => 'Guide de mélange';
+
+  @override
+  String get phaseDailyScramble => 'Mélangez le cube du jour';
+
+  @override
+  String get explainDailyScramble =>
+      'Partez d\'un cube résolu, blanc en haut et vert devant, et reproduisez chaque rotation sur votre vrai cube.';
 }

@@ -1468,4 +1468,97 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get introHowBigParity =>
       '4×4 को 3×3 की तरह हल करें, जब तक अटक न जाएँ।\nएक उल्टा एज: OLL पैरिटी का लंबा एल्गोरिदम।\nदो बदले हुए एज: 2R2 U2 2R2 Uw2 2R2 Uw2।';
+
+  @override
+  String get dirFaceR => 'दायाँ हिस्सा';
+
+  @override
+  String get dirFaceL => 'बायाँ हिस्सा';
+
+  @override
+  String get dirFaceU => 'ऊपरी पंक्ति';
+
+  @override
+  String get dirFaceD => 'निचली पंक्ति';
+
+  @override
+  String get dirFaceF => 'सामने का फलक';
+
+  @override
+  String get dirFaceB => 'पीछे का फलक';
+
+  @override
+  String get dirMiddle => 'बीच की परत';
+
+  @override
+  String get dirWholeCube => 'पूरा क्यूब';
+
+  @override
+  String dirLayerInner(int depth, String face) {
+    return '$face, परत $depth';
+  }
+
+  @override
+  String dirLayerWide(int depth, String face) {
+    return '$face, $depth परतें गहरा';
+  }
+
+  @override
+  String dirLayerBlock(int near, int far, String face) {
+    return '$face, परतें $near–$far';
+  }
+
+  @override
+  String get dirUp => 'ऊपर';
+
+  @override
+  String get dirDown => 'नीचे';
+
+  @override
+  String get dirLeft => 'बाएँ';
+
+  @override
+  String get dirRight => 'दाएँ';
+
+  @override
+  String get dirClockwise => 'घड़ी की दिशा में';
+
+  @override
+  String get dirCounter => 'घड़ी की उल्टी दिशा में';
+
+  @override
+  String get dirBackClockwise => 'घड़ी की दिशा में, पीछे से देखने पर';
+
+  @override
+  String get dirBackCounter => 'घड़ी की उल्टी दिशा में, पीछे से देखने पर';
+
+  @override
+  String get dirHalf => 'डबल टर्न (180°)';
+
+  @override
+  String moveInstruction(String layer, String direction) {
+    return '$layer — $direction';
+  }
+
+  @override
+  String get solveCollapse => 'विवरण छिपाएँ';
+
+  @override
+  String get solveExpand => 'विवरण दिखाएँ';
+
+  @override
+  String get dailyScrambleSteps => 'कदम-दर-कदम मिलाएँ';
+
+  @override
+  String get dailyScrambleGuide => '3D मिलाने की गाइड';
+
+  @override
+  String get dailyScrambleGuideTitle => 'मिलाने की गाइड';
+
+  @override
+  String get phaseDailyScramble => 'आज का क्यूब मिलाएँ';
+
+  @override
+  String get explainDailyScramble =>
+      'हल किए हुए क्यूब से शुरू करें, सफ़ेद ऊपर और हरा सामने, और हर घुमाव अपने असली क्यूब पर दोहराएँ।';
 }

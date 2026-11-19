@@ -1392,4 +1392,97 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get introHowBigParity =>
       '막힐 때까지 4×4를 3×3처럼 맞춰요.\n뒤집힌 엣지 하나: 긴 OLL 패리티 공식.\n바뀐 엣지 두 개: 2R2 U2 2R2 Uw2 2R2 Uw2.';
+
+  @override
+  String get dirFaceR => '오른쪽 면';
+
+  @override
+  String get dirFaceL => '왼쪽 면';
+
+  @override
+  String get dirFaceU => '윗줄';
+
+  @override
+  String get dirFaceD => '아랫줄';
+
+  @override
+  String get dirFaceF => '앞면';
+
+  @override
+  String get dirFaceB => '뒷면';
+
+  @override
+  String get dirMiddle => '가운데 층';
+
+  @override
+  String get dirWholeCube => '큐브 전체';
+
+  @override
+  String dirLayerInner(int depth, String face) {
+    return '$face, $depth번째 층';
+  }
+
+  @override
+  String dirLayerWide(int depth, String face) {
+    return '$face, $depth층 깊이';
+  }
+
+  @override
+  String dirLayerBlock(int near, int far, String face) {
+    return '$face, $near–$far번째 층';
+  }
+
+  @override
+  String get dirUp => '위로';
+
+  @override
+  String get dirDown => '아래로';
+
+  @override
+  String get dirLeft => '왼쪽으로';
+
+  @override
+  String get dirRight => '오른쪽으로';
+
+  @override
+  String get dirClockwise => '시계 방향';
+
+  @override
+  String get dirCounter => '반시계 방향';
+
+  @override
+  String get dirBackClockwise => '시계 방향(뒤에서 볼 때)';
+
+  @override
+  String get dirBackCounter => '반시계 방향(뒤에서 볼 때)';
+
+  @override
+  String get dirHalf => '두 번 돌리기(180°)';
+
+  @override
+  String moveInstruction(String layer, String direction) {
+    return '$layer — $direction';
+  }
+
+  @override
+  String get solveCollapse => '자세히 숨기기';
+
+  @override
+  String get solveExpand => '자세히 보기';
+
+  @override
+  String get dailyScrambleSteps => '한 단계씩 섞기';
+
+  @override
+  String get dailyScrambleGuide => '3D 섞기 가이드';
+
+  @override
+  String get dailyScrambleGuideTitle => '섞기 가이드';
+
+  @override
+  String get phaseDailyScramble => '오늘의 큐브 섞기';
+
+  @override
+  String get explainDailyScramble =>
+      '흰색이 위, 초록색이 앞을 보는 맞춰진 큐브로 시작해 각 회전을 실제 큐브에서 따라 하세요.';
 }

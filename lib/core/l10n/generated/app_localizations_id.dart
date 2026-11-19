@@ -1469,4 +1469,98 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get introHowBigParity =>
       'Selesaikan 4×4 seperti 3×3 sampai macet.\nSatu rusuk terbalik: algoritma panjang paritas OLL.\nDua rusuk tertukar: 2R2 U2 2R2 Uw2 2R2 Uw2.';
+
+  @override
+  String get dirFaceR => 'Sisi kanan';
+
+  @override
+  String get dirFaceL => 'Sisi kiri';
+
+  @override
+  String get dirFaceU => 'Baris atas';
+
+  @override
+  String get dirFaceD => 'Baris bawah';
+
+  @override
+  String get dirFaceF => 'Sisi depan';
+
+  @override
+  String get dirFaceB => 'Sisi belakang';
+
+  @override
+  String get dirMiddle => 'Irisan tengah';
+
+  @override
+  String get dirWholeCube => 'Seluruh kubus';
+
+  @override
+  String dirLayerInner(int depth, String face) {
+    return '$face, lapisan $depth';
+  }
+
+  @override
+  String dirLayerWide(int depth, String face) {
+    return '$face, sedalam $depth lapisan';
+  }
+
+  @override
+  String dirLayerBlock(int near, int far, String face) {
+    return '$face, lapisan $near–$far';
+  }
+
+  @override
+  String get dirUp => 'Ke atas';
+
+  @override
+  String get dirDown => 'Ke bawah';
+
+  @override
+  String get dirLeft => 'Ke kiri';
+
+  @override
+  String get dirRight => 'Ke kanan';
+
+  @override
+  String get dirClockwise => 'Searah jarum jam';
+
+  @override
+  String get dirCounter => 'Berlawanan arah jarum jam';
+
+  @override
+  String get dirBackClockwise => 'Searah jarum jam, dilihat dari belakang';
+
+  @override
+  String get dirBackCounter =>
+      'Berlawanan arah jarum jam, dilihat dari belakang';
+
+  @override
+  String get dirHalf => 'Putar ganda (180°)';
+
+  @override
+  String moveInstruction(String layer, String direction) {
+    return '$layer — $direction';
+  }
+
+  @override
+  String get solveCollapse => 'Sembunyikan detail';
+
+  @override
+  String get solveExpand => 'Tampilkan detail';
+
+  @override
+  String get dailyScrambleSteps => 'Acak langkah demi langkah';
+
+  @override
+  String get dailyScrambleGuide => 'Panduan acak 3D';
+
+  @override
+  String get dailyScrambleGuideTitle => 'Panduan acak';
+
+  @override
+  String get phaseDailyScramble => 'Acak kubus hari ini';
+
+  @override
+  String get explainDailyScramble =>
+      'Mulai dari kubus yang sudah selesai, putih di atas dan hijau di depan, lalu tiru setiap putaran di kubus aslimu.';
 }

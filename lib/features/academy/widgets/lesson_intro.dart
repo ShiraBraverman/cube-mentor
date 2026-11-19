@@ -4,6 +4,7 @@ import '../../../core/cube/cube_state.dart';
 import '../../../core/l10n/generated/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/glass.dart';
+import '../../solver_3d/interaction/eager_pan.dart';
 import '../../solver_3d/render/cube_painter.dart';
 import '../model/lesson.dart';
 import '../model/lesson_catalog.dart';
@@ -17,9 +18,10 @@ enum GoalView {
   goal,
 }
 
-/// A slowly spinning mini cube showing a lesson's goal: target pieces glow,
+/// A gently swaying mini cube showing a lesson's goal: target pieces glow,
 /// earlier ones are dimmed and the rest are gray. In [GoalView.morph] it
-/// keeps replaying the way from the start state to the goal.
+/// keeps replaying the way from the start state to the goal at a teaching
+/// pace ([pace]). A finger anywhere on it turns it freely in 360 degrees.
 class GoalPreview extends StatefulWidget {
   const GoalPreview({
     super.key,
@@ -30,14 +32,22 @@ class GoalPreview extends StatefulWidget {
   final GoalPreviewData data;
   final GoalView view;
 
+  /// Playback speed of the demonstration against a brisk demo: about half
+  /// speed, so every turn can be followed.
+  static const double pace = 0.45;
+
   @override
   State<GoalPreview> createState() => _GoalPreviewState();
 }
 
 class _GoalPreviewState extends State<GoalPreview>
     with TickerProviderStateMixin {
-  static const _holdStart = 1.0;
-  static const _holdGoal = 1.8;
+  static const _holdStart = 1.4;
+  static const _holdGoal = 2.2;
+  static const _orbitPerPixel = 0.012;
+
+  /// Orientation the finger set; the sway plays around it.
+  CubeOrientation _orbit = CubeOrientation.initial;
 
   late final AnimationController _spin = AnimationController(
     vsync: this,
@@ -66,10 +76,11 @@ class _GoalPreviewState extends State<GoalPreview>
     for (final move in moves) {
       _states.add(_states.last.apply(move));
     }
-    // Long algorithms play faster so a loop stays short.
+    // Long algorithms play a little faster so a loop stays watchable, all
+    // at the slowed teaching pace.
     _moveSeconds = moves.isEmpty
         ? 0
-        : (3.6 / moves.length).clamp(0.16, 0.45).toDouble();
+        : (3.6 / moves.length).clamp(0.18, 0.45) / GoalPreview.pace;
     final total = _holdStart + moves.length * _moveSeconds + _holdGoal;
     _morph.duration = Duration(milliseconds: (total * 1000).round());
     _syncMorph();
@@ -115,6 +126,26 @@ class _GoalPreviewState extends State<GoalPreview>
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    return RawGestureDetector(
+      key: const ValueKey('intro-orbit'),
+      behavior: HitTestBehavior.opaque,
+      gestures: {
+        EagerPanGestureRecognizer:
+            GestureRecognizerFactoryWithHandlers<EagerPanGestureRecognizer>(
+              EagerPanGestureRecognizer.new,
+              (r) => r.onUpdate = (d) => setState(() {
+                _orbit = _orbit.rotatedOnScreen(
+                  d.delta.dx * _orbitPerPixel,
+                  d.delta.dy * _orbitPerPixel,
+                );
+              }),
+            ),
+      },
+      child: _paint(l10n),
+    );
+  }
+
+  Widget _paint(AppLocalizations l10n) {
     return RepaintBoundary(
       child: AnimatedBuilder(
         animation: Listenable.merge([_spin, _morph]),
@@ -127,9 +158,9 @@ class _GoalPreviewState extends State<GoalPreview>
                   painter: CubePainter(
                     frame: CubeFrame(
                       cube: cube,
-                      orbit: CubeOrientation.fromYawPitch(
-                        yaw: -0.62 + 0.5 * _wave(_spin.value),
-                        pitch: 0.5,
+                      orbit: _orbit.rotatedOnScreen(
+                        0.5 * _wave(_spin.value),
+                        0,
                       ),
                       turn: turn,
                       focus: widget.data.focus,

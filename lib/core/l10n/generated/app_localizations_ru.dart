@@ -1479,4 +1479,97 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get introHowBigParity =>
       'Собирайте 4×4 как 3×3, пока не застрянете.\nОдно перевёрнутое ребро: длинный алгоритм OLL-паритета.\nДва переставленных ребра: 2R2 U2 2R2 Uw2 2R2 Uw2.';
+
+  @override
+  String get dirFaceR => 'Правая сторона';
+
+  @override
+  String get dirFaceL => 'Левая сторона';
+
+  @override
+  String get dirFaceU => 'Верхний ряд';
+
+  @override
+  String get dirFaceD => 'Нижний ряд';
+
+  @override
+  String get dirFaceF => 'Передняя грань';
+
+  @override
+  String get dirFaceB => 'Задняя грань';
+
+  @override
+  String get dirMiddle => 'Средний слой';
+
+  @override
+  String get dirWholeCube => 'Весь кубик';
+
+  @override
+  String dirLayerInner(int depth, String face) {
+    return '$face, слой $depth';
+  }
+
+  @override
+  String dirLayerWide(int depth, String face) {
+    return '$face, глубина $depth';
+  }
+
+  @override
+  String dirLayerBlock(int near, int far, String face) {
+    return '$face, слои $near–$far';
+  }
+
+  @override
+  String get dirUp => 'Вверх';
+
+  @override
+  String get dirDown => 'Вниз';
+
+  @override
+  String get dirLeft => 'Влево';
+
+  @override
+  String get dirRight => 'Вправо';
+
+  @override
+  String get dirClockwise => 'По часовой стрелке';
+
+  @override
+  String get dirCounter => 'Против часовой стрелки';
+
+  @override
+  String get dirBackClockwise => 'По часовой, если смотреть сзади';
+
+  @override
+  String get dirBackCounter => 'Против часовой, если смотреть сзади';
+
+  @override
+  String get dirHalf => 'Двойной поворот (180°)';
+
+  @override
+  String moveInstruction(String layer, String direction) {
+    return '$layer — $direction';
+  }
+
+  @override
+  String get solveCollapse => 'Скрыть подробности';
+
+  @override
+  String get solveExpand => 'Показать подробности';
+
+  @override
+  String get dailyScrambleSteps => 'Запутывание по шагам';
+
+  @override
+  String get dailyScrambleGuide => '3D-гид по запутыванию';
+
+  @override
+  String get dailyScrambleGuideTitle => 'Гид по запутыванию';
+
+  @override
+  String get phaseDailyScramble => 'Запутайте кубик дня';
+
+  @override
+  String get explainDailyScramble =>
+      'Начните с собранного кубика: белый сверху, зелёный спереди — и повторяйте каждый поворот на настоящем кубике.';
 }

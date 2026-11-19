@@ -93,9 +93,20 @@ void main() {
     );
 
     // The loop holds the start, plays the moves, then holds the goal.
+    // At the slowed teaching pace the six moves take about six seconds.
     expect(phase(), 'Start');
-    await _advance(tester, 72);
+    await _advance(tester, 100);
+    expect(phase(), 'Start', reason: 'still turning at half speed');
+    await _advance(tester, 70);
     expect(phase(), 'Goal');
+
+    // A finger turns the preview freely without breaking the loop.
+    await tester.drag(
+      find.byKey(const ValueKey('intro-orbit')),
+      const Offset(120, 90),
+    );
+    await _advance(tester);
+    expect(tester.takeException(), isNull);
 
     await tester.tap(segment('Start'));
     await _advance(tester);

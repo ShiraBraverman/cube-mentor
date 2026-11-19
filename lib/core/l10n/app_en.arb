@@ -707,5 +707,76 @@
   "introHowBigIntro": "No center is fixed: four center pieces make up each face color.\nWide moves like Rw turn two layers at once.\nInner moves like 2R turn just one inner slice.",
   "introHowBigCenters": "Build two opposite centers first.\nInner slices swap center pieces without breaking finished ones.\nFinish the last four centers the same way.",
   "introHowBigEdges": "Find two edge pieces with the same colors.\nLine them up side by side with an inner slice.\nPut the pair away and bring the centers back.",
-  "introHowBigParity": "Solve the 4×4 like a 3×3 until it gets stuck.\nOne flipped edge: the long OLL parity algorithm.\nTwo swapped edges: 2R2 U2 2R2 Uw2 2R2 Uw2."
+  "introHowBigParity": "Solve the 4×4 like a 3×3 until it gets stuck.\nOne flipped edge: the long OLL parity algorithm.\nTwo swapped edges: 2R2 U2 2R2 Uw2 2R2 Uw2.",
+  "dirFaceR": "Right side",
+  "dirFaceL": "Left side",
+  "dirFaceU": "Top row",
+  "dirFaceD": "Bottom row",
+  "dirFaceF": "Front face",
+  "dirFaceB": "Back face",
+  "dirMiddle": "Middle slice",
+  "dirWholeCube": "Whole cube",
+  "dirLayerInner": "{face}, layer {depth}",
+  "@dirLayerInner": {
+    "placeholders": {
+      "depth": {
+        "type": "int"
+      },
+      "face": {
+        "type": "String"
+      }
+    }
+  },
+  "dirLayerWide": "{face}, {depth} layers deep",
+  "@dirLayerWide": {
+    "placeholders": {
+      "depth": {
+        "type": "int"
+      },
+      "face": {
+        "type": "String"
+      }
+    }
+  },
+  "dirLayerBlock": "{face}, layers {near}–{far}",
+  "@dirLayerBlock": {
+    "placeholders": {
+      "near": {
+        "type": "int"
+      },
+      "far": {
+        "type": "int"
+      },
+      "face": {
+        "type": "String"
+      }
+    }
+  },
+  "dirUp": "Up",
+  "dirDown": "Down",
+  "dirLeft": "Left",
+  "dirRight": "Right",
+  "dirClockwise": "Clockwise",
+  "dirCounter": "Counter-clockwise",
+  "dirBackClockwise": "Clockwise, seen from behind",
+  "dirBackCounter": "Counter-clockwise, seen from behind",
+  "dirHalf": "Double turn (180°)",
+  "moveInstruction": "{layer} — {direction}",
+  "@moveInstruction": {
+    "placeholders": {
+      "layer": {
+        "type": "String"
+      },
+      "direction": {
+        "type": "String"
+      }
+    }
+  },
+  "solveCollapse": "Hide details",
+  "solveExpand": "Show details",
+  "dailyScrambleSteps": "Scramble step by step",
+  "dailyScrambleGuide": "3D scramble guide",
+  "dailyScrambleGuideTitle": "Scramble guide",
+  "phaseDailyScramble": "Scramble today's cube",
+  "explainDailyScramble": "Start from a solved cube, white on top and green in front, and copy each turn on your real cube."
 }

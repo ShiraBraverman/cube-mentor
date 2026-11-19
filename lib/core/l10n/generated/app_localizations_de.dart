@@ -1482,4 +1482,97 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get introHowBigParity =>
       'Löse den 4×4 wie einen 3×3, bis es hakt.\nEine gekippte Kante: der lange OLL-Paritätsalgorithmus.\nZwei vertauschte Kanten: 2R2 U2 2R2 Uw2 2R2 Uw2.';
+
+  @override
+  String get dirFaceR => 'Rechte Seite';
+
+  @override
+  String get dirFaceL => 'Linke Seite';
+
+  @override
+  String get dirFaceU => 'Obere Reihe';
+
+  @override
+  String get dirFaceD => 'Untere Reihe';
+
+  @override
+  String get dirFaceF => 'Vorderseite';
+
+  @override
+  String get dirFaceB => 'Rückseite';
+
+  @override
+  String get dirMiddle => 'Mittlere Scheibe';
+
+  @override
+  String get dirWholeCube => 'Ganzer Würfel';
+
+  @override
+  String dirLayerInner(int depth, String face) {
+    return '$face, Ebene $depth';
+  }
+
+  @override
+  String dirLayerWide(int depth, String face) {
+    return '$face, $depth Ebenen tief';
+  }
+
+  @override
+  String dirLayerBlock(int near, int far, String face) {
+    return '$face, Ebenen $near–$far';
+  }
+
+  @override
+  String get dirUp => 'Nach oben';
+
+  @override
+  String get dirDown => 'Nach unten';
+
+  @override
+  String get dirLeft => 'Nach links';
+
+  @override
+  String get dirRight => 'Nach rechts';
+
+  @override
+  String get dirClockwise => 'Im Uhrzeigersinn';
+
+  @override
+  String get dirCounter => 'Gegen den Uhrzeigersinn';
+
+  @override
+  String get dirBackClockwise => 'Im Uhrzeigersinn, von hinten gesehen';
+
+  @override
+  String get dirBackCounter => 'Gegen den Uhrzeigersinn, von hinten gesehen';
+
+  @override
+  String get dirHalf => 'Doppeldrehung (180°)';
+
+  @override
+  String moveInstruction(String layer, String direction) {
+    return '$layer — $direction';
+  }
+
+  @override
+  String get solveCollapse => 'Details ausblenden';
+
+  @override
+  String get solveExpand => 'Details einblenden';
+
+  @override
+  String get dailyScrambleSteps => 'Schritt für Schritt verdrehen';
+
+  @override
+  String get dailyScrambleGuide => '3D-Verdrehanleitung';
+
+  @override
+  String get dailyScrambleGuideTitle => 'Verdrehanleitung';
+
+  @override
+  String get phaseDailyScramble => 'Verdrehe den heutigen Würfel';
+
+  @override
+  String get explainDailyScramble =>
+      'Starte mit einem gelösten Würfel, Weiß oben und Grün vorne, und mach jede Drehung an deinem echten Würfel nach.';
 }

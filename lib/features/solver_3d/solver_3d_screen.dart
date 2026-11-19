@@ -215,17 +215,6 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
                         focus: solveFocus(session),
                       ),
                     ),
-                    PositionedDirectional(
-                      top: AppSpace.xs,
-                      start: AppSpace.md,
-                      end: AppSpace.md,
-                      child: Center(
-                        child: ConstrainedBox(
-                          constraints: const BoxConstraints(maxWidth: 560),
-                          child: SolveBanner(size: size),
-                        ),
-                      ),
-                    ),
                     if (session.steps.isEmpty)
                       PositionedDirectional(
                         bottom: AppSpace.xs,
@@ -256,6 +245,14 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
+                        // The step dock sits under the cube, never over it.
+                        if (session.steps.isNotEmpty)
+                          Padding(
+                            padding: const EdgeInsetsDirectional.only(
+                              bottom: AppSpace.xs,
+                            ),
+                            child: SolveBanner(size: size),
+                          ),
                         AnimatedSize(
                           duration: const Duration(milliseconds: 220),
                           curve: Curves.easeOutCubic,

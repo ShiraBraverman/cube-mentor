@@ -1468,4 +1468,97 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get introHowBigParity =>
       'حل مكعب 4×4 مثل 3×3 حتى تتوقف.\nحافة مقلوبة واحدة: خوارزمية تكافؤ OLL الطويلة.\nحافتان متبادلتان: ⁦2R2 U2 2R2 Uw2 2R2 Uw2⁩.';
+
+  @override
+  String get dirFaceR => 'الجانب الأيمن';
+
+  @override
+  String get dirFaceL => 'الجانب الأيسر';
+
+  @override
+  String get dirFaceU => 'الصف العلوي';
+
+  @override
+  String get dirFaceD => 'الصف السفلي';
+
+  @override
+  String get dirFaceF => 'الوجه الأمامي';
+
+  @override
+  String get dirFaceB => 'الوجه الخلفي';
+
+  @override
+  String get dirMiddle => 'الشريحة الوسطى';
+
+  @override
+  String get dirWholeCube => 'المكعب كله';
+
+  @override
+  String dirLayerInner(int depth, String face) {
+    return '$face، الطبقة $depth';
+  }
+
+  @override
+  String dirLayerWide(int depth, String face) {
+    return '$face، بعمق $depth';
+  }
+
+  @override
+  String dirLayerBlock(int near, int far, String face) {
+    return '$face، الطبقات $near–$far';
+  }
+
+  @override
+  String get dirUp => 'لأعلى';
+
+  @override
+  String get dirDown => 'لأسفل';
+
+  @override
+  String get dirLeft => 'لليسار';
+
+  @override
+  String get dirRight => 'لليمين';
+
+  @override
+  String get dirClockwise => 'مع عقارب الساعة';
+
+  @override
+  String get dirCounter => 'عكس عقارب الساعة';
+
+  @override
+  String get dirBackClockwise => 'مع عقارب الساعة، من الخلف';
+
+  @override
+  String get dirBackCounter => 'عكس عقارب الساعة، من الخلف';
+
+  @override
+  String get dirHalf => 'دورة مزدوجة (180°)';
+
+  @override
+  String moveInstruction(String layer, String direction) {
+    return '$layer — $direction';
+  }
+
+  @override
+  String get solveCollapse => 'إخفاء التفاصيل';
+
+  @override
+  String get solveExpand => 'إظهار التفاصيل';
+
+  @override
+  String get dailyScrambleSteps => 'الخلط خطوة بخطوة';
+
+  @override
+  String get dailyScrambleGuide => 'دليل الخلط ثلاثي الأبعاد';
+
+  @override
+  String get dailyScrambleGuideTitle => 'دليل الخلط';
+
+  @override
+  String get phaseDailyScramble => 'اخلط مكعب اليوم';
+
+  @override
+  String get explainDailyScramble =>
+      'ابدأ بمكعب محلول، الأبيض في الأعلى والأخضر في الأمام، وكرّر كل دورة على مكعبك الحقيقي.';
 }

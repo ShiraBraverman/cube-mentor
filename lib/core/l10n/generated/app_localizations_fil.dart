@@ -1485,4 +1485,98 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get introHowBigParity =>
       'Lutasin ang 4×4 na parang 3×3 hanggang maipit.\nIsang baligtad na edge: ang mahabang OLL parity algorithm.\nDalawang nagpalit na edge: 2R2 U2 2R2 Uw2 2R2 Uw2.';
+
+  @override
+  String get dirFaceR => 'Kanang bahagi';
+
+  @override
+  String get dirFaceL => 'Kaliwang bahagi';
+
+  @override
+  String get dirFaceU => 'Itaas na hanay';
+
+  @override
+  String get dirFaceD => 'Ibabang hanay';
+
+  @override
+  String get dirFaceF => 'Harapang mukha';
+
+  @override
+  String get dirFaceB => 'Likurang mukha';
+
+  @override
+  String get dirMiddle => 'Gitnang slice';
+
+  @override
+  String get dirWholeCube => 'Buong cube';
+
+  @override
+  String dirLayerInner(int depth, String face) {
+    return '$face, layer $depth';
+  }
+
+  @override
+  String dirLayerWide(int depth, String face) {
+    return '$face, $depth layer ang lalim';
+  }
+
+  @override
+  String dirLayerBlock(int near, int far, String face) {
+    return '$face, layer $near–$far';
+  }
+
+  @override
+  String get dirUp => 'Pataas';
+
+  @override
+  String get dirDown => 'Pababa';
+
+  @override
+  String get dirLeft => 'Pakaliwa';
+
+  @override
+  String get dirRight => 'Pakanan';
+
+  @override
+  String get dirClockwise => 'Pakanan (clockwise)';
+
+  @override
+  String get dirCounter => 'Pakaliwa (counter-clockwise)';
+
+  @override
+  String get dirBackClockwise => 'Clockwise, kung titingnan mula sa likod';
+
+  @override
+  String get dirBackCounter =>
+      'Counter-clockwise, kung titingnan mula sa likod';
+
+  @override
+  String get dirHalf => 'Dobleng ikot (180°)';
+
+  @override
+  String moveInstruction(String layer, String direction) {
+    return '$layer — $direction';
+  }
+
+  @override
+  String get solveCollapse => 'Itago ang detalye';
+
+  @override
+  String get solveExpand => 'Ipakita ang detalye';
+
+  @override
+  String get dailyScrambleSteps => 'Pag-scramble nang paisa-isa';
+
+  @override
+  String get dailyScrambleGuide => '3D na gabay sa pag-scramble';
+
+  @override
+  String get dailyScrambleGuideTitle => 'Gabay sa pag-scramble';
+
+  @override
+  String get phaseDailyScramble => 'I-scramble ang cube ngayong araw';
+
+  @override
+  String get explainDailyScramble =>
+      'Magsimula sa buong cube, puti sa itaas at berde sa harap, at gayahin ang bawat ikot sa totoong cube mo.';
 }

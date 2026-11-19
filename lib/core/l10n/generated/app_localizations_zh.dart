@@ -1379,4 +1379,96 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get introHowBigParity =>
       '像 3×3 一样还原 4×4，直到卡住。\n一个翻转的棱块：较长的 OLL 奇偶公式。\n两个互换的棱块：2R2 U2 2R2 Uw2 2R2 Uw2。';
+
+  @override
+  String get dirFaceR => '右侧';
+
+  @override
+  String get dirFaceL => '左侧';
+
+  @override
+  String get dirFaceU => '顶层';
+
+  @override
+  String get dirFaceD => '底层';
+
+  @override
+  String get dirFaceF => '前面';
+
+  @override
+  String get dirFaceB => '后面';
+
+  @override
+  String get dirMiddle => '中间层';
+
+  @override
+  String get dirWholeCube => '整个魔方';
+
+  @override
+  String dirLayerInner(int depth, String face) {
+    return '$face，第 $depth 层';
+  }
+
+  @override
+  String dirLayerWide(int depth, String face) {
+    return '$face，$depth 层深';
+  }
+
+  @override
+  String dirLayerBlock(int near, int far, String face) {
+    return '$face，第 $near–$far 层';
+  }
+
+  @override
+  String get dirUp => '向上';
+
+  @override
+  String get dirDown => '向下';
+
+  @override
+  String get dirLeft => '向左';
+
+  @override
+  String get dirRight => '向右';
+
+  @override
+  String get dirClockwise => '顺时针';
+
+  @override
+  String get dirCounter => '逆时针';
+
+  @override
+  String get dirBackClockwise => '顺时针（从后面看）';
+
+  @override
+  String get dirBackCounter => '逆时针（从后面看）';
+
+  @override
+  String get dirHalf => '转两次（180°）';
+
+  @override
+  String moveInstruction(String layer, String direction) {
+    return '$layer — $direction';
+  }
+
+  @override
+  String get solveCollapse => '隐藏详情';
+
+  @override
+  String get solveExpand => '显示详情';
+
+  @override
+  String get dailyScrambleSteps => '逐步打乱';
+
+  @override
+  String get dailyScrambleGuide => '3D 打乱向导';
+
+  @override
+  String get dailyScrambleGuideTitle => '打乱向导';
+
+  @override
+  String get phaseDailyScramble => '打乱今天的魔方';
+
+  @override
+  String get explainDailyScramble => '从复原的魔方开始，白色朝上、绿色朝前，在实体魔方上照做每一步转动。';
 }

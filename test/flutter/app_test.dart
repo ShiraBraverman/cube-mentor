@@ -227,8 +227,29 @@ void main() {
       find.textContaining('Bring the white-red edge down'),
       findsOneWidget,
     );
-    expect(find.text("U'"), findsOneWidget);
+    // The move as words and an arrow, never as a notation letter.
+    expect(find.text("U'"), findsNothing);
+    expect(find.text('Top row'), findsOneWidget);
+    expect(find.text('Right'), findsOneWidget);
+    expect(find.byKey(const ValueKey('move-arrow-right')), findsOneWidget);
     expect(find.text('Step 1 of 2'), findsOneWidget);
+
+    // The dock sits under the cube, never over it.
+    final cubeRect = tester.getRect(find.byType(CubeViewport));
+    final dockRect = tester.getRect(find.byKey(const ValueKey('solve-dock')));
+    expect(dockRect.top, greaterThanOrEqualTo(cubeRect.bottom));
+
+    // Folding the details keeps the solution (and the move) on screen.
+    await tester.tap(find.byKey(const ValueKey('solve-collapse')));
+    await _advance(tester, 8);
+    expect(find.byKey(const ValueKey('solve-details')), findsNothing);
+    expect(container.read(cubeSessionProvider(3)).isGuiding, isTrue);
+    expect(find.text('Top row'), findsOneWidget);
+    final folded = tester.getSize(find.byType(CubeViewport)).height;
+    expect(folded, greaterThan(cubeRect.height), reason: 'the cube grew');
+    await tester.tap(find.byKey(const ValueKey('solve-collapse')));
+    await _advance(tester, 8);
+    expect(find.byKey(const ValueKey('solve-details')), findsOneWidget);
     expect(find.textContaining('Swipe the glowing layer'), findsOneWidget);
     // The piece the step talks about is highlighted.
     final viewport = tester.widget<CubeViewport>(find.byType(CubeViewport));
@@ -374,8 +395,11 @@ void main() {
       final gesture = await tester.startGesture(
         stickerOnScreen(tester, (2, 0, 2), kNormalFront),
       );
+      // About a quarter turn, whatever room the cube has.
+      final step =
+          tester.getSize(find.byType(CubeViewport)).shortestSide * 0.04;
       for (var i = 0; i < 10; i++) {
-        await gesture.moveBy(const Offset(0, -15));
+        await gesture.moveBy(Offset(0, -step));
         await tester.pump(const Duration(milliseconds: 16));
       }
       await gesture.up();

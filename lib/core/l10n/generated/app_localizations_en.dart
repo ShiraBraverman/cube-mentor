@@ -1468,4 +1468,97 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get introHowBigParity =>
       'Solve the 4×4 like a 3×3 until it gets stuck.\nOne flipped edge: the long OLL parity algorithm.\nTwo swapped edges: 2R2 U2 2R2 Uw2 2R2 Uw2.';
+
+  @override
+  String get dirFaceR => 'Right side';
+
+  @override
+  String get dirFaceL => 'Left side';
+
+  @override
+  String get dirFaceU => 'Top row';
+
+  @override
+  String get dirFaceD => 'Bottom row';
+
+  @override
+  String get dirFaceF => 'Front face';
+
+  @override
+  String get dirFaceB => 'Back face';
+
+  @override
+  String get dirMiddle => 'Middle slice';
+
+  @override
+  String get dirWholeCube => 'Whole cube';
+
+  @override
+  String dirLayerInner(int depth, String face) {
+    return '$face, layer $depth';
+  }
+
+  @override
+  String dirLayerWide(int depth, String face) {
+    return '$face, $depth layers deep';
+  }
+
+  @override
+  String dirLayerBlock(int near, int far, String face) {
+    return '$face, layers $near–$far';
+  }
+
+  @override
+  String get dirUp => 'Up';
+
+  @override
+  String get dirDown => 'Down';
+
+  @override
+  String get dirLeft => 'Left';
+
+  @override
+  String get dirRight => 'Right';
+
+  @override
+  String get dirClockwise => 'Clockwise';
+
+  @override
+  String get dirCounter => 'Counter-clockwise';
+
+  @override
+  String get dirBackClockwise => 'Clockwise, seen from behind';
+
+  @override
+  String get dirBackCounter => 'Counter-clockwise, seen from behind';
+
+  @override
+  String get dirHalf => 'Double turn (180°)';
+
+  @override
+  String moveInstruction(String layer, String direction) {
+    return '$layer — $direction';
+  }
+
+  @override
+  String get solveCollapse => 'Hide details';
+
+  @override
+  String get solveExpand => 'Show details';
+
+  @override
+  String get dailyScrambleSteps => 'Scramble step by step';
+
+  @override
+  String get dailyScrambleGuide => '3D scramble guide';
+
+  @override
+  String get dailyScrambleGuideTitle => 'Scramble guide';
+
+  @override
+  String get phaseDailyScramble => 'Scramble today\'s cube';
+
+  @override
+  String get explainDailyScramble =>
+      'Start from a solved cube, white on top and green in front, and copy each turn on your real cube.';
 }

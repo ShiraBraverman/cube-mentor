@@ -2,12 +2,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../core/l10n/generated/app_localizations.dart';
-import '../../core/l10n/move_words.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
 import '../../core/theme/ui_kit.dart';
 import '../solver_3d/model/cube_session.dart';
 import '../solver_3d/widgets/cube_viewport.dart';
+import '../solver_3d/widgets/move_instruction.dart';
 import '../solver_3d/widgets/solve_banner.dart';
 import 'academy_screen.dart';
 import 'model/academy_progress.dart';
@@ -161,15 +161,8 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                               ],
                             ),
                           ),
-                          // Long translations scroll inside the card
-                          // instead of squeezing the cube away.
-                          ConstrainedBox(
-                            constraints: BoxConstraints(
-                              maxHeight:
-                                  MediaQuery.sizeOf(context).height * 0.4,
-                            ),
-                            child: _Explanation(lesson: _lesson, step: step),
-                          ),
+                          // Under the cube, never over it.
+                          _Explanation(lesson: _lesson, step: step),
                           // One move at a time: no auto-play in lessons, so
                           // learners never rush through a demonstration.
                           if (session.hasPlayback) ...[
@@ -267,101 +260,124 @@ class _MoveStepper extends ConsumerWidget {
   }
 }
 
-/// The step's explanation plus a plain-language subtitle of the move on
-/// screen (or a hint when there is nothing to play).
-class _Explanation extends ConsumerWidget {
+/// The move on screen as an arrow and plain words, always visible, over the
+/// part's explanation, which folds away so the cube keeps its room.
+class _Explanation extends ConsumerStatefulWidget {
   const _Explanation({required this.lesson, required this.step});
 
   final Lesson lesson;
   final LessonStep step;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<_Explanation> createState() => _ExplanationState();
+}
+
+class _ExplanationState extends ConsumerState<_Explanation> {
+  bool _expanded = true;
+
+  @override
+  Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final textTheme = Theme.of(context).textTheme;
-    final size = lesson.size;
+    final size = widget.lesson.size;
+    final step = widget.step;
     final session = ref.watch(cubeSessionProvider(size));
     final current = session.currentStep;
-    final String subtitle;
-    String? notation;
-    if (!session.hasPlayback) {
-      subtitle = l10n.lessonLookAround;
-    } else if (current == null) {
-      subtitle = l10n.lessonDemoDone;
+    final secondary = textTheme.bodySmall?.copyWith(
+      color: AppColors.textSecondary,
+    );
+
+    final Widget move;
+    if (!session.hasPlayback || current == null) {
+      move = Text(
+        session.hasPlayback ? l10n.lessonDemoDone : l10n.lessonLookAround,
+        key: const ValueKey('lesson-move-words'),
+        style: textTheme.bodyMedium?.copyWith(
+          color: AppColors.accentSecondary,
+          fontWeight: FontWeight.w600,
+        ),
+      );
     } else {
-      final move = session.playback[session.currentStepIndex];
-      notation = move.notation;
-      subtitle = describeMove(l10n, move, size);
+      // Half made by hand: what is left of the move.
+      final shown =
+          session.guideMove ?? session.playback[session.currentStepIndex];
+      move = MoveInstructionTile(
+        key: ValueKey('lesson-move-${session.currentStepIndex}'),
+        move: shown,
+        size: size,
+        badgeSize: 44,
+      );
     }
+
     return GlassCard(
-      padding: const EdgeInsetsDirectional.fromSTEB(14, 12, 14, 12),
-      child: SingleChildScrollView(
+      key: const ValueKey('lesson-explanation'),
+      padding: const EdgeInsetsDirectional.fromSTEB(12, 8, 4, 8),
+      child: AnimatedSize(
+        duration: const Duration(milliseconds: 200),
+        curve: Curves.easeOutCubic,
+        alignment: Alignment.topCenter,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              lessonStepTitle(l10n, step.id),
-              key: const ValueKey('lesson-step-title'),
-              style: textTheme.titleMedium,
-            ),
-            const SizedBox(height: 4),
-            Text(lessonStepBody(l10n, step.id), style: textTheme.bodyMedium),
-            const SizedBox(height: 10),
             Row(
               children: [
-                if (notation != null) ...[
-                  Container(
-                    constraints: const BoxConstraints(minWidth: 44),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 4,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: AppColors.accent.withValues(alpha: 0.18),
-                      border: Border.all(
-                        color: AppColors.accent.withValues(alpha: 0.6),
-                      ),
-                    ),
-                    child: Text(
-                      notation,
-                      textAlign: TextAlign.center,
-                      textDirection: TextDirection.ltr,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                ],
                 Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        subtitle,
-                        key: const ValueKey('lesson-move-words'),
-                        style: textTheme.bodySmall?.copyWith(
-                          color: AppColors.accentSecondary,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      if (session.stepHint case final hint?)
-                        StepHintText(hint: hint)
-                      else if (session.guideMove != null)
-                        Text(
-                          l10n.lessonTryIt,
-                          style: textTheme.bodySmall?.copyWith(
-                            color: AppColors.textSecondary,
-                          ),
-                        ),
-                    ],
+                  child: AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 180),
+                    child: move,
+                  ),
+                ),
+                IconButton(
+                  key: const ValueKey('lesson-collapse'),
+                  tooltip: _expanded ? l10n.solveCollapse : l10n.solveExpand,
+                  visualDensity: VisualDensity.compact,
+                  onPressed: () => setState(() => _expanded = !_expanded),
+                  icon: Icon(
+                    _expanded
+                        ? Icons.keyboard_arrow_down_rounded
+                        : Icons.keyboard_arrow_up_rounded,
                   ),
                 ),
               ],
             ),
+            if (session.stepHint case final hint?)
+              Padding(
+                padding: const EdgeInsetsDirectional.only(top: 4, end: 8),
+                child: StepHintText(hint: hint),
+              ),
+            if (_expanded)
+              // Long translations scroll inside the card instead of
+              // squeezing the cube away.
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxHeight: MediaQuery.sizeOf(context).height * 0.2,
+                ),
+                child: SingleChildScrollView(
+                  padding: const EdgeInsetsDirectional.only(top: 8, end: 8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        lessonStepTitle(l10n, step.id),
+                        key: const ValueKey('lesson-step-title'),
+                        style: textTheme.titleMedium,
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        lessonStepBody(l10n, step.id),
+                        style: textTheme.bodyMedium,
+                      ),
+                      if (session.guideMove != null &&
+                          session.stepHint == null) ...[
+                        const SizedBox(height: 6),
+                        Text(l10n.lessonTryIt, style: secondary),
+                      ],
+                    ],
+                  ),
+                ),
+              ),
           ],
         ),
       ),
