@@ -1572,4 +1572,316 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get explainDailyScramble =>
       'Empieza con un cubo resuelto, blanco arriba y verde al frente, y copia cada giro en tu cubo real.';
+
+  @override
+  String get stageCenters => 'Construir los bloques de centros';
+
+  @override
+  String get stageEdges => 'Emparejar aristas exteriores e interiores';
+
+  @override
+  String get stageParity => 'Resolver la paridad';
+
+  @override
+  String get stageCrown1 => 'Primera corona (blanca)';
+
+  @override
+  String get stageCrown2 => 'Segunda corona';
+
+  @override
+  String get stageCrown3 => 'Tercera corona (amarilla)';
+
+  @override
+  String get stageOrient => 'Orientar las piezas';
+
+  @override
+  String get stageFinish => 'Terminar el cubo';
+
+  @override
+  String get stageAsThree => 'Resolver como un 3×3';
+
+  @override
+  String get stageTwoByTwo => 'Resolver el 2×2';
+
+  @override
+  String stageHeader(int number, int total, String title) {
+    return 'Etapa $number de $total: $title';
+  }
+
+  @override
+  String stageCrownHeader(int crown, int number, int total, String title) {
+    return 'Corona $crown • Etapa $number de $total: $title';
+  }
+
+  @override
+  String get solveAllStagesDone => '¡Todas las etapas completadas! Muy bien.';
+
+  @override
+  String get trackFiveByFive => '5×5 Cubo del Profesor';
+
+  @override
+  String get trackSixBySix => 'Cubo 6×6';
+
+  @override
+  String get lessonFiveIntro => 'Conoce el 5×5';
+
+  @override
+  String get lessonFiveIntroDesc =>
+      'Centros fijos, barras de centro, aristas centrales y alas.';
+
+  @override
+  String get introGoalFiveIntro =>
+      'Conoce el 5×5: centros fijos, barras de centro, aristas centrales y alas.';
+
+  @override
+  String get introHowFiveIntro =>
+      'La pieza central de cada cara nunca se mueve.\nCada arista es una pieza central con dos alas.\nLas capas interiores mueven piezas sin tocar el exterior.';
+
+  @override
+  String get lessonFiveCenters => 'Centros del 5×5';
+
+  @override
+  String get lessonFiveCentersDesc => 'Arma cada centro con barras de tres.';
+
+  @override
+  String get introGoalFiveCenters =>
+      'Arma en cada cara un bloque de centro de 3×3 de un solo color.';
+
+  @override
+  String get introHowFiveCenters =>
+      'Empieza por la pieza central: marca el color.\nForma barras de tres y deslízalas con una capa interior.\nTermina juntos los dos últimos centros.';
+
+  @override
+  String get lessonFiveEdges => 'Aristas del 5×5';
+
+  @override
+  String get lessonFiveEdgesDesc => 'Une dos alas con su arista central.';
+
+  @override
+  String get introGoalFiveEdges =>
+      'Une cada arista central con sus dos alas para que las 12 aristas parezcan piezas únicas.';
+
+  @override
+  String get introHowFiveEdges =>
+      'Alinea dos alas con su arista central al frente.\nGira la capa interior, cambia una arista sin resolver y vuelve.\nEmpareja las últimas aristas sin romper las terminadas.';
+
+  @override
+  String get lessonFiveSolve => 'Resuelve el 5×5 como un 3×3';
+
+  @override
+  String get lessonFiveSolveDesc => 'Termina con las tres coronas.';
+
+  @override
+  String get introGoalFiveSolve =>
+      'Resuelve el 5×5 reducido como un 3×3, corona a corona.';
+
+  @override
+  String get introHowFiveSolve =>
+      'Desde ahora, solo giros exteriores.\nPrimera corona, segunda corona y luego la amarilla.\nLos centros fijos indican el color de cada cara.';
+
+  @override
+  String get lessonFiveParity => 'Paridad de aristas del 5×5';
+
+  @override
+  String get lessonFiveParityDesc =>
+      'Arregla la arista con las alas cambiadas.';
+
+  @override
+  String get introGoalFiveParity =>
+      'Arregla la única arista con sus dos alas intercambiadas y termina.';
+
+  @override
+  String get introHowFiveParity =>
+      'Aparece como una arista que no se deja emparejar.\nHaz una vez el arreglo largo de capas interiores.\nTodo lo demás vuelve a su sitio.';
+
+  @override
+  String get lessonSixIntro => 'Conoce el 6×6';
+
+  @override
+  String get lessonSixIntroDesc =>
+      'Sin centros fijos y cuatro piezas en cada arista.';
+
+  @override
+  String get introGoalSixIntro =>
+      'Conoce el 6×6: dieciséis piezas de centro por cara y cuatro piezas por arista.';
+
+  @override
+  String get introHowSixIntro =>
+      'Ningún centro es fijo: eliges los colores al armar.\nCada arista tiene alas exteriores e interiores.\nLos giros dobles pueden mover hasta tres capas.';
+
+  @override
+  String get lessonSixCenters => 'Centros del 6×6';
+
+  @override
+  String get lessonSixCentersDesc =>
+      'Arma centros de 4×4 con barras de cuatro.';
+
+  @override
+  String get introGoalSixCenters =>
+      'Arma en cada cara un bloque de centro de 4×4 de un solo color.';
+
+  @override
+  String get introHowSixCenters =>
+      'Arma primero dos centros opuestos.\nForma barras de cuatro y júntalas.\nMueve piezas sueltas con el truco capa, arriba, deshacer.';
+
+  @override
+  String get lessonSixEdges => 'Aristas del 6×6';
+
+  @override
+  String get lessonSixEdgesDesc => 'Junta las cuatro piezas de cada arista.';
+
+  @override
+  String get introGoalSixEdges =>
+      'Junta las cuatro piezas de cada arista para que el 6×6 tenga 12 aristas limpias.';
+
+  @override
+  String get introHowSixEdges =>
+      'Alinea al frente las alas exteriores e interiores.\nLa capa doble profunda mete y saca una arista.\nLas aristas terminadas nunca se rompen.';
+
+  @override
+  String get lessonSixSolve => 'Resuelve el 6×6 como un 3×3';
+
+  @override
+  String get lessonSixSolveDesc => 'Termina con las tres coronas.';
+
+  @override
+  String get introGoalSixSolve =>
+      'Resuelve el 6×6 reducido como un 3×3, corona a corona.';
+
+  @override
+  String get introHowSixSolve =>
+      'Desde ahora, solo giros exteriores.\nLos centros que armaste indican el color de cada cara.\nPrimera corona, segunda corona y luego la amarilla.';
+
+  @override
+  String get lessonSixParity => 'Paridad del 6×6';
+
+  @override
+  String get lessonSixParityDesc => 'Una arista volteada o dos intercambiadas.';
+
+  @override
+  String get introGoalSixParity =>
+      'Corrige los dos casos del 6×6 que un 3×3 nunca tiene: una arista volteada o dos aristas intercambiadas.';
+
+  @override
+  String get introHowSixParity =>
+      'Resuelve como un 3×3 hasta atascarte.\nUna arista volteada: el arreglo largo de paridad.\nDos aristas intercambiadas: el arreglo corto de giros dobles.';
+
+  @override
+  String get stepFivePieces => 'Las piezas del 5×5';
+
+  @override
+  String get stepFivePiecesBody =>
+      'La pieza central de cada cara nunca se mueve, así que sigue marcando el color, como en un 3×3. A su alrededor hay ocho piezas de centro más; cada arista tiene una pieza central y dos alas, y las esquinas funcionan como en un 3×3.';
+
+  @override
+  String get stepFiveSlices => 'Tres tipos de giros';
+
+  @override
+  String get stepFiveSlicesBody =>
+      'Un giro exterior mueve una cara. Un giro doble mueve una cara con la capa de detrás. Un giro de capa interior mueve solo una capa de dentro: así cambian las piezas sin tocar el exterior.';
+
+  @override
+  String get stepFiveCenterBar => 'Barras de centro';
+
+  @override
+  String get stepFiveCenterBarBody =>
+      'Forma una fila de tres piezas de centro iguales y deslízala junto al centro de su color con un giro de capa interior. Tres barras forman un centro terminado.';
+
+  @override
+  String get stepFiveCenterSwap => 'Cambiar sin romper';
+
+  @override
+  String get stepFiveCenterSwapBody =>
+      'Para mover una sola pieza de centro: gira una capa interior, gira la cara de arriba, deshaz la capa y devuelve la cara de arriba. Los centros terminados vuelven cada vez.';
+
+  @override
+  String get stepFiveEdgePair => 'Emparejar alas con la arista central';
+
+  @override
+  String get stepFiveEdgePairBody =>
+      'Alinea dos alas junto a su arista central al frente, baja la capa interior, trae desde arriba una arista sin resolver y vuelve a subir la capa interior.';
+
+  @override
+  String get stepFiveEdgeLast => 'Las últimas aristas';
+
+  @override
+  String get stepFiveEdgeLastBody =>
+      'Cuando quedan pocas aristas, un giro doble, un gatillo corto y el giro doble de vuelta las emparejan sin romper las terminadas.';
+
+  @override
+  String get stepFiveAsThree => 'Ahora es un 3×3';
+
+  @override
+  String get stepFiveAsThreeBody =>
+      'Con centros y aristas listos, el 5×5 se comporta como un 3×3 grande. Usa solo giros exteriores y sigue las tres coronas: cruz y esquinas blancas, capa media y capa amarilla.';
+
+  @override
+  String get stepFiveEdgeParity => 'Cambiar las alas de la última arista';
+
+  @override
+  String get stepFiveEdgeParityBody =>
+      'A veces la última arista tiene sus dos alas cambiadas. Un algoritmo largo de capas interiores las devuelve y todo lo demás vuelve a su sitio. Luego termina como un 3×3.';
+
+  @override
+  String get stepSixPieces => 'Las piezas del 6×6';
+
+  @override
+  String get stepSixPiecesBody =>
+      'Como el 4×4, el 6×6 no tiene centro fijo: dieciséis piezas de centro forman el color de cada cara. Cada arista tiene cuatro piezas: dos alas exteriores y dos interiores.';
+
+  @override
+  String get stepSixSlices => 'Girar capas más profundas';
+
+  @override
+  String get stepSixSlicesBody =>
+      'Los giros dobles pueden mover dos o tres capas desde una cara. Las capas interiores segunda y tercera son las herramientas para centros y aristas.';
+
+  @override
+  String get stepSixCenterBar => 'Barras de cuatro';
+
+  @override
+  String get stepSixCenterBarBody =>
+      'Forma filas de cuatro piezas de centro iguales y deslízalas una junto a otra con giros de capa interior hasta que la cara sea de un solo color.';
+
+  @override
+  String get stepSixCenterSwap => 'Una pieza cada vez';
+
+  @override
+  String get stepSixCenterSwapBody =>
+      'Gira la tercera capa, gira arriba, deshaz y vuelve: una pieza de centro se mueve y los centros terminados regresan.';
+
+  @override
+  String get stepSixEdgePair => 'Cuatro piezas, una arista';
+
+  @override
+  String get stepSixEdgePairBody =>
+      'Junta al frente las cuatro piezas de una arista con la capa doble profunda, trae una arista sin resolver y devuelve la capa doble.';
+
+  @override
+  String get stepSixEdgeLast => 'Las últimas aristas';
+
+  @override
+  String get stepSixEdgeLastBody =>
+      'Empareja las aristas finales con un gatillo corto entre un giro doble profundo y su vuelta, para que las aristas terminadas sigan unidas.';
+
+  @override
+  String get stepSixAsThree => 'Ahora es un 3×3';
+
+  @override
+  String get stepSixAsThreeBody =>
+      'Con centros de 4×4 y aristas emparejadas, resuelve el 6×6 como un 3×3 con giros exteriores y las tres coronas.';
+
+  @override
+  String get stepSixOllParity => 'Una arista volteada';
+
+  @override
+  String get stepSixOllParityBody =>
+      'Si una sola arista parece volteada al resolver la última capa, es paridad. Ponla al frente de la capa de arriba y haz el arreglo largo: las dos primeras coronas vuelven intactas.';
+
+  @override
+  String get stepSixPllParity => 'Dos aristas intercambiadas';
+
+  @override
+  String get stepSixPllParityBody =>
+      'Si dos aristas parecen intercambiadas al final, ponlas delante y detrás en la capa de arriba y haz el arreglo corto de giros dobles interiores.';
 }

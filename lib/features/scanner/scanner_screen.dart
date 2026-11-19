@@ -491,38 +491,37 @@ class _ReviewBody extends ConsumerWidget {
           ),
         ],
         const SizedBox(height: 14),
-        Row(
-          children: [
-            if (canLearn) ...[
-              Expanded(
-                child: OutlinedButton(
-                  key: const ValueKey('scan-learn'),
-                  onPressed: cube == null
-                      ? null
-                      : () => onOpen(cube, SolveMethod.layerByLayer),
-                  child: Text(l10n.solveLearn, textAlign: TextAlign.center),
+        // Straight into the stage-by-stage guided solve (fast stays one
+        // tap away, here or in the solver's Guided / Fast switch).
+        FilledButton.icon(
+          key: const ValueKey('scan-solve'),
+          onPressed: cube == null
+              ? null
+              : () => onOpen(
+                  cube,
+                  canLearn
+                      ? SolveMethod.layerByLayer
+                      : (canFast ? SolveMethod.fast : null),
                 ),
-              ),
-              const SizedBox(width: 10),
-            ],
-            Expanded(
-              child: FilledButton.icon(
-                key: const ValueKey('scan-solve'),
-                onPressed: cube == null
-                    ? null
-                    : () => onOpen(cube, canFast ? SolveMethod.fast : null),
-                icon: Icon(
-                  canFast ? Icons.auto_fix_high_rounded : Icons.view_in_ar,
-                ),
-                label: Text(
-                  canFast
-                      ? (canLearn ? l10n.solveFast : l10n.solve)
-                      : l10n.scanOpen3d,
-                ),
-              ),
-            ),
-          ],
+          icon: Icon(
+            canFast ? Icons.auto_awesome_motion_rounded : Icons.view_in_ar,
+          ),
+          label: Text(
+            canFast ? l10n.solveLearn : l10n.scanOpen3d,
+            textAlign: TextAlign.center,
+          ),
         ),
+        if (canLearn && canFast) ...[
+          const SizedBox(height: 6),
+          TextButton.icon(
+            key: const ValueKey('scan-fast'),
+            onPressed: cube == null
+                ? null
+                : () => onOpen(cube, SolveMethod.fast),
+            icon: const Icon(Icons.bolt_rounded, size: 18),
+            label: Text(l10n.solveFast),
+          ),
+        ],
       ],
     );
   }

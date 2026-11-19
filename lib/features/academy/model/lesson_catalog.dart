@@ -379,6 +379,185 @@ const List<Lesson> kLessons = [
       ),
     ],
   ),
+  Lesson(
+    id: 'fiveIntro',
+    track: LessonTrack.fiveByFive,
+    size: 5,
+    steps: [
+      LessonStep(
+        'fivePieces',
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'fiveSlices',
+        demo: "Rw Rw' 2R 2R' 3R 3R'",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'fiveCenters',
+    track: LessonTrack.fiveByFive,
+    size: 5,
+    advanced: true,
+    steps: [
+      LessonStep(
+        'fiveCenterBar',
+        demo: "2R U 2R'",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'fiveCenterSwap',
+        demo: "2R U' 2L' U 2R' U' 2L U",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'fiveEdges',
+    track: LessonTrack.fiveByFive,
+    size: 5,
+    advanced: true,
+    steps: [
+      LessonStep(
+        'fiveEdgePair',
+        demo: "Uw' R U R' F R' F' R Uw",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'fiveEdgeLast',
+        demo: "Dw R F' U R' F Dw'",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'fiveSolve',
+    track: LessonTrack.fiveByFive,
+    size: 5,
+    advanced: true,
+    steps: [
+      LessonStep(
+        'fiveAsThree',
+        demo: "U R U' R'",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'fiveParity',
+    track: LessonTrack.fiveByFive,
+    size: 5,
+    advanced: true,
+    steps: [
+      LessonStep(
+        'fiveEdgeParity',
+        demo: "2R2 B2 U2 2L U2 2R' U2 2R U2 F2 2R F2 2L' B2 2R2",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'sixIntro',
+    track: LessonTrack.sixBySix,
+    size: 6,
+    steps: [
+      LessonStep(
+        'sixPieces',
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'sixSlices',
+        demo: "3Rw 3Rw' 2R 2R' 3R 3R'",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'sixCenters',
+    track: LessonTrack.sixBySix,
+    size: 6,
+    advanced: true,
+    steps: [
+      LessonStep(
+        'sixCenterBar',
+        demo: "2-3Rw U 2-3Rw'",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'sixCenterSwap',
+        demo: "3R U' 3L' U 3R' U' 3L U",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'sixEdges',
+    track: LessonTrack.sixBySix,
+    size: 6,
+    advanced: true,
+    steps: [
+      LessonStep(
+        'sixEdgePair',
+        demo: "3Uw' R U R' F R' F' R 3Uw",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'sixEdgeLast',
+        demo: "3Dw R F' U R' F 3Dw'",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'sixSolve',
+    track: LessonTrack.sixBySix,
+    size: 6,
+    advanced: true,
+    steps: [
+      LessonStep(
+        'sixAsThree',
+        demo: "U R U' R'",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
+  Lesson(
+    id: 'sixParity',
+    track: LessonTrack.sixBySix,
+    size: 6,
+    advanced: true,
+    steps: [
+      LessonStep(
+        'sixOllParity',
+        demo:
+            "3Rw U2 x 3Rw U2 3Rw U2 3Rw' U2 3Lw U2 3Rw' U2 3Rw U2 3Rw' U2 3Rw'",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+      LessonStep(
+        'sixPllParity',
+        demo: "2-3Rw2 U2 2-3Rw2 3Uw2 2-3Rw2 3Uw2",
+        top: StickerColor.white,
+        front: StickerColor.green,
+      ),
+    ],
+  ),
 ];
 
 Lesson? _lessonById(String id) {
@@ -417,6 +596,16 @@ String introGoalText(AppLocalizations l10n, String id) => switch (id) {
   'bigCenters' => l10n.introGoalBigCenters,
   'bigEdges' => l10n.introGoalBigEdges,
   'bigParity' => l10n.introGoalBigParity,
+  'fiveIntro' => l10n.introGoalFiveIntro,
+  'fiveCenters' => l10n.introGoalFiveCenters,
+  'fiveEdges' => l10n.introGoalFiveEdges,
+  'fiveSolve' => l10n.introGoalFiveSolve,
+  'fiveParity' => l10n.introGoalFiveParity,
+  'sixIntro' => l10n.introGoalSixIntro,
+  'sixCenters' => l10n.introGoalSixCenters,
+  'sixEdges' => l10n.introGoalSixEdges,
+  'sixSolve' => l10n.introGoalSixSolve,
+  'sixParity' => l10n.introGoalSixParity,
   _ => '',
 };
 
@@ -441,6 +630,16 @@ String introHowText(AppLocalizations l10n, String id) => switch (id) {
   'bigCenters' => l10n.introHowBigCenters,
   'bigEdges' => l10n.introHowBigEdges,
   'bigParity' => l10n.introHowBigParity,
+  'fiveIntro' => l10n.introHowFiveIntro,
+  'fiveCenters' => l10n.introHowFiveCenters,
+  'fiveEdges' => l10n.introHowFiveEdges,
+  'fiveSolve' => l10n.introHowFiveSolve,
+  'fiveParity' => l10n.introHowFiveParity,
+  'sixIntro' => l10n.introHowSixIntro,
+  'sixCenters' => l10n.introHowSixCenters,
+  'sixEdges' => l10n.introHowSixEdges,
+  'sixSolve' => l10n.introHowSixSolve,
+  'sixParity' => l10n.introHowSixParity,
   _ => '',
 };
 
@@ -468,6 +667,16 @@ String _lessonTitle(AppLocalizations l10n, String id) => switch (id) {
   'bigCenters' => l10n.lessonBigCenters,
   'bigEdges' => l10n.lessonBigEdges,
   'bigParity' => l10n.lessonBigParity,
+  'fiveIntro' => l10n.lessonFiveIntro,
+  'fiveCenters' => l10n.lessonFiveCenters,
+  'fiveEdges' => l10n.lessonFiveEdges,
+  'fiveSolve' => l10n.lessonFiveSolve,
+  'fiveParity' => l10n.lessonFiveParity,
+  'sixIntro' => l10n.lessonSixIntro,
+  'sixCenters' => l10n.lessonSixCenters,
+  'sixEdges' => l10n.lessonSixEdges,
+  'sixSolve' => l10n.lessonSixSolve,
+  'sixParity' => l10n.lessonSixParity,
   _ => id,
 };
 
@@ -494,6 +703,16 @@ String _lessonDescription(AppLocalizations l10n, String id) => switch (id) {
   'bigCenters' => l10n.lessonBigCentersDesc,
   'bigEdges' => l10n.lessonBigEdgesDesc,
   'bigParity' => l10n.lessonBigParityDesc,
+  'fiveIntro' => l10n.lessonFiveIntroDesc,
+  'fiveCenters' => l10n.lessonFiveCentersDesc,
+  'fiveEdges' => l10n.lessonFiveEdgesDesc,
+  'fiveSolve' => l10n.lessonFiveSolveDesc,
+  'fiveParity' => l10n.lessonFiveParityDesc,
+  'sixIntro' => l10n.lessonSixIntroDesc,
+  'sixCenters' => l10n.lessonSixCentersDesc,
+  'sixEdges' => l10n.lessonSixEdgesDesc,
+  'sixSolve' => l10n.lessonSixSolveDesc,
+  'sixParity' => l10n.lessonSixParityDesc,
   _ => id,
 };
 
@@ -532,6 +751,23 @@ String lessonStepTitle(AppLocalizations l10n, String id) => switch (id) {
   'bigEdgePair' => l10n.stepBigEdgePair,
   'bigOllParity' => l10n.stepBigOllParity,
   'bigPllParity' => l10n.stepBigPllParity,
+  'fivePieces' => l10n.stepFivePieces,
+  'fiveSlices' => l10n.stepFiveSlices,
+  'fiveCenterBar' => l10n.stepFiveCenterBar,
+  'fiveCenterSwap' => l10n.stepFiveCenterSwap,
+  'fiveEdgePair' => l10n.stepFiveEdgePair,
+  'fiveEdgeLast' => l10n.stepFiveEdgeLast,
+  'fiveAsThree' => l10n.stepFiveAsThree,
+  'fiveEdgeParity' => l10n.stepFiveEdgeParity,
+  'sixPieces' => l10n.stepSixPieces,
+  'sixSlices' => l10n.stepSixSlices,
+  'sixCenterBar' => l10n.stepSixCenterBar,
+  'sixCenterSwap' => l10n.stepSixCenterSwap,
+  'sixEdgePair' => l10n.stepSixEdgePair,
+  'sixEdgeLast' => l10n.stepSixEdgeLast,
+  'sixAsThree' => l10n.stepSixAsThree,
+  'sixOllParity' => l10n.stepSixOllParity,
+  'sixPllParity' => l10n.stepSixPllParity,
   _ => id,
 };
 
@@ -570,6 +806,23 @@ String lessonStepBody(AppLocalizations l10n, String id) => switch (id) {
   'bigEdgePair' => l10n.stepBigEdgePairBody,
   'bigOllParity' => l10n.stepBigOllParityBody,
   'bigPllParity' => l10n.stepBigPllParityBody,
+  'fivePieces' => l10n.stepFivePiecesBody,
+  'fiveSlices' => l10n.stepFiveSlicesBody,
+  'fiveCenterBar' => l10n.stepFiveCenterBarBody,
+  'fiveCenterSwap' => l10n.stepFiveCenterSwapBody,
+  'fiveEdgePair' => l10n.stepFiveEdgePairBody,
+  'fiveEdgeLast' => l10n.stepFiveEdgeLastBody,
+  'fiveAsThree' => l10n.stepFiveAsThreeBody,
+  'fiveEdgeParity' => l10n.stepFiveEdgeParityBody,
+  'sixPieces' => l10n.stepSixPiecesBody,
+  'sixSlices' => l10n.stepSixSlicesBody,
+  'sixCenterBar' => l10n.stepSixCenterBarBody,
+  'sixCenterSwap' => l10n.stepSixCenterSwapBody,
+  'sixEdgePair' => l10n.stepSixEdgePairBody,
+  'sixEdgeLast' => l10n.stepSixEdgeLastBody,
+  'sixAsThree' => l10n.stepSixAsThreeBody,
+  'sixOllParity' => l10n.stepSixOllParityBody,
+  'sixPllParity' => l10n.stepSixPllParityBody,
   _ => id,
 };
 
@@ -579,4 +832,6 @@ String trackTitle(AppLocalizations l10n, LessonTrack track) => switch (track) {
   LessonTrack.cfop => l10n.trackCfop,
   LessonTrack.twoByTwo => l10n.trackTwoByTwo,
   LessonTrack.bigCubes => l10n.trackBigCubes,
+  LessonTrack.fiveByFive => l10n.trackFiveByFive,
+  LessonTrack.sixBySix => l10n.trackSixBySix,
 };

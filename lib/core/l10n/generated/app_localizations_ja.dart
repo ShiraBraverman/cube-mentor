@@ -1481,4 +1481,303 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get explainDailyScramble =>
       '白を上、緑を手前にした完成キューブから始めて、各回転を実物のキューブでまねしましょう。';
+
+  @override
+  String get stageCenters => 'センターブロックを作る';
+
+  @override
+  String get stageEdges => '外側と内側のエッジをペアにする';
+
+  @override
+  String get stageParity => 'パリティを解消';
+
+  @override
+  String get stageCrown1 => '第1の王冠（白）';
+
+  @override
+  String get stageCrown2 => '第2の王冠';
+
+  @override
+  String get stageCrown3 => '第3の王冠（黄）';
+
+  @override
+  String get stageOrient => 'パーツの向きをそろえる';
+
+  @override
+  String get stageFinish => 'キューブを仕上げる';
+
+  @override
+  String get stageAsThree => '3×3として解く';
+
+  @override
+  String get stageTwoByTwo => '2×2を解く';
+
+  @override
+  String stageHeader(int number, int total, String title) {
+    return 'ステージ $number/$total：$title';
+  }
+
+  @override
+  String stageCrownHeader(int crown, int number, int total, String title) {
+    return '王冠 $crown • ステージ $number/$total：$title';
+  }
+
+  @override
+  String get solveAllStagesDone => 'すべてのステージ完了。お見事！';
+
+  @override
+  String get trackFiveByFive => '5×5 プロフェッサーキューブ';
+
+  @override
+  String get trackSixBySix => '6×6 キューブ';
+
+  @override
+  String get lessonFiveIntro => '5×5を知ろう';
+
+  @override
+  String get lessonFiveIntroDesc => '固定センター、センターバー、中央エッジ、ウイング。';
+
+  @override
+  String get introGoalFiveIntro => '5×5を知ろう：固定センター、センターバー、中央エッジ、ウイング。';
+
+  @override
+  String get introHowFiveIntro =>
+      '各面のいちばん真ん中のパーツは動きません。\nエッジは中央パーツと2つのウイングでできています。\n内側の層を回すと、外側を崩さずにパーツを動かせます。';
+
+  @override
+  String get lessonFiveCenters => '5×5のセンター';
+
+  @override
+  String get lessonFiveCentersDesc => '3つ並びのバーでセンターを作ります。';
+
+  @override
+  String get introGoalFiveCenters => '各面に1色の3×3センターブロックを作ります。';
+
+  @override
+  String get introHowFiveCenters =>
+      '真ん中のパーツから始めます。色はそれで決まります。\n3つ並びのバーを作り、内側の層で差し込みます。\n最後の2面はまとめて仕上げます。';
+
+  @override
+  String get lessonFiveEdges => '5×5のエッジ';
+
+  @override
+  String get lessonFiveEdgesDesc => '2つのウイングを中央エッジとつなげます。';
+
+  @override
+  String get introGoalFiveEdges => '中央エッジと2つのウイングをつなげ、12本のエッジを1つのパーツのようにします。';
+
+  @override
+  String get introHowFiveEdges =>
+      '手前で2つのウイングを中央エッジに合わせます。\n内側の層を回し、未完成のエッジを入れ替えて戻します。\n完成したエッジを崩さずに最後のエッジをそろえます。';
+
+  @override
+  String get lessonFiveSolve => '5×5を3×3として解く';
+
+  @override
+  String get lessonFiveSolveDesc => '3つの王冠で仕上げます。';
+
+  @override
+  String get introGoalFiveSolve => 'リダクションした5×5を3×3のように、王冠ごとに解きます。';
+
+  @override
+  String get introHowFiveSolve =>
+      'ここからは外側の回転だけ。\n第1の王冠、第2の王冠、そして黄色の王冠。\n固定センターが各面の色を示します。';
+
+  @override
+  String get lessonFiveParity => '5×5のエッジパリティ';
+
+  @override
+  String get lessonFiveParityDesc => 'ウイングが入れ替わったエッジを直します。';
+
+  @override
+  String get introGoalFiveParity => '2つのウイングが入れ替わった1本のエッジを直し、仕上げます。';
+
+  @override
+  String get introHowFiveParity =>
+      'どうしてもそろわないエッジとして現れます。\n内側の層を使う長い手順を1回だけ行います。\nほかはすべて元の位置に戻ります。';
+
+  @override
+  String get lessonSixIntro => '6×6を知ろう';
+
+  @override
+  String get lessonSixIntroDesc => '固定センターなし、エッジは4パーツ。';
+
+  @override
+  String get introGoalSixIntro => '6×6を知ろう：各面16個のセンターパーツと、エッジごとに4つのパーツ。';
+
+  @override
+  String get introHowSixIntro =>
+      '固定センターはありません。作りながら色を決めます。\nエッジには外側と内側のウイングがあります。\nワイド回転は最大3層を動かせます。';
+
+  @override
+  String get lessonSixCenters => '6×6のセンター';
+
+  @override
+  String get lessonSixCentersDesc => '4つ並びのバーで4×4センターを作ります。';
+
+  @override
+  String get introGoalSixCenters => '各面に1色の4×4センターブロックを作ります。';
+
+  @override
+  String get introHowSixCenters =>
+      'まず向かい合う2面のセンターを作ります。\n4つ並びのバーを作ってつなげます。\n「層・上・戻す」の技で1つずつ動かします。';
+
+  @override
+  String get lessonSixEdges => '6×6のエッジ';
+
+  @override
+  String get lessonSixEdgesDesc => '各エッジの4パーツを集めます。';
+
+  @override
+  String get introGoalSixEdges => '各エッジの4パーツを集め、6×6に12本のきれいなエッジを作ります。';
+
+  @override
+  String get introHowSixEdges =>
+      '手前で外側と内側のウイングを並べます。\n深いワイド層でエッジを出し入れします。\n完成したエッジは崩れません。';
+
+  @override
+  String get lessonSixSolve => '6×6を3×3として解く';
+
+  @override
+  String get lessonSixSolveDesc => '3つの王冠で仕上げます。';
+
+  @override
+  String get introGoalSixSolve => 'リダクションした6×6を3×3のように、王冠ごとに解きます。';
+
+  @override
+  String get introHowSixSolve =>
+      'ここからは外側の回転だけ。\n作ったセンターが各面の色を示します。\n第1の王冠、第2の王冠、そして黄色の王冠。';
+
+  @override
+  String get lessonSixParity => '6×6のパリティ';
+
+  @override
+  String get lessonSixParityDesc => 'エッジ1本の反転か、2本の入れ替わり。';
+
+  @override
+  String get introGoalSixParity =>
+      '3×3では起きない6×6の2つのケースを直します：エッジ1本の反転か、2本の入れ替わり。';
+
+  @override
+  String get introHowSixParity =>
+      '行き詰まるまで3×3のように解きます。\nエッジ1本の反転：長いパリティ手順。\nエッジ2本の入れ替わり：2回転を使う短い手順。';
+
+  @override
+  String get stepFivePieces => '5×5のパーツ';
+
+  @override
+  String get stepFivePiecesBody =>
+      '各面の真ん中のパーツは動かないので、3×3と同じく面の色を示します。そのまわりにセンターパーツが8つ。エッジは中央パーツと2つのウイングでできていて、コーナーは3×3と同じです。';
+
+  @override
+  String get stepFiveSlices => '3種類の回転';
+
+  @override
+  String get stepFiveSlicesBody =>
+      '外側の回転は1つの面を回します。ワイド回転は面とその奥の層をいっしょに回します。内側の層の回転は中の層だけを回すので、外側を崩さずにパーツが入れ替わります。';
+
+  @override
+  String get stepFiveCenterBar => 'センターバー';
+
+  @override
+  String get stepFiveCenterBarBody =>
+      '同じ色のセンターパーツを3つ並べ、内側の層を回して同じ色の真ん中の隣へ動かします。バー3本でセンターが完成します。';
+
+  @override
+  String get stepFiveCenterSwap => '崩さずに入れ替える';
+
+  @override
+  String get stepFiveCenterSwapBody =>
+      'センターパーツを1つだけ動かすには、内側の層を回し、上面を回し、層を戻して上面も戻します。完成したセンターは毎回元に戻ります。';
+
+  @override
+  String get stepFiveEdgePair => 'ウイングを中央エッジにつなげる';
+
+  @override
+  String get stepFiveEdgePairBody =>
+      '手前で2つのウイングを中央エッジの横にそろえ、内側の層を下げ、上から未完成のエッジを入れて、内側の層を戻します。';
+
+  @override
+  String get stepFiveEdgeLast => '最後のエッジ';
+
+  @override
+  String get stepFiveEdgeLastBody =>
+      '残りのエッジが少なくなったら、ワイド回転、短いトリガー、ワイド回転の戻しで、完成したエッジを崩さずにそろえます。';
+
+  @override
+  String get stepFiveAsThree => 'これで3×3';
+
+  @override
+  String get stepFiveAsThreeBody =>
+      'センターとエッジがそろえば、5×5は大きな3×3と同じです。外側の回転だけで3つの王冠を進めます：白クロスとコーナー、中段、そして黄色の層。';
+
+  @override
+  String get stepFiveEdgeParity => '最後のエッジのウイングを戻す';
+
+  @override
+  String get stepFiveEdgeParityBody =>
+      '最後のエッジの2つのウイングが入れ替わっていることがあります。内側の層を使う長い手順で戻すと、ほかはすべて元の位置に戻ります。あとは3×3として仕上げます。';
+
+  @override
+  String get stepSixPieces => '6×6のパーツ';
+
+  @override
+  String get stepSixPiecesBody =>
+      '4×4と同じく、6×6には固定センターがありません。16個のセンターパーツで面の色ができます。エッジは4パーツ：外側のウイング2つと内側のウイング2つです。';
+
+  @override
+  String get stepSixSlices => '深い層を回す';
+
+  @override
+  String get stepSixSlicesBody =>
+      'ワイド回転は面から2層または3層を動かせます。2層目や3層目の内側の層が、センターとエッジの道具です。';
+
+  @override
+  String get stepSixCenterBar => '4つ並びのバー';
+
+  @override
+  String get stepSixCenterBarBody =>
+      '同じ色のセンターパーツを4つ並べ、内側の層を回して横に並べていき、面を1色にします。';
+
+  @override
+  String get stepSixCenterSwap => '1つずつ動かす';
+
+  @override
+  String get stepSixCenterSwapBody =>
+      '3層目を回し、上面を回し、戻して、元に戻す。センターパーツが1つ動き、完成したセンターは戻ります。';
+
+  @override
+  String get stepSixEdgePair => '4パーツで1本のエッジ';
+
+  @override
+  String get stepSixEdgePairBody =>
+      '深いワイド層で1本のエッジの4パーツを手前に集め、未完成のエッジを入れて、ワイド層を戻します。';
+
+  @override
+  String get stepSixEdgeLast => '最後のエッジ';
+
+  @override
+  String get stepSixEdgeLastBody =>
+      '深いワイド回転とその戻しの間に短いトリガーを入れて、完成したエッジを崩さずに最後のエッジをそろえます。';
+
+  @override
+  String get stepSixAsThree => 'これで3×3';
+
+  @override
+  String get stepSixAsThreeBody =>
+      '4×4のセンターとそろったエッジができたら、外側の回転と3つの王冠で6×6を3×3のように解きます。';
+
+  @override
+  String get stepSixOllParity => 'エッジ1本の反転';
+
+  @override
+  String get stepSixOllParityBody =>
+      '最後の層を解いているときにエッジが1本だけ反転して見えたら、それはパリティです。上の層の手前に置いて長い手順を行えば、第1・第2の王冠は崩れずに戻ります。';
+
+  @override
+  String get stepSixPllParity => 'エッジ2本の入れ替わり';
+
+  @override
+  String get stepSixPllParityBody =>
+      '最後の最後で2本のエッジが入れ替わって見えたら、上の層の手前と奥に置き、内側の層の2回転を使う短い手順を行います。';
 }

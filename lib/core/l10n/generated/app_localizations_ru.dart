@@ -1572,4 +1572,318 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get explainDailyScramble =>
       'Начните с собранного кубика: белый сверху, зелёный спереди — и повторяйте каждый поворот на настоящем кубике.';
+
+  @override
+  String get stageCenters => 'Собираем центральные блоки';
+
+  @override
+  String get stageEdges => 'Соединяем внешние и внутренние рёбра';
+
+  @override
+  String get stageParity => 'Исправляем паритет';
+
+  @override
+  String get stageCrown1 => 'Первая корона (белая)';
+
+  @override
+  String get stageCrown2 => 'Вторая корона';
+
+  @override
+  String get stageCrown3 => 'Третья корона (жёлтая)';
+
+  @override
+  String get stageOrient => 'Ориентируем детали';
+
+  @override
+  String get stageFinish => 'Заканчиваем кубик';
+
+  @override
+  String get stageAsThree => 'Собираем как 3×3';
+
+  @override
+  String get stageTwoByTwo => 'Собираем 2×2';
+
+  @override
+  String stageHeader(int number, int total, String title) {
+    return 'Этап $number из $total: $title';
+  }
+
+  @override
+  String stageCrownHeader(int crown, int number, int total, String title) {
+    return 'Корона $crown • Этап $number из $total: $title';
+  }
+
+  @override
+  String get solveAllStagesDone => 'Все этапы пройдены. Отлично!';
+
+  @override
+  String get trackFiveByFive => '5×5 «Кубик Профессора»';
+
+  @override
+  String get trackSixBySix => 'Кубик 6×6';
+
+  @override
+  String get lessonFiveIntro => 'Знакомство с 5×5';
+
+  @override
+  String get lessonFiveIntroDesc =>
+      'Неподвижные центры, полоски центров, средние рёбра и крылья.';
+
+  @override
+  String get introGoalFiveIntro =>
+      'Знакомство с 5×5: неподвижные центры, полоски центров, средние рёбра и крылья.';
+
+  @override
+  String get introHowFiveIntro =>
+      'Самая средняя деталь каждой грани никогда не двигается.\nКаждое ребро — это средняя деталь и два крыла.\nВнутренние слои двигают детали, не трогая наружную часть.';
+
+  @override
+  String get lessonFiveCenters => 'Центры 5×5';
+
+  @override
+  String get lessonFiveCentersDesc =>
+      'Собираем каждый центр из полосок по три.';
+
+  @override
+  String get introGoalFiveCenters =>
+      'Соберите на каждой грани одноцветный центральный блок 3×3.';
+
+  @override
+  String get introHowFiveCenters =>
+      'Начните со средней детали: она задаёт цвет.\nСоберите полоски по три и вставьте их внутренним слоем.\nПоследние два центра собирайте вместе.';
+
+  @override
+  String get lessonFiveEdges => 'Рёбра 5×5';
+
+  @override
+  String get lessonFiveEdgesDesc => 'Соединяем два крыла с их средним ребром.';
+
+  @override
+  String get introGoalFiveEdges =>
+      'Соедините каждое среднее ребро с его двумя крыльями, чтобы все 12 рёбер выглядели цельными.';
+
+  @override
+  String get introHowFiveEdges =>
+      'Совместите спереди два крыла с их средним ребром.\nПоверните внутренний слой, подставьте несобранное ребро и верните слой.\nСоединяйте последние рёбра, не ломая готовые.';
+
+  @override
+  String get lessonFiveSolve => 'Собираем 5×5 как 3×3';
+
+  @override
+  String get lessonFiveSolveDesc => 'Заканчиваем тремя коронами.';
+
+  @override
+  String get introGoalFiveSolve =>
+      'Соберите сведённый 5×5 как 3×3, корону за короной.';
+
+  @override
+  String get introHowFiveSolve =>
+      'Дальше только внешние повороты.\nПервая корона, вторая, затем жёлтая.\nНеподвижные центры показывают цвет каждой грани.';
+
+  @override
+  String get lessonFiveParity => 'Паритет рёбер 5×5';
+
+  @override
+  String get lessonFiveParityDesc =>
+      'Исправляем ребро с переставленными крыльями.';
+
+  @override
+  String get introGoalFiveParity =>
+      'Исправьте единственное ребро с переставленными крыльями и закончите сборку.';
+
+  @override
+  String get introHowFiveParity =>
+      'Это выглядит как ребро, которое никак не соединяется.\nВыполните один раз длинное исправление внутренними слоями.\nВсё остальное возвращается на место.';
+
+  @override
+  String get lessonSixIntro => 'Знакомство с 6×6';
+
+  @override
+  String get lessonSixIntroDesc =>
+      'Нет неподвижных центров, в каждом ребре четыре детали.';
+
+  @override
+  String get introGoalSixIntro =>
+      'Знакомство с 6×6: шестнадцать центральных деталей на грани и четыре детали в ребре.';
+
+  @override
+  String get introHowSixIntro =>
+      'Неподвижного центра нет: цвета вы выбираете при сборке.\nУ каждого ребра есть внешние и внутренние крылья.\nШирокие повороты двигают до трёх слоёв.';
+
+  @override
+  String get lessonSixCenters => 'Центры 6×6';
+
+  @override
+  String get lessonSixCentersDesc =>
+      'Собираем центры 4×4 из полосок по четыре.';
+
+  @override
+  String get introGoalSixCenters =>
+      'Соберите на каждой грани одноцветный центральный блок 4×4.';
+
+  @override
+  String get introHowSixCenters =>
+      'Сначала соберите два противоположных центра.\nСобирайте полоски по четыре и соединяйте их.\nОдиночные детали двигайте приёмом «слой, верх, отмена».';
+
+  @override
+  String get lessonSixEdges => 'Рёбра 6×6';
+
+  @override
+  String get lessonSixEdgesDesc => 'Собираем четыре детали каждого ребра.';
+
+  @override
+  String get introGoalSixEdges =>
+      'Соберите четыре детали каждого ребра, чтобы у 6×6 было 12 цельных рёбер.';
+
+  @override
+  String get introHowSixEdges =>
+      'Выстройте спереди внешние и внутренние крылья.\nГлубокий широкий слой вводит и выводит ребро.\nГотовые рёбра никогда не разрушаются.';
+
+  @override
+  String get lessonSixSolve => 'Собираем 6×6 как 3×3';
+
+  @override
+  String get lessonSixSolveDesc => 'Заканчиваем тремя коронами.';
+
+  @override
+  String get introGoalSixSolve =>
+      'Соберите сведённый 6×6 как 3×3, корону за короной.';
+
+  @override
+  String get introHowSixSolve =>
+      'Дальше только внешние повороты.\nСобранные центры показывают цвет каждой грани.\nПервая корона, вторая, затем жёлтая.';
+
+  @override
+  String get lessonSixParity => 'Паритет 6×6';
+
+  @override
+  String get lessonSixParityDesc =>
+      'Одно перевёрнутое ребро или два переставленных.';
+
+  @override
+  String get introGoalSixParity =>
+      'Исправьте два случая 6×6, которых не бывает на 3×3: одно перевёрнутое ребро или два переставленных.';
+
+  @override
+  String get introHowSixParity =>
+      'Собирайте как 3×3, пока не застрянете.\nОдно перевёрнутое ребро: длинное исправление паритета.\nДва переставленных ребра: короткое исправление двойными поворотами.';
+
+  @override
+  String get stepFivePieces => 'Детали 5×5';
+
+  @override
+  String get stepFivePiecesBody =>
+      'Средняя деталь каждой грани никогда не двигается, поэтому, как на 3×3, она задаёт цвет грани. Вокруг неё ещё восемь центральных деталей; у каждого ребра есть средняя деталь и два крыла, а углы работают как на 3×3.';
+
+  @override
+  String get stepFiveSlices => 'Три вида поворотов';
+
+  @override
+  String get stepFiveSlicesBody =>
+      'Внешний поворот вращает одну грань. Широкий поворот вращает грань вместе со слоем за ней. Поворот внутреннего слоя вращает только слой внутри: так детали меняются местами, не трогая наружную часть.';
+
+  @override
+  String get stepFiveCenterBar => 'Полоски центров';
+
+  @override
+  String get stepFiveCenterBarBody =>
+      'Соберите ряд из трёх одинаковых центральных деталей и придвиньте его к подходящей средней детали поворотом внутреннего слоя. Три полоски — готовый центр.';
+
+  @override
+  String get stepFiveCenterSwap => 'Меняем, не ломая';
+
+  @override
+  String get stepFiveCenterSwapBody =>
+      'Чтобы сдвинуть одну центральную деталь: поверните внутренний слой, поверните верх, отмените слой и верните верх. Готовые центры каждый раз возвращаются.';
+
+  @override
+  String get stepFiveEdgePair => 'Крылья к среднему ребру';
+
+  @override
+  String get stepFiveEdgePairBody =>
+      'Поставьте спереди два крыла рядом с их средним ребром, опустите внутренний слой, подведите сверху несобранное ребро и верните внутренний слой.';
+
+  @override
+  String get stepFiveEdgeLast => 'Последние рёбра';
+
+  @override
+  String get stepFiveEdgeLastBody =>
+      'Когда рёбер осталось мало, широкий поворот, короткий триггер и обратный широкий поворот соединяют их, не ломая готовые.';
+
+  @override
+  String get stepFiveAsThree => 'Теперь это 3×3';
+
+  @override
+  String get stepFiveAsThreeBody =>
+      'Когда центры и рёбра готовы, 5×5 ведёт себя как большой 3×3. Используйте только внешние повороты и пройдите три короны: белый крест и углы, средний слой, затем жёлтый слой.';
+
+  @override
+  String get stepFiveEdgeParity => 'Меняем крылья последнего ребра';
+
+  @override
+  String get stepFiveEdgeParityBody =>
+      'Иногда у последнего ребра крылья переставлены. Длинный алгоритм внутренних слоёв меняет их обратно, а всё остальное возвращается на место. Затем доделайте как 3×3.';
+
+  @override
+  String get stepSixPieces => 'Детали 6×6';
+
+  @override
+  String get stepSixPiecesBody =>
+      'Как и у 4×4, у 6×6 нет неподвижного центра: шестнадцать центральных деталей образуют цвет грани. В каждом ребре четыре детали: два внешних и два внутренних крыла.';
+
+  @override
+  String get stepSixSlices => 'Поворачиваем глубокие слои';
+
+  @override
+  String get stepSixSlicesBody =>
+      'Широкие повороты двигают два или три слоя от грани. Внутренние слои на второй и третьей глубине — инструменты для центров и рёбер.';
+
+  @override
+  String get stepSixCenterBar => 'Полоски по четыре';
+
+  @override
+  String get stepSixCenterBarBody =>
+      'Собирайте ряды из четырёх одинаковых центральных деталей и придвигайте их друг к другу поворотами внутренних слоёв, пока грань не станет одноцветной.';
+
+  @override
+  String get stepSixCenterSwap => 'По одной детали';
+
+  @override
+  String get stepSixCenterSwapBody =>
+      'Поверните третий слой, поверните верх, отмените, верните: одна центральная деталь сдвигается, а готовые центры возвращаются.';
+
+  @override
+  String get stepSixEdgePair => 'Четыре детали — одно ребро';
+
+  @override
+  String get stepSixEdgePairBody =>
+      'Соберите спереди четыре детали ребра глубоким широким слоем, подведите несобранное ребро и верните широкий слой.';
+
+  @override
+  String get stepSixEdgeLast => 'Последние рёбра';
+
+  @override
+  String get stepSixEdgeLastBody =>
+      'Соединяйте последние рёбра коротким триггером между глубоким широким поворотом и его отменой, чтобы готовые рёбра не распались.';
+
+  @override
+  String get stepSixAsThree => 'Теперь это 3×3';
+
+  @override
+  String get stepSixAsThreeBody =>
+      'С центрами 4×4 и соединёнными рёбрами соберите 6×6 как 3×3 внешними поворотами и тремя коронами.';
+
+  @override
+  String get stepSixOllParity => 'Одно перевёрнутое ребро';
+
+  @override
+  String get stepSixOllParityBody =>
+      'Если при сборке последнего слоя одно ребро кажется перевёрнутым, это паритет. Поставьте его спереди в верхнем слое и выполните длинное исправление: первые две короны вернутся нетронутыми.';
+
+  @override
+  String get stepSixPllParity => 'Два переставленных ребра';
+
+  @override
+  String get stepSixPllParityBody =>
+      'Если в самом конце два ребра будто поменялись местами, поставьте их спереди и сзади в верхнем слое и выполните короткое исправление внутренними двойными поворотами.';
 }

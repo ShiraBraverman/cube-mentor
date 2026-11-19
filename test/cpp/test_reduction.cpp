@@ -311,3 +311,42 @@ TEST_CASE("ffi: cm_solve handles a scrambled 5x5x5") {
   CHECK(json.rfind("{\"ok\":true,\"method\":\"reduction\"", 0) == 0);
   CHECK(json.find("\"phase\":\"reductionCenters\"") != std::string::npos);
 }
+
+namespace {
+
+/// Learner-facing stage of a big-cube step: 1 centers, 2 edge pairing
+/// (with its slice parity), 3 OLL/PLL parity, 4..6 the three crowns.
+int bigStage(const SolveStep& s) {
+  if (s.phase == "reductionCenters") return 1;
+  if (s.phase == "reductionEdges" || s.phase == "reductionEdgeParity") return 2;
+  if (s.phase == "reductionOllParity" || s.phase == "reductionPllParity") return 3;
+  return s.crown > 0 ? 3 + s.crown : 0;
+}
+
+}  // namespace
+
+TEST_CASE("reduction: guided big-cube solves run stage by stage, ending in 3 crowns") {
+  std::mt19937 rng(2026);
+  for (int n = 4; n <= 6; ++n) {
+    prepareSolvers(n);
+    for (int i = 0; i < 30; ++i) {
+      FaceletCube cube = cmtest::solvedColored(n);
+      REQUIRE(applyAlg(cube, bigScramble(rng, n, 20 * n)));
+      const SolveResult r = solveCube(n, SolveMethod::kLayerByLayer, cube.f);
+      REQUIRE(r.ok);
+      CHECK(r.method == "reductionLbl");
+      CHECK(replaySolves(cube.f, n, r));
+      int stage = 0;
+      for (const SolveStep& s : r.steps) {
+        const int next = bigStage(s);
+        CHECK(next > 0);       // every step belongs to a stage
+        CHECK(next >= stage);  // stages never go back
+        stage = next;
+        if (s.crown > 0) CHECK((s.subStep >= 1 && s.subStep <= 4));
+        // Odd cubes have fixed centers: no OLL/PLL parity.
+        if (n % 2 == 1) CHECK(next != 3);
+      }
+      CHECK(stage == 6);  // finished with the third crown
+    }
+  }
+}

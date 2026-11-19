@@ -1577,4 +1577,320 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get explainDailyScramble =>
       'Partez d\'un cube résolu, blanc en haut et vert devant, et reproduisez chaque rotation sur votre vrai cube.';
+
+  @override
+  String get stageCenters => 'Construire les blocs de centres';
+
+  @override
+  String get stageEdges => 'Apparier les arêtes extérieures et intérieures';
+
+  @override
+  String get stageParity => 'Résoudre la parité';
+
+  @override
+  String get stageCrown1 => 'Première couronne (blanche)';
+
+  @override
+  String get stageCrown2 => 'Deuxième couronne';
+
+  @override
+  String get stageCrown3 => 'Troisième couronne (jaune)';
+
+  @override
+  String get stageOrient => 'Orienter les pièces';
+
+  @override
+  String get stageFinish => 'Finir le cube';
+
+  @override
+  String get stageAsThree => 'Résoudre comme un 3×3';
+
+  @override
+  String get stageTwoByTwo => 'Résoudre le 2×2';
+
+  @override
+  String stageHeader(int number, int total, String title) {
+    return 'Étape $number sur $total : $title';
+  }
+
+  @override
+  String stageCrownHeader(int crown, int number, int total, String title) {
+    return 'Couronne $crown • Étape $number sur $total : $title';
+  }
+
+  @override
+  String get solveAllStagesDone => 'Toutes les étapes sont terminées. Bravo !';
+
+  @override
+  String get trackFiveByFive => '5×5 Professor’s Cube';
+
+  @override
+  String get trackSixBySix => 'Cube 6×6';
+
+  @override
+  String get lessonFiveIntro => 'Découvrir le 5×5';
+
+  @override
+  String get lessonFiveIntroDesc =>
+      'Centres fixes, barres de centre, arêtes du milieu et ailes.';
+
+  @override
+  String get introGoalFiveIntro =>
+      'Découvrez le 5×5 : centres fixes, barres de centre, arêtes du milieu et ailes.';
+
+  @override
+  String get introHowFiveIntro =>
+      'La pièce du milieu de chaque face ne bouge jamais.\nChaque arête est une pièce du milieu avec deux ailes.\nLes tranches intérieures déplacent des pièces sans toucher l\'extérieur.';
+
+  @override
+  String get lessonFiveCenters => 'Centres du 5×5';
+
+  @override
+  String get lessonFiveCentersDesc =>
+      'Construisez chaque centre avec des barres de trois.';
+
+  @override
+  String get introGoalFiveCenters =>
+      'Construisez sur chaque face un bloc de centre 3×3 d\'une seule couleur.';
+
+  @override
+  String get introHowFiveCenters =>
+      'Partez de la pièce du milieu : elle donne la couleur.\nFormez des barres de trois et glissez-les avec une tranche intérieure.\nTerminez ensemble les deux derniers centres.';
+
+  @override
+  String get lessonFiveEdges => 'Arêtes du 5×5';
+
+  @override
+  String get lessonFiveEdgesDesc =>
+      'Réunissez deux ailes et leur arête du milieu.';
+
+  @override
+  String get introGoalFiveEdges =>
+      'Réunissez chaque arête du milieu et ses deux ailes pour que les 12 arêtes ressemblent à des pièces uniques.';
+
+  @override
+  String get introHowFiveEdges =>
+      'Alignez deux ailes avec leur arête du milieu devant.\nTournez la couche intérieure, échangez une arête non résolue, puis revenez.\nAppariez les dernières arêtes sans casser celles qui sont finies.';
+
+  @override
+  String get lessonFiveSolve => 'Résoudre le 5×5 comme un 3×3';
+
+  @override
+  String get lessonFiveSolveDesc => 'Finissez avec les trois couronnes.';
+
+  @override
+  String get introGoalFiveSolve =>
+      'Résolvez le 5×5 réduit comme un 3×3, couronne par couronne.';
+
+  @override
+  String get introHowFiveSolve =>
+      'Désormais, seulement des tours extérieurs.\nPremière couronne, deuxième, puis la couronne jaune.\nLes centres fixes montrent la couleur de chaque face.';
+
+  @override
+  String get lessonFiveParity => 'Parité des arêtes du 5×5';
+
+  @override
+  String get lessonFiveParityDesc =>
+      'Réparez l\'arête dont les ailes sont échangées.';
+
+  @override
+  String get introGoalFiveParity =>
+      'Réparez l\'unique arête dont les deux ailes sont échangées, puis terminez.';
+
+  @override
+  String get introHowFiveParity =>
+      'Elle apparaît comme une arête qui refuse de s\'apparier.\nJouez une fois la longue correction de tranches intérieures.\nTout le reste reprend sa place.';
+
+  @override
+  String get lessonSixIntro => 'Découvrir le 6×6';
+
+  @override
+  String get lessonSixIntroDesc =>
+      'Pas de centre fixe et quatre pièces par arête.';
+
+  @override
+  String get introGoalSixIntro =>
+      'Découvrez le 6×6 : seize pièces centrales par face et quatre pièces par arête.';
+
+  @override
+  String get introHowSixIntro =>
+      'Aucun centre n\'est fixe : vous choisissez les couleurs en construisant.\nChaque arête a des ailes extérieures et intérieures.\nLes tours larges peuvent bouger jusqu\'à trois couches.';
+
+  @override
+  String get lessonSixCenters => 'Centres du 6×6';
+
+  @override
+  String get lessonSixCentersDesc =>
+      'Construisez des centres 4×4 avec des barres de quatre.';
+
+  @override
+  String get introGoalSixCenters =>
+      'Construisez sur chaque face un bloc de centre 4×4 d\'une seule couleur.';
+
+  @override
+  String get introHowSixCenters =>
+      'Construisez d\'abord deux centres opposés.\nFormez des barres de quatre et réunissez-les.\nDéplacez une pièce seule avec le truc tranche, haut, annuler.';
+
+  @override
+  String get lessonSixEdges => 'Arêtes du 6×6';
+
+  @override
+  String get lessonSixEdgesDesc =>
+      'Rassemblez les quatre pièces de chaque arête.';
+
+  @override
+  String get introGoalSixEdges =>
+      'Rassemblez les quatre pièces de chaque arête pour que le 6×6 ait 12 arêtes nettes.';
+
+  @override
+  String get introHowSixEdges =>
+      'Alignez devant les ailes extérieures et intérieures.\nLa couche large profonde fait entrer et sortir une arête.\nLes arêtes finies ne sont jamais cassées.';
+
+  @override
+  String get lessonSixSolve => 'Résoudre le 6×6 comme un 3×3';
+
+  @override
+  String get lessonSixSolveDesc => 'Finissez avec les trois couronnes.';
+
+  @override
+  String get introGoalSixSolve =>
+      'Résolvez le 6×6 réduit comme un 3×3, couronne par couronne.';
+
+  @override
+  String get introHowSixSolve =>
+      'Désormais, seulement des tours extérieurs.\nLes centres construits montrent la couleur de chaque face.\nPremière couronne, deuxième, puis la couronne jaune.';
+
+  @override
+  String get lessonSixParity => 'Parité du 6×6';
+
+  @override
+  String get lessonSixParityDesc =>
+      'Une arête retournée ou deux arêtes échangées.';
+
+  @override
+  String get introGoalSixParity =>
+      'Corrigez les deux cas du 6×6 qu\'un 3×3 n\'a jamais : une arête retournée ou deux arêtes échangées.';
+
+  @override
+  String get introHowSixParity =>
+      'Résolvez comme un 3×3 jusqu\'à être bloqué.\nUne arête retournée : la longue correction de parité.\nDeux arêtes échangées : la courte correction en doubles tours.';
+
+  @override
+  String get stepFivePieces => 'Les pièces du 5×5';
+
+  @override
+  String get stepFivePiecesBody =>
+      'La pièce du milieu de chaque face ne bouge jamais ; elle donne donc la couleur de la face, comme sur un 3×3. Autour, huit autres pièces de centre ; chaque arête a une pièce du milieu et deux ailes, et les coins fonctionnent comme sur un 3×3.';
+
+  @override
+  String get stepFiveSlices => 'Trois sortes de tours';
+
+  @override
+  String get stepFiveSlicesBody =>
+      'Un tour extérieur tourne une face. Un tour large tourne une face avec la couche derrière elle. Un tour de tranche intérieure ne tourne qu\'une couche intérieure : c\'est ainsi que les pièces changent de place sans toucher l\'extérieur.';
+
+  @override
+  String get stepFiveCenterBar => 'Barres de centre';
+
+  @override
+  String get stepFiveCenterBarBody =>
+      'Formez une rangée de trois pièces de centre identiques, puis glissez-la près du milieu assorti par un tour de tranche intérieure. Trois barres font un centre terminé.';
+
+  @override
+  String get stepFiveCenterSwap => 'Échanger sans casser';
+
+  @override
+  String get stepFiveCenterSwapBody =>
+      'Pour déplacer une seule pièce de centre : tournez une tranche intérieure, tournez le haut, annulez la tranche et remettez le haut. Les centres finis reviennent à chaque fois.';
+
+  @override
+  String get stepFiveEdgePair => 'Apparier les ailes à l\'arête du milieu';
+
+  @override
+  String get stepFiveEdgePairBody =>
+      'Alignez deux ailes près de leur arête du milieu devant, descendez la couche intérieure, amenez une arête non résolue par le haut, puis remontez la couche intérieure.';
+
+  @override
+  String get stepFiveEdgeLast => 'Les dernières arêtes';
+
+  @override
+  String get stepFiveEdgeLastBody =>
+      'Quand il reste peu d’arêtes, un tour large, un court déclencheur et le tour large inverse les apparient sans casser les arêtes finies.';
+
+  @override
+  String get stepFiveAsThree => 'C\'est maintenant un 3×3';
+
+  @override
+  String get stepFiveAsThreeBody =>
+      'Une fois centres et arêtes faits, le 5×5 se comporte comme un grand 3×3. Utilisez seulement des tours extérieurs et suivez les trois couronnes : croix et coins blancs, couche du milieu, puis couche jaune.';
+
+  @override
+  String get stepFiveEdgeParity => 'Échanger les ailes de la dernière arête';
+
+  @override
+  String get stepFiveEdgeParityBody =>
+      'Parfois, la dernière arête a ses deux ailes échangées. Un long algorithme de tranches intérieures les remet en place et tout le reste revient. Terminez ensuite comme un 3×3.';
+
+  @override
+  String get stepSixPieces => 'Les pièces du 6×6';
+
+  @override
+  String get stepSixPiecesBody =>
+      'Comme le 4×4, le 6×6 n\'a pas de centre fixe : seize pièces de centre forment la couleur de chaque face. Chaque arête a quatre pièces : deux ailes extérieures et deux intérieures.';
+
+  @override
+  String get stepSixSlices => 'Tourner des couches plus profondes';
+
+  @override
+  String get stepSixSlicesBody =>
+      'Les tours larges peuvent bouger deux ou trois couches depuis une face. Les tranches intérieures de deuxième ou troisième couche sont les outils des centres et des arêtes.';
+
+  @override
+  String get stepSixCenterBar => 'Barres de quatre';
+
+  @override
+  String get stepSixCenterBarBody =>
+      'Formez des rangées de quatre pièces de centre identiques et glissez-les côte à côte avec des tours de tranche intérieure jusqu\'à ce que la face soit d\'une seule couleur.';
+
+  @override
+  String get stepSixCenterSwap => 'Une pièce à la fois';
+
+  @override
+  String get stepSixCenterSwapBody =>
+      'Tournez la troisième couche, tournez le haut, annulez, revenez : une pièce de centre bouge et les centres finis reviennent.';
+
+  @override
+  String get stepSixEdgePair => 'Quatre pièces, une arête';
+
+  @override
+  String get stepSixEdgePairBody =>
+      'Rassemblez devant les quatre pièces d\'une arête avec la couche large profonde, amenez une arête non résolue, puis remettez la couche large.';
+
+  @override
+  String get stepSixEdgeLast => 'Les dernières arêtes';
+
+  @override
+  String get stepSixEdgeLastBody =>
+      'Appariez les dernières arêtes avec un court déclencheur entre un tour large profond et son inverse, pour que les arêtes finies restent appariées.';
+
+  @override
+  String get stepSixAsThree => 'C\'est maintenant un 3×3';
+
+  @override
+  String get stepSixAsThreeBody =>
+      'Avec des centres 4×4 et des arêtes appariées, résolvez le 6×6 comme un 3×3 avec des tours extérieurs et les trois couronnes.';
+
+  @override
+  String get stepSixOllParity => 'Une arête retournée';
+
+  @override
+  String get stepSixOllParityBody =>
+      'Si une seule arête semble retournée pendant la dernière couche, c\'est la parité. Placez-la devant dans la couche du haut et jouez la longue correction : les deux premières couronnes reviennent intactes.';
+
+  @override
+  String get stepSixPllParity => 'Deux arêtes échangées';
+
+  @override
+  String get stepSixPllParityBody =>
+      'Si deux arêtes semblent échangées tout à la fin, placez-les devant et derrière dans la couche du haut et jouez la courte correction en doubles tours intérieurs.';
 }

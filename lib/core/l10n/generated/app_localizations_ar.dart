@@ -1561,4 +1561,310 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get explainDailyScramble =>
       'ابدأ بمكعب محلول، الأبيض في الأعلى والأخضر في الأمام، وكرّر كل دورة على مكعبك الحقيقي.';
+
+  @override
+  String get stageCenters => 'بناء كتل المراكز';
+
+  @override
+  String get stageEdges => 'إقران الحواف الخارجية والداخلية';
+
+  @override
+  String get stageParity => 'حل التكافؤ';
+
+  @override
+  String get stageCrown1 => 'التاج الأول (الأبيض)';
+
+  @override
+  String get stageCrown2 => 'التاج الثاني';
+
+  @override
+  String get stageCrown3 => 'التاج الثالث (الأصفر)';
+
+  @override
+  String get stageOrient => 'توجيه القطع';
+
+  @override
+  String get stageFinish => 'إنهاء المكعب';
+
+  @override
+  String get stageAsThree => 'الحل كمكعب 3×3';
+
+  @override
+  String get stageTwoByTwo => 'حل مكعب 2×2';
+
+  @override
+  String stageHeader(int number, int total, String title) {
+    return 'المرحلة $number من $total: $title';
+  }
+
+  @override
+  String stageCrownHeader(int crown, int number, int total, String title) {
+    return 'التاج $crown • المرحلة $number من $total: $title';
+  }
+
+  @override
+  String get solveAllStagesDone => 'اكتملت كل المراحل. أحسنت!';
+
+  @override
+  String get trackFiveByFive => '5×5 مكعب البروفيسور';
+
+  @override
+  String get trackSixBySix => 'مكعب 6×6';
+
+  @override
+  String get lessonFiveIntro => 'تعرّف على 5×5';
+
+  @override
+  String get lessonFiveIntroDesc =>
+      'مراكز ثابتة، أشرطة مركزية، حواف وسطى وأجنحة.';
+
+  @override
+  String get introGoalFiveIntro =>
+      'تعرّف على 5×5: مراكز ثابتة، أشرطة مركزية، حواف وسطى وأجنحة.';
+
+  @override
+  String get introHowFiveIntro =>
+      'القطعة الوسطى في كل وجه لا تتحرك أبدًا.\nكل حافة قطعة وسطى مع جناحين.\nالشرائح الداخلية تحرك القطع دون لمس الخارج.';
+
+  @override
+  String get lessonFiveCenters => 'مراكز 5×5';
+
+  @override
+  String get lessonFiveCentersDesc => 'ابنِ كل مركز من أشرطة ثلاثية.';
+
+  @override
+  String get introGoalFiveCenters => 'ابنِ في كل وجه كتلة مركز 3×3 بلون واحد.';
+
+  @override
+  String get introHowFiveCenters =>
+      'ابدأ بالقطعة الوسطى: هي التي تحدد اللون.\nكوّن أشرطة من ثلاث قطع وأدخلها بشريحة داخلية.\nأنهِ المركزين الأخيرين معًا.';
+
+  @override
+  String get lessonFiveEdges => 'حواف 5×5';
+
+  @override
+  String get lessonFiveEdgesDesc => 'اجمع جناحين مع حافتهما الوسطى.';
+
+  @override
+  String get introGoalFiveEdges =>
+      'اجمع كل حافة وسطى مع جناحيها لتبدو الحواف الاثنتا عشرة قطعًا واحدة.';
+
+  @override
+  String get introHowFiveEdges =>
+      'طابق جناحين مع حافتهما الوسطى في الأمام.\nأدر الطبقة الداخلية، أدخل حافة غير محلولة ثم أعدها.\nاقرن الحواف الأخيرة دون إفساد المكتملة.';
+
+  @override
+  String get lessonFiveSolve => 'حل 5×5 كمكعب 3×3';
+
+  @override
+  String get lessonFiveSolveDesc => 'أنهِ بالتيجان الثلاثة.';
+
+  @override
+  String get introGoalFiveSolve =>
+      'حل مكعب 5×5 المختزل مثل 3×3، تاجًا بعد تاج.';
+
+  @override
+  String get introHowFiveSolve =>
+      'من الآن دورات خارجية فقط.\nالتاج الأول ثم الثاني ثم التاج الأصفر.\nالمراكز الثابتة تبيّن لون كل وجه.';
+
+  @override
+  String get lessonFiveParity => 'تكافؤ حواف 5×5';
+
+  @override
+  String get lessonFiveParityDesc => 'أصلح الحافة ذات الجناحين المتبادلين.';
+
+  @override
+  String get introGoalFiveParity =>
+      'أصلح الحافة الوحيدة التي تبادل جناحاها، ثم أكمل.';
+
+  @override
+  String get introHowFiveParity =>
+      'تظهر كحافة ترفض أن تقترن.\nنفّذ مرة واحدة الإصلاح الطويل بالشرائح الداخلية.\nيعود كل شيء آخر إلى مكانه.';
+
+  @override
+  String get lessonSixIntro => 'تعرّف على 6×6';
+
+  @override
+  String get lessonSixIntroDesc => 'لا مراكز ثابتة، وأربع قطع في كل حافة.';
+
+  @override
+  String get introGoalSixIntro =>
+      'تعرّف على 6×6: ست عشرة قطعة مركزية في كل وجه وأربع قطع في كل حافة.';
+
+  @override
+  String get introHowSixIntro =>
+      'لا يوجد مركز ثابت: أنت تختار الألوان أثناء البناء.\nلكل حافة أجنحة خارجية وداخلية.\nالدورات العريضة تحرك حتى ثلاث طبقات.';
+
+  @override
+  String get lessonSixCenters => 'مراكز 6×6';
+
+  @override
+  String get lessonSixCentersDesc => 'ابنِ مراكز 4×4 من أشرطة رباعية.';
+
+  @override
+  String get introGoalSixCenters => 'ابنِ في كل وجه كتلة مركز 4×4 بلون واحد.';
+
+  @override
+  String get introHowSixCenters =>
+      'ابنِ أولًا مركزين متقابلين.\nكوّن أشرطة من أربع قطع وضمّها معًا.\nحرّك قطعة واحدة بحيلة: شريحة، أعلى، تراجع.';
+
+  @override
+  String get lessonSixEdges => 'حواف 6×6';
+
+  @override
+  String get lessonSixEdgesDesc => 'اجمع القطع الأربع لكل حافة.';
+
+  @override
+  String get introGoalSixEdges =>
+      'اجمع القطع الأربع لكل حافة ليصبح في 6×6 اثنتا عشرة حافة نظيفة.';
+
+  @override
+  String get introHowSixEdges =>
+      'حاذِ الأجنحة الخارجية والداخلية في الأمام.\nالطبقة العريضة العميقة تدخل الحافة وتخرجها.\nالحواف المكتملة لا تنفك أبدًا.';
+
+  @override
+  String get lessonSixSolve => 'حل 6×6 كمكعب 3×3';
+
+  @override
+  String get lessonSixSolveDesc => 'أنهِ بالتيجان الثلاثة.';
+
+  @override
+  String get introGoalSixSolve => 'حل مكعب 6×6 المختزل مثل 3×3، تاجًا بعد تاج.';
+
+  @override
+  String get introHowSixSolve =>
+      'من الآن دورات خارجية فقط.\nالمراكز التي بنيتها تبيّن لون كل وجه.\nالتاج الأول ثم الثاني ثم التاج الأصفر.';
+
+  @override
+  String get lessonSixParity => 'تكافؤ 6×6';
+
+  @override
+  String get lessonSixParityDesc => 'حافة مقلوبة واحدة أو حافتان متبادلتان.';
+
+  @override
+  String get introGoalSixParity =>
+      'أصلح حالتي 6×6 اللتين لا تحدثان في 3×3: حافة مقلوبة واحدة أو حافتان متبادلتان.';
+
+  @override
+  String get introHowSixParity =>
+      'حل كمكعب 3×3 حتى تتوقف.\nحافة مقلوبة واحدة: إصلاح التكافؤ الطويل.\nحافتان متبادلتان: الإصلاح القصير بالدورات المزدوجة.';
+
+  @override
+  String get stepFivePieces => 'قطع 5×5';
+
+  @override
+  String get stepFivePiecesBody =>
+      'القطعة الوسطى في كل وجه لا تتحرك أبدًا، لذلك تبقى هي التي تحدد لون الوجه كما في 3×3. حولها ثماني قطع مركزية أخرى؛ ولكل حافة قطعة وسطى وجناحان، والزوايا تعمل كما في 3×3.';
+
+  @override
+  String get stepFiveSlices => 'ثلاثة أنواع من الدورات';
+
+  @override
+  String get stepFiveSlicesBody =>
+      'الدورة الخارجية تدير وجهًا واحدًا. الدورة العريضة تدير الوجه مع الطبقة التي خلفه. دورة الشريحة الداخلية تدير طبقة داخلية فقط: هكذا تتبادل القطع أماكنها دون لمس الخارج.';
+
+  @override
+  String get stepFiveCenterBar => 'الأشرطة المركزية';
+
+  @override
+  String get stepFiveCenterBarBody =>
+      'كوّن صفًا من ثلاث قطع مركزية متطابقة، ثم انقله بجانب القطعة الوسطى المطابقة بدورة شريحة داخلية. ثلاثة أشرطة تصنع مركزًا مكتملًا.';
+
+  @override
+  String get stepFiveCenterSwap => 'بدّل دون إفساد';
+
+  @override
+  String get stepFiveCenterSwapBody =>
+      'لتحريك قطعة مركزية واحدة: أدر شريحة داخلية، أدر الوجه العلوي، تراجع عن الشريحة، ثم أعد الوجه العلوي. تعود المراكز المكتملة في كل مرة.';
+
+  @override
+  String get stepFiveEdgePair => 'اقرن الأجنحة بالحافة الوسطى';
+
+  @override
+  String get stepFiveEdgePairBody =>
+      'حاذِ جناحين بجانب حافتهما الوسطى في الأمام، أنزل الطبقة الداخلية، أحضر من الأعلى حافة غير محلولة، ثم أعد الطبقة الداخلية.';
+
+  @override
+  String get stepFiveEdgeLast => 'الحواف الأخيرة';
+
+  @override
+  String get stepFiveEdgeLastBody =>
+      'عندما تبقى حواف قليلة، دورة عريضة ثم محفّز قصير ثم الدورة العريضة بالعكس تقرنها دون إفساد الحواف المكتملة.';
+
+  @override
+  String get stepFiveAsThree => 'أصبح الآن 3×3';
+
+  @override
+  String get stepFiveAsThreeBody =>
+      'بعد إنهاء المراكز والحواف يتصرف 5×5 كمكعب 3×3 كبير. استخدم الدورات الخارجية فقط واتبع التيجان الثلاثة: الصليب والزوايا البيضاء، الطبقة الوسطى، ثم الطبقة الصفراء.';
+
+  @override
+  String get stepFiveEdgeParity => 'بدّل جناحي الحافة الأخيرة';
+
+  @override
+  String get stepFiveEdgeParityBody =>
+      'أحيانًا يتبادل جناحا الحافة الأخيرة. خوارزمية طويلة بالشرائح الداخلية تعيدهما ويعود كل شيء آخر إلى مكانه. ثم أكمل كمكعب 3×3.';
+
+  @override
+  String get stepSixPieces => 'قطع 6×6';
+
+  @override
+  String get stepSixPiecesBody =>
+      'مثل 4×4، لا يوجد في 6×6 مركز ثابت: ست عشرة قطعة مركزية تكوّن لون كل وجه. لكل حافة أربع قطع: جناحان خارجيان وجناحان داخليان.';
+
+  @override
+  String get stepSixSlices => 'تدوير طبقات أعمق';
+
+  @override
+  String get stepSixSlicesBody =>
+      'الدورات العريضة تحرك طبقتين أو ثلاثًا من وجه واحد. الشرائح الداخلية في الطبقة الثانية أو الثالثة هي أدوات المراكز والحواف.';
+
+  @override
+  String get stepSixCenterBar => 'أشرطة رباعية';
+
+  @override
+  String get stepSixCenterBarBody =>
+      'كوّن صفوفًا من أربع قطع مركزية متطابقة وانقلها جنبًا إلى جنب بدورات الشرائح الداخلية حتى يصبح الوجه بلون واحد.';
+
+  @override
+  String get stepSixCenterSwap => 'قطعة واحدة في كل مرة';
+
+  @override
+  String get stepSixCenterSwapBody =>
+      'أدر الطبقة الثالثة، أدر الأعلى، تراجع، ثم أعد: تتحرك قطعة مركزية واحدة وتعود المراكز المكتملة.';
+
+  @override
+  String get stepSixEdgePair => 'أربع قطع، حافة واحدة';
+
+  @override
+  String get stepSixEdgePairBody =>
+      'اجمع القطع الأربع لحافة في الأمام بالطبقة العريضة العميقة، أحضر حافة غير محلولة، ثم أعد الطبقة العريضة.';
+
+  @override
+  String get stepSixEdgeLast => 'الحواف الأخيرة';
+
+  @override
+  String get stepSixEdgeLastBody =>
+      'اقرن الحواف الأخيرة بمحفّز قصير بين دورة عريضة عميقة وعكسها، لتبقى الحواف المكتملة مقترنة.';
+
+  @override
+  String get stepSixAsThree => 'أصبح الآن 3×3';
+
+  @override
+  String get stepSixAsThreeBody =>
+      'بمراكز 4×4 وحواف مقترنة، حل 6×6 كمكعب 3×3 بالدورات الخارجية والتيجان الثلاثة.';
+
+  @override
+  String get stepSixOllParity => 'حافة مقلوبة واحدة';
+
+  @override
+  String get stepSixOllParityBody =>
+      'إذا بدت حافة واحدة مقلوبة أثناء حل الطبقة الأخيرة فهذا تكافؤ. ضعها في أمام الطبقة العليا ونفّذ الإصلاح الطويل: يعود التاجان الأولان سليمين.';
+
+  @override
+  String get stepSixPllParity => 'حافتان متبادلتان';
+
+  @override
+  String get stepSixPllParityBody =>
+      'إذا بدت حافتان متبادلتين في النهاية، ضعهما في أمام وخلف الطبقة العليا ونفّذ الإصلاح القصير بالدورات المزدوجة الداخلية.';
 }

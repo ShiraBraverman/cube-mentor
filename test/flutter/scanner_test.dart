@@ -377,7 +377,8 @@ void main() {
         tester.element(find.byType(Solver3DScreen)),
       );
       expect(viewport.read(cubeSessionProvider(3)).cube.toFacelets(), truth);
-      expect(solver.calls, [SolveMethod.fast]);
+      // Straight into the stage-by-stage guided solve.
+      expect(solver.calls, [SolveMethod.layerByLayer]);
       expect(viewport.read(cubeSessionProvider(3)).hasPlayback, isTrue);
     });
 

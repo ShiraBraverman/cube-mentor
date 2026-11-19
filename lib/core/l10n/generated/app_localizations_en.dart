@@ -1561,4 +1561,314 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get explainDailyScramble =>
       'Start from a solved cube, white on top and green in front, and copy each turn on your real cube.';
+
+  @override
+  String get stageCenters => 'Build center blocks';
+
+  @override
+  String get stageEdges => 'Pair outer & inner edges';
+
+  @override
+  String get stageParity => 'Parity resolution';
+
+  @override
+  String get stageCrown1 => 'First crown (white)';
+
+  @override
+  String get stageCrown2 => 'Second crown';
+
+  @override
+  String get stageCrown3 => 'Third crown (yellow)';
+
+  @override
+  String get stageOrient => 'Orient the pieces';
+
+  @override
+  String get stageFinish => 'Finish the cube';
+
+  @override
+  String get stageAsThree => 'Solve as a 3×3';
+
+  @override
+  String get stageTwoByTwo => 'Solve the 2×2';
+
+  @override
+  String stageHeader(int number, int total, String title) {
+    return 'Stage $number of $total: $title';
+  }
+
+  @override
+  String stageCrownHeader(int crown, int number, int total, String title) {
+    return 'Crown $crown • Stage $number of $total: $title';
+  }
+
+  @override
+  String get solveAllStagesDone => 'Every stage complete. Well done!';
+
+  @override
+  String get trackFiveByFive => '5×5 Professor\'s Cube';
+
+  @override
+  String get trackSixBySix => '6×6 cube';
+
+  @override
+  String get lessonFiveIntro => 'Meet the 5×5';
+
+  @override
+  String get lessonFiveIntroDesc =>
+      'Fixed middles, center bars, middle edges and wings.';
+
+  @override
+  String get introGoalFiveIntro =>
+      'Get to know the 5×5: fixed middles, center bars, middle edges and wings.';
+
+  @override
+  String get introHowFiveIntro =>
+      'The very middle of each face never moves.\nEach edge is a middle piece with two wings.\nInner slices move pieces without touching the outside.';
+
+  @override
+  String get lessonFiveCenters => '5×5 centers';
+
+  @override
+  String get lessonFiveCentersDesc => 'Build each center from bars of three.';
+
+  @override
+  String get introGoalFiveCenters =>
+      'Build every face\'s 3×3 block of center pieces in one color.';
+
+  @override
+  String get introHowFiveCenters =>
+      'Start from the middle piece: it tells the color.\nBuild bars of three and slide them in with an inner slice.\nFinish the last two centers together.';
+
+  @override
+  String get lessonFiveEdges => '5×5 edges';
+
+  @override
+  String get lessonFiveEdgesDesc => 'Join two wings to their middle edge.';
+
+  @override
+  String get introGoalFiveEdges =>
+      'Join each middle edge with its two wings so all 12 edges look like single pieces.';
+
+  @override
+  String get introHowFiveEdges =>
+      'Match two wings to their middle edge on the front.\nTurn the inner layer, swap in an unsolved edge, turn it back.\nPair the last edges without breaking finished ones.';
+
+  @override
+  String get lessonFiveSolve => 'Solve the 5×5 as a 3×3';
+
+  @override
+  String get lessonFiveSolveDesc => 'Finish with the three crowns.';
+
+  @override
+  String get introGoalFiveSolve =>
+      'Solve the reduced 5×5 like a 3×3, crown by crown.';
+
+  @override
+  String get introHowFiveSolve =>
+      'Only outer turns from now on.\nFirst crown, second crown, then the yellow crown.\nThe fixed middles show each face color.';
+
+  @override
+  String get lessonFiveParity => '5×5 edge parity';
+
+  @override
+  String get lessonFiveParityDesc => 'Fix the edge whose wings are swapped.';
+
+  @override
+  String get introGoalFiveParity =>
+      'Fix the one edge whose two wings are swapped, then finish.';
+
+  @override
+  String get introHowFiveParity =>
+      'It shows up as an edge that will not pair.\nPlay the long inner-slice fix once.\nEverything else returns to its place.';
+
+  @override
+  String get lessonSixIntro => 'Meet the 6×6';
+
+  @override
+  String get lessonSixIntroDesc =>
+      'No fixed centers and four pieces in every edge.';
+
+  @override
+  String get introGoalSixIntro =>
+      'Get to know the 6×6: sixteen center pieces per face and four pieces per edge.';
+
+  @override
+  String get introHowSixIntro =>
+      'No center is fixed: you choose the colors as you build.\nEach edge has outer and inner wings.\nWide turns can move up to three layers.';
+
+  @override
+  String get lessonSixCenters => '6×6 centers';
+
+  @override
+  String get lessonSixCentersDesc => 'Build 4×4 centers from bars of four.';
+
+  @override
+  String get introGoalSixCenters =>
+      'Build every face\'s 4×4 center block in one solid color.';
+
+  @override
+  String get introHowSixCenters =>
+      'Build two opposite centers first.\nMake bars of four and slide them together.\nMove single pieces with a slice, top, undo trick.';
+
+  @override
+  String get lessonSixEdges => '6×6 edges';
+
+  @override
+  String get lessonSixEdgesDesc => 'Gather the four pieces of every edge.';
+
+  @override
+  String get introGoalSixEdges =>
+      'Gather the four pieces of each edge so the 6×6 has 12 clean edges.';
+
+  @override
+  String get introHowSixEdges =>
+      'Line up the outer and inner wings on the front.\nThe deep wide layer brings an edge in and out.\nFinished edges are never broken.';
+
+  @override
+  String get lessonSixSolve => 'Solve the 6×6 as a 3×3';
+
+  @override
+  String get lessonSixSolveDesc => 'Finish with the three crowns.';
+
+  @override
+  String get introGoalSixSolve =>
+      'Solve the reduced 6×6 like a 3×3, crown by crown.';
+
+  @override
+  String get introHowSixSolve =>
+      'Only outer turns from now on.\nThe centers you built show each face color.\nFirst crown, second crown, then the yellow crown.';
+
+  @override
+  String get lessonSixParity => '6×6 parity';
+
+  @override
+  String get lessonSixParityDesc => 'One flipped edge or two swapped edges.';
+
+  @override
+  String get introGoalSixParity =>
+      'Fix the two 6×6 cases a 3×3 never has: one flipped edge or two swapped edges.';
+
+  @override
+  String get introHowSixParity =>
+      'Solve like a 3×3 until it gets stuck.\nOne flipped edge: the long parity fix.\nTwo swapped edges: the short double-turn fix.';
+
+  @override
+  String get stepFivePieces => 'The pieces of a 5×5';
+
+  @override
+  String get stepFivePiecesBody =>
+      'The very middle piece of each face never moves, so it still tells the face\'s color, like on a 3×3. Around it sit eight more center pieces; each edge has a middle piece and two wings, and the corners work like a 3×3\'s.';
+
+  @override
+  String get stepFiveSlices => 'Three kinds of turns';
+
+  @override
+  String get stepFiveSlicesBody =>
+      'Outer turns move one face. Wide turns move a face with the layer behind it. Inner slice turns move only a layer inside: that is how pieces change place without touching the outside.';
+
+  @override
+  String get stepFiveCenterBar => 'Center bars';
+
+  @override
+  String get stepFiveCenterBarBody =>
+      'Build a row of three matching center pieces, then slide it next to the matching middle with an inner slice turn. Three bars make a finished center.';
+
+  @override
+  String get stepFiveCenterSwap => 'Swap without breaking';
+
+  @override
+  String get stepFiveCenterSwapBody =>
+      'To move a single center piece: turn an inner slice, turn the top, undo the slice, turn the top back. Finished centers are restored every time.';
+
+  @override
+  String get stepFiveEdgePair => 'Pair wings with a middle edge';
+
+  @override
+  String get stepFiveEdgePairBody =>
+      'Line up two wings beside their matching middle edge on the front, turn the inner layer down, bring in an unsolved edge from the top, then turn the inner layer back.';
+
+  @override
+  String get stepFiveEdgeLast => 'The last edges';
+
+  @override
+  String get stepFiveEdgeLastBody =>
+      'With only a few edges left, a wide turn, a short trigger and the wide turn back pair them without breaking finished edges.';
+
+  @override
+  String get stepFiveAsThree => 'Now it is a 3×3';
+
+  @override
+  String get stepFiveAsThreeBody =>
+      'With centers and edges done, the 5×5 behaves like a big 3×3. Use only outer turns and follow the three crowns: white cross and corners, the middle layer, then the yellow layer.';
+
+  @override
+  String get stepFiveEdgeParity => 'Swap the last edge\'s wings';
+
+  @override
+  String get stepFiveEdgeParityBody =>
+      'Sometimes the last edge has its two wings swapped. A longer inner-slice algorithm swaps them back while everything else returns to its place. Then finish as a 3×3.';
+
+  @override
+  String get stepSixPieces => 'The pieces of a 6×6';
+
+  @override
+  String get stepSixPiecesBody =>
+      'Like a 4×4, a 6×6 has no fixed center: sixteen center pieces make up each face color. Each edge has four pieces: two outer wings and two inner wings.';
+
+  @override
+  String get stepSixSlices => 'Turning deeper layers';
+
+  @override
+  String get stepSixSlicesBody =>
+      'Wide turns can move two or three layers from a face. Inner slices on the second or third layer are the tools for centers and edges.';
+
+  @override
+  String get stepSixCenterBar => 'Bars of four';
+
+  @override
+  String get stepSixCenterBarBody =>
+      'Build rows of four matching center pieces and slide them next to each other with inner slice turns until the face is one solid color.';
+
+  @override
+  String get stepSixCenterSwap => 'Move one piece at a time';
+
+  @override
+  String get stepSixCenterSwapBody =>
+      'Turn the third layer, turn the top, undo, turn back: one center piece moves while finished centers come back.';
+
+  @override
+  String get stepSixEdgePair => 'Four pieces, one edge';
+
+  @override
+  String get stepSixEdgePairBody =>
+      'Collect the four pieces of an edge on the front with the deep wide layer, then bring in an unsolved edge and turn the wide layer back.';
+
+  @override
+  String get stepSixEdgeLast => 'The last edges';
+
+  @override
+  String get stepSixEdgeLastBody =>
+      'Pair the final edges with a short trigger between a deep wide turn and its undo, so finished edges stay paired.';
+
+  @override
+  String get stepSixAsThree => 'Now it is a 3×3';
+
+  @override
+  String get stepSixAsThreeBody =>
+      'With 4×4 centers and paired edges, solve the 6×6 like a 3×3 with outer turns and the three crowns.';
+
+  @override
+  String get stepSixOllParity => 'One flipped edge';
+
+  @override
+  String get stepSixOllParityBody =>
+      'If a single edge seems flipped while you solve the last layer, it is parity. Hold it at the front of the top layer and play the long fix: the first two crowns come back untouched.';
+
+  @override
+  String get stepSixPllParity => 'Two swapped edges';
+
+  @override
+  String get stepSixPllParityBody =>
+      'If two edges look swapped at the very end, hold them at the front and back of the top layer and play the short fix of inner double turns.';
 }

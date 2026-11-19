@@ -4,7 +4,7 @@ import '../../../core/cube/cube_move.dart';
 import '../../../core/cube/cube_state.dart';
 
 /// Groups of lessons shown together in the Academy.
-enum LessonTrack { beginner, cfop, twoByTwo, bigCubes }
+enum LessonTrack { beginner, cfop, twoByTwo, bigCubes, fiveByFive, sixBySix }
 
 /// One part of a lesson: a short explanation paired with a live 3D
 /// demonstration.

@@ -1575,4 +1575,317 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get explainDailyScramble =>
       'Starte mit einem gelösten Würfel, Weiß oben und Grün vorne, und mach jede Drehung an deinem echten Würfel nach.';
+
+  @override
+  String get stageCenters => 'Mittelblöcke bauen';
+
+  @override
+  String get stageEdges => 'Äußere & innere Kanten paaren';
+
+  @override
+  String get stageParity => 'Parität auflösen';
+
+  @override
+  String get stageCrown1 => 'Erste Krone (weiß)';
+
+  @override
+  String get stageCrown2 => 'Zweite Krone';
+
+  @override
+  String get stageCrown3 => 'Dritte Krone (gelb)';
+
+  @override
+  String get stageOrient => 'Teile ausrichten';
+
+  @override
+  String get stageFinish => 'Würfel fertigstellen';
+
+  @override
+  String get stageAsThree => 'Wie einen 3×3 lösen';
+
+  @override
+  String get stageTwoByTwo => 'Den 2×2 lösen';
+
+  @override
+  String stageHeader(int number, int total, String title) {
+    return 'Stufe $number von $total: $title';
+  }
+
+  @override
+  String stageCrownHeader(int crown, int number, int total, String title) {
+    return 'Krone $crown • Stufe $number von $total: $title';
+  }
+
+  @override
+  String get solveAllStagesDone => 'Alle Stufen geschafft. Super!';
+
+  @override
+  String get trackFiveByFive => '5×5 Professor’s Cube';
+
+  @override
+  String get trackSixBySix => '6×6-Würfel';
+
+  @override
+  String get lessonFiveIntro => 'Lerne den 5×5 kennen';
+
+  @override
+  String get lessonFiveIntroDesc =>
+      'Feste Mitten, Mittelbalken, Mittelkanten und Flügel.';
+
+  @override
+  String get introGoalFiveIntro =>
+      'Lerne den 5×5 kennen: feste Mitten, Mittelbalken, Mittelkanten und Flügel.';
+
+  @override
+  String get introHowFiveIntro =>
+      'Das mittlere Teil jeder Seite bewegt sich nie.\nJede Kante ist ein Mittelteil mit zwei Flügeln.\nInnere Scheiben bewegen Teile, ohne die Außenseite zu berühren.';
+
+  @override
+  String get lessonFiveCenters => '5×5-Mitten';
+
+  @override
+  String get lessonFiveCentersDesc => 'Baue jede Mitte aus Dreierbalken.';
+
+  @override
+  String get introGoalFiveCenters =>
+      'Baue auf jeder Seite einen einfarbigen 3×3-Mittelblock.';
+
+  @override
+  String get introHowFiveCenters =>
+      'Beginne beim Mittelteil: Es bestimmt die Farbe.\nBaue Dreierbalken und schiebe sie mit einer inneren Scheibe hinein.\nLöse die letzten zwei Mitten zusammen.';
+
+  @override
+  String get lessonFiveEdges => '5×5-Kanten';
+
+  @override
+  String get lessonFiveEdgesDesc =>
+      'Verbinde zwei Flügel mit ihrer Mittelkante.';
+
+  @override
+  String get introGoalFiveEdges =>
+      'Verbinde jede Mittelkante mit ihren zwei Flügeln, damit alle 12 Kanten wie ein Stück aussehen.';
+
+  @override
+  String get introHowFiveEdges =>
+      'Bring zwei Flügel vorne zu ihrer Mittelkante.\nDreh die innere Ebene, tausch eine ungelöste Kante ein, dreh zurück.\nPaare die letzten Kanten, ohne fertige zu zerstören.';
+
+  @override
+  String get lessonFiveSolve => 'Den 5×5 wie einen 3×3 lösen';
+
+  @override
+  String get lessonFiveSolveDesc => 'Mit den drei Kronen abschließen.';
+
+  @override
+  String get introGoalFiveSolve =>
+      'Löse den reduzierten 5×5 wie einen 3×3, Krone für Krone.';
+
+  @override
+  String get introHowFiveSolve =>
+      'Ab jetzt nur noch äußere Drehungen.\nErste Krone, zweite Krone, dann die gelbe Krone.\nDie festen Mitten zeigen jede Seitenfarbe.';
+
+  @override
+  String get lessonFiveParity => '5×5-Kantenparität';
+
+  @override
+  String get lessonFiveParityDesc =>
+      'Repariere die Kante mit vertauschten Flügeln.';
+
+  @override
+  String get introGoalFiveParity =>
+      'Repariere die eine Kante mit vertauschten Flügeln und löse dann fertig.';
+
+  @override
+  String get introHowFiveParity =>
+      'Sie zeigt sich als Kante, die sich nicht paaren lässt.\nSpiele einmal die lange Korrektur mit inneren Scheiben.\nAlles andere kehrt an seinen Platz zurück.';
+
+  @override
+  String get lessonSixIntro => 'Lerne den 6×6 kennen';
+
+  @override
+  String get lessonSixIntroDesc =>
+      'Keine festen Mitten und vier Teile pro Kante.';
+
+  @override
+  String get introGoalSixIntro =>
+      'Lerne den 6×6 kennen: sechzehn Mittelteile pro Seite und vier Teile pro Kante.';
+
+  @override
+  String get introHowSixIntro =>
+      'Keine Mitte ist fest: Du wählst die Farben beim Bauen.\nJede Kante hat äußere und innere Flügel.\nBreite Drehungen bewegen bis zu drei Ebenen.';
+
+  @override
+  String get lessonSixCenters => '6×6-Mitten';
+
+  @override
+  String get lessonSixCentersDesc => 'Baue 4×4-Mitten aus Viererbalken.';
+
+  @override
+  String get introGoalSixCenters =>
+      'Baue auf jeder Seite einen einfarbigen 4×4-Mittelblock.';
+
+  @override
+  String get introHowSixCenters =>
+      'Baue zuerst zwei gegenüberliegende Mitten.\nBaue Viererbalken und füge sie zusammen.\nBewege einzelne Teile mit dem Trick Scheibe, oben, zurück.';
+
+  @override
+  String get lessonSixEdges => '6×6-Kanten';
+
+  @override
+  String get lessonSixEdgesDesc => 'Sammle die vier Teile jeder Kante.';
+
+  @override
+  String get introGoalSixEdges =>
+      'Sammle die vier Teile jeder Kante, damit der 6×6 zwölf saubere Kanten hat.';
+
+  @override
+  String get introHowSixEdges =>
+      'Bring äußere und innere Flügel vorne in eine Linie.\nDie tiefe breite Ebene bringt eine Kante hinein und hinaus.\nFertige Kanten werden nie zerstört.';
+
+  @override
+  String get lessonSixSolve => 'Den 6×6 wie einen 3×3 lösen';
+
+  @override
+  String get lessonSixSolveDesc => 'Mit den drei Kronen abschließen.';
+
+  @override
+  String get introGoalSixSolve =>
+      'Löse den reduzierten 6×6 wie einen 3×3, Krone für Krone.';
+
+  @override
+  String get introHowSixSolve =>
+      'Ab jetzt nur noch äußere Drehungen.\nDie gebauten Mitten zeigen jede Seitenfarbe.\nErste Krone, zweite Krone, dann die gelbe Krone.';
+
+  @override
+  String get lessonSixParity => '6×6-Parität';
+
+  @override
+  String get lessonSixParityDesc =>
+      'Eine gekippte Kante oder zwei vertauschte Kanten.';
+
+  @override
+  String get introGoalSixParity =>
+      'Behebe die zwei 6×6-Fälle, die ein 3×3 nie hat: eine gekippte Kante oder zwei vertauschte Kanten.';
+
+  @override
+  String get introHowSixParity =>
+      'Löse wie einen 3×3, bis es hakt.\nEine gekippte Kante: die lange Paritätskorrektur.\nZwei vertauschte Kanten: die kurze Korrektur mit Doppeldrehungen.';
+
+  @override
+  String get stepFivePieces => 'Die Teile des 5×5';
+
+  @override
+  String get stepFivePiecesBody =>
+      'Das mittlere Teil jeder Seite bewegt sich nie und zeigt daher wie beim 3×3 die Seitenfarbe. Drumherum sitzen acht weitere Mittelteile; jede Kante hat ein Mittelteil und zwei Flügel, und die Ecken funktionieren wie beim 3×3.';
+
+  @override
+  String get stepFiveSlices => 'Drei Arten von Drehungen';
+
+  @override
+  String get stepFiveSlicesBody =>
+      'Eine äußere Drehung dreht eine Seite. Eine breite Drehung dreht die Seite samt der Ebene dahinter. Eine innere Scheibendrehung dreht nur eine Ebene im Inneren: So tauschen Teile ihren Platz, ohne die Außenseite zu berühren.';
+
+  @override
+  String get stepFiveCenterBar => 'Mittelbalken';
+
+  @override
+  String get stepFiveCenterBarBody =>
+      'Baue eine Reihe aus drei gleichen Mittelteilen und schiebe sie mit einer inneren Scheibendrehung neben die passende Mitte. Drei Balken ergeben eine fertige Mitte.';
+
+  @override
+  String get stepFiveCenterSwap => 'Tauschen ohne Zerstören';
+
+  @override
+  String get stepFiveCenterSwapBody =>
+      'Um ein einzelnes Mittelteil zu bewegen: innere Scheibe drehen, oben drehen, Scheibe zurück, oben zurück. Fertige Mitten kehren jedes Mal zurück.';
+
+  @override
+  String get stepFiveEdgePair => 'Flügel an die Mittelkante';
+
+  @override
+  String get stepFiveEdgePairBody =>
+      'Bring zwei Flügel vorne neben ihre Mittelkante, dreh die innere Ebene nach unten, hol eine ungelöste Kante von oben und dreh die innere Ebene zurück.';
+
+  @override
+  String get stepFiveEdgeLast => 'Die letzten Kanten';
+
+  @override
+  String get stepFiveEdgeLastBody =>
+      'Wenn nur noch wenige Kanten übrig sind, paaren eine breite Drehung, ein kurzer Trigger und die breite Drehung zurück sie, ohne fertige Kanten zu zerstören.';
+
+  @override
+  String get stepFiveAsThree => 'Jetzt ist es ein 3×3';
+
+  @override
+  String get stepFiveAsThreeBody =>
+      'Mit fertigen Mitten und Kanten verhält sich der 5×5 wie ein großer 3×3. Nutze nur äußere Drehungen und folge den drei Kronen: weißes Kreuz und Ecken, mittlere Ebene, dann die gelbe Ebene.';
+
+  @override
+  String get stepFiveEdgeParity => 'Flügel der letzten Kante tauschen';
+
+  @override
+  String get stepFiveEdgeParityBody =>
+      'Manchmal sind die zwei Flügel der letzten Kante vertauscht. Ein langer Algorithmus mit inneren Scheiben tauscht sie zurück, alles andere kehrt an seinen Platz zurück. Dann wie einen 3×3 fertig lösen.';
+
+  @override
+  String get stepSixPieces => 'Die Teile des 6×6';
+
+  @override
+  String get stepSixPiecesBody =>
+      'Wie der 4×4 hat der 6×6 keine feste Mitte: Sechzehn Mittelteile bilden jede Seitenfarbe. Jede Kante hat vier Teile: zwei äußere und zwei innere Flügel.';
+
+  @override
+  String get stepSixSlices => 'Tiefere Ebenen drehen';
+
+  @override
+  String get stepSixSlicesBody =>
+      'Breite Drehungen bewegen zwei oder drei Ebenen von einer Seite. Innere Scheiben auf der zweiten oder dritten Ebene sind die Werkzeuge für Mitten und Kanten.';
+
+  @override
+  String get stepSixCenterBar => 'Viererbalken';
+
+  @override
+  String get stepSixCenterBarBody =>
+      'Baue Reihen aus vier gleichen Mittelteilen und schiebe sie mit inneren Scheibendrehungen nebeneinander, bis die Seite einfarbig ist.';
+
+  @override
+  String get stepSixCenterSwap => 'Ein Teil nach dem anderen';
+
+  @override
+  String get stepSixCenterSwapBody =>
+      'Dritte Ebene drehen, oben drehen, zurück, zurück: Ein Mittelteil bewegt sich und fertige Mitten kehren zurück.';
+
+  @override
+  String get stepSixEdgePair => 'Vier Teile, eine Kante';
+
+  @override
+  String get stepSixEdgePairBody =>
+      'Sammle vorne die vier Teile einer Kante mit der tiefen breiten Ebene, hol eine ungelöste Kante herein und dreh die breite Ebene zurück.';
+
+  @override
+  String get stepSixEdgeLast => 'Die letzten Kanten';
+
+  @override
+  String get stepSixEdgeLastBody =>
+      'Paare die letzten Kanten mit einem kurzen Trigger zwischen einer tiefen breiten Drehung und ihrer Umkehr, damit fertige Kanten gepaart bleiben.';
+
+  @override
+  String get stepSixAsThree => 'Jetzt ist es ein 3×3';
+
+  @override
+  String get stepSixAsThreeBody =>
+      'Mit 4×4-Mitten und gepaarten Kanten löst du den 6×6 wie einen 3×3 mit äußeren Drehungen und den drei Kronen.';
+
+  @override
+  String get stepSixOllParity => 'Eine gekippte Kante';
+
+  @override
+  String get stepSixOllParityBody =>
+      'Wirkt beim Lösen der letzten Ebene eine einzelne Kante gekippt, ist das Parität. Halte sie vorne in der oberen Ebene und spiele die lange Korrektur: Die ersten zwei Kronen kommen unversehrt zurück.';
+
+  @override
+  String get stepSixPllParity => 'Zwei vertauschte Kanten';
+
+  @override
+  String get stepSixPllParityBody =>
+      'Wirken ganz am Ende zwei Kanten vertauscht, halte sie vorne und hinten in der oberen Ebene und spiele die kurze Korrektur mit inneren Doppeldrehungen.';
 }

@@ -1471,4 +1471,292 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get explainDailyScramble => '从复原的魔方开始，白色朝上、绿色朝前，在实体魔方上照做每一步转动。';
+
+  @override
+  String get stageCenters => '拼出中心块';
+
+  @override
+  String get stageEdges => '配对外层与内层棱块';
+
+  @override
+  String get stageParity => '解决奇偶校验';
+
+  @override
+  String get stageCrown1 => '第一顶王冠（白色）';
+
+  @override
+  String get stageCrown2 => '第二顶王冠';
+
+  @override
+  String get stageCrown3 => '第三顶王冠（黄色）';
+
+  @override
+  String get stageOrient => '调整块的朝向';
+
+  @override
+  String get stageFinish => '完成魔方';
+
+  @override
+  String get stageAsThree => '按 3×3 还原';
+
+  @override
+  String get stageTwoByTwo => '还原 2×2';
+
+  @override
+  String stageHeader(int number, int total, String title) {
+    return '第 $number/$total 阶段：$title';
+  }
+
+  @override
+  String stageCrownHeader(int crown, int number, int total, String title) {
+    return '王冠 $crown • 第 $number/$total 阶段：$title';
+  }
+
+  @override
+  String get solveAllStagesDone => '所有阶段都完成了，太棒了！';
+
+  @override
+  String get trackFiveByFive => '5×5 教授魔方';
+
+  @override
+  String get trackSixBySix => '6×6 魔方';
+
+  @override
+  String get lessonFiveIntro => '认识 5×5';
+
+  @override
+  String get lessonFiveIntroDesc => '固定中心、中心条、中棱和翼棱。';
+
+  @override
+  String get introGoalFiveIntro => '认识 5×5：固定中心、中心条、中棱和翼棱。';
+
+  @override
+  String get introHowFiveIntro =>
+      '每个面正中间的块永远不动。\n每条棱由一个中棱和两个翼棱组成。\n内层转动能移动块而不碰外面。';
+
+  @override
+  String get lessonFiveCenters => '5×5 中心';
+
+  @override
+  String get lessonFiveCentersDesc => '用三格中心条拼每个中心。';
+
+  @override
+  String get introGoalFiveCenters => '在每个面拼出同色的 3×3 中心块。';
+
+  @override
+  String get introHowFiveCenters =>
+      '从正中间的块开始：它决定颜色。\n拼出三格中心条，用内层把它推进去。\n最后两个中心一起完成。';
+
+  @override
+  String get lessonFiveEdges => '5×5 棱块';
+
+  @override
+  String get lessonFiveEdgesDesc => '把两个翼棱与中棱合在一起。';
+
+  @override
+  String get introGoalFiveEdges => '把每个中棱和它的两个翼棱合在一起，让 12 条棱看起来像一整块。';
+
+  @override
+  String get introHowFiveEdges =>
+      '在前面把两个翼棱对准它们的中棱。\n转内层，换进一条未完成的棱，再转回来。\n配对最后几条棱时不破坏已完成的。';
+
+  @override
+  String get lessonFiveSolve => '按 3×3 还原 5×5';
+
+  @override
+  String get lessonFiveSolveDesc => '用三顶王冠收尾。';
+
+  @override
+  String get introGoalFiveSolve => '把降阶后的 5×5 像 3×3 一样，一顶王冠一顶王冠地还原。';
+
+  @override
+  String get introHowFiveSolve =>
+      '从现在起只用外层转动。\n第一顶王冠、第二顶，然后是黄色王冠。\n固定中心显示每个面的颜色。';
+
+  @override
+  String get lessonFiveParity => '5×5 棱块奇偶';
+
+  @override
+  String get lessonFiveParityDesc => '修好两个翼棱互换的棱。';
+
+  @override
+  String get introGoalFiveParity => '修好两个翼棱互换的那一条棱，然后完成还原。';
+
+  @override
+  String get introHowFiveParity => '它表现为一条怎么也配不上的棱。\n做一次较长的内层修正公式。\n其他一切都回到原位。';
+
+  @override
+  String get lessonSixIntro => '认识 6×6';
+
+  @override
+  String get lessonSixIntroDesc => '没有固定中心，每条棱有四块。';
+
+  @override
+  String get introGoalSixIntro => '认识 6×6：每个面 16 个中心块，每条棱 4 块。';
+
+  @override
+  String get introHowSixIntro =>
+      '没有固定中心：拼的时候由你决定颜色。\n每条棱有外翼棱和内翼棱。\n宽层转动最多能动三层。';
+
+  @override
+  String get lessonSixCenters => '6×6 中心';
+
+  @override
+  String get lessonSixCentersDesc => '用四格中心条拼 4×4 中心。';
+
+  @override
+  String get introGoalSixCenters => '在每个面拼出同色的 4×4 中心块。';
+
+  @override
+  String get introHowSixCenters =>
+      '先拼两个相对的中心。\n拼出四格中心条并把它们合在一起。\n用“内层、顶层、撤回”技巧一次移动一块。';
+
+  @override
+  String get lessonSixEdges => '6×6 棱块';
+
+  @override
+  String get lessonSixEdgesDesc => '集齐每条棱的四块。';
+
+  @override
+  String get introGoalSixEdges => '集齐每条棱的四块，让 6×6 有 12 条整齐的棱。';
+
+  @override
+  String get introHowSixEdges => '在前面排好外翼棱和内翼棱。\n深的宽层负责把棱送进送出。\n已完成的棱永远不会被拆散。';
+
+  @override
+  String get lessonSixSolve => '按 3×3 还原 6×6';
+
+  @override
+  String get lessonSixSolveDesc => '用三顶王冠收尾。';
+
+  @override
+  String get introGoalSixSolve => '把降阶后的 6×6 像 3×3 一样，一顶王冠一顶王冠地还原。';
+
+  @override
+  String get introHowSixSolve =>
+      '从现在起只用外层转动。\n你拼好的中心显示每个面的颜色。\n第一顶王冠、第二顶，然后是黄色王冠。';
+
+  @override
+  String get lessonSixParity => '6×6 奇偶校验';
+
+  @override
+  String get lessonSixParityDesc => '一条棱翻转或两条棱互换。';
+
+  @override
+  String get introGoalSixParity => '解决 3×3 不会出现的两种 6×6 情况：一条棱翻转，或两条棱互换。';
+
+  @override
+  String get introHowSixParity =>
+      '像 3×3 一样还原，直到卡住。\n一条棱翻转：较长的奇偶修正。\n两条棱互换：用双层转动的短修正。';
+
+  @override
+  String get stepFivePieces => '5×5 的块';
+
+  @override
+  String get stepFivePiecesBody =>
+      '每个面正中间的块不动，所以和 3×3 一样决定面的颜色。它周围还有 8 个中心块；每条棱有一个中棱和两个翼棱，角块和 3×3 一样。';
+
+  @override
+  String get stepFiveSlices => '三种转动';
+
+  @override
+  String get stepFiveSlicesBody =>
+      '外层转动转一个面。宽层转动把面和后面的一层一起转。内层转动只转里面的一层：块就这样换位置，而外面不受影响。';
+
+  @override
+  String get stepFiveCenterBar => '中心条';
+
+  @override
+  String get stepFiveCenterBarBody =>
+      '拼出三个同色中心块排成一行，再用内层转动把它移到同色中心旁边。三条中心条组成一个完整的中心。';
+
+  @override
+  String get stepFiveCenterSwap => '换块不破坏';
+
+  @override
+  String get stepFiveCenterSwapBody =>
+      '要单独移动一个中心块：转内层，转顶层，撤回内层，再把顶层转回来。已完成的中心每次都会复原。';
+
+  @override
+  String get stepFiveEdgePair => '翼棱接上中棱';
+
+  @override
+  String get stepFiveEdgePairBody =>
+      '在前面把两个翼棱放到中棱旁边，把内层转下去，从上面带入一条未完成的棱，再把内层转回来。';
+
+  @override
+  String get stepFiveEdgeLast => '最后几条棱';
+
+  @override
+  String get stepFiveEdgeLastBody => '只剩几条棱时，用宽层转动、短触发和宽层转回，就能配好它们而不破坏已完成的棱。';
+
+  @override
+  String get stepFiveAsThree => '现在它是 3×3 了';
+
+  @override
+  String get stepFiveAsThreeBody =>
+      '中心和棱都完成后，5×5 就像一个大 3×3。只用外层转动，依次完成三顶王冠：白色十字和角块、中间层，然后是黄色层。';
+
+  @override
+  String get stepFiveEdgeParity => '换回最后一条棱的翼棱';
+
+  @override
+  String get stepFiveEdgeParityBody =>
+      '有时最后一条棱的两个翼棱是互换的。一段较长的内层公式会把它们换回来，其他块都回到原位。之后按 3×3 完成。';
+
+  @override
+  String get stepSixPieces => '6×6 的块';
+
+  @override
+  String get stepSixPiecesBody =>
+      '和 4×4 一样，6×6 没有固定中心：16 个中心块组成每个面的颜色。每条棱有四块：两个外翼棱和两个内翼棱。';
+
+  @override
+  String get stepSixSlices => '转动更深的层';
+
+  @override
+  String get stepSixSlicesBody => '宽层转动可以从一个面带动两层或三层。第二或第三层的内层转动是处理中心和棱的工具。';
+
+  @override
+  String get stepSixCenterBar => '四格中心条';
+
+  @override
+  String get stepSixCenterBarBody => '拼出四个同色中心块排成一行，用内层转动把它们并排放好，直到整个面同色。';
+
+  @override
+  String get stepSixCenterSwap => '一次一块';
+
+  @override
+  String get stepSixCenterSwapBody => '转第三层，转顶层，撤回，再转回：一个中心块移动，已完成的中心复原。';
+
+  @override
+  String get stepSixEdgePair => '四块拼一条棱';
+
+  @override
+  String get stepSixEdgePairBody => '用深的宽层把一条棱的四块集中到前面，带入一条未完成的棱，再把宽层转回来。';
+
+  @override
+  String get stepSixEdgeLast => '最后几条棱';
+
+  @override
+  String get stepSixEdgeLastBody => '在深宽层转动和撤回之间插入短触发来配好最后的棱，已完成的棱保持不散。';
+
+  @override
+  String get stepSixAsThree => '现在它是 3×3 了';
+
+  @override
+  String get stepSixAsThreeBody => '有了 4×4 中心和配好的棱，用外层转动和三顶王冠把 6×6 当作 3×3 还原。';
+
+  @override
+  String get stepSixOllParity => '一条棱翻转';
+
+  @override
+  String get stepSixOllParityBody =>
+      '如果还原最后一层时只有一条棱看起来是翻的，那就是奇偶。把它放在顶层前面，做较长的修正：前两顶王冠会完好地回来。';
+
+  @override
+  String get stepSixPllParity => '两条棱互换';
+
+  @override
+  String get stepSixPllParityBody => '如果最后看到两条棱互换了，把它们放在顶层的前面和后面，做用内层双转的短修正。';
 }

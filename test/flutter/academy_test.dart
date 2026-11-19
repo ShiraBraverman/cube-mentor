@@ -30,7 +30,7 @@ Future<void> _advance(WidgetTester tester, [int frames = 12]) async {
 void main() {
   group('lesson catalogue', () {
     test('every demonstration parses and ends on a solved cube', () {
-      expect(kLessons, hasLength(19));
+      expect(kLessons, hasLength(29));
       final ids = <String>{};
       for (final lesson in kLessons) {
         expect(ids.add(lesson.id), isTrue, reason: 'duplicate ${lesson.id}');
@@ -42,7 +42,12 @@ void main() {
           expect(end.isSolved, isTrue, reason: step.id);
           // Notation drills (R R' ...) start and end solved; every other
           // demonstration starts from a position it fixes.
-          final drill = step.id == 'basicsFaces' || step.id == 'bigSlices';
+          final drill = const {
+            'basicsFaces',
+            'bigSlices',
+            'fiveSlices',
+            'sixSlices',
+          }.contains(step.id);
           if (step.demo.isNotEmpty && !drill) {
             expect(start.isSolved, isFalse, reason: step.id);
           }
@@ -114,6 +119,38 @@ void main() {
         }
         for (final track in LessonTrack.values) {
           expect(trackTitle(l10n, track), isNotEmpty);
+        }
+      }
+    });
+
+    test('5x5 and 6x6 have full tracks, in solving order', () {
+      List<String> track(LessonTrack t) => [
+        for (final l in kLessons)
+          if (l.track == t) l.id,
+      ];
+      expect(track(LessonTrack.fiveByFive), [
+        'fiveIntro',
+        'fiveCenters',
+        'fiveEdges',
+        'fiveSolve',
+        'fiveParity',
+      ]);
+      expect(track(LessonTrack.sixBySix), [
+        'sixIntro',
+        'sixCenters',
+        'sixEdges',
+        'sixSolve',
+        'sixParity',
+      ]);
+      for (final lesson in kLessons.where((l) => l.size >= 5)) {
+        expect(lesson.size, lesson.id.startsWith('five') ? 5 : 6);
+        // Plain words in the lessons: no notation letters in the texts.
+        for (final step in lesson.steps) {
+          expect(
+            lessonStepBody(_en, step.id),
+            isNot(matches(RegExp(r"\b[RLUDFB]w?['2]?\b"))),
+            reason: step.id,
+          );
         }
       }
     });
@@ -241,7 +278,7 @@ void main() {
     await tester.pump(const Duration(milliseconds: 100));
     expect(find.text('Start learning'), findsOneWidget);
     expect(find.text('Meet the cube'), findsOneWidget);
-    expect(find.text('Lesson 1 of 19'), findsOneWidget);
+    expect(find.text('Lesson 1 of 29'), findsOneWidget);
 
     await tester.tap(find.byKey(const ValueKey('continue-learning')));
     await _advance(tester);
@@ -316,7 +353,7 @@ void main() {
     expect(find.text('Continue learning'), findsOneWidget);
     // The next lesson is named after its sub-step, like the solver.
     expect(find.text('1.1 White cross'), findsOneWidget);
-    expect(find.text('Lesson 2 of 19'), findsOneWidget);
+    expect(find.text('Lesson 2 of 29'), findsOneWidget);
   });
 
   testWidgets('the Academy lists every track in Hebrew, right to left', (
@@ -343,7 +380,7 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('mode-academy')));
     await _advance(tester);
     expect(find.text('אקדמיה'), findsOneWidget);
-    expect(find.text('0 מתוך 19 שיעורים הושלמו'), findsOneWidget);
+    expect(find.text('0 מתוך 29 שיעורים הושלמו'), findsOneWidget);
     expect(find.text('מתחילים 3×3: שלושת הכתרים'), findsOneWidget);
     expect(find.text('1.1 איקס לבן מותאם למרכזים'), findsOneWidget);
     expect(find.byKey(const ValueKey('academy-crown-1')), findsOneWidget);

@@ -1561,4 +1561,314 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get explainDailyScramble =>
       'हल किए हुए क्यूब से शुरू करें, सफ़ेद ऊपर और हरा सामने, और हर घुमाव अपने असली क्यूब पर दोहराएँ।';
+
+  @override
+  String get stageCenters => 'केंद्र ब्लॉक बनाएँ';
+
+  @override
+  String get stageEdges => 'बाहरी और अंदरूनी एज जोड़ें';
+
+  @override
+  String get stageParity => 'पैरिटी ठीक करें';
+
+  @override
+  String get stageCrown1 => 'पहला क्राउन (सफ़ेद)';
+
+  @override
+  String get stageCrown2 => 'दूसरा क्राउन';
+
+  @override
+  String get stageCrown3 => 'तीसरा क्राउन (पीला)';
+
+  @override
+  String get stageOrient => 'टुकड़ों की दिशा ठीक करें';
+
+  @override
+  String get stageFinish => 'क्यूब पूरा करें';
+
+  @override
+  String get stageAsThree => '3×3 की तरह हल करें';
+
+  @override
+  String get stageTwoByTwo => '2×2 हल करें';
+
+  @override
+  String stageHeader(int number, int total, String title) {
+    return 'चरण $number/$total: $title';
+  }
+
+  @override
+  String stageCrownHeader(int crown, int number, int total, String title) {
+    return 'क्राउन $crown • चरण $number/$total: $title';
+  }
+
+  @override
+  String get solveAllStagesDone => 'सभी चरण पूरे हुए। शाबाश!';
+
+  @override
+  String get trackFiveByFive => '5×5 प्रोफ़ेसर क्यूब';
+
+  @override
+  String get trackSixBySix => '6×6 क्यूब';
+
+  @override
+  String get lessonFiveIntro => '5×5 से मिलें';
+
+  @override
+  String get lessonFiveIntroDesc =>
+      'स्थिर बीच के टुकड़े, केंद्र पट्टियाँ, बीच के एज और विंग।';
+
+  @override
+  String get introGoalFiveIntro =>
+      '5×5 को जानें: स्थिर बीच के टुकड़े, केंद्र पट्टियाँ, बीच के एज और विंग।';
+
+  @override
+  String get introHowFiveIntro =>
+      'हर फलक का बिल्कुल बीच वाला टुकड़ा कभी नहीं हिलता।\nहर एज एक बीच का टुकड़ा और दो विंग है।\nअंदरूनी परतें बाहर को छुए बिना टुकड़े हिलाती हैं।';
+
+  @override
+  String get lessonFiveCenters => '5×5 के केंद्र';
+
+  @override
+  String get lessonFiveCentersDesc => 'हर केंद्र तीन-तीन की पट्टियों से बनाएँ।';
+
+  @override
+  String get introGoalFiveCenters =>
+      'हर फलक पर एक रंग का 3×3 केंद्र ब्लॉक बनाएँ।';
+
+  @override
+  String get introHowFiveCenters =>
+      'बीच वाले टुकड़े से शुरू करें: वही रंग बताता है।\nतीन की पट्टियाँ बनाएँ और अंदरूनी परत से अंदर सरकाएँ।\nआख़िरी दो केंद्र साथ में पूरे करें।';
+
+  @override
+  String get lessonFiveEdges => '5×5 के एज';
+
+  @override
+  String get lessonFiveEdgesDesc => 'दो विंग को उनके बीच वाले एज से जोड़ें।';
+
+  @override
+  String get introGoalFiveEdges =>
+      'हर बीच वाले एज को उसके दो विंग से जोड़ें, ताकि सभी 12 एज एक टुकड़े जैसे दिखें।';
+
+  @override
+  String get introHowFiveEdges =>
+      'सामने दो विंग को उनके बीच वाले एज से मिलाएँ।\nअंदरूनी परत घुमाएँ, अधूरा एज लाएँ और वापस घुमाएँ।\nआख़िरी एज बने हुए एज तोड़े बिना जोड़ें।';
+
+  @override
+  String get lessonFiveSolve => '5×5 को 3×3 की तरह हल करें';
+
+  @override
+  String get lessonFiveSolveDesc => 'तीन क्राउन से पूरा करें।';
+
+  @override
+  String get introGoalFiveSolve =>
+      'छोटे किए गए 5×5 को 3×3 की तरह, क्राउन दर क्राउन हल करें।';
+
+  @override
+  String get introHowFiveSolve =>
+      'अब से सिर्फ़ बाहरी घुमाव।\nपहला क्राउन, दूसरा क्राउन, फिर पीला क्राउन।\nस्थिर बीच के टुकड़े हर फलक का रंग दिखाते हैं।';
+
+  @override
+  String get lessonFiveParity => '5×5 एज पैरिटी';
+
+  @override
+  String get lessonFiveParityDesc => 'वह एज ठीक करें जिसके विंग बदले हुए हैं।';
+
+  @override
+  String get introGoalFiveParity =>
+      'उस एक एज को ठीक करें जिसके दोनों विंग बदले हुए हैं, फिर पूरा करें।';
+
+  @override
+  String get introHowFiveParity =>
+      'यह ऐसे एज के रूप में दिखता है जो जुड़ता ही नहीं।\nअंदरूनी परतों वाला लंबा सुधार एक बार करें।\nबाक़ी सब अपनी जगह लौट आता है।';
+
+  @override
+  String get lessonSixIntro => '6×6 से मिलें';
+
+  @override
+  String get lessonSixIntroDesc =>
+      'कोई स्थिर केंद्र नहीं और हर एज में चार टुकड़े।';
+
+  @override
+  String get introGoalSixIntro =>
+      '6×6 को जानें: हर फलक पर सोलह केंद्र टुकड़े और हर एज में चार टुकड़े।';
+
+  @override
+  String get introHowSixIntro =>
+      'कोई केंद्र स्थिर नहीं: बनाते समय आप रंग चुनते हैं।\nहर एज में बाहरी और अंदरूनी विंग होते हैं।\nवाइड घुमाव तीन परतों तक हिला सकते हैं।';
+
+  @override
+  String get lessonSixCenters => '6×6 के केंद्र';
+
+  @override
+  String get lessonSixCentersDesc => 'चार-चार की पट्टियों से 4×4 केंद्र बनाएँ।';
+
+  @override
+  String get introGoalSixCenters =>
+      'हर फलक पर एक ही रंग का 4×4 केंद्र ब्लॉक बनाएँ।';
+
+  @override
+  String get introHowSixCenters =>
+      'पहले दो आमने-सामने के केंद्र बनाएँ।\nचार की पट्टियाँ बनाकर उन्हें जोड़ें।\nपरत, ऊपर, वापस वाली तरकीब से एक-एक टुकड़ा हिलाएँ।';
+
+  @override
+  String get lessonSixEdges => '6×6 के एज';
+
+  @override
+  String get lessonSixEdgesDesc => 'हर एज के चारों टुकड़े इकट्ठा करें।';
+
+  @override
+  String get introGoalSixEdges =>
+      'हर एज के चारों टुकड़े इकट्ठा करें ताकि 6×6 में 12 साफ़ एज हों।';
+
+  @override
+  String get introHowSixEdges =>
+      'सामने बाहरी और अंदरूनी विंग एक लाइन में लाएँ।\nगहरी वाइड परत एज को अंदर-बाहर लाती है।\nबने हुए एज कभी नहीं टूटते।';
+
+  @override
+  String get lessonSixSolve => '6×6 को 3×3 की तरह हल करें';
+
+  @override
+  String get lessonSixSolveDesc => 'तीन क्राउन से पूरा करें।';
+
+  @override
+  String get introGoalSixSolve =>
+      'छोटे किए गए 6×6 को 3×3 की तरह, क्राउन दर क्राउन हल करें।';
+
+  @override
+  String get introHowSixSolve =>
+      'अब से सिर्फ़ बाहरी घुमाव।\nआपके बनाए केंद्र हर फलक का रंग दिखाते हैं।\nपहला क्राउन, दूसरा क्राउन, फिर पीला क्राउन।';
+
+  @override
+  String get lessonSixParity => '6×6 पैरिटी';
+
+  @override
+  String get lessonSixParityDesc => 'एक उल्टा एज या दो बदले हुए एज।';
+
+  @override
+  String get introGoalSixParity =>
+      '6×6 के वे दो केस ठीक करें जो 3×3 में नहीं होते: एक उल्टा एज या दो बदले हुए एज।';
+
+  @override
+  String get introHowSixParity =>
+      '3×3 की तरह हल करें, जब तक अटक न जाएँ।\nएक उल्टा एज: लंबा पैरिटी सुधार।\nदो बदले हुए एज: डबल घुमावों वाला छोटा सुधार।';
+
+  @override
+  String get stepFivePieces => '5×5 के टुकड़े';
+
+  @override
+  String get stepFivePiecesBody =>
+      'हर फलक का बीच वाला टुकड़ा कभी नहीं हिलता, इसलिए 3×3 की तरह वही फलक का रंग बताता है। उसके चारों ओर आठ और केंद्र टुकड़े हैं; हर एज में एक बीच का टुकड़ा और दो विंग हैं, और कोने 3×3 जैसे ही हैं।';
+
+  @override
+  String get stepFiveSlices => 'तीन तरह के घुमाव';
+
+  @override
+  String get stepFiveSlicesBody =>
+      'बाहरी घुमाव एक फलक घुमाता है। वाइड घुमाव फलक को पीछे वाली परत के साथ घुमाता है। अंदरूनी परत का घुमाव सिर्फ़ अंदर की एक परत घुमाता है: इसी से टुकड़े बाहर को छुए बिना जगह बदलते हैं।';
+
+  @override
+  String get stepFiveCenterBar => 'केंद्र पट्टियाँ';
+
+  @override
+  String get stepFiveCenterBarBody =>
+      'तीन एक जैसे केंद्र टुकड़ों की पंक्ति बनाएँ, फिर अंदरूनी परत के घुमाव से उसे मेल खाते बीच वाले टुकड़े के पास सरकाएँ। तीन पट्टियाँ एक पूरा केंद्र बनाती हैं।';
+
+  @override
+  String get stepFiveCenterSwap => 'बिना तोड़े बदलें';
+
+  @override
+  String get stepFiveCenterSwapBody =>
+      'एक केंद्र टुकड़ा हिलाने के लिए: अंदरूनी परत घुमाएँ, ऊपरी फलक घुमाएँ, परत वापस करें और ऊपरी फलक लौटाएँ। बने हुए केंद्र हर बार लौट आते हैं।';
+
+  @override
+  String get stepFiveEdgePair => 'विंग को बीच वाले एज से जोड़ें';
+
+  @override
+  String get stepFiveEdgePairBody =>
+      'सामने दो विंग को उनके बीच वाले एज के पास लाएँ, अंदरूनी परत नीचे घुमाएँ, ऊपर से अधूरा एज लाएँ और अंदरूनी परत वापस घुमाएँ।';
+
+  @override
+  String get stepFiveEdgeLast => 'आख़िरी एज';
+
+  @override
+  String get stepFiveEdgeLastBody =>
+      'जब कुछ ही एज बचें, तो वाइड घुमाव, छोटा ट्रिगर और वाइड घुमाव वापस उन्हें बने हुए एज तोड़े बिना जोड़ देते हैं।';
+
+  @override
+  String get stepFiveAsThree => 'अब यह 3×3 है';
+
+  @override
+  String get stepFiveAsThreeBody =>
+      'केंद्र और एज बनने के बाद 5×5 एक बड़े 3×3 जैसा है। सिर्फ़ बाहरी घुमाव इस्तेमाल करें और तीन क्राउन अपनाएँ: सफ़ेद क्रॉस और कोने, बीच की परत, फिर पीली परत।';
+
+  @override
+  String get stepFiveEdgeParity => 'आख़िरी एज के विंग बदलें';
+
+  @override
+  String get stepFiveEdgeParityBody =>
+      'कभी-कभी आख़िरी एज के दोनों विंग बदले होते हैं। अंदरूनी परतों का लंबा एल्गोरिदम उन्हें वापस बदल देता है और बाक़ी सब अपनी जगह लौट आता है। फिर 3×3 की तरह पूरा करें।';
+
+  @override
+  String get stepSixPieces => '6×6 के टुकड़े';
+
+  @override
+  String get stepSixPiecesBody =>
+      '4×4 की तरह 6×6 में कोई स्थिर केंद्र नहीं: सोलह केंद्र टुकड़े हर फलक का रंग बनाते हैं। हर एज में चार टुकड़े हैं: दो बाहरी और दो अंदरूनी विंग।';
+
+  @override
+  String get stepSixSlices => 'गहरी परतें घुमाना';
+
+  @override
+  String get stepSixSlicesBody =>
+      'वाइड घुमाव एक फलक से दो या तीन परतें हिला सकते हैं। दूसरी या तीसरी अंदरूनी परत केंद्रों और एज के औज़ार हैं।';
+
+  @override
+  String get stepSixCenterBar => 'चार की पट्टियाँ';
+
+  @override
+  String get stepSixCenterBarBody =>
+      'चार एक जैसे केंद्र टुकड़ों की पंक्तियाँ बनाएँ और अंदरूनी परत के घुमावों से उन्हें पास-पास सरकाएँ, जब तक फलक एक रंग का न हो जाए।';
+
+  @override
+  String get stepSixCenterSwap => 'एक बार में एक टुकड़ा';
+
+  @override
+  String get stepSixCenterSwapBody =>
+      'तीसरी परत घुमाएँ, ऊपर घुमाएँ, वापस करें, लौटाएँ: एक केंद्र टुकड़ा हिलता है और बने हुए केंद्र लौट आते हैं।';
+
+  @override
+  String get stepSixEdgePair => 'चार टुकड़े, एक एज';
+
+  @override
+  String get stepSixEdgePairBody =>
+      'गहरी वाइड परत से सामने एक एज के चारों टुकड़े इकट्ठा करें, अधूरा एज लाएँ और वाइड परत वापस घुमाएँ।';
+
+  @override
+  String get stepSixEdgeLast => 'आख़िरी एज';
+
+  @override
+  String get stepSixEdgeLastBody =>
+      'गहरे वाइड घुमाव और उसकी वापसी के बीच छोटे ट्रिगर से आख़िरी एज जोड़ें, ताकि बने हुए एज जुड़े रहें।';
+
+  @override
+  String get stepSixAsThree => 'अब यह 3×3 है';
+
+  @override
+  String get stepSixAsThreeBody =>
+      '4×4 केंद्रों और जुड़े एज के साथ 6×6 को बाहरी घुमावों और तीन क्राउन से 3×3 की तरह हल करें।';
+
+  @override
+  String get stepSixOllParity => 'एक उल्टा एज';
+
+  @override
+  String get stepSixOllParityBody =>
+      'अगर आख़िरी परत हल करते समय एक ही एज उल्टा लगे, तो यह पैरिटी है। उसे ऊपरी परत में सामने रखें और लंबा सुधार करें: पहले दो क्राउन बिना बिगड़े लौट आते हैं।';
+
+  @override
+  String get stepSixPllParity => 'दो बदले हुए एज';
+
+  @override
+  String get stepSixPllParityBody =>
+      'अगर बिल्कुल आख़िर में दो एज बदले लगें, तो उन्हें ऊपरी परत में आगे और पीछे रखें और अंदरूनी डबल घुमावों वाला छोटा सुधार करें।';
 }

@@ -1545,4 +1545,312 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get explainDailyScramble =>
       'מתחילים מקובייה פתורה, לבן למעלה וירוק מלפנים, ומעתיקים כל סיבוב לקובייה האמיתית.';
+
+  @override
+  String get stageCenters => 'בניית גושי המרכז';
+
+  @override
+  String get stageEdges => 'צימוד צלעות חיצוניות ופנימיות';
+
+  @override
+  String get stageParity => 'פתרון זוגיות';
+
+  @override
+  String get stageCrown1 => 'הכתר הראשון (לבן)';
+
+  @override
+  String get stageCrown2 => 'הכתר השני';
+
+  @override
+  String get stageCrown3 => 'הכתר השלישי (צהוב)';
+
+  @override
+  String get stageOrient => 'כיוון החלקים';
+
+  @override
+  String get stageFinish => 'סיום הקובייה';
+
+  @override
+  String get stageAsThree => 'פתרון כמו 3×3';
+
+  @override
+  String get stageTwoByTwo => 'פתרון ה־2×2';
+
+  @override
+  String stageHeader(int number, int total, String title) {
+    return 'שלב $number מתוך $total: $title';
+  }
+
+  @override
+  String stageCrownHeader(int crown, int number, int total, String title) {
+    return 'כתר $crown • שלב $number מתוך $total: $title';
+  }
+
+  @override
+  String get solveAllStagesDone => 'כל השלבים הושלמו. כל הכבוד!';
+
+  @override
+  String get trackFiveByFive => '5×5 קוביית הפרופסור';
+
+  @override
+  String get trackSixBySix => 'קובייה 6×6';
+
+  @override
+  String get lessonFiveIntro => 'הכירו את ה־5×5';
+
+  @override
+  String get lessonFiveIntroDesc =>
+      'מרכזים קבועים, פסי מרכז, צלעות אמצעיות וכנפיים.';
+
+  @override
+  String get introGoalFiveIntro =>
+      'מכירים את ה־5×5: מרכזים קבועים, פסי מרכז, צלעות אמצעיות וכנפיים.';
+
+  @override
+  String get introHowFiveIntro =>
+      'החלק האמצעי בכל פאה לא זז אף פעם.\nכל צלע היא חלק אמצעי ושתי כנפיים.\nפרוסות פנימיות מזיזות חלקים בלי לגעת בחוץ.';
+
+  @override
+  String get lessonFiveCenters => 'מרכזי ה־5×5';
+
+  @override
+  String get lessonFiveCentersDesc => 'בונים כל מרכז משלושה פסים של שלושה.';
+
+  @override
+  String get introGoalFiveCenters => 'בונים בכל פאה גוש מרכז של 3×3 בצבע אחד.';
+
+  @override
+  String get introHowFiveCenters =>
+      'מתחילים מהחלק האמצעי: הוא קובע את הצבע.\nבונים פסים של שלושה ומחליקים אותם פנימה בפרוסה פנימית.\nמסיימים את שני המרכזים האחרונים יחד.';
+
+  @override
+  String get lessonFiveEdges => 'צלעות ה־5×5';
+
+  @override
+  String get lessonFiveEdgesDesc => 'מחברים שתי כנפיים לצלע האמצעית שלהן.';
+
+  @override
+  String get introGoalFiveEdges =>
+      'מחברים כל צלע אמצעית לשתי הכנפיים שלה, כך שכל 12 הצלעות נראות כחלק אחד.';
+
+  @override
+  String get introHowFiveEdges =>
+      'מתאימים שתי כנפיים לצלע האמצעית שלהן בחזית.\nמסובבים את השכבה הפנימית, מכניסים צלע לא פתורה ומחזירים.\nמצמדים את הצלעות האחרונות בלי לפרק צלעות גמורות.';
+
+  @override
+  String get lessonFiveSolve => 'פותרים את ה־5×5 כמו 3×3';
+
+  @override
+  String get lessonFiveSolveDesc => 'מסיימים עם שלושת הכתרים.';
+
+  @override
+  String get introGoalFiveSolve =>
+      'פותרים את ה־5×5 המצומצם כמו 3×3, כתר אחרי כתר.';
+
+  @override
+  String get introHowFiveSolve =>
+      'מעכשיו רק סיבובים חיצוניים.\nהכתר הראשון, הכתר השני ואז הכתר הצהוב.\nהמרכזים הקבועים מראים את צבע כל פאה.';
+
+  @override
+  String get lessonFiveParity => 'זוגיות צלעות ב־5×5';
+
+  @override
+  String get lessonFiveParityDesc => 'מתקנים צלע שהכנפיים שלה מוחלפות.';
+
+  @override
+  String get introGoalFiveParity =>
+      'מתקנים את הצלע היחידה ששתי הכנפיים שלה מוחלפות, ואז מסיימים.';
+
+  @override
+  String get introHowFiveParity =>
+      'זה נראה כמו צלע שלא מסכימה להתחבר.\nמבצעים פעם אחת את התיקון הארוך של הפרוסות הפנימיות.\nכל השאר חוזר למקומו.';
+
+  @override
+  String get lessonSixIntro => 'הכירו את ה־6×6';
+
+  @override
+  String get lessonSixIntroDesc => 'אין מרכזים קבועים, וארבעה חלקים בכל צלע.';
+
+  @override
+  String get introGoalSixIntro =>
+      'מכירים את ה־6×6: שישה־עשר חלקי מרכז בכל פאה וארבעה חלקים בכל צלע.';
+
+  @override
+  String get introHowSixIntro =>
+      'אין מרכז קבוע: אתם בוחרים את הצבעים תוך כדי בנייה.\nבכל צלע יש כנפיים חיצוניות ופנימיות.\nסיבובים רחבים יכולים להזיז עד שלוש שכבות.';
+
+  @override
+  String get lessonSixCenters => 'מרכזי ה־6×6';
+
+  @override
+  String get lessonSixCentersDesc => 'בונים מרכזי 4×4 מפסים של ארבעה.';
+
+  @override
+  String get introGoalSixCenters =>
+      'בונים בכל פאה גוש מרכז של 4×4 בצבע אחד אחיד.';
+
+  @override
+  String get introHowSixCenters =>
+      'בונים קודם שני מרכזים נגדיים.\nיוצרים פסים של ארבעה ומחליקים אותם זה לזה.\nמזיזים חלק בודד בתרגיל פרוסה, למעלה, ביטול.';
+
+  @override
+  String get lessonSixEdges => 'צלעות ה־6×6';
+
+  @override
+  String get lessonSixEdgesDesc => 'אוספים את ארבעת החלקים של כל צלע.';
+
+  @override
+  String get introGoalSixEdges =>
+      'אוספים את ארבעת החלקים של כל צלע, כך שב־6×6 יש 12 צלעות נקיות.';
+
+  @override
+  String get introHowSixEdges =>
+      'מיישרים בחזית את הכנפיים החיצוניות והפנימיות.\nהשכבה הרחבה העמוקה מכניסה ומוציאה צלע.\nצלעות גמורות אף פעם לא מתפרקות.';
+
+  @override
+  String get lessonSixSolve => 'פותרים את ה־6×6 כמו 3×3';
+
+  @override
+  String get lessonSixSolveDesc => 'מסיימים עם שלושת הכתרים.';
+
+  @override
+  String get introGoalSixSolve =>
+      'פותרים את ה־6×6 המצומצם כמו 3×3, כתר אחרי כתר.';
+
+  @override
+  String get introHowSixSolve =>
+      'מעכשיו רק סיבובים חיצוניים.\nהמרכזים שבניתם מראים את צבע כל פאה.\nהכתר הראשון, הכתר השני ואז הכתר הצהוב.';
+
+  @override
+  String get lessonSixParity => 'זוגיות ב־6×6';
+
+  @override
+  String get lessonSixParityDesc => 'צלע הפוכה אחת או שתי צלעות מוחלפות.';
+
+  @override
+  String get introGoalSixParity =>
+      'מתקנים את שני המקרים של 6×6 שאין ב־3×3: צלע הפוכה אחת או שתי צלעות מוחלפות.';
+
+  @override
+  String get introHowSixParity =>
+      'פותרים כמו 3×3 עד שנתקעים.\nצלע הפוכה אחת: תיקון הזוגיות הארוך.\nשתי צלעות מוחלפות: התיקון הקצר של סיבובים כפולים.';
+
+  @override
+  String get stepFivePieces => 'החלקים של 5×5';
+
+  @override
+  String get stepFivePiecesBody =>
+      'החלק האמצעי בכל פאה לא זז אף פעם, ולכן הוא עדיין קובע את צבע הפאה, כמו ב־3×3. סביבו יש עוד שמונה חלקי מרכז; בכל צלע יש חלק אמצעי ושתי כנפיים, והפינות מתנהגות כמו ב־3×3.';
+
+  @override
+  String get stepFiveSlices => 'שלושה סוגי סיבובים';
+
+  @override
+  String get stepFiveSlicesBody =>
+      'סיבוב חיצוני מזיז פאה אחת. סיבוב רחב מזיז פאה יחד עם השכבה שמאחוריה. סיבוב פרוסה פנימית מזיז רק שכבה בפנים: כך חלקים מחליפים מקום בלי לגעת בחוץ.';
+
+  @override
+  String get stepFiveCenterBar => 'פסי מרכז';
+
+  @override
+  String get stepFiveCenterBarBody =>
+      'בונים שורה של שלושה חלקי מרכז תואמים, ואז מחליקים אותה ליד המרכז האמצעי המתאים בסיבוב פרוסה פנימית. שלושה פסים יוצרים מרכז גמור.';
+
+  @override
+  String get stepFiveCenterSwap => 'מחליפים בלי לשבור';
+
+  @override
+  String get stepFiveCenterSwapBody =>
+      'כדי להזיז חלק מרכז בודד: מסובבים פרוסה פנימית, מסובבים את הפאה העליונה, מבטלים את הפרוסה ומחזירים את העליונה. מרכזים גמורים חוזרים בכל פעם.';
+
+  @override
+  String get stepFiveEdgePair => 'מצמדים כנפיים לצלע אמצעית';
+
+  @override
+  String get stepFiveEdgePairBody =>
+      'מיישרים שתי כנפיים ליד הצלע האמצעית שלהן בחזית, מורידים את השכבה הפנימית, מכניסים מלמעלה צלע לא פתורה ומחזירים את השכבה הפנימית.';
+
+  @override
+  String get stepFiveEdgeLast => 'הצלעות האחרונות';
+
+  @override
+  String get stepFiveEdgeLastBody =>
+      'כשנשארו מעט צלעות, סיבוב רחב, טריגר קצר וחזרה של הסיבוב הרחב מצמדים אותן בלי לפרק צלעות גמורות.';
+
+  @override
+  String get stepFiveAsThree => 'עכשיו זו 3×3';
+
+  @override
+  String get stepFiveAsThreeBody =>
+      'כשהמרכזים והצלעות מוכנים, ה־5×5 מתנהגת כמו 3×3 גדולה. משתמשים רק בסיבובים חיצוניים ועוברים את שלושת הכתרים: איקס ופינות לבנים, השכבה האמצעית ואז השכבה הצהובה.';
+
+  @override
+  String get stepFiveEdgeParity => 'מחליפים את כנפי הצלע האחרונה';
+
+  @override
+  String get stepFiveEdgeParityBody =>
+      'לפעמים בצלע האחרונה שתי הכנפיים מוחלפות. אלגוריתם ארוך של פרוסות פנימיות מחליף אותן בחזרה וכל השאר חוזר למקומו. אחר כך מסיימים כמו 3×3.';
+
+  @override
+  String get stepSixPieces => 'החלקים של 6×6';
+
+  @override
+  String get stepSixPiecesBody =>
+      'כמו ב־4×4, ב־6×6 אין מרכז קבוע: שישה־עשר חלקי מרכז יוצרים את צבע הפאה. בכל צלע ארבעה חלקים: שתי כנפיים חיצוניות ושתיים פנימיות.';
+
+  @override
+  String get stepSixSlices => 'מסובבים שכבות עמוקות';
+
+  @override
+  String get stepSixSlicesBody =>
+      'סיבובים רחבים יכולים להזיז שתיים או שלוש שכבות מפאה. פרוסות פנימיות בשכבה השנייה או השלישית הן הכלים למרכזים ולצלעות.';
+
+  @override
+  String get stepSixCenterBar => 'פסים של ארבעה';
+
+  @override
+  String get stepSixCenterBarBody =>
+      'בונים שורות של ארבעה חלקי מרכז תואמים ומחליקים אותן זו ליד זו בסיבובי פרוסה פנימית, עד שהפאה בצבע אחד אחיד.';
+
+  @override
+  String get stepSixCenterSwap => 'מזיזים חלק אחד בכל פעם';
+
+  @override
+  String get stepSixCenterSwapBody =>
+      'מסובבים את השכבה השלישית, מסובבים את העליונה, מבטלים ומחזירים: חלק מרכז אחד זז ומרכזים גמורים חוזרים.';
+
+  @override
+  String get stepSixEdgePair => 'ארבעה חלקים, צלע אחת';
+
+  @override
+  String get stepSixEdgePairBody =>
+      'אוספים בחזית את ארבעת החלקים של צלע בעזרת השכבה הרחבה העמוקה, מכניסים צלע לא פתורה ומחזירים את השכבה הרחבה.';
+
+  @override
+  String get stepSixEdgeLast => 'הצלעות האחרונות';
+
+  @override
+  String get stepSixEdgeLastBody =>
+      'מצמדים את הצלעות האחרונות בטריגר קצר בין סיבוב רחב עמוק לביטול שלו, כך שצלעות גמורות נשארות מחוברות.';
+
+  @override
+  String get stepSixAsThree => 'עכשיו זו 3×3';
+
+  @override
+  String get stepSixAsThreeBody =>
+      'עם מרכזי 4×4 וצלעות מצומדות, פותרים את ה־6×6 כמו 3×3 בסיבובים חיצוניים ובשלושת הכתרים.';
+
+  @override
+  String get stepSixOllParity => 'צלע הפוכה אחת';
+
+  @override
+  String get stepSixOllParityBody =>
+      'אם צלע אחת נראית הפוכה בזמן פתרון השכבה האחרונה, זו זוגיות. מחזיקים אותה בחזית השכבה העליונה ומבצעים את התיקון הארוך: שני הכתרים הראשונים חוזרים בלי פגע.';
+
+  @override
+  String get stepSixPllParity => 'שתי צלעות מוחלפות';
+
+  @override
+  String get stepSixPllParityBody =>
+      'אם שתי צלעות נראות מוחלפות ממש בסוף, מחזיקים אותן מקדימה ומאחור בשכבה העליונה ומבצעים את התיקון הקצר של סיבובים כפולים פנימיים.';
 }

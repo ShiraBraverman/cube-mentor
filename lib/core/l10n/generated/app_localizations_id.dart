@@ -1563,4 +1563,317 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get explainDailyScramble =>
       'Mulai dari kubus yang sudah selesai, putih di atas dan hijau di depan, lalu tiru setiap putaran di kubus aslimu.';
+
+  @override
+  String get stageCenters => 'Bangun blok pusat';
+
+  @override
+  String get stageEdges => 'Pasangkan rusuk luar & dalam';
+
+  @override
+  String get stageParity => 'Atasi paritas';
+
+  @override
+  String get stageCrown1 => 'Mahkota pertama (putih)';
+
+  @override
+  String get stageCrown2 => 'Mahkota kedua';
+
+  @override
+  String get stageCrown3 => 'Mahkota ketiga (kuning)';
+
+  @override
+  String get stageOrient => 'Orientasikan keping';
+
+  @override
+  String get stageFinish => 'Selesaikan kubus';
+
+  @override
+  String get stageAsThree => 'Selesaikan seperti 3×3';
+
+  @override
+  String get stageTwoByTwo => 'Selesaikan 2×2';
+
+  @override
+  String stageHeader(int number, int total, String title) {
+    return 'Tahap $number dari $total: $title';
+  }
+
+  @override
+  String stageCrownHeader(int crown, int number, int total, String title) {
+    return 'Mahkota $crown • Tahap $number dari $total: $title';
+  }
+
+  @override
+  String get solveAllStagesDone => 'Semua tahap selesai. Hebat!';
+
+  @override
+  String get trackFiveByFive => '5×5 Kubus Profesor';
+
+  @override
+  String get trackSixBySix => 'Kubus 6×6';
+
+  @override
+  String get lessonFiveIntro => 'Kenali 5×5';
+
+  @override
+  String get lessonFiveIntroDesc =>
+      'Pusat tetap, batang pusat, rusuk tengah, dan sayap.';
+
+  @override
+  String get introGoalFiveIntro =>
+      'Kenali 5×5: pusat tetap, batang pusat, rusuk tengah, dan sayap.';
+
+  @override
+  String get introHowFiveIntro =>
+      'Keping tengah setiap sisi tidak pernah berpindah.\nSetiap rusuk terdiri dari keping tengah dan dua sayap.\nIrisan dalam memindahkan keping tanpa menyentuh bagian luar.';
+
+  @override
+  String get lessonFiveCenters => 'Pusat 5×5';
+
+  @override
+  String get lessonFiveCentersDesc =>
+      'Bangun setiap pusat dari batang berisi tiga.';
+
+  @override
+  String get introGoalFiveCenters =>
+      'Bangun blok pusat 3×3 berwarna sama di setiap sisi.';
+
+  @override
+  String get introHowFiveCenters =>
+      'Mulai dari keping tengah: ia menentukan warnanya.\nBuat batang berisi tiga dan geser masuk dengan irisan dalam.\nSelesaikan dua pusat terakhir bersama-sama.';
+
+  @override
+  String get lessonFiveEdges => 'Rusuk 5×5';
+
+  @override
+  String get lessonFiveEdgesDesc => 'Satukan dua sayap dengan rusuk tengahnya.';
+
+  @override
+  String get introGoalFiveEdges =>
+      'Satukan setiap rusuk tengah dengan dua sayapnya agar 12 rusuk tampak utuh.';
+
+  @override
+  String get introHowFiveEdges =>
+      'Sejajarkan dua sayap dengan rusuk tengahnya di depan.\nPutar lapisan dalam, tukar rusuk yang belum jadi, lalu kembalikan.\nPasangkan rusuk terakhir tanpa merusak yang sudah jadi.';
+
+  @override
+  String get lessonFiveSolve => 'Selesaikan 5×5 seperti 3×3';
+
+  @override
+  String get lessonFiveSolveDesc => 'Akhiri dengan tiga mahkota.';
+
+  @override
+  String get introGoalFiveSolve =>
+      'Selesaikan 5×5 yang sudah direduksi seperti 3×3, mahkota demi mahkota.';
+
+  @override
+  String get introHowFiveSolve =>
+      'Mulai sekarang hanya putaran luar.\nMahkota pertama, kedua, lalu mahkota kuning.\nPusat tetap menunjukkan warna tiap sisi.';
+
+  @override
+  String get lessonFiveParity => 'Paritas rusuk 5×5';
+
+  @override
+  String get lessonFiveParityDesc => 'Perbaiki rusuk yang sayapnya tertukar.';
+
+  @override
+  String get introGoalFiveParity =>
+      'Perbaiki satu rusuk yang kedua sayapnya tertukar, lalu selesaikan.';
+
+  @override
+  String get introHowFiveParity =>
+      'Terlihat sebagai rusuk yang tidak mau berpasangan.\nLakukan sekali perbaikan panjang dengan irisan dalam.\nSemua yang lain kembali ke tempatnya.';
+
+  @override
+  String get lessonSixIntro => 'Kenali 6×6';
+
+  @override
+  String get lessonSixIntroDesc =>
+      'Tanpa pusat tetap dan empat keping di setiap rusuk.';
+
+  @override
+  String get introGoalSixIntro =>
+      'Kenali 6×6: enam belas keping pusat per sisi dan empat keping per rusuk.';
+
+  @override
+  String get introHowSixIntro =>
+      'Tidak ada pusat tetap: kamu memilih warnanya saat membangun.\nSetiap rusuk punya sayap luar dan sayap dalam.\nPutaran lebar bisa memindahkan hingga tiga lapisan.';
+
+  @override
+  String get lessonSixCenters => 'Pusat 6×6';
+
+  @override
+  String get lessonSixCentersDesc =>
+      'Bangun pusat 4×4 dari batang berisi empat.';
+
+  @override
+  String get introGoalSixCenters =>
+      'Bangun blok pusat 4×4 berwarna sama di setiap sisi.';
+
+  @override
+  String get introHowSixCenters =>
+      'Bangun dulu dua pusat yang berseberangan.\nBuat batang berisi empat lalu satukan.\nPindahkan keping satuan dengan trik irisan, atas, batalkan.';
+
+  @override
+  String get lessonSixEdges => 'Rusuk 6×6';
+
+  @override
+  String get lessonSixEdgesDesc => 'Kumpulkan empat keping setiap rusuk.';
+
+  @override
+  String get introGoalSixEdges =>
+      'Kumpulkan empat keping setiap rusuk agar 6×6 punya 12 rusuk rapi.';
+
+  @override
+  String get introHowSixEdges =>
+      'Sejajarkan sayap luar dan dalam di depan.\nLapisan lebar yang dalam memasukkan dan mengeluarkan rusuk.\nRusuk yang sudah jadi tidak pernah rusak.';
+
+  @override
+  String get lessonSixSolve => 'Selesaikan 6×6 seperti 3×3';
+
+  @override
+  String get lessonSixSolveDesc => 'Akhiri dengan tiga mahkota.';
+
+  @override
+  String get introGoalSixSolve =>
+      'Selesaikan 6×6 yang sudah direduksi seperti 3×3, mahkota demi mahkota.';
+
+  @override
+  String get introHowSixSolve =>
+      'Mulai sekarang hanya putaran luar.\nPusat yang kamu bangun menunjukkan warna tiap sisi.\nMahkota pertama, kedua, lalu mahkota kuning.';
+
+  @override
+  String get lessonSixParity => 'Paritas 6×6';
+
+  @override
+  String get lessonSixParityDesc =>
+      'Satu rusuk terbalik atau dua rusuk tertukar.';
+
+  @override
+  String get introGoalSixParity =>
+      'Atasi dua kasus 6×6 yang tidak ada di 3×3: satu rusuk terbalik atau dua rusuk tertukar.';
+
+  @override
+  String get introHowSixParity =>
+      'Selesaikan seperti 3×3 sampai macet.\nSatu rusuk terbalik: perbaikan paritas yang panjang.\nDua rusuk tertukar: perbaikan pendek dengan putaran ganda.';
+
+  @override
+  String get stepFivePieces => 'Keping 5×5';
+
+  @override
+  String get stepFivePiecesBody =>
+      'Keping tengah setiap sisi tidak pernah berpindah, jadi tetap menunjukkan warna sisi seperti pada 3×3. Di sekitarnya ada delapan keping pusat lagi; setiap rusuk punya keping tengah dan dua sayap, dan sudutnya sama seperti 3×3.';
+
+  @override
+  String get stepFiveSlices => 'Tiga jenis putaran';
+
+  @override
+  String get stepFiveSlicesBody =>
+      'Putaran luar memutar satu sisi. Putaran lebar memutar sisi bersama lapisan di belakangnya. Putaran irisan dalam hanya memutar lapisan di dalam: begitulah keping berpindah tanpa menyentuh bagian luar.';
+
+  @override
+  String get stepFiveCenterBar => 'Batang pusat';
+
+  @override
+  String get stepFiveCenterBarBody =>
+      'Buat baris berisi tiga keping pusat yang sama, lalu geser ke samping keping tengah yang cocok dengan putaran irisan dalam. Tiga batang menjadi satu pusat jadi.';
+
+  @override
+  String get stepFiveCenterSwap => 'Tukar tanpa merusak';
+
+  @override
+  String get stepFiveCenterSwapBody =>
+      'Untuk memindahkan satu keping pusat: putar irisan dalam, putar sisi atas, batalkan irisan, lalu kembalikan sisi atas. Pusat yang sudah jadi selalu kembali.';
+
+  @override
+  String get stepFiveEdgePair => 'Pasangkan sayap dengan rusuk tengah';
+
+  @override
+  String get stepFiveEdgePairBody =>
+      'Sejajarkan dua sayap di samping rusuk tengahnya di depan, turunkan lapisan dalam, bawa rusuk yang belum jadi dari atas, lalu naikkan lagi lapisan dalam.';
+
+  @override
+  String get stepFiveEdgeLast => 'Rusuk terakhir';
+
+  @override
+  String get stepFiveEdgeLastBody =>
+      'Saat tinggal sedikit rusuk, putaran lebar, pemicu pendek, dan putaran lebar kembali memasangkannya tanpa merusak rusuk yang sudah jadi.';
+
+  @override
+  String get stepFiveAsThree => 'Sekarang menjadi 3×3';
+
+  @override
+  String get stepFiveAsThreeBody =>
+      'Setelah pusat dan rusuk jadi, 5×5 bekerja seperti 3×3 besar. Gunakan hanya putaran luar dan ikuti tiga mahkota: silang dan sudut putih, lapisan tengah, lalu lapisan kuning.';
+
+  @override
+  String get stepFiveEdgeParity => 'Tukar sayap rusuk terakhir';
+
+  @override
+  String get stepFiveEdgeParityBody =>
+      'Kadang rusuk terakhir punya dua sayap yang tertukar. Algoritma irisan dalam yang panjang menukarnya kembali dan semua yang lain kembali ke tempatnya. Lalu selesaikan seperti 3×3.';
+
+  @override
+  String get stepSixPieces => 'Keping 6×6';
+
+  @override
+  String get stepSixPiecesBody =>
+      'Seperti 4×4, 6×6 tidak punya pusat tetap: enam belas keping pusat membentuk warna setiap sisi. Setiap rusuk punya empat keping: dua sayap luar dan dua sayap dalam.';
+
+  @override
+  String get stepSixSlices => 'Memutar lapisan lebih dalam';
+
+  @override
+  String get stepSixSlicesBody =>
+      'Putaran lebar bisa memindahkan dua atau tiga lapisan dari satu sisi. Irisan dalam di lapisan kedua atau ketiga adalah alat untuk pusat dan rusuk.';
+
+  @override
+  String get stepSixCenterBar => 'Batang berisi empat';
+
+  @override
+  String get stepSixCenterBarBody =>
+      'Buat baris berisi empat keping pusat yang sama dan geser berdampingan dengan putaran irisan dalam sampai sisinya satu warna.';
+
+  @override
+  String get stepSixCenterSwap => 'Satu keping setiap kali';
+
+  @override
+  String get stepSixCenterSwapBody =>
+      'Putar lapisan ketiga, putar atas, batalkan, kembalikan: satu keping pusat berpindah dan pusat yang sudah jadi kembali.';
+
+  @override
+  String get stepSixEdgePair => 'Empat keping, satu rusuk';
+
+  @override
+  String get stepSixEdgePairBody =>
+      'Kumpulkan empat keping satu rusuk di depan dengan lapisan lebar yang dalam, bawa rusuk yang belum jadi, lalu kembalikan lapisan lebar.';
+
+  @override
+  String get stepSixEdgeLast => 'Rusuk terakhir';
+
+  @override
+  String get stepSixEdgeLastBody =>
+      'Pasangkan rusuk terakhir dengan pemicu pendek di antara putaran lebar dalam dan pembatalannya, agar rusuk yang sudah jadi tetap berpasangan.';
+
+  @override
+  String get stepSixAsThree => 'Sekarang menjadi 3×3';
+
+  @override
+  String get stepSixAsThreeBody =>
+      'Dengan pusat 4×4 dan rusuk berpasangan, selesaikan 6×6 seperti 3×3 dengan putaran luar dan tiga mahkota.';
+
+  @override
+  String get stepSixOllParity => 'Satu rusuk terbalik';
+
+  @override
+  String get stepSixOllParityBody =>
+      'Jika satu rusuk tampak terbalik saat menyelesaikan lapisan terakhir, itu paritas. Taruh di depan lapisan atas dan lakukan perbaikan panjang: dua mahkota pertama kembali utuh.';
+
+  @override
+  String get stepSixPllParity => 'Dua rusuk tertukar';
+
+  @override
+  String get stepSixPllParityBody =>
+      'Jika dua rusuk tampak tertukar di akhir, taruh di depan dan belakang lapisan atas lalu lakukan perbaikan pendek dengan putaran ganda di dalam.';
 }

@@ -4,6 +4,7 @@ import 'package:material_ui/material_ui.dart';
 import '../../../core/cube/facelets.dart';
 import '../../../core/cube/cube_state.dart';
 import '../../../core/l10n/generated/app_localizations.dart';
+import '../../../core/solver/solve_stages.dart';
 import '../../../core/solver/solve_step.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/glass.dart';
@@ -12,6 +13,7 @@ import '../../../core/l10n/crown_words.dart';
 import '../../academy/widgets/lesson_intro.dart';
 import 'crown_tracker.dart';
 import 'move_instruction.dart';
+import 'stage_header.dart';
 
 /// Dock under the cube explaining the current solution step: an arrow and
 /// plain words for the move ("Right side — Up"), then (expandable) the
@@ -41,6 +43,10 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
     final index = session.currentStepIndex;
     final total = session.steps.length;
     final complete = step == null && index >= total;
+    // Stages, never move counts: a 6x6 solution has hundreds of moves.
+    final plan = StagePlan.forSteps(session.steps, size);
+    final stage = plan.stageAt(index);
+    final stageProgress = stage?.progressAt(index) ?? index / total;
     final controller = ref.read(cubeSessionProvider(size).notifier);
     final secondary = textTheme.bodySmall?.copyWith(
       color: AppColors.textSecondary,
@@ -82,7 +88,11 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
                       color: AppColors.accentSecondary,
                     ),
                   ),
-                  Text(l10n.solveSummary(total), style: secondary),
+                  Text(
+                    l10n.solveAllStagesDone,
+                    key: const ValueKey('solve-summary'),
+                    style: secondary,
+                  ),
                 ],
               ),
             ),
@@ -118,12 +128,20 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
           ),
         ),
         if (!_expanded)
+          // Folded: a small ring of this stage's progress.
           Padding(
             padding: const EdgeInsetsDirectional.only(start: 6),
-            child: Text(
-              l10n.playbackProgress(index + 1, total),
-              key: const ValueKey('solve-progress'),
-              style: secondary,
+            child: SizedBox.square(
+              dimension: 20,
+              child: CircularProgressIndicator(
+                key: const ValueKey('stage-ring'),
+                value: stageProgress,
+                strokeWidth: 3,
+                backgroundColor: AppColors.glassBorder,
+                valueColor: const AlwaysStoppedAnimation(
+                  AppColors.accentSecondary,
+                ),
+              ),
             ),
           ),
         if (step.hasCrown)
@@ -158,47 +176,33 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
       mainAxisSize: MainAxisSize.min,
       children: [
         const SizedBox(height: AppSpace.xs),
-        if (step.hasCrown)
-          CrownHeader(
-            step: step,
-            subStepTitle: subStepTitle(l10n, step.crown, step.subStep),
-            trailing: Padding(
-              padding: const EdgeInsetsDirectional.only(start: 8),
-              child: Text(
-                l10n.playbackProgress(index + 1, total),
-                key: const ValueKey('solve-progress'),
-                style: secondary,
-              ),
-            ),
+        if (stage != null)
+          StageHeader(
+            stage: stage,
+            progress: stageProgress,
+            // Big cubes: the crown's sub-step under the stage.
+            subStepLabel: stage.kind == StageKind.crown
+                ? step.subStepLabel
+                : null,
+            subStepName: stage.kind == StageKind.crown
+                ? subStepTitle(l10n, step.crown, step.subStep)
+                : null,
           )
-        else
-          Row(
-            children: [
-              Expanded(
-                flex: 3,
-                child: Text(
-                  solvePhaseTitle(l10n, step.phaseName),
-                  style: textTheme.labelLarge?.copyWith(
-                    color: AppColors.accent,
-                    fontWeight: FontWeight.w700,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-              const SizedBox(width: 8),
-              // Long translations of the counter shrink too.
-              Flexible(
-                flex: 2,
-                child: Text(
-                  l10n.playbackProgress(index + 1, total),
-                  key: const ValueKey('solve-progress'),
-                  style: secondary,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-            ],
+        else ...[
+          // Patterns, lessons, scramble guides: what it is and how far.
+          Text(
+            solvePhaseTitle(l10n, step.phaseName),
+            key: const ValueKey('stage-title'),
+            style: textTheme.labelLarge?.copyWith(
+              color: AppColors.accent,
+              fontWeight: FontWeight.w700,
+            ),
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
           ),
+          const SizedBox(height: 6),
+          StageProgressBar(value: stageProgress),
+        ],
         const SizedBox(height: 2),
         Text(
           solveExplanation(l10n, step),

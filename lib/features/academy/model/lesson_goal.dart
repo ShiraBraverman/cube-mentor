@@ -35,7 +35,34 @@ class LessonGoal {
   final Set<PieceGroup> done;
 }
 
+const _allEdges = {
+  PieceGroup.whiteEdges,
+  PieceGroup.middleEdges,
+  PieceGroup.yellowEdges,
+};
+const _corners = {PieceGroup.whiteCorners, PieceGroup.yellowCorners};
+
 const Map<String, LessonGoal> _goals = {
+  'fiveCenters': LessonGoal(target: {PieceGroup.centers}),
+  'sixCenters': LessonGoal(target: {PieceGroup.centers}),
+  'fiveEdges': LessonGoal(target: _allEdges, done: {PieceGroup.centers}),
+  'sixEdges': LessonGoal(target: _allEdges, done: {PieceGroup.centers}),
+  'fiveSolve': LessonGoal(
+    target: {..._allEdges, ..._corners},
+    done: {PieceGroup.centers},
+  ),
+  'sixSolve': LessonGoal(
+    target: {..._allEdges, ..._corners},
+    done: {PieceGroup.centers},
+  ),
+  'fiveParity': LessonGoal(
+    target: _allEdges,
+    done: {PieceGroup.centers, ..._corners},
+  ),
+  'sixParity': LessonGoal(
+    target: _allEdges,
+    done: {PieceGroup.centers, ..._corners},
+  ),
   'cross': LessonGoal(
     target: {PieceGroup.whiteEdges},
     done: {PieceGroup.centers},

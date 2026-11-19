@@ -219,8 +219,10 @@ void main() {
     expect(find.byKey(const ValueKey('lesson-intro')), findsNothing);
 
     // Banner: crown tracker, sub-step, explanation and the move to make.
-    expect(find.text('Crown 1 of 3 · First crown'), findsOneWidget);
-    expect(find.text('1.1 White cross'), findsOneWidget);
+    // Stages, not move counts.
+    expect(find.text('Crown 1 • Stage 1 of 7: White cross'), findsOneWidget);
+    expect(find.textContaining('Step 1 of'), findsNothing);
+    expect(find.byKey(const ValueKey('stage-progress')), findsOneWidget);
     expect(find.byKey(const ValueKey('crown-1')), findsOneWidget);
     expect(find.byKey(const ValueKey('solve-mode')), findsOneWidget);
     expect(
@@ -232,7 +234,6 @@ void main() {
     expect(find.text('Top row'), findsOneWidget);
     expect(find.text('Right'), findsOneWidget);
     expect(find.byKey(const ValueKey('move-arrow-right')), findsOneWidget);
-    expect(find.text('Step 1 of 2'), findsOneWidget);
 
     // The dock sits under the cube, never over it.
     final cubeRect = tester.getRect(find.byType(CubeViewport));
@@ -267,8 +268,10 @@ void main() {
     );
     await tester.tap(find.byKey(const ValueKey('intro-start')));
     await _advance(tester, 12);
-    expect(find.text('1.2 First crown corners'), findsOneWidget);
-    expect(find.text('Step 2 of 2'), findsOneWidget);
+    expect(
+      find.text('Crown 1 • Stage 2 of 7: First crown corners'),
+      findsOneWidget,
+    );
 
     // The flag in the banner reopens the card at any time.
     await tester.tap(find.byKey(const ValueKey('solve-intro-open')));
@@ -288,7 +291,10 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('playback-prev')));
     await _advance(tester, 12);
     expect(container.read(cubeSessionProvider(3)).cube.isSolved, isFalse);
-    expect(find.text('1.2 First crown corners'), findsOneWidget);
+    expect(
+      find.text('Crown 1 • Stage 2 of 7: First crown corners'),
+      findsOneWidget,
+    );
 
     // The toggle re-solves from here with the fast solver, and remembers it.
     await tester.tap(find.byKey(const ValueKey('solve-mode-fast')));
@@ -446,7 +452,7 @@ void main() {
       );
       await tester.tap(find.byKey(const ValueKey('solve')));
       await _advance(tester, 8);
-      expect(find.text('Step 1 of 2'), findsOneWidget);
+      expect(find.text('Stage 2 of 2: Finish the cube'), findsOneWidget);
       // The arrow points out the expected move; its layer is in focus.
       expect(painter(tester).guide?.notation, 'R');
       expect(painter(tester).frame.focus, hasLength(9));
@@ -456,7 +462,6 @@ void main() {
       expect(session.playbackIndex, 1, reason: 'the swipe advanced the step');
       expect(session.steps, hasLength(2));
       expect(haptic('mediumImpact'), isTrue);
-      expect(find.text('Step 2 of 2'), findsOneWidget);
       expect(painter(tester).guide?.notation, 'U');
 
       // Another R is the wrong move now: it springs back and is not applied.

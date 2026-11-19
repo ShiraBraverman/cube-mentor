@@ -338,8 +338,8 @@ void main() {
         expect(tester.takeException(), isNull, reason: hint.name);
       }
 
-      // The playground, then a guided solve: crown tracker, sub-step title
-      // with the step counter, and the Guided / Fast toggle.
+      // The playground, then a guided solve: crown tracker, stage title
+      // with its progress bar, and the Guided / Fast toggle.
       await show(Solver3DScreen(size: 4, initialCube: CubeState.solved(4)));
       await show(
         Solver3DScreen(
@@ -351,9 +351,26 @@ void main() {
       );
       await tester.tap(find.byKey(const ValueKey('solve')));
       await _advance(tester, 8);
-      expect(find.byKey(const ValueKey('crown-substep')), findsOneWidget);
+      expect(find.byKey(const ValueKey('stage-title')), findsOneWidget);
       expect(find.byKey(const ValueKey('solve-mode')), findsOneWidget);
       expect(tester.takeException(), isNull, reason: 'guided banner');
+
+      // A big cube's crown stage: "Stage 6 of 6: …" plus its sub-step line.
+      await show(
+        Solver3DScreen(
+          size: 4,
+          initialCube: CubeState.solved(4)
+              .applyAll(MoveNotation.parseSequence('R U', 4)),
+        ),
+        scroll: false,
+      );
+      // The fake solver only claims 3x3: load its guided plan directly.
+      await ProviderScope.containerOf(
+        tester.element(find.byType(Solver3DScreen)),
+      ).read(cubeSessionProvider(4).notifier).solve(SolveMethod.layerByLayer);
+      await _advance(tester, 8);
+      expect(find.byKey(const ValueKey('stage-substep')), findsOneWidget);
+      expect(tester.takeException(), isNull, reason: 'big-cube stage');
 
       // Mid-move prompts on a 4x4: a wide turn half swiped (Rw after R),
       // then a double turn half swiped (R2 after R).

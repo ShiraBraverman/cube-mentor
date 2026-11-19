@@ -10,6 +10,7 @@ import 'package:cube_mentor/core/cube/cube_state.dart';
 import 'package:cube_mentor/core/cube/facelets.dart';
 import 'package:cube_mentor/core/ffi/cubementor_bindings.dart';
 import 'package:cube_mentor/core/ffi/native_cube_solver.dart';
+import 'package:cube_mentor/core/solver/solve_stages.dart';
 import 'package:cube_mentor/core/solver/solve_step.dart';
 import 'package:cube_mentor/core/vision/color_science.dart';
 import 'package:cube_mentor/core/vision/scan_analyzer.dart';
@@ -167,6 +168,20 @@ void main() {
         for (final step in plan.steps) {
           expect(step.explanationKey, isNotEmpty);
         }
+        // Every step falls in a stage and stages only move forward:
+        // centers, edges, (parity), then the 3x3 stage or the 3 crowns.
+        final stages = StagePlan.of(plan.steps, size);
+        expect(stages.isEmpty, isFalse);
+        final guided = method == SolveMethod.layerByLayer;
+        final total = (size.isEven ? 3 : 2) + (guided ? 3 : 1);
+        var last = 0;
+        for (var i = 0; i < plan.steps.length; i++) {
+          final stage = stages.stageAt(i)!;
+          expect(stage.total, total);
+          expect(stage.number, greaterThanOrEqualTo(last));
+          last = stage.number;
+        }
+        expect(last, total, reason: 'ends in the last stage');
       }
     }
   }, skip: missing);

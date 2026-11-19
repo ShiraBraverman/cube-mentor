@@ -2750,6 +2750,540 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Start from a solved cube, white on top and green in front, and copy each turn on your real cube.'**
   String get explainDailyScramble;
+
+  /// No description provided for @stageCenters.
+  ///
+  /// In en, this message translates to:
+  /// **'Build center blocks'**
+  String get stageCenters;
+
+  /// No description provided for @stageEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'Pair outer & inner edges'**
+  String get stageEdges;
+
+  /// No description provided for @stageParity.
+  ///
+  /// In en, this message translates to:
+  /// **'Parity resolution'**
+  String get stageParity;
+
+  /// No description provided for @stageCrown1.
+  ///
+  /// In en, this message translates to:
+  /// **'First crown (white)'**
+  String get stageCrown1;
+
+  /// No description provided for @stageCrown2.
+  ///
+  /// In en, this message translates to:
+  /// **'Second crown'**
+  String get stageCrown2;
+
+  /// No description provided for @stageCrown3.
+  ///
+  /// In en, this message translates to:
+  /// **'Third crown (yellow)'**
+  String get stageCrown3;
+
+  /// No description provided for @stageOrient.
+  ///
+  /// In en, this message translates to:
+  /// **'Orient the pieces'**
+  String get stageOrient;
+
+  /// No description provided for @stageFinish.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish the cube'**
+  String get stageFinish;
+
+  /// No description provided for @stageAsThree.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve as a 3×3'**
+  String get stageAsThree;
+
+  /// No description provided for @stageTwoByTwo.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve the 2×2'**
+  String get stageTwoByTwo;
+
+  /// No description provided for @stageHeader.
+  ///
+  /// In en, this message translates to:
+  /// **'Stage {number} of {total}: {title}'**
+  String stageHeader(int number, int total, String title);
+
+  /// No description provided for @stageCrownHeader.
+  ///
+  /// In en, this message translates to:
+  /// **'Crown {crown} • Stage {number} of {total}: {title}'**
+  String stageCrownHeader(int crown, int number, int total, String title);
+
+  /// No description provided for @solveAllStagesDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Every stage complete. Well done!'**
+  String get solveAllStagesDone;
+
+  /// No description provided for @trackFiveByFive.
+  ///
+  /// In en, this message translates to:
+  /// **'5×5 Professor\'s Cube'**
+  String get trackFiveByFive;
+
+  /// No description provided for @trackSixBySix.
+  ///
+  /// In en, this message translates to:
+  /// **'6×6 cube'**
+  String get trackSixBySix;
+
+  /// No description provided for @lessonFiveIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Meet the 5×5'**
+  String get lessonFiveIntro;
+
+  /// No description provided for @lessonFiveIntroDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Fixed middles, center bars, middle edges and wings.'**
+  String get lessonFiveIntroDesc;
+
+  /// No description provided for @introGoalFiveIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Get to know the 5×5: fixed middles, center bars, middle edges and wings.'**
+  String get introGoalFiveIntro;
+
+  /// No description provided for @introHowFiveIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'The very middle of each face never moves.\nEach edge is a middle piece with two wings.\nInner slices move pieces without touching the outside.'**
+  String get introHowFiveIntro;
+
+  /// No description provided for @lessonFiveCenters.
+  ///
+  /// In en, this message translates to:
+  /// **'5×5 centers'**
+  String get lessonFiveCenters;
+
+  /// No description provided for @lessonFiveCentersDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Build each center from bars of three.'**
+  String get lessonFiveCentersDesc;
+
+  /// No description provided for @introGoalFiveCenters.
+  ///
+  /// In en, this message translates to:
+  /// **'Build every face\'s 3×3 block of center pieces in one color.'**
+  String get introGoalFiveCenters;
+
+  /// No description provided for @introHowFiveCenters.
+  ///
+  /// In en, this message translates to:
+  /// **'Start from the middle piece: it tells the color.\nBuild bars of three and slide them in with an inner slice.\nFinish the last two centers together.'**
+  String get introHowFiveCenters;
+
+  /// No description provided for @lessonFiveEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'5×5 edges'**
+  String get lessonFiveEdges;
+
+  /// No description provided for @lessonFiveEdgesDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Join two wings to their middle edge.'**
+  String get lessonFiveEdgesDesc;
+
+  /// No description provided for @introGoalFiveEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'Join each middle edge with its two wings so all 12 edges look like single pieces.'**
+  String get introGoalFiveEdges;
+
+  /// No description provided for @introHowFiveEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'Match two wings to their middle edge on the front.\nTurn the inner layer, swap in an unsolved edge, turn it back.\nPair the last edges without breaking finished ones.'**
+  String get introHowFiveEdges;
+
+  /// No description provided for @lessonFiveSolve.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve the 5×5 as a 3×3'**
+  String get lessonFiveSolve;
+
+  /// No description provided for @lessonFiveSolveDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish with the three crowns.'**
+  String get lessonFiveSolveDesc;
+
+  /// No description provided for @introGoalFiveSolve.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve the reduced 5×5 like a 3×3, crown by crown.'**
+  String get introGoalFiveSolve;
+
+  /// No description provided for @introHowFiveSolve.
+  ///
+  /// In en, this message translates to:
+  /// **'Only outer turns from now on.\nFirst crown, second crown, then the yellow crown.\nThe fixed middles show each face color.'**
+  String get introHowFiveSolve;
+
+  /// No description provided for @lessonFiveParity.
+  ///
+  /// In en, this message translates to:
+  /// **'5×5 edge parity'**
+  String get lessonFiveParity;
+
+  /// No description provided for @lessonFiveParityDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Fix the edge whose wings are swapped.'**
+  String get lessonFiveParityDesc;
+
+  /// No description provided for @introGoalFiveParity.
+  ///
+  /// In en, this message translates to:
+  /// **'Fix the one edge whose two wings are swapped, then finish.'**
+  String get introGoalFiveParity;
+
+  /// No description provided for @introHowFiveParity.
+  ///
+  /// In en, this message translates to:
+  /// **'It shows up as an edge that will not pair.\nPlay the long inner-slice fix once.\nEverything else returns to its place.'**
+  String get introHowFiveParity;
+
+  /// No description provided for @lessonSixIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Meet the 6×6'**
+  String get lessonSixIntro;
+
+  /// No description provided for @lessonSixIntroDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'No fixed centers and four pieces in every edge.'**
+  String get lessonSixIntroDesc;
+
+  /// No description provided for @introGoalSixIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Get to know the 6×6: sixteen center pieces per face and four pieces per edge.'**
+  String get introGoalSixIntro;
+
+  /// No description provided for @introHowSixIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'No center is fixed: you choose the colors as you build.\nEach edge has outer and inner wings.\nWide turns can move up to three layers.'**
+  String get introHowSixIntro;
+
+  /// No description provided for @lessonSixCenters.
+  ///
+  /// In en, this message translates to:
+  /// **'6×6 centers'**
+  String get lessonSixCenters;
+
+  /// No description provided for @lessonSixCentersDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Build 4×4 centers from bars of four.'**
+  String get lessonSixCentersDesc;
+
+  /// No description provided for @introGoalSixCenters.
+  ///
+  /// In en, this message translates to:
+  /// **'Build every face\'s 4×4 center block in one solid color.'**
+  String get introGoalSixCenters;
+
+  /// No description provided for @introHowSixCenters.
+  ///
+  /// In en, this message translates to:
+  /// **'Build two opposite centers first.\nMake bars of four and slide them together.\nMove single pieces with a slice, top, undo trick.'**
+  String get introHowSixCenters;
+
+  /// No description provided for @lessonSixEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'6×6 edges'**
+  String get lessonSixEdges;
+
+  /// No description provided for @lessonSixEdgesDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Gather the four pieces of every edge.'**
+  String get lessonSixEdgesDesc;
+
+  /// No description provided for @introGoalSixEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'Gather the four pieces of each edge so the 6×6 has 12 clean edges.'**
+  String get introGoalSixEdges;
+
+  /// No description provided for @introHowSixEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'Line up the outer and inner wings on the front.\nThe deep wide layer brings an edge in and out.\nFinished edges are never broken.'**
+  String get introHowSixEdges;
+
+  /// No description provided for @lessonSixSolve.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve the 6×6 as a 3×3'**
+  String get lessonSixSolve;
+
+  /// No description provided for @lessonSixSolveDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish with the three crowns.'**
+  String get lessonSixSolveDesc;
+
+  /// No description provided for @introGoalSixSolve.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve the reduced 6×6 like a 3×3, crown by crown.'**
+  String get introGoalSixSolve;
+
+  /// No description provided for @introHowSixSolve.
+  ///
+  /// In en, this message translates to:
+  /// **'Only outer turns from now on.\nThe centers you built show each face color.\nFirst crown, second crown, then the yellow crown.'**
+  String get introHowSixSolve;
+
+  /// No description provided for @lessonSixParity.
+  ///
+  /// In en, this message translates to:
+  /// **'6×6 parity'**
+  String get lessonSixParity;
+
+  /// No description provided for @lessonSixParityDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'One flipped edge or two swapped edges.'**
+  String get lessonSixParityDesc;
+
+  /// No description provided for @introGoalSixParity.
+  ///
+  /// In en, this message translates to:
+  /// **'Fix the two 6×6 cases a 3×3 never has: one flipped edge or two swapped edges.'**
+  String get introGoalSixParity;
+
+  /// No description provided for @introHowSixParity.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve like a 3×3 until it gets stuck.\nOne flipped edge: the long parity fix.\nTwo swapped edges: the short double-turn fix.'**
+  String get introHowSixParity;
+
+  /// No description provided for @stepFivePieces.
+  ///
+  /// In en, this message translates to:
+  /// **'The pieces of a 5×5'**
+  String get stepFivePieces;
+
+  /// No description provided for @stepFivePiecesBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The very middle piece of each face never moves, so it still tells the face\'s color, like on a 3×3. Around it sit eight more center pieces; each edge has a middle piece and two wings, and the corners work like a 3×3\'s.'**
+  String get stepFivePiecesBody;
+
+  /// No description provided for @stepFiveSlices.
+  ///
+  /// In en, this message translates to:
+  /// **'Three kinds of turns'**
+  String get stepFiveSlices;
+
+  /// No description provided for @stepFiveSlicesBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Outer turns move one face. Wide turns move a face with the layer behind it. Inner slice turns move only a layer inside: that is how pieces change place without touching the outside.'**
+  String get stepFiveSlicesBody;
+
+  /// No description provided for @stepFiveCenterBar.
+  ///
+  /// In en, this message translates to:
+  /// **'Center bars'**
+  String get stepFiveCenterBar;
+
+  /// No description provided for @stepFiveCenterBarBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Build a row of three matching center pieces, then slide it next to the matching middle with an inner slice turn. Three bars make a finished center.'**
+  String get stepFiveCenterBarBody;
+
+  /// No description provided for @stepFiveCenterSwap.
+  ///
+  /// In en, this message translates to:
+  /// **'Swap without breaking'**
+  String get stepFiveCenterSwap;
+
+  /// No description provided for @stepFiveCenterSwapBody.
+  ///
+  /// In en, this message translates to:
+  /// **'To move a single center piece: turn an inner slice, turn the top, undo the slice, turn the top back. Finished centers are restored every time.'**
+  String get stepFiveCenterSwapBody;
+
+  /// No description provided for @stepFiveEdgePair.
+  ///
+  /// In en, this message translates to:
+  /// **'Pair wings with a middle edge'**
+  String get stepFiveEdgePair;
+
+  /// No description provided for @stepFiveEdgePairBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Line up two wings beside their matching middle edge on the front, turn the inner layer down, bring in an unsolved edge from the top, then turn the inner layer back.'**
+  String get stepFiveEdgePairBody;
+
+  /// No description provided for @stepFiveEdgeLast.
+  ///
+  /// In en, this message translates to:
+  /// **'The last edges'**
+  String get stepFiveEdgeLast;
+
+  /// No description provided for @stepFiveEdgeLastBody.
+  ///
+  /// In en, this message translates to:
+  /// **'With only a few edges left, a wide turn, a short trigger and the wide turn back pair them without breaking finished edges.'**
+  String get stepFiveEdgeLastBody;
+
+  /// No description provided for @stepFiveAsThree.
+  ///
+  /// In en, this message translates to:
+  /// **'Now it is a 3×3'**
+  String get stepFiveAsThree;
+
+  /// No description provided for @stepFiveAsThreeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'With centers and edges done, the 5×5 behaves like a big 3×3. Use only outer turns and follow the three crowns: white cross and corners, the middle layer, then the yellow layer.'**
+  String get stepFiveAsThreeBody;
+
+  /// No description provided for @stepFiveEdgeParity.
+  ///
+  /// In en, this message translates to:
+  /// **'Swap the last edge\'s wings'**
+  String get stepFiveEdgeParity;
+
+  /// No description provided for @stepFiveEdgeParityBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Sometimes the last edge has its two wings swapped. A longer inner-slice algorithm swaps them back while everything else returns to its place. Then finish as a 3×3.'**
+  String get stepFiveEdgeParityBody;
+
+  /// No description provided for @stepSixPieces.
+  ///
+  /// In en, this message translates to:
+  /// **'The pieces of a 6×6'**
+  String get stepSixPieces;
+
+  /// No description provided for @stepSixPiecesBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Like a 4×4, a 6×6 has no fixed center: sixteen center pieces make up each face color. Each edge has four pieces: two outer wings and two inner wings.'**
+  String get stepSixPiecesBody;
+
+  /// No description provided for @stepSixSlices.
+  ///
+  /// In en, this message translates to:
+  /// **'Turning deeper layers'**
+  String get stepSixSlices;
+
+  /// No description provided for @stepSixSlicesBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Wide turns can move two or three layers from a face. Inner slices on the second or third layer are the tools for centers and edges.'**
+  String get stepSixSlicesBody;
+
+  /// No description provided for @stepSixCenterBar.
+  ///
+  /// In en, this message translates to:
+  /// **'Bars of four'**
+  String get stepSixCenterBar;
+
+  /// No description provided for @stepSixCenterBarBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Build rows of four matching center pieces and slide them next to each other with inner slice turns until the face is one solid color.'**
+  String get stepSixCenterBarBody;
+
+  /// No description provided for @stepSixCenterSwap.
+  ///
+  /// In en, this message translates to:
+  /// **'Move one piece at a time'**
+  String get stepSixCenterSwap;
+
+  /// No description provided for @stepSixCenterSwapBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the third layer, turn the top, undo, turn back: one center piece moves while finished centers come back.'**
+  String get stepSixCenterSwapBody;
+
+  /// No description provided for @stepSixEdgePair.
+  ///
+  /// In en, this message translates to:
+  /// **'Four pieces, one edge'**
+  String get stepSixEdgePair;
+
+  /// No description provided for @stepSixEdgePairBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Collect the four pieces of an edge on the front with the deep wide layer, then bring in an unsolved edge and turn the wide layer back.'**
+  String get stepSixEdgePairBody;
+
+  /// No description provided for @stepSixEdgeLast.
+  ///
+  /// In en, this message translates to:
+  /// **'The last edges'**
+  String get stepSixEdgeLast;
+
+  /// No description provided for @stepSixEdgeLastBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Pair the final edges with a short trigger between a deep wide turn and its undo, so finished edges stay paired.'**
+  String get stepSixEdgeLastBody;
+
+  /// No description provided for @stepSixAsThree.
+  ///
+  /// In en, this message translates to:
+  /// **'Now it is a 3×3'**
+  String get stepSixAsThree;
+
+  /// No description provided for @stepSixAsThreeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'With 4×4 centers and paired edges, solve the 6×6 like a 3×3 with outer turns and the three crowns.'**
+  String get stepSixAsThreeBody;
+
+  /// No description provided for @stepSixOllParity.
+  ///
+  /// In en, this message translates to:
+  /// **'One flipped edge'**
+  String get stepSixOllParity;
+
+  /// No description provided for @stepSixOllParityBody.
+  ///
+  /// In en, this message translates to:
+  /// **'If a single edge seems flipped while you solve the last layer, it is parity. Hold it at the front of the top layer and play the long fix: the first two crowns come back untouched.'**
+  String get stepSixOllParityBody;
+
+  /// No description provided for @stepSixPllParity.
+  ///
+  /// In en, this message translates to:
+  /// **'Two swapped edges'**
+  String get stepSixPllParity;
+
+  /// No description provided for @stepSixPllParityBody.
+  ///
+  /// In en, this message translates to:
+  /// **'If two edges look swapped at the very end, hold them at the front and back of the top layer and play the short fix of inner double turns.'**
+  String get stepSixPllParityBody;
 }
 
 class _AppLocalizationsDelegate

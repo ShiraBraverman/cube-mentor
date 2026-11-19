@@ -58,12 +58,19 @@ Future<CubeSessionController> _guide(
       .read(cubeSessionProvider(size).notifier);
 }
 
+/// Step of the guided solution the session is on.
+int _index(WidgetTester tester, int size) =>
+    ProviderScope.containerOf(tester.element(find.byType(Solver3DScreen)))
+        .read(cubeSessionProvider(size))
+        .playbackIndex;
+
 void main() {
   testWidgets('R2 takes two quarter swipes and counts as one step', (
     tester,
   ) async {
     final controller = await _guide(tester, 3, ['R2', 'U']);
-    expect(find.text('Step 1 of 2'), findsOneWidget);
+    int index() => _index(tester, 3);
+    expect(index(), 0);
 
     controller.commitDirect(MoveNotation.parse('R', 3));
     await _advance(tester);
@@ -73,7 +80,7 @@ void main() {
       ),
       findsOneWidget,
     );
-    expect(find.text('Step 1 of 2'), findsOneWidget, reason: 'not advanced');
+    expect(index(), 0, reason: 'not advanced');
 
     // Turning back instead is refused; the prompt stays up.
     controller.commitDirect(MoveNotation.parse("R'", 3));
@@ -83,7 +90,7 @@ void main() {
     controller.commitDirect(MoveNotation.parse('R', 3));
     await _advance(tester);
     expect(find.byKey(const ValueKey('step-hint-halfway')), findsNothing);
-    expect(find.text('Step 2 of 2'), findsOneWidget);
+    expect(index(), 1);
     expect(tester.takeException(), isNull);
   });
 
@@ -91,6 +98,7 @@ void main() {
     tester,
   ) async {
     final controller = await _guide(tester, 4, ['Rw', 'U']);
+    int index() => _index(tester, 4);
     controller.commitDirect(MoveNotation.parse('R', 4));
     await _advance(tester);
     expect(
@@ -99,17 +107,17 @@ void main() {
       ),
       findsOneWidget,
     );
-    expect(find.text('Step 1 of 2'), findsOneWidget);
+    expect(index(), 0);
 
     controller.commitDirect(MoveNotation.parse('2R', 4));
     await _advance(tester);
     expect(find.byKey(const ValueKey('step-hint-wideInner')), findsNothing);
-    expect(find.text('Step 2 of 2'), findsOneWidget);
+    expect(index(), 1);
 
     // Previous move takes the whole wide turn back.
     await tester.tap(find.byKey(const ValueKey('playback-prev')));
     await _advance(tester, 16);
-    expect(find.text('Step 1 of 2'), findsOneWidget);
+    expect(index(), 0);
     expect(tester.takeException(), isNull);
   });
 
