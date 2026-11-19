@@ -40,6 +40,15 @@ class AppLocalizationsFil extends AppLocalizations {
   String get cubeLevel6 => 'Master';
 
   @override
+  String get cubeComingSoon => 'Bagong cube, malapit na';
+
+  @override
+  String get carouselPrevious => 'Nakaraang cube';
+
+  @override
+  String get carouselNext => 'Susunod na cube';
+
+  @override
   String get chooseMode => 'Ano ang gusto mong gawin?';
 
   @override

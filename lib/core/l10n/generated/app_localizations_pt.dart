@@ -40,6 +40,15 @@ class AppLocalizationsPt extends AppLocalizations {
   String get cubeLevel6 => 'Mestre';
 
   @override
+  String get cubeComingSoon => 'Novo cubo em breve';
+
+  @override
+  String get carouselPrevious => 'Cubo anterior';
+
+  @override
+  String get carouselNext => 'Cubo seguinte';
+
+  @override
   String get chooseMode => 'O que pretende fazer?';
 
   @override
@@ -1508,6 +1517,15 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get cubeLevel6 => 'Mestre';
+
+  @override
+  String get cubeComingSoon => 'Novo cubo em breve';
+
+  @override
+  String get carouselPrevious => 'Cubo anterior';
+
+  @override
+  String get carouselNext => 'Próximo cubo';
 
   @override
   String get chooseMode => 'O que você quer fazer?';

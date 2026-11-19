@@ -39,6 +39,15 @@ class AppLocalizationsJa extends AppLocalizations {
   String get cubeLevel6 => 'マスター';
 
   @override
+  String get cubeComingSoon => '新しいキューブ近日登場';
+
+  @override
+  String get carouselPrevious => '前のキューブ';
+
+  @override
+  String get carouselNext => '次のキューブ';
+
+  @override
   String get chooseMode => '何をしますか？';
 
   @override

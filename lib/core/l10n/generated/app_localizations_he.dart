@@ -39,6 +39,15 @@ class AppLocalizationsHe extends AppLocalizations {
   String get cubeLevel6 => 'אלופים';
 
   @override
+  String get cubeComingSoon => 'קובייה חדשה בקרוב';
+
+  @override
+  String get carouselPrevious => 'הקובייה הקודמת';
+
+  @override
+  String get carouselNext => 'הקובייה הבאה';
+
+  @override
   String get chooseMode => 'מה תרצו לעשות?';
 
   @override

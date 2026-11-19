@@ -13,13 +13,13 @@ import '../daily/daily_screen.dart';
 import '../patterns/patterns_screen.dart';
 import '../scanner/scanner_screen.dart';
 import '../solver_3d/solver_3d_screen.dart';
-import '../solver_3d/widgets/cube_preview.dart';
 import '../timer/timer_screen.dart';
+import 'cube_carousel.dart';
 import 'home_controller.dart';
 import 'language_sheet.dart';
 
-/// Landing screen: the selected cube as the hero, the size selector, the
-/// Academy hook and the modes.
+/// Landing screen: the endless cube carousel as the hero, the Academy hook
+/// and the modes.
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
@@ -67,16 +67,9 @@ class HomeScreen extends ConsumerWidget {
                       color: AppColors.textSecondary,
                     ),
                   ),
-                  const SizedBox(height: AppSpace.lg),
-                  _Hero(size: selected),
                   SectionHeader(title: l10n.chooseCubeSize, top: AppSpace.lg),
-                  _SizeSelector(
-                    selected: selected,
-                    onSelect: (size) => ref
-                        .read(selectedCubeSizeProvider.notifier)
-                        .select(size),
-                  ),
-                  const SizedBox(height: AppSpace.lg),
+                  const CubeCarousel(),
+                  const SizedBox(height: AppSpace.md),
                   const _ContinueLearningCard(),
                   SectionHeader(title: l10n.chooseMode),
                   IntrinsicHeight(
@@ -153,167 +146,6 @@ class HomeScreen extends ConsumerWidget {
     );
   }
 }
-
-/// The spinning selected cube on its lit stage, with its name.
-class _Hero extends StatelessWidget {
-  const _Hero({required this.size});
-
-  final int size;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-    final textTheme = Theme.of(context).textTheme;
-    return SizedBox(
-      height: 280,
-      child: Stack(
-        children: [
-          const Positioned.fill(child: CubeStage()),
-          Positioned.fill(
-            top: AppSpace.xl,
-            bottom: AppSpace.md,
-            child: CubePreview(size: size, spin: true),
-          ),
-          PositionedDirectional(
-            top: 0,
-            start: 0,
-            end: 0,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.baseline,
-              textBaseline: TextBaseline.alphabetic,
-              children: [
-                Text(
-                  l10n.cubeSizeLabel(size),
-                  textDirection: TextDirection.ltr,
-                  style: textTheme.headlineLarge,
-                ),
-                const SizedBox(width: AppSpace.sm),
-                Flexible(
-                  child: Text(
-                    _levelName(l10n, size),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: textTheme.titleMedium?.copyWith(
-                      color: AppColors.textSecondary,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-/// One glass track with a segment per cube size.
-class _SizeSelector extends StatelessWidget {
-  const _SizeSelector({required this.selected, required this.onSelect});
-
-  final int selected;
-  final ValueChanged<int> onSelect;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-    return Container(
-      padding: const EdgeInsets.all(AppSpace.xxs),
-      decoration: BoxDecoration(
-        color: AppColors.glassFill,
-        borderRadius: BorderRadius.circular(AppRadius.md),
-        border: Border.all(color: AppColors.glassBorder),
-      ),
-      child: Row(
-        children: [
-          for (final size in kCubeSizes)
-            Expanded(
-              child: Semantics(
-                button: true,
-                selected: size == selected,
-                label: '${l10n.cubeSizeLabel(size)} ${_levelName(l10n, size)}',
-                child: _SizeSegment(
-                  key: ValueKey('size-$size'),
-                  label: l10n.cubeSizeLabel(size),
-                  selected: size == selected,
-                  onTap: () => onSelect(size),
-                ),
-              ),
-            ),
-        ],
-      ),
-    );
-  }
-}
-
-class _SizeSegment extends StatelessWidget {
-  const _SizeSegment({
-    super.key,
-    required this.label,
-    required this.selected,
-    required this.onTap,
-  });
-
-  final String label;
-  final bool selected;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final radius = BorderRadius.circular(AppRadius.sm);
-    return Material(
-      type: MaterialType.transparency,
-      child: InkWell(
-        borderRadius: radius,
-        onTap: onTap,
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          curve: Curves.easeOut,
-          height: AppSpace.touch - AppSpace.xxs,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            borderRadius: radius,
-            color: selected ? AppColors.accent : Colors.transparent,
-            boxShadow: selected
-                ? [
-                    BoxShadow(
-                      color: AppColors.accent.withValues(alpha: 0.45),
-                      blurRadius: 16,
-                      spreadRadius: -4,
-                    ),
-                  ]
-                : null,
-          ),
-          child: FittedBox(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: AppSpace.xxs),
-              child: Text(
-                label,
-                textDirection: TextDirection.ltr,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w800,
-                  color: selected
-                      ? AppColors.onAccent
-                      : AppColors.textSecondary,
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-String _levelName(AppLocalizations l10n, int size) => switch (size) {
-  2 => l10n.cubeLevel2,
-  3 => l10n.cubeLevel3,
-  4 => l10n.cubeLevel4,
-  5 => l10n.cubeLevel5,
-  _ => l10n.cubeLevel6,
-};
 
 /// Large tile for the two main ways in: the 3D cube and the scanner.
 class _PrimaryModeTile extends StatelessWidget {

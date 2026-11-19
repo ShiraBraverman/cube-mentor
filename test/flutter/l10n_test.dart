@@ -286,6 +286,12 @@ void main() {
       }
 
       await show(const HomeScreen());
+      // The carousel's "coming soon" cube and its label.
+      await show(const HomeScreen(), scroll: false);
+      await tester.tap(find.byKey(const ValueKey('size-soon')));
+      await _advance(tester, 10);
+      expect(find.byKey(const ValueKey('carousel-mystery')), findsOneWidget);
+      expect(tester.takeException(), isNull, reason: 'coming soon cube');
       await show(const AcademyScreen());
       // Lessons open on their goal card, then the lesson itself.
       for (final id in ['bigParity', 'twistCorners']) {

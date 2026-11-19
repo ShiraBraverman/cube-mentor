@@ -39,6 +39,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cubeLevel6 => '大师';
 
   @override
+  String get cubeComingSoon => '新魔方即将推出';
+
+  @override
+  String get carouselPrevious => '上一个魔方';
+
+  @override
+  String get carouselNext => '下一个魔方';
+
+  @override
   String get chooseMode => '你想做什么？';
 
   @override

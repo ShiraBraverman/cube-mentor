@@ -177,6 +177,24 @@ abstract class AppLocalizations {
   /// **'Master'**
   String get cubeLevel6;
 
+  /// No description provided for @cubeComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'New cube coming soon'**
+  String get cubeComingSoon;
+
+  /// No description provided for @carouselPrevious.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous cube'**
+  String get carouselPrevious;
+
+  /// No description provided for @carouselNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next cube'**
+  String get carouselNext;
+
   /// No description provided for @chooseMode.
   ///
   /// In en, this message translates to:

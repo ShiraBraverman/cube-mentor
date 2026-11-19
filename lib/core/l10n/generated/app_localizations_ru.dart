@@ -40,6 +40,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get cubeLevel6 => 'Мастер';
 
   @override
+  String get cubeComingSoon => 'Скоро новый кубик';
+
+  @override
+  String get carouselPrevious => 'Предыдущий кубик';
+
+  @override
+  String get carouselNext => 'Следующий кубик';
+
+  @override
   String get chooseMode => 'Что хотите сделать?';
 
   @override

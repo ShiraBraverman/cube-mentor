@@ -242,25 +242,74 @@ class GlowProgressBar extends StatelessWidget {
 /// ring split into the six sticker colors. Drawn behind the cube on Home
 /// and in the solver so the cube always reads as the hero of the screen.
 class CubeStage extends StatelessWidget {
-  const CubeStage({super.key, this.intensity = 1});
+  const CubeStage({super.key, this.intensity = 1, this.rotation = 0});
 
   final double intensity;
+
+  /// Turn of the six-color ring around the pedestal, in radians.
+  final double rotation;
 
   @override
   Widget build(BuildContext context) {
     return IgnorePointer(
       child: CustomPaint(
-        painter: _StagePainter(intensity),
+        painter: _StagePainter(intensity, rotation),
         size: Size.infinite,
       ),
     );
   }
 }
 
-class _StagePainter extends CustomPainter {
-  _StagePainter(this.intensity);
+/// [CubeStage] whose glowing ring turns slowly and endlessly.
+class RotatingCubeStage extends StatefulWidget {
+  const RotatingCubeStage({
+    super.key,
+    this.intensity = 1,
+    this.period = const Duration(seconds: 24),
+  });
 
   final double intensity;
+
+  /// Time for one full turn of the ring.
+  final Duration period;
+
+  @override
+  State<RotatingCubeStage> createState() => _RotatingCubeStageState();
+}
+
+class _RotatingCubeStageState extends State<RotatingCubeStage>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _turn = AnimationController(
+    vsync: this,
+    duration: widget.period,
+  )..repeat();
+
+  @override
+  void dispose() {
+    _turn.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return RepaintBoundary(
+      child: AnimatedBuilder(
+        animation: _turn,
+        builder: (context, _) => CubeStage(
+          key: const ValueKey('cube-stage'),
+          intensity: widget.intensity,
+          rotation: _turn.value * 2 * math.pi,
+        ),
+      ),
+    );
+  }
+}
+
+class _StagePainter extends CustomPainter {
+  _StagePainter(this.intensity, this.rotation);
+
+  final double intensity;
+  final double rotation;
 
   static const _order = [
     StickerColor.blue,
@@ -290,25 +339,39 @@ class _StagePainter extends CustomPainter {
         ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 12),
     );
 
-    // Six-color ring.
+    // Six-color ring: a soft glow under a crisp line, turned by [rotation].
     const gap = 0.05;
     const sweep = (2 * math.pi) / 6;
     for (var i = 0; i < 6; i++) {
       final color = AppColors.stickers[_order[i]]!;
+      final start = rotation + i * sweep + gap / 2;
       canvas.drawArc(
         floor,
-        i * sweep + gap / 2,
+        start,
+        sweep - gap,
+        false,
+        Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 5
+          ..strokeCap = StrokeCap.round
+          ..color = color.withValues(alpha: 0.22 * intensity)
+          ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 4),
+      );
+      canvas.drawArc(
+        floor,
+        start,
         sweep - gap,
         false,
         Paint()
           ..style = PaintingStyle.stroke
           ..strokeWidth = 1.6
           ..strokeCap = StrokeCap.round
-          ..color = color.withValues(alpha: 0.55 * intensity),
+          ..color = color.withValues(alpha: 0.6 * intensity),
       );
     }
   }
 
   @override
-  bool shouldRepaint(_StagePainter old) => old.intensity != intensity;
+  bool shouldRepaint(_StagePainter old) =>
+      old.intensity != intensity || old.rotation != rotation;
 }

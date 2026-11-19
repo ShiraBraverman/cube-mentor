@@ -40,6 +40,15 @@ class AppLocalizationsHi extends AppLocalizations {
   String get cubeLevel6 => 'मास्टर';
 
   @override
+  String get cubeComingSoon => 'नया क्यूब जल्द आ रहा है';
+
+  @override
+  String get carouselPrevious => 'पिछला क्यूब';
+
+  @override
+  String get carouselNext => 'अगला क्यूब';
+
+  @override
   String get chooseMode => 'आप क्या करना चाहते हैं?';
 
   @override

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../../core/cube/cube_state.dart';
@@ -10,6 +11,8 @@ class CubePreview extends StatefulWidget {
     required this.size,
     this.spin = false,
     this.cube,
+    this.orbit,
+    this.muted = const {},
   });
 
   final int size;
@@ -17,6 +20,13 @@ class CubePreview extends StatefulWidget {
 
   /// State to show (e.g. a pattern); solved when null.
   final CubeState? cube;
+
+  /// Orientation driven from outside (e.g. a finger orbit); replaces the
+  /// built-in spin when set.
+  final ValueListenable<CubeOrientation>? orbit;
+
+  /// Cubie ids drawn gray (a silhouette).
+  final Set<int> muted;
 
   @override
   State<CubePreview> createState() => _CubePreviewState();
@@ -61,18 +71,22 @@ class _CubePreviewState extends State<CubePreview>
 
   @override
   Widget build(BuildContext context) {
+    final orbit = widget.orbit;
     return RepaintBoundary(
       child: AnimatedBuilder(
-        animation: _spin,
+        animation: orbit ?? _spin,
         builder: (context, _) => CustomPaint(
           size: Size.infinite,
           painter: CubePainter(
             frame: CubeFrame(
               cube: _cube,
-              orbit: CubeOrientation.fromYawPitch(
-                yaw: _initialYaw + _spin.value * 6.283185307179586,
-                pitch: _initialPitch,
-              ),
+              orbit:
+                  orbit?.value ??
+                  CubeOrientation.fromYawPitch(
+                    yaw: _initialYaw + _spin.value * 6.283185307179586,
+                    pitch: _initialPitch,
+                  ),
+              muted: widget.muted,
             ),
           ),
         ),

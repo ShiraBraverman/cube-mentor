@@ -40,6 +40,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cubeLevel6 => 'محترف';
 
   @override
+  String get cubeComingSoon => 'مكعب جديد قريبًا';
+
+  @override
+  String get carouselPrevious => 'المكعب السابق';
+
+  @override
+  String get carouselNext => 'المكعب التالي';
+
+  @override
   String get chooseMode => 'ماذا تريد أن تفعل؟';
 
   @override

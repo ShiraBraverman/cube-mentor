@@ -39,6 +39,15 @@ class AppLocalizationsKo extends AppLocalizations {
   String get cubeLevel6 => '마스터';
 
   @override
+  String get cubeComingSoon => '새 큐브 곧 출시';
+
+  @override
+  String get carouselPrevious => '이전 큐브';
+
+  @override
+  String get carouselNext => '다음 큐브';
+
+  @override
   String get chooseMode => '무엇을 할까요?';
 
   @override
