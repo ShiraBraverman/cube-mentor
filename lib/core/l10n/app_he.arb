@@ -549,5 +549,9 @@
   "cancel": "ביטול",
   "settingsPrivacyAds": "פרטיות ופרסומות",
   "settingsPrivacyAdsDesc": "אפשרויות הפרסומות וההסכמה יופיעו כאן כשיתווספו פרסומות.",
-  "settingsComingSoon": "בקרוב"
+  "settingsComingSoon": "בקרוב",
+  "playbackPrevious": "הקודם",
+  "playbackNext": "הבא",
+  "fastSolveMoves": "{count, plural, =1{נפתר במהלך אחד!} =2{נפתר בשני מהלכים!} other{נפתר ב־{count} מהלכים!}}",
+  "fastSolveOptimal": "{count, plural, =1{אופטימלי: מהלך אחד} =2{אופטימלי: שני מהלכים} other{אופטימלי: {count} מהלכים}}"
 }

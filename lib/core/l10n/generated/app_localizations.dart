@@ -3422,6 +3422,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Coming soon'**
   String get settingsComingSoon;
+
+  /// Label of the playback button that steps one move back.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous'**
+  String get playbackPrevious;
+
+  /// Label of the playback button that steps one move forward.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get playbackNext;
+
+  /// Badge on a Fast (Kociemba) 3x3 solution: its total move count.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{Solved in 1 move!} other{Solved in {count} moves!}}'**
+  String fastSolveMoves(int count);
+
+  /// Badge on an optimal 2x2 solution: its total move count.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{Optimal: 1 move} other{Optimal: {count} moves}}'**
+  String fastSolveOptimal(int count);
 }
 
 class _AppLocalizationsDelegate

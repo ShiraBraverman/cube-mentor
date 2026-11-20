@@ -9,10 +9,17 @@ import 'preferences.dart';
 const double kMinAnimationSpeed = 0.25;
 const double kMaxAnimationSpeed = 3;
 
+/// Speed a fresh install starts with: a calm pace that is easy to follow
+/// while learning.
+const double kDefaultAnimationSpeed = 0.75;
+
 /// App-wide preferences edited in the Settings sheet.
 @immutable
 class AppSettings {
-  const AppSettings({this.soundHaptics = true, this.animationSpeed = 1.0});
+  const AppSettings({
+    this.soundHaptics = true,
+    this.animationSpeed = kDefaultAnimationSpeed,
+  });
 
   /// Clicks and vibrations on cube turns and the timer.
   final bool soundHaptics;
@@ -46,10 +53,8 @@ class AppSettingsController extends Notifier<AppSettings> {
     final prefs = _prefs!;
     return AppSettings(
       soundHaptics: prefs.getBool(_hapticsKey) ?? true,
-      animationSpeed: (prefs.getDouble(_speedKey) ?? 1.0).clamp(
-        kMinAnimationSpeed,
-        kMaxAnimationSpeed,
-      ),
+      animationSpeed: (prefs.getDouble(_speedKey) ?? kDefaultAnimationSpeed)
+          .clamp(kMinAnimationSpeed, kMaxAnimationSpeed),
     );
   }
 

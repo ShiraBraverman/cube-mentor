@@ -549,5 +549,9 @@
   "cancel": "취소",
   "settingsPrivacyAds": "개인정보 및 광고",
   "settingsPrivacyAdsDesc": "광고가 도입되면 광고 및 동의 설정이 여기에 표시돼요.",
-  "settingsComingSoon": "곧 제공"
+  "settingsComingSoon": "곧 제공",
+  "playbackPrevious": "이전",
+  "playbackNext": "다음",
+  "fastSolveMoves": "{count}수 만에 완성!",
+  "fastSolveOptimal": "최적해: {count}수"
 }

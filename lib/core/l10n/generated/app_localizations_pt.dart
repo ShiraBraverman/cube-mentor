@@ -1957,6 +1957,34 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get settingsComingSoon => 'Brevemente';
+
+  @override
+  String get playbackPrevious => 'Anterior';
+
+  @override
+  String get playbackNext => 'Seguinte';
+
+  @override
+  String fastSolveMoves(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Resolvido em $count movimentos!',
+      one: 'Resolvido em 1 movimento!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String fastSolveOptimal(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Solução ótima: $count movimentos',
+      one: 'Solução ótima: 1 movimento',
+    );
+    return '$_temp0';
+  }
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -3904,4 +3932,32 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get settingsComingSoon => 'Em breve';
+
+  @override
+  String get playbackPrevious => 'Anterior';
+
+  @override
+  String get playbackNext => 'Próximo';
+
+  @override
+  String fastSolveMoves(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Resolvido em $count movimentos!',
+      one: 'Resolvido em 1 movimento!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String fastSolveOptimal(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Solução ótima: $count movimentos',
+      one: 'Solução ótima: 1 movimento',
+    );
+    return '$_temp0';
+  }
 }

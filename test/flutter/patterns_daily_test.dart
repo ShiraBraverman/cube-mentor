@@ -156,8 +156,35 @@ void main() {
     expect(find.text('Checkerboard'), findsOneWidget);
     expect(find.text('Superflip'), findsOneWidget);
 
+    // Opens on the 3x3.
+    ChoiceChip chip(int size) =>
+        tester.widget<ChoiceChip>(find.byKey(ValueKey('patterns-size-$size')));
+    expect(chip(3).selected, isTrue);
+
+    // Swiping sideways moves to the next size and its chip.
+    await tester.fling(
+      find.byKey(const ValueKey('patterns-pages')),
+      const Offset(-300, 0),
+      1000,
+    );
+    await _advance(tester, 30);
+    expect(chip(4).selected, isTrue);
+    expect(chip(3).selected, isFalse);
+    expect(find.text('Checkerboard'), findsNothing);
+    expect(find.text('Dots'), findsOneWidget);
+
+    // Back to 3x3 by swipe, then to 4x4 again by chip.
+    await tester.fling(
+      find.byKey(const ValueKey('patterns-pages')),
+      const Offset(300, 0),
+      1000,
+    );
+    await _advance(tester, 30);
+    expect(chip(3).selected, isTrue);
+    expect(find.text('Checkerboard'), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey('patterns-size-4')));
-    await tester.pump();
+    await _advance(tester, 30);
+    expect(chip(4).selected, isTrue);
     expect(find.text('Checkerboard'), findsNothing);
     expect(find.text('Dots'), findsOneWidget);
 

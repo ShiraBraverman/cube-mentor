@@ -549,5 +549,9 @@
   "cancel": "Abbrechen",
   "settingsPrivacyAds": "Datenschutz & Werbung",
   "settingsPrivacyAdsDesc": "Werbe- und Einwilligungsoptionen erscheinen hier, sobald es Werbung gibt.",
-  "settingsComingSoon": "Demnächst"
+  "settingsComingSoon": "Demnächst",
+  "playbackPrevious": "Zurück",
+  "playbackNext": "Weiter",
+  "fastSolveMoves": "{count, plural, =1{In 1 Zug gelöst!} other{In {count} Zügen gelöst!}}",
+  "fastSolveOptimal": "{count, plural, =1{Optimal: 1 Zug} other{Optimal: {count} Züge}}"
 }

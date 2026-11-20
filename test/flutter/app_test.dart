@@ -17,8 +17,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'fake_cube_solver.dart';
 
+/// Stored preferences; cubes animate at 1x because the fixed pumps below
+/// are tuned to that pace (the app's default is calmer).
 Future<SharedPreferences> _prefs([Map<String, Object> values = const {}]) {
-  SharedPreferences.setMockInitialValues(values);
+  SharedPreferences.setMockInitialValues({
+    'settings_animation_speed': 1.0,
+    ...values,
+  });
   return SharedPreferences.getInstance();
 }
 
@@ -273,6 +278,23 @@ void main() {
     final viewport = tester.widget<CubeViewport>(find.byType(CubeViewport));
     final session = container.read(cubeSessionProvider(3));
     expect(viewport.highlighted, {session.cube.cubieIdAt((0, 2, 2))});
+    // The step buttons spell out which way they go.
+    expect(
+      find.descendant(
+        of: find.byKey(const ValueKey('playback-prev')),
+        matching: find.text('Previous'),
+      ),
+      findsOneWidget,
+    );
+    expect(
+      find.descendant(
+        of: find.byKey(const ValueKey('playback-next')),
+        matching: find.text('Next'),
+      ),
+      findsOneWidget,
+    );
+    // Guided solutions show stages, not a move count.
+    expect(find.byKey(const ValueKey('fast-move-count')), findsNothing);
 
     await tester.tap(find.byKey(const ValueKey('playback-next')));
     await _advance(tester, 12);
@@ -320,6 +342,13 @@ void main() {
     expect(container.read(cubeSessionProvider(3)).solvedWith, SolveMethod.fast);
     final prefs = container.read(sharedPreferencesProvider);
     expect(prefs.getString('solve_method'), 'fast');
+    // Fast solutions headline their total move count.
+    final moves = container.read(cubeSessionProvider(3)).playback.length;
+    expect(find.byKey(const ValueKey('fast-move-count')), findsOneWidget);
+    expect(
+      find.text(moves == 1 ? 'Solved in 1 move!' : 'Solved in $moves moves!'),
+      findsOneWidget,
+    );
   });
 
   testWidgets("the goal sheet's switch stops it opening by itself", (
@@ -400,8 +429,18 @@ void main() {
     await _advance(tester);
     await tester.tap(find.byKey(const ValueKey('solve')));
     await _advance(tester, 4);
+    // A floating pill under the app bar, never a snack bar over the buttons.
     expect(find.text('The cube is already solved.'), findsOneWidget);
+    expect(find.byKey(const ValueKey('solve-notice')), findsOneWidget);
+    expect(find.byType(SnackBar), findsNothing);
+    final notice = tester.getRect(find.byKey(const ValueKey('solve-notice')));
+    final bar = tester.getRect(find.byKey(const ValueKey('action-bar')));
+    expect(notice.bottom, lessThan(bar.top));
     expect(solver.calls, isEmpty);
+    // It fades away by itself.
+    await tester.pump(const Duration(milliseconds: 1600));
+    await _advance(tester, 6);
+    expect(find.byKey(const ValueKey('solve-notice')), findsNothing);
   });
 
   testWidgets('solver errors are reported', (tester) async {

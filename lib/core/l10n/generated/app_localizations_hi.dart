@@ -1944,4 +1944,32 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get settingsComingSoon => 'जल्द आ रहा है';
+
+  @override
+  String get playbackPrevious => 'पिछला';
+
+  @override
+  String get playbackNext => 'अगला';
+
+  @override
+  String fastSolveMoves(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count चालों में हल!',
+      one: '1 चाल में हल!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String fastSolveOptimal(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'सर्वोत्तम: $count चालें',
+      one: 'सर्वोत्तम: 1 चाल',
+    );
+    return '$_temp0';
+  }
 }

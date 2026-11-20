@@ -1945,4 +1945,32 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsComingSoon => 'Coming soon';
+
+  @override
+  String get playbackPrevious => 'Previous';
+
+  @override
+  String get playbackNext => 'Next';
+
+  @override
+  String fastSolveMoves(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Solved in $count moves!',
+      one: 'Solved in 1 move!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String fastSolveOptimal(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Optimal: $count moves',
+      one: 'Optimal: 1 move',
+    );
+    return '$_temp0';
+  }
 }

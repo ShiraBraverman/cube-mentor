@@ -1959,4 +1959,36 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get settingsComingSoon => 'Скоро';
+
+  @override
+  String get playbackPrevious => 'Назад';
+
+  @override
+  String get playbackNext => 'Далее';
+
+  @override
+  String fastSolveMoves(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Собран за $count хода!',
+      many: 'Собран за $count ходов!',
+      few: 'Собран за $count хода!',
+      one: 'Собран за $count ход!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String fastSolveOptimal(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Оптимально: $count хода',
+      many: 'Оптимально: $count ходов',
+      few: 'Оптимально: $count хода',
+      one: 'Оптимально: $count ход',
+    );
+    return '$_temp0';
+  }
 }

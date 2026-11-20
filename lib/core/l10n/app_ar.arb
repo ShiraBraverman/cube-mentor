@@ -549,5 +549,9 @@
   "cancel": "إلغاء",
   "settingsPrivacyAds": "الخصوصية والإعلانات",
   "settingsPrivacyAdsDesc": "ستظهر هنا خيارات الإعلانات والموافقة عند إضافة الإعلانات.",
-  "settingsComingSoon": "قريبًا"
+  "settingsComingSoon": "قريبًا",
+  "playbackPrevious": "السابق",
+  "playbackNext": "التالي",
+  "fastSolveMoves": "{count, plural, zero{حُلّ دون أي حركة!} one{حُلّ بحركة واحدة!} two{حُلّ بحركتين!} few{حُلّ في {count} حركات!} many{حُلّ في {count} حركة!} other{حُلّ في {count} حركة!}}",
+  "fastSolveOptimal": "{count, plural, zero{الحل الأمثل: بلا حركات} one{الحل الأمثل: حركة واحدة} two{الحل الأمثل: حركتان} few{الحل الأمثل: {count} حركات} many{الحل الأمثل: {count} حركة} other{الحل الأمثل: {count} حركة}}"
 }

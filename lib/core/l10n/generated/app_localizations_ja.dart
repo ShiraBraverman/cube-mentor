@@ -1847,4 +1847,20 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get settingsComingSoon => '近日公開';
+
+  @override
+  String get playbackPrevious => '前へ';
+
+  @override
+  String get playbackNext => '次へ';
+
+  @override
+  String fastSolveMoves(int count) {
+    return '$count手で完成！';
+  }
+
+  @override
+  String fastSolveOptimal(int count) {
+    return '最適解：$count手';
+  }
 }

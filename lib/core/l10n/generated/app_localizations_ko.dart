@@ -1851,4 +1851,20 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get settingsComingSoon => '곧 제공';
+
+  @override
+  String get playbackPrevious => '이전';
+
+  @override
+  String get playbackNext => '다음';
+
+  @override
+  String fastSolveMoves(int count) {
+    return '$count수 만에 완성!';
+  }
+
+  @override
+  String fastSolveOptimal(int count) {
+    return '최적해: $count수';
+  }
 }

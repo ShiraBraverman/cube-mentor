@@ -52,6 +52,10 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
     final secondary = textTheme.bodySmall?.copyWith(
       color: AppColors.textSecondary,
     );
+    // Fast solutions (2x2, 3x3) are short: their move count is the point.
+    final fast =
+        session.solvedWith == SolveMethod.fast &&
+        kFastSolveSizes.contains(size);
 
     if (complete) {
       final guided = session.steps.any((s) => s.hasCrown);
@@ -89,11 +93,14 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
                       color: AppColors.accentSecondary,
                     ),
                   ),
-                  Text(
-                    l10n.solveAllStagesDone,
-                    key: const ValueKey('solve-summary'),
-                    style: secondary,
-                  ),
+                  if (fast)
+                    FastMoveBadge(size: size, moves: session.playback.length)
+                  else
+                    Text(
+                      l10n.solveAllStagesDone,
+                      key: const ValueKey('solve-summary'),
+                      style: secondary,
+                    ),
                 ],
               ),
             ),
@@ -234,6 +241,20 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            if (fast)
+              Padding(
+                padding: const EdgeInsetsDirectional.only(
+                  top: 2,
+                  bottom: AppSpace.xxs,
+                ),
+                child: Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: FastMoveBadge(
+                    size: size,
+                    moves: session.playback.length,
+                  ),
+                ),
+              ),
             header,
             if (_expanded)
               // Long explanations scroll inside the dock, never over the cube.
@@ -257,6 +278,54 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
               ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+/// Headline of a Fast solution: "Solved in 18 moves!" (3x3) or
+/// "Optimal: 9 moves" (2x2, always the shortest solution).
+class FastMoveBadge extends StatelessWidget {
+  const FastMoveBadge({super.key, required this.size, required this.moves});
+
+  final int size;
+  final int moves;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    return Container(
+      key: const ValueKey('fast-move-count'),
+      padding: const EdgeInsetsDirectional.fromSTEB(8, 4, 12, 4),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(AppRadius.pill),
+        gradient: LinearGradient(
+          colors: [
+            AppColors.gold.withValues(alpha: 0.28),
+            AppColors.accentWarm.withValues(alpha: 0.16),
+          ],
+        ),
+        border: Border.all(color: AppColors.gold.withValues(alpha: 0.6)),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Icon(Icons.bolt_rounded, size: 18, color: AppColors.gold),
+          const SizedBox(width: 4),
+          Flexible(
+            child: Text(
+              size == 2
+                  ? l10n.fastSolveOptimal(moves)
+                  : l10n.fastSolveMoves(moves),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                color: AppColors.gold,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

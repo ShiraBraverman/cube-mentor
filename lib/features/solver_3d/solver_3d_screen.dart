@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
@@ -57,6 +59,25 @@ class Solver3DScreen extends ConsumerStatefulWidget {
 
 class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
   bool _reportedSolved = false;
+
+  /// Short message floating under the app bar (e.g. "already solved"),
+  /// never over the controls; null while hidden.
+  String? _notice;
+  Timer? _noticeTimer;
+
+  void _showNotice(String message) {
+    _noticeTimer?.cancel();
+    setState(() => _notice = message);
+    _noticeTimer = Timer(const Duration(milliseconds: 1500), () {
+      if (mounted) setState(() => _notice = null);
+    });
+  }
+
+  @override
+  void dispose() {
+    _noticeTimer?.cancel();
+    super.dispose();
+  }
 
   /// Sub-steps of the loaded guided solution whose goal card was shown.
   final Set<String> _introsShown = {};
@@ -228,6 +249,36 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
                           ),
                         ),
                       ),
+                    // Non-blocking notice under the app bar.
+                    PositionedDirectional(
+                      top: AppSpace.xs,
+                      start: AppSpace.lg,
+                      end: AppSpace.lg,
+                      child: IgnorePointer(
+                        child: Center(
+                          child: AnimatedSwitcher(
+                            duration: const Duration(milliseconds: 200),
+                            transitionBuilder: (child, animation) =>
+                                FadeTransition(
+                                  opacity: animation,
+                                  child: SlideTransition(
+                                    position: Tween(
+                                      begin: const Offset(0, -0.4),
+                                      end: Offset.zero,
+                                    ).animate(animation),
+                                    child: child,
+                                  ),
+                                ),
+                            child: _notice == null
+                                ? const SizedBox.shrink()
+                                : _NoticePill(
+                                    key: const ValueKey('solve-notice'),
+                                    message: _notice!,
+                                  ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -263,7 +314,7 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
                                 : controller.clearSolution,
                           ),
                         ] else
-                          _ActionBar(size: size),
+                          _ActionBar(size: size, onNotice: _showNotice),
                       ],
                     ),
                   ),
@@ -305,17 +356,23 @@ class _GuideDock extends ConsumerWidget {
         // Material's bidirectionality guidelines.
         textDirection: TextDirection.ltr,
         children: [
-          // Balances the Exit button so the media controls stay centered.
-          const SizedBox(width: 48),
-          const Spacer(),
-          IconButton(
-            key: const ValueKey('playback-prev'),
-            tooltip: l10n.previousMove,
-            iconSize: 28,
-            onPressed: free && session.canStepBack ? controller.stepBack : null,
-            icon: const Icon(Icons.skip_previous_rounded),
+          // Previous and Next share the room left and right of Play, with
+          // their labels spelled out so new users know which way they go.
+          Expanded(
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: _StepButton(
+                key: const ValueKey('playback-prev'),
+                tooltip: l10n.previousMove,
+                label: l10n.playbackPrevious,
+                icon: Icons.skip_previous_rounded,
+                onPressed: free && session.canStepBack
+                    ? controller.stepBack
+                    : null,
+              ),
+            ),
           ),
-          const SizedBox(width: AppSpace.sm),
+          const SizedBox(width: AppSpace.xxs),
           IconButton.filled(
             key: const ValueKey('playback-play'),
             tooltip: session.isPlaying ? l10n.pause : l10n.play,
@@ -334,17 +391,22 @@ class _GuideDock extends ConsumerWidget {
                   : Icons.play_arrow_rounded,
             ),
           ),
-          const SizedBox(width: AppSpace.sm),
-          IconButton(
-            key: const ValueKey('playback-next'),
-            tooltip: l10n.nextMove,
-            iconSize: 28,
-            onPressed: free && session.canStepForward
-                ? controller.stepForward
-                : null,
-            icon: const Icon(Icons.skip_next_rounded),
+          const SizedBox(width: AppSpace.xxs),
+          Expanded(
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: _StepButton(
+                key: const ValueKey('playback-next'),
+                tooltip: l10n.nextMove,
+                label: l10n.playbackNext,
+                icon: Icons.skip_next_rounded,
+                iconAfter: true,
+                onPressed: free && session.canStepForward
+                    ? controller.stepForward
+                    : null,
+              ),
+            ),
           ),
-          const Spacer(),
           IconButton(
             key: const ValueKey('guide-exit'),
             tooltip: l10n.guideExit,
@@ -357,11 +419,110 @@ class _GuideDock extends ConsumerWidget {
   }
 }
 
+/// A Previous / Next playback button: icon and spelled-out label. The
+/// icon always sits on the outer side (media controls stay LTR).
+class _StepButton extends StatelessWidget {
+  const _StepButton({
+    super.key,
+    required this.tooltip,
+    required this.label,
+    required this.icon,
+    required this.onPressed,
+    this.iconAfter = false,
+  });
+
+  final String tooltip;
+  final String label;
+  final IconData icon;
+  final VoidCallback? onPressed;
+
+  /// Puts the icon after the label (Next).
+  final bool iconAfter;
+
+  @override
+  Widget build(BuildContext context) {
+    final glyph = Icon(icon, size: 26);
+    final text = Flexible(
+      child: FittedBox(fit: BoxFit.scaleDown, child: Text(label, maxLines: 1)),
+    );
+    return Tooltip(
+      message: tooltip,
+      child: TextButton(
+        onPressed: onPressed,
+        style: TextButton.styleFrom(
+          foregroundColor: AppColors.textPrimary,
+          minimumSize: const Size(48, 48),
+          padding: const EdgeInsets.symmetric(horizontal: AppSpace.xs),
+          textStyle: Theme.of(context).textTheme.labelLarge
+              ?.copyWith(fontWeight: FontWeight.w700),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          textDirection: TextDirection.ltr,
+          children: iconAfter
+              ? [text, const SizedBox(width: 4), glyph]
+              : [glyph, const SizedBox(width: 4), text],
+        ),
+      ),
+    );
+  }
+}
+
+/// Floating pill under the app bar for short, non-blocking notices.
+class _NoticePill extends StatelessWidget {
+  const _NoticePill({super.key, required this.message});
+
+  final String message;
+
+  @override
+  Widget build(BuildContext context) => Container(
+    padding: const EdgeInsets.symmetric(
+      horizontal: AppSpace.md,
+      vertical: AppSpace.xs,
+    ),
+    decoration: BoxDecoration(
+      color: AppColors.surfaceRaised.withValues(alpha: 0.92),
+      borderRadius: BorderRadius.circular(AppRadius.pill),
+      border: Border.all(
+        color: AppColors.accentSecondary.withValues(alpha: 0.5),
+      ),
+      boxShadow: const [
+        BoxShadow(color: Colors.black38, blurRadius: 16, spreadRadius: -4),
+      ],
+    ),
+    child: Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const Icon(
+          Icons.info_outline_rounded,
+          size: 18,
+          color: AppColors.accentSecondary,
+        ),
+        const SizedBox(width: AppSpace.xs),
+        Flexible(
+          child: Text(
+            message,
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              color: AppColors.textPrimary,
+              fontWeight: FontWeight.w600,
+            ),
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
 /// Free play: Scramble / Solve / Undo / Reset.
 class _ActionBar extends ConsumerWidget {
-  const _ActionBar({required this.size});
+  const _ActionBar({required this.size, required this.onNotice});
 
   final int size;
+
+  /// Shows a short message in the floating pill under the app bar.
+  final ValueChanged<String> onNotice;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -424,19 +585,14 @@ extension on _ActionBar {
     final session = ref.read(cubeSessionProvider(size));
     final controller = ref.read(cubeSessionProvider(size).notifier);
     final solver = ref.read(cubeSolverProvider);
-    final messenger = ScaffoldMessenger.of(context);
-    void say(String message) => messenger
-      ..hideCurrentSnackBar()
-      ..showSnackBar(SnackBar(content: Text(message)));
-
     if (session.cube.isSolved) {
-      say(l10n.solveAlreadySolved);
+      onNotice(l10n.solveAlreadySolved);
       return;
     }
     final guided = solver.supports(size, SolveMethod.layerByLayer);
     final fast = solver.supports(size, SolveMethod.fast);
     if (!guided && !fast) {
-      say(l10n.solveUnavailable(size));
+      onNotice(l10n.solveUnavailable(size));
       return;
     }
     // Guided by default. Only sizes with both modes (2x2, 3x3) follow the
