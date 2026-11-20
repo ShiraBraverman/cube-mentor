@@ -1963,10 +1963,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get settingsPrivacyAdsDesc =>
-      'Lalabas dito ang mga pagpipilian sa ads at pahintulot kapag may ads na.';
-
-  @override
-  String get settingsComingSoon => 'Malapit na';
+      'Suriin o baguhin ang mga pagpipilian mo sa pahintulot sa ads.';
 
   @override
   String get playbackPrevious => 'Nakaraan';
@@ -1994,4 +1991,22 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get feedbackEmailCopied =>
       'Walang nakitang email app, kaya kinopya namin ang address sa clipboard.';
+
+  @override
+  String get adWatchToUnlock => 'Manood ng ad';
+
+  @override
+  String get adLoading => 'Naglo-load ng maikling video…';
+
+  @override
+  String get adRewardNotEarned =>
+      'Panoorin ang buong video para ma-unlock ito.';
+
+  @override
+  String get adUnavailableFreePass =>
+      'Walang available na video ngayon — libreng na-unlock ngayong pagkakataon.';
+
+  @override
+  String get settingsPrivacyAdsError =>
+      'Hindi mabuksan ang mga opsyon sa privacy. Subukan ulit mamaya.';
 }

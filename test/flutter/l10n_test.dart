@@ -34,6 +34,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'fake_ad_service.dart';
 import 'fake_cube_solver.dart';
 import 'fake_scan_analyzer.dart';
 import 'fake_scrambler.dart';
@@ -309,6 +310,8 @@ void main() {
               cubeSolverProvider.overrideWithValue(guided),
               clockProvider.overrideWithValue(() => DateTime(2026, 11, 16, 8)),
               scanAnalyzerProvider.overrideWithValue(FakeScanAnalyzer()),
+              // Banners, "Watch ad" badges and the privacy entry on.
+              ...adsOnOverrides(),
             ],
             child: testApp(screen, locale: language.locale),
           ),

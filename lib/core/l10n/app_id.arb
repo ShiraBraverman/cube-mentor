@@ -548,13 +548,17 @@
   "resetProgressDone": "Progres diatur ulang.",
   "cancel": "Batal",
   "settingsPrivacyAds": "Privasi & iklan",
-  "settingsPrivacyAdsDesc": "Pilihan iklan dan persetujuan akan muncul di sini saat iklan hadir.",
-  "settingsComingSoon": "Segera hadir",
+  "settingsPrivacyAdsDesc": "Tinjau atau ubah pilihan persetujuan iklan Anda.",
   "playbackPrevious": "Sebelumnya",
   "playbackNext": "Berikutnya",
   "fastSolveMoves": "Selesai dalam {count} gerakan!",
   "fastSolveOptimal": "Optimal: {count} gerakan",
   "feedbackTitle": "Bentuk Versi Berikutnya",
   "feedbackBody": "Ingin menyarankan fitur atau ikut menentukan versi CubeMentor berikutnya? Kirim email ke:",
-  "feedbackEmailCopied": "Aplikasi email tidak ditemukan, jadi alamatnya kami salin ke papan klip."
+  "feedbackEmailCopied": "Aplikasi email tidak ditemukan, jadi alamatnya kami salin ke papan klip.",
+  "adWatchToUnlock": "Tonton iklan",
+  "adLoading": "Memuat video singkat…",
+  "adRewardNotEarned": "Tonton video sampai selesai untuk membukanya.",
+  "adUnavailableFreePass": "Tidak ada video saat ini — dibuka gratis kali ini.",
+  "settingsPrivacyAdsError": "Tidak dapat membuka opsi privasi. Coba lagi nanti."
 }

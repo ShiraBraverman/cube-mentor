@@ -1937,10 +1937,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get settingsPrivacyAdsDesc =>
-      'ستظهر هنا خيارات الإعلانات والموافقة عند إضافة الإعلانات.';
-
-  @override
-  String get settingsComingSoon => 'قريبًا';
+      'راجع خيارات موافقتك على الإعلانات أو غيّرها.';
 
   @override
   String get playbackPrevious => 'السابق';
@@ -1988,4 +1985,21 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get feedbackEmailCopied =>
       'لم يُعثر على تطبيق بريد، لذا نسخنا العنوان إلى الحافظة.';
+
+  @override
+  String get adWatchToUnlock => 'شاهد إعلانًا';
+
+  @override
+  String get adLoading => 'جارٍ تحميل فيديو قصير…';
+
+  @override
+  String get adRewardNotEarned => 'شاهد الفيديو كاملًا لفتح القفل.';
+
+  @override
+  String get adUnavailableFreePass =>
+      'لا يتوفر فيديو حاليًا — تم الفتح مجانًا هذه المرة.';
+
+  @override
+  String get settingsPrivacyAdsError =>
+      'تعذّر فتح خيارات الخصوصية. حاول مرة أخرى لاحقًا.';
 }

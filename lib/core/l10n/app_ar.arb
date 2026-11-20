@@ -548,13 +548,17 @@
   "resetProgressDone": "تمت إعادة ضبط التقدّم.",
   "cancel": "إلغاء",
   "settingsPrivacyAds": "الخصوصية والإعلانات",
-  "settingsPrivacyAdsDesc": "ستظهر هنا خيارات الإعلانات والموافقة عند إضافة الإعلانات.",
-  "settingsComingSoon": "قريبًا",
+  "settingsPrivacyAdsDesc": "راجع خيارات موافقتك على الإعلانات أو غيّرها.",
   "playbackPrevious": "السابق",
   "playbackNext": "التالي",
   "fastSolveMoves": "{count, plural, zero{حُلّ دون أي حركة!} one{حُلّ بحركة واحدة!} two{حُلّ بحركتين!} few{حُلّ في {count} حركات!} many{حُلّ في {count} حركة!} other{حُلّ في {count} حركة!}}",
   "fastSolveOptimal": "{count, plural, zero{الحل الأمثل: بلا حركات} one{الحل الأمثل: حركة واحدة} two{الحل الأمثل: حركتان} few{الحل الأمثل: {count} حركات} many{الحل الأمثل: {count} حركة} other{الحل الأمثل: {count} حركة}}",
   "feedbackTitle": "ساهم في تشكيل الإصدار القادم",
   "feedbackBody": "هل تريد اقتراح ميزة أو التأثير في الإصدار القادم من CubeMentor؟ راسلنا على:",
-  "feedbackEmailCopied": "لم يُعثر على تطبيق بريد، لذا نسخنا العنوان إلى الحافظة."
+  "feedbackEmailCopied": "لم يُعثر على تطبيق بريد، لذا نسخنا العنوان إلى الحافظة.",
+  "adWatchToUnlock": "شاهد إعلانًا",
+  "adLoading": "جارٍ تحميل فيديو قصير…",
+  "adRewardNotEarned": "شاهد الفيديو كاملًا لفتح القفل.",
+  "adUnavailableFreePass": "لا يتوفر فيديو حاليًا — تم الفتح مجانًا هذه المرة.",
+  "settingsPrivacyAdsError": "تعذّر فتح خيارات الخصوصية. حاول مرة أخرى لاحقًا."
 }

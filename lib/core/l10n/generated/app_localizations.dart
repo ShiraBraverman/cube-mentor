@@ -3415,17 +3415,11 @@ abstract class AppLocalizations {
   /// **'Privacy & ads'**
   String get settingsPrivacyAds;
 
-  /// No description provided for @settingsPrivacyAdsDesc.
+  /// Subtitle of the Settings entry that reopens the ad consent (privacy options) form.
   ///
   /// In en, this message translates to:
-  /// **'Ad and consent choices will appear here once ads arrive.'**
+  /// **'Review or change your ad consent choices.'**
   String get settingsPrivacyAdsDesc;
-
-  /// No description provided for @settingsComingSoon.
-  ///
-  /// In en, this message translates to:
-  /// **'Coming soon'**
-  String get settingsComingSoon;
 
   /// Label of the playback button that steps one move back.
   ///
@@ -3468,6 +3462,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No email app found, so we copied the address to your clipboard.'**
   String get feedbackEmailCopied;
+
+  /// Badge on a locked advanced lesson: it opens after a short rewarded video ad.
+  ///
+  /// In en, this message translates to:
+  /// **'Watch ad'**
+  String get adWatchToUnlock;
+
+  /// Dialog text while a rewarded video ad loads.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading a short video…'**
+  String get adLoading;
+
+  /// Snack bar when the user closes a rewarded video before the reward.
+  ///
+  /// In en, this message translates to:
+  /// **'Watch the whole video to unlock it.'**
+  String get adRewardNotEarned;
+
+  /// Snack bar when no rewarded video could load (e.g. offline) and the feature was unlocked anyway.
+  ///
+  /// In en, this message translates to:
+  /// **'No video available right now — unlocked for free this time.'**
+  String get adUnavailableFreePass;
+
+  /// Snack bar when the privacy options form could not be shown.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t open the privacy options. Try again later.'**
+  String get settingsPrivacyAdsError;
 }
 
 class _AppLocalizationsDelegate

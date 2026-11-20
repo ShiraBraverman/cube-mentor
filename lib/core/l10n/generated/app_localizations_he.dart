@@ -1923,10 +1923,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get settingsPrivacyAdsDesc =>
-      'אפשרויות הפרסומות וההסכמה יופיעו כאן כשיתווספו פרסומות.';
-
-  @override
-  String get settingsComingSoon => 'בקרוב';
+      'עיון בבחירות ההסכמה לפרסומות או שינוין.';
 
   @override
   String get playbackPrevious => 'הקודם';
@@ -1968,4 +1965,20 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get feedbackEmailCopied =>
       'לא נמצאה אפליקציית דוא\"ל, אז העתקנו את הכתובת ללוח.';
+
+  @override
+  String get adWatchToUnlock => 'צפייה בפרסומת';
+
+  @override
+  String get adLoading => 'טוען סרטון קצר…';
+
+  @override
+  String get adRewardNotEarned => 'צפו בסרטון עד הסוף כדי לפתוח.';
+
+  @override
+  String get adUnavailableFreePass => 'אין סרטון זמין כרגע — נפתח בחינם הפעם.';
+
+  @override
+  String get settingsPrivacyAdsError =>
+      'לא ניתן לפתוח את אפשרויות הפרטיות. נסו שוב מאוחר יותר.';
 }

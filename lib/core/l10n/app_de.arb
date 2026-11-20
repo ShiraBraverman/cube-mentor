@@ -548,13 +548,17 @@
   "resetProgressDone": "Fortschritt zurückgesetzt.",
   "cancel": "Abbrechen",
   "settingsPrivacyAds": "Datenschutz & Werbung",
-  "settingsPrivacyAdsDesc": "Werbe- und Einwilligungsoptionen erscheinen hier, sobald es Werbung gibt.",
-  "settingsComingSoon": "Demnächst",
+  "settingsPrivacyAdsDesc": "Prüfe oder ändere deine Einwilligung zu Werbung.",
   "playbackPrevious": "Zurück",
   "playbackNext": "Weiter",
   "fastSolveMoves": "{count, plural, =1{In 1 Zug gelöst!} other{In {count} Zügen gelöst!}}",
   "fastSolveOptimal": "{count, plural, =1{Optimal: 1 Zug} other{Optimal: {count} Züge}}",
   "feedbackTitle": "Gestalte die nächste Version mit",
   "feedbackBody": "Du möchtest eine Funktion vorschlagen oder die nächste Version von CubeMentor mitgestalten? Schreib uns an:",
-  "feedbackEmailCopied": "Keine E-Mail-App gefunden – die Adresse wurde in die Zwischenablage kopiert."
+  "feedbackEmailCopied": "Keine E-Mail-App gefunden – die Adresse wurde in die Zwischenablage kopiert.",
+  "adWatchToUnlock": "Werbung ansehen",
+  "adLoading": "Kurzes Video wird geladen …",
+  "adRewardNotEarned": "Sieh dir das ganze Video an, um freizuschalten.",
+  "adUnavailableFreePass": "Gerade ist kein Video verfügbar – diesmal kostenlos freigeschaltet.",
+  "settingsPrivacyAdsError": "Die Datenschutzoptionen konnten nicht geöffnet werden. Versuch es später noch einmal."
 }

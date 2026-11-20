@@ -548,13 +548,17 @@
   "resetProgressDone": "进度已重置。",
   "cancel": "取消",
   "settingsPrivacyAds": "隐私与广告",
-  "settingsPrivacyAdsDesc": "广告上线后，广告和同意选项将显示在这里。",
-  "settingsComingSoon": "即将推出",
+  "settingsPrivacyAdsDesc": "查看或更改你的广告同意选项。",
   "playbackPrevious": "上一步",
   "playbackNext": "下一步",
   "fastSolveMoves": "{count} 步完成还原！",
   "fastSolveOptimal": "最优解：{count} 步",
   "feedbackTitle": "一起打造下一个版本",
   "feedbackBody": "想建议新功能，或参与塑造 CubeMentor 的下一个版本？欢迎发邮件至：",
-  "feedbackEmailCopied": "未找到邮件应用，已将邮箱地址复制到剪贴板。"
+  "feedbackEmailCopied": "未找到邮件应用，已将邮箱地址复制到剪贴板。",
+  "adWatchToUnlock": "看广告解锁",
+  "adLoading": "正在加载短视频…",
+  "adRewardNotEarned": "完整观看视频即可解锁。",
+  "adUnavailableFreePass": "暂时没有可用视频，本次免费解锁。",
+  "settingsPrivacyAdsError": "无法打开隐私选项，请稍后重试。"
 }

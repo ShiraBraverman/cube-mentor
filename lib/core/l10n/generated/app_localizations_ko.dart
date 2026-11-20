@@ -1847,10 +1847,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get settingsPrivacyAds => '개인정보 및 광고';
 
   @override
-  String get settingsPrivacyAdsDesc => '광고가 도입되면 광고 및 동의 설정이 여기에 표시돼요.';
-
-  @override
-  String get settingsComingSoon => '곧 제공';
+  String get settingsPrivacyAdsDesc => '광고 동의 설정을 확인하거나 변경해요.';
 
   @override
   String get playbackPrevious => '이전';
@@ -1877,4 +1874,19 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get feedbackEmailCopied => '이메일 앱을 찾을 수 없어 주소를 클립보드에 복사했어요.';
+
+  @override
+  String get adWatchToUnlock => '광고 보기';
+
+  @override
+  String get adLoading => '짧은 동영상을 불러오는 중…';
+
+  @override
+  String get adRewardNotEarned => '끝까지 시청하면 잠금이 해제돼요.';
+
+  @override
+  String get adUnavailableFreePass => '지금은 볼 수 있는 동영상이 없어요. 이번에는 무료로 열어 드렸어요.';
+
+  @override
+  String get settingsPrivacyAdsError => '개인정보 옵션을 열 수 없어요. 잠시 후 다시 시도해 주세요.';
 }

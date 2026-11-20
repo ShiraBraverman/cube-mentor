@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../core/ads/app_banner_ad.dart';
 import '../../core/feedback/feedback_service.dart';
 import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/theme/app_colors.dart';
@@ -59,7 +60,15 @@ class RootShell extends ConsumerWidget {
               page(AppTab.train, const TrainScreen()),
             ],
           ),
-          bottomNavigationBar: const GlassDock(),
+          // The banner sits between the page and the dock, never over the
+          // content; it is hidden while the camera preview is on screen.
+          bottomNavigationBar: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              AppBannerAd(visible: tab != AppTab.scan),
+              const GlassDock(),
+            ],
+          ),
         ),
       ),
     );

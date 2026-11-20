@@ -6,8 +6,11 @@ plugins {
 
 android {
     namespace = "com.cubementor.cube_mentor"
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    // Android 16 (API 36).
+    compileSdk = 36
+    // NDK r27+ links 16 KB-page-aligned shared libraries for Android 15+
+    // devices with 16 KB memory pages (Play requirement for targetSdk 35+).
+    ndkVersion = "28.2.13676358" // NDK r28 (>= r27)
 
     // Release lint crashes inside AGP while parsing the camera plugin's
     // Javadoc (NoSuchMethodError in JavaDocParser); analysis and tests run
@@ -26,8 +29,9 @@ android {
         applicationId = "com.cubementor.cube_mentor"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
+        // google_mobile_ads requires API 24+.
+        minSdk = 24
+        targetSdk = 36
         // Uses the version code from pubspec.yaml. When using split APKs, 1000 * ABI_VERSION
         // is added automatically by Flutter. (https://developer.android.com/studio/build/configure-apk-splits#configure-APK-versions)
         // You can force using the value of versionCode by specifying the `-P force-version-code-ignoring-abi=true`
@@ -37,7 +41,11 @@ android {
 
         externalNativeBuild {
             cmake {
-                arguments += listOf("-DANDROID_STL=c++_static")
+                arguments += listOf(
+                    "-DANDROID_STL=c++_static",
+                    // 16 KB page size support for libcubementor.so.
+                    "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON",
+                )
             }
         }
     }

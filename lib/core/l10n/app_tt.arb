@@ -548,13 +548,17 @@
   "resetProgressDone": "Алгарыш ташлатылды.",
   "cancel": "Баш тарту",
   "settingsPrivacyAds": "Хосусыйлык һәм реклама",
-  "settingsPrivacyAdsDesc": "Реклама барлыкка килгәч, реклама һәм ризалык көйләүләре монда булачак.",
-  "settingsComingSoon": "Тиздән",
+  "settingsPrivacyAdsDesc": "Реклама ризалыгы көйләүләрен карагыз яки үзгәртегез.",
   "playbackPrevious": "Артка",
   "playbackNext": "Алга",
   "fastSolveMoves": "{count, plural, =1{1 хәрәкәттә җыелды!} other{{count} хәрәкәттә җыелды!}}",
   "fastSolveOptimal": "{count, plural, =1{Оптималь: 1 хәрәкәт} other{Оптималь: {count} хәрәкәт}}",
   "feedbackTitle": "Киләсе версияне бергә төзик",
   "feedbackBody": "Яңа мөмкинлек тәкъдим итәсегез яки CubeMentorның киләсе версиясенә йогынты ясыйсыгыз киләме? Безгә языгыз:",
-  "feedbackEmailCopied": "Почта кушымтасы табылмады, шуңа күрә адрес алмашу буферына күчерелде."
+  "feedbackEmailCopied": "Почта кушымтасы табылмады, шуңа күрә адрес алмашу буферына күчерелде.",
+  "adWatchToUnlock": "Реклама карау",
+  "adLoading": "Кыска видео йөкләнә…",
+  "adRewardNotEarned": "Ачу өчен видеоны ахырына кадәр карагыз.",
+  "adUnavailableFreePass": "Хәзер видео юк — бу юлы бушлай ачылды.",
+  "settingsPrivacyAdsError": "Хосусыйлык көйләүләрен ачып булмады. Соңрак тагын карагыз."
 }

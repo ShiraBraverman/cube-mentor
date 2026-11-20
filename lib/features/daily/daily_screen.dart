@@ -1,6 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../core/ads/reward_gate.dart';
+import '../../core/ads/reward_prompt.dart';
 import '../../core/cube/cube_move.dart';
 import '../../core/cube/cube_state.dart';
 import '../../core/l10n/generated/app_localizations.dart';
@@ -269,7 +271,16 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
                   key: const ValueKey('daily-hint'),
                   onPressed: cube == null || hint != null
                       ? null
-                      : controller.requestHint,
+                      : () async {
+                          // A rewarded ad unlocks today's hints.
+                          if (await unlockWithFeedback(
+                            context,
+                            ref,
+                            RewardFeature.dailyHint,
+                          )) {
+                            await controller.requestHint();
+                          }
+                        },
                   icon: const Icon(Icons.lightbulb_outline_rounded),
                   label: Text(l10n.dailyHint),
                 ),

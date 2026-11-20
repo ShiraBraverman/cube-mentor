@@ -164,15 +164,23 @@ class _CameraScanViewState extends State<CameraScanView>
       final frame = _toFrame(image);
       if (frame == null) return;
       final n = widget.size;
-      final preview = _controller?.value.previewSize;
-      if (preview == null) return;
-      // The preview is shown upright (portrait): width/height swap.
-      final upright = Size(preview.height, preview.width);
+      final value = _controller?.value;
+      final preview = value?.previewSize;
+      if (value == null || preview == null) return;
+      // Portrait on phones; tablets and foldables may run in landscape.
+      final rotation = sensorToDisplayRotation(
+        _sensorOrientation,
+        value.deviceOrientation,
+      );
+      // A quarter turn swaps the preview's width and height on screen.
+      final upright = rotation % 180 == 0
+          ? preview
+          : Size(preview.height, preview.width);
       final cells = sampleGrid(
         frame,
         n,
         gridRect(upright),
-        sensorOrientation: _sensorOrientation,
+        sensorOrientation: rotation,
       );
       final smoothed = _smoothed;
       final next = [

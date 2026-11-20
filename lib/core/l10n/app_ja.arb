@@ -548,13 +548,17 @@
   "resetProgressDone": "進捗をリセットしました。",
   "cancel": "キャンセル",
   "settingsPrivacyAds": "プライバシーと広告",
-  "settingsPrivacyAdsDesc": "広告の導入後、広告と同意の設定がここに表示されます。",
-  "settingsComingSoon": "近日公開",
+  "settingsPrivacyAdsDesc": "広告の同意設定を確認・変更できます。",
   "playbackPrevious": "前へ",
   "playbackNext": "次へ",
   "fastSolveMoves": "{count}手で完成！",
   "fastSolveOptimal": "最適解：{count}手",
   "feedbackTitle": "次のバージョンを一緒に作ろう",
   "feedbackBody": "機能の提案や、CubeMentor の次のバージョンへのご意見はこちらまで：",
-  "feedbackEmailCopied": "メールアプリが見つからないため、アドレスをクリップボードにコピーしました。"
+  "feedbackEmailCopied": "メールアプリが見つからないため、アドレスをクリップボードにコピーしました。",
+  "adWatchToUnlock": "広告を見る",
+  "adLoading": "短い動画を読み込み中…",
+  "adRewardNotEarned": "最後まで視聴するとロックが解除されます。",
+  "adUnavailableFreePass": "現在視聴できる動画がありません。今回は無料で解除しました。",
+  "settingsPrivacyAdsError": "プライバシー設定を開けませんでした。しばらくしてからもう一度お試しください。"
 }

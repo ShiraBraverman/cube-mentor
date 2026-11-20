@@ -1946,10 +1946,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get settingsPrivacyAdsDesc =>
-      'Pilihan iklan dan persetujuan akan muncul di sini saat iklan hadir.';
-
-  @override
-  String get settingsComingSoon => 'Segera hadir';
+      'Tinjau atau ubah pilihan persetujuan iklan Anda.';
 
   @override
   String get playbackPrevious => 'Sebelumnya';
@@ -1977,4 +1974,22 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get feedbackEmailCopied =>
       'Aplikasi email tidak ditemukan, jadi alamatnya kami salin ke papan klip.';
+
+  @override
+  String get adWatchToUnlock => 'Tonton iklan';
+
+  @override
+  String get adLoading => 'Memuat video singkat…';
+
+  @override
+  String get adRewardNotEarned =>
+      'Tonton video sampai selesai untuk membukanya.';
+
+  @override
+  String get adUnavailableFreePass =>
+      'Tidak ada video saat ini — dibuka gratis kali ini.';
+
+  @override
+  String get settingsPrivacyAdsError =>
+      'Tidak dapat membuka opsi privasi. Coba lagi nanti.';
 }

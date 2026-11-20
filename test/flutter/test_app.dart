@@ -6,7 +6,7 @@ import 'package:material_ui/material_ui.dart';
 /// A localized, themed app around a single screen.
 Widget testApp(Widget home, {Locale locale = const Locale('en')}) =>
     MaterialApp(
-      theme: AppTheme.dark(),
+      theme: AppTheme.dark(languageCode: locale.languageCode),
       locale: locale,
       supportedLocales: kSupportedLocales,
       localizationsDelegates: kAppLocalizationsDelegates,

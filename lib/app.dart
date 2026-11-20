@@ -15,11 +15,13 @@ class CubeMentorApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final locale = ref.watch(localeProvider);
+    // Extra line height for Arabic, Hebrew, Bengali and Hindi glyphs.
+    final theme = AppTheme.dark(languageCode: locale.languageCode);
     return MaterialApp(
       onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.dark(),
-      darkTheme: AppTheme.dark(),
+      theme: theme,
+      darkTheme: theme,
       themeMode: ThemeMode.dark,
       locale: locale,
       supportedLocales: kSupportedLocales,

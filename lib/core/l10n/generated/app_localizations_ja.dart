@@ -1843,10 +1843,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get settingsPrivacyAds => 'プライバシーと広告';
 
   @override
-  String get settingsPrivacyAdsDesc => '広告の導入後、広告と同意の設定がここに表示されます。';
-
-  @override
-  String get settingsComingSoon => '近日公開';
+  String get settingsPrivacyAdsDesc => '広告の同意設定を確認・変更できます。';
 
   @override
   String get playbackPrevious => '前へ';
@@ -1872,4 +1869,20 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get feedbackEmailCopied => 'メールアプリが見つからないため、アドレスをクリップボードにコピーしました。';
+
+  @override
+  String get adWatchToUnlock => '広告を見る';
+
+  @override
+  String get adLoading => '短い動画を読み込み中…';
+
+  @override
+  String get adRewardNotEarned => '最後まで視聴するとロックが解除されます。';
+
+  @override
+  String get adUnavailableFreePass => '現在視聴できる動画がありません。今回は無料で解除しました。';
+
+  @override
+  String get settingsPrivacyAdsError =>
+      'プライバシー設定を開けませんでした。しばらくしてからもう一度お試しください。';
 }

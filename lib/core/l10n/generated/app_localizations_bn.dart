@@ -1936,10 +1936,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get settingsPrivacyAdsDesc =>
-      'বিজ্ঞাপন এলে বিজ্ঞাপন আর সম্মতির পছন্দগুলো এখানে দেখা যাবে।';
-
-  @override
-  String get settingsComingSoon => 'শিগগিরই আসছে';
+      'বিজ্ঞাপনের সম্মতির পছন্দগুলো দেখুন বা বদলান।';
 
   @override
   String get playbackPrevious => 'পূর্ববর্তী';
@@ -1979,4 +1976,21 @@ class AppLocalizationsBn extends AppLocalizations {
   @override
   String get feedbackEmailCopied =>
       'কোনো ইমেইল অ্যাপ পাওয়া যায়নি, তাই ঠিকানাটি ক্লিপবোর্ডে কপি করা হয়েছে।';
+
+  @override
+  String get adWatchToUnlock => 'বিজ্ঞাপন দেখুন';
+
+  @override
+  String get adLoading => 'একটি ছোট ভিডিও লোড হচ্ছে…';
+
+  @override
+  String get adRewardNotEarned => 'আনলক করতে পুরো ভিডিওটি দেখুন।';
+
+  @override
+  String get adUnavailableFreePass =>
+      'এখন কোনো ভিডিও নেই — এবার বিনামূল্যে আনলক হলো।';
+
+  @override
+  String get settingsPrivacyAdsError =>
+      'গোপনীয়তার বিকল্পগুলো খোলা যায়নি। পরে আবার চেষ্টা করুন।';
 }

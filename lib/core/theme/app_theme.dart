@@ -5,7 +5,15 @@ import 'app_colors.dart';
 /// Builds the app-wide dark theme. Component themes carry the spacing,
 /// radii and touch sizes so every screen gets them without local styling.
 abstract final class AppTheme {
-  static ThemeData dark() {
+  /// Scripts whose marks reach far above or below the Latin line box
+  /// (Arabic and Hebrew diacritics, Bengali and Devanagari conjuncts).
+  static const Set<String> tallScriptLanguages = {'ar', 'he', 'bn', 'hi'};
+
+  /// Minimum line height for [tallScriptLanguages], so glyphs never clip.
+  static const double tallScriptMinHeight = 1.4;
+
+  /// The app theme; [languageCode] adds line-height room for tall scripts.
+  static ThemeData dark({String? languageCode}) {
     final scheme =
         ColorScheme.fromSeed(
           seedColor: AppColors.accent,
@@ -39,7 +47,7 @@ abstract final class AppTheme {
       bodyColor: AppColors.textPrimary,
       displayColor: AppColors.textPrimary,
     );
-    final textTheme = t.copyWith(
+    final latinTextTheme = t.copyWith(
       displayLarge: t.displayLarge?.copyWith(
         fontWeight: FontWeight.w800,
         letterSpacing: -2,
@@ -83,6 +91,9 @@ abstract final class AppTheme {
         letterSpacing: 0.1,
       ),
     );
+    final textTheme = tallScriptLanguages.contains(languageCode)
+        ? _withRoom(latinTextTheme)
+        : latinTextTheme;
 
     const shape = RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(AppRadius.sm + 2)),
@@ -234,6 +245,37 @@ abstract final class AppTheme {
         textStyle: textTheme.bodySmall?.copyWith(color: AppColors.textPrimary),
       ),
       iconTheme: const IconThemeData(color: AppColors.textPrimary),
+    );
+  }
+
+  /// Raises every style's line height to at least [tallScriptMinHeight],
+  /// spreading the extra leading evenly above and below the glyphs.
+  static TextTheme _withRoom(TextTheme theme) {
+    TextStyle? roomy(TextStyle? style) {
+      if (style == null) return null;
+      final height = style.height ?? 0;
+      return style.copyWith(
+        height: height < tallScriptMinHeight ? tallScriptMinHeight : height,
+        leadingDistribution: TextLeadingDistribution.even,
+      );
+    }
+
+    return theme.copyWith(
+      displayLarge: roomy(theme.displayLarge),
+      displayMedium: roomy(theme.displayMedium),
+      displaySmall: roomy(theme.displaySmall),
+      headlineLarge: roomy(theme.headlineLarge),
+      headlineMedium: roomy(theme.headlineMedium),
+      headlineSmall: roomy(theme.headlineSmall),
+      titleLarge: roomy(theme.titleLarge),
+      titleMedium: roomy(theme.titleMedium),
+      titleSmall: roomy(theme.titleSmall),
+      bodyLarge: roomy(theme.bodyLarge),
+      bodyMedium: roomy(theme.bodyMedium),
+      bodySmall: roomy(theme.bodySmall),
+      labelLarge: roomy(theme.labelLarge),
+      labelMedium: roomy(theme.labelMedium),
+      labelSmall: roomy(theme.labelSmall),
     );
   }
 }

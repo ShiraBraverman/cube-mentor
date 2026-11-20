@@ -47,6 +47,12 @@ target_compile_definitions(cubementor PRIVATE CUBEMENTOR_SHARED)
 set_target_properties(cubementor PROPERTIES CXX_VISIBILITY_PRESET hidden)
 
 if(ANDROID)
-  # Smaller binaries and 16 KB page alignment for newer Android devices.
-  target_link_options(cubementor PRIVATE -Wl,--gc-sections -Wl,-z,max-page-size=16384)
+  # Smaller binaries and 16 KB page alignment for Android 15+ devices with
+  # 16 KB memory pages (Google Play requirement). NDK r27+ with
+  # ANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON (set in android/app/build.gradle.kts)
+  # aligns by default; the explicit flags keep older NDKs compliant too.
+  target_link_options(cubementor PRIVATE
+    -Wl,--gc-sections
+    -Wl,-z,max-page-size=16384
+    -Wl,-z,common-page-size=16384)
 endif()

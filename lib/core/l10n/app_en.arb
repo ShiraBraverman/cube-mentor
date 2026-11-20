@@ -920,8 +920,10 @@
   "resetProgressDone": "Progress reset.",
   "cancel": "Cancel",
   "settingsPrivacyAds": "Privacy & ads",
-  "settingsPrivacyAdsDesc": "Ad and consent choices will appear here once ads arrive.",
-  "settingsComingSoon": "Coming soon",
+  "settingsPrivacyAdsDesc": "Review or change your ad consent choices.",
+  "@settingsPrivacyAdsDesc": {
+    "description": "Subtitle of the Settings entry that reopens the ad consent (privacy options) form."
+  },
   "playbackPrevious": "Previous",
   "@playbackPrevious": {
     "description": "Label of the playback button that steps one move back."
@@ -959,5 +961,25 @@
   },
   "@feedbackEmailCopied": {
     "description": "Snack bar when no email app can open the feedback email."
+  },
+  "adWatchToUnlock": "Watch ad",
+  "@adWatchToUnlock": {
+    "description": "Badge on a locked advanced lesson: it opens after a short rewarded video ad."
+  },
+  "adLoading": "Loading a short video…",
+  "@adLoading": {
+    "description": "Dialog text while a rewarded video ad loads."
+  },
+  "adRewardNotEarned": "Watch the whole video to unlock it.",
+  "@adRewardNotEarned": {
+    "description": "Snack bar when the user closes a rewarded video before the reward."
+  },
+  "adUnavailableFreePass": "No video available right now — unlocked for free this time.",
+  "@adUnavailableFreePass": {
+    "description": "Snack bar when no rewarded video could load (e.g. offline) and the feature was unlocked anyway."
+  },
+  "settingsPrivacyAdsError": "Couldn't open the privacy options. Try again later.",
+  "@settingsPrivacyAdsError": {
+    "description": "Snack bar when the privacy options form could not be shown."
   }
 }

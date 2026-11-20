@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../core/ads/app_banner_ad.dart';
 import '../../core/cube/cube_state.dart';
 import '../../core/feedback/feedback_service.dart';
 import '../../core/l10n/generated/app_localizations.dart';
@@ -232,6 +233,9 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
             const SizedBox(width: 4),
           ],
         ),
+        // The banner (when one loaded) sits below the playback controls and
+        // keeps the system navigation inset under it.
+        bottomNavigationBar: const SafeArea(top: false, child: AppBannerAd()),
         body: SafeArea(
           top: false,
           child: Column(

@@ -1937,10 +1937,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get settingsPrivacyAdsDesc =>
-      'Реклама барлыкка килгәч, реклама һәм ризалык көйләүләре монда булачак.';
-
-  @override
-  String get settingsComingSoon => 'Тиздән';
+      'Реклама ризалыгы көйләүләрен карагыз яки үзгәртегез.';
 
   @override
   String get playbackPrevious => 'Артка';
@@ -1980,4 +1977,20 @@ class AppLocalizationsTt extends AppLocalizations {
   @override
   String get feedbackEmailCopied =>
       'Почта кушымтасы табылмады, шуңа күрә адрес алмашу буферына күчерелде.';
+
+  @override
+  String get adWatchToUnlock => 'Реклама карау';
+
+  @override
+  String get adLoading => 'Кыска видео йөкләнә…';
+
+  @override
+  String get adRewardNotEarned => 'Ачу өчен видеоны ахырына кадәр карагыз.';
+
+  @override
+  String get adUnavailableFreePass => 'Хәзер видео юк — бу юлы бушлай ачылды.';
+
+  @override
+  String get settingsPrivacyAdsError =>
+      'Хосусыйлык көйләүләрен ачып булмады. Соңрак тагын карагыз.';
 }

@@ -548,13 +548,17 @@
   "resetProgressDone": "Progresso redefinido.",
   "cancel": "Cancelar",
   "settingsPrivacyAds": "Privacidade e anúncios",
-  "settingsPrivacyAdsDesc": "As opções de anúncios e consentimento aparecerão aqui quando os anúncios chegarem.",
-  "settingsComingSoon": "Em breve",
+  "settingsPrivacyAdsDesc": "Revise ou altere suas opções de consentimento de anúncios.",
   "playbackPrevious": "Anterior",
   "playbackNext": "Próximo",
   "fastSolveMoves": "{count, plural, =1{Resolvido em 1 movimento!} other{Resolvido em {count} movimentos!}}",
   "fastSolveOptimal": "{count, plural, =1{Solução ótima: 1 movimento} other{Solução ótima: {count} movimentos}}",
   "feedbackTitle": "Ajude a criar a próxima versão",
   "feedbackBody": "Quer sugerir um recurso ou influenciar a próxima versão do CubeMentor? Escreva para a gente em:",
-  "feedbackEmailCopied": "Não encontramos um app de e-mail, então copiamos o endereço para a área de transferência."
+  "feedbackEmailCopied": "Não encontramos um app de e-mail, então copiamos o endereço para a área de transferência.",
+  "adWatchToUnlock": "Assistir anúncio",
+  "adLoading": "Carregando um vídeo curto…",
+  "adRewardNotEarned": "Assista ao vídeo inteiro para desbloquear.",
+  "adUnavailableFreePass": "Nenhum vídeo disponível agora — desbloqueado de graça desta vez.",
+  "settingsPrivacyAdsError": "Não foi possível abrir as opções de privacidade. Tente novamente mais tarde."
 }

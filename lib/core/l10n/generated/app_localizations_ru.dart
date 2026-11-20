@@ -1955,10 +1955,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get settingsPrivacyAdsDesc =>
-      'Настройки рекламы и согласия появятся здесь, когда в приложении появится реклама.';
-
-  @override
-  String get settingsComingSoon => 'Скоро';
+      'Просмотрите или измените согласие на рекламу.';
 
   @override
   String get playbackPrevious => 'Назад';
@@ -2002,4 +1999,22 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get feedbackEmailCopied =>
       'Почтовое приложение не найдено, поэтому адрес скопирован в буфер обмена.';
+
+  @override
+  String get adWatchToUnlock => 'Смотреть рекламу';
+
+  @override
+  String get adLoading => 'Загружаем короткое видео…';
+
+  @override
+  String get adRewardNotEarned =>
+      'Досмотрите видео до конца, чтобы открыть доступ.';
+
+  @override
+  String get adUnavailableFreePass =>
+      'Сейчас видео недоступно — на этот раз открыто бесплатно.';
+
+  @override
+  String get settingsPrivacyAdsError =>
+      'Не удалось открыть настройки конфиденциальности. Попробуйте позже.';
 }

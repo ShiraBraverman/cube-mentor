@@ -2,6 +2,8 @@ import 'dart:math' as math;
 import 'dart:typed_data';
 import 'dart:ui';
 
+import 'package:flutter/services.dart' show DeviceOrientation;
+
 import '../../../core/vision/color_science.dart';
 
 /// Pixel layouts delivered by the camera image stream.
@@ -124,6 +126,22 @@ Rect gridRect(Size size) {
     side / size.width,
     side / size.height,
   );
+}
+
+/// Clockwise rotation from the back camera's sensor image to the display
+/// as the device is held right now.
+///
+/// Phones keep the scanner in portrait, so this is just the sensor
+/// orientation; Android 16 ignores orientation locks on tablets and
+/// foldables (600 dp+), where the scanner may run in landscape.
+int sensorToDisplayRotation(int sensorOrientation, DeviceOrientation device) {
+  final deviceDegrees = switch (device) {
+    DeviceOrientation.portraitUp => 0,
+    DeviceOrientation.landscapeLeft => 90,
+    DeviceOrientation.portraitDown => 180,
+    DeviceOrientation.landscapeRight => 270,
+  };
+  return (sensorOrientation - deviceDegrees + 360) % 360;
 }
 
 /// Maps a normalized point of the upright preview to normalized sensor

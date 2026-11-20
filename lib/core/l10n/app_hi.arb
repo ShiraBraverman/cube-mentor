@@ -548,13 +548,17 @@
   "resetProgressDone": "प्रगति रीसेट हो गई।",
   "cancel": "रद्द करें",
   "settingsPrivacyAds": "गोपनीयता और विज्ञापन",
-  "settingsPrivacyAdsDesc": "विज्ञापन आने पर विज्ञापन और सहमति के विकल्प यहाँ दिखेंगे।",
-  "settingsComingSoon": "जल्द आ रहा है",
+  "settingsPrivacyAdsDesc": "विज्ञापन सहमति के अपने विकल्प देखें या बदलें।",
   "playbackPrevious": "पिछला",
   "playbackNext": "अगला",
   "fastSolveMoves": "{count, plural, =1{1 चाल में हल!} other{{count} चालों में हल!}}",
   "fastSolveOptimal": "{count, plural, =1{सर्वोत्तम: 1 चाल} other{सर्वोत्तम: {count} चालें}}",
   "feedbackTitle": "अगला संस्करण मिलकर बनाएँ",
   "feedbackBody": "कोई फ़ीचर सुझाना चाहते हैं या CubeMentor के अगले संस्करण को आकार देना चाहते हैं? हमें यहाँ लिखें:",
-  "feedbackEmailCopied": "कोई ईमेल ऐप नहीं मिला, इसलिए पता क्लिपबोर्ड पर कॉपी कर दिया गया।"
+  "feedbackEmailCopied": "कोई ईमेल ऐप नहीं मिला, इसलिए पता क्लिपबोर्ड पर कॉपी कर दिया गया।",
+  "adWatchToUnlock": "विज्ञापन देखें",
+  "adLoading": "एक छोटा वीडियो लोड हो रहा है…",
+  "adRewardNotEarned": "अनलॉक करने के लिए पूरा वीडियो देखें।",
+  "adUnavailableFreePass": "अभी कोई वीडियो उपलब्ध नहीं है — इस बार मुफ़्त में अनलॉक किया गया।",
+  "settingsPrivacyAdsError": "निजता विकल्प नहीं खुल सके। बाद में फिर कोशिश करें।"
 }

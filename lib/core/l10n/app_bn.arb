@@ -548,13 +548,17 @@
   "resetProgressDone": "অগ্রগতি রিসেট হয়েছে।",
   "cancel": "বাতিল",
   "settingsPrivacyAds": "গোপনীয়তা ও বিজ্ঞাপন",
-  "settingsPrivacyAdsDesc": "বিজ্ঞাপন এলে বিজ্ঞাপন আর সম্মতির পছন্দগুলো এখানে দেখা যাবে।",
-  "settingsComingSoon": "শিগগিরই আসছে",
+  "settingsPrivacyAdsDesc": "বিজ্ঞাপনের সম্মতির পছন্দগুলো দেখুন বা বদলান।",
   "playbackPrevious": "পূর্ববর্তী",
   "playbackNext": "পরবর্তী",
   "fastSolveMoves": "{count, plural, =1{1টি চালে সমাধান!} other{{count}টি চালে সমাধান!}}",
   "fastSolveOptimal": "{count, plural, =1{সর্বোত্তম: 1টি চাল} other{সর্বোত্তম: {count}টি চাল}}",
   "feedbackTitle": "পরের সংস্করণ গড়ে তুলুন",
   "feedbackBody": "কোনো ফিচারের পরামর্শ দিতে চান বা CubeMentor-এর পরের সংস্করণে প্রভাব রাখতে চান? আমাদের লিখুন:",
-  "feedbackEmailCopied": "কোনো ইমেইল অ্যাপ পাওয়া যায়নি, তাই ঠিকানাটি ক্লিপবোর্ডে কপি করা হয়েছে।"
+  "feedbackEmailCopied": "কোনো ইমেইল অ্যাপ পাওয়া যায়নি, তাই ঠিকানাটি ক্লিপবোর্ডে কপি করা হয়েছে।",
+  "adWatchToUnlock": "বিজ্ঞাপন দেখুন",
+  "adLoading": "একটি ছোট ভিডিও লোড হচ্ছে…",
+  "adRewardNotEarned": "আনলক করতে পুরো ভিডিওটি দেখুন।",
+  "adUnavailableFreePass": "এখন কোনো ভিডিও নেই — এবার বিনামূল্যে আনলক হলো।",
+  "settingsPrivacyAdsError": "গোপনীয়তার বিকল্পগুলো খোলা যায়নি। পরে আবার চেষ্টা করুন।"
 }

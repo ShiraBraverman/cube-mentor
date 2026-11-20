@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../core/ads/ad_service.dart';
 import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/settings/app_settings.dart';
 import '../../core/settings/locale_controller.dart';
@@ -65,8 +66,8 @@ Future<void> showSettingsSheet(BuildContext context) =>
       builder: (_) => const SettingsSheet(),
     );
 
-/// Language, sound & haptics, default animation speed, progress reset and
-/// (from Milestone 5) privacy & ad consent.
+/// Language, sound & haptics, default animation speed, progress reset,
+/// feedback and (where required) privacy & ad consent.
 class SettingsSheet extends ConsumerWidget {
   const SettingsSheet({super.key});
 
@@ -79,6 +80,9 @@ class SettingsSheet extends ConsumerWidget {
     final locale = ref.watch(localeProvider);
     final language = languageForTag(locale.toString()) ?? kAppLanguages.first;
     final media = MediaQuery.of(context);
+    final privacyOptionsRequired = ref.watch(
+      adsProvider.select((c) => c.privacyOptionsRequired),
+    );
 
     return SafeArea(
       child: ConstrainedBox(
@@ -177,25 +181,23 @@ class SettingsSheet extends ConsumerWidget {
                     onTap: () => _confirmReset(context, ref),
                   ),
                   const _FeedbackCard(),
-                  _SettingsRow(
-                    key: const ValueKey('settings-privacy'),
-                    icon: Icons.privacy_tip_outlined,
-                    title: l10n.settingsPrivacyAds,
-                    subtitle: Text(
-                      l10n.settingsPrivacyAdsDesc,
-                      style: textTheme.bodySmall,
-                    ),
-                    below: Padding(
-                      padding: const EdgeInsetsDirectional.only(
-                        start: 52,
-                        top: AppSpace.xs,
+                  // Only where the law requires a way back to the consent
+                  // choices (e.g. GDPR); elsewhere there is nothing to set.
+                  if (privacyOptionsRequired)
+                    _SettingsRow(
+                      key: const ValueKey('settings-privacy'),
+                      icon: Icons.privacy_tip_outlined,
+                      title: l10n.settingsPrivacyAds,
+                      subtitle: Text(
+                        l10n.settingsPrivacyAdsDesc,
+                        style: textTheme.bodySmall,
                       ),
-                      child: Align(
-                        alignment: AlignmentDirectional.centerStart,
-                        child: AppPill(label: l10n.settingsComingSoon),
+                      trailing: const Icon(
+                        Icons.chevron_right_rounded,
+                        color: AppColors.textTertiary,
                       ),
+                      onTap: () => _openPrivacyOptions(context, ref),
                     ),
-                  ),
                 ],
               ),
             ),
@@ -203,6 +205,20 @@ class SettingsSheet extends ConsumerWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _openPrivacyOptions(BuildContext context, WidgetRef ref) async {
+    final l10n = AppLocalizations.of(context);
+    final messenger = ScaffoldMessenger.maybeOf(context);
+    final opened = await ref.read(adsProvider.notifier).openPrivacyOptions();
+    if (!opened) {
+      messenger?.showSnackBar(
+        SnackBar(
+          key: const ValueKey('privacy-options-error'),
+          content: Text(l10n.settingsPrivacyAdsError),
+        ),
+      );
+    }
   }
 
   Future<void> _confirmReset(BuildContext context, WidgetRef ref) async {

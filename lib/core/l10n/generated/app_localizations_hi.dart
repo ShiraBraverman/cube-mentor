@@ -1940,10 +1940,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get settingsPrivacyAdsDesc =>
-      'विज्ञापन आने पर विज्ञापन और सहमति के विकल्प यहाँ दिखेंगे।';
-
-  @override
-  String get settingsComingSoon => 'जल्द आ रहा है';
+      'विज्ञापन सहमति के अपने विकल्प देखें या बदलें।';
 
   @override
   String get playbackPrevious => 'पिछला';
@@ -1983,4 +1980,21 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get feedbackEmailCopied =>
       'कोई ईमेल ऐप नहीं मिला, इसलिए पता क्लिपबोर्ड पर कॉपी कर दिया गया।';
+
+  @override
+  String get adWatchToUnlock => 'विज्ञापन देखें';
+
+  @override
+  String get adLoading => 'एक छोटा वीडियो लोड हो रहा है…';
+
+  @override
+  String get adRewardNotEarned => 'अनलॉक करने के लिए पूरा वीडियो देखें।';
+
+  @override
+  String get adUnavailableFreePass =>
+      'अभी कोई वीडियो उपलब्ध नहीं है — इस बार मुफ़्त में अनलॉक किया गया।';
+
+  @override
+  String get settingsPrivacyAdsError =>
+      'निजता विकल्प नहीं खुल सके। बाद में फिर कोशिश करें।';
 }

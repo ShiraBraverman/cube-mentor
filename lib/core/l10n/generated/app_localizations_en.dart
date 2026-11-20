@@ -1941,10 +1941,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsPrivacyAdsDesc =>
-      'Ad and consent choices will appear here once ads arrive.';
-
-  @override
-  String get settingsComingSoon => 'Coming soon';
+      'Review or change your ad consent choices.';
 
   @override
   String get playbackPrevious => 'Previous';
@@ -1984,4 +1981,21 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get feedbackEmailCopied =>
       'No email app found, so we copied the address to your clipboard.';
+
+  @override
+  String get adWatchToUnlock => 'Watch ad';
+
+  @override
+  String get adLoading => 'Loading a short video…';
+
+  @override
+  String get adRewardNotEarned => 'Watch the whole video to unlock it.';
+
+  @override
+  String get adUnavailableFreePass =>
+      'No video available right now — unlocked for free this time.';
+
+  @override
+  String get settingsPrivacyAdsError =>
+      'Couldn\'t open the privacy options. Try again later.';
 }

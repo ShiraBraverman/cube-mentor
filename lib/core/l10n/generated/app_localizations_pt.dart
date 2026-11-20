@@ -1953,10 +1953,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get settingsPrivacyAdsDesc =>
-      'As opções de anúncios e consentimento aparecerão aqui quando houver anúncios.';
-
-  @override
-  String get settingsComingSoon => 'Brevemente';
+      'Reveja ou altere as suas opções de consentimento de anúncios.';
 
   @override
   String get playbackPrevious => 'Anterior';
@@ -1996,6 +1993,23 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get feedbackEmailCopied =>
       'Não encontrámos uma app de e-mail, por isso copiámos o endereço para a área de transferência.';
+
+  @override
+  String get adWatchToUnlock => 'Ver anúncio';
+
+  @override
+  String get adLoading => 'A carregar um vídeo curto…';
+
+  @override
+  String get adRewardNotEarned => 'Veja o vídeo até ao fim para desbloquear.';
+
+  @override
+  String get adUnavailableFreePass =>
+      'Nenhum vídeo disponível agora — desbloqueado grátis desta vez.';
+
+  @override
+  String get settingsPrivacyAdsError =>
+      'Não foi possível abrir as opções de privacidade. Tente mais tarde.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -3939,10 +3953,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get settingsPrivacyAdsDesc =>
-      'As opções de anúncios e consentimento aparecerão aqui quando os anúncios chegarem.';
-
-  @override
-  String get settingsComingSoon => 'Em breve';
+      'Revise ou altere suas opções de consentimento de anúncios.';
 
   @override
   String get playbackPrevious => 'Anterior';
@@ -3982,4 +3993,21 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get feedbackEmailCopied =>
       'Não encontramos um app de e-mail, então copiamos o endereço para a área de transferência.';
+
+  @override
+  String get adWatchToUnlock => 'Assistir anúncio';
+
+  @override
+  String get adLoading => 'Carregando um vídeo curto…';
+
+  @override
+  String get adRewardNotEarned => 'Assista ao vídeo inteiro para desbloquear.';
+
+  @override
+  String get adUnavailableFreePass =>
+      'Nenhum vídeo disponível agora — desbloqueado de graça desta vez.';
+
+  @override
+  String get settingsPrivacyAdsError =>
+      'Não foi possível abrir as opções de privacidade. Tente novamente mais tarde.';
 }

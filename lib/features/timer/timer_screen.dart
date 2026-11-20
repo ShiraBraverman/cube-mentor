@@ -2,6 +2,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../core/ads/app_banner_ad.dart';
 import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/feedback/feedback_service.dart';
 import '../../core/settings/clock.dart';
@@ -145,6 +146,11 @@ class _TimerScreenState extends ConsumerState<TimerScreen>
                   const SizedBox(width: 4),
                 ],
               ),
+        // No ad while inspecting or timing: the whole screen is the pad.
+        bottomNavigationBar: SafeArea(
+          top: false,
+          child: AppBannerAd(visible: state.phase == TimerPhase.idle),
+        ),
         body: SafeArea(
           child: Center(
             child: ConstrainedBox(

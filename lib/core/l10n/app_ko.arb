@@ -548,13 +548,17 @@
   "resetProgressDone": "진행 상황을 초기화했어요.",
   "cancel": "취소",
   "settingsPrivacyAds": "개인정보 및 광고",
-  "settingsPrivacyAdsDesc": "광고가 도입되면 광고 및 동의 설정이 여기에 표시돼요.",
-  "settingsComingSoon": "곧 제공",
+  "settingsPrivacyAdsDesc": "광고 동의 설정을 확인하거나 변경해요.",
   "playbackPrevious": "이전",
   "playbackNext": "다음",
   "fastSolveMoves": "{count}수 만에 완성!",
   "fastSolveOptimal": "최적해: {count}수",
   "feedbackTitle": "다음 버전을 함께 만들어요",
   "feedbackBody": "기능을 제안하거나 CubeMentor의 다음 버전에 의견을 주고 싶으신가요? 이메일을 보내 주세요:",
-  "feedbackEmailCopied": "이메일 앱을 찾을 수 없어 주소를 클립보드에 복사했어요."
+  "feedbackEmailCopied": "이메일 앱을 찾을 수 없어 주소를 클립보드에 복사했어요.",
+  "adWatchToUnlock": "광고 보기",
+  "adLoading": "짧은 동영상을 불러오는 중…",
+  "adRewardNotEarned": "끝까지 시청하면 잠금이 해제돼요.",
+  "adUnavailableFreePass": "지금은 볼 수 있는 동영상이 없어요. 이번에는 무료로 열어 드렸어요.",
+  "settingsPrivacyAdsError": "개인정보 옵션을 열 수 없어요. 잠시 후 다시 시도해 주세요."
 }

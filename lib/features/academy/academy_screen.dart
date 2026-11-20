@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../core/ads/reward_gate.dart';
+import '../../core/ads/reward_prompt.dart';
 import '../../core/l10n/crown_words.dart';
 import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/theme/app_colors.dart';
@@ -13,17 +14,21 @@ import 'model/academy_progress.dart';
 import 'model/lesson.dart';
 import 'model/lesson_catalog.dart';
 
-/// Opens [lesson], first asking the reward gate when it is advanced.
+/// Opens [lesson], first asking the reward gate (a rewarded ad) when it is
+/// advanced and still locked.
 Future<void> openLesson(
   BuildContext context,
   WidgetRef ref,
   Lesson lesson, {
   bool replace = false,
 }) async {
-  final gate = ref.read(rewardGateProvider);
   if (lesson.advanced &&
-      !gate.isUnlocked(RewardFeature.advancedLesson, item: lesson.id) &&
-      !await gate.unlock(RewardFeature.advancedLesson, item: lesson.id)) {
+      !await unlockWithFeedback(
+        context,
+        ref,
+        RewardFeature.advancedLesson,
+        item: lesson.id,
+      )) {
     return;
   }
   if (!context.mounted) return;
@@ -242,6 +247,14 @@ class _LessonTile extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final textTheme = Theme.of(context).textTheme;
+    // Rebuild when a rewarded ad unlocks this lesson.
+    ref.watch(rewardGateProvider);
+    final locked =
+        lesson.advanced &&
+        !done &&
+        !ref
+            .read(rewardGateProvider.notifier)
+            .isUnlocked(RewardFeature.advancedLesson, item: lesson.id);
     final accent = done
         ? AppColors.accentSecondary
         : (next ? AppColors.accent : AppColors.textTertiary);
@@ -309,6 +322,14 @@ class _LessonTile extends ConsumerWidget {
                         label: l10n.lessonAdvanced,
                         color: AppColors.accentWarm,
                       ),
+                    // Says up front that this lesson opens after an ad.
+                    if (locked)
+                      AppPill(
+                        key: ValueKey('lesson-${lesson.id}-ad-badge'),
+                        label: l10n.adWatchToUnlock,
+                        icon: Icons.ondemand_video_rounded,
+                        color: AppColors.gold,
+                      ),
                   ],
                 ),
               ],
@@ -316,7 +337,11 @@ class _LessonTile extends ConsumerWidget {
           ),
           const SizedBox(width: AppSpace.xs),
           Icon(
-            next ? Icons.play_circle_fill_rounded : Icons.chevron_right_rounded,
+            locked
+                ? Icons.lock_outline_rounded
+                : (next
+                      ? Icons.play_circle_fill_rounded
+                      : Icons.chevron_right_rounded),
             color: next ? AppColors.accent : AppColors.textTertiary,
             size: next ? 32 : 24,
           ),

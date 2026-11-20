@@ -548,13 +548,17 @@
   "resetProgressDone": "Na-reset ang progreso.",
   "cancel": "Kanselahin",
   "settingsPrivacyAds": "Privacy at ads",
-  "settingsPrivacyAdsDesc": "Lalabas dito ang mga pagpipilian sa ads at pahintulot kapag may ads na.",
-  "settingsComingSoon": "Malapit na",
+  "settingsPrivacyAdsDesc": "Suriin o baguhin ang mga pagpipilian mo sa pahintulot sa ads.",
   "playbackPrevious": "Nakaraan",
   "playbackNext": "Susunod",
   "fastSolveMoves": "Nalutas sa {count} galaw!",
   "fastSolveOptimal": "Pinakamaikli: {count} galaw",
   "feedbackTitle": "Hubugin ang Susunod na Bersyon",
   "feedbackBody": "Gusto mo bang magmungkahi ng feature o makaimpluwensya sa susunod na bersyon ng CubeMentor? Sumulat sa amin sa:",
-  "feedbackEmailCopied": "Walang nakitang email app, kaya kinopya namin ang address sa clipboard."
+  "feedbackEmailCopied": "Walang nakitang email app, kaya kinopya namin ang address sa clipboard.",
+  "adWatchToUnlock": "Manood ng ad",
+  "adLoading": "Naglo-load ng maikling video…",
+  "adRewardNotEarned": "Panoorin ang buong video para ma-unlock ito.",
+  "adUnavailableFreePass": "Walang available na video ngayon — libreng na-unlock ngayong pagkakataon.",
+  "settingsPrivacyAdsError": "Hindi mabuksan ang mga opsyon sa privacy. Subukan ulit mamaya."
 }

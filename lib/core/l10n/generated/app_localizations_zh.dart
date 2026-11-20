@@ -1822,10 +1822,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get settingsPrivacyAds => '隐私与广告';
 
   @override
-  String get settingsPrivacyAdsDesc => '广告上线后，广告和同意选项将显示在这里。';
-
-  @override
-  String get settingsComingSoon => '即将推出';
+  String get settingsPrivacyAdsDesc => '查看或更改你的广告同意选项。';
 
   @override
   String get playbackPrevious => '上一步';
@@ -1851,4 +1848,19 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get feedbackEmailCopied => '未找到邮件应用，已将邮箱地址复制到剪贴板。';
+
+  @override
+  String get adWatchToUnlock => '看广告解锁';
+
+  @override
+  String get adLoading => '正在加载短视频…';
+
+  @override
+  String get adRewardNotEarned => '完整观看视频即可解锁。';
+
+  @override
+  String get adUnavailableFreePass => '暂时没有可用视频，本次免费解锁。';
+
+  @override
+  String get settingsPrivacyAdsError => '无法打开隐私选项，请稍后重试。';
 }

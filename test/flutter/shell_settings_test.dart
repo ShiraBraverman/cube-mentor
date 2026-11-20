@@ -255,11 +255,13 @@ void main() {
         'Sound & haptics',
         'Default animation speed',
         'Reset progress',
-        'Privacy & ads',
-        'Coming soon',
       ]) {
         expect(find.text(text), findsOneWidget, reason: text);
       }
+      // Without ads (desktop, tests) there are no consent choices to show;
+      // ads_test.dart covers the entry where consent requires it.
+      expect(find.text('Privacy & ads'), findsNothing);
+      expect(find.text('Coming soon'), findsNothing);
     });
 
     testWidgets('the language row opens the language sheet', (tester) async {

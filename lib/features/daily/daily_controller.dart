@@ -137,12 +137,12 @@ class DailyController extends Notifier<DailyState> {
   }
 
   /// Reveals how to start: the white-cross moves of the beginner's
-  /// solution. Goes through the reward gate (a rewarded ad in Milestone 5).
+  /// solution. Goes through the reward gate (a rewarded ad).
   Future<void> requestHint() async {
     final cube = state.cube;
     if (cube == null) return;
-    final gate = ref.read(rewardGateProvider);
-    if (!await gate.unlock(RewardFeature.dailyHint)) return;
+    final gate = ref.read(rewardGateProvider.notifier);
+    if (!(await gate.unlock(RewardFeature.dailyHint)).granted) return;
     try {
       final plan = await ref
           .read(cubeSolverProvider)
