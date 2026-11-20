@@ -6,6 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_ar.dart';
+import 'app_localizations_bn.dart';
 import 'app_localizations_de.dart';
 import 'app_localizations_en.dart';
 import 'app_localizations_es.dart';
@@ -18,6 +19,7 @@ import 'app_localizations_ja.dart';
 import 'app_localizations_ko.dart';
 import 'app_localizations_pt.dart';
 import 'app_localizations_ru.dart';
+import 'app_localizations_tt.dart';
 import 'app_localizations_zh.dart';
 
 // ignore_for_file: type=lint
@@ -107,6 +109,7 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('ar'),
+    Locale('bn'),
     Locale('de'),
     Locale('en'),
     Locale('es'),
@@ -120,6 +123,7 @@ abstract class AppLocalizations {
     Locale('pt'),
     Locale('pt', 'BR'),
     Locale('ru'),
+    Locale('tt'),
     Locale('zh'),
   ];
 
@@ -3446,6 +3450,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count, plural, =1{Optimal: 1 move} other{Optimal: {count} moves}}'**
   String fastSolveOptimal(int count);
+
+  /// Settings card inviting feature ideas by email.
+  ///
+  /// In en, this message translates to:
+  /// **'Shape the Next Version'**
+  String get feedbackTitle;
+
+  /// Settings feedback card text; the email address is shown on its own line below.
+  ///
+  /// In en, this message translates to:
+  /// **'Want to suggest a feature or influence the next version of CubeMentor? Write to us at:'**
+  String get feedbackBody;
+
+  /// Snack bar when no email app can open the feedback email.
+  ///
+  /// In en, this message translates to:
+  /// **'No email app found, so we copied the address to your clipboard.'**
+  String get feedbackEmailCopied;
 }
 
 class _AppLocalizationsDelegate
@@ -3460,6 +3482,7 @@ class _AppLocalizationsDelegate
   @override
   bool isSupported(Locale locale) => <String>[
     'ar',
+    'bn',
     'de',
     'en',
     'es',
@@ -3472,6 +3495,7 @@ class _AppLocalizationsDelegate
     'ko',
     'pt',
     'ru',
+    'tt',
     'zh',
   ].contains(locale.languageCode);
 
@@ -3496,6 +3520,8 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
   switch (locale.languageCode) {
     case 'ar':
       return AppLocalizationsAr();
+    case 'bn':
+      return AppLocalizationsBn();
     case 'de':
       return AppLocalizationsDe();
     case 'en':
@@ -3520,6 +3546,8 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsPt();
     case 'ru':
       return AppLocalizationsRu();
+    case 'tt':
+      return AppLocalizationsTt();
     case 'zh':
       return AppLocalizationsZh();
   }

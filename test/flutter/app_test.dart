@@ -509,17 +509,14 @@ void main() {
       return tester.getTopLeft(viewport) + local;
     }
 
-    bool hapticClicked() => platformCalls.any(
-      (c) =>
-          c.method == 'HapticFeedback.vibrate' &&
-          c.arguments == 'HapticFeedbackType.selectionClick',
-    );
-
     bool haptic(String type) => platformCalls.any(
       (c) =>
           c.method == 'HapticFeedback.vibrate' &&
           c.arguments == 'HapticFeedbackType.$type',
     );
+
+    /// A hand-made layer turn's light impact.
+    bool turnTapped() => haptic('lightImpact');
 
     /// Drags the front-right-bottom sticker upward: an R turn.
     Future<void> swipeR(WidgetTester tester) async {
@@ -582,15 +579,19 @@ void main() {
       expect(painter(tester).guide?.notation, 'R');
       expect(painter(tester).frame.focus, hasLength(9));
 
+      platformCalls.clear();
       await swipeR(tester);
       var session = container.read(cubeSessionProvider(3));
       expect(session.playbackIndex, 1, reason: 'the swipe advanced the step');
       expect(session.steps, hasLength(2));
-      expect(haptic('mediumImpact'), isTrue);
+      // The expected move: a step-complete tick, not a plain turn.
+      expect(haptic('selectionClick'), isTrue);
+      expect(haptic('lightImpact'), isFalse);
       expect(painter(tester).guide?.notation, 'U');
 
       // Another R is the wrong move now: it springs back and is not applied.
       final before = session.cube;
+      platformCalls.clear();
       await swipeR(tester);
       session = container.read(cubeSessionProvider(3));
       expect(identical(session.cube, before), isTrue);
@@ -604,6 +605,16 @@ void main() {
       await _advance(tester, 12);
       expect(container.read(cubeSessionProvider(3)).cube.isSolved, isTrue);
       expect(find.text('Solved! Great job.'), findsOneWidget);
+      // The warm success chime's haptic.
+      expect(haptic('mediumImpact'), isTrue);
+      // The wrong move was a gentle double light tap (playback turns do
+      // not vibrate).
+      expect(
+        platformCalls
+            .where((c) => c.arguments == 'HapticFeedbackType.lightImpact')
+            .length,
+        2,
+      );
       expect(painter(tester).guide, isNull);
 
       // Exiting the guide returns to free play (once the snack bar left).
@@ -634,7 +645,7 @@ void main() {
       final session = container.read(cubeSessionProvider(3));
       expect(session.log.map((m) => m.notation), ['R']);
       expect(session.cube.isSolved, isFalse);
-      expect(hapticClicked(), isTrue);
+      expect(turnTapped(), isTrue);
       expect(find.text('Scrambled'), findsOneWidget);
 
       // Undo works for hand-made moves too.
@@ -655,7 +666,7 @@ void main() {
       await _advance(tester, 8);
       expect(container.read(cubeSessionProvider(3)).log, isEmpty);
       expect(container.read(cubeSessionProvider(3)).cube.isSolved, isTrue);
-      expect(hapticClicked(), isFalse);
+      expect(turnTapped(), isFalse);
     });
 
     testWidgets('dragging the background orbits without turning', (
@@ -673,7 +684,7 @@ void main() {
       await tester.tapAt(corner);
       await _advance(tester, 30);
       expect(container.read(cubeSessionProvider(3)).log, isEmpty);
-      expect(hapticClicked(), isFalse);
+      expect(turnTapped(), isFalse);
     });
   });
 }

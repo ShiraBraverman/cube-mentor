@@ -1842,4 +1842,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String fastSolveOptimal(int count) {
     return '最优解：$count 步';
   }
+
+  @override
+  String get feedbackTitle => '一起打造下一个版本';
+
+  @override
+  String get feedbackBody => '想建议新功能，或参与塑造 CubeMentor 的下一个版本？欢迎发邮件至：';
+
+  @override
+  String get feedbackEmailCopied => '未找到邮件应用，已将邮箱地址复制到剪贴板。';
 }

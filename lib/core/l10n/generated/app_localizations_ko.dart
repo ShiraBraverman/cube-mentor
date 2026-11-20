@@ -1867,4 +1867,14 @@ class AppLocalizationsKo extends AppLocalizations {
   String fastSolveOptimal(int count) {
     return '최적해: $count수';
   }
+
+  @override
+  String get feedbackTitle => '다음 버전을 함께 만들어요';
+
+  @override
+  String get feedbackBody =>
+      '기능을 제안하거나 CubeMentor의 다음 버전에 의견을 주고 싶으신가요? 이메일을 보내 주세요:';
+
+  @override
+  String get feedbackEmailCopied => '이메일 앱을 찾을 수 없어 주소를 클립보드에 복사했어요.';
 }

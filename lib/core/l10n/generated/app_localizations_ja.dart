@@ -1863,4 +1863,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String fastSolveOptimal(int count) {
     return '最適解：$count手';
   }
+
+  @override
+  String get feedbackTitle => '次のバージョンを一緒に作ろう';
+
+  @override
+  String get feedbackBody => '機能の提案や、CubeMentor の次のバージョンへのご意見はこちらまで：';
+
+  @override
+  String get feedbackEmailCopied => 'メールアプリが見つからないため、アドレスをクリップボードにコピーしました。';
 }

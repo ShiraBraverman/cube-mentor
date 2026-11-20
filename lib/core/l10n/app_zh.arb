@@ -553,5 +553,8 @@
   "playbackPrevious": "上一步",
   "playbackNext": "下一步",
   "fastSolveMoves": "{count} 步完成还原！",
-  "fastSolveOptimal": "最优解：{count} 步"
+  "fastSolveOptimal": "最优解：{count} 步",
+  "feedbackTitle": "一起打造下一个版本",
+  "feedbackBody": "想建议新功能，或参与塑造 CubeMentor 的下一个版本？欢迎发邮件至：",
+  "feedbackEmailCopied": "未找到邮件应用，已将邮箱地址复制到剪贴板。"
 }

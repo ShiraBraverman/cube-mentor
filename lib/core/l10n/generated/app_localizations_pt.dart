@@ -1985,6 +1985,17 @@ class AppLocalizationsPt extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get feedbackTitle => 'Ajude a criar a próxima versão';
+
+  @override
+  String get feedbackBody =>
+      'Quer sugerir uma funcionalidade ou influenciar a próxima versão do CubeMentor? Escreva-nos para:';
+
+  @override
+  String get feedbackEmailCopied =>
+      'Não encontrámos uma app de e-mail, por isso copiámos o endereço para a área de transferência.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -3960,4 +3971,15 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
     );
     return '$_temp0';
   }
+
+  @override
+  String get feedbackTitle => 'Ajude a criar a próxima versão';
+
+  @override
+  String get feedbackBody =>
+      'Quer sugerir um recurso ou influenciar a próxima versão do CubeMentor? Escreva para a gente em:';
+
+  @override
+  String get feedbackEmailCopied =>
+      'Não encontramos um app de e-mail, então copiamos o endereço para a área de transferência.';
 }

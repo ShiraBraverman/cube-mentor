@@ -16,7 +16,9 @@ import 'package:cube_mentor/features/solver_3d/model/cube_session.dart';
 import 'package:cube_mentor/features/solver_3d/solver_3d_screen.dart';
 import 'package:cube_mentor/features/timer/timer_screen.dart';
 import 'package:cube_mentor/features/train/train_screen.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -32,8 +34,9 @@ Future<SharedPreferences> _prefs([Map<String, Object> values = const {}]) {
 /// Pumps the whole app on a phone and returns its provider container.
 Future<ProviderContainer> _pumpApp(
   WidgetTester tester,
-  SharedPreferences prefs,
-) async {
+  SharedPreferences prefs, {
+  List<Override> overrides = const [],
+}) async {
   tester.view.physicalSize = const Size(1080, 2340);
   tester.view.devicePixelRatio = 2.75;
   addTearDown(tester.view.reset);
@@ -44,6 +47,7 @@ Future<ProviderContainer> _pumpApp(
         cubeSolverProvider.overrideWithValue(FakeCubeSolver()),
         scanAnalyzerProvider.overrideWithValue(FakeScanAnalyzer()),
         clockProvider.overrideWithValue(() => DateTime(2026, 11, 16, 8)),
+        ...overrides,
       ],
       child: const CubeMentorApp(),
     ),
@@ -291,6 +295,71 @@ void main() {
       expect(find.text('3.00×'), findsOneWidget);
       // A new 3D cube starts at the chosen speed.
       expect(container.read(cubeSessionProvider(5)).speed, 3);
+    });
+
+    testWidgets('the feedback card opens an email draft to the team', (
+      tester,
+    ) async {
+      final opened = <Uri>[];
+      await _pumpApp(
+        tester,
+        await _prefs(),
+        overrides: [
+          emailLauncherProvider.overrideWithValue((uri) async {
+            opened.add(uri);
+            return true;
+          }),
+        ],
+      );
+      await _openSettings(tester);
+      final card = find.byKey(const ValueKey('settings-feedback'));
+      await tester.ensureVisible(card);
+      await _advance(tester, 2);
+      expect(find.text('Shape the Next Version'), findsOneWidget);
+      expect(find.text('MyCubeMentor@gmail.com'), findsOneWidget);
+      await tester.tap(card);
+      await _advance(tester, 2);
+      expect(opened, hasLength(1));
+      expect(opened.single.scheme, 'mailto');
+      expect(opened.single.path, 'MyCubeMentor@gmail.com');
+      expect(opened.single.queryParameters['subject'], 'CubeMentor Feedback');
+      expect(find.byKey(const ValueKey('feedback-copied')), findsNothing);
+    });
+
+    testWidgets('without an email app the address is copied instead', (
+      tester,
+    ) async {
+      String? copied;
+      tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+        SystemChannels.platform,
+        (call) async {
+          if (call.method == 'Clipboard.setData') {
+            copied = (call.arguments as Map)['text'] as String?;
+          }
+          return null;
+        },
+      );
+      addTearDown(
+        () => tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+          SystemChannels.platform,
+          null,
+        ),
+      );
+      await _pumpApp(
+        tester,
+        await _prefs(),
+        overrides: [
+          emailLauncherProvider.overrideWithValue((_) async => false),
+        ],
+      );
+      await _openSettings(tester);
+      final card = find.byKey(const ValueKey('settings-feedback'));
+      await tester.ensureVisible(card);
+      await _advance(tester, 2);
+      await tester.tap(card);
+      await _advance(tester, 4);
+      expect(copied, 'MyCubeMentor@gmail.com');
+      expect(find.byKey(const ValueKey('feedback-copied')), findsOneWidget);
     });
 
     testWidgets('reset asks first; cancel keeps, confirm clears progress', (

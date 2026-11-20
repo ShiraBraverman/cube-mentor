@@ -553,5 +553,8 @@
   "playbackPrevious": "Sebelumnya",
   "playbackNext": "Berikutnya",
   "fastSolveMoves": "Selesai dalam {count} gerakan!",
-  "fastSolveOptimal": "Optimal: {count} gerakan"
+  "fastSolveOptimal": "Optimal: {count} gerakan",
+  "feedbackTitle": "Bentuk Versi Berikutnya",
+  "feedbackBody": "Ingin menyarankan fitur atau ikut menentukan versi CubeMentor berikutnya? Kirim email ke:",
+  "feedbackEmailCopied": "Aplikasi email tidak ditemukan, jadi alamatnya kami salin ke papan klip."
 }

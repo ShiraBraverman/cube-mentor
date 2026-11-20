@@ -1977,4 +1977,15 @@ class AppLocalizationsAr extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get feedbackTitle => 'ساهم في تشكيل الإصدار القادم';
+
+  @override
+  String get feedbackBody =>
+      'هل تريد اقتراح ميزة أو التأثير في الإصدار القادم من CubeMentor؟ راسلنا على:';
+
+  @override
+  String get feedbackEmailCopied =>
+      'لم يُعثر على تطبيق بريد، لذا نسخنا العنوان إلى الحافظة.';
 }

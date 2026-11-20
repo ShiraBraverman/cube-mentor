@@ -553,5 +553,8 @@
   "playbackPrevious": "पिछला",
   "playbackNext": "अगला",
   "fastSolveMoves": "{count, plural, =1{1 चाल में हल!} other{{count} चालों में हल!}}",
-  "fastSolveOptimal": "{count, plural, =1{सर्वोत्तम: 1 चाल} other{सर्वोत्तम: {count} चालें}}"
+  "fastSolveOptimal": "{count, plural, =1{सर्वोत्तम: 1 चाल} other{सर्वोत्तम: {count} चालें}}",
+  "feedbackTitle": "अगला संस्करण मिलकर बनाएँ",
+  "feedbackBody": "कोई फ़ीचर सुझाना चाहते हैं या CubeMentor के अगले संस्करण को आकार देना चाहते हैं? हमें यहाँ लिखें:",
+  "feedbackEmailCopied": "कोई ईमेल ऐप नहीं मिला, इसलिए पता क्लिपबोर्ड पर कॉपी कर दिया गया।"
 }

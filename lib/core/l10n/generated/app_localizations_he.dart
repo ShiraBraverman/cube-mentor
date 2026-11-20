@@ -1957,4 +1957,15 @@ class AppLocalizationsHe extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get feedbackTitle => 'עזרו לעצב את הגרסה הבאה';
+
+  @override
+  String get feedbackBody =>
+      'רוצים להציע פיצ\'ר או להשפיע על הגרסה הבאה של CubeMentor? כתבו לנו:';
+
+  @override
+  String get feedbackEmailCopied =>
+      'לא נמצאה אפליקציית דוא\"ל, אז העתקנו את הכתובת ללוח.';
 }

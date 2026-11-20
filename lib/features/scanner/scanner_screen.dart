@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../core/cube/cube_state.dart';
+import '../../core/feedback/feedback_service.dart';
 import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/solver/cube_solver.dart';
 import '../../core/solver/solve_step.dart';
@@ -257,7 +258,11 @@ class _ScannerScreenState extends ConsumerState<ScannerScreen> {
               : CameraScanView(
                   key: ValueKey('camera-${session.face}'),
                   size: size,
-                  onCapture: _controller.capture,
+                  onCapture: (cells) {
+                    // A soft shutter tick for each captured face.
+                    ref.read(feedbackProvider).step();
+                    _controller.capture(cells);
+                  },
                   onUnavailable: (problem) =>
                       setState(() => _problem = problem),
                 ),

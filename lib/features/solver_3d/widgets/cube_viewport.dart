@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../../core/cube/cube_move.dart';
-import '../../../core/settings/app_settings.dart';
+import '../../../core/feedback/feedback_service.dart';
 import '../interaction/layer_drag.dart';
 import '../model/cube_session.dart';
 import '../render/cube_painter.dart';
@@ -149,6 +149,9 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
     _activeMove = null;
     _turn.value = 0;
     _controller.commitHead();
+    // Animated turns (playback, notation pad) click softly without
+    // vibrating on every move.
+    ref.read(feedbackProvider).turn(haptic: false);
     _maybeStartNext();
   }
 
@@ -162,7 +165,7 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
     }
     if (previous != null && next.rejectedMoves != previous.rejectedMoves) {
       _shake.forward(from: 0);
-      playHaptic(ref, Haptic.light);
+      ref.read(feedbackProvider).wrong();
     }
     _syncPulse(next);
     _maybeStartNext();
@@ -311,11 +314,12 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
     } else if (move != null) {
       final verdict = _controller.judge(move);
       _controller.commitDirect(move);
+      final feedback = ref.read(feedbackProvider);
       if (verdict == GuidedMove.free) {
-        playHaptic(ref, Haptic.selection);
+        feedback.turn();
       } else {
-        // The user made the expected move: confirm it firmly.
-        playHaptic(ref, Haptic.medium);
+        // The user made the expected move: a step-complete tick.
+        feedback.step();
       }
     }
     _maybeStartNext();

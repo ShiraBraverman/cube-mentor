@@ -553,5 +553,8 @@
   "playbackPrevious": "Nakaraan",
   "playbackNext": "Susunod",
   "fastSolveMoves": "Nalutas sa {count} galaw!",
-  "fastSolveOptimal": "Pinakamaikli: {count} galaw"
+  "fastSolveOptimal": "Pinakamaikli: {count} galaw",
+  "feedbackTitle": "Hubugin ang Susunod na Bersyon",
+  "feedbackBody": "Gusto mo bang magmungkahi ng feature o makaimpluwensya sa susunod na bersyon ng CubeMentor? Sumulat sa amin sa:",
+  "feedbackEmailCopied": "Walang nakitang email app, kaya kinopya namin ang address sa clipboard."
 }

@@ -553,5 +553,8 @@
   "playbackPrevious": "前へ",
   "playbackNext": "次へ",
   "fastSolveMoves": "{count}手で完成！",
-  "fastSolveOptimal": "最適解：{count}手"
+  "fastSolveOptimal": "最適解：{count}手",
+  "feedbackTitle": "次のバージョンを一緒に作ろう",
+  "feedbackBody": "機能の提案や、CubeMentor の次のバージョンへのご意見はこちらまで：",
+  "feedbackEmailCopied": "メールアプリが見つからないため、アドレスをクリップボードにコピーしました。"
 }

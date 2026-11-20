@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../core/feedback/feedback_service.dart';
 import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/l10n/move_words.dart';
 import '../../core/theme/app_colors.dart';
@@ -78,21 +79,34 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
   VoidCallback? _previous(CubeSession session) {
     if (session.isHandTurning || session.isPreviewing) return null;
     if (session.hasPlayback && session.canStepBack) {
-      return ref.read(cubeSessionProvider(_lesson.size).notifier).stepBack;
+      return _ticked(
+        ref.read(cubeSessionProvider(_lesson.size).notifier).stepBack,
+      );
     }
-    return _step > 0 ? () => _goTo(_step - 1) : null;
+    return _step > 0 ? _ticked(() => _goTo(_step - 1)) : null;
   }
+
+  /// [action] preceded by the soft step-complete tick.
+  VoidCallback _ticked(VoidCallback action) => () {
+    ref.read(feedbackProvider).step();
+    action();
+  };
 
   /// Next move of this part's demo, else the next part, else finish.
   VoidCallback? _next(CubeSession session) {
     if (session.isHandTurning || session.isPreviewing) return null;
     if (session.hasPlayback && session.canStepForward) {
-      return ref.read(cubeSessionProvider(_lesson.size).notifier).stepForward;
+      return _ticked(
+        ref.read(cubeSessionProvider(_lesson.size).notifier).stepForward,
+      );
     }
-    return _step + 1 < _lesson.steps.length ? () => _goTo(_step + 1) : _finish;
+    return _step + 1 < _lesson.steps.length
+        ? _ticked(() => _goTo(_step + 1))
+        : _finish;
   }
 
   Future<void> _finish() async {
+    ref.read(feedbackProvider).success();
     await ref.read(academyProgressProvider.notifier).complete(_lesson.id);
     if (mounted) setState(() => _finished = true);
   }

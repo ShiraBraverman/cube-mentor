@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../core/cube/cube_state.dart';
+import '../../core/feedback/feedback_service.dart';
 import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/settings/intro_preference.dart';
 import '../../core/settings/solve_preference.dart';
@@ -178,6 +179,17 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
       final step = current.currentStep!;
       showSubStepIntro(context, crown: step.crown, subStep: step.subStep);
     });
+
+    // A scrambled cube became solved (by hand or playback, not by Reset):
+    // the warm success chime.
+    ref.listen(
+      cubeSessionProvider(size)
+          .select((s) => (s.epoch, s.isIdle && s.cube.isSolved)),
+      (previous, next) {
+        if (previous == null || previous.$1 != next.$1) return;
+        if (!previous.$2 && next.$2) ref.read(feedbackProvider).success();
+      },
+    );
 
     // The user solved the cube they started from (e.g. the daily scramble).
     ref.listen(
@@ -367,7 +379,10 @@ class _GuideDock extends ConsumerWidget {
                 label: l10n.playbackPrevious,
                 icon: Icons.skip_previous_rounded,
                 onPressed: free && session.canStepBack
-                    ? controller.stepBack
+                    ? () {
+                        ref.read(feedbackProvider).step();
+                        controller.stepBack();
+                      }
                     : null,
               ),
             ),
@@ -383,8 +398,16 @@ class _GuideDock extends ConsumerWidget {
               minimumSize: const Size.square(52),
             ),
             onPressed: session.isPlaying
-                ? controller.pause
-                : (free && session.canStepForward ? controller.play : null),
+                ? () {
+                    ref.read(feedbackProvider).tap();
+                    controller.pause();
+                  }
+                : (free && session.canStepForward
+                      ? () {
+                          ref.read(feedbackProvider).tap();
+                          controller.play();
+                        }
+                      : null),
             icon: Icon(
               session.isPlaying
                   ? Icons.pause_rounded
@@ -402,7 +425,10 @@ class _GuideDock extends ConsumerWidget {
                 icon: Icons.skip_next_rounded,
                 iconAfter: true,
                 onPressed: free && session.canStepForward
-                    ? controller.stepForward
+                    ? () {
+                        ref.read(feedbackProvider).step();
+                        controller.stepForward();
+                      }
                     : null,
               ),
             ),
@@ -750,7 +776,12 @@ class _ActionButton extends StatelessWidget {
           EdgeInsets.symmetric(horizontal: AppSpace.xxs, vertical: AppSpace.xs),
         ),
       ),
-      onPressed: onTap,
+      onPressed: onTap == null
+          ? null
+          : () {
+              playFeedback(context, FeedbackCue.tap);
+              onTap!();
+            },
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

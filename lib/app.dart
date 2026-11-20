@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import 'core/l10n/app_delegates.dart';
 import 'core/l10n/generated/app_localizations.dart';
 import 'core/settings/locale_controller.dart';
 import 'core/theme/app_theme.dart';
@@ -22,10 +23,7 @@ class CubeMentorApp extends ConsumerWidget {
       themeMode: ThemeMode.dark,
       locale: locale,
       supportedLocales: kSupportedLocales,
-      localizationsDelegates: const [
-        AppLocalizations.delegate,
-        ...GlobalMaterialLocalizations.delegates,
-      ],
+      localizationsDelegates: kAppLocalizationsDelegates,
       home: const RootShell(),
     );
   }

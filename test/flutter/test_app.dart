@@ -1,4 +1,4 @@
-import 'package:cube_mentor/core/l10n/generated/app_localizations.dart';
+import 'package:cube_mentor/core/l10n/app_delegates.dart';
 import 'package:cube_mentor/core/settings/locale_controller.dart';
 import 'package:cube_mentor/core/theme/app_theme.dart';
 import 'package:material_ui/material_ui.dart';
@@ -9,9 +9,6 @@ Widget testApp(Widget home, {Locale locale = const Locale('en')}) =>
       theme: AppTheme.dark(),
       locale: locale,
       supportedLocales: kSupportedLocales,
-      localizationsDelegates: const [
-        AppLocalizations.delegate,
-        ...GlobalMaterialLocalizations.delegates,
-      ],
+      localizationsDelegates: kAppLocalizationsDelegates,
       home: home,
     );

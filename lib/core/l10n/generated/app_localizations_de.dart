@@ -1989,4 +1989,15 @@ class AppLocalizationsDe extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get feedbackTitle => 'Gestalte die nächste Version mit';
+
+  @override
+  String get feedbackBody =>
+      'Du möchtest eine Funktion vorschlagen oder die nächste Version von CubeMentor mitgestalten? Schreib uns an:';
+
+  @override
+  String get feedbackEmailCopied =>
+      'Keine E-Mail-App gefunden – die Adresse wurde in die Zwischenablage kopiert.';
 }

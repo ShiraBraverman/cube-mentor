@@ -1972,4 +1972,15 @@ class AppLocalizationsHi extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get feedbackTitle => 'अगला संस्करण मिलकर बनाएँ';
+
+  @override
+  String get feedbackBody =>
+      'कोई फ़ीचर सुझाना चाहते हैं या CubeMentor के अगले संस्करण को आकार देना चाहते हैं? हमें यहाँ लिखें:';
+
+  @override
+  String get feedbackEmailCopied =>
+      'कोई ईमेल ऐप नहीं मिला, इसलिए पता क्लिपबोर्ड पर कॉपी कर दिया गया।';
 }

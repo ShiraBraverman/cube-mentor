@@ -553,5 +553,8 @@
   "playbackPrevious": "הקודם",
   "playbackNext": "הבא",
   "fastSolveMoves": "{count, plural, =1{נפתר במהלך אחד!} =2{נפתר בשני מהלכים!} other{נפתר ב־{count} מהלכים!}}",
-  "fastSolveOptimal": "{count, plural, =1{אופטימלי: מהלך אחד} =2{אופטימלי: שני מהלכים} other{אופטימלי: {count} מהלכים}}"
+  "fastSolveOptimal": "{count, plural, =1{אופטימלי: מהלך אחד} =2{אופטימלי: שני מהלכים} other{אופטימלי: {count} מהלכים}}",
+  "feedbackTitle": "עזרו לעצב את הגרסה הבאה",
+  "feedbackBody": "רוצים להציע פיצ'ר או להשפיע על הגרסה הבאה של CubeMentor? כתבו לנו:",
+  "feedbackEmailCopied": "לא נמצאה אפליקציית דוא\"ל, אז העתקנו את הכתובת ללוח."
 }

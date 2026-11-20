@@ -1991,4 +1991,15 @@ class AppLocalizationsRu extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get feedbackTitle => 'Создайте следующую версию вместе с нами';
+
+  @override
+  String get feedbackBody =>
+      'Хотите предложить функцию или повлиять на следующую версию CubeMentor? Пишите нам:';
+
+  @override
+  String get feedbackEmailCopied =>
+      'Почтовое приложение не найдено, поэтому адрес скопирован в буфер обмена.';
 }

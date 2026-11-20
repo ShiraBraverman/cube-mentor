@@ -1973,4 +1973,15 @@ class AppLocalizationsEn extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get feedbackTitle => 'Shape the Next Version';
+
+  @override
+  String get feedbackBody =>
+      'Want to suggest a feature or influence the next version of CubeMentor? Write to us at:';
+
+  @override
+  String get feedbackEmailCopied =>
+      'No email app found, so we copied the address to your clipboard.';
 }

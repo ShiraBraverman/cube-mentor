@@ -1,5 +1,7 @@
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/settings/app_settings.dart';
@@ -10,6 +12,26 @@ import '../../core/theme/ui_kit.dart';
 import '../academy/model/academy_progress.dart';
 import '../daily/daily_controller.dart';
 import 'language_sheet.dart';
+
+/// Where users send feature ideas and feedback.
+const String kFeedbackEmail = 'MyCubeMentor@gmail.com';
+
+/// The feedback email draft opened from Settings.
+final Uri kFeedbackMailto = Uri.parse(
+  'mailto:$kFeedbackEmail?subject=CubeMentor%20Feedback',
+);
+
+/// Opens a `mailto:` link in the device's email app; false when none can.
+/// Overridden in tests.
+final emailLauncherProvider = Provider<Future<bool> Function(Uri)>(
+  (ref) => (uri) async {
+    try {
+      return await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } catch (_) {
+      return false;
+    }
+  },
+);
 
 /// Compact gear button in the header; opens [SettingsSheet].
 class SettingsButton extends StatelessWidget {
@@ -154,6 +176,7 @@ class SettingsSheet extends ConsumerWidget {
                     ),
                     onTap: () => _confirmReset(context, ref),
                   ),
+                  const _FeedbackCard(),
                   _SettingsRow(
                     key: const ValueKey('settings-privacy'),
                     icon: Icons.privacy_tip_outlined,
@@ -211,6 +234,82 @@ class SettingsSheet extends ConsumerWidget {
     if (!context.mounted) return;
     ScaffoldMessenger.maybeOf(context)
         ?.showSnackBar(SnackBar(content: Text(l10n.resetProgressDone)));
+  }
+}
+
+/// "Shape the Next Version": invites ideas by email. Tapping opens the
+/// email app with a feedback draft, or copies the address when no email
+/// app is installed.
+class _FeedbackCard extends ConsumerWidget {
+  const _FeedbackCard();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final textTheme = Theme.of(context).textTheme;
+    return Padding(
+      padding: const EdgeInsetsDirectional.only(bottom: AppSpace.xs),
+      child: GlassCard(
+        key: const ValueKey('settings-feedback'),
+        blur: 0,
+        selected: true,
+        accent: AppColors.accentSecondary,
+        borderRadius: AppRadius.sm,
+        padding: const EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
+        onTap: () => _open(context, ref),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const AccentIcon(
+              icon: Icons.mail_outline_rounded,
+              color: AppColors.accentSecondary,
+              size: 40,
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(l10n.feedbackTitle, style: textTheme.titleMedium),
+                  const SizedBox(height: 2),
+                  Text(l10n.feedbackBody, style: textTheme.bodySmall),
+                  const SizedBox(height: AppSpace.xxs),
+                  // The address always reads left to right.
+                  Text(
+                    kFeedbackEmail,
+                    key: const ValueKey('settings-feedback-email'),
+                    textDirection: TextDirection.ltr,
+                    style: textTheme.labelLarge?.copyWith(
+                      color: AppColors.accentSecondary,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: AppSpace.xs),
+            const Icon(
+              Icons.open_in_new_rounded,
+              size: 18,
+              color: AppColors.textTertiary,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future<void> _open(BuildContext context, WidgetRef ref) async {
+    final l10n = AppLocalizations.of(context);
+    final messenger = ScaffoldMessenger.maybeOf(context);
+    final opened = await ref.read(emailLauncherProvider)(kFeedbackMailto);
+    if (opened) return;
+    await Clipboard.setData(const ClipboardData(text: kFeedbackEmail));
+    messenger?.showSnackBar(
+      SnackBar(
+        key: const ValueKey('feedback-copied'),
+        content: Text(l10n.feedbackEmailCopied),
+      ),
+    );
   }
 }
 

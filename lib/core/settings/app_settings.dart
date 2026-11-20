@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -74,19 +73,3 @@ final appSettingsProvider =
     NotifierProvider<AppSettingsController, AppSettings>(
       AppSettingsController.new,
     );
-
-/// Kinds of haptic feedback the app plays.
-enum Haptic { selection, light, medium }
-
-/// Plays [kind] unless the user turned sound & haptics off.
-void playHaptic(WidgetRef ref, Haptic kind) {
-  if (!ref.read(appSettingsProvider).soundHaptics) return;
-  switch (kind) {
-    case Haptic.selection:
-      HapticFeedback.selectionClick();
-    case Haptic.light:
-      HapticFeedback.lightImpact();
-    case Haptic.medium:
-      HapticFeedback.mediumImpact();
-  }
-}

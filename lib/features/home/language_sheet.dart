@@ -129,7 +129,7 @@ class _LanguageSheetState extends ConsumerState<LanguageSheet> {
                               ),
                             ),
                           )
-                        // Fifteen rows: build them all, so the current
+                        // Seventeen rows: build them all, so the current
                         // one can be scrolled into view.
                         : SingleChildScrollView(
                             key: const ValueKey('language-list'),

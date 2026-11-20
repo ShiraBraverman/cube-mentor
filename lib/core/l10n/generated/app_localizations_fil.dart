@@ -1983,4 +1983,15 @@ class AppLocalizationsFil extends AppLocalizations {
   String fastSolveOptimal(int count) {
     return 'Pinakamaikli: $count galaw';
   }
+
+  @override
+  String get feedbackTitle => 'Hubugin ang Susunod na Bersyon';
+
+  @override
+  String get feedbackBody =>
+      'Gusto mo bang magmungkahi ng feature o makaimpluwensya sa susunod na bersyon ng CubeMentor? Sumulat sa amin sa:';
+
+  @override
+  String get feedbackEmailCopied =>
+      'Walang nakitang email app, kaya kinopya namin ang address sa clipboard.';
 }

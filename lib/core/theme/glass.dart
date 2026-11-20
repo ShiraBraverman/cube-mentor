@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:material_ui/material_ui.dart';
 
+import '../feedback/feedback_service.dart';
 import 'app_colors.dart';
 
 /// Full-screen obsidian backdrop with two faint accent glows behind the
@@ -145,7 +146,12 @@ class GlassCard extends StatelessWidget {
             child: Material(
               type: MaterialType.transparency,
               child: InkWell(
-                onTap: onTap,
+                onTap: onTap == null
+                    ? null
+                    : () {
+                        playFeedback(context, FeedbackCue.tap);
+                        onTap!();
+                      },
                 borderRadius: radius,
                 child: Padding(padding: padding, child: child),
               ),

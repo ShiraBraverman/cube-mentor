@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../core/feedback/feedback_service.dart';
 import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
@@ -78,7 +79,10 @@ class GlassDock extends ConsumerWidget {
       academyProgressProvider.select((p) => p.completedCount),
     );
 
-    void select(AppTab to) => ref.read(currentTabProvider.notifier).select(to);
+    void select(AppTab to) {
+      if (to != tab) ref.read(feedbackProvider).tap();
+      ref.read(currentTabProvider.notifier).select(to);
+    }
 
     return SafeArea(
       top: false,

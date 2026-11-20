@@ -43,6 +43,8 @@ const List<AppLanguage> kAppLanguages = [
   AppLanguage(Locale('ja'), '日本語', 'Japanese'),
   AppLanguage(Locale('ko'), '한국어', 'Korean'),
   AppLanguage(Locale('zh'), '简体中文', 'Chinese (Simplified)'),
+  AppLanguage(Locale('bn'), 'বাংলা', 'Bengali'),
+  AppLanguage(Locale('tt'), 'Татарча', 'Tatar'),
 ];
 
 /// Locales handed to [MaterialApp].

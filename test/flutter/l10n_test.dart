@@ -1,6 +1,7 @@
 import 'package:cube_mentor/app.dart';
 import 'package:cube_mentor/core/cube/cube_move.dart';
 import 'package:cube_mentor/core/cube/cube_state.dart';
+import 'package:cube_mentor/core/l10n/app_delegates.dart';
 import 'package:cube_mentor/core/l10n/generated/app_localizations.dart';
 import 'package:cube_mentor/core/scramble/scrambler.dart';
 import 'package:cube_mentor/core/settings/clock.dart';
@@ -16,6 +17,7 @@ import 'package:cube_mentor/features/academy/model/lesson_catalog.dart';
 import 'package:cube_mentor/features/daily/daily_screen.dart';
 import 'package:cube_mentor/features/home/home_screen.dart';
 import 'package:cube_mentor/features/home/root_shell.dart';
+import 'package:cube_mentor/features/home/settings_sheet.dart';
 import 'package:cube_mentor/features/patterns/patterns_screen.dart';
 import 'package:cube_mentor/features/scanner/camera/frame_sampler.dart';
 import 'package:cube_mentor/features/scanner/model/scan_session.dart';
@@ -26,6 +28,7 @@ import 'package:cube_mentor/features/solver_3d/model/guide_script.dart';
 import 'package:cube_mentor/features/solver_3d/solver_3d_screen.dart';
 import 'package:cube_mentor/features/timer/timer_screen.dart';
 import 'package:cube_mentor/features/train/train_screen.dart';
+import 'package:cupertino_ui/cupertino_ui.dart' show CupertinoLocalizations;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
@@ -55,11 +58,12 @@ void _smallPhone(WidgetTester tester) {
 
 void main() {
   group('supported languages', () {
-    test('fourteen languages, English first, every one fully loadable', () {
+    test('seventeen languages, English first, every one fully loadable', () {
       expect(kAppLanguages.first.tag, 'en');
+      expect(kAppLanguages, hasLength(17));
       expect(kAppLanguages.map((l) => l.locale.languageCode).toSet(), {
-        'en', 'he', 'es', 'pt', 'id', 'hi', 'fil', //
-        'ar', 'fr', 'de', 'ru', 'ja', 'ko', 'zh',
+        'en', 'he', 'es', 'pt', 'id', 'hi', 'fil', 'ar', 'fr', //
+        'de', 'ru', 'ja', 'ko', 'zh', 'bn', 'tt',
       });
       expect(kAppLanguages.map((l) => l.tag), containsAll(['pt', 'pt_BR']));
       for (final language in kAppLanguages) {
@@ -69,12 +73,14 @@ void main() {
           reason: language.tag,
         );
         // Material/Cupertino widgets (dialogs, text fields) must also have
-        // their own strings for every app language.
-        expect(
-          GlobalMaterialLocalizations.delegate.isSupported(language.locale),
-          isTrue,
-          reason: language.tag,
-        );
+        // strings for every app language (English for Tatar).
+        for (final type in [MaterialLocalizations, CupertinoLocalizations]) {
+          expect(
+            appDelegatesSupport(type, language.locale),
+            isTrue,
+            reason: '${language.tag} $type',
+          );
+        }
         final l10n = lookupAppLocalizations(language.locale);
         expect(l10n.localeName, startsWith(language.locale.languageCode));
       }
@@ -96,6 +102,36 @@ void main() {
         }
       }
     });
+
+    test(
+      'Tatar falls back to English Material strings, Bengali has its own',
+      () async {
+        expect(
+          GlobalMaterialLocalizations.delegate.isSupported(const Locale('tt')),
+          isFalse,
+        );
+        final tt = await const FallbackMaterialLocalizationsDelegate().load(
+          const Locale('tt'),
+        );
+        expect(tt.okButtonLabel, 'OK');
+        expect(
+          const FallbackMaterialLocalizationsDelegate().isSupported(
+            const Locale('bn'),
+          ),
+          isFalse,
+        );
+        expect(lookupAppLocalizations(const Locale('bn')).language, 'ভাষা');
+        expect(lookupAppLocalizations(const Locale('tt')).language, 'Тел');
+        expect(
+          lookupAppLocalizations(const Locale('tt')).moveCount(3),
+          '3 хәрәкәт',
+        );
+        expect(
+          lookupAppLocalizations(const Locale('bn')).moveCount(3),
+          '3টি চাল',
+        );
+      },
+    );
 
     test('Brazilian and European Portuguese differ', () {
       final br = lookupAppLocalizations(const Locale('pt', 'BR'));
@@ -125,6 +161,8 @@ void main() {
       expect(tag(const Locale('in')), 'id');
       expect(tag(const Locale('zh', 'CN')), 'zh');
       expect(tag(const Locale('sv')), isNull);
+      expect(tag(const Locale('bn', 'BD')), 'bn');
+      expect(tag(const Locale('tt', 'RU')), 'tt');
     });
   });
 
@@ -326,6 +364,8 @@ void main() {
       expect(find.byKey(const ValueKey('daily-step-0')), findsOneWidget);
       expect(tester.takeException(), isNull, reason: 'daily text moves');
       await show(const PatternsScreen());
+      // Settings, with the feedback card, on a small phone.
+      await show(const Scaffold(body: SettingsSheet()));
 
       // The scanner while capturing: guide, two-step turn prompt, pills.
       await show(const ScannerScreen(size: 3, cameraOverride: false));

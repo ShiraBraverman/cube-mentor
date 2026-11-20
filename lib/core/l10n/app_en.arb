@@ -947,5 +947,17 @@
         "type": "int"
       }
     }
+  },
+  "feedbackTitle": "Shape the Next Version",
+  "feedbackBody": "Want to suggest a feature or influence the next version of CubeMentor? Write to us at:",
+  "feedbackEmailCopied": "No email app found, so we copied the address to your clipboard.",
+  "@feedbackTitle": {
+    "description": "Settings card inviting feature ideas by email."
+  },
+  "@feedbackBody": {
+    "description": "Settings feedback card text; the email address is shown on its own line below."
+  },
+  "@feedbackEmailCopied": {
+    "description": "Snack bar when no email app can open the feedback email."
   }
 }

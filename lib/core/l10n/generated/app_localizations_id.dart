@@ -1966,4 +1966,15 @@ class AppLocalizationsId extends AppLocalizations {
   String fastSolveOptimal(int count) {
     return 'Optimal: $count gerakan';
   }
+
+  @override
+  String get feedbackTitle => 'Bentuk Versi Berikutnya';
+
+  @override
+  String get feedbackBody =>
+      'Ingin menyarankan fitur atau ikut menentukan versi CubeMentor berikutnya? Kirim email ke:';
+
+  @override
+  String get feedbackEmailCopied =>
+      'Aplikasi email tidak ditemukan, jadi alamatnya kami salin ke papan klip.';
 }

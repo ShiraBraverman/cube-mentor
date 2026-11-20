@@ -553,5 +553,8 @@
   "playbackPrevious": "Zurück",
   "playbackNext": "Weiter",
   "fastSolveMoves": "{count, plural, =1{In 1 Zug gelöst!} other{In {count} Zügen gelöst!}}",
-  "fastSolveOptimal": "{count, plural, =1{Optimal: 1 Zug} other{Optimal: {count} Züge}}"
+  "fastSolveOptimal": "{count, plural, =1{Optimal: 1 Zug} other{Optimal: {count} Züge}}",
+  "feedbackTitle": "Gestalte die nächste Version mit",
+  "feedbackBody": "Du möchtest eine Funktion vorschlagen oder die nächste Version von CubeMentor mitgestalten? Schreib uns an:",
+  "feedbackEmailCopied": "Keine E-Mail-App gefunden – die Adresse wurde in die Zwischenablage kopiert."
 }

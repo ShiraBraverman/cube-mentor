@@ -553,5 +553,8 @@
   "playbackPrevious": "Назад",
   "playbackNext": "Далее",
   "fastSolveMoves": "{count, plural, one{Собран за {count} ход!} few{Собран за {count} хода!} many{Собран за {count} ходов!} other{Собран за {count} хода!}}",
-  "fastSolveOptimal": "{count, plural, one{Оптимально: {count} ход} few{Оптимально: {count} хода} many{Оптимально: {count} ходов} other{Оптимально: {count} хода}}"
+  "fastSolveOptimal": "{count, plural, one{Оптимально: {count} ход} few{Оптимально: {count} хода} many{Оптимально: {count} ходов} other{Оптимально: {count} хода}}",
+  "feedbackTitle": "Создайте следующую версию вместе с нами",
+  "feedbackBody": "Хотите предложить функцию или повлиять на следующую версию CubeMentor? Пишите нам:",
+  "feedbackEmailCopied": "Почтовое приложение не найдено, поэтому адрес скопирован в буфер обмена."
 }
