@@ -307,6 +307,14 @@ void main() {
       }
       await show(const TimerScreen(size: 3));
       await show(const DailyScreen());
+      // The daily scramble's text moves, unfolded.
+      await tester.ensureVisible(
+        find.byKey(const ValueKey('daily-moves-toggle')),
+      );
+      await tester.tap(find.byKey(const ValueKey('daily-moves-toggle')));
+      await _advance(tester, 8);
+      expect(find.byKey(const ValueKey('daily-step-0')), findsOneWidget);
+      expect(tester.takeException(), isNull, reason: 'daily text moves');
       await show(const PatternsScreen());
 
       // The scanner while capturing: guide, two-step turn prompt, pills.
@@ -341,6 +349,11 @@ void main() {
       // The playground, then a guided solve: crown tracker, stage title
       // with its progress bar, and the Guided / Fast toggle.
       await show(Solver3DScreen(size: 4, initialCube: CubeState.solved(4)));
+      // The notation pad bottom sheet (layer chips on a 4x4).
+      await tester.tap(find.byKey(const ValueKey('toggle-notation')));
+      await _advance(tester, 8);
+      expect(find.byKey(const ValueKey('notation-sheet')), findsOneWidget);
+      expect(tester.takeException(), isNull, reason: 'notation sheet');
       await show(
         Solver3DScreen(
           size: 3,

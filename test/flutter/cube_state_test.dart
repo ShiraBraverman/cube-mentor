@@ -5,8 +5,9 @@ import 'package:cube_mentor/core/cube/cube_state.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 /// Canonical sticker snapshot used to compare cube states.
-List<List<StickerColor>> snapshot(CubeState cube) =>
-    [for (final n in kFaceNormals) cube.faceColors(n)];
+List<List<StickerColor>> snapshot(CubeState cube) => [
+  for (final n in kFaceNormals) cube.faceColors(n),
+];
 
 CubeState run(int size, String sequence) =>
     CubeState.solved(size).applyAll(MoveNotation.parseSequence(sequence, size));
@@ -76,8 +77,11 @@ void main() {
             cube = cube.apply(move);
           }
           expect(snapshot(cube), startSnap, reason: '$token x4');
-          expect(snapshot(start.apply(move).apply(move.inverse)), startSnap,
-              reason: '$token + inverse');
+          expect(
+            snapshot(start.apply(move).apply(move.inverse)),
+            startSnap,
+            reason: '$token + inverse',
+          );
         }
         expect(snapshot(CubeState.solved(n)), solved);
       });
@@ -85,7 +89,8 @@ void main() {
 
     test('sexy move has order 6 on 3x3', () {
       final once = MoveNotation.parseSequence("R U R' U'", 3);
-      final cube = CubeState.solved(3).applyAll([for (var i = 0; i < 6; i++) ...once]);
+      final cube = CubeState.solved(3)
+          .applyAll([for (var i = 0; i < 6; i++) ...once]);
       expect(cube.isSolved, isTrue);
       expect(CubeState.solved(3).applyAll(once).isSolved, isFalse);
     });
@@ -112,9 +117,9 @@ void main() {
           final scramble = CubeState.randomScramble(n, random: rng);
           final scrambled = CubeState.solved(n).applyAll(scramble);
           expect(scrambled.isSolved, isFalse);
-          final restored = scrambled.applyAll(
-            [for (final m in scramble.reversed) m.inverse],
-          );
+          final restored = scrambled.applyAll([
+            for (final m in scramble.reversed) m.inverse,
+          ]);
           expect(restored.isSolved, isTrue);
         }
       });

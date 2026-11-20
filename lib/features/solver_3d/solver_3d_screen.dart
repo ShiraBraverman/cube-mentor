@@ -3,6 +3,7 @@ import 'package:material_ui/material_ui.dart';
 
 import '../../core/cube/cube_state.dart';
 import '../../core/l10n/generated/app_localizations.dart';
+import '../../core/settings/intro_preference.dart';
 import '../../core/settings/solve_preference.dart';
 import '../../core/solver/cube_solver.dart';
 import '../../core/solver/solve_step.dart';
@@ -16,8 +17,11 @@ import 'widgets/cube_viewport.dart';
 import 'widgets/move_pad.dart';
 import 'widgets/solve_banner.dart';
 
-/// 3D playground: a full-bleed touch-driven cube, a slim glass action bar,
-/// and an optional collapsible notation pad.
+/// 3D playground: a full-bleed touch-driven cube under context-aware
+/// controls. Free play shows the Scramble / Solve / Undo / Reset bar; while
+/// a solution or guide is loaded only the step dock and a compact
+/// Previous / Play / Next / Exit row remain. The notation pad opens as a
+/// bottom sheet from the app bar so it never pushes the cube up.
 class Solver3DScreen extends ConsumerStatefulWidget {
   const Solver3DScreen({
     super.key,
@@ -52,7 +56,6 @@ class Solver3DScreen extends ConsumerStatefulWidget {
 }
 
 class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
-  bool _showPad = false;
   bool _reportedSolved = false;
 
   /// Sub-steps of the loaded guided solution whose goal card was shown.
@@ -150,6 +153,7 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
         _introsShown.clear();
       }
       if (!_introsShown.add(label)) return;
+      if (!ref.read(subStepIntroAutoProvider)) return;
       final step = current.currentStep!;
       showSubStepIntro(context, crown: step.crown, subStep: step.subStep);
     });
@@ -189,13 +193,8 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
             IconButton(
               key: const ValueKey('toggle-notation'),
               tooltip: l10n.notationPad,
-              isSelected: _showPad,
               icon: const Icon(Icons.keyboard_outlined),
-              selectedIcon: const Icon(
-                Icons.keyboard,
-                color: AppColors.accentSecondary,
-              ),
-              onPressed: () => setState(() => _showPad = !_showPad),
+              onPressed: () => showNotationSheet(context, size),
             ),
             const SizedBox(width: 4),
           ],
@@ -245,28 +244,26 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        // The step dock sits under the cube, never over it.
-                        if (session.steps.isNotEmpty)
-                          Padding(
-                            padding: const EdgeInsetsDirectional.only(
-                              bottom: AppSpace.xs,
+                        // A solution or guide: the step dock under the cube
+                        // (never over it) and the playback dock only.
+                        if (session.hasPlayback) ...[
+                          if (session.steps.isNotEmpty)
+                            Padding(
+                              padding: const EdgeInsetsDirectional.only(
+                                bottom: AppSpace.xs,
+                              ),
+                              child: SolveBanner(size: size),
                             ),
-                            child: SolveBanner(size: size),
+                          _GuideDock(
+                            size: size,
+                            // Pattern and scramble guides were opened for
+                            // the guide alone: exiting leaves the screen.
+                            onExit: widget.guide != null
+                                ? () => Navigator.of(context).maybePop()
+                                : controller.clearSolution,
                           ),
-                        AnimatedSize(
-                          duration: const Duration(milliseconds: 220),
-                          curve: Curves.easeOutCubic,
-                          alignment: Alignment.bottomCenter,
-                          child: _showPad
-                              ? Padding(
-                                  padding: const EdgeInsetsDirectional.only(
-                                    bottom: 8,
-                                  ),
-                                  child: _NotationPanel(size: size),
-                                )
-                              : const SizedBox(width: double.infinity),
-                        ),
-                        _ActionBar(size: size),
+                        ] else
+                          _ActionBar(size: size),
                       ],
                     ),
                   ),
@@ -280,7 +277,87 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
   }
 }
 
-/// Slim glass bar: scramble / undo / reset, plus playback when available.
+/// Guide-only controls: Previous, Play / Pause, Next and Exit. Progress is
+/// shown once, by stage, in the step dock above (never a move count).
+class _GuideDock extends ConsumerWidget {
+  const _GuideDock({required this.size, required this.onExit});
+
+  final int size;
+  final VoidCallback onExit;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final session = ref.watch(cubeSessionProvider(size));
+    final controller = ref.read(cubeSessionProvider(size).notifier);
+    // Playback waits while a layer is held under the finger.
+    final free = !session.isHandTurning;
+
+    return GlassCard(
+      key: const ValueKey('guide-dock'),
+      borderRadius: AppRadius.lg,
+      padding: const EdgeInsetsDirectional.symmetric(
+        horizontal: AppSpace.xs,
+        vertical: 2,
+      ),
+      child: Row(
+        // Media controls keep LTR order in every locale, following
+        // Material's bidirectionality guidelines.
+        textDirection: TextDirection.ltr,
+        children: [
+          // Balances the Exit button so the media controls stay centered.
+          const SizedBox(width: 48),
+          const Spacer(),
+          IconButton(
+            key: const ValueKey('playback-prev'),
+            tooltip: l10n.previousMove,
+            iconSize: 28,
+            onPressed: free && session.canStepBack ? controller.stepBack : null,
+            icon: const Icon(Icons.skip_previous_rounded),
+          ),
+          const SizedBox(width: AppSpace.sm),
+          IconButton.filled(
+            key: const ValueKey('playback-play'),
+            tooltip: session.isPlaying ? l10n.pause : l10n.play,
+            iconSize: 30,
+            style: IconButton.styleFrom(
+              backgroundColor: AppColors.accent,
+              foregroundColor: AppColors.onAccent,
+              minimumSize: const Size.square(52),
+            ),
+            onPressed: session.isPlaying
+                ? controller.pause
+                : (free && session.canStepForward ? controller.play : null),
+            icon: Icon(
+              session.isPlaying
+                  ? Icons.pause_rounded
+                  : Icons.play_arrow_rounded,
+            ),
+          ),
+          const SizedBox(width: AppSpace.sm),
+          IconButton(
+            key: const ValueKey('playback-next'),
+            tooltip: l10n.nextMove,
+            iconSize: 28,
+            onPressed: free && session.canStepForward
+                ? controller.stepForward
+                : null,
+            icon: const Icon(Icons.skip_next_rounded),
+          ),
+          const Spacer(),
+          IconButton(
+            key: const ValueKey('guide-exit'),
+            tooltip: l10n.guideExit,
+            onPressed: onExit,
+            icon: const Icon(Icons.close_rounded),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Free play: Scramble / Solve / Undo / Reset.
 class _ActionBar extends ConsumerWidget {
   const _ActionBar({required this.size});
 
@@ -291,127 +368,49 @@ class _ActionBar extends ConsumerWidget {
     final l10n = AppLocalizations.of(context);
     final session = ref.watch(cubeSessionProvider(size));
     final controller = ref.read(cubeSessionProvider(size).notifier);
-    // Playback waits while a layer is held under the finger.
     final free = !session.isHandTurning;
-    final canUndo = session.hasPlayback
-        ? session.canStepBack
-        : session.log.isNotEmpty;
 
     return GlassCard(
+      key: const ValueKey('action-bar'),
       borderRadius: AppRadius.lg,
       padding: const EdgeInsetsDirectional.all(AppSpace.sm - 2),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
+      child: Row(
         children: [
-          AnimatedSize(
-            duration: const Duration(milliseconds: 220),
-            curve: Curves.easeOutCubic,
-            child: !session.hasPlayback
-                ? const SizedBox(width: double.infinity)
-                : Padding(
-                    padding: const EdgeInsetsDirectional.only(bottom: 4),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Row(
-                          // Media controls keep LTR order in every locale,
-                          // following Material's bidirectionality guidelines.
-                          textDirection: TextDirection.ltr,
-                          children: [
-                            IconButton(
-                              key: const ValueKey('playback-prev'),
-                              tooltip: l10n.previousMove,
-                              onPressed: free && session.canStepBack
-                                  ? controller.stepBack
-                                  : null,
-                              icon: const Icon(Icons.skip_previous_rounded),
-                            ),
-                            IconButton.filledTonal(
-                              tooltip: session.isPlaying
-                                  ? l10n.pause
-                                  : l10n.play,
-                              onPressed: session.isPlaying
-                                  ? controller.pause
-                                  : (free && session.canStepForward
-                                        ? controller.play
-                                        : null),
-                              icon: Icon(
-                                session.isPlaying
-                                    ? Icons.pause_rounded
-                                    : Icons.play_arrow_rounded,
-                              ),
-                            ),
-                            IconButton(
-                              key: const ValueKey('playback-next'),
-                              tooltip: l10n.nextMove,
-                              onPressed: free && session.canStepForward
-                                  ? controller.stepForward
-                                  : null,
-                              icon: const Icon(Icons.skip_next_rounded),
-                            ),
-                            IconButton(
-                              tooltip: l10n.replayStep,
-                              onPressed: free && session.isIdle
-                                  ? controller.replayStep
-                                  : null,
-                              icon: const Icon(Icons.replay_rounded),
-                            ),
-                            const SizedBox(width: 6),
-                            Expanded(
-                              child: GlowProgressBar(
-                                value:
-                                    session.playbackIndex /
-                                    session.playback.length,
-                                height: 6,
-                              ),
-                            ),
-                            const SizedBox(width: 8),
-                          ],
-                        ),
-                        _SpeedSlider(size: size),
-                      ],
-                    ),
-                  ),
+          Expanded(
+            child: _ActionButton(
+              icon: Icons.shuffle_rounded,
+              label: l10n.scramble,
+              onTap: free ? controller.scramble : null,
+            ),
           ),
-          Row(
-            children: [
-              Expanded(
-                child: _ActionButton(
-                  icon: Icons.shuffle_rounded,
-                  label: l10n.scramble,
-                  onTap: free ? controller.scramble : null,
-                ),
-              ),
-              const SizedBox(width: AppSpace.xs),
-              Expanded(
-                child: _ActionButton(
-                  key: const ValueKey('solve'),
-                  icon: Icons.auto_fix_high_rounded,
-                  label: session.isSolving ? l10n.solving : l10n.solve,
-                  busy: session.isSolving,
-                  primary: true,
-                  onTap: session.isSolving || !session.isIdle || !free
-                      ? null
-                      : () => _solve(context, ref),
-                ),
-              ),
-              const SizedBox(width: AppSpace.xs),
-              Expanded(
-                child: _ActionButton(
-                  icon: Icons.undo_rounded,
-                  label: l10n.undo,
-                  onTap: free && canUndo ? controller.undo : null,
-                ),
-              ),
-              const SizedBox(width: AppSpace.xs),
-              Expanded(
-                child: _ActionButton(
-                  icon: Icons.restart_alt_rounded,
-                  label: l10n.reset,
-                  onTap: controller.reset,
-                ),
-              ),
-            ],
+          const SizedBox(width: AppSpace.xs),
+          Expanded(
+            child: _ActionButton(
+              key: const ValueKey('solve'),
+              icon: Icons.auto_fix_high_rounded,
+              label: session.isSolving ? l10n.solving : l10n.solve,
+              busy: session.isSolving,
+              primary: true,
+              onTap: session.isSolving || !session.isIdle || !free
+                  ? null
+                  : () => _solve(context, ref),
+            ),
+          ),
+          const SizedBox(width: AppSpace.xs),
+          Expanded(
+            child: _ActionButton(
+              icon: Icons.undo_rounded,
+              label: l10n.undo,
+              onTap: free && session.log.isNotEmpty ? controller.undo : null,
+            ),
+          ),
+          const SizedBox(width: AppSpace.xs),
+          Expanded(
+            child: _ActionButton(
+              icon: Icons.restart_alt_rounded,
+              label: l10n.reset,
+              onTap: controller.reset,
+            ),
           ),
         ],
       ),
@@ -484,31 +483,77 @@ class _SpeedSlider extends ConsumerWidget {
   }
 }
 
-/// Collapsible advanced controls: notation buttons and animation speed.
-class _NotationPanel extends ConsumerWidget {
-  const _NotationPanel({required this.size});
-
-  final int size;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final session = ref.watch(cubeSessionProvider(size));
-    final controller = ref.read(cubeSessionProvider(size).notifier);
-
-    return GlassCard(
-      padding: const EdgeInsetsDirectional.fromSTEB(12, 12, 12, 4),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          MovePad(size: size, onMove: controller.turnNotation),
-          // Shown here only while the playback bar (with its own slider) is
-          // hidden.
-          if (!session.hasPlayback) _SpeedSlider(size: size),
-        ],
+/// Opens the notation pad (move buttons and animation speed) as a glass
+/// bottom sheet over the controls, leaving the cube where it is.
+Future<void> showNotationSheet(BuildContext context, int size) {
+  final l10n = AppLocalizations.of(context);
+  return showModalBottomSheet<void>(
+    context: context,
+    isScrollControlled: true,
+    backgroundColor: Colors.transparent,
+    barrierColor: Colors.black26,
+    builder: (context) => SafeArea(
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxHeight: MediaQuery.sizeOf(context).height * 0.6,
+          maxWidth: 560,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(AppSpace.xs),
+          child: GlassCard(
+            key: const ValueKey('notation-sheet'),
+            borderRadius: AppRadius.lg,
+            padding: const EdgeInsetsDirectional.fromSTEB(12, 8, 12, 4),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Center(
+                    child: Container(
+                      width: 36,
+                      height: 4,
+                      decoration: BoxDecoration(
+                        color: AppColors.glassBorder,
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: AppSpace.xs),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.keyboard_rounded,
+                        size: 18,
+                        color: AppColors.accentSecondary,
+                      ),
+                      const SizedBox(width: AppSpace.xs),
+                      Expanded(
+                        child: Text(
+                          l10n.notationPad,
+                          style: Theme.of(context).textTheme.titleSmall,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: AppSpace.xs),
+                  Consumer(
+                    builder: (context, ref, _) => MovePad(
+                      size: size,
+                      onMove: ref
+                          .read(cubeSessionProvider(size).notifier)
+                          .turnNotation,
+                    ),
+                  ),
+                  _SpeedSlider(size: size),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
-    );
-  }
+    ),
+  );
 }
 
 class _ActionButton extends StatelessWidget {

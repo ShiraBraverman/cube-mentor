@@ -1,7 +1,9 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../../core/cube/cube_state.dart';
 import '../../../core/l10n/generated/app_localizations.dart';
+import '../../../core/settings/intro_preference.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/glass.dart';
 import '../../solver_3d/interaction/eager_pan.dart';
@@ -454,6 +456,7 @@ Future<void> showSubStepIntro(
                     onStart: () => Navigator.of(context).pop(),
                   ),
                 ),
+                const _AutoShowSwitch(),
               ],
             ),
           ),
@@ -461,4 +464,35 @@ Future<void> showSubStepIntro(
       );
     },
   );
+}
+
+/// "Don't show automatically again": stops the solver from opening the goal
+/// sheet at each new sub-step. The flag button still reopens it.
+class _AutoShowSwitch extends ConsumerWidget {
+  const _AutoShowSwitch();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final auto = ref.watch(subStepIntroAutoProvider);
+    return Padding(
+      padding: const EdgeInsetsDirectional.only(top: 4),
+      child: Material(
+        type: MaterialType.transparency,
+        child: SwitchListTile(
+          key: const ValueKey('intro-dont-show'),
+          dense: true,
+          contentPadding: const EdgeInsetsDirectional.only(start: 4),
+          value: !auto,
+          onChanged: (off) =>
+              ref.read(subStepIntroAutoProvider.notifier).set(!off),
+          title: Text(
+            l10n.introDontShowAgain,
+            style: Theme.of(context).textTheme.bodySmall
+                ?.copyWith(color: AppColors.textSecondary),
+          ),
+        ),
+      ),
+    );
+  }
 }

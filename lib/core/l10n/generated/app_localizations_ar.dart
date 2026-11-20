@@ -71,12 +71,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get modeAcademyDesc => 'تعلّم خطوة بخطوة من خلال دروس تفاعلية.';
 
   @override
-  String get comingSoon => 'قريبًا';
-
-  @override
-  String get comingSoonMessage => 'هذه الميزة قادمة في تحديث قريب.';
-
-  @override
   String get language => 'اللغة';
 
   @override
@@ -124,17 +118,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get pause => 'إيقاف مؤقت';
-
-  @override
-  String get playbackTitle => 'التشغيل';
-
-  @override
-  String get playbackEmpty => 'ابعثر المكعب لإنشاء تشغيل للحل.';
-
-  @override
-  String playbackProgress(int current, int total) {
-    return 'الخطوة $current من $total';
-  }
 
   @override
   String moveCount(int count) {
@@ -241,9 +224,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get guideExit => 'الخروج من الدليل';
 
   @override
-  String get replayStep => 'إعادة الخطوة';
-
-  @override
   String get colorWhite => 'الأبيض';
 
   @override
@@ -308,11 +288,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get crownThirdGoal => 'الوجه الأصفر والطبقة الأخيرة';
-
-  @override
-  String crownProgress(int current, int total) {
-    return 'التاج $current من $total';
-  }
 
   @override
   String get subStepGoal11 =>
@@ -668,18 +643,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get lessonAdvanced => 'متقدم';
 
   @override
-  String get lessonDone => 'مكتمل';
-
-  @override
   String lessonPartOf(int index, int total) {
     return 'الجزء $index من $total';
   }
 
   @override
-  String get lessonBack => 'رجوع';
+  String get lessonNext => 'التالي';
 
   @override
-  String get lessonNext => 'التالي';
+  String get lessonPrevious => 'السابق';
 
   @override
   String get lessonFinish => 'إنهاء الدرس';
@@ -695,7 +667,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get lessonTryIt =>
-      'دورك: اسحب الطبقة التي يشير إليها السهم، أو اضغط الحركة التالية.';
+      'دورك: اسحب الطبقة التي يشير إليها السهم، أو اضغط التالي.';
 
   @override
   String get lessonLookAround => 'اسحب الخلفية لرؤية المكعب من كل الجهات.';
@@ -1309,6 +1281,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get introStart => 'فهمت، لنبدأ خطوة بخطوة';
 
   @override
+  String get introDontShowAgain => 'لا تعرض هذا تلقائيًا مرة أخرى';
+
+  @override
   String get introShowGoal => 'عرض الهدف';
 
   @override
@@ -1551,6 +1526,12 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get dailyScrambleGuide => 'دليل الخلط ثلاثي الأبعاد';
+
+  @override
+  String get dailyShowMoves => 'عرض الحركات نصيًا';
+
+  @override
+  String get dailyHideMoves => 'إخفاء الحركات النصية';
 
   @override
   String get dailyScrambleGuideTitle => 'دليل الخلط';

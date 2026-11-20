@@ -73,13 +73,6 @@ class AppLocalizationsRu extends AppLocalizations {
       'Учитесь шаг за шагом с интерактивными уроками.';
 
   @override
-  String get comingSoon => 'Скоро';
-
-  @override
-  String get comingSoonMessage =>
-      'Эта функция появится в одном из следующих обновлений.';
-
-  @override
   String get language => 'Язык';
 
   @override
@@ -127,18 +120,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get pause => 'Пауза';
-
-  @override
-  String get playbackTitle => 'Воспроизведение';
-
-  @override
-  String get playbackEmpty =>
-      'Запутайте кубик, чтобы построить воспроизведение решения.';
-
-  @override
-  String playbackProgress(int current, int total) {
-    return 'Шаг $current из $total';
-  }
 
   @override
   String moveCount(int count) {
@@ -247,9 +228,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get guideExit => 'Выйти из подсказок';
 
   @override
-  String get replayStep => 'Повторить шаг';
-
-  @override
   String get colorWhite => 'белый';
 
   @override
@@ -314,11 +292,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get crownThirdGoal => 'Жёлтая грань и последний слой';
-
-  @override
-  String crownProgress(int current, int total) {
-    return 'Корона $current из $total';
-  }
 
   @override
   String get subStepGoal11 =>
@@ -675,18 +648,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get lessonAdvanced => 'Продвинутый';
 
   @override
-  String get lessonDone => 'Пройден';
-
-  @override
   String lessonPartOf(int index, int total) {
     return 'Часть $index из $total';
   }
 
   @override
-  String get lessonBack => 'Назад';
+  String get lessonNext => 'Далее';
 
   @override
-  String get lessonNext => 'Далее';
+  String get lessonPrevious => 'Назад';
 
   @override
   String get lessonFinish => 'Завершить урок';
@@ -702,7 +672,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get lessonTryIt =>
-      'Ваша очередь: проведите слой, указанный стрелкой, или нажмите «Следующий ход».';
+      'Ваша очередь: проведите слой, указанный стрелкой, или нажмите «Далее».';
 
   @override
   String get lessonLookAround =>
@@ -1319,6 +1289,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get introStart => 'Понятно, начать по шагам';
 
   @override
+  String get introDontShowAgain => 'Больше не показывать автоматически';
+
+  @override
   String get introShowGoal => 'Показать цель';
 
   @override
@@ -1562,6 +1535,12 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get dailyScrambleGuide => '3D-гид по запутыванию';
+
+  @override
+  String get dailyShowMoves => 'Показать ходы текстом';
+
+  @override
+  String get dailyHideMoves => 'Скрыть текстовые ходы';
 
   @override
   String get dailyScrambleGuideTitle => 'Гид по запутыванию';

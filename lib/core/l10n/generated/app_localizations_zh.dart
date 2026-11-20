@@ -69,12 +69,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get modeAcademyDesc => '通过互动课程一步步学习。';
 
   @override
-  String get comingSoon => '即将推出';
-
-  @override
-  String get comingSoonMessage => '此功能将在后续更新中推出。';
-
-  @override
   String get language => '语言';
 
   @override
@@ -122,17 +116,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get pause => '暂停';
-
-  @override
-  String get playbackTitle => '回放';
-
-  @override
-  String get playbackEmpty => '打乱魔方后即可生成还原回放。';
-
-  @override
-  String playbackProgress(int current, int total) {
-    return '第 $current 步，共 $total 步';
-  }
 
   @override
   String moveCount(int count) {
@@ -230,9 +213,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get guideExit => '退出引导';
 
   @override
-  String get replayStep => '重播此步';
-
-  @override
   String get colorWhite => '白';
 
   @override
@@ -297,11 +277,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get crownThirdGoal => '黄色面与最后一层';
-
-  @override
-  String crownProgress(int current, int total) {
-    return '第 $current 顶皇冠，共 $total 顶';
-  }
 
   @override
   String get subStepGoal11 => '拼出白色十字，并让每个白色棱块的侧面颜色与相邻中心一致。';
@@ -616,18 +591,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get lessonAdvanced => '进阶';
 
   @override
-  String get lessonDone => '已完成';
-
-  @override
   String lessonPartOf(int index, int total) {
     return '第 $index 部分，共 $total 部分';
   }
 
   @override
-  String get lessonBack => '返回';
+  String get lessonNext => '下一步';
 
   @override
-  String get lessonNext => '下一步';
+  String get lessonPrevious => '上一步';
 
   @override
   String get lessonFinish => '完成课程';
@@ -1238,6 +1210,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get introStart => '明白了，开始分步学习';
 
   @override
+  String get introDontShowAgain => '不再自动显示';
+
+  @override
   String get introShowGoal => '查看目标';
 
   @override
@@ -1462,6 +1437,12 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get dailyScrambleGuide => '3D 打乱向导';
+
+  @override
+  String get dailyShowMoves => '显示文字步骤';
+
+  @override
+  String get dailyHideMoves => '隐藏文字步骤';
 
   @override
   String get dailyScrambleGuideTitle => '打乱向导';

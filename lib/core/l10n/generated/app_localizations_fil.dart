@@ -73,13 +73,6 @@ class AppLocalizationsFil extends AppLocalizations {
       'Matuto nang hakbang-hakbang sa mga interactive na aralin.';
 
   @override
-  String get comingSoon => 'Malapit na';
-
-  @override
-  String get comingSoonMessage =>
-      'Darating ang feature na ito sa susunod na update.';
-
-  @override
   String get language => 'Wika';
 
   @override
@@ -127,18 +120,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get pause => 'I-pause';
-
-  @override
-  String get playbackTitle => 'Playback';
-
-  @override
-  String get playbackEmpty =>
-      'I-scramble ang cube para makagawa ng playback ng solusyon.';
-
-  @override
-  String playbackProgress(int current, int total) {
-    return 'Hakbang $current ng $total';
-  }
 
   @override
   String moveCount(int count) {
@@ -245,9 +226,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get guideExit => 'Lumabas sa gabay';
 
   @override
-  String get replayStep => 'Ulitin ang hakbang';
-
-  @override
   String get colorWhite => 'puti';
 
   @override
@@ -313,11 +291,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get crownThirdGoal => 'Dilaw na mukha at huling layer';
-
-  @override
-  String crownProgress(int current, int total) {
-    return 'Korona $current ng $total';
-  }
 
   @override
   String get subStepGoal11 =>
@@ -671,18 +644,15 @@ class AppLocalizationsFil extends AppLocalizations {
   String get lessonAdvanced => 'Advanced';
 
   @override
-  String get lessonDone => 'Tapos';
-
-  @override
   String lessonPartOf(int index, int total) {
     return 'Bahagi $index ng $total';
   }
 
   @override
-  String get lessonBack => 'Bumalik';
+  String get lessonNext => 'Susunod';
 
   @override
-  String get lessonNext => 'Susunod';
+  String get lessonPrevious => 'Nakaraan';
 
   @override
   String get lessonFinish => 'Tapusin ang aralin';
@@ -698,7 +668,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get lessonTryIt =>
-      'Ikaw naman: i-swipe ang layer na itinuturo ng arrow, o i-tap ang Susunod na galaw.';
+      'Ikaw naman: i-swipe ang layer na itinuturo ng arrow, o i-tap ang Susunod.';
 
   @override
   String get lessonLookAround =>
@@ -1325,6 +1295,9 @@ class AppLocalizationsFil extends AppLocalizations {
   String get introStart => 'Gets ko, simulan nang paisa-isa';
 
   @override
+  String get introDontShowAgain => 'Huwag nang awtomatikong ipakita';
+
+  @override
   String get introShowGoal => 'Ipakita ang layunin';
 
   @override
@@ -1569,6 +1542,12 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get dailyScrambleGuide => '3D na gabay sa pag-scramble';
+
+  @override
+  String get dailyShowMoves => 'Ipakita ang mga galaw bilang teksto';
+
+  @override
+  String get dailyHideMoves => 'Itago ang mga galaw na teksto';
 
   @override
   String get dailyScrambleGuideTitle => 'Gabay sa pag-scramble';

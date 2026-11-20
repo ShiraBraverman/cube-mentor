@@ -72,13 +72,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get modeAcademyDesc => 'Aprenda passo a passo com lições interativas.';
 
   @override
-  String get comingSoon => 'Brevemente';
-
-  @override
-  String get comingSoonMessage =>
-      'Esta funcionalidade chega numa próxima atualização.';
-
-  @override
   String get language => 'Idioma';
 
   @override
@@ -126,18 +119,6 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get pause => 'Pausa';
-
-  @override
-  String get playbackTitle => 'Reprodução';
-
-  @override
-  String get playbackEmpty =>
-      'Baralhe o cubo para criar a reprodução da solução.';
-
-  @override
-  String playbackProgress(int current, int total) {
-    return 'Passo $current de $total';
-  }
 
   @override
   String moveCount(int count) {
@@ -244,9 +225,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get guideExit => 'Sair do guia';
 
   @override
-  String get replayStep => 'Repetir passo';
-
-  @override
   String get colorWhite => 'branco';
 
   @override
@@ -311,11 +289,6 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get crownThirdGoal => 'Face amarela e última camada';
-
-  @override
-  String crownProgress(int current, int total) {
-    return 'Coroa $current de $total';
-  }
 
   @override
   String get subStepGoal11 =>
@@ -671,18 +644,15 @@ class AppLocalizationsPt extends AppLocalizations {
   String get lessonAdvanced => 'Avançado';
 
   @override
-  String get lessonDone => 'Concluída';
-
-  @override
   String lessonPartOf(int index, int total) {
     return 'Parte $index de $total';
   }
 
   @override
-  String get lessonBack => 'Voltar';
+  String get lessonNext => 'Seguinte';
 
   @override
-  String get lessonNext => 'Seguinte';
+  String get lessonPrevious => 'Anterior';
 
   @override
   String get lessonFinish => 'Concluir lição';
@@ -698,7 +668,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get lessonTryIt =>
-      'A sua vez: deslize a camada que a seta indica ou toque em Movimento seguinte.';
+      'A sua vez: deslize a camada que a seta indica ou toque em Seguinte.';
 
   @override
   String get lessonLookAround =>
@@ -1322,6 +1292,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get introStart => 'Percebi, começar passo a passo';
 
   @override
+  String get introDontShowAgain => 'Não voltar a mostrar automaticamente';
+
+  @override
   String get introShowGoal => 'Ver o objetivo';
 
   @override
@@ -1565,6 +1538,12 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get dailyScrambleGuide => 'Guia de baralhar em 3D';
+
+  @override
+  String get dailyShowMoves => 'Mostrar movimentos em texto';
+
+  @override
+  String get dailyHideMoves => 'Ocultar movimentos em texto';
 
   @override
   String get dailyScrambleGuideTitle => 'Guia de baralhar';
@@ -1975,13 +1954,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get modeAcademyDesc => 'Aprenda passo a passo com aulas interativas.';
 
   @override
-  String get comingSoon => 'Em breve';
-
-  @override
-  String get comingSoonMessage =>
-      'Este recurso chega em uma próxima atualização.';
-
-  @override
   String get language => 'Idioma';
 
   @override
@@ -2029,18 +2001,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get pause => 'Pausar';
-
-  @override
-  String get playbackTitle => 'Reprodução';
-
-  @override
-  String get playbackEmpty =>
-      'Embaralhe o cubo para montar a reprodução da solução.';
-
-  @override
-  String playbackProgress(int current, int total) {
-    return 'Passo $current de $total';
-  }
 
   @override
   String moveCount(int count) {
@@ -2147,9 +2107,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get guideExit => 'Sair do guia';
 
   @override
-  String get replayStep => 'Repetir passo';
-
-  @override
   String get colorWhite => 'branco';
 
   @override
@@ -2214,11 +2171,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get crownThirdGoal => 'Face amarela e última camada';
-
-  @override
-  String crownProgress(int current, int total) {
-    return 'Coroa $current de $total';
-  }
 
   @override
   String get subStepGoal11 =>
@@ -2572,18 +2524,15 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get lessonAdvanced => 'Avançado';
 
   @override
-  String get lessonDone => 'Concluída';
-
-  @override
   String lessonPartOf(int index, int total) {
     return 'Parte $index de $total';
   }
 
   @override
-  String get lessonBack => 'Voltar';
+  String get lessonNext => 'Próximo';
 
   @override
-  String get lessonNext => 'Próximo';
+  String get lessonPrevious => 'Anterior';
 
   @override
   String get lessonFinish => 'Concluir aula';
@@ -2599,7 +2548,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get lessonTryIt =>
-      'Sua vez: deslize a camada que a seta mostra ou toque em Próximo movimento.';
+      'Sua vez: deslize a camada que a seta mostra ou toque em Próximo.';
 
   @override
   String get lessonLookAround =>
@@ -3218,6 +3167,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get introStart => 'Entendi, começar passo a passo';
 
   @override
+  String get introDontShowAgain => 'Não mostrar automaticamente de novo';
+
+  @override
   String get introShowGoal => 'Ver o objetivo';
 
   @override
@@ -3461,6 +3413,12 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get dailyScrambleGuide => 'Guia de embaralhamento em 3D';
+
+  @override
+  String get dailyShowMoves => 'Mostrar movimentos em texto';
+
+  @override
+  String get dailyHideMoves => 'Ocultar movimentos em texto';
 
   @override
   String get dailyScrambleGuideTitle => 'Guia de embaralhamento';

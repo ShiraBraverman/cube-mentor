@@ -121,27 +121,30 @@ void main() {
     sub.close();
   });
 
-  test('a manual turn keeps the guided solution; exiting discards it', () async {
-    final sub = container.listen(cubeSessionProvider(3), (_, _) {});
-    ctrl(3).scramble();
-    drain(3);
-    await solveByUndoing(3);
-    expect(read(3).hasPlayback, isTrue);
-    final expected = read(3).playback.first;
-    // A move other than the expected one is refused.
-    final other = expected.axis == 2 ? 'R' : 'F';
-    ctrl(3).turnNotation(other);
-    expect(read(3).hasPlayback, isTrue);
-    expect(read(3).queue, isEmpty);
-    expect(read(3).rejectedMoves, 1);
+  test(
+    'a manual turn keeps the guided solution; exiting discards it',
+    () async {
+      final sub = container.listen(cubeSessionProvider(3), (_, _) {});
+      ctrl(3).scramble();
+      drain(3);
+      await solveByUndoing(3);
+      expect(read(3).hasPlayback, isTrue);
+      final expected = read(3).playback.first;
+      // A move other than the expected one is refused.
+      final other = expected.axis == 2 ? 'R' : 'F';
+      ctrl(3).turnNotation(other);
+      expect(read(3).hasPlayback, isTrue);
+      expect(read(3).queue, isEmpty);
+      expect(read(3).rejectedMoves, 1);
 
-    ctrl(3).clearSolution();
-    ctrl(3).turnNotation('F');
-    expect(read(3).hasPlayback, isFalse);
-    expect(read(3).steps, isEmpty);
-    expect(read(3).queue, hasLength(1));
-    sub.close();
-  });
+      ctrl(3).clearSolution();
+      ctrl(3).turnNotation('F');
+      expect(read(3).hasPlayback, isFalse);
+      expect(read(3).steps, isEmpty);
+      expect(read(3).queue, hasLength(1));
+      sub.close();
+    },
+  );
 
   test('reset returns to solved and bumps the epoch', () {
     final sub = container.listen(cubeSessionProvider(5), (_, _) {});

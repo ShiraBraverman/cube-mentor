@@ -73,13 +73,6 @@ class AppLocalizationsId extends AppLocalizations {
       'Belajar langkah demi langkah dengan pelajaran interaktif.';
 
   @override
-  String get comingSoon => 'Segera hadir';
-
-  @override
-  String get comingSoonMessage =>
-      'Fitur ini akan hadir di pembaruan mendatang.';
-
-  @override
   String get language => 'Bahasa';
 
   @override
@@ -128,17 +121,6 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get pause => 'Jeda';
-
-  @override
-  String get playbackTitle => 'Pemutaran';
-
-  @override
-  String get playbackEmpty => 'Acak kubus untuk membuat pemutaran solusi.';
-
-  @override
-  String playbackProgress(int current, int total) {
-    return 'Langkah $current dari $total';
-  }
 
   @override
   String moveCount(int count) {
@@ -244,9 +226,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get guideExit => 'Keluar dari panduan';
 
   @override
-  String get replayStep => 'Ulangi langkah';
-
-  @override
   String get colorWhite => 'putih';
 
   @override
@@ -311,11 +290,6 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get crownThirdGoal => 'Sisi kuning dan lapisan terakhir';
-
-  @override
-  String crownProgress(int current, int total) {
-    return 'Mahkota $current dari $total';
-  }
 
   @override
   String get subStepGoal11 =>
@@ -662,18 +636,15 @@ class AppLocalizationsId extends AppLocalizations {
   String get lessonAdvanced => 'Lanjutan';
 
   @override
-  String get lessonDone => 'Selesai';
-
-  @override
   String lessonPartOf(int index, int total) {
     return 'Bagian $index dari $total';
   }
 
   @override
-  String get lessonBack => 'Kembali';
+  String get lessonNext => 'Lanjut';
 
   @override
-  String get lessonNext => 'Lanjut';
+  String get lessonPrevious => 'Sebelumnya';
 
   @override
   String get lessonFinish => 'Selesaikan pelajaran';
@@ -689,7 +660,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get lessonTryIt =>
-      'Giliranmu: geser lapisan yang ditunjuk panah, atau ketuk Gerakan berikutnya.';
+      'Giliranmu: geser lapisan yang ditunjuk panah, atau ketuk Lanjut.';
 
   @override
   String get lessonLookAround =>
@@ -1308,6 +1279,9 @@ class AppLocalizationsId extends AppLocalizations {
   String get introStart => 'Paham, mulai langkah demi langkah';
 
   @override
+  String get introDontShowAgain => 'Jangan tampilkan otomatis lagi';
+
+  @override
   String get introShowGoal => 'Lihat tujuan';
 
   @override
@@ -1553,6 +1527,12 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get dailyScrambleGuide => 'Panduan acak 3D';
+
+  @override
+  String get dailyShowMoves => 'Tampilkan gerakan dalam teks';
+
+  @override
+  String get dailyHideMoves => 'Sembunyikan gerakan teks';
 
   @override
   String get dailyScrambleGuideTitle => 'Panduan acak';
