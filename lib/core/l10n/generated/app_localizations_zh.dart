@@ -1826,4 +1826,20 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get settingsComingSoon => '即将推出';
+
+  @override
+  String get playbackPrevious => '上一步';
+
+  @override
+  String get playbackNext => '下一步';
+
+  @override
+  String fastSolveMoves(int count) {
+    return '$count 步完成还原！';
+  }
+
+  @override
+  String fastSolveOptimal(int count) {
+    return '最优解：$count 步';
+  }
 }

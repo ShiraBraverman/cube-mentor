@@ -549,5 +549,9 @@
   "cancel": "Batal",
   "settingsPrivacyAds": "Privasi & iklan",
   "settingsPrivacyAdsDesc": "Pilihan iklan dan persetujuan akan muncul di sini saat iklan hadir.",
-  "settingsComingSoon": "Segera hadir"
+  "settingsComingSoon": "Segera hadir",
+  "playbackPrevious": "Sebelumnya",
+  "playbackNext": "Berikutnya",
+  "fastSolveMoves": "Selesai dalam {count} gerakan!",
+  "fastSolveOptimal": "Optimal: {count} gerakan"
 }

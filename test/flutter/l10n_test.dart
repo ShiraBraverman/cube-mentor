@@ -359,6 +359,12 @@ void main() {
       // The playground, then a guided solve: crown tracker, stage title
       // with its progress bar, and the Guided / Fast toggle.
       await show(Solver3DScreen(size: 4, initialCube: CubeState.solved(4)));
+      // Solve on a solved cube: the floating "already solved" pill.
+      await tester.tap(find.byKey(const ValueKey('solve')));
+      await _advance(tester, 4);
+      expect(find.byKey(const ValueKey('solve-notice')), findsOneWidget);
+      expect(tester.takeException(), isNull, reason: 'solved notice');
+      await tester.pump(const Duration(seconds: 2));
       // The notation pad bottom sheet (layer chips on a 4x4).
       await tester.tap(find.byKey(const ValueKey('toggle-notation')));
       await _advance(tester, 8);
@@ -377,6 +383,16 @@ void main() {
       expect(find.byKey(const ValueKey('stage-title')), findsOneWidget);
       expect(find.byKey(const ValueKey('solve-mode')), findsOneWidget);
       expect(tester.takeException(), isNull, reason: 'guided banner');
+      // Fast mode: the move-count headline (past the 1.1 goal card).
+      if (find.byKey(const ValueKey('intro-start')).evaluate().isNotEmpty) {
+        await tester.ensureVisible(find.byKey(const ValueKey('intro-start')));
+        await tester.tap(find.byKey(const ValueKey('intro-start')));
+        await _advance(tester, 8);
+      }
+      await tester.tap(find.byKey(const ValueKey('solve-mode-fast')));
+      await _advance(tester, 8);
+      expect(find.byKey(const ValueKey('fast-move-count')), findsOneWidget);
+      expect(tester.takeException(), isNull, reason: 'fast move count');
 
       // A big cube's crown stage: "Stage 6 of 6: …" plus its sub-step line.
       await show(

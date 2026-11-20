@@ -549,5 +549,9 @@
   "cancel": "キャンセル",
   "settingsPrivacyAds": "プライバシーと広告",
   "settingsPrivacyAdsDesc": "広告の導入後、広告と同意の設定がここに表示されます。",
-  "settingsComingSoon": "近日公開"
+  "settingsComingSoon": "近日公開",
+  "playbackPrevious": "前へ",
+  "playbackNext": "次へ",
+  "fastSolveMoves": "{count}手で完成！",
+  "fastSolveOptimal": "最適解：{count}手"
 }

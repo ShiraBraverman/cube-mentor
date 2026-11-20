@@ -1941,4 +1941,40 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get settingsComingSoon => 'قريبًا';
+
+  @override
+  String get playbackPrevious => 'السابق';
+
+  @override
+  String get playbackNext => 'التالي';
+
+  @override
+  String fastSolveMoves(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'حُلّ في $count حركة!',
+      many: 'حُلّ في $count حركة!',
+      few: 'حُلّ في $count حركات!',
+      two: 'حُلّ بحركتين!',
+      one: 'حُلّ بحركة واحدة!',
+      zero: 'حُلّ دون أي حركة!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String fastSolveOptimal(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'الحل الأمثل: $count حركة',
+      many: 'الحل الأمثل: $count حركة',
+      few: 'الحل الأمثل: $count حركات',
+      two: 'الحل الأمثل: حركتان',
+      one: 'الحل الأمثل: حركة واحدة',
+      zero: 'الحل الأمثل: بلا حركات',
+    );
+    return '$_temp0';
+  }
 }

@@ -549,5 +549,9 @@
   "cancel": "Отмена",
   "settingsPrivacyAds": "Конфиденциальность и реклама",
   "settingsPrivacyAdsDesc": "Настройки рекламы и согласия появятся здесь, когда в приложении появится реклама.",
-  "settingsComingSoon": "Скоро"
+  "settingsComingSoon": "Скоро",
+  "playbackPrevious": "Назад",
+  "playbackNext": "Далее",
+  "fastSolveMoves": "{count, plural, one{Собран за {count} ход!} few{Собран за {count} хода!} many{Собран за {count} ходов!} other{Собран за {count} хода!}}",
+  "fastSolveOptimal": "{count, plural, one{Оптимально: {count} ход} few{Оптимально: {count} хода} many{Оптимально: {count} ходов} other{Оптимально: {count} хода}}"
 }

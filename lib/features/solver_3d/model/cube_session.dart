@@ -133,7 +133,7 @@ class CubeSession {
     this.playback = const [],
     this.playbackIndex = 0,
     this.isPlaying = false,
-    this.speed = 1.0,
+    this.speed = kDefaultAnimationSpeed,
     this.xray = false,
     this.epoch = 0,
     this.steps = const [],

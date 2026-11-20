@@ -549,5 +549,9 @@
   "cancel": "Cancelar",
   "settingsPrivacyAds": "Privacidade e anúncios",
   "settingsPrivacyAdsDesc": "As opções de anúncios e consentimento aparecerão aqui quando houver anúncios.",
-  "settingsComingSoon": "Brevemente"
+  "settingsComingSoon": "Brevemente",
+  "playbackPrevious": "Anterior",
+  "playbackNext": "Seguinte",
+  "fastSolveMoves": "{count, plural, =1{Resolvido em 1 movimento!} other{Resolvido em {count} movimentos!}}",
+  "fastSolveOptimal": "{count, plural, =1{Solução ótima: 1 movimento} other{Solução ótima: {count} movimentos}}"
 }

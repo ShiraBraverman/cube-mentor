@@ -1967,4 +1967,20 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get settingsComingSoon => 'Malapit na';
+
+  @override
+  String get playbackPrevious => 'Nakaraan';
+
+  @override
+  String get playbackNext => 'Susunod';
+
+  @override
+  String fastSolveMoves(int count) {
+    return 'Nalutas sa $count galaw!';
+  }
+
+  @override
+  String fastSolveOptimal(int count) {
+    return 'Pinakamaikli: $count galaw';
+  }
 }

@@ -1927,4 +1927,34 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get settingsComingSoon => 'בקרוב';
+
+  @override
+  String get playbackPrevious => 'הקודם';
+
+  @override
+  String get playbackNext => 'הבא';
+
+  @override
+  String fastSolveMoves(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'נפתר ב־$count מהלכים!',
+      two: 'נפתר בשני מהלכים!',
+      one: 'נפתר במהלך אחד!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String fastSolveOptimal(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'אופטימלי: $count מהלכים',
+      two: 'אופטימלי: שני מהלכים',
+      one: 'אופטימלי: מהלך אחד',
+    );
+    return '$_temp0';
+  }
 }

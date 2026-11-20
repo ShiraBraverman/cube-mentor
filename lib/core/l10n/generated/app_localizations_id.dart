@@ -1950,4 +1950,20 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get settingsComingSoon => 'Segera hadir';
+
+  @override
+  String get playbackPrevious => 'Sebelumnya';
+
+  @override
+  String get playbackNext => 'Berikutnya';
+
+  @override
+  String fastSolveMoves(int count) {
+    return 'Selesai dalam $count gerakan!';
+  }
+
+  @override
+  String fastSolveOptimal(int count) {
+    return 'Optimal: $count gerakan';
+  }
 }

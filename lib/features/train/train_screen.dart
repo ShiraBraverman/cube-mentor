@@ -9,6 +9,7 @@ import '../daily/daily_controller.dart';
 import '../daily/daily_screen.dart';
 import '../home/home_controller.dart';
 import '../patterns/patterns_screen.dart';
+import '../patterns/widgets/pattern_icon.dart';
 import '../timer/timer_screen.dart';
 
 /// The Train tab: daily challenge, speed timer and pattern library as three
@@ -69,10 +70,15 @@ class TrainScreen extends ConsumerWidget {
                 _TrainCard(
                   key: const ValueKey('train-patterns'),
                   icon: Icons.grid_view_rounded,
+                  leading: const PatternIcon(
+                    color: AppColors.accent,
+                    size: 60,
+                    glow: true,
+                  ),
                   title: l10n.modePatterns,
                   description: l10n.modePatternsDesc,
                   accent: AppColors.accent,
-                  onTap: () => open(PatternsScreen(initialSize: size)),
+                  onTap: () => open(const PatternsScreen()),
                 ),
               ],
             ),
@@ -93,9 +99,13 @@ class _TrainCard extends StatelessWidget {
     required this.onTap,
     this.badge,
     this.done = false,
+    this.leading,
   });
 
   final IconData icon;
+
+  /// Custom artwork shown instead of [icon].
+  final Widget? leading;
   final String title;
   final String description;
   final Color accent;
@@ -121,7 +131,8 @@ class _TrainCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          AccentIcon(icon: icon, color: accent, size: 60, glow: true),
+          leading ??
+              AccentIcon(icon: icon, color: accent, size: 60, glow: true),
           const SizedBox(width: AppSpace.md),
           Expanded(
             child: Column(

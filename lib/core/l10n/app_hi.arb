@@ -549,5 +549,9 @@
   "cancel": "रद्द करें",
   "settingsPrivacyAds": "गोपनीयता और विज्ञापन",
   "settingsPrivacyAdsDesc": "विज्ञापन आने पर विज्ञापन और सहमति के विकल्प यहाँ दिखेंगे।",
-  "settingsComingSoon": "जल्द आ रहा है"
+  "settingsComingSoon": "जल्द आ रहा है",
+  "playbackPrevious": "पिछला",
+  "playbackNext": "अगला",
+  "fastSolveMoves": "{count, plural, =1{1 चाल में हल!} other{{count} चालों में हल!}}",
+  "fastSolveOptimal": "{count, plural, =1{सर्वोत्तम: 1 चाल} other{सर्वोत्तम: {count} चालें}}"
 }

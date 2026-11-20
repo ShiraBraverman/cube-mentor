@@ -921,5 +921,31 @@
   "cancel": "Cancel",
   "settingsPrivacyAds": "Privacy & ads",
   "settingsPrivacyAdsDesc": "Ad and consent choices will appear here once ads arrive.",
-  "settingsComingSoon": "Coming soon"
+  "settingsComingSoon": "Coming soon",
+  "playbackPrevious": "Previous",
+  "@playbackPrevious": {
+    "description": "Label of the playback button that steps one move back."
+  },
+  "playbackNext": "Next",
+  "@playbackNext": {
+    "description": "Label of the playback button that steps one move forward."
+  },
+  "fastSolveMoves": "{count, plural, =1{Solved in 1 move!} other{Solved in {count} moves!}}",
+  "@fastSolveMoves": {
+    "description": "Badge on a Fast (Kociemba) 3x3 solution: its total move count.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "fastSolveOptimal": "{count, plural, =1{Optimal: 1 move} other{Optimal: {count} moves}}",
+  "@fastSolveOptimal": {
+    "description": "Badge on an optimal 2x2 solution: its total move count.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

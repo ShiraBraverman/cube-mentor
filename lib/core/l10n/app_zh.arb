@@ -549,5 +549,9 @@
   "cancel": "取消",
   "settingsPrivacyAds": "隐私与广告",
   "settingsPrivacyAdsDesc": "广告上线后，广告和同意选项将显示在这里。",
-  "settingsComingSoon": "即将推出"
+  "settingsComingSoon": "即将推出",
+  "playbackPrevious": "上一步",
+  "playbackNext": "下一步",
+  "fastSolveMoves": "{count} 步完成还原！",
+  "fastSolveOptimal": "最优解：{count} 步"
 }

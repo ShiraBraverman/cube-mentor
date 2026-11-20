@@ -549,5 +549,9 @@
   "cancel": "Kanselahin",
   "settingsPrivacyAds": "Privacy at ads",
   "settingsPrivacyAdsDesc": "Lalabas dito ang mga pagpipilian sa ads at pahintulot kapag may ads na.",
-  "settingsComingSoon": "Malapit na"
+  "settingsComingSoon": "Malapit na",
+  "playbackPrevious": "Nakaraan",
+  "playbackNext": "Susunod",
+  "fastSolveMoves": "Nalutas sa {count} galaw!",
+  "fastSolveOptimal": "Pinakamaikli: {count} galaw"
 }
