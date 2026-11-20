@@ -3320,6 +3320,138 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Move the last corners into place to finish the cube.'**
   String get explainTwoFinish;
+
+  /// No description provided for @tabSolve.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve'**
+  String get tabSolve;
+
+  /// No description provided for @tabScan.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan'**
+  String get tabScan;
+
+  /// No description provided for @tabAcademy.
+  ///
+  /// In en, this message translates to:
+  /// **'Academy'**
+  String get tabAcademy;
+
+  /// No description provided for @tabTrain.
+  ///
+  /// In en, this message translates to:
+  /// **'Train'**
+  String get tabTrain;
+
+  /// No description provided for @openCubeSolver.
+  ///
+  /// In en, this message translates to:
+  /// **'Open 3D Cube & Solver'**
+  String get openCubeSolver;
+
+  /// No description provided for @progressFraction.
+  ///
+  /// In en, this message translates to:
+  /// **'{done}/{total}'**
+  String progressFraction(int done, int total);
+
+  /// No description provided for @trainTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Training'**
+  String get trainTitle;
+
+  /// No description provided for @trainSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sharpen your skills every day.'**
+  String get trainSubtitle;
+
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// No description provided for @settingsSoundHaptics.
+  ///
+  /// In en, this message translates to:
+  /// **'Sound & haptics'**
+  String get settingsSoundHaptics;
+
+  /// No description provided for @settingsSoundHapticsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Clicks and vibrations when you turn the cube.'**
+  String get settingsSoundHapticsDesc;
+
+  /// No description provided for @settingsAnimationSpeed.
+  ///
+  /// In en, this message translates to:
+  /// **'Default animation speed'**
+  String get settingsAnimationSpeed;
+
+  /// No description provided for @settingsAnimationSpeedDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'How fast the cube turns when moves play.'**
+  String get settingsAnimationSpeedDesc;
+
+  /// No description provided for @settingsResetProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset progress'**
+  String get settingsResetProgress;
+
+  /// No description provided for @settingsResetProgressDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear finished Academy lessons and your daily streak.'**
+  String get settingsResetProgressDesc;
+
+  /// No description provided for @resetProgressTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset all progress?'**
+  String get resetProgressTitle;
+
+  /// No description provided for @resetProgressBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Your finished lessons and your daily streak will be erased. This cannot be undone.'**
+  String get resetProgressBody;
+
+  /// No description provided for @resetProgressDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress reset.'**
+  String get resetProgressDone;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @settingsPrivacyAds.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy & ads'**
+  String get settingsPrivacyAds;
+
+  /// No description provided for @settingsPrivacyAdsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Ad and consent choices will appear here once ads arrive.'**
+  String get settingsPrivacyAdsDesc;
+
+  /// No description provided for @settingsComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming soon'**
+  String get settingsComingSoon;
 }
 
 class _AppLocalizationsDelegate

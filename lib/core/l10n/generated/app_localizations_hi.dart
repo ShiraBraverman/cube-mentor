@@ -1892,4 +1892,76 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get explainTwoFinish =>
       'आख़िरी कोनों को उनकी जगह पहुँचाकर क्यूब पूरा करें।';
+
+  @override
+  String get tabSolve => 'हल करें';
+
+  @override
+  String get tabScan => 'स्कैन';
+
+  @override
+  String get tabAcademy => 'अकादमी';
+
+  @override
+  String get tabTrain => 'अभ्यास';
+
+  @override
+  String get openCubeSolver => '3D क्यूब और सॉल्वर खोलें';
+
+  @override
+  String progressFraction(int done, int total) {
+    return '$done/$total';
+  }
+
+  @override
+  String get trainTitle => 'अभ्यास';
+
+  @override
+  String get trainSubtitle => 'हर दिन अपने कौशल निखारें।';
+
+  @override
+  String get settings => 'सेटिंग्स';
+
+  @override
+  String get settingsSoundHaptics => 'ध्वनि और कंपन';
+
+  @override
+  String get settingsSoundHapticsDesc => 'क्यूब घुमाने पर क्लिक और कंपन।';
+
+  @override
+  String get settingsAnimationSpeed => 'डिफ़ॉल्ट एनिमेशन गति';
+
+  @override
+  String get settingsAnimationSpeedDesc =>
+      'चालें चलने पर क्यूब कितनी तेज़ी से घूमता है।';
+
+  @override
+  String get settingsResetProgress => 'प्रगति रीसेट करें';
+
+  @override
+  String get settingsResetProgressDesc =>
+      'अकादमी के पूरे पाठ और आपकी दैनिक स्ट्रीक मिटाएँ।';
+
+  @override
+  String get resetProgressTitle => 'सारी प्रगति रीसेट करें?';
+
+  @override
+  String get resetProgressBody =>
+      'आपके पूरे किए गए पाठ और दैनिक स्ट्रीक मिट जाएँगे। इसे पूर्ववत नहीं किया जा सकता।';
+
+  @override
+  String get resetProgressDone => 'प्रगति रीसेट हो गई।';
+
+  @override
+  String get cancel => 'रद्द करें';
+
+  @override
+  String get settingsPrivacyAds => 'गोपनीयता और विज्ञापन';
+
+  @override
+  String get settingsPrivacyAdsDesc =>
+      'विज्ञापन आने पर विज्ञापन और सहमति के विकल्प यहाँ दिखेंगे।';
+
+  @override
+  String get settingsComingSoon => 'जल्द आ रहा है';
 }

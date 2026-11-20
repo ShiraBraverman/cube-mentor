@@ -1777,4 +1777,72 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get explainTwoFinish => '把最后的角块移到正确位置，完成魔方。';
+
+  @override
+  String get tabSolve => '还原';
+
+  @override
+  String get tabScan => '扫描';
+
+  @override
+  String get tabAcademy => '学院';
+
+  @override
+  String get tabTrain => '训练';
+
+  @override
+  String get openCubeSolver => '打开 3D 魔方与求解器';
+
+  @override
+  String progressFraction(int done, int total) {
+    return '$done/$total';
+  }
+
+  @override
+  String get trainTitle => '训练';
+
+  @override
+  String get trainSubtitle => '每天磨练你的技巧。';
+
+  @override
+  String get settings => '设置';
+
+  @override
+  String get settingsSoundHaptics => '声音与振动';
+
+  @override
+  String get settingsSoundHapticsDesc => '转动魔方时的点击声和振动。';
+
+  @override
+  String get settingsAnimationSpeed => '默认动画速度';
+
+  @override
+  String get settingsAnimationSpeedDesc => '播放步骤时魔方转动的速度。';
+
+  @override
+  String get settingsResetProgress => '重置进度';
+
+  @override
+  String get settingsResetProgressDesc => '清除已完成的学院课程和每日连胜记录。';
+
+  @override
+  String get resetProgressTitle => '要重置所有进度吗？';
+
+  @override
+  String get resetProgressBody => '已完成的课程和每日连胜记录将被清除，且无法撤销。';
+
+  @override
+  String get resetProgressDone => '进度已重置。';
+
+  @override
+  String get cancel => '取消';
+
+  @override
+  String get settingsPrivacyAds => '隐私与广告';
+
+  @override
+  String get settingsPrivacyAdsDesc => '广告上线后，广告和同意选项将显示在这里。';
+
+  @override
+  String get settingsComingSoon => '即将推出';
 }

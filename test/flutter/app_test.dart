@@ -80,7 +80,7 @@ void main() {
 
   testWidgets('restores the saved Hebrew locale on launch', (tester) async {
     await _pumpApp(tester, await _prefs({'app_locale': 'he'}));
-    expect(find.text('מגרש תלת־ממד'), findsOneWidget);
+    expect(find.text('פתיחת קובייה תלת־ממדית ופותר'), findsOneWidget);
     expect(_directionOf(tester), TextDirection.rtl);
   });
 
@@ -90,9 +90,9 @@ void main() {
     await _pumpApp(tester, await _prefs());
     await tester.tap(find.byKey(const ValueKey('size-5')));
     await _advance(tester, 2);
-    await tester.ensureVisible(find.byKey(const ValueKey('mode-playground')));
+    await tester.ensureVisible(find.byKey(const ValueKey('open-solver')));
     await tester.pump();
-    await tester.tap(find.byKey(const ValueKey('mode-playground')));
+    await tester.tap(find.byKey(const ValueKey('open-solver')));
     await _advance(tester);
 
     expect(find.byType(Solver3DScreen), findsOneWidget);
@@ -188,9 +188,9 @@ void main() {
       ),
     );
     await _pumpApp(tester, await _prefs(), solver: solver);
-    await tester.ensureVisible(find.byKey(const ValueKey('mode-playground')));
+    await tester.ensureVisible(find.byKey(const ValueKey('open-solver')));
     await tester.pump();
-    await tester.tap(find.byKey(const ValueKey('mode-playground')));
+    await tester.tap(find.byKey(const ValueKey('open-solver')));
     await _advance(tester);
     final container = ProviderScope.containerOf(
       tester.element(find.byType(CubeViewport)),
@@ -308,9 +308,9 @@ void main() {
   testWidgets('a solved cube needs no solution', (tester) async {
     final solver = FakeCubeSolver();
     await _pumpApp(tester, await _prefs(), solver: solver);
-    await tester.ensureVisible(find.byKey(const ValueKey('mode-playground')));
+    await tester.ensureVisible(find.byKey(const ValueKey('open-solver')));
     await tester.pump();
-    await tester.tap(find.byKey(const ValueKey('mode-playground')));
+    await tester.tap(find.byKey(const ValueKey('open-solver')));
     await _advance(tester);
     await tester.tap(find.byKey(const ValueKey('solve')));
     await _advance(tester, 4);
@@ -323,9 +323,9 @@ void main() {
     await _pumpApp(tester, await _prefs(), solver: solver);
     await tester.tap(find.byKey(const ValueKey('size-2')));
     await _advance(tester, 2);
-    await tester.ensureVisible(find.byKey(const ValueKey('mode-playground')));
+    await tester.ensureVisible(find.byKey(const ValueKey('open-solver')));
     await tester.pump();
-    await tester.tap(find.byKey(const ValueKey('mode-playground')));
+    await tester.tap(find.byKey(const ValueKey('open-solver')));
     await _advance(tester);
     final container = ProviderScope.containerOf(
       tester.element(find.byType(CubeViewport)),
@@ -362,9 +362,9 @@ void main() {
         ),
       );
       await _pumpApp(tester, await _prefs(), solver: solver);
-      await tester.ensureVisible(find.byKey(const ValueKey('mode-playground')));
+      await tester.ensureVisible(find.byKey(const ValueKey('open-solver')));
       await tester.pump();
-      await tester.tap(find.byKey(const ValueKey('mode-playground')));
+      await tester.tap(find.byKey(const ValueKey('open-solver')));
       await _advance(tester);
       return ProviderScope.containerOf(
         tester.element(find.byType(CubeViewport)),

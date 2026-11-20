@@ -258,7 +258,7 @@ void main() {
     });
   });
 
-  testWidgets('home → continue learning → lesson with 3D demo → done', (
+  testWidgets('academy tab → continue learning → lesson with 3D demo → done', (
     tester,
   ) async {
     SharedPreferences.setMockInitialValues({});
@@ -276,8 +276,19 @@ void main() {
       ),
     );
     await tester.pump(const Duration(milliseconds: 100));
+    // The Academy tab carries the progress badge.
+    expect(find.text('0/29'), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('tab-academy')));
+    await _advance(tester, 4);
+    // The "Continue learning" hero sits on top of the tracks.
     expect(find.text('Start learning'), findsOneWidget);
-    expect(find.text('Meet the cube'), findsOneWidget);
+    expect(
+      find.descendant(
+        of: find.byKey(const ValueKey('continue-learning')),
+        matching: find.text('Meet the cube'),
+      ),
+      findsOneWidget,
+    );
     expect(find.text('Lesson 1 of 29'), findsOneWidget);
 
     await tester.tap(find.byKey(const ValueKey('continue-learning')));
@@ -352,8 +363,15 @@ void main() {
     await _advance(tester);
     expect(find.text('Continue learning'), findsOneWidget);
     // The next lesson is named after its sub-step, like the solver.
-    expect(find.text('1.1 White cross'), findsOneWidget);
+    expect(
+      find.descendant(
+        of: find.byKey(const ValueKey('continue-learning')),
+        matching: find.text('1.1 White cross'),
+      ),
+      findsOneWidget,
+    );
     expect(find.text('Lesson 2 of 29'), findsOneWidget);
+    expect(find.text('1/29'), findsOneWidget);
   });
 
   testWidgets('the Academy lists every track in Hebrew, right to left', (
@@ -371,21 +389,22 @@ void main() {
       ),
     );
     await tester.pump(const Duration(milliseconds: 100));
-    await tester.scrollUntilVisible(
-      find.byKey(const ValueKey('mode-academy')),
-      200,
-      scrollable: find.byType(Scrollable).first,
-    );
-    await tester.pump();
-    await tester.tap(find.byKey(const ValueKey('mode-academy')));
+    await tester.tap(find.byKey(const ValueKey('tab-academy')));
     await _advance(tester);
-    expect(find.text('אקדמיה'), findsOneWidget);
+    // The tab label and the page title.
+    expect(find.text('אקדמיה'), findsNWidgets(2));
     expect(find.text('0 מתוך 29 שיעורים הושלמו'), findsOneWidget);
     expect(find.text('מתחילים 3×3: שלושת הכתרים'), findsOneWidget);
-    expect(find.text('1.1 איקס לבן מותאם למרכזים'), findsOneWidget);
+    // Below the hero cards: scroll to the first crown's lessons.
+    await tester.scrollUntilVisible(
+      find.byKey(const ValueKey('lesson-cross')),
+      200,
+      scrollable: find.byType(Scrollable).last,
+    );
+    expect(find.text('1.1 איקס לבן מותאם למרכזים'), findsWidgets);
     expect(find.byKey(const ValueKey('academy-crown-1')), findsOneWidget);
     expect(
-      Directionality.of(tester.element(find.text('אקדמיה'))),
+      Directionality.of(tester.element(find.text('אקדמיה').first)),
       TextDirection.rtl,
     );
     await tester.scrollUntilVisible(

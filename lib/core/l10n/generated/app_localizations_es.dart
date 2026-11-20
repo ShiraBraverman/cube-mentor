@@ -1905,4 +1905,77 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get explainTwoFinish =>
       'Lleva las últimas esquinas a su sitio para terminar el cubo.';
+
+  @override
+  String get tabSolve => 'Resolver';
+
+  @override
+  String get tabScan => 'Escanear';
+
+  @override
+  String get tabAcademy => 'Academia';
+
+  @override
+  String get tabTrain => 'Entrenar';
+
+  @override
+  String get openCubeSolver => 'Abrir cubo 3D y solucionador';
+
+  @override
+  String progressFraction(int done, int total) {
+    return '$done/$total';
+  }
+
+  @override
+  String get trainTitle => 'Entrenamiento';
+
+  @override
+  String get trainSubtitle => 'Mejora tus habilidades cada día.';
+
+  @override
+  String get settings => 'Ajustes';
+
+  @override
+  String get settingsSoundHaptics => 'Sonido y vibración';
+
+  @override
+  String get settingsSoundHapticsDesc =>
+      'Clics y vibraciones al girar el cubo.';
+
+  @override
+  String get settingsAnimationSpeed => 'Velocidad de animación predeterminada';
+
+  @override
+  String get settingsAnimationSpeedDesc =>
+      'Qué tan rápido gira el cubo al reproducir movimientos.';
+
+  @override
+  String get settingsResetProgress => 'Restablecer progreso';
+
+  @override
+  String get settingsResetProgressDesc =>
+      'Borra las lecciones completadas de la Academia y tu racha diaria.';
+
+  @override
+  String get resetProgressTitle => '¿Restablecer todo el progreso?';
+
+  @override
+  String get resetProgressBody =>
+      'Se borrarán tus lecciones completadas y tu racha diaria. No se puede deshacer.';
+
+  @override
+  String get resetProgressDone => 'Progreso restablecido.';
+
+  @override
+  String get cancel => 'Cancelar';
+
+  @override
+  String get settingsPrivacyAds => 'Privacidad y anuncios';
+
+  @override
+  String get settingsPrivacyAdsDesc =>
+      'Las opciones de anuncios y consentimiento aparecerán aquí cuando lleguen los anuncios.';
+
+  @override
+  String get settingsComingSoon => 'Próximamente';
 }

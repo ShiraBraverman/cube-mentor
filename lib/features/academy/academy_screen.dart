@@ -57,6 +57,8 @@ class AcademyScreen extends ConsumerWidget {
             child: ListView(
               padding: kPagePadding,
               children: [
+                const ContinueLearningCard(),
+                const SizedBox(height: AppSpace.md),
                 _ProgressHero(progress: progress),
                 for (final track in LessonTrack.values) ...[
                   SectionHeader(title: trackTitle(l10n, track)),
@@ -83,6 +85,80 @@ class AcademyScreen extends ConsumerWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+/// "Continue learning" hero: the next lesson and overall progress, one tap
+/// away at the top of the Academy.
+class ContinueLearningCard extends ConsumerWidget {
+  const ContinueLearningCard({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final textTheme = Theme.of(context).textTheme;
+    final progress = ref.watch(academyProgressProvider);
+    final next = progress.nextLesson;
+    final done = progress.completedCount;
+    final total = kLessons.length;
+    return GlassCard(
+      key: const ValueKey('continue-learning'),
+      selected: true,
+      accent: AppColors.gold,
+      borderRadius: AppRadius.lg,
+      padding: const EdgeInsetsDirectional.all(AppSpace.lg - 4),
+      onTap: next == null ? null : () => openLesson(context, ref, next),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const AccentIcon(
+                icon: Icons.school_rounded,
+                color: AppColors.gold,
+                glow: true,
+              ),
+              const SizedBox(width: AppSpace.md),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      done == 0 ? l10n.startLearning : l10n.continueLearning,
+                      style: textTheme.labelLarge?.copyWith(
+                        color: AppColors.gold,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      next == null
+                          ? l10n.academyAllDone
+                          : lessonTitle(l10n, next.id),
+                      style: textTheme.titleLarge,
+                    ),
+                  ],
+                ),
+              ),
+              if (next != null) ...[
+                const SizedBox(width: AppSpace.xs),
+                const Icon(
+                  Icons.play_circle_fill_rounded,
+                  color: AppColors.gold,
+                  size: 40,
+                ),
+              ],
+            ],
+          ),
+          if (next != null) ...[
+            const SizedBox(height: AppSpace.sm),
+            Text(
+              l10n.lessonOf(lessonIndex(next.id) + 1, total),
+              style: textTheme.bodySmall,
+            ),
+          ],
+        ],
       ),
     );
   }

@@ -1,9 +1,9 @@
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../core/l10n/generated/app_localizations.dart';
+import '../../core/settings/app_settings.dart';
 import '../../core/settings/clock.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
@@ -73,7 +73,7 @@ class _TimerScreenState extends ConsumerState<TimerScreen>
     final notifier = ref.read(timerProvider(_size).notifier);
     final before = ref.read(timerProvider(_size)).phase;
     notifier.press(_now());
-    if (before == TimerPhase.running) HapticFeedback.mediumImpact();
+    if (before == TimerPhase.running) playHaptic(ref, Haptic.medium);
   }
 
   void _release() {
@@ -82,7 +82,7 @@ class _TimerScreenState extends ConsumerState<TimerScreen>
     notifier.release(_now());
     if (before == TimerPhase.holding &&
         ref.read(timerProvider(_size)).phase == TimerPhase.running) {
-      HapticFeedback.lightImpact();
+      playHaptic(ref, Haptic.light);
     }
   }
 

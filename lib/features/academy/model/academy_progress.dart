@@ -61,6 +61,14 @@ class AcademyProgressController extends Notifier<AcademyProgress> {
     await prefs.setStringList(_completedKey, completed.toList()..sort());
     await prefs.setString(_lastKey, lessonId);
   }
+
+  /// Forgets every finished lesson and where the learner left off.
+  Future<void> reset() async {
+    state = const AcademyProgress();
+    final prefs = ref.read(sharedPreferencesProvider);
+    await prefs.remove(_completedKey);
+    await prefs.remove(_lastKey);
+  }
 }
 
 final academyProgressProvider =

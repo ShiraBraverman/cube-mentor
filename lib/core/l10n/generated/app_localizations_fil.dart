@@ -1915,4 +1915,77 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get explainTwoFinish =>
       'Ilipat sa puwesto ang huling mga kanto para matapos ang cube.';
+
+  @override
+  String get tabSolve => 'Lutasin';
+
+  @override
+  String get tabScan => 'I-scan';
+
+  @override
+  String get tabAcademy => 'Akademya';
+
+  @override
+  String get tabTrain => 'Magsanay';
+
+  @override
+  String get openCubeSolver => 'Buksan ang 3D Cube at Solver';
+
+  @override
+  String progressFraction(int done, int total) {
+    return '$done/$total';
+  }
+
+  @override
+  String get trainTitle => 'Pagsasanay';
+
+  @override
+  String get trainSubtitle => 'Hasain ang iyong galing araw-araw.';
+
+  @override
+  String get settings => 'Settings';
+
+  @override
+  String get settingsSoundHaptics => 'Tunog at vibration';
+
+  @override
+  String get settingsSoundHapticsDesc =>
+      'Mga click at vibration kapag pinipihit mo ang cube.';
+
+  @override
+  String get settingsAnimationSpeed => 'Default na bilis ng animation';
+
+  @override
+  String get settingsAnimationSpeedDesc =>
+      'Gaano kabilis umiikot ang cube kapag pinapatugtog ang mga galaw.';
+
+  @override
+  String get settingsResetProgress => 'I-reset ang progreso';
+
+  @override
+  String get settingsResetProgressDesc =>
+      'Burahin ang mga natapos na aralin sa Akademya at ang iyong araw-araw na streak.';
+
+  @override
+  String get resetProgressTitle => 'I-reset ang lahat ng progreso?';
+
+  @override
+  String get resetProgressBody =>
+      'Mabubura ang mga natapos mong aralin at ang iyong araw-araw na streak. Hindi na ito maibabalik.';
+
+  @override
+  String get resetProgressDone => 'Na-reset ang progreso.';
+
+  @override
+  String get cancel => 'Kanselahin';
+
+  @override
+  String get settingsPrivacyAds => 'Privacy at ads';
+
+  @override
+  String get settingsPrivacyAdsDesc =>
+      'Lalabas dito ang mga pagpipilian sa ads at pahintulot kapag may ads na.';
+
+  @override
+  String get settingsComingSoon => 'Malapit na';
 }
