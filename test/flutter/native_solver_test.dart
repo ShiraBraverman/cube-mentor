@@ -48,7 +48,7 @@ void main() {
           .applyAll(CubeState.randomScramble(size, random: random));
 
   test('reports its version', () {
-    expect(bindings!.version, '1.2.0');
+    expect(bindings!.version, '1.3.0');
     expect(bindings.prepare(3), isTrue);
     expect(bindings.prepare(4), isTrue);
     expect(bindings.prepare(7), isFalse);
@@ -62,6 +62,24 @@ void main() {
       expect(plan.method, 'optimal2x2');
       expect(plan.steps.length, lessThanOrEqualTo(11));
       expectSolves(cube, plan);
+    }
+  }, skip: missing);
+
+  test('2x2 guided solutions run in three stages', () {
+    final random = Random(22);
+    for (var i = 0; i < 30; i++) {
+      final cube = scrambled(2, random);
+      final plan = solve(cube, SolveMethod.layerByLayer);
+      expect(plan.method, 'guided2x2');
+      expectSolves(cube, plan);
+      final stages = StagePlan.of(plan.steps, 2);
+      var last = 0;
+      for (var k = 0; k < plan.steps.length; k++) {
+        final stage = stages.stageAt(k)!;
+        expect(stage.total, 3);
+        expect(stage.number, greaterThanOrEqualTo(last));
+        last = stage.number;
+      }
     }
   }, skip: missing);
 
@@ -189,9 +207,17 @@ void main() {
   test('NativeCubeSolver solves a 4x4 on a background isolate', () async {
     final solver = NativeCubeSolver();
     expect(solver.supports(6, SolveMethod.layerByLayer), isTrue);
+    // Big cubes are guided only in the app: no fast mode is offered.
+    expect(solver.supports(4, SolveMethod.fast), isFalse);
     await solver.prepare(4);
     final cube = scrambled(4, Random(8));
-    expectSolves(cube, await solver.solve(cube, SolveMethod.fast));
+    final plan = await solver.solve(cube, SolveMethod.layerByLayer);
+    expect(plan.method, 'reductionLbl');
+    expectSolves(cube, plan);
+    await expectLater(
+      solver.solve(cube, SolveMethod.fast),
+      throwsA(isA<SolveException>()),
+    );
   }, skip: missing);
 
   test('scrambles are seeded and valid for every size', () {

@@ -1886,4 +1886,25 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get stepSixPllParityBody =>
       'Если в самом конце два ребра будто поменялись местами, поставьте их спереди и сзади в верхнем слое и выполните короткое исправление внутренними двойными поворотами.';
+
+  @override
+  String get stageTwoFirstLayer => 'Собираем нижний слой';
+
+  @override
+  String get stageTwoTopColor => 'Делаем верх одного цвета';
+
+  @override
+  String get stageTwoFinish => 'Доделываем углы';
+
+  @override
+  String get explainTwoFirstLayer =>
+      'Соберите нижний слой: его четыре угла подходят друг к другу и к цветам сторон.';
+
+  @override
+  String get explainTwoTopColor =>
+      'Вращайте, пока все четыре верхние наклейки не станут одного цвета, не ломая нижний слой.';
+
+  @override
+  String get explainTwoFinish =>
+      'Поставьте последние углы на места и закончите кубик.';
 }

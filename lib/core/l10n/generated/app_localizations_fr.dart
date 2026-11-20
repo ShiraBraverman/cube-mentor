@@ -1893,4 +1893,25 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get stepSixPllParityBody =>
       'Si deux arêtes semblent échangées tout à la fin, placez-les devant et derrière dans la couche du haut et jouez la courte correction en doubles tours intérieurs.';
+
+  @override
+  String get stageTwoFirstLayer => 'Construire la couche du bas';
+
+  @override
+  String get stageTwoTopColor => 'Rendre le dessus d\'une seule couleur';
+
+  @override
+  String get stageTwoFinish => 'Finir les coins';
+
+  @override
+  String get explainTwoFirstLayer =>
+      'Complétez la couche du bas : ses quatre coins vont ensemble et avec les couleurs des côtés.';
+
+  @override
+  String get explainTwoTopColor =>
+      'Tournez jusqu\'à ce que les quatre autocollants du dessus soient de la même couleur, sans casser la couche du bas.';
+
+  @override
+  String get explainTwoFinish =>
+      'Placez les derniers coins pour finir le cube.';
 }

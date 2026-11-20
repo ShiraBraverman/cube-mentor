@@ -367,6 +367,9 @@ String solvePhaseTitle(AppLocalizations l10n, String phase) => switch (phase) {
   'reductionPllParity' => l10n.phaseReductionPllParity,
   'pattern' => l10n.phasePattern,
   'dailyScramble' => l10n.phaseDailyScramble,
+  'twoFirstLayer' => l10n.stageTwoFirstLayer,
+  'twoTopColor' => l10n.stageTwoTopColor,
+  'twoFinish' => l10n.stageTwoFinish,
   _ => phase,
 };
 
@@ -403,6 +406,9 @@ String solveExplanation(AppLocalizations l10n, SolveStep step) {
     'reductionPllParity' => l10n.explainReductionPllParity,
     'patternStep' => l10n.explainPatternStep,
     'dailyScrambleStep' => l10n.explainDailyScramble,
+    'twoFirstLayerExplain' => l10n.explainTwoFirstLayer,
+    'twoTopColorExplain' => l10n.explainTwoTopColor,
+    'twoFinishExplain' => l10n.explainTwoFinish,
     _ => '',
   };
 }

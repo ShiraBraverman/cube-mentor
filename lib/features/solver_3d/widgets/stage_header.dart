@@ -22,6 +22,9 @@ String stageTitle(AppLocalizations l10n, SolveStage stage) =>
       StageKind.finish => l10n.stageFinish,
       StageKind.asThree => l10n.stageAsThree,
       StageKind.twoByTwo => l10n.stageTwoByTwo,
+      StageKind.twoFirstLayer => l10n.stageTwoFirstLayer,
+      StageKind.twoTopColor => l10n.stageTwoTopColor,
+      StageKind.twoFinish => l10n.stageTwoFinish,
     };
 
 /// "Crown 1 • Stage 1 of 7: White cross" (3x3 beginner's method) or

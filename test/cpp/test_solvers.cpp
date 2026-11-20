@@ -86,6 +86,52 @@ TEST_CASE("2x2: 1000 random scrambles solve optimally in under 1 ms") {
   CHECK(total / kScrambles < 1.0);
 }
 
+TEST_CASE("2x2: guided solve runs bottom layer, top color, finish") {
+  Solver2x2::prepare();
+  std::mt19937 rng(222);
+  const char* order[] = {"twoFirstLayer", "twoTopColor", "twoFinish"};
+  int longest = 0;
+  int stageMax[3] = {0, 0, 0};
+  double total = 0;
+  for (int i = 0; i < kScrambles; ++i) {
+    FaceletCube cube = cmtest::solvedColored(2);
+    cmtest::applyTokens(cube, cmtest::randomScramble(rng, 3 + static_cast<int>(rng() % 15), true));
+    const SolveResult r = solveCube(2, SolveMethod::kLayerByLayer, cube.f);
+    REQUIRE(r.ok);
+    CHECK(r.method == "guided2x2");
+    CHECK(replaySolves(cube.f, 2, r));
+    // Stages appear in order, each at most once.
+    int stage = 0;
+    int length[3] = {0, 0, 0};
+    for (const SolveStep& s : r.steps) {
+      while (stage < 3 && s.phase != order[stage]) ++stage;
+      REQUIRE(stage < 3);
+      ++length[stage];
+    }
+    // After the first stage the bottom layer is done; after the second the
+    // top is one color: replay up to each boundary and look.
+    FaceletCube replay = cube;
+    for (size_t k = 0; k < r.steps.size(); ++k) {
+      LayerMove m;
+      REQUIRE(parseMove(r.steps[k].move, 2, m));
+      replay.apply(m);
+      const bool lastOfStage = k + 1 == r.steps.size() || r.steps[k + 1].phase != r.steps[k].phase;
+      if (lastOfStage && r.steps[k].phase == std::string("twoTopColor")) {
+        // Top face one color.
+        for (int j = 1; j < 4; ++j) CHECK(replay.f[j] == replay.f[0]);
+      }
+    }
+    for (int k = 0; k < 3; ++k) stageMax[k] = std::max(stageMax[k], length[k]);
+    longest = std::max(longest, static_cast<int>(r.steps.size()));
+    total += static_cast<double>(r.steps.size());
+  }
+  std::printf("    avg %.1f moves, longest %d (stages max %d / %d / %d)\n", total / kScrambles,
+              longest, stageMax[0], stageMax[1], stageMax[2]);
+  // Short, beginner-sized stages.
+  CHECK(stageMax[0] <= 8);
+  CHECK(longest <= 30);
+}
+
 TEST_CASE("2x2: rejects impossible states") {
   FaceletCube cube = cmtest::solvedColored(2);
   std::string twisted = cube.f;
@@ -272,7 +318,7 @@ TEST_CASE("lbl: JSON carries the crown and sub-step, fast steps do not") {
 // ---- FFI bridge --------------------------------------------------------------
 
 TEST_CASE("ffi: cm_solve writes JSON and reports the needed buffer size") {
-  CHECK(std::strcmp(cm_version(), "1.2.0") == 0);
+  CHECK(std::strcmp(cm_version(), "1.3.0") == 0);
   CHECK(cm_prepare(3) == 0);
   CHECK(cm_prepare(7) == -1);
   FaceletCube cube = cmtest::solvedColored(3);

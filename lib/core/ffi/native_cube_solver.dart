@@ -12,15 +12,12 @@ import 'cubementor_bindings.dart';
 /// shared by every isolate of the process.
 class NativeCubeSolver implements CubeSolver {
   @override
-  bool supports(int size, SolveMethod method) => switch (size) {
-    2 => method == SolveMethod.fast,
-    3 || 4 || 5 || 6 => true,
-    _ => false,
-  };
+  bool supports(int size, SolveMethod method) =>
+      solveMethodOffered(size, method);
 
   @override
   Future<void> prepare(int size) async {
-    if (!supports(size, SolveMethod.fast)) return;
+    if (!supports(size, SolveMethod.layerByLayer)) return;
     try {
       await Isolate.run(() => CubeMentorBindings.instance.prepare(size));
     } on ArgumentError {

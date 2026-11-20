@@ -332,10 +332,10 @@ void main() {
     );
     container.read(cubeSessionProvider(2).notifier).turnNotation('R');
     await _advance(tester, 10);
-    // 2x2 only has the fast method: no method sheet.
+    // The 2x2 solves guided by default too (its three stages).
     await tester.tap(find.byKey(const ValueKey('solve')));
     await _advance(tester, 4);
-    expect(solver.calls, [SolveMethod.fast]);
+    expect(solver.calls, [SolveMethod.layerByLayer]);
     expect(find.text("This cube can't be solved (internal)."), findsOneWidget);
     expect(container.read(cubeSessionProvider(2)).hasPlayback, isFalse);
   });

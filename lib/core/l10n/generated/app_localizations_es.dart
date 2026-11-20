@@ -1884,4 +1884,25 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get stepSixPllParityBody =>
       'Si dos aristas parecen intercambiadas al final, ponlas delante y detrás en la capa de arriba y haz el arreglo corto de giros dobles interiores.';
+
+  @override
+  String get stageTwoFirstLayer => 'Arma la capa inferior';
+
+  @override
+  String get stageTwoTopColor => 'Pon la cara de arriba de un color';
+
+  @override
+  String get stageTwoFinish => 'Termina las esquinas';
+
+  @override
+  String get explainTwoFirstLayer =>
+      'Completa la capa inferior: sus cuatro esquinas coinciden entre sí y con los colores laterales.';
+
+  @override
+  String get explainTwoTopColor =>
+      'Gira hasta que las cuatro pegatinas de arriba sean del mismo color, sin romper la capa inferior.';
+
+  @override
+  String get explainTwoFinish =>
+      'Lleva las últimas esquinas a su sitio para terminar el cubo.';
 }

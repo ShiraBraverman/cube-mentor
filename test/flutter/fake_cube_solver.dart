@@ -6,14 +6,19 @@ import 'package:cube_mentor/core/solver/solve_step.dart';
 /// calls run on background isolates, which fake-async widget tests cannot
 /// drive).
 class FakeCubeSolver implements CubeSolver {
-  FakeCubeSolver({this.plan});
+  FakeCubeSolver({this.plan, this.bigCubes = false});
+
+  /// Also solve 4x4-6x6 (guided only, like the app); off by default so
+  /// tests can show the "not available" path.
+
+  final bool bigCubes;
 
   SolvePlan? plan;
   final List<SolveMethod> calls = [];
 
   @override
   bool supports(int size, SolveMethod method) =>
-      size == 3 || (size == 2 && method == SolveMethod.fast);
+      (size <= 3 || bigCubes) && solveMethodOffered(size, method);
 
   @override
   Future<void> prepare(int size) async {}

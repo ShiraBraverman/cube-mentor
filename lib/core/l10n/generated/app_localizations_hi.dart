@@ -1871,4 +1871,25 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get stepSixPllParityBody =>
       'अगर बिल्कुल आख़िर में दो एज बदले लगें, तो उन्हें ऊपरी परत में आगे और पीछे रखें और अंदरूनी डबल घुमावों वाला छोटा सुधार करें।';
+
+  @override
+  String get stageTwoFirstLayer => 'निचली परत बनाएँ';
+
+  @override
+  String get stageTwoTopColor => 'ऊपर को एक रंग का करें';
+
+  @override
+  String get stageTwoFinish => 'कोने पूरे करें';
+
+  @override
+  String get explainTwoFirstLayer =>
+      'निचली परत पूरी करें: उसके चारों कोने आपस में और साइड के रंगों से मेल खाएँ।';
+
+  @override
+  String get explainTwoTopColor =>
+      'तब तक घुमाएँ जब तक ऊपर के चारों स्टिकर एक रंग के न हो जाएँ, निचली परत बिगाड़े बिना।';
+
+  @override
+  String get explainTwoFinish =>
+      'आख़िरी कोनों को उनकी जगह पहुँचाकर क्यूब पूरा करें।';
 }

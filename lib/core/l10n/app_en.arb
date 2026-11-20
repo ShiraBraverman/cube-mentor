@@ -896,5 +896,11 @@
   "stepSixOllParity": "One flipped edge",
   "stepSixOllParityBody": "If a single edge seems flipped while you solve the last layer, it is parity. Hold it at the front of the top layer and play the long fix: the first two crowns come back untouched.",
   "stepSixPllParity": "Two swapped edges",
-  "stepSixPllParityBody": "If two edges look swapped at the very end, hold them at the front and back of the top layer and play the short fix of inner double turns."
+  "stepSixPllParityBody": "If two edges look swapped at the very end, hold them at the front and back of the top layer and play the short fix of inner double turns.",
+  "stageTwoFirstLayer": "Build the bottom layer",
+  "stageTwoTopColor": "Make the top one color",
+  "stageTwoFinish": "Finish the corners",
+  "explainTwoFirstLayer": "Complete the bottom layer: its four corners match each other and the side colors.",
+  "explainTwoTopColor": "Turn the top until all four top stickers show the same color, keeping the bottom layer.",
+  "explainTwoFinish": "Move the last corners into place to finish the cube."
 }

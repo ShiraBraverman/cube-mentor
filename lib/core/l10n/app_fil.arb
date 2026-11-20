@@ -526,5 +526,11 @@
   "stepSixOllParity": "Isang baligtad na edge",
   "stepSixOllParityBody": "Kung isang edge lang ang mukhang baligtad habang nilulutas ang huling layer, parity iyon. Ilagay ito sa harap ng itaas na layer at gawin ang mahabang ayos: babalik nang buo ang unang dalawang korona.",
   "stepSixPllParity": "Dalawang nagpalit na edge",
-  "stepSixPllParityBody": "Kung dalawang edge ang mukhang nagpalit sa pinakadulo, ilagay sila sa harap at likod ng itaas na layer at gawin ang maikling ayos ng panloob na dobleng ikot."
+  "stepSixPllParityBody": "Kung dalawang edge ang mukhang nagpalit sa pinakadulo, ilagay sila sa harap at likod ng itaas na layer at gawin ang maikling ayos ng panloob na dobleng ikot.",
+  "stageTwoFirstLayer": "Buuin ang ibabang layer",
+  "stageTwoTopColor": "Gawing iisang kulay ang itaas",
+  "stageTwoFinish": "Tapusin ang mga kanto",
+  "explainTwoFirstLayer": "Kumpletuhin ang ibabang layer: tugma ang apat na kanto nito sa isa’t isa at sa mga kulay sa gilid.",
+  "explainTwoTopColor": "Iikot hanggang iisang kulay ang apat na sticker sa itaas, nang hindi sinisira ang ibabang layer.",
+  "explainTwoFinish": "Ilipat sa puwesto ang huling mga kanto para matapos ang cube."
 }

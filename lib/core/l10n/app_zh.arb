@@ -526,5 +526,11 @@
   "stepSixOllParity": "一条棱翻转",
   "stepSixOllParityBody": "如果还原最后一层时只有一条棱看起来是翻的，那就是奇偶。把它放在顶层前面，做较长的修正：前两顶王冠会完好地回来。",
   "stepSixPllParity": "两条棱互换",
-  "stepSixPllParityBody": "如果最后看到两条棱互换了，把它们放在顶层的前面和后面，做用内层双转的短修正。"
+  "stepSixPllParityBody": "如果最后看到两条棱互换了，把它们放在顶层的前面和后面，做用内层双转的短修正。",
+  "stageTwoFirstLayer": "完成底层",
+  "stageTwoTopColor": "让顶面变成同一种颜色",
+  "stageTwoFinish": "完成角块",
+  "explainTwoFirstLayer": "完成底层：四个角块彼此对齐，并与侧面颜色一致。",
+  "explainTwoTopColor": "保持底层不动，转到顶面四个贴纸颜色相同。",
+  "explainTwoFinish": "把最后的角块移到正确位置，完成魔方。"
 }

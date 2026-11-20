@@ -1867,4 +1867,25 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get stepSixPllParityBody =>
       'إذا بدت حافتان متبادلتين في النهاية، ضعهما في أمام وخلف الطبقة العليا ونفّذ الإصلاح القصير بالدورات المزدوجة الداخلية.';
+
+  @override
+  String get stageTwoFirstLayer => 'ابنِ الطبقة السفلى';
+
+  @override
+  String get stageTwoTopColor => 'اجعل الوجه العلوي بلون واحد';
+
+  @override
+  String get stageTwoFinish => 'أكمل الزوايا';
+
+  @override
+  String get explainTwoFirstLayer =>
+      'أكمل الطبقة السفلى: زواياها الأربع متطابقة فيما بينها ومع ألوان الجوانب.';
+
+  @override
+  String get explainTwoTopColor =>
+      'أدر حتى تصبح الملصقات العلوية الأربعة بلون واحد، دون إفساد الطبقة السفلى.';
+
+  @override
+  String get explainTwoFinish =>
+      'انقل الزوايا الأخيرة إلى أماكنها لتنهي المكعب.';
 }

@@ -1871,4 +1871,25 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get stepSixPllParityBody =>
       'If two edges look swapped at the very end, hold them at the front and back of the top layer and play the short fix of inner double turns.';
+
+  @override
+  String get stageTwoFirstLayer => 'Build the bottom layer';
+
+  @override
+  String get stageTwoTopColor => 'Make the top one color';
+
+  @override
+  String get stageTwoFinish => 'Finish the corners';
+
+  @override
+  String get explainTwoFirstLayer =>
+      'Complete the bottom layer: its four corners match each other and the side colors.';
+
+  @override
+  String get explainTwoTopColor =>
+      'Turn the top until all four top stickers show the same color, keeping the bottom layer.';
+
+  @override
+  String get explainTwoFinish =>
+      'Move the last corners into place to finish the cube.';
 }

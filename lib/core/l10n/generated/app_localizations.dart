@@ -3284,6 +3284,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'If two edges look swapped at the very end, hold them at the front and back of the top layer and play the short fix of inner double turns.'**
   String get stepSixPllParityBody;
+
+  /// No description provided for @stageTwoFirstLayer.
+  ///
+  /// In en, this message translates to:
+  /// **'Build the bottom layer'**
+  String get stageTwoFirstLayer;
+
+  /// No description provided for @stageTwoTopColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Make the top one color'**
+  String get stageTwoTopColor;
+
+  /// No description provided for @stageTwoFinish.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish the corners'**
+  String get stageTwoFinish;
+
+  /// No description provided for @explainTwoFirstLayer.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete the bottom layer: its four corners match each other and the side colors.'**
+  String get explainTwoFirstLayer;
+
+  /// No description provided for @explainTwoTopColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the top until all four top stickers show the same color, keeping the bottom layer.'**
+  String get explainTwoTopColor;
+
+  /// No description provided for @explainTwoFinish.
+  ///
+  /// In en, this message translates to:
+  /// **'Move the last corners into place to finish the cube.'**
+  String get explainTwoFinish;
 }
 
 class _AppLocalizationsDelegate

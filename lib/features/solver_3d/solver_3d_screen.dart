@@ -434,14 +434,17 @@ extension on _ActionBar {
       say(l10n.solveAlreadySolved);
       return;
     }
-    if (!solver.supports(size, SolveMethod.fast)) {
+    final guided = solver.supports(size, SolveMethod.layerByLayer);
+    final fast = solver.supports(size, SolveMethod.fast);
+    if (!guided && !fast) {
       say(l10n.solveUnavailable(size));
       return;
     }
-    // The guided 3-crown method by default; the banner toggles to fast.
-    final method = solver.supports(size, SolveMethod.layerByLayer)
+    // Guided by default. Only sizes with both modes (2x2, 3x3) follow the
+    // remembered Guided / Fast choice; bigger cubes are always guided.
+    final method = guided && fast
         ? ref.read(solvePreferenceProvider)
-        : SolveMethod.fast;
+        : (guided ? SolveMethod.layerByLayer : SolveMethod.fast);
     await controller.solve(method);
   }
 }

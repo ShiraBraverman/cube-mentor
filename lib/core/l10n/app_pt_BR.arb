@@ -526,5 +526,11 @@
   "stepSixOllParity": "Uma aresta virada",
   "stepSixOllParityBody": "Se uma só aresta parecer virada ao resolver a última camada, é paridade. Coloque-a na frente da camada de cima e faça a correção longa: as duas primeiras coroas voltam intactas.",
   "stepSixPllParity": "Duas arestas trocadas",
-  "stepSixPllParityBody": "Se duas arestas parecerem trocadas no final, coloque-as na frente e atrás da camada de cima e faça a correção curta de giros duplos internos."
+  "stepSixPllParityBody": "Se duas arestas parecerem trocadas no final, coloque-as na frente e atrás da camada de cima e faça a correção curta de giros duplos internos.",
+  "stageTwoFirstLayer": "Monte a camada de baixo",
+  "stageTwoTopColor": "Deixe o topo de uma cor só",
+  "stageTwoFinish": "Termine os cantos",
+  "explainTwoFirstLayer": "Complete a camada de baixo: os quatro cantos combinam entre si e com as cores laterais.",
+  "explainTwoTopColor": "Gire até os quatro adesivos de cima ficarem da mesma cor, sem desfazer a camada de baixo.",
+  "explainTwoFinish": "Leve os últimos cantos para o lugar e termine o cubo."
 }

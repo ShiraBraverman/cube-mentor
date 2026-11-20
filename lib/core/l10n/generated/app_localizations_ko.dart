@@ -1784,4 +1784,22 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get stepSixPllParityBody =>
       '맨 마지막에 엣지 두 개가 바뀐 것 같다면 윗층 앞과 뒤에 두고 안쪽 층 두 번 돌리기를 쓰는 짧은 공식을 하세요.';
+
+  @override
+  String get stageTwoFirstLayer => '아래층 만들기';
+
+  @override
+  String get stageTwoTopColor => '윗면을 한 가지 색으로';
+
+  @override
+  String get stageTwoFinish => '코너 마무리';
+
+  @override
+  String get explainTwoFirstLayer => '아래층을 완성하세요. 네 코너가 서로, 그리고 옆면 색과 맞아야 해요.';
+
+  @override
+  String get explainTwoTopColor => '아래층을 유지한 채 윗면 스티커 네 개가 같은 색이 될 때까지 돌리세요.';
+
+  @override
+  String get explainTwoFinish => '마지막 코너를 제자리로 옮겨 큐브를 완성하세요.';
 }

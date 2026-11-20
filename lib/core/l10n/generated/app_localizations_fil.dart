@@ -1894,4 +1894,25 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get stepSixPllParityBody =>
       'Kung dalawang edge ang mukhang nagpalit sa pinakadulo, ilagay sila sa harap at likod ng itaas na layer at gawin ang maikling ayos ng panloob na dobleng ikot.';
+
+  @override
+  String get stageTwoFirstLayer => 'Buuin ang ibabang layer';
+
+  @override
+  String get stageTwoTopColor => 'Gawing iisang kulay ang itaas';
+
+  @override
+  String get stageTwoFinish => 'Tapusin ang mga kanto';
+
+  @override
+  String get explainTwoFirstLayer =>
+      'Kumpletuhin ang ibabang layer: tugma ang apat na kanto nito sa isa’t isa at sa mga kulay sa gilid.';
+
+  @override
+  String get explainTwoTopColor =>
+      'Iikot hanggang iisang kulay ang apat na sticker sa itaas, nang hindi sinisira ang ibabang layer.';
+
+  @override
+  String get explainTwoFinish =>
+      'Ilipat sa puwesto ang huling mga kanto para matapos ang cube.';
 }

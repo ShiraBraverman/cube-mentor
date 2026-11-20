@@ -112,4 +112,16 @@ void main() {
       isTrue,
     );
   });
+
+  test('2x2 guided: bottom layer, top color, finish', () {
+    final plan = StagePlan.of([
+      ..._times(5, _step('twoFirstLayer')),
+      ..._times(6, _step('twoTopColor')),
+      ..._times(4, _step('twoFinish')),
+    ], 2);
+    String headline(int i) => stageHeadline(en, plan.stageAt(i)!);
+    expect(headline(0), 'Stage 1 of 3: Build the bottom layer');
+    expect(headline(7), 'Stage 2 of 3: Make the top one color');
+    expect(headline(14), 'Stage 3 of 3: Finish the corners');
+  });
 }

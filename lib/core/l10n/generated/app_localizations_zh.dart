@@ -1759,4 +1759,22 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get stepSixPllParityBody => '如果最后看到两条棱互换了，把它们放在顶层的前面和后面，做用内层双转的短修正。';
+
+  @override
+  String get stageTwoFirstLayer => '完成底层';
+
+  @override
+  String get stageTwoTopColor => '让顶面变成同一种颜色';
+
+  @override
+  String get stageTwoFinish => '完成角块';
+
+  @override
+  String get explainTwoFirstLayer => '完成底层：四个角块彼此对齐，并与侧面颜色一致。';
+
+  @override
+  String get explainTwoTopColor => '保持底层不动，转到顶面四个贴纸颜色相同。';
+
+  @override
+  String get explainTwoFinish => '把最后的角块移到正确位置，完成魔方。';
 }

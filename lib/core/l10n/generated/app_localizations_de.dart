@@ -1888,4 +1888,25 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get stepSixPllParityBody =>
       'Wirken ganz am Ende zwei Kanten vertauscht, halte sie vorne und hinten in der oberen Ebene und spiele die kurze Korrektur mit inneren Doppeldrehungen.';
+
+  @override
+  String get stageTwoFirstLayer => 'Untere Ebene bauen';
+
+  @override
+  String get stageTwoTopColor => 'Oberseite einfarbig machen';
+
+  @override
+  String get stageTwoFinish => 'Ecken fertigstellen';
+
+  @override
+  String get explainTwoFirstLayer =>
+      'Vervollständige die untere Ebene: Ihre vier Ecken passen zueinander und zu den Seitenfarben.';
+
+  @override
+  String get explainTwoTopColor =>
+      'Dreh, bis alle vier Aufkleber oben dieselbe Farbe haben, ohne die untere Ebene zu zerstören.';
+
+  @override
+  String get explainTwoFinish =>
+      'Bring die letzten Ecken an ihren Platz, um den Würfel fertigzustellen.';
 }

@@ -30,8 +30,17 @@ enum StageKind {
   /// Fast big cube: the reduced cube solved as a 3x3.
   asThree,
 
-  /// 2x2: the whole (short, optimal) solution.
+  /// 2x2 fast: the whole (short, optimal) solution.
   twoByTwo,
+
+  /// 2x2 guided: the bottom layer.
+  twoFirstLayer,
+
+  /// 2x2 guided: the top face one color.
+  twoTopColor,
+
+  /// 2x2 guided: the remaining corners.
+  twoFinish,
 }
 
 /// One stage of a solution and where it sits in the plan.
@@ -154,6 +163,7 @@ class StagePlan {
       'kociembaPhase1' => size == 3 ? 'orient' : 'asThree',
       'kociembaPhase2' => size == 3 ? 'finish' : 'asThree',
       'optimal2x2' => 'twoByTwo',
+      'twoFirstLayer' || 'twoTopColor' || 'twoFinish' => s.phaseName,
       _ => null,
     };
   }
@@ -161,7 +171,11 @@ class StagePlan {
   /// Every stage this kind of solve has, in order, so "Stage 3 of 6" means
   /// the same thing on every solve of a size.
   static List<String> _orderFor(List<String> keys, int size) {
-    if (size == 2) return const ['twoByTwo'];
+    if (size == 2) {
+      return keys.contains('twoByTwo')
+          ? const ['twoByTwo']
+          : const ['twoFirstLayer', 'twoTopColor', 'twoFinish'];
+    }
     final guided = keys.any(
       (k) => k.startsWith('sub') || k.startsWith('crown'),
     );
@@ -195,6 +209,9 @@ class StagePlan {
     'finish' => StageKind.finish,
     'asThree' => StageKind.asThree,
     'twoByTwo' => StageKind.twoByTwo,
+    'twoFirstLayer' => StageKind.twoFirstLayer,
+    'twoTopColor' => StageKind.twoTopColor,
+    'twoFinish' => StageKind.twoFinish,
     _ when key.startsWith('crown') => StageKind.crown,
     _ => StageKind.subStep,
   };

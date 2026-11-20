@@ -526,5 +526,11 @@
   "stepSixOllParity": "Eine gekippte Kante",
   "stepSixOllParityBody": "Wirkt beim Lösen der letzten Ebene eine einzelne Kante gekippt, ist das Parität. Halte sie vorne in der oberen Ebene und spiele die lange Korrektur: Die ersten zwei Kronen kommen unversehrt zurück.",
   "stepSixPllParity": "Zwei vertauschte Kanten",
-  "stepSixPllParityBody": "Wirken ganz am Ende zwei Kanten vertauscht, halte sie vorne und hinten in der oberen Ebene und spiele die kurze Korrektur mit inneren Doppeldrehungen."
+  "stepSixPllParityBody": "Wirken ganz am Ende zwei Kanten vertauscht, halte sie vorne und hinten in der oberen Ebene und spiele die kurze Korrektur mit inneren Doppeldrehungen.",
+  "stageTwoFirstLayer": "Untere Ebene bauen",
+  "stageTwoTopColor": "Oberseite einfarbig machen",
+  "stageTwoFinish": "Ecken fertigstellen",
+  "explainTwoFirstLayer": "Vervollständige die untere Ebene: Ihre vier Ecken passen zueinander und zu den Seitenfarben.",
+  "explainTwoTopColor": "Dreh, bis alle vier Aufkleber oben dieselbe Farbe haben, ohne die untere Ebene zu zerstören.",
+  "explainTwoFinish": "Bring die letzten Ecken an ihren Platz, um den Würfel fertigzustellen."
 }

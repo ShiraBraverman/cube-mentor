@@ -17,4 +17,15 @@ abstract interface class CubeSolver {
   Future<SolvePlan> solve(CubeState cube, SolveMethod method);
 }
 
+/// Cube sizes with both solve modes, so the Guided / Fast switch shows:
+/// the 2x2 (optimal) and the 3x3 (Kociemba). Bigger cubes are always solved
+/// stage by stage (reduction, then the three crowns).
+const Set<int> kFastSolveSizes = {2, 3};
+
+/// Which solve modes the app offers for cubes of [size] (2x2 to 6x6).
+bool solveMethodOffered(int size, SolveMethod method) {
+  if (size < 2 || size > 6) return false;
+  return method == SolveMethod.layerByLayer || kFastSolveSizes.contains(size);
+}
+
 final cubeSolverProvider = Provider<CubeSolver>((ref) => NativeCubeSolver());

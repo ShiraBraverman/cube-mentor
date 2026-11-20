@@ -1780,4 +1780,22 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get stepSixPllParityBody =>
       '最後の最後で2本のエッジが入れ替わって見えたら、上の層の手前と奥に置き、内側の層の2回転を使う短い手順を行います。';
+
+  @override
+  String get stageTwoFirstLayer => '下の層を作る';
+
+  @override
+  String get stageTwoTopColor => '上面を1色にする';
+
+  @override
+  String get stageTwoFinish => 'コーナーを仕上げる';
+
+  @override
+  String get explainTwoFirstLayer => '下の層を完成させます。4つのコーナーがそろい、側面の色とも合います。';
+
+  @override
+  String get explainTwoTopColor => '下の層を崩さずに、上の4枚のシールが同じ色になるまで回します。';
+
+  @override
+  String get explainTwoFinish => '最後のコーナーを正しい位置に移して完成させます。';
 }

@@ -526,5 +526,11 @@
   "stepSixOllParity": "Une arête retournée",
   "stepSixOllParityBody": "Si une seule arête semble retournée pendant la dernière couche, c'est la parité. Placez-la devant dans la couche du haut et jouez la longue correction : les deux premières couronnes reviennent intactes.",
   "stepSixPllParity": "Deux arêtes échangées",
-  "stepSixPllParityBody": "Si deux arêtes semblent échangées tout à la fin, placez-les devant et derrière dans la couche du haut et jouez la courte correction en doubles tours intérieurs."
+  "stepSixPllParityBody": "Si deux arêtes semblent échangées tout à la fin, placez-les devant et derrière dans la couche du haut et jouez la courte correction en doubles tours intérieurs.",
+  "stageTwoFirstLayer": "Construire la couche du bas",
+  "stageTwoTopColor": "Rendre le dessus d'une seule couleur",
+  "stageTwoFinish": "Finir les coins",
+  "explainTwoFirstLayer": "Complétez la couche du bas : ses quatre coins vont ensemble et avec les couleurs des côtés.",
+  "explainTwoTopColor": "Tournez jusqu'à ce que les quatre autocollants du dessus soient de la même couleur, sans casser la couche du bas.",
+  "explainTwoFinish": "Placez les derniers coins pour finir le cube."
 }

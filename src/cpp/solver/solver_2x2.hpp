@@ -22,6 +22,12 @@ class Solver2x2 {
   /// orientation; any color scheme with opposite colors is accepted.
   static SolveResult solve(const std::string& facelets);
 
+  /// The learner's 2x2 solve in three stages, each the shortest way to its
+  /// goal: the bottom layer (the one holding the fixed DBL corner), then
+  /// the top face one color, then the remaining corners. Phases
+  /// `twoFirstLayer`, `twoTopColor` and `twoFinish`.
+  static SolveResult solveGuided(const std::string& facelets);
+
   /// Optimal move indices (face turns, see notation.hpp), or an error key.
   static bool solveMoves(const std::string& facelets, std::vector<int>& moves,
                          std::string& error);

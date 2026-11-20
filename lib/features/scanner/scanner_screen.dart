@@ -504,10 +504,14 @@ class _ReviewBody extends ConsumerWidget {
                       : (canFast ? SolveMethod.fast : null),
                 ),
           icon: Icon(
-            canFast ? Icons.auto_awesome_motion_rounded : Icons.view_in_ar,
+            canLearn || canFast
+                ? Icons.auto_awesome_motion_rounded
+                : Icons.view_in_ar,
           ),
           label: Text(
-            canFast ? l10n.solveLearn : l10n.scanOpen3d,
+            canLearn
+                ? l10n.solveLearn
+                : (canFast ? l10n.solve : l10n.scanOpen3d),
             textAlign: TextAlign.center,
           ),
         ),

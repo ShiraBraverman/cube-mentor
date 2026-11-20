@@ -526,5 +526,11 @@
   "stepSixOllParity": "エッジ1本の反転",
   "stepSixOllParityBody": "最後の層を解いているときにエッジが1本だけ反転して見えたら、それはパリティです。上の層の手前に置いて長い手順を行えば、第1・第2の王冠は崩れずに戻ります。",
   "stepSixPllParity": "エッジ2本の入れ替わり",
-  "stepSixPllParityBody": "最後の最後で2本のエッジが入れ替わって見えたら、上の層の手前と奥に置き、内側の層の2回転を使う短い手順を行います。"
+  "stepSixPllParityBody": "最後の最後で2本のエッジが入れ替わって見えたら、上の層の手前と奥に置き、内側の層の2回転を使う短い手順を行います。",
+  "stageTwoFirstLayer": "下の層を作る",
+  "stageTwoTopColor": "上面を1色にする",
+  "stageTwoFinish": "コーナーを仕上げる",
+  "explainTwoFirstLayer": "下の層を完成させます。4つのコーナーがそろい、側面の色とも合います。",
+  "explainTwoTopColor": "下の層を崩さずに、上の4枚のシールが同じ色になるまで回します。",
+  "explainTwoFinish": "最後のコーナーを正しい位置に移して完成させます。"
 }

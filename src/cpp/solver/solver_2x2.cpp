@@ -58,7 +58,42 @@ struct Tables {
   std::vector<uint16_t> permMove;
   std::vector<uint16_t> twistMove;
   std::vector<int8_t> distance;
+  /// Guided stages: distance to "bottom layer done" and to "bottom layer
+  /// done, top one color" (multi-source BFS from every goal position).
+  std::vector<int8_t> layerDistance;
+  std::vector<int8_t> topDistance;
 };
+
+/// Breadth-first distances from every state where [goal] holds. The move
+/// set is closed under inverses, so these are distances *to* the goal.
+template <typename Goal>
+std::vector<int8_t> distancesTo(const Tables& t, Goal goal) {
+  std::vector<int8_t> d(kStateCount, -1);
+  std::vector<uint32_t> queue;
+  queue.reserve(kStateCount);
+  for (int perm = 0; perm < kPermCount; ++perm) {
+    for (int twist = 0; twist < kTwistCount; ++twist) {
+      if (!goal(perm, twist)) continue;
+      const uint32_t s = static_cast<uint32_t>(perm * kTwistCount + twist);
+      d[s] = 0;
+      queue.push_back(s);
+    }
+  }
+  for (size_t head = 0; head < queue.size(); ++head) {
+    const uint32_t s = queue[head];
+    const int perm = static_cast<int>(s / kTwistCount);
+    const int twist = static_cast<int>(s % kTwistCount);
+    for (int m = 0; m < kMoveCount; ++m) {
+      const uint32_t n = t.permMove[perm * kMoveCount + m] * kTwistCount +
+                         t.twistMove[twist * kMoveCount + m];
+      if (d[n] < 0) {
+        d[n] = static_cast<int8_t>(d[s] + 1);
+        queue.push_back(n);
+      }
+    }
+  }
+  return d;
+}
 
 const Tables& tables() {
   static Tables t;
@@ -98,6 +133,30 @@ const Tables& tables() {
         }
       }
     }
+
+    // Bottom layer: the corners sharing the fixed DBL corner's layer are
+    // home and untwisted. Top color: also every top corner untwisted.
+    std::vector<bool> layerPerm(kPermCount);
+    for (int perm = 0; perm < kPermCount; ++perm) {
+      CubieCube c = CubieCube::identity();
+      setPerm(c, perm);
+      layerPerm[perm] = c.cp[DFR] == DFR && c.cp[DLF] == DLF && c.cp[DRB] == DRB;
+    }
+    std::vector<bool> layerTwist(kTwistCount);
+    std::vector<bool> topTwist(kTwistCount);
+    for (int twist = 0; twist < kTwistCount; ++twist) {
+      CubieCube c = CubieCube::identity();
+      setTwist(c, twist);
+      layerTwist[twist] = c.co[DFR] == 0 && c.co[DLF] == 0 && c.co[DRB] == 0;
+      topTwist[twist] = layerTwist[twist] && c.co[URF] == 0 && c.co[UFL] == 0 &&
+                        c.co[ULB] == 0 && c.co[UBR] == 0;
+    }
+    t.layerDistance = distancesTo(t, [&](int perm, int twist) {
+      return layerPerm[perm] && layerTwist[twist];
+    });
+    t.topDistance = distancesTo(t, [&](int perm, int twist) {
+      return layerPerm[perm] && topTwist[twist];
+    });
   });
   return t;
 }
@@ -141,8 +200,10 @@ bool faceColors2x2(const std::string& f, std::array<char, 6>& faceColors) {
 
 void Solver2x2::prepare() { tables(); }
 
-bool Solver2x2::solveMoves(const std::string& facelets, std::vector<int>& moves,
-                           std::string& error) {
+namespace {
+
+/// Parses facelets into the fixed-DBL coordinates.
+bool coordinates(const std::string& facelets, int& perm, int& twist, std::string& error) {
   if (facelets.size() != 24) {
     error = cubeErrorName(CubeError::kBadLength);
     return false;
@@ -158,16 +219,20 @@ bool Solver2x2::solveMoves(const std::string& facelets, std::vector<int>& moves,
     error = cubeErrorName(status);
     return false;
   }
-  const Tables& t = tables();
-  int perm = permCoord(cube);
-  int twist = twistCoord(cube);
-  moves.clear();
-  while (t.distance[perm * kTwistCount + twist] > 0) {
-    const int d = t.distance[perm * kTwistCount + twist];
+  perm = permCoord(cube);
+  twist = twistCoord(cube);
+  return true;
+}
+
+/// Walks down [distance] to 0, appending the moves (always a shortest way).
+void descend(const Tables& t, const std::vector<int8_t>& distance, int& perm, int& twist,
+             std::vector<int>& moves) {
+  while (distance[perm * kTwistCount + twist] > 0) {
+    const int d = distance[perm * kTwistCount + twist];
     for (int m = 0; m < kMoveCount; ++m) {
       const int np = t.permMove[perm * kMoveCount + m];
       const int nt = t.twistMove[twist * kMoveCount + m];
-      if (t.distance[np * kTwistCount + nt] == d - 1) {
+      if (distance[np * kTwistCount + nt] == d - 1) {
         moves.push_back(m);
         perm = np;
         twist = nt;
@@ -175,6 +240,51 @@ bool Solver2x2::solveMoves(const std::string& facelets, std::vector<int>& moves,
       }
     }
   }
+}
+
+}  // namespace
+
+SolveResult Solver2x2::solveGuided(const std::string& facelets) {
+  const auto start = std::chrono::steady_clock::now();
+  SolveResult result;
+  result.method = "guided2x2";
+  int perm = 0;
+  int twist = 0;
+  if (!coordinates(facelets, perm, twist, result.error)) return result;
+  const Tables& t = tables();
+  struct Stage {
+    const std::vector<int8_t>* distance;
+    const char* phase;
+    const char* explanation;
+  };
+  const Stage stages[] = {
+      {&t.layerDistance, "twoFirstLayer", "twoFirstLayerExplain"},
+      {&t.topDistance, "twoTopColor", "twoTopColorExplain"},
+      {&t.distance, "twoFinish", "twoFinishExplain"},
+  };
+  for (const Stage& stage : stages) {
+    std::vector<int> moves;
+    descend(t, *stage.distance, perm, twist, moves);
+    for (int m : moves) {
+      SolveStep step;
+      step.move = faceTurnName(m);
+      step.phase = stage.phase;
+      step.explanation = stage.explanation;
+      result.steps.push_back(step);
+    }
+  }
+  result.ok = true;
+  result.millis = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - start).count();
+  return result;
+}
+
+bool Solver2x2::solveMoves(const std::string& facelets, std::vector<int>& moves,
+                           std::string& error) {
+  int perm = 0;
+  int twist = 0;
+  if (!coordinates(facelets, perm, twist, error)) return false;
+  moves.clear();
+  descend(tables(), tables().distance, perm, twist, moves);
   return true;
 }
 

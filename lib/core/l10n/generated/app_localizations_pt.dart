@@ -1885,6 +1885,27 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get stepSixPllParityBody =>
       'Se duas arestas parecerem trocadas no fim, ponha-as à frente e atrás na camada de cima e faça a correção curta de rotações duplas interiores.';
+
+  @override
+  String get stageTwoFirstLayer => 'Monte a camada de baixo';
+
+  @override
+  String get stageTwoTopColor => 'Deixe o topo de uma só cor';
+
+  @override
+  String get stageTwoFinish => 'Termine os cantos';
+
+  @override
+  String get explainTwoFirstLayer =>
+      'Complete a camada de baixo: os quatro cantos combinam entre si e com as cores laterais.';
+
+  @override
+  String get explainTwoTopColor =>
+      'Rode até os quatro autocolantes de cima ficarem da mesma cor, sem desfazer a camada de baixo.';
+
+  @override
+  String get explainTwoFinish =>
+      'Leve os últimos cantos para o lugar e termine o cubo.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -3760,4 +3781,25 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get stepSixPllParityBody =>
       'Se duas arestas parecerem trocadas no final, coloque-as na frente e atrás da camada de cima e faça a correção curta de giros duplos internos.';
+
+  @override
+  String get stageTwoFirstLayer => 'Monte a camada de baixo';
+
+  @override
+  String get stageTwoTopColor => 'Deixe o topo de uma cor só';
+
+  @override
+  String get stageTwoFinish => 'Termine os cantos';
+
+  @override
+  String get explainTwoFirstLayer =>
+      'Complete a camada de baixo: os quatro cantos combinam entre si e com as cores laterais.';
+
+  @override
+  String get explainTwoTopColor =>
+      'Gire até os quatro adesivos de cima ficarem da mesma cor, sem desfazer a camada de baixo.';
+
+  @override
+  String get explainTwoFinish =>
+      'Leve os últimos cantos para o lugar e termine o cubo.';
 }

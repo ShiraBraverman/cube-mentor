@@ -1853,4 +1853,25 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get stepSixPllParityBody =>
       'אם שתי צלעות נראות מוחלפות ממש בסוף, מחזיקים אותן מקדימה ומאחור בשכבה העליונה ומבצעים את התיקון הקצר של סיבובים כפולים פנימיים.';
+
+  @override
+  String get stageTwoFirstLayer => 'בונים את השכבה התחתונה';
+
+  @override
+  String get stageTwoTopColor => 'צובעים את הפאה העליונה בצבע אחד';
+
+  @override
+  String get stageTwoFinish => 'מסיימים את הפינות';
+
+  @override
+  String get explainTwoFirstLayer =>
+      'משלימים את השכבה התחתונה: ארבע הפינות שלה מתאימות זו לזו ולצבעי הצדדים.';
+
+  @override
+  String get explainTwoTopColor =>
+      'מסובבים עד שכל ארבע המדבקות העליונות באותו צבע, בלי לפרק את השכבה התחתונה.';
+
+  @override
+  String get explainTwoFinish =>
+      'מעבירים את הפינות האחרונות למקומן ומסיימים את הקובייה.';
 }

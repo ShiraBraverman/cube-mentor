@@ -1876,4 +1876,25 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get stepSixPllParityBody =>
       'Jika dua rusuk tampak tertukar di akhir, taruh di depan dan belakang lapisan atas lalu lakukan perbaikan pendek dengan putaran ganda di dalam.';
+
+  @override
+  String get stageTwoFirstLayer => 'Bangun lapisan bawah';
+
+  @override
+  String get stageTwoTopColor => 'Buat sisi atas satu warna';
+
+  @override
+  String get stageTwoFinish => 'Selesaikan sudut-sudutnya';
+
+  @override
+  String get explainTwoFirstLayer =>
+      'Lengkapi lapisan bawah: keempat sudutnya cocok satu sama lain dan dengan warna sampingnya.';
+
+  @override
+  String get explainTwoTopColor =>
+      'Putar sampai keempat stiker atas berwarna sama, tanpa merusak lapisan bawah.';
+
+  @override
+  String get explainTwoFinish =>
+      'Pindahkan sudut terakhir ke tempatnya untuk menyelesaikan kubus.';
 }

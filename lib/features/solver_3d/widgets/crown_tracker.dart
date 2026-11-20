@@ -142,8 +142,9 @@ class _CrownPainter extends CustomPainter {
       old.color != color || old.label != label;
 }
 
-/// Pill switching the loaded solution between the guided 3-crown method and
-/// the fast solver. Shown only for solver results on cube sizes with both.
+/// Pill switching the loaded solution between the guided stages and the
+/// fast solver. Shown only for solver results on cube sizes offering both
+/// (2x2 and 3x3, see `kFastSolveSizes`); 4x4-6x6 stay guided.
 class SolveMethodToggle extends ConsumerWidget {
   const SolveMethodToggle({super.key, required this.size});
 

@@ -526,5 +526,11 @@
   "stepSixOllParity": "Satu rusuk terbalik",
   "stepSixOllParityBody": "Jika satu rusuk tampak terbalik saat menyelesaikan lapisan terakhir, itu paritas. Taruh di depan lapisan atas dan lakukan perbaikan panjang: dua mahkota pertama kembali utuh.",
   "stepSixPllParity": "Dua rusuk tertukar",
-  "stepSixPllParityBody": "Jika dua rusuk tampak tertukar di akhir, taruh di depan dan belakang lapisan atas lalu lakukan perbaikan pendek dengan putaran ganda di dalam."
+  "stepSixPllParityBody": "Jika dua rusuk tampak tertukar di akhir, taruh di depan dan belakang lapisan atas lalu lakukan perbaikan pendek dengan putaran ganda di dalam.",
+  "stageTwoFirstLayer": "Bangun lapisan bawah",
+  "stageTwoTopColor": "Buat sisi atas satu warna",
+  "stageTwoFinish": "Selesaikan sudut-sudutnya",
+  "explainTwoFirstLayer": "Lengkapi lapisan bawah: keempat sudutnya cocok satu sama lain dan dengan warna sampingnya.",
+  "explainTwoTopColor": "Putar sampai keempat stiker atas berwarna sama, tanpa merusak lapisan bawah.",
+  "explainTwoFinish": "Pindahkan sudut terakhir ke tempatnya untuk menyelesaikan kubus."
 }

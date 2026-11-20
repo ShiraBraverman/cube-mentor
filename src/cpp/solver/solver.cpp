@@ -58,7 +58,8 @@ SolveResult solveCube(int size, SolveMethod method, const std::string& facelets)
     return result;
   }
   if (size == 2) {
-    result = Solver2x2::solve(facelets);
+    result = method == SolveMethod::kLayerByLayer ? Solver2x2::solveGuided(facelets)
+                                                  : Solver2x2::solve(facelets);
   } else if (size == 3) {
     result = method == SolveMethod::kLayerByLayer ? LblSolver::solve(facelets)
                                                   : KociembaSolver::solve(facelets);
