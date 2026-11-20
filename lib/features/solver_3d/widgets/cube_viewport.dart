@@ -201,8 +201,7 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
 
     // Layers can only be grabbed while nothing else is turning.
     final viewport = context.size;
-    final canGrab =
-        viewport != null &&
+    final canGrab = viewport != null &&
         _session.isIdle &&
         !_turn.isAnimating &&
         !_snap.isAnimating &&
@@ -250,10 +249,8 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
       case _DragMode.layer:
         final drag = _layerDrag!;
         final angle = _dragTurn.value!.angle;
-        var quarterTurns = drag.snapQuarterTurns(
-          angle,
-          details.velocity.pixelsPerSecond,
-        );
+        var quarterTurns =
+            drag.snapQuarterTurns(angle, details.velocity.pixelsPerSecond);
         final move = drag.moveFor(quarterTurns);
         // A turn that breaks the guided solution springs back.
         _rejectOnSnap =
@@ -343,10 +340,8 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
   }
 
   void _onOrbitTick(Duration elapsed) {
-    final dt = ((elapsed - _lastOrbitTick).inMicroseconds / 1e6).clamp(
-      0.0,
-      0.05,
-    );
+    final dt =
+        ((elapsed - _lastOrbitTick).inMicroseconds / 1e6).clamp(0.0, 0.05);
     _lastOrbitTick = elapsed;
     final current = _orbit.value;
 
@@ -401,11 +396,8 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
           ]),
           builder: (context, _) {
             final active = _activeMove;
-            final turn =
-                _dragTurn.value ??
-                (active == null
-                    ? null
-                    : LayerTurn.ofMove(active, _eased.value));
+            final turn = _dragTurn.value ??
+                (active == null ? null : LayerTurn.ofMove(active, _eased.value));
             // Damped side-to-side wobble after a rejected move.
             final t = _shake.value;
             final wobble = _shake.isAnimating

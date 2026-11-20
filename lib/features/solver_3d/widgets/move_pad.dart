@@ -211,9 +211,7 @@ class _ToggleChip extends StatelessWidget {
               label,
               style: TextStyle(
                 fontWeight: FontWeight.w600,
-                color: selected
-                    ? AppColors.textPrimary
-                    : AppColors.textSecondary,
+                color: selected ? AppColors.textPrimary : AppColors.textSecondary,
               ),
             ),
           ),

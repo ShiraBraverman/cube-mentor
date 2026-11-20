@@ -89,10 +89,8 @@ class CubePainter extends CustomPainter {
   void _paintXray(Canvas canvas, List<ProjectedFace> faces) {
     for (final face in faces) {
       final path = _roundedSticker(face.quad);
-      _fill.color = _shaded(
-        AppColors.stickers[face.color]!,
-        face.shade,
-      ).withValues(alpha: face.frontFacing ? 0.55 : 0.35);
+      _fill.color = _shaded(AppColors.stickers[face.color]!, face.shade)
+          .withValues(alpha: face.frontFacing ? 0.55 : 0.35);
       canvas.drawPath(path, _fill);
       _stroke
         ..color = Colors.white.withValues(alpha: face.frontFacing ? 0.35 : 0.15)
@@ -102,16 +100,16 @@ class CubePainter extends CustomPainter {
   }
 
   void _paintShadow(Canvas canvas, Size size) {
-    final scale =
-        CubeProjection.focalLength(size) / CubeProjection.cameraDistance;
+    final scale = CubeProjection.focalLength(size) / CubeProjection.cameraDistance;
     final center = Offset(size.width / 2, size.height / 2 + scale * 1.55);
     final width = scale * 2.6;
     final height = scale * 0.5;
     final shadow = Paint()
-      ..shader = ui.Gradient.radial(center, width / 2, [
-        Colors.black.withValues(alpha: 0.45),
-        Colors.transparent,
-      ]);
+      ..shader = ui.Gradient.radial(
+        center,
+        width / 2,
+        [Colors.black.withValues(alpha: 0.45), Colors.transparent],
+      );
     canvas.save();
     canvas.translate(center.dx, center.dy);
     canvas.scale(1, height / width);

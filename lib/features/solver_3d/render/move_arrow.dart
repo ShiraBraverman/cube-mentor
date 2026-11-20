@@ -61,18 +61,12 @@ abstract final class MoveArrow {
       final side = Offset(-forward.dy, forward.dx);
       final length = 16 * unit;
       final head = Path()
-        ..moveTo(
-          tip.dx + forward.dx * length * 0.55,
-          tip.dy + forward.dy * length * 0.55,
-        )
-        ..lineTo(
-          tip.dx - forward.dx * length * 0.45 + side.dx * length * 0.6,
-          tip.dy - forward.dy * length * 0.45 + side.dy * length * 0.6,
-        )
-        ..lineTo(
-          tip.dx - forward.dx * length * 0.45 - side.dx * length * 0.6,
-          tip.dy - forward.dy * length * 0.45 - side.dy * length * 0.6,
-        )
+        ..moveTo(tip.dx + forward.dx * length * 0.55,
+            tip.dy + forward.dy * length * 0.55)
+        ..lineTo(tip.dx - forward.dx * length * 0.45 + side.dx * length * 0.6,
+            tip.dy - forward.dy * length * 0.45 + side.dy * length * 0.6)
+        ..lineTo(tip.dx - forward.dx * length * 0.45 - side.dx * length * 0.6,
+            tip.dy - forward.dy * length * 0.45 - side.dy * length * 0.6)
         ..close();
       canvas.drawPath(
         head,
@@ -122,8 +116,7 @@ abstract final class MoveArrow {
       for (var i = 0; i <= samples; i++)
         () {
           final theta = start + direction * span * i / samples;
-          final p =
-              e0 * offset +
+          final p = e0 * offset +
               (e1 * math.cos(theta) + e2 * math.sin(theta)) * _radius;
           return CubeProjection.project(view.transformed(p), size, focal);
         }(),

@@ -34,11 +34,7 @@ class LayerGrab {
     final center =
         Vector3(x.toDouble(), y.toDouble(), z.toDouble()) / n.toDouble() +
         CubeProjection.unit(face.axis) * (face.sign / n);
-    final origin = CubeProjection.project(
-      view.transformed(center),
-      viewport,
-      focal,
-    );
+    final origin = CubeProjection.project(view.transformed(center), viewport, focal);
     const step = 0.01;
     final tangents = <int, Offset>{};
     for (var axis = 0; axis < 3; axis++) {
@@ -81,8 +77,7 @@ class LayerGrab {
       final length = px.distance;
       // Faces seen edge-on cannot be dragged along their collapsed axis.
       if (length < 1e-3) continue;
-      final score =
-          (totalDelta.dx * px.dx + totalDelta.dy * px.dy).abs() / length;
+      final score = (totalDelta.dx * px.dx + totalDelta.dy * px.dy).abs() / length;
       if (score > bestScore) {
         bestScore = score;
         bestAxis = axis;
