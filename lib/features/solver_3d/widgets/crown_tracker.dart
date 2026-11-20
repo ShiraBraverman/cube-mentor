@@ -158,6 +158,7 @@ class SolveMethodToggle extends ConsumerWidget {
     final solver = ref.watch(cubeSolverProvider);
     if (current == null ||
         !session.hasPlayback ||
+        !kFastSolveSizes.contains(size) ||
         !solver.supports(size, SolveMethod.layerByLayer) ||
         !solver.supports(size, SolveMethod.fast)) {
       return const SizedBox.shrink();

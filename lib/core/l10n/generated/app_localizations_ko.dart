@@ -69,12 +69,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get modeAcademyDesc => '인터랙티브 강의로 차근차근 배워 보세요.';
 
   @override
-  String get comingSoon => '곧 출시';
-
-  @override
-  String get comingSoonMessage => '이 기능은 다음 업데이트에서 제공될 예정입니다.';
-
-  @override
   String get language => '언어';
 
   @override
@@ -122,17 +116,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get pause => '일시정지';
-
-  @override
-  String get playbackTitle => '재생';
-
-  @override
-  String get playbackEmpty => '큐브를 섞으면 해법 재생을 만들 수 있습니다.';
-
-  @override
-  String playbackProgress(int current, int total) {
-    return '$total단계 중 $current단계';
-  }
 
   @override
   String moveCount(int count) {
@@ -230,9 +213,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get guideExit => '가이드 종료';
 
   @override
-  String get replayStep => '단계 다시 보기';
-
-  @override
   String get colorWhite => '흰색';
 
   @override
@@ -297,11 +277,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get crownThirdGoal => '노란색 면과 마지막 층';
-
-  @override
-  String crownProgress(int current, int total) {
-    return '크라운 $current/$total';
-  }
 
   @override
   String get subStepGoal11 => '흰색 엣지가 옆 센터 색과도 맞는 흰색 십자를 만드세요.';
@@ -620,18 +595,15 @@ class AppLocalizationsKo extends AppLocalizations {
   String get lessonAdvanced => '고급';
 
   @override
-  String get lessonDone => '완료';
-
-  @override
   String lessonPartOf(int index, int total) {
     return '$total부 중 $index부';
   }
 
   @override
-  String get lessonBack => '뒤로';
+  String get lessonNext => '다음';
 
   @override
-  String get lessonNext => '다음';
+  String get lessonPrevious => '이전';
 
   @override
   String get lessonFinish => '강의 마치기';
@@ -646,7 +618,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get lessonBackToAcademy => '아카데미로 돌아가기';
 
   @override
-  String get lessonTryIt => '이제 해 보세요: 화살표가 가리키는 층을 밀거나 다음 동작을 탭하세요.';
+  String get lessonTryIt => '이제 해 보세요: 화살표가 가리키는 층을 밀거나 다음을 탭하세요.';
 
   @override
   String get lessonLookAround => '배경을 드래그해 큐브를 여러 방향에서 살펴보세요.';
@@ -1248,6 +1220,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get introStart => '알겠어요, 한 단계씩 시작';
 
   @override
+  String get introDontShowAgain => '다시 자동으로 표시하지 않기';
+
+  @override
   String get introShowGoal => '목표 보기';
 
   @override
@@ -1475,6 +1450,12 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get dailyScrambleGuide => '3D 섞기 가이드';
+
+  @override
+  String get dailyShowMoves => '동작을 텍스트로 보기';
+
+  @override
+  String get dailyHideMoves => '텍스트 동작 숨기기';
 
   @override
   String get dailyScrambleGuideTitle => '섞기 가이드';

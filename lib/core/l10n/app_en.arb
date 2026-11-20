@@ -26,8 +26,6 @@
   "modeScanSolveDesc": "Scan your cube with the camera and get a solution.",
   "modeAcademy": "Academy",
   "modeAcademyDesc": "Learn step by step with interactive lessons.",
-  "comingSoon": "Coming soon",
-  "comingSoonMessage": "This feature is on its way in an upcoming update.",
   "language": "Language",
   "languageSearch": "Search languages",
   "languageNoResults": "No language matches your search.",
@@ -57,19 +55,6 @@
   "cubeRotations": "Rotations",
   "play": "Play",
   "pause": "Pause",
-  "playbackTitle": "Playback",
-  "playbackEmpty": "Scramble the cube to build a solving playback.",
-  "playbackProgress": "Step {current} of {total}",
-  "@playbackProgress": {
-    "placeholders": {
-      "current": {
-        "type": "int"
-      },
-      "total": {
-        "type": "int"
-      }
-    }
-  },
   "moveCount": "{count, plural, =0{No moves} =1{1 move} other{{count} moves}}",
   "@moveCount": {
     "placeholders": {
@@ -125,7 +110,6 @@
   "guideRotateHint": "Turn the whole cube as the arrow shows: tap Next.",
   "guideWrongMove": "Follow the highlighted arrow",
   "guideExit": "Exit guide",
-  "replayStep": "Replay step",
   "colorWhite": "white",
   "colorYellow": "yellow",
   "colorGreen": "green",
@@ -148,7 +132,6 @@
   "crownFirstGoal": "White face and first layer",
   "crownSecondGoal": "Middle layer",
   "crownThirdGoal": "Yellow face and last layer",
-  "crownProgress": "Crown {current} of {total}",
   "subStepGoal11": "Form a white cross where every white edge also matches the center color beside it.",
   "subStepGoal12": "Insert the 4 white corners into their matching slots to finish the white face and the whole first ring.",
   "subStepGoal21": "Insert the 4 middle-layer edges without disturbing the first crown.",
@@ -156,16 +139,6 @@
   "subStepGoal32": "Swap the yellow cross edges until each one matches its side center.",
   "subStepGoal33": "Move the 4 yellow corners to their correct places, even if they are still twisted.",
   "subStepGoal34": "Twist each yellow corner in place until every sticker matches and the cube is solved.",
-  "@crownProgress": {
-    "placeholders": {
-      "current": {
-        "type": "int"
-      },
-      "total": {
-        "type": "int"
-      }
-    }
-  },
   "explainOptimal2x2": "The shortest possible solution, found by searching every 2×2 position.",
   "explainKociemba1": "Orient every piece and gather the middle-layer edges into the middle layer.",
   "explainKociemba2": "Finish with U, D and half turns only, which keep that orientation.",
@@ -368,7 +341,6 @@
     }
   },
   "lessonAdvanced": "Advanced",
-  "lessonDone": "Done",
   "lessonPartOf": "Part {index} of {total}",
   "@lessonPartOf": {
     "placeholders": {
@@ -380,13 +352,16 @@
       }
     }
   },
-  "lessonBack": "Back",
   "lessonNext": "Next",
+  "lessonPrevious": "Previous",
+  "@lessonPrevious": {
+    "description": "Previous button of a lesson: the previous move, or the previous part once the part's first move is reached."
+  },
   "lessonFinish": "Finish lesson",
   "lessonComplete": "Lesson complete!",
   "lessonNextLesson": "Next lesson",
   "lessonBackToAcademy": "Back to the Academy",
-  "lessonTryIt": "Your turn: swipe the layer the arrow shows, or tap Next move.",
+  "lessonTryIt": "Your turn: swipe the layer the arrow shows, or tap Next.",
   "lessonLookAround": "Drag the background to look at the cube from every side.",
   "lessonDemoDone": "Nice! Tap Next to continue.",
   "holdPrompt": "Hold the cube with the {top} center on top and the {front} center facing you.",
@@ -666,6 +641,10 @@
   "introGoalHeading": "What's the goal?",
   "introHowHeading": "How do we do it?",
   "introStart": "Got it, start step by step",
+  "introDontShowAgain": "Don't show automatically again",
+  "@introDontShowAgain": {
+    "description": "Switch in the sub-step goal sheet: stop opening it automatically at each new sub-step (the flag button still opens it)."
+  },
   "introShowGoal": "Show the goal",
   "introStateStart": "Start",
   "introStateGoal": "Goal",
@@ -776,6 +755,14 @@
   "solveExpand": "Show details",
   "dailyScrambleSteps": "Scramble step by step",
   "dailyScrambleGuide": "3D scramble guide",
+  "dailyShowMoves": "Show text moves",
+  "@dailyShowMoves": {
+    "description": "Expands the daily scramble written out as numbered moves."
+  },
+  "dailyHideMoves": "Hide text moves",
+  "@dailyHideMoves": {
+    "description": "Collapses the daily scramble's numbered move list."
+  },
   "dailyScrambleGuideTitle": "Scramble guide",
   "phaseDailyScramble": "Scramble today's cube",
   "explainDailyScramble": "Start from a solved cube, white on top and green in front, and copy each turn on your real cube.",

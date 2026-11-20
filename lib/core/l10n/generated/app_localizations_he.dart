@@ -69,12 +69,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get modeAcademyDesc => 'למדו צעד אחר צעד בשיעורים אינטראקטיביים.';
 
   @override
-  String get comingSoon => 'בקרוב';
-
-  @override
-  String get comingSoonMessage => 'התכונה הזו תגיע בעדכון הקרוב.';
-
-  @override
   String get language => 'שפה';
 
   @override
@@ -122,17 +116,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get pause => 'השהה';
-
-  @override
-  String get playbackTitle => 'הפעלה';
-
-  @override
-  String get playbackEmpty => 'ערבבו את הקובייה כדי לבנות רצף פתרון.';
-
-  @override
-  String playbackProgress(int current, int total) {
-    return 'צעד $current מתוך $total';
-  }
 
   @override
   String moveCount(int count) {
@@ -238,9 +221,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get guideExit => 'יציאה מההדרכה';
 
   @override
-  String get replayStep => 'הצגת הצעד שוב';
-
-  @override
   String get colorWhite => 'לבן';
 
   @override
@@ -305,11 +285,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get crownThirdGoal => 'הפאה הצהובה והשכבה האחרונה';
-
-  @override
-  String crownProgress(int current, int total) {
-    return 'כתר $current מתוך $total';
-  }
 
   @override
   String get subStepGoal11 =>
@@ -652,18 +627,15 @@ class AppLocalizationsHe extends AppLocalizations {
   String get lessonAdvanced => 'מתקדם';
 
   @override
-  String get lessonDone => 'הושלם';
-
-  @override
   String lessonPartOf(int index, int total) {
     return 'חלק $index מתוך $total';
   }
 
   @override
-  String get lessonBack => 'הקודם';
+  String get lessonNext => 'הבא';
 
   @override
-  String get lessonNext => 'הבא';
+  String get lessonPrevious => 'הקודם';
 
   @override
   String get lessonFinish => 'סיום השיעור';
@@ -679,7 +651,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get lessonTryIt =>
-      'תורכם: החליקו את השכבה שהחץ מראה, או הקישו על \"המהלך הבא\".';
+      'תורכם: החליקו את השכבה שהחץ מראה, או הקישו על \"הבא\".';
 
   @override
   String get lessonLookAround =>
@@ -1292,6 +1264,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get introStart => 'הבנתי, בוא נתחיל';
 
   @override
+  String get introDontShowAgain => 'לא להציג אוטומטית שוב';
+
+  @override
   String get introShowGoal => 'הצגת המטרה';
 
   @override
@@ -1535,6 +1510,12 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get dailyScrambleGuide => 'מדריך ערבוב בתלת־ממד';
+
+  @override
+  String get dailyShowMoves => 'הצגת המהלכים כטקסט';
+
+  @override
+  String get dailyHideMoves => 'הסתרת המהלכים בטקסט';
 
   @override
   String get dailyScrambleGuideTitle => 'מדריך ערבוב';

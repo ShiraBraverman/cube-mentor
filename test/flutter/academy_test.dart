@@ -335,25 +335,60 @@ void main() {
     // No auto-play in lessons: the learner steps one move at a time.
     expect(find.byKey(const ValueKey('lesson-show')), findsNothing);
     expect(find.byTooltip('Play'), findsNothing);
+    // One Previous / Next pair: no separate move stepper.
+    expect(find.byKey(const ValueKey('lesson-next-move')), findsNothing);
+    expect(find.byKey(const ValueKey('lesson-back')), findsNothing);
     CubeSession session() => container.read(cubeSessionProvider(3));
-    await tester.tap(find.byKey(const ValueKey('lesson-next-move')));
+    await tester.tap(find.byKey(const ValueKey('lesson-next')));
     await _advance(tester, 12);
-    expect(session().playbackIndex, 1);
+    expect(session().playbackIndex, 1, reason: 'Next plays the next move');
     expect(session().isPlaying, isFalse, reason: 'one move, then it waits');
-    await tester.tap(find.byKey(const ValueKey('lesson-prev-move')));
+    expect(find.text('Six face letters'), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('lesson-prev')));
     await _advance(tester, 12);
     expect(session().playbackIndex, 0);
     expect(session().cube.isSolved, isTrue);
-    for (var i = 0; i < 6; i++) {
-      await tester.tap(find.byKey(const ValueKey('lesson-next-move')));
+    for (var i = 0; i < 5; i++) {
+      await tester.tap(find.byKey(const ValueKey('lesson-next')));
       await _advance(tester, 12);
     }
+    expect(find.text('Six face letters'), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('lesson-next')));
+    await _advance(tester, 12);
     expect(session().isComplete, isTrue);
     expect(find.text('Nice! Tap Next to continue.'), findsOneWidget);
+    expect(find.text('Six face letters'), findsOneWidget);
 
+    // The demo is done: the same Next opens the last part.
     await tester.tap(find.byKey(const ValueKey('lesson-next')));
     await _advance(tester, 4);
+    expect(find.text('Six face letters'), findsNothing);
+    expect(find.text('Part 3 of 3'), findsOneWidget);
+    // Its two demo moves come first, then Next turns into Finish lesson.
+    expect(find.text('Finish lesson'), findsNothing);
+    for (var i = 0; i < 2; i++) {
+      await tester.tap(find.byKey(const ValueKey('lesson-next')));
+      await _advance(tester, 12);
+    }
     expect(find.text('Finish lesson'), findsOneWidget);
+    // Previous at the first move of a part goes back to the previous part.
+    for (var i = 0; i < 3; i++) {
+      await tester.tap(find.byKey(const ValueKey('lesson-prev')));
+      await _advance(tester, 12);
+    }
+    expect(find.text('Six face letters'), findsOneWidget);
+    expect(session().playbackIndex, 0);
+    for (var i = 0; i < 6; i++) {
+      await tester.tap(find.byKey(const ValueKey('lesson-next')));
+      await _advance(tester, 12);
+    }
+    await tester.tap(find.byKey(const ValueKey('lesson-next')));
+    await _advance(tester, 4);
+    expect(find.text('Part 3 of 3'), findsOneWidget);
+    for (var i = 0; i < 2; i++) {
+      await tester.tap(find.byKey(const ValueKey('lesson-next')));
+      await _advance(tester, 12);
+    }
     await tester.tap(find.byKey(const ValueKey('lesson-next')));
     await _advance(tester, 4);
     expect(find.text('Lesson complete!'), findsOneWidget);

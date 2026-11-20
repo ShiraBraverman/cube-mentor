@@ -14,8 +14,10 @@ import '../solver_3d/widgets/move_instruction.dart';
 import '../timer/timer_screen.dart';
 import 'daily_controller.dart';
 
-/// Today's scramble, the streak, and two ways to complete it: on the 3D
-/// cube or timed on a real cube.
+/// Today's scramble, the streak, and the ways to complete it: scramble a
+/// real cube with the 3D guide, solve on the 3D cube, or time it on a real
+/// cube. The scramble written out move by move stays folded behind
+/// "Show text moves" so every action fits on screen.
 class DailyScreen extends ConsumerStatefulWidget {
   const DailyScreen({super.key});
 
@@ -24,6 +26,8 @@ class DailyScreen extends ConsumerStatefulWidget {
 }
 
 class _DailyScreenState extends ConsumerState<DailyScreen> {
+  bool _showMoves = false;
+
   @override
   void initState() {
     super.initState();
@@ -130,26 +134,59 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: AppSpace.md),
-                      Text(
-                        l10n.dailyScrambleSteps,
-                        style: textTheme.titleSmall?.copyWith(
-                          color: AppColors.accent,
+                      const SizedBox(height: AppSpace.xs),
+                      Align(
+                        alignment: AlignmentDirectional.centerStart,
+                        child: TextButton.icon(
+                          key: const ValueKey('daily-moves-toggle'),
+                          onPressed: () =>
+                              setState(() => _showMoves = !_showMoves),
+                          icon: Icon(
+                            _showMoves
+                                ? Icons.expand_less_rounded
+                                : Icons.expand_more_rounded,
+                          ),
+                          label: Text(
+                            _showMoves
+                                ? l10n.dailyHideMoves
+                                : l10n.dailyShowMoves,
+                          ),
                         ),
                       ),
-                      const SizedBox(height: 2),
-                      Text(l10n.timerScrambleHint, style: textTheme.bodySmall),
-                      const SizedBox(height: AppSpace.sm),
-                      if (scramble == null)
-                        Text(
-                          l10n.timerLoadingScramble,
-                          key: const ValueKey('daily-scramble'),
-                        )
-                      else
-                        _ScrambleSteps(
-                          key: const ValueKey('daily-scramble'),
-                          moves: scramble,
-                        ),
+                      AnimatedSize(
+                        duration: const Duration(milliseconds: 220),
+                        curve: Curves.easeOutCubic,
+                        alignment: Alignment.topCenter,
+                        child: !_showMoves
+                            ? const SizedBox(width: double.infinity)
+                            : Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    l10n.dailyScrambleSteps,
+                                    style: textTheme.titleSmall?.copyWith(
+                                      color: AppColors.accent,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 2),
+                                  Text(
+                                    l10n.timerScrambleHint,
+                                    style: textTheme.bodySmall,
+                                  ),
+                                  const SizedBox(height: AppSpace.sm),
+                                  if (scramble == null)
+                                    Text(
+                                      l10n.timerLoadingScramble,
+                                      key: const ValueKey('daily-scramble'),
+                                    )
+                                  else
+                                    _ScrambleSteps(
+                                      key: const ValueKey('daily-scramble'),
+                                      moves: scramble,
+                                    ),
+                                ],
+                              ),
+                      ),
                     ],
                   ),
                 ),
@@ -159,7 +196,10 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
                 FilledButton.tonalIcon(
                   key: const ValueKey('daily-scramble-guide'),
                   style: FilledButton.styleFrom(
-                    backgroundColor: AppColors.accent.withValues(alpha: 0.2),
+                    minimumSize: const Size.fromHeight(52),
+                    backgroundColor: AppColors.accentSecondary.withValues(
+                      alpha: 0.22,
+                    ),
                     foregroundColor: AppColors.textPrimary,
                   ),
                   onPressed: scramble == null
@@ -184,6 +224,9 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
                 const SizedBox(height: AppSpace.sm),
                 FilledButton.icon(
                   key: const ValueKey('daily-virtual'),
+                  style: FilledButton.styleFrom(
+                    minimumSize: const Size.fromHeight(52),
+                  ),
                   onPressed: cube == null
                       ? null
                       : () => Navigator.of(context).push(
@@ -203,6 +246,7 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
                 FilledButton.tonalIcon(
                   key: const ValueKey('daily-timer'),
                   style: FilledButton.styleFrom(
+                    minimumSize: const Size.fromHeight(52),
                     backgroundColor: AppColors.glassFillStrong,
                     foregroundColor: AppColors.textPrimary,
                   ),

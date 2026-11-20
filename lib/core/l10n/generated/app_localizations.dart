@@ -237,18 +237,6 @@ abstract class AppLocalizations {
   /// **'Learn step by step with interactive lessons.'**
   String get modeAcademyDesc;
 
-  /// No description provided for @comingSoon.
-  ///
-  /// In en, this message translates to:
-  /// **'Coming soon'**
-  String get comingSoon;
-
-  /// No description provided for @comingSoonMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'This feature is on its way in an upcoming update.'**
-  String get comingSoonMessage;
-
   /// No description provided for @language.
   ///
   /// In en, this message translates to:
@@ -338,24 +326,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Pause'**
   String get pause;
-
-  /// No description provided for @playbackTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Playback'**
-  String get playbackTitle;
-
-  /// No description provided for @playbackEmpty.
-  ///
-  /// In en, this message translates to:
-  /// **'Scramble the cube to build a solving playback.'**
-  String get playbackEmpty;
-
-  /// No description provided for @playbackProgress.
-  ///
-  /// In en, this message translates to:
-  /// **'Step {current} of {total}'**
-  String playbackProgress(int current, int total);
 
   /// No description provided for @moveCount.
   ///
@@ -519,12 +489,6 @@ abstract class AppLocalizations {
   /// **'Exit guide'**
   String get guideExit;
 
-  /// No description provided for @replayStep.
-  ///
-  /// In en, this message translates to:
-  /// **'Replay step'**
-  String get replayStep;
-
   /// No description provided for @colorWhite.
   ///
   /// In en, this message translates to:
@@ -656,12 +620,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Yellow face and last layer'**
   String get crownThirdGoal;
-
-  /// No description provided for @crownProgress.
-  ///
-  /// In en, this message translates to:
-  /// **'Crown {current} of {total}'**
-  String crownProgress(int current, int total);
 
   /// No description provided for @subStepGoal11.
   ///
@@ -1191,29 +1149,23 @@ abstract class AppLocalizations {
   /// **'Advanced'**
   String get lessonAdvanced;
 
-  /// No description provided for @lessonDone.
-  ///
-  /// In en, this message translates to:
-  /// **'Done'**
-  String get lessonDone;
-
   /// No description provided for @lessonPartOf.
   ///
   /// In en, this message translates to:
   /// **'Part {index} of {total}'**
   String lessonPartOf(int index, int total);
 
-  /// No description provided for @lessonBack.
-  ///
-  /// In en, this message translates to:
-  /// **'Back'**
-  String get lessonBack;
-
   /// No description provided for @lessonNext.
   ///
   /// In en, this message translates to:
   /// **'Next'**
   String get lessonNext;
+
+  /// Previous button of a lesson: the previous move, or the previous part once the part's first move is reached.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous'**
+  String get lessonPrevious;
 
   /// No description provided for @lessonFinish.
   ///
@@ -1242,7 +1194,7 @@ abstract class AppLocalizations {
   /// No description provided for @lessonTryIt.
   ///
   /// In en, this message translates to:
-  /// **'Your turn: swipe the layer the arrow shows, or tap Next move.'**
+  /// **'Your turn: swipe the layer the arrow shows, or tap Next.'**
   String get lessonTryIt;
 
   /// No description provided for @lessonLookAround.
@@ -2331,6 +2283,12 @@ abstract class AppLocalizations {
   /// **'Got it, start step by step'**
   String get introStart;
 
+  /// Switch in the sub-step goal sheet: stop opening it automatically at each new sub-step (the flag button still opens it).
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t show automatically again'**
+  String get introDontShowAgain;
+
   /// No description provided for @introShowGoal.
   ///
   /// In en, this message translates to:
@@ -2732,6 +2690,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'3D scramble guide'**
   String get dailyScrambleGuide;
+
+  /// Expands the daily scramble written out as numbered moves.
+  ///
+  /// In en, this message translates to:
+  /// **'Show text moves'**
+  String get dailyShowMoves;
+
+  /// Collapses the daily scramble's numbered move list.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide text moves'**
+  String get dailyHideMoves;
 
   /// No description provided for @dailyScrambleGuideTitle.
   ///

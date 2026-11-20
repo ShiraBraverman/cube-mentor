@@ -301,11 +301,25 @@ void main() {
     await tester.pump();
     await tester.pump();
     expect(find.text('2-day streak'), findsOneWidget);
-    // The scramble as numbered arrow steps, not letters.
+    // The scramble as numbered arrow steps, not letters, folded away by
+    // default so every action fits on screen.
     expect(find.text(FakeScrambler.daily), findsNothing);
     final scramble = MoveNotation.parseSequence(FakeScrambler.daily, 3);
+    expect(find.byKey(const ValueKey('daily-step-0')), findsNothing);
+    expect(find.text('Show text moves'), findsOneWidget);
+    for (final key in [
+      'daily-scramble-guide',
+      'daily-virtual',
+      'daily-timer',
+    ]) {
+      final rect = tester.getRect(find.byKey(ValueKey(key)));
+      expect(rect.bottom, lessThan(tester.view.physicalSize.height / 2.75));
+    }
+    await tester.tap(find.byKey(const ValueKey('daily-moves-toggle')));
+    await _advance(tester, 6);
     expect(find.byKey(const ValueKey('daily-step-0')), findsOneWidget);
     expect(find.text('Front face — Clockwise'), findsWidgets);
+    expect(find.text('Hide text moves'), findsOneWidget);
 
     // The 3D scramble guide starts from a solved cube and plays today's
     // scramble step by step with the solver's dock and arrows.
@@ -325,6 +339,9 @@ void main() {
     expect(find.text('Scramble guide'), findsOneWidget);
     expect(find.text("Scramble today's cube"), findsOneWidget);
     expect(find.byKey(const ValueKey('solve-dock')), findsOneWidget);
+    // Guide-only playback: Previous / Play / Next / Exit, no free-play bar.
+    expect(find.byKey(const ValueKey('guide-dock')), findsOneWidget);
+    expect(find.byKey(const ValueKey('action-bar')), findsNothing);
     await tester.pageBack();
     await _advance(tester);
     expect(

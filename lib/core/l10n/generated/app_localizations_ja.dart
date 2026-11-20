@@ -69,12 +69,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get modeAcademyDesc => 'インタラクティブなレッスンで一歩ずつ学べます。';
 
   @override
-  String get comingSoon => '近日公開';
-
-  @override
-  String get comingSoonMessage => 'この機能は今後のアップデートで追加されます。';
-
-  @override
   String get language => '言語';
 
   @override
@@ -122,17 +116,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get pause => '一時停止';
-
-  @override
-  String get playbackTitle => '再生';
-
-  @override
-  String get playbackEmpty => 'キューブをスクランブルすると解法を再生できます。';
-
-  @override
-  String playbackProgress(int current, int total) {
-    return 'ステップ $current/$total';
-  }
 
   @override
   String moveCount(int count) {
@@ -230,9 +213,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get guideExit => 'ガイドを終了';
 
   @override
-  String get replayStep => 'ステップを再生';
-
-  @override
   String get colorWhite => '白';
 
   @override
@@ -297,11 +277,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get crownThirdGoal => '黄色い面と最終段';
-
-  @override
-  String crownProgress(int current, int total) {
-    return 'クラウン $current/$total';
-  }
 
   @override
   String get subStepGoal11 => '白いエッジが隣のセンターの色ともそろった白クロスを作ります。';
@@ -620,18 +595,15 @@ class AppLocalizationsJa extends AppLocalizations {
   String get lessonAdvanced => '上級';
 
   @override
-  String get lessonDone => '完了';
-
-  @override
   String lessonPartOf(int index, int total) {
     return 'パート $index/$total';
   }
 
   @override
-  String get lessonBack => '戻る';
+  String get lessonNext => '次へ';
 
   @override
-  String get lessonNext => '次へ';
+  String get lessonPrevious => '前へ';
 
   @override
   String get lessonFinish => 'レッスンを終える';
@@ -646,7 +618,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get lessonBackToAcademy => 'アカデミーに戻る';
 
   @override
-  String get lessonTryIt => 'あなたの番です。矢印の層をスワイプするか、「次の手」をタップしてください。';
+  String get lessonTryIt => 'あなたの番です。矢印の層をスワイプするか、「次へ」をタップしてください。';
 
   @override
   String get lessonLookAround => '背景をドラッグすると、キューブをいろいろな角度から見られます。';
@@ -1244,6 +1216,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get introStart => 'わかった、1手ずつ始める';
 
   @override
+  String get introDontShowAgain => '今後は自動で表示しない';
+
+  @override
   String get introShowGoal => '目標を見る';
 
   @override
@@ -1471,6 +1446,12 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get dailyScrambleGuide => '3Dスクランブルガイド';
+
+  @override
+  String get dailyShowMoves => '手順をテキストで表示';
+
+  @override
+  String get dailyHideMoves => 'テキスト手順を隠す';
 
   @override
   String get dailyScrambleGuideTitle => 'スクランブルガイド';

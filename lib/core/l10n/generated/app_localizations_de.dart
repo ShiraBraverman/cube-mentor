@@ -73,13 +73,6 @@ class AppLocalizationsDe extends AppLocalizations {
       'Lerne Schritt für Schritt mit interaktiven Lektionen.';
 
   @override
-  String get comingSoon => 'Demnächst';
-
-  @override
-  String get comingSoonMessage =>
-      'Diese Funktion kommt mit einem der nächsten Updates.';
-
-  @override
   String get language => 'Sprache';
 
   @override
@@ -127,18 +120,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get pause => 'Pause';
-
-  @override
-  String get playbackTitle => 'Wiedergabe';
-
-  @override
-  String get playbackEmpty =>
-      'Verdrehe den Würfel, um eine Lösungswiedergabe zu erstellen.';
-
-  @override
-  String playbackProgress(int current, int total) {
-    return 'Schritt $current von $total';
-  }
 
   @override
   String moveCount(int count) {
@@ -245,9 +226,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get guideExit => 'Anleitung beenden';
 
   @override
-  String get replayStep => 'Schritt wiederholen';
-
-  @override
   String get colorWhite => 'weiß';
 
   @override
@@ -312,11 +290,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get crownThirdGoal => 'Gelbe Seite und letzte Ebene';
-
-  @override
-  String crownProgress(int current, int total) {
-    return 'Krone $current von $total';
-  }
 
   @override
   String get subStepGoal11 =>
@@ -673,18 +646,15 @@ class AppLocalizationsDe extends AppLocalizations {
   String get lessonAdvanced => 'Fortgeschritten';
 
   @override
-  String get lessonDone => 'Erledigt';
-
-  @override
   String lessonPartOf(int index, int total) {
     return 'Teil $index von $total';
   }
 
   @override
-  String get lessonBack => 'Zurück';
+  String get lessonNext => 'Weiter';
 
   @override
-  String get lessonNext => 'Weiter';
+  String get lessonPrevious => 'Zurück';
 
   @override
   String get lessonFinish => 'Lektion abschließen';
@@ -700,7 +670,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get lessonTryIt =>
-      'Du bist dran: Wische die Ebene, die der Pfeil zeigt, oder tippe auf Nächster Zug.';
+      'Du bist dran: Wische die Ebene, die der Pfeil zeigt, oder tippe auf Weiter.';
 
   @override
   String get lessonLookAround =>
@@ -1321,6 +1291,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get introStart => 'Verstanden, Schritt für Schritt starten';
 
   @override
+  String get introDontShowAgain => 'Nicht mehr automatisch anzeigen';
+
+  @override
   String get introShowGoal => 'Ziel anzeigen';
 
   @override
@@ -1565,6 +1538,12 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get dailyScrambleGuide => '3D-Verdrehanleitung';
+
+  @override
+  String get dailyShowMoves => 'Züge als Text anzeigen';
+
+  @override
+  String get dailyHideMoves => 'Züge als Text ausblenden';
 
   @override
   String get dailyScrambleGuideTitle => 'Verdrehanleitung';

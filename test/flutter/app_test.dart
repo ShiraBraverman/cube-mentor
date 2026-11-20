@@ -104,10 +104,15 @@ void main() {
     );
     CubeSession session() => container.read(cubeSessionProvider(5));
 
-    // The notation pad is hidden by default and opens from the app bar.
+    // The notation pad is hidden by default and opens from the app bar as
+    // a bottom sheet: the cube keeps its size.
     expect(find.text('R'), findsNothing);
+    final cubeHeight = tester.getSize(find.byType(CubeViewport)).height;
     await tester.tap(find.byKey(const ValueKey('toggle-notation')));
     await _advance(tester, 6);
+    expect(find.byKey(const ValueKey('notation-sheet')), findsOneWidget);
+    expect(tester.getSize(find.byType(CubeViewport)).height, cubeHeight);
+    expect(find.text('Speed'), findsOneWidget);
     await tester.tap(find.text('R'));
     // Give the 320 ms quarter-turn animation time to finish and commit.
     await _advance(tester, 10);
@@ -115,15 +120,16 @@ void main() {
     expect(session().log.map((m) => m.notation), ['R']);
     expect(find.text('Scrambled'), findsOneWidget);
 
+    // Tapping above the sheet closes it; the action bar stays.
+    await tester.tapAt(const Offset(20, 120));
+    await _advance(tester, 8);
+    expect(find.byKey(const ValueKey('notation-sheet')), findsNothing);
+    expect(find.text('R'), findsNothing);
+
     await tester.tap(find.text('Undo'));
     await _advance(tester, 10);
     expect(session().isIdle, isTrue);
     expect(find.text('Solved'), findsOneWidget);
-
-    // Collapse the pad again; the action bar stays.
-    await tester.tap(find.byKey(const ValueKey('toggle-notation')));
-    await _advance(tester, 6);
-    expect(find.text('R'), findsNothing);
 
     await tester.tap(find.text('Scramble'));
     // 60 fast scramble turns at 90 ms (135 ms for half turns) each.
@@ -235,6 +241,17 @@ void main() {
     expect(find.text('Right'), findsOneWidget);
     expect(find.byKey(const ValueKey('move-arrow-right')), findsOneWidget);
 
+    // A guide replaces the free-play bar with Previous / Play / Next / Exit
+    // and a single (stage) progress bar.
+    expect(find.byKey(const ValueKey('guide-dock')), findsOneWidget);
+    expect(find.byKey(const ValueKey('action-bar')), findsNothing);
+    for (final label in ['Scramble', 'Undo', 'Reset']) {
+      expect(find.text(label), findsNothing, reason: label);
+    }
+    expect(find.byKey(const ValueKey('solve')), findsNothing);
+    expect(find.byTooltip('Replay step'), findsNothing);
+    expect(find.byType(LinearProgressIndicator), findsOneWidget);
+
     // The dock sits under the cube, never over it.
     final cubeRect = tester.getRect(find.byType(CubeViewport));
     final dockRect = tester.getRect(find.byKey(const ValueKey('solve-dock')));
@@ -303,6 +320,75 @@ void main() {
     expect(container.read(cubeSessionProvider(3)).solvedWith, SolveMethod.fast);
     final prefs = container.read(sharedPreferencesProvider);
     expect(prefs.getString('solve_method'), 'fast');
+  });
+
+  testWidgets("the goal sheet's switch stops it opening by itself", (
+    tester,
+  ) async {
+    final scrambled = CubeState.solved(3).applyAll([
+      for (final t in ['R', 'U']) _parse(t),
+    ]);
+    final afterFirst = scrambled.apply(_parse("U'"));
+    final solver = FakeCubeSolver(
+      plan: SolvePlan(
+        method: 'lbl',
+        steps: [
+          SolveStep(
+            cubeState: scrambled.toFacelets(),
+            phaseName: 'lblCross',
+            moveNotation: "U'",
+            explanationKey: 'lblCrossEdge',
+            pieceColors: 'WR',
+            crown: 1,
+            subStep: 1,
+          ),
+          SolveStep(
+            cubeState: afterFirst.toFacelets(),
+            phaseName: 'lblCorners',
+            moveNotation: "R'",
+            explanationKey: 'lblCornerInsert',
+            pieceColors: 'WRG',
+            crown: 1,
+            subStep: 2,
+          ),
+        ],
+      ),
+    );
+    final prefs = await _prefs();
+    await _pumpApp(tester, prefs, solver: solver);
+    await tester.ensureVisible(find.byKey(const ValueKey('mode-playground')));
+    await tester.pump();
+    await tester.tap(find.byKey(const ValueKey('mode-playground')));
+    await _advance(tester);
+    final container = ProviderScope.containerOf(
+      tester.element(find.byType(CubeViewport)),
+    );
+    container.read(cubeSessionProvider(3).notifier)
+      ..turnNotation('R')
+      ..turnNotation('U');
+    await _advance(tester, 16);
+    await tester.tap(find.byKey(const ValueKey('solve')));
+    await _advance(tester, 8);
+
+    // 1.1 opens by itself; switch auto-show off from inside the sheet.
+    expect(find.byKey(const ValueKey('lesson-intro')), findsOneWidget);
+    await tester.ensureVisible(find.byKey(const ValueKey('intro-dont-show')));
+    await tester.tap(find.byKey(const ValueKey('intro-dont-show')));
+    await _advance(tester, 4);
+    expect(prefs.getBool('substep_intro_auto'), isFalse);
+    await tester.ensureVisible(find.byKey(const ValueKey('intro-start')));
+    await tester.tap(find.byKey(const ValueKey('intro-start')));
+    await _advance(tester, 12);
+
+    // 1.2 no longer interrupts...
+    await tester.tap(find.byKey(const ValueKey('playback-next')));
+    await _advance(tester, 12);
+    expect(container.read(cubeSessionProvider(3)).playbackIndex, 1);
+    expect(find.byKey(const ValueKey('lesson-intro')), findsNothing);
+    // ...but the flag still opens it.
+    await tester.tap(find.byKey(const ValueKey('solve-intro-open')));
+    await _advance(tester, 12);
+    expect(find.byKey(const ValueKey('lesson-intro')), findsOneWidget);
   });
 
   testWidgets('a solved cube needs no solution', (tester) async {
@@ -481,10 +567,14 @@ void main() {
       expect(find.text('Solved! Great job.'), findsOneWidget);
       expect(painter(tester).guide, isNull);
 
-      // Exiting the guide returns to free play.
+      // Exiting the guide returns to free play (once the snack bar left).
+      await tester.pump(const Duration(seconds: 3));
+      await _advance(tester, 8);
       await tester.tap(find.byKey(const ValueKey('guide-exit')));
       await _advance(tester, 4);
       expect(container.read(cubeSessionProvider(3)).hasPlayback, isFalse);
+      expect(find.byKey(const ValueKey('guide-dock')), findsNothing);
+      expect(find.byKey(const ValueKey('action-bar')), findsOneWidget);
     });
 
     testWidgets('dragging a sticker turns its layer and clicks on snap', (

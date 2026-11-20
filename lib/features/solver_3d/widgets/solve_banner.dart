@@ -4,6 +4,7 @@ import 'package:material_ui/material_ui.dart';
 import '../../../core/cube/facelets.dart';
 import '../../../core/cube/cube_state.dart';
 import '../../../core/l10n/generated/app_localizations.dart';
+import '../../../core/solver/cube_solver.dart';
 import '../../../core/solver/solve_stages.dart';
 import '../../../core/solver/solve_step.dart';
 import '../../../core/theme/app_colors.dart';
@@ -19,7 +20,8 @@ import 'stage_header.dart';
 /// plain words for the move ("Right side — Up"), then (expandable) the
 /// phase and progress, what this move achieves and how to make it. It never
 /// covers the cube. Collapsing it only hides the details: the solution stays
-/// loaded until "Exit guide". Celebrates once the cube is solved.
+/// loaded until Exit in the playback dock. Celebrates once the cube is
+/// solved.
 class SolveBanner extends ConsumerStatefulWidget {
   const SolveBanner({super.key, required this.size});
 
@@ -47,7 +49,6 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
     final plan = StagePlan.forSteps(session.steps, size);
     final stage = plan.stageAt(index);
     final stageProgress = stage?.progressAt(index) ?? index / total;
-    final controller = ref.read(cubeSessionProvider(size).notifier);
     final secondary = textTheme.bodySmall?.copyWith(
       color: AppColors.textSecondary,
     );
@@ -95,13 +96,6 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
                   ),
                 ],
               ),
-            ),
-            IconButton(
-              key: const ValueKey('guide-exit'),
-              tooltip: l10n.guideExit,
-              visualDensity: VisualDensity.compact,
-              onPressed: controller.clearSolution,
-              icon: const Icon(Icons.close_rounded, size: 20),
             ),
           ],
         ),
@@ -252,27 +246,15 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
                   child: details,
                 ),
               ),
-            if (_expanded) ...[
-              const SizedBox(height: AppSpace.xs),
-              Row(
-                children: [
-                  Expanded(child: SolveMethodToggle(size: size)),
-                  const SizedBox(width: AppSpace.xs),
-                  Flexible(
-                    child: TextButton.icon(
-                      key: const ValueKey('guide-exit'),
-                      onPressed: controller.clearSolution,
-                      icon: const Icon(Icons.logout_rounded, size: 18),
-                      label: Text(
-                        l10n.guideExit,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ),
-                ],
+            // Guided / Fast: solver results on the 2x2 and 3x3 only.
+            if (_expanded && kFastSolveSizes.contains(size))
+              Padding(
+                padding: const EdgeInsetsDirectional.only(
+                  top: AppSpace.xs,
+                  end: AppSpace.xs,
+                ),
+                child: SolveMethodToggle(size: size),
               ),
-            ],
           ],
         ),
       ),

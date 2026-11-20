@@ -73,13 +73,6 @@ class AppLocalizationsEs extends AppLocalizations {
       'Aprende paso a paso con lecciones interactivas.';
 
   @override
-  String get comingSoon => 'Próximamente';
-
-  @override
-  String get comingSoonMessage =>
-      'Esta función llegará en una próxima actualización.';
-
-  @override
   String get language => 'Idioma';
 
   @override
@@ -127,18 +120,6 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get pause => 'Pausa';
-
-  @override
-  String get playbackTitle => 'Reproducción';
-
-  @override
-  String get playbackEmpty =>
-      'Mezcla el cubo para crear una reproducción de la solución.';
-
-  @override
-  String playbackProgress(int current, int total) {
-    return 'Paso $current de $total';
-  }
 
   @override
   String moveCount(int count) {
@@ -245,9 +226,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get guideExit => 'Salir de la guía';
 
   @override
-  String get replayStep => 'Repetir paso';
-
-  @override
   String get colorWhite => 'blanco';
 
   @override
@@ -312,11 +290,6 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get crownThirdGoal => 'Cara amarilla y última capa';
-
-  @override
-  String crownProgress(int current, int total) {
-    return 'Corona $current de $total';
-  }
 
   @override
   String get subStepGoal11 =>
@@ -670,18 +643,15 @@ class AppLocalizationsEs extends AppLocalizations {
   String get lessonAdvanced => 'Avanzado';
 
   @override
-  String get lessonDone => 'Hecho';
-
-  @override
   String lessonPartOf(int index, int total) {
     return 'Parte $index de $total';
   }
 
   @override
-  String get lessonBack => 'Atrás';
+  String get lessonNext => 'Siguiente';
 
   @override
-  String get lessonNext => 'Siguiente';
+  String get lessonPrevious => 'Anterior';
 
   @override
   String get lessonFinish => 'Terminar lección';
@@ -697,7 +667,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get lessonTryIt =>
-      'Tu turno: desliza la capa que indica la flecha o toca Siguiente movimiento.';
+      'Tu turno: desliza la capa que indica la flecha o toca Siguiente.';
 
   @override
   String get lessonLookAround =>
@@ -1318,6 +1288,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get introStart => 'Entendido, empezar paso a paso';
 
   @override
+  String get introDontShowAgain => 'No volver a mostrar automáticamente';
+
+  @override
   String get introShowGoal => 'Ver el objetivo';
 
   @override
@@ -1562,6 +1535,12 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get dailyScrambleGuide => 'Guía de mezcla en 3D';
+
+  @override
+  String get dailyShowMoves => 'Mostrar movimientos en texto';
+
+  @override
+  String get dailyHideMoves => 'Ocultar movimientos en texto';
 
   @override
   String get dailyScrambleGuideTitle => 'Guía de mezcla';

@@ -72,13 +72,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get modeAcademyDesc => 'Learn step by step with interactive lessons.';
 
   @override
-  String get comingSoon => 'Coming soon';
-
-  @override
-  String get comingSoonMessage =>
-      'This feature is on its way in an upcoming update.';
-
-  @override
   String get language => 'Language';
 
   @override
@@ -126,17 +119,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pause => 'Pause';
-
-  @override
-  String get playbackTitle => 'Playback';
-
-  @override
-  String get playbackEmpty => 'Scramble the cube to build a solving playback.';
-
-  @override
-  String playbackProgress(int current, int total) {
-    return 'Step $current of $total';
-  }
 
   @override
   String moveCount(int count) {
@@ -243,9 +225,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get guideExit => 'Exit guide';
 
   @override
-  String get replayStep => 'Replay step';
-
-  @override
   String get colorWhite => 'white';
 
   @override
@@ -310,11 +289,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get crownThirdGoal => 'Yellow face and last layer';
-
-  @override
-  String crownProgress(int current, int total) {
-    return 'Crown $current of $total';
-  }
 
   @override
   String get subStepGoal11 =>
@@ -664,18 +638,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get lessonAdvanced => 'Advanced';
 
   @override
-  String get lessonDone => 'Done';
-
-  @override
   String lessonPartOf(int index, int total) {
     return 'Part $index of $total';
   }
 
   @override
-  String get lessonBack => 'Back';
+  String get lessonNext => 'Next';
 
   @override
-  String get lessonNext => 'Next';
+  String get lessonPrevious => 'Previous';
 
   @override
   String get lessonFinish => 'Finish lesson';
@@ -691,7 +662,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get lessonTryIt =>
-      'Your turn: swipe the layer the arrow shows, or tap Next move.';
+      'Your turn: swipe the layer the arrow shows, or tap Next.';
 
   @override
   String get lessonLookAround =>
@@ -1308,6 +1279,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get introStart => 'Got it, start step by step';
 
   @override
+  String get introDontShowAgain => 'Don\'t show automatically again';
+
+  @override
   String get introShowGoal => 'Show the goal';
 
   @override
@@ -1551,6 +1525,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get dailyScrambleGuide => '3D scramble guide';
+
+  @override
+  String get dailyShowMoves => 'Show text moves';
+
+  @override
+  String get dailyHideMoves => 'Hide text moves';
 
   @override
   String get dailyScrambleGuideTitle => 'Scramble guide';

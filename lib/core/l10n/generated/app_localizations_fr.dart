@@ -73,13 +73,6 @@ class AppLocalizationsFr extends AppLocalizations {
       'Apprenez pas à pas avec des leçons interactives.';
 
   @override
-  String get comingSoon => 'Bientôt disponible';
-
-  @override
-  String get comingSoonMessage =>
-      'Cette fonction arrive dans une prochaine mise à jour.';
-
-  @override
   String get language => 'Langue';
 
   @override
@@ -128,18 +121,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get pause => 'Pause';
-
-  @override
-  String get playbackTitle => 'Lecture';
-
-  @override
-  String get playbackEmpty =>
-      'Mélangez le cube pour créer une lecture de la résolution.';
-
-  @override
-  String playbackProgress(int current, int total) {
-    return 'Étape $current sur $total';
-  }
 
   @override
   String moveCount(int count) {
@@ -246,9 +227,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get guideExit => 'Quitter le guide';
 
   @override
-  String get replayStep => 'Rejouer l\'étape';
-
-  @override
   String get colorWhite => 'blanc';
 
   @override
@@ -313,11 +291,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get crownThirdGoal => 'Face jaune et dernière couche';
-
-  @override
-  String crownProgress(int current, int total) {
-    return 'Couronne $current sur $total';
-  }
 
   @override
   String get subStepGoal11 =>
@@ -673,18 +646,15 @@ class AppLocalizationsFr extends AppLocalizations {
   String get lessonAdvanced => 'Avancé';
 
   @override
-  String get lessonDone => 'Terminée';
-
-  @override
   String lessonPartOf(int index, int total) {
     return 'Partie $index sur $total';
   }
 
   @override
-  String get lessonBack => 'Retour';
+  String get lessonNext => 'Suivant';
 
   @override
-  String get lessonNext => 'Suivant';
+  String get lessonPrevious => 'Précédent';
 
   @override
   String get lessonFinish => 'Terminer la leçon';
@@ -700,7 +670,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get lessonTryIt =>
-      'À vous : faites glisser la couche indiquée par la flèche, ou touchez Mouvement suivant.';
+      'À vous : faites glisser la couche indiquée par la flèche, ou touchez Suivant.';
 
   @override
   String get lessonLookAround =>
@@ -1323,6 +1293,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get introStart => 'Compris, commencer pas à pas';
 
   @override
+  String get introDontShowAgain => 'Ne plus afficher automatiquement';
+
+  @override
   String get introShowGoal => 'Voir l\'objectif';
 
   @override
@@ -1567,6 +1540,12 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get dailyScrambleGuide => 'Guide de mélange en 3D';
+
+  @override
+  String get dailyShowMoves => 'Afficher les mouvements en texte';
+
+  @override
+  String get dailyHideMoves => 'Masquer les mouvements en texte';
 
   @override
   String get dailyScrambleGuideTitle => 'Guide de mélange';

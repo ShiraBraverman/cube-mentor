@@ -71,12 +71,6 @@ class AppLocalizationsHi extends AppLocalizations {
   String get modeAcademyDesc => 'इंटरैक्टिव पाठों के साथ कदम-दर-कदम सीखें।';
 
   @override
-  String get comingSoon => 'जल्द आ रहा है';
-
-  @override
-  String get comingSoonMessage => 'यह सुविधा आने वाले अपडेट में आएगी।';
-
-  @override
   String get language => 'भाषा';
 
   @override
@@ -124,18 +118,6 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get pause => 'रोकें';
-
-  @override
-  String get playbackTitle => 'प्लेबैक';
-
-  @override
-  String get playbackEmpty =>
-      'हल का प्लेबैक बनाने के लिए क्यूब को स्क्रैम्बल करें।';
-
-  @override
-  String playbackProgress(int current, int total) {
-    return 'चरण $current / $total';
-  }
 
   @override
   String moveCount(int count) {
@@ -240,9 +222,6 @@ class AppLocalizationsHi extends AppLocalizations {
   String get guideExit => 'गाइड से बाहर निकलें';
 
   @override
-  String get replayStep => 'चरण दोबारा चलाएँ';
-
-  @override
   String get colorWhite => 'सफ़ेद';
 
   @override
@@ -307,11 +286,6 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get crownThirdGoal => 'पीला फ़ेस और आख़िरी परत';
-
-  @override
-  String crownProgress(int current, int total) {
-    return 'मुकुट $current / $total';
-  }
 
   @override
   String get subStepGoal11 =>
@@ -660,18 +634,15 @@ class AppLocalizationsHi extends AppLocalizations {
   String get lessonAdvanced => 'एडवांस्ड';
 
   @override
-  String get lessonDone => 'पूरा';
-
-  @override
   String lessonPartOf(int index, int total) {
     return 'भाग $index / $total';
   }
 
   @override
-  String get lessonBack => 'वापस';
+  String get lessonNext => 'आगे';
 
   @override
-  String get lessonNext => 'आगे';
+  String get lessonPrevious => 'पिछला';
 
   @override
   String get lessonFinish => 'पाठ पूरा करें';
@@ -687,7 +658,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get lessonTryIt =>
-      'अब आपकी बारी: तीर जो परत दिखा रहा है उसे स्वाइप करें, या अगली चाल दबाएँ।';
+      'अब आपकी बारी: तीर जो परत दिखा रहा है उसे स्वाइप करें, या आगे दबाएँ।';
 
   @override
   String get lessonLookAround =>
@@ -1310,6 +1281,9 @@ class AppLocalizationsHi extends AppLocalizations {
   String get introStart => 'समझ गया, कदम-दर-कदम शुरू करें';
 
   @override
+  String get introDontShowAgain => 'इसे फिर अपने-आप न दिखाएँ';
+
+  @override
   String get introShowGoal => 'लक्ष्य दिखाएँ';
 
   @override
@@ -1551,6 +1525,12 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get dailyScrambleGuide => '3D मिलाने की गाइड';
+
+  @override
+  String get dailyShowMoves => 'चालें टेक्स्ट में दिखाएँ';
+
+  @override
+  String get dailyHideMoves => 'टेक्स्ट चालें छिपाएँ';
 
   @override
   String get dailyScrambleGuideTitle => 'मिलाने की गाइड';
