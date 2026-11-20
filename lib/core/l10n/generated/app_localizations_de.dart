@@ -1909,4 +1909,77 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get explainTwoFinish =>
       'Bring die letzten Ecken an ihren Platz, um den Würfel fertigzustellen.';
+
+  @override
+  String get tabSolve => 'Lösen';
+
+  @override
+  String get tabScan => 'Scannen';
+
+  @override
+  String get tabAcademy => 'Akademie';
+
+  @override
+  String get tabTrain => 'Training';
+
+  @override
+  String get openCubeSolver => '3D-Würfel & Löser öffnen';
+
+  @override
+  String progressFraction(int done, int total) {
+    return '$done/$total';
+  }
+
+  @override
+  String get trainTitle => 'Training';
+
+  @override
+  String get trainSubtitle => 'Verbessere jeden Tag deine Fähigkeiten.';
+
+  @override
+  String get settings => 'Einstellungen';
+
+  @override
+  String get settingsSoundHaptics => 'Ton & Vibration';
+
+  @override
+  String get settingsSoundHapticsDesc =>
+      'Klicks und Vibrationen beim Drehen des Würfels.';
+
+  @override
+  String get settingsAnimationSpeed => 'Standard-Animationstempo';
+
+  @override
+  String get settingsAnimationSpeedDesc =>
+      'Wie schnell sich der Würfel dreht, wenn Züge abgespielt werden.';
+
+  @override
+  String get settingsResetProgress => 'Fortschritt zurücksetzen';
+
+  @override
+  String get settingsResetProgressDesc =>
+      'Löscht abgeschlossene Akademie-Lektionen und deine Tagesserie.';
+
+  @override
+  String get resetProgressTitle => 'Gesamten Fortschritt zurücksetzen?';
+
+  @override
+  String get resetProgressBody =>
+      'Deine abgeschlossenen Lektionen und deine Tagesserie werden gelöscht. Das lässt sich nicht rückgängig machen.';
+
+  @override
+  String get resetProgressDone => 'Fortschritt zurückgesetzt.';
+
+  @override
+  String get cancel => 'Abbrechen';
+
+  @override
+  String get settingsPrivacyAds => 'Datenschutz & Werbung';
+
+  @override
+  String get settingsPrivacyAdsDesc =>
+      'Werbe- und Einwilligungsoptionen erscheinen hier, sobald es Werbung gibt.';
+
+  @override
+  String get settingsComingSoon => 'Demnächst';
 }

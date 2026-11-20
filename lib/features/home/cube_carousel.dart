@@ -79,6 +79,10 @@ class _CubeCarouselState extends ConsumerState<CubeCarousel>
     _page = _base + kCubeSizes.indexOf(size);
     _pages = PageController(initialPage: _page);
     _ticker = createTicker(_onTick)..start();
+    // A new carousel opens on a real size, never on the mystery cube.
+    Future.microtask(() {
+      if (mounted) ref.read(showingMysteryProvider.notifier).set(false);
+    });
   }
 
   @override
@@ -110,6 +114,7 @@ class _CubeCarouselState extends ConsumerState<CubeCarousel>
       _targetPage = null;
     }
     final size = carouselSize(_item);
+    ref.read(showingMysteryProvider.notifier).set(size == null);
     if (size != null) ref.read(selectedCubeSizeProvider.notifier).select(size);
   }
 

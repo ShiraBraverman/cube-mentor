@@ -17,3 +17,29 @@ class SelectedCubeSize extends Notifier<int> {
 final selectedCubeSizeProvider = NotifierProvider<SelectedCubeSize, int>(
   SelectedCubeSize.new,
 );
+
+/// Whether the home carousel currently shows the "coming soon" cube, which
+/// has no solver to open.
+class ShowingMystery extends Notifier<bool> {
+  @override
+  bool build() => false;
+
+  void set(bool value) => state = value;
+}
+
+final showingMysteryProvider = NotifierProvider<ShowingMystery, bool>(
+  ShowingMystery.new,
+);
+
+/// The bottom navigation tabs of the root shell.
+enum AppTab { solve, scan, academy, train }
+
+/// The tab shown in the root shell.
+class CurrentTab extends Notifier<AppTab> {
+  @override
+  AppTab build() => AppTab.solve;
+
+  void select(AppTab tab) => state = tab;
+}
+
+final currentTabProvider = NotifierProvider<CurrentTab, AppTab>(CurrentTab.new);

@@ -20,9 +20,18 @@ import 'widgets/mini_cube.dart';
 /// Scan & Solve: capture the six faces with the camera (or enter them by
 /// hand), fix any flagged sticker on the net, then solve in the 3D viewport.
 class ScannerScreen extends ConsumerStatefulWidget {
-  const ScannerScreen({super.key, required this.size, this.cameraOverride});
+  const ScannerScreen({
+    super.key,
+    required this.size,
+    this.cameraOverride,
+    this.embedded = false,
+  });
 
   final int size;
+
+  /// Hosted in the Scan tab of the root shell: the solver opens on top
+  /// instead of replacing this screen, and the scan restarts on return.
+  final bool embedded;
 
   /// Forces camera support on or off (tests); by default phones only.
   final bool? cameraOverride;
@@ -59,13 +68,23 @@ class _ScannerScreenState extends ConsumerState<ScannerScreen> {
   ScanSessionController get _controller =>
       ref.read(scanSessionProvider(size).notifier);
 
-  void _open(CubeState cube, SolveMethod? method) {
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute<void>(
-        builder: (_) =>
-            Solver3DScreen(size: size, initialCube: cube, autoSolve: method),
-      ),
+  Future<void> _open(CubeState cube, SolveMethod? method) async {
+    final route = MaterialPageRoute<void>(
+      builder: (_) =>
+          Solver3DScreen(size: size, initialCube: cube, autoSolve: method),
     );
+    if (!widget.embedded) {
+      await Navigator.of(context).pushReplacement(route);
+      return;
+    }
+    // The camera is already off in review, where the solver is opened.
+    await Navigator.of(context).push(route);
+    if (!mounted) return;
+    if (widget.cameraSupported) {
+      _controller.restart();
+    } else {
+      _controller.startManual();
+    }
   }
 
   @override

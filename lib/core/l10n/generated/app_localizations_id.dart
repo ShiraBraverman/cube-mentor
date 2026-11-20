@@ -1897,4 +1897,77 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get explainTwoFinish =>
       'Pindahkan sudut terakhir ke tempatnya untuk menyelesaikan kubus.';
+
+  @override
+  String get tabSolve => 'Pecahkan';
+
+  @override
+  String get tabScan => 'Pindai';
+
+  @override
+  String get tabAcademy => 'Akademi';
+
+  @override
+  String get tabTrain => 'Latihan';
+
+  @override
+  String get openCubeSolver => 'Buka Kubus 3D & Pemecah';
+
+  @override
+  String progressFraction(int done, int total) {
+    return '$done/$total';
+  }
+
+  @override
+  String get trainTitle => 'Latihan';
+
+  @override
+  String get trainSubtitle => 'Asah kemampuanmu setiap hari.';
+
+  @override
+  String get settings => 'Pengaturan';
+
+  @override
+  String get settingsSoundHaptics => 'Suara & getaran';
+
+  @override
+  String get settingsSoundHapticsDesc =>
+      'Klik dan getaran saat kamu memutar kubus.';
+
+  @override
+  String get settingsAnimationSpeed => 'Kecepatan animasi bawaan';
+
+  @override
+  String get settingsAnimationSpeedDesc =>
+      'Seberapa cepat kubus berputar saat gerakan diputar.';
+
+  @override
+  String get settingsResetProgress => 'Atur ulang progres';
+
+  @override
+  String get settingsResetProgressDesc =>
+      'Hapus pelajaran Akademi yang selesai dan streak harianmu.';
+
+  @override
+  String get resetProgressTitle => 'Atur ulang semua progres?';
+
+  @override
+  String get resetProgressBody =>
+      'Pelajaran yang selesai dan streak harianmu akan dihapus. Tindakan ini tidak dapat dibatalkan.';
+
+  @override
+  String get resetProgressDone => 'Progres diatur ulang.';
+
+  @override
+  String get cancel => 'Batal';
+
+  @override
+  String get settingsPrivacyAds => 'Privasi & iklan';
+
+  @override
+  String get settingsPrivacyAdsDesc =>
+      'Pilihan iklan dan persetujuan akan muncul di sini saat iklan hadir.';
+
+  @override
+  String get settingsComingSoon => 'Segera hadir';
 }

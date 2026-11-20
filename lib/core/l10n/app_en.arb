@@ -902,5 +902,37 @@
   "stageTwoFinish": "Finish the corners",
   "explainTwoFirstLayer": "Complete the bottom layer: its four corners match each other and the side colors.",
   "explainTwoTopColor": "Turn the top until all four top stickers show the same color, keeping the bottom layer.",
-  "explainTwoFinish": "Move the last corners into place to finish the cube."
+  "explainTwoFinish": "Move the last corners into place to finish the cube.",
+  "tabSolve": "Solve",
+  "tabScan": "Scan",
+  "tabAcademy": "Academy",
+  "tabTrain": "Train",
+  "openCubeSolver": "Open 3D Cube & Solver",
+  "progressFraction": "{done}/{total}",
+  "@progressFraction": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "trainTitle": "Training",
+  "trainSubtitle": "Sharpen your skills every day.",
+  "settings": "Settings",
+  "settingsSoundHaptics": "Sound & haptics",
+  "settingsSoundHapticsDesc": "Clicks and vibrations when you turn the cube.",
+  "settingsAnimationSpeed": "Default animation speed",
+  "settingsAnimationSpeedDesc": "How fast the cube turns when moves play.",
+  "settingsResetProgress": "Reset progress",
+  "settingsResetProgressDesc": "Clear finished Academy lessons and your daily streak.",
+  "resetProgressTitle": "Reset all progress?",
+  "resetProgressBody": "Your finished lessons and your daily streak will be erased. This cannot be undone.",
+  "resetProgressDone": "Progress reset.",
+  "cancel": "Cancel",
+  "settingsPrivacyAds": "Privacy & ads",
+  "settingsPrivacyAdsDesc": "Ad and consent choices will appear here once ads arrive.",
+  "settingsComingSoon": "Coming soon"
 }

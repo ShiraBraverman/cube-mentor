@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/cube/cube_move.dart';
 import '../../../core/cube/cube_state.dart';
 import '../../../core/cube/facelets.dart';
+import '../../../core/settings/app_settings.dart';
 import '../../../core/solver/cube_solver.dart';
 import '../../../core/solver/solve_step.dart';
 
@@ -323,7 +324,10 @@ class CubeSessionController extends Notifier<CubeSession> {
   final Random? random;
 
   @override
-  CubeSession build() => CubeSession(cube: CubeState.solved(size));
+  CubeSession build() => CubeSession(
+    cube: CubeState.solved(size),
+    speed: ref.read(appSettingsProvider).animationSpeed,
+  );
 
   /// Classifies a manual [move] against the guided solution, if any.
   GuidedMove judge(CubeMove move) {

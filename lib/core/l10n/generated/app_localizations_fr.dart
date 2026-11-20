@@ -1914,4 +1914,77 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get explainTwoFinish =>
       'Placez les derniers coins pour finir le cube.';
+
+  @override
+  String get tabSolve => 'Résoudre';
+
+  @override
+  String get tabScan => 'Scanner';
+
+  @override
+  String get tabAcademy => 'Académie';
+
+  @override
+  String get tabTrain => 'S\'entraîner';
+
+  @override
+  String get openCubeSolver => 'Ouvrir le cube 3D et le solveur';
+
+  @override
+  String progressFraction(int done, int total) {
+    return '$done/$total';
+  }
+
+  @override
+  String get trainTitle => 'Entraînement';
+
+  @override
+  String get trainSubtitle => 'Affûtez vos compétences chaque jour.';
+
+  @override
+  String get settings => 'Paramètres';
+
+  @override
+  String get settingsSoundHaptics => 'Son et vibrations';
+
+  @override
+  String get settingsSoundHapticsDesc =>
+      'Clics et vibrations quand vous tournez le cube.';
+
+  @override
+  String get settingsAnimationSpeed => 'Vitesse d\'animation par défaut';
+
+  @override
+  String get settingsAnimationSpeedDesc =>
+      'La vitesse à laquelle le cube tourne quand les mouvements sont joués.';
+
+  @override
+  String get settingsResetProgress => 'Réinitialiser la progression';
+
+  @override
+  String get settingsResetProgressDesc =>
+      'Efface les leçons terminées de l\'Académie et votre série quotidienne.';
+
+  @override
+  String get resetProgressTitle => 'Réinitialiser toute la progression ?';
+
+  @override
+  String get resetProgressBody =>
+      'Vos leçons terminées et votre série quotidienne seront effacées. Action irréversible.';
+
+  @override
+  String get resetProgressDone => 'Progression réinitialisée.';
+
+  @override
+  String get cancel => 'Annuler';
+
+  @override
+  String get settingsPrivacyAds => 'Confidentialité et publicités';
+
+  @override
+  String get settingsPrivacyAdsDesc =>
+      'Les choix liés aux publicités et au consentement apparaîtront ici avec l\'arrivée des publicités.';
+
+  @override
+  String get settingsComingSoon => 'Bientôt';
 }

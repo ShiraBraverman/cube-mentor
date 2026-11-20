@@ -1802,4 +1802,72 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get explainTwoFinish => '마지막 코너를 제자리로 옮겨 큐브를 완성하세요.';
+
+  @override
+  String get tabSolve => '풀기';
+
+  @override
+  String get tabScan => '스캔';
+
+  @override
+  String get tabAcademy => '아카데미';
+
+  @override
+  String get tabTrain => '훈련';
+
+  @override
+  String get openCubeSolver => '3D 큐브 및 솔버 열기';
+
+  @override
+  String progressFraction(int done, int total) {
+    return '$done/$total';
+  }
+
+  @override
+  String get trainTitle => '훈련';
+
+  @override
+  String get trainSubtitle => '매일 실력을 갈고닦으세요.';
+
+  @override
+  String get settings => '설정';
+
+  @override
+  String get settingsSoundHaptics => '소리 및 진동';
+
+  @override
+  String get settingsSoundHapticsDesc => '큐브를 돌릴 때 클릭음과 진동이 나요.';
+
+  @override
+  String get settingsAnimationSpeed => '기본 애니메이션 속도';
+
+  @override
+  String get settingsAnimationSpeedDesc => '동작을 재생할 때 큐브가 도는 속도예요.';
+
+  @override
+  String get settingsResetProgress => '진행 상황 초기화';
+
+  @override
+  String get settingsResetProgressDesc => '완료한 아카데미 레슨과 연속 기록을 지워요.';
+
+  @override
+  String get resetProgressTitle => '모든 진행 상황을 초기화할까요?';
+
+  @override
+  String get resetProgressBody => '완료한 레슨과 연속 기록이 삭제돼요. 되돌릴 수 없어요.';
+
+  @override
+  String get resetProgressDone => '진행 상황을 초기화했어요.';
+
+  @override
+  String get cancel => '취소';
+
+  @override
+  String get settingsPrivacyAds => '개인정보 및 광고';
+
+  @override
+  String get settingsPrivacyAdsDesc => '광고가 도입되면 광고 및 동의 설정이 여기에 표시돼요.';
+
+  @override
+  String get settingsComingSoon => '곧 제공';
 }

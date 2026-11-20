@@ -15,6 +15,7 @@ import 'package:cube_mentor/features/academy/model/lesson.dart';
 import 'package:cube_mentor/features/academy/model/lesson_catalog.dart';
 import 'package:cube_mentor/features/daily/daily_screen.dart';
 import 'package:cube_mentor/features/home/home_screen.dart';
+import 'package:cube_mentor/features/home/root_shell.dart';
 import 'package:cube_mentor/features/patterns/patterns_screen.dart';
 import 'package:cube_mentor/features/scanner/camera/frame_sampler.dart';
 import 'package:cube_mentor/features/scanner/model/scan_session.dart';
@@ -24,6 +25,7 @@ import 'package:cube_mentor/features/solver_3d/model/cube_session.dart';
 import 'package:cube_mentor/features/solver_3d/model/guide_script.dart';
 import 'package:cube_mentor/features/solver_3d/solver_3d_screen.dart';
 import 'package:cube_mentor/features/timer/timer_screen.dart';
+import 'package:cube_mentor/features/train/train_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
@@ -293,6 +295,14 @@ void main() {
       expect(find.byKey(const ValueKey('carousel-mystery')), findsOneWidget);
       expect(tester.takeException(), isNull, reason: 'coming soon cube');
       await show(const AcademyScreen());
+      await show(const TrainScreen());
+      // The root shell: the dock and every tab behind it.
+      await show(const RootShell(), scroll: false);
+      for (final tab in ['scan', 'academy', 'train', 'solve']) {
+        await tester.tap(find.byKey(ValueKey('tab-$tab')));
+        await _advance(tester, 6);
+        expect(tester.takeException(), isNull, reason: 'tab $tab');
+      }
       // Lessons open on their goal card, then the lesson itself.
       for (final id in ['bigParity', 'twistCorners']) {
         await show(
@@ -403,6 +413,19 @@ void main() {
       await _advance(tester, 4);
       expect(find.byKey(const ValueKey('step-hint-halfway')), findsOneWidget);
       expect(tester.takeException(), isNull, reason: 'double turn hint');
+
+      // The settings sheet and its reset confirmation.
+      await show(const HomeScreen(), scroll: false);
+      await tester.tap(find.byKey(const ValueKey('settings-button')));
+      await _advance(tester, 8);
+      expect(find.byKey(const ValueKey('settings-sheet')), findsOneWidget);
+      expect(tester.takeException(), isNull, reason: 'settings sheet');
+      await tester.ensureVisible(find.byKey(const ValueKey('settings-reset')));
+      await tester.pump();
+      await tester.tap(find.byKey(const ValueKey('settings-reset')));
+      await _advance(tester, 8);
+      expect(find.byKey(const ValueKey('reset-dialog')), findsOneWidget);
+      expect(tester.takeException(), isNull, reason: 'reset dialog');
 
       // The language sheet itself.
       await show(const HomeScreen(), scroll: false);

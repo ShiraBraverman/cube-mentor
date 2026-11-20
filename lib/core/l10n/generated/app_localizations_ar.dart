@@ -1888,4 +1888,76 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get explainTwoFinish =>
       'انقل الزوايا الأخيرة إلى أماكنها لتنهي المكعب.';
+
+  @override
+  String get tabSolve => 'الحل';
+
+  @override
+  String get tabScan => 'المسح';
+
+  @override
+  String get tabAcademy => 'الأكاديمية';
+
+  @override
+  String get tabTrain => 'التدريب';
+
+  @override
+  String get openCubeSolver => 'افتح المكعب ثلاثي الأبعاد والحلّال';
+
+  @override
+  String progressFraction(int done, int total) {
+    return '$done/$total';
+  }
+
+  @override
+  String get trainTitle => 'التدريب';
+
+  @override
+  String get trainSubtitle => 'طوّر مهاراتك كل يوم.';
+
+  @override
+  String get settings => 'الإعدادات';
+
+  @override
+  String get settingsSoundHaptics => 'الصوت والاهتزاز';
+
+  @override
+  String get settingsSoundHapticsDesc => 'نقرات واهتزازات عند تدوير المكعب.';
+
+  @override
+  String get settingsAnimationSpeed => 'سرعة الحركة الافتراضية';
+
+  @override
+  String get settingsAnimationSpeedDesc =>
+      'مدى سرعة دوران المكعب عند تشغيل الحركات.';
+
+  @override
+  String get settingsResetProgress => 'إعادة ضبط التقدّم';
+
+  @override
+  String get settingsResetProgressDesc =>
+      'يمحو دروس الأكاديمية المكتملة وسلسلتك اليومية.';
+
+  @override
+  String get resetProgressTitle => 'إعادة ضبط كل التقدّم؟';
+
+  @override
+  String get resetProgressBody =>
+      'ستُمحى دروسك المكتملة وسلسلتك اليومية. لا يمكن التراجع عن ذلك.';
+
+  @override
+  String get resetProgressDone => 'تمت إعادة ضبط التقدّم.';
+
+  @override
+  String get cancel => 'إلغاء';
+
+  @override
+  String get settingsPrivacyAds => 'الخصوصية والإعلانات';
+
+  @override
+  String get settingsPrivacyAdsDesc =>
+      'ستظهر هنا خيارات الإعلانات والموافقة عند إضافة الإعلانات.';
+
+  @override
+  String get settingsComingSoon => 'قريبًا';
 }

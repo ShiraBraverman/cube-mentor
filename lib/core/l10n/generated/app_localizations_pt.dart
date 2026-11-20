@@ -1906,6 +1906,78 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get explainTwoFinish =>
       'Leve os últimos cantos para o lugar e termine o cubo.';
+
+  @override
+  String get tabSolve => 'Resolver';
+
+  @override
+  String get tabScan => 'Digitalizar';
+
+  @override
+  String get tabAcademy => 'Academia';
+
+  @override
+  String get tabTrain => 'Treinar';
+
+  @override
+  String get openCubeSolver => 'Abrir cubo 3D e solucionador';
+
+  @override
+  String progressFraction(int done, int total) {
+    return '$done/$total';
+  }
+
+  @override
+  String get trainTitle => 'Treino';
+
+  @override
+  String get trainSubtitle => 'Aperfeiçoe as suas competências todos os dias.';
+
+  @override
+  String get settings => 'Definições';
+
+  @override
+  String get settingsSoundHaptics => 'Som e vibração';
+
+  @override
+  String get settingsSoundHapticsDesc => 'Cliques e vibrações ao rodar o cubo.';
+
+  @override
+  String get settingsAnimationSpeed => 'Velocidade de animação predefinida';
+
+  @override
+  String get settingsAnimationSpeedDesc =>
+      'A rapidez com que o cubo roda ao reproduzir movimentos.';
+
+  @override
+  String get settingsResetProgress => 'Repor progresso';
+
+  @override
+  String get settingsResetProgressDesc =>
+      'Apaga as lições concluídas da Academia e a sua sequência diária.';
+
+  @override
+  String get resetProgressTitle => 'Repor todo o progresso?';
+
+  @override
+  String get resetProgressBody =>
+      'As lições concluídas e a sequência diária serão apagadas. Não é possível anular.';
+
+  @override
+  String get resetProgressDone => 'Progresso reposto.';
+
+  @override
+  String get cancel => 'Cancelar';
+
+  @override
+  String get settingsPrivacyAds => 'Privacidade e anúncios';
+
+  @override
+  String get settingsPrivacyAdsDesc =>
+      'As opções de anúncios e consentimento aparecerão aqui quando houver anúncios.';
+
+  @override
+  String get settingsComingSoon => 'Brevemente';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -3802,4 +3874,76 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get explainTwoFinish =>
       'Leve os últimos cantos para o lugar e termine o cubo.';
+
+  @override
+  String get tabSolve => 'Resolver';
+
+  @override
+  String get tabScan => 'Escanear';
+
+  @override
+  String get tabAcademy => 'Academia';
+
+  @override
+  String get tabTrain => 'Treinar';
+
+  @override
+  String get openCubeSolver => 'Abrir cubo 3D e solucionador';
+
+  @override
+  String progressFraction(int done, int total) {
+    return '$done/$total';
+  }
+
+  @override
+  String get trainTitle => 'Treino';
+
+  @override
+  String get trainSubtitle => 'Aprimore suas habilidades todos os dias.';
+
+  @override
+  String get settings => 'Configurações';
+
+  @override
+  String get settingsSoundHaptics => 'Som e vibração';
+
+  @override
+  String get settingsSoundHapticsDesc => 'Cliques e vibrações ao girar o cubo.';
+
+  @override
+  String get settingsAnimationSpeed => 'Velocidade de animação padrão';
+
+  @override
+  String get settingsAnimationSpeedDesc =>
+      'A velocidade com que o cubo gira ao reproduzir movimentos.';
+
+  @override
+  String get settingsResetProgress => 'Redefinir progresso';
+
+  @override
+  String get settingsResetProgressDesc =>
+      'Apaga as aulas concluídas da Academia e sua sequência diária.';
+
+  @override
+  String get resetProgressTitle => 'Redefinir todo o progresso?';
+
+  @override
+  String get resetProgressBody =>
+      'Suas aulas concluídas e sua sequência diária serão apagadas. Não é possível desfazer.';
+
+  @override
+  String get resetProgressDone => 'Progresso redefinido.';
+
+  @override
+  String get cancel => 'Cancelar';
+
+  @override
+  String get settingsPrivacyAds => 'Privacidade e anúncios';
+
+  @override
+  String get settingsPrivacyAdsDesc =>
+      'As opções de anúncios e consentimento aparecerão aqui quando os anúncios chegarem.';
+
+  @override
+  String get settingsComingSoon => 'Em breve';
 }

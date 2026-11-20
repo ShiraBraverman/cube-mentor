@@ -1798,4 +1798,72 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get explainTwoFinish => '最後のコーナーを正しい位置に移して完成させます。';
+
+  @override
+  String get tabSolve => '解く';
+
+  @override
+  String get tabScan => 'スキャン';
+
+  @override
+  String get tabAcademy => 'アカデミー';
+
+  @override
+  String get tabTrain => 'トレーニング';
+
+  @override
+  String get openCubeSolver => '3Dキューブとソルバーを開く';
+
+  @override
+  String progressFraction(int done, int total) {
+    return '$done/$total';
+  }
+
+  @override
+  String get trainTitle => 'トレーニング';
+
+  @override
+  String get trainSubtitle => '毎日スキルを磨こう。';
+
+  @override
+  String get settings => '設定';
+
+  @override
+  String get settingsSoundHaptics => 'サウンドと振動';
+
+  @override
+  String get settingsSoundHapticsDesc => 'キューブを回すときのクリック音と振動。';
+
+  @override
+  String get settingsAnimationSpeed => '標準のアニメーション速度';
+
+  @override
+  String get settingsAnimationSpeedDesc => '手順を再生するときにキューブが回る速さ。';
+
+  @override
+  String get settingsResetProgress => '進捗をリセット';
+
+  @override
+  String get settingsResetProgressDesc => 'アカデミーの完了したレッスンとデイリー連続記録を消去します。';
+
+  @override
+  String get resetProgressTitle => 'すべての進捗をリセットしますか？';
+
+  @override
+  String get resetProgressBody => '完了したレッスンとデイリー連続記録が消去されます。元に戻せません。';
+
+  @override
+  String get resetProgressDone => '進捗をリセットしました。';
+
+  @override
+  String get cancel => 'キャンセル';
+
+  @override
+  String get settingsPrivacyAds => 'プライバシーと広告';
+
+  @override
+  String get settingsPrivacyAdsDesc => '広告の導入後、広告と同意の設定がここに表示されます。';
+
+  @override
+  String get settingsComingSoon => '近日公開';
 }

@@ -127,6 +127,15 @@ class DailyController extends Notifier<DailyState> {
     await prefs.setInt(_bestKey, best);
   }
 
+  /// Clears the streak, the best streak and today's completion.
+  Future<void> resetStreak() async {
+    state = DailyState(date: state.date, scramble: state.scramble);
+    final prefs = ref.read(sharedPreferencesProvider);
+    await prefs.remove(_lastKey);
+    await prefs.remove(_streakKey);
+    await prefs.remove(_bestKey);
+  }
+
   /// Reveals how to start: the white-cross moves of the beginner's
   /// solution. Goes through the reward gate (a rewarded ad in Milestone 5).
   Future<void> requestHint() async {

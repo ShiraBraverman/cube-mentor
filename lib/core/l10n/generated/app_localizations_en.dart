@@ -1892,4 +1892,77 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get explainTwoFinish =>
       'Move the last corners into place to finish the cube.';
+
+  @override
+  String get tabSolve => 'Solve';
+
+  @override
+  String get tabScan => 'Scan';
+
+  @override
+  String get tabAcademy => 'Academy';
+
+  @override
+  String get tabTrain => 'Train';
+
+  @override
+  String get openCubeSolver => 'Open 3D Cube & Solver';
+
+  @override
+  String progressFraction(int done, int total) {
+    return '$done/$total';
+  }
+
+  @override
+  String get trainTitle => 'Training';
+
+  @override
+  String get trainSubtitle => 'Sharpen your skills every day.';
+
+  @override
+  String get settings => 'Settings';
+
+  @override
+  String get settingsSoundHaptics => 'Sound & haptics';
+
+  @override
+  String get settingsSoundHapticsDesc =>
+      'Clicks and vibrations when you turn the cube.';
+
+  @override
+  String get settingsAnimationSpeed => 'Default animation speed';
+
+  @override
+  String get settingsAnimationSpeedDesc =>
+      'How fast the cube turns when moves play.';
+
+  @override
+  String get settingsResetProgress => 'Reset progress';
+
+  @override
+  String get settingsResetProgressDesc =>
+      'Clear finished Academy lessons and your daily streak.';
+
+  @override
+  String get resetProgressTitle => 'Reset all progress?';
+
+  @override
+  String get resetProgressBody =>
+      'Your finished lessons and your daily streak will be erased. This cannot be undone.';
+
+  @override
+  String get resetProgressDone => 'Progress reset.';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get settingsPrivacyAds => 'Privacy & ads';
+
+  @override
+  String get settingsPrivacyAdsDesc =>
+      'Ad and consent choices will appear here once ads arrive.';
+
+  @override
+  String get settingsComingSoon => 'Coming soon';
 }

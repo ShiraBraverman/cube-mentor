@@ -1907,4 +1907,77 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get explainTwoFinish =>
       'Поставьте последние углы на места и закончите кубик.';
+
+  @override
+  String get tabSolve => 'Сборка';
+
+  @override
+  String get tabScan => 'Скан';
+
+  @override
+  String get tabAcademy => 'Академия';
+
+  @override
+  String get tabTrain => 'Тренировка';
+
+  @override
+  String get openCubeSolver => 'Открыть 3D-кубик и решатель';
+
+  @override
+  String progressFraction(int done, int total) {
+    return '$done/$total';
+  }
+
+  @override
+  String get trainTitle => 'Тренировка';
+
+  @override
+  String get trainSubtitle => 'Оттачивайте навыки каждый день.';
+
+  @override
+  String get settings => 'Настройки';
+
+  @override
+  String get settingsSoundHaptics => 'Звук и вибрация';
+
+  @override
+  String get settingsSoundHapticsDesc =>
+      'Щелчки и вибрация при повороте кубика.';
+
+  @override
+  String get settingsAnimationSpeed => 'Скорость анимации по умолчанию';
+
+  @override
+  String get settingsAnimationSpeedDesc =>
+      'Как быстро вращается кубик при воспроизведении ходов.';
+
+  @override
+  String get settingsResetProgress => 'Сбросить прогресс';
+
+  @override
+  String get settingsResetProgressDesc =>
+      'Удаляет пройденные уроки Академии и вашу ежедневную серию.';
+
+  @override
+  String get resetProgressTitle => 'Сбросить весь прогресс?';
+
+  @override
+  String get resetProgressBody =>
+      'Пройденные уроки и ежедневная серия будут удалены. Это действие нельзя отменить.';
+
+  @override
+  String get resetProgressDone => 'Прогресс сброшен.';
+
+  @override
+  String get cancel => 'Отмена';
+
+  @override
+  String get settingsPrivacyAds => 'Конфиденциальность и реклама';
+
+  @override
+  String get settingsPrivacyAdsDesc =>
+      'Настройки рекламы и согласия появятся здесь, когда в приложении появится реклама.';
+
+  @override
+  String get settingsComingSoon => 'Скоро';
 }

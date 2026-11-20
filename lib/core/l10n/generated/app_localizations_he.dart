@@ -1874,4 +1874,76 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get explainTwoFinish =>
       'מעבירים את הפינות האחרונות למקומן ומסיימים את הקובייה.';
+
+  @override
+  String get tabSolve => 'פתרון';
+
+  @override
+  String get tabScan => 'סריקה';
+
+  @override
+  String get tabAcademy => 'אקדמיה';
+
+  @override
+  String get tabTrain => 'אימון';
+
+  @override
+  String get openCubeSolver => 'פתיחת קובייה תלת־ממדית ופותר';
+
+  @override
+  String progressFraction(int done, int total) {
+    return '$done/$total';
+  }
+
+  @override
+  String get trainTitle => 'אימון';
+
+  @override
+  String get trainSubtitle => 'חדדו את הכישורים שלכם בכל יום.';
+
+  @override
+  String get settings => 'הגדרות';
+
+  @override
+  String get settingsSoundHaptics => 'צליל ורטט';
+
+  @override
+  String get settingsSoundHapticsDesc => 'קליקים ורטט כשמסובבים את הקובייה.';
+
+  @override
+  String get settingsAnimationSpeed => 'מהירות אנימציה ברירת מחדל';
+
+  @override
+  String get settingsAnimationSpeedDesc =>
+      'כמה מהר הקובייה מסתובבת כשמהלכים מתנגנים.';
+
+  @override
+  String get settingsResetProgress => 'איפוס התקדמות';
+
+  @override
+  String get settingsResetProgressDesc =>
+      'מחיקת השיעורים שהושלמו באקדמיה ורצף האתגר היומי.';
+
+  @override
+  String get resetProgressTitle => 'לאפס את כל ההתקדמות?';
+
+  @override
+  String get resetProgressBody =>
+      'השיעורים שהשלמתם ורצף האתגר היומי יימחקו. אי אפשר לבטל את הפעולה.';
+
+  @override
+  String get resetProgressDone => 'ההתקדמות אופסה.';
+
+  @override
+  String get cancel => 'ביטול';
+
+  @override
+  String get settingsPrivacyAds => 'פרטיות ופרסומות';
+
+  @override
+  String get settingsPrivacyAdsDesc =>
+      'אפשרויות הפרסומות וההסכמה יופיעו כאן כשיתווספו פרסומות.';
+
+  @override
+  String get settingsComingSoon => 'בקרוב';
 }

@@ -4,7 +4,7 @@ import 'package:material_ui/material_ui.dart';
 import 'core/l10n/generated/app_localizations.dart';
 import 'core/settings/locale_controller.dart';
 import 'core/theme/app_theme.dart';
-import 'features/home/home_screen.dart';
+import 'features/home/root_shell.dart';
 
 /// Root widget. Locale changes rebuild [MaterialApp], which flips text
 /// direction automatically (Hebrew and Arabic -> RTL).
@@ -26,7 +26,7 @@ class CubeMentorApp extends ConsumerWidget {
         AppLocalizations.delegate,
         ...GlobalMaterialLocalizations.delegates,
       ],
-      home: const HomeScreen(),
+      home: const RootShell(),
     );
   }
 }
