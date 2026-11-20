@@ -356,9 +356,9 @@ void main() {
     );
     final prefs = await _prefs();
     await _pumpApp(tester, prefs, solver: solver);
-    await tester.ensureVisible(find.byKey(const ValueKey('mode-playground')));
+    await tester.ensureVisible(find.byKey(const ValueKey('open-solver')));
     await tester.pump();
-    await tester.tap(find.byKey(const ValueKey('mode-playground')));
+    await tester.tap(find.byKey(const ValueKey('open-solver')));
     await _advance(tester);
     final container = ProviderScope.containerOf(
       tester.element(find.byType(CubeViewport)),
