@@ -8,15 +8,21 @@ Scan & Solve (Milestone 3, scan guide and lighting tips added later).
 - `model/scan_turns.dart`: how each face is held while scanned, and the
   shortest list of whole-cube quarter turns (left, right, tip top/bottom
   toward you) from one face to another.
-- `camera/`: camera preview with the NxN grid, live colors, glare cells
-  outlined, lighting tip and flashlight (`camera_scan_view.dart`); pure
-  frame sampling and lighting checks (`frame_sampler.dart`): specular glare
+- `camera/`: full-screen camera preview (cover-fitted) with the NxN grid,
+  live colors, glare cells outlined, lighting tip and flashlight
+  (`camera_scan_view.dart`); pure frame sampling, the screen-grid to
+  preview mapping (`coverRect`, `previewGridRect`) and lighting checks
+  (`frame_sampler.dart`): specular glare
   is high CIELAB L* with low C*, dim light a low mean L*, debounced by
   `LightingMonitor`.
 - `widgets/mini_cube.dart`: 3D scan guide in the header. Scanned faces in
   their colors, others gray with an "x"; animates each quarter turn with an
   arrow; tap a scanned face to rescan it.
-- `widgets/lighting_tip.dart`: glass pill for glare / dim light.
+- `widgets/scan_layout.dart`: the full-screen capture frame: compact
+  translucent header / footer overlays on the edges, the square grid
+  (~72% of the width) centered between them, the lighting pill under it.
+- `widgets/lighting_tip.dart`: compact pill for glare / dim light, under
+  the grid; the glare pill ignores touches and never blocks a capture.
 - `widgets/cube_net.dart`: cross-shaped net for the review (tap-to-fix,
   pulsing invalid stickers).
 - `scanner_screen.dart`: the flow; header with turn steps, the guide and

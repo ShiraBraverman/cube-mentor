@@ -13,6 +13,13 @@ Raw screenshots are matched to captions by file name order: the first file
 (sorted by name) gets caption 1, and so on. Name them e.g.
 01_scan.png, 02_solve.png, 03_academy.png, 04_daily.png, 05_timer.png.
 
+Capturing 01_scan.png: the scanner is full screen (the camera covers the
+whole display, the face indicator / flashlight float along the top edge and
+the face strip / shutter along the bottom). Take an uncropped, full-height
+screenshot (adb exec-out screencap -p > 01_scan.png) with a cube filling the
+large center grid, so the live grid colors show; the frame keeps the phone's
+own tall aspect ratio, and a scan shot that looks cropped is flagged below.
+
 Captions live in CAPTIONS below (one list per locale; English fallback).
 Non-Latin scripts need a font that covers them: pass --font with a TTF
 (e.g. Noto Sans CJK for ja/ko/zh, Noto Sans Hebrew/Arabic, Noto Sans
@@ -215,6 +222,17 @@ def frame(shot_path, caption, locale, font_override=None):
     return img.convert('RGB')
 
 
+def check_full_screen_scan(path):
+    """The full-screen scanner only reads right uncropped: phone screens are
+    at least 16:9 tall, so a squatter scan shot was probably cut down to the
+    old boxed preview."""
+    with Image.open(path) as shot:
+        ratio = shot.height / shot.width
+    if ratio < 16 / 9 - 0.01:
+        print(f'warning: {os.path.basename(path)} is {ratio:.2f}:1; capture '
+              'the full-screen scanner uncropped (top bar to shutter)')
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     ap.add_argument('--in', dest='src', required=True,
@@ -234,6 +252,8 @@ def main():
         sys.exit(f'no screenshots in {args.src}')
     os.makedirs(args.out, exist_ok=True)
     for i, path in enumerate(shots):
+        if i == 0:
+            check_full_screen_scan(path)
         caption = captions[i % len(captions)]
         out = os.path.join(args.out, os.path.basename(path).rsplit('.', 1)[0]
                            + '.png')

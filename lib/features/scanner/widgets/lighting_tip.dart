@@ -6,9 +6,10 @@ import '../../../core/l10n/generated/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
 import '../camera/frame_sampler.dart';
 
-/// Small glass pill over the camera preview with a lighting tip: glare on
-/// the stickers, or too little light (with a flashlight toggle when the
-/// camera has one).
+/// Compact translucent pill under the scan grid with a lighting tip: glare
+/// on the stickers, or too little light (with a flashlight toggle when the
+/// camera has one). It is advice only: the glare pill ignores touches and
+/// never blocks or disables a capture.
 class LightingTip extends StatelessWidget {
   const LightingTip({
     super.key,
@@ -29,42 +30,48 @@ class LightingTip extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
     final textTheme = Theme.of(context).textTheme;
     final glare = hint == LightingHint.glare;
-    return ClipRRect(
+    final pill = ClipRRect(
       key: ValueKey('scan-lighting-${hint.name}'),
-      borderRadius: BorderRadius.circular(18),
+      borderRadius: BorderRadius.circular(20),
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 14, sigmaY: 14),
+        filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
         child: Container(
-          padding: const EdgeInsetsDirectional.fromSTEB(8, 8, 12, 8),
+          padding: const EdgeInsetsDirectional.fromSTEB(4, 4, 10, 4),
           decoration: BoxDecoration(
-            color: Colors.black.withValues(alpha: 0.42),
-            borderRadius: BorderRadius.circular(18),
+            color: Colors.black.withValues(alpha: 0.5),
+            borderRadius: BorderRadius.circular(20),
             border: Border.all(
-              color: AppColors.accentWarm.withValues(alpha: 0.7),
+              color: AppColors.accentWarm.withValues(alpha: 0.6),
             ),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               _Illustration(glare: glare),
-              const SizedBox(width: 10),
+              const SizedBox(width: 6),
               Flexible(
                 child: Text(
                   glare ? l10n.scanGlareTip : l10n.scanDimTip,
-                  style: textTheme.bodySmall?.copyWith(
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  style: textTheme.labelSmall?.copyWith(
                     color: Colors.white,
-                    height: 1.25,
+                    fontWeight: FontWeight.w500,
+                    height: 1.2,
                   ),
                 ),
               ),
               if (!glare && onTorch != null) ...[
-                const SizedBox(width: 8),
-                FilledButton.tonalIcon(
+                const SizedBox(width: 6),
+                IconButton(
                   key: const ValueKey('scan-torch'),
+                  tooltip: l10n.scanTorch,
                   onPressed: onTorch,
-                  style: FilledButton.styleFrom(
-                    visualDensity: VisualDensity.compact,
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                  visualDensity: VisualDensity.compact,
+                  style: IconButton.styleFrom(
+                    backgroundColor: AppColors.accentWarm.withValues(
+                      alpha: 0.3,
+                    ),
                   ),
                   icon: Icon(
                     torchOn
@@ -72,7 +79,6 @@ class LightingTip extends StatelessWidget {
                         : Icons.flashlight_on_rounded,
                     size: 18,
                   ),
-                  label: Text(l10n.scanTorch),
                 ),
               ],
             ],
@@ -80,6 +86,8 @@ class LightingTip extends StatelessWidget {
         ),
       ),
     );
+    // Glare advice has nothing to tap: let touches pass straight through.
+    return glare ? IgnorePointer(child: pill) : pill;
   }
 }
 
@@ -92,8 +100,8 @@ class _Illustration extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 40,
-      height: 40,
+      width: 28,
+      height: 28,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: AppColors.accentWarm.withValues(alpha: 0.22),
@@ -103,22 +111,22 @@ class _Illustration extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 Positioned(
-                  top: 4,
-                  left: 5,
+                  top: 2,
+                  left: 3,
                   child: Icon(
                     Icons.flare_rounded,
-                    size: 18,
+                    size: 13,
                     color: AppColors.accentWarm,
                   ),
                 ),
                 Positioned(
-                  bottom: 4,
-                  right: 6,
+                  bottom: 2,
+                  right: 4,
                   child: RotationTransition(
                     turns: AlwaysStoppedAnimation(-0.08),
                     child: Icon(
                       Icons.smartphone_rounded,
-                      size: 18,
+                      size: 13,
                       color: Colors.white,
                     ),
                   ),
@@ -127,7 +135,7 @@ class _Illustration extends StatelessWidget {
             )
           : const Icon(
               Icons.nights_stay_rounded,
-              size: 22,
+              size: 16,
               color: AppColors.accentWarm,
             ),
     );

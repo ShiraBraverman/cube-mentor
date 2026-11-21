@@ -128,6 +128,40 @@ Rect gridRect(Size size) {
   );
 }
 
+/// Where a [preview] of this (upright) size lands when it covers a
+/// [viewport] centered, cropping the overflow (`BoxFit.cover`).
+Rect coverRect(Size viewport, Size preview) {
+  final scale = math.max(
+    viewport.width / preview.width,
+    viewport.height / preview.height,
+  );
+  final width = preview.width * scale;
+  final height = preview.height * scale;
+  return Rect.fromLTWH(
+    (viewport.width - width) / 2,
+    (viewport.height - height) / 2,
+    width,
+    height,
+  );
+}
+
+/// The on-screen [grid] (in [viewport] coordinates, over a full-screen
+/// cover-fitted [preview]) as a normalized rect of the upright preview,
+/// ready for [sampleGrid].
+Rect previewGridRect({
+  required Size viewport,
+  required Rect grid,
+  required Size preview,
+}) {
+  final shown = coverRect(viewport, preview);
+  return Rect.fromLTWH(
+    (grid.left - shown.left) / shown.width,
+    (grid.top - shown.top) / shown.height,
+    grid.width / shown.width,
+    grid.height / shown.height,
+  );
+}
+
 /// Clockwise rotation from the back camera's sensor image to the display
 /// as the device is held right now.
 ///

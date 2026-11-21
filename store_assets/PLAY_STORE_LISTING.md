@@ -67,7 +67,7 @@ CubeMentor: Cube Solver & Scan
 Scan your cube with the camera and solve 2x2 to 6x6 step by step in 3D.
 ```
 
-**Full description** (1350/4000)
+**Full description** (1358/4000)
 
 ```text
 Stuck on a scrambled cube? Point your camera at it and CubeMentor shows you exactly how to solve it, one turn at a time.
@@ -93,7 +93,7 @@ Inspection, +2/DNF, best time and ao5 / ao12 / ao100 averages for every cube siz
 ✨ PATTERN LIBRARY
 Checkerboards, cube-in-cube and more, played out on the 3D cube.
 
-🌍 22 LANGUAGES, FULLY OFFLINE
+🌍 22 LANGUAGES, OFFLINE-FIRST SOLVING
 No account, no sign-up, no internet needed to scan and solve. Western and Japanese color schemes supported.
 
 CubeMentor is free with ads. Watch a short video to unlock the 4x4, 5x5 and 6x6 solvers and advanced lessons.
@@ -115,7 +115,7 @@ CubeMentor: פותר קובייה
 סורקים את הקובייה במצלמה ופותרים 2×2 עד 6×6 צעד אחר צעד בתלת־ממד.
 ```
 
-**Full description** (1224/4000)
+**Full description** (1237/4000)
 
 ```text
 נתקעתם עם קובייה מעורבבת? כוונו אליה את המצלמה ו־CubeMentor יראה לכם בדיוק איך לפתור אותה, סיבוב אחר סיבוב.
@@ -141,7 +141,7 @@ CubeMentor: פותר קובייה
 ✨ ספריית דוגמאות
 לוח שחמט, קובייה בתוך קובייה ועוד, על הקובייה התלת־ממדית.
 
-🌍 22 שפות, בלי אינטרנט
+🌍 22 שפות, סריקה ופתרון בלי אינטרנט
 בלי חשבון, בלי הרשמה ובלי צורך באינטרנט כדי לסרוק ולפתור. תמיכה בערכת הצבעים המערבית והיפנית.
 
 CubeMentor חינמית עם פרסומות. צפייה בסרטון קצר פותחת את הפותרים ל־4×4, 5×5 ו־6×6 ואת השיעורים המתקדמים.
@@ -163,7 +163,7 @@ CubeMentor: Resolver cubo
 Escanea tu cubo con la cámara y resuelve de 2x2 a 6x6 paso a paso en 3D.
 ```
 
-**Full description** (1487/4000)
+**Full description** (1498/4000)
 
 ```text
 ¿Atascado con un cubo desordenado? Apunta la cámara y CubeMentor te enseña exactamente cómo resolverlo, giro a giro.
@@ -189,7 +189,7 @@ Inspección, +2/DNF, mejor tiempo y medias ao5 / ao12 / ao100 para cada tamaño.
 ✨ BIBLIOTECA DE PATRONES
 Tablero de ajedrez, cubo dentro del cubo y más, en el cubo 3D.
 
-🌍 22 IDIOMAS, SIN CONEXIÓN
+🌍 22 IDIOMAS, RESOLUCIÓN SIN CONEXIÓN
 Sin cuenta, sin registro y sin internet para escanear y resolver. Esquemas de color occidental y japonés.
 
 CubeMentor es gratis con anuncios. Mira un vídeo corto para desbloquear los solucionadores de 4x4, 5x5 y 6x6 y las lecciones avanzadas.
@@ -211,7 +211,7 @@ CubeMentor: Resolver o cubo
 Digitaliza o cubo com a câmara e resolve do 2x2 ao 6x6 passo a passo em 3D.
 ```
 
-**Full description** (1470/4000)
+**Full description** (1469/4000)
 
 ```text
 Ficaste preso num cubo baralhado? Aponta a câmara e o CubeMentor mostra-te exatamente como o resolver, rotação a rotação.
@@ -237,7 +237,7 @@ Inspeção, +2/DNF, melhor tempo e médias ao5 / ao12 / ao100 para cada tamanho.
 ✨ BIBLIOTECA DE PADRÕES
 Xadrez, cubo dentro do cubo e muito mais, no cubo 3D.
 
-🌍 22 IDIOMAS, TOTALMENTE OFFLINE
+🌍 22 IDIOMAS, RESOLUÇÃO OFFLINE
 Sem conta, sem registo e sem internet para digitalizar e resolver. Esquemas de cores ocidental e japonês.
 
 O CubeMentor é gratuito com anúncios. Vê um vídeo curto para desbloquear os resolvedores de 4x4, 5x5 e 6x6 e as lições avançadas.
@@ -259,7 +259,7 @@ CubeMentor: Resolver o Cubo
 Escaneie seu cubo com a câmera e resolva do 2x2 ao 6x6 passo a passo em 3D.
 ```
 
-**Full description** (1432/4000)
+**Full description** (1437/4000)
 
 ```text
 Travou num cubo embaralhado? Aponte a câmera e o CubeMentor mostra exatamente como resolver, giro por giro.
@@ -285,7 +285,7 @@ Inspeção, +2/DNF, melhor tempo e médias ao5 / ao12 / ao100 para cada tamanho.
 ✨ BIBLIOTECA DE PADRÕES
 Xadrez, cubo dentro do cubo e muito mais, no cubo 3D.
 
-🌍 22 IDIOMAS, 100% OFFLINE
+🌍 22 IDIOMAS, RESOLUÇÃO OFFLINE
 Sem conta, sem cadastro e sem internet para escanear e resolver. Esquemas de cores ocidental e japonês.
 
 O CubeMentor é grátis com anúncios. Assista a um vídeo curto para liberar os resolvedores de 4x4, 5x5 e 6x6 e as aulas avançadas.
@@ -307,7 +307,7 @@ CubeMentor: Solver Kubus
 Pindai kubusmu dengan kamera dan selesaikan 2x2 hingga 6x6 langkah demi langkah.
 ```
 
-**Full description** (1477/4000)
+**Full description** (1479/4000)
 
 ```text
 Bingung dengan kubus yang teracak? Arahkan kamera dan CubeMentor akan menunjukkan cara menyelesaikannya, putaran demi putaran.
@@ -333,7 +333,7 @@ Inspeksi, +2/DNF, waktu terbaik, dan rata-rata ao5 / ao12 / ao100 untuk setiap u
 ✨ PUSTAKA POLA
 Papan catur, kubus dalam kubus, dan lainnya di kubus 3D.
 
-🌍 22 BAHASA, SEPENUHNYA OFFLINE
+🌍 22 BAHASA, PENYELESAIAN OFFLINE
 Tanpa akun, tanpa daftar, tanpa internet untuk memindai dan menyelesaikan. Mendukung skema warna Barat dan Jepang.
 
 CubeMentor gratis dengan iklan. Tonton video singkat untuk membuka solver 4x4, 5x5, dan 6x6 serta pelajaran lanjutan.
@@ -355,7 +355,7 @@ CubeMentor: क्यूब सॉल्वर
 कैमरे से क्यूब स्कैन करें और 2x2 से 6x6 तक 3D में कदम-दर-कदम हल करें।
 ```
 
-**Full description** (1291/4000)
+**Full description** (1285/4000)
 
 ```text
 बिखरे हुए क्यूब में अटक गए? कैमरा उसकी ओर करें और CubeMentor आपको हर चाल के साथ ठीक-ठीक दिखाएगा कि उसे कैसे हल करें।
@@ -381,7 +381,7 @@ CubeMentor: क्यूब सॉल्वर
 ✨ पैटर्न लाइब्रेरी
 चेकरबोर्ड, क्यूब-इन-क्यूब और बहुत कुछ, 3D क्यूब पर।
 
-🌍 22 भाषाएँ, पूरी तरह ऑफ़लाइन
+🌍 22 भाषाएँ, ऑफ़लाइन हल
 कोई अकाउंट नहीं, कोई साइन-अप नहीं, स्कैन और हल करने के लिए इंटरनेट की ज़रूरत नहीं। पश्चिमी और जापानी रंग योजनाएँ।
 
 CubeMentor विज्ञापनों के साथ मुफ़्त है। 4x4, 5x5 और 6x6 सॉल्वर और उन्नत पाठ खोलने के लिए एक छोटा वीडियो देखें।
@@ -403,7 +403,7 @@ CubeMentor: Cube Solver
 I-scan ang cube gamit ang camera at lutasin ang 2x2 hanggang 6x6 nang 3D.
 ```
 
-**Full description** (1498/4000)
+**Full description** (1510/4000)
 
 ```text
 Naiipit sa magulong cube? Itutok ang camera at ipapakita ng CubeMentor kung paano ito lutasin, isang ikot bawat hakbang.
@@ -429,7 +429,7 @@ Inspection, +2/DNF, best time at ao5 / ao12 / ao100 na average para sa bawat lak
 ✨ PATTERN LIBRARY
 Checkerboard, cube-in-cube at iba pa, sa 3D cube.
 
-🌍 22 WIKA, OFFLINE
+🌍 22 WIKA, OFFLINE NA PAGLUTAS
 Walang account, walang sign-up, walang internet na kailangan para mag-scan at lumutas. May Western at Japanese na color scheme.
 
 Libre ang CubeMentor na may ads. Manood ng maikling video para ma-unlock ang 4x4, 5x5 at 6x6 solver at advanced na aralin.
@@ -451,7 +451,7 @@ CubeMentor: حل المكعب
 امسح مكعبك بالكاميرا وحلّ من 2×2 إلى 6×6 خطوة بخطوة بالأبعاد الثلاثية.
 ```
 
-**Full description** (1176/4000)
+**Full description** (1172/4000)
 
 ```text
 هل علقت مع مكعب مبعثر؟ وجّه الكاميرا نحوه وسيريك CubeMentor كيف تحلّه بالضبط، دورة بعد دورة.
@@ -477,7 +477,7 @@ CubeMentor: حل المكعب
 ✨ مكتبة الأنماط
 رقعة الشطرنج ومكعب داخل مكعب والمزيد على المكعب ثلاثي الأبعاد.
 
-🌍 22 لغة ودون اتصال بالكامل
+🌍 22 لغة وحلّ دون اتصال
 لا حساب ولا تسجيل ولا حاجة إلى الإنترنت للمسح والحل. يدعم نظامي الألوان الغربي والياباني.
 
 CubeMentor مجاني مع إعلانات. شاهد فيديو قصيرًا لفتح حلول 4×4 و5×5 و6×6 والدروس المتقدمة.
@@ -499,7 +499,7 @@ CubeMentor : Solveur de cube
 Scannez votre cube avec la caméra et résolvez du 2x2 au 6x6 pas à pas en 3D.
 ```
 
-**Full description** (1575/4000)
+**Full description** (1580/4000)
 
 ```text
 Bloqué sur un cube mélangé ? Pointez la caméra et CubeMentor vous montre exactement comment le résoudre, mouvement par mouvement.
@@ -525,7 +525,7 @@ Inspection, +2/DNF, meilleur temps et moyennes ao5 / ao12 / ao100 pour chaque ta
 ✨ BIBLIOTHÈQUE DE MOTIFS
 Damier, cube dans le cube et bien d'autres, sur le cube 3D.
 
-🌍 22 LANGUES, 100 % HORS LIGNE
+🌍 22 LANGUES, RÉSOLUTION HORS LIGNE
 Aucun compte, aucune inscription, pas besoin d'internet pour scanner et résoudre. Schémas de couleurs occidental et japonais.
 
 CubeMentor est gratuit avec publicités. Regardez une courte vidéo pour débloquer les solveurs 4x4, 5x5 et 6x6 et les leçons avancées.
@@ -547,7 +547,7 @@ CubeMentor: Würfel-Löser
 Scanne deinen Würfel mit der Kamera und löse 2x2 bis 6x6 Schritt für Schritt.
 ```
 
-**Full description** (1496/4000)
+**Full description** (1499/4000)
 
 ```text
 Hängst du an einem verdrehten Würfel fest? Richte die Kamera darauf und CubeMentor zeigt dir genau, wie du ihn löst – Zug für Zug.
@@ -573,7 +573,7 @@ Inspektion, +2/DNF, Bestzeit und ao5- / ao12- / ao100-Schnitte für jede Würfel
 ✨ MUSTER-BIBLIOTHEK
 Schachbrett, Würfel im Würfel und mehr – auf dem 3D-Würfel.
 
-🌍 22 SPRACHEN, KOMPLETT OFFLINE
+🌍 22 SPRACHEN, LÖSEN OHNE INTERNET
 Kein Konto, keine Anmeldung, kein Internet zum Scannen und Lösen nötig. Westliches und japanisches Farbschema.
 
 CubeMentor ist kostenlos mit Werbung. Schau ein kurzes Video, um die 4x4-, 5x5- und 6x6-Löser und die Profi-Lektionen freizuschalten.
@@ -595,7 +595,7 @@ CubeMentor: сборка кубика
 Сканируйте кубик камерой и собирайте от 2×2 до 6×6 шаг за шагом в 3D.
 ```
 
-**Full description** (1375/4000)
+**Full description** (1379/4000)
 
 ```text
 Застряли на перемешанном кубике? Наведите камеру, и CubeMentor покажет, как его собрать, поворот за поворотом.
@@ -621,7 +621,7 @@ CubeMentor: сборка кубика
 ✨ БИБЛИОТЕКА УЗОРОВ
 Шахматка, куб в кубе и многое другое на 3D-кубике.
 
-🌍 22 ЯЗЫКА, ПОЛНОСТЬЮ ОФЛАЙН
+🌍 22 ЯЗЫКА, СБОРКА БЕЗ ИНТЕРНЕТА
 Без аккаунта, без регистрации и без интернета для сканирования и сборки. Западная и японская цветовые схемы.
 
 CubeMentor бесплатен и содержит рекламу. Посмотрите короткое видео, чтобы открыть решатели 4×4, 5×5 и 6×6 и продвинутые уроки.
@@ -643,7 +643,7 @@ CubeMentor: Układanie kostki
 Zeskanuj kostkę aparatem i ułóż od 2x2 do 6x6 krok po kroku w 3D.
 ```
 
-**Full description** (1445/4000)
+**Full description** (1447/4000)
 
 ```text
 Utknąłeś na pomieszanej kostce? Skieruj na nią aparat, a CubeMentor pokaże ci dokładnie, jak ją ułożyć, ruch po ruchu.
@@ -669,7 +669,7 @@ Inspekcja, +2/DNF, najlepszy czas i średnie ao5 / ao12 / ao100 dla każdego roz
 ✨ BIBLIOTEKA WZORÓW
 Szachownica, kostka w kostce i wiele więcej na kostce 3D.
 
-🌍 22 JĘZYKI, W PEŁNI OFFLINE
+🌍 22 JĘZYKI, UKŁADANIE OFFLINE
 Bez konta, bez rejestracji i bez internetu do skanowania i układania. Zachodni i japoński schemat kolorów.
 
 CubeMentor jest darmowy z reklamami. Obejrzyj krótki film, aby odblokować solvery 4x4, 5x5 i 6x6 oraz zaawansowane lekcje.
@@ -691,7 +691,7 @@ CubeMentor: Küp Çözücü
 Küpünü kamerayla tara, 2x2 ile 6x6 arasını 3D olarak adım adım çöz.
 ```
 
-**Full description** (1301/4000)
+**Full description** (1299/4000)
 
 ```text
 Karışık bir küpte mi takıldın? Kamerayı tut, CubeMentor sana nasıl çözeceğini hamle hamle göstersin.
@@ -717,7 +717,7 @@ Her gün yeni bir karıştırma, korunacak bir seri ve günlük görevin canlı 
 ✨ DESEN KÜTÜPHANESİ
 Dama tahtası, küp içinde küp ve daha fazlası 3D küpte.
 
-🌍 22 DİL, TAMAMEN ÇEVRİMDIŞI
+🌍 22 DİL, ÇEVRİMDIŞI ÇÖZÜM
 Hesap yok, kayıt yok, taramak ve çözmek için internet gerekmez. Batı ve Japon renk şemaları desteklenir.
 
 CubeMentor reklamlarla ücretsizdir. 4x4, 5x5 ve 6x6 çözücüleri ve ileri dersleri açmak için kısa bir video izle.
@@ -739,7 +739,7 @@ CubeMentor: キューブ解法アプリ
 カメラでキューブをスキャン。2×2〜6×6の解き方を3Dで一手ずつ案内します。
 ```
 
-**Full description** (671/4000)
+**Full description** (673/4000)
 
 ```text
 崩れたキューブが戻せない？カメラを向けるだけで、CubeMentor が一手ずつ解き方を教えます。
@@ -765,7 +765,7 @@ CubeMentor: キューブ解法アプリ
 ✨ パターン集
 チェッカーボード、キューブインキューブなどを 3D キューブで再現。
 
-🌍 22 言語・完全オフライン
+🌍 22 言語・オフラインで解ける
 アカウント登録不要、スキャンと解法にインターネットは不要。西洋配色と日本配色に対応。
 
 CubeMentor は広告付きの無料アプリです。短い動画を見ると 4×4・5×5・6×6 の解法と上級レッスンが使えます。
@@ -813,7 +813,7 @@ CubeMentor: 큐브 풀이
 ✨ 패턴 라이브러리
 체커보드, 큐브 속 큐브 등 다양한 패턴을 3D 큐브로.
 
-🌍 22개 언어, 완전 오프라인
+🌍 22개 언어, 오프라인 풀이
 계정도 가입도 필요 없고, 스캔과 풀이에 인터넷이 필요 없어요. 서양식·일본식 색 배치를 지원합니다.
 
 CubeMentor는 광고가 포함된 무료 앱입니다. 짧은 영상을 보면 4×4·5×5·6×6 풀이와 고급 레슨이 열립니다.
@@ -835,7 +835,7 @@ CubeMentor：魔方还原助手
 用相机扫描魔方，3D 逐步教你还原 2×2 到 6×6。
 ```
 
-**Full description** (514/4000)
+**Full description** (517/4000)
 
 ```text
 魔方打乱了还不回去？用相机对准它，CubeMentor 会一步一步告诉你怎么还原。
@@ -861,7 +861,7 @@ CubeMentor：魔方还原助手
 ✨ 花式图案库
 棋盘格、魔方中的魔方等，在 3D 魔方上演示。
 
-🌍 22 种语言，完全离线
+🌍 22 种语言，离线扫描与还原
 无需账号、无需注册，扫描和还原都不需要网络。支持西方配色和日本配色。
 
 CubeMentor 免费使用，含广告。观看一段短视频即可解锁 4×4、5×5、6×6 求解和进阶课程。
@@ -883,7 +883,7 @@ CubeMentor：魔術方塊解法
 用相機掃描魔術方塊，3D 逐步教你還原 2×2 到 6×6。
 ```
 
-**Full description** (517/4000)
+**Full description** (520/4000)
 
 ```text
 魔術方塊轉亂了回不去？用相機對準它，CubeMentor 會一步一步告訴你怎麼還原。
@@ -909,7 +909,7 @@ CubeMentor：魔術方塊解法
 ✨ 花式圖案庫
 棋盤格、方塊中的方塊等，在 3D 方塊上示範。
 
-🌍 22 種語言，完全離線
+🌍 22 種語言，離線掃描與還原
 不需帳號、不需註冊，掃描和還原都不需要網路。支援西方配色與日本配色。
 
 CubeMentor 免費使用，含廣告。觀看一段短片即可解鎖 4×4、5×5、6×6 解法與進階課程。
@@ -931,7 +931,7 @@ CubeMentor: Giải Khối 3D
 Quét khối bằng camera và giải từ 2x2 đến 6x6 từng bước trong 3D.
 ```
 
-**Full description** (1366/4000)
+**Full description** (1361/4000)
 
 ```text
 Bí với khối lập phương bị xáo trộn? Hướng camera vào và CubeMentor sẽ chỉ cho bạn cách giải, từng bước xoay một.
@@ -957,7 +957,7 @@ Thời gian quan sát, +2/DNF, kỷ lục và trung bình ao5 / ao12 / ao100 cho
 ✨ THƯ VIỆN HOA VĂN
 Bàn cờ, khối trong khối và nhiều mẫu khác trên khối 3D.
 
-🌍 22 NGÔN NGỮ, HOÀN TOÀN NGOẠI TUYẾN
+🌍 22 NGÔN NGỮ, GIẢI NGOẠI TUYẾN
 Không tài khoản, không đăng ký, không cần internet để quét và giải. Hỗ trợ phối màu phương Tây và Nhật Bản.
 
 CubeMentor miễn phí và có quảng cáo. Xem một video ngắn để mở khóa trình giải 4x4, 5x5, 6x6 và bài học nâng cao.
@@ -979,7 +979,7 @@ CubeMentor: ကုဗ ဖြေရှင်းသူ
 ကင်မရာဖြင့် ကုဗကို စကင်ဖတ်ပြီး 2x2 မှ 6x6 အထိ 3D ဖြင့် အဆင့်လိုက် ဖြေရှင်းပါ။
 ```
 
-**Full description** (1510/4000)
+**Full description** (1518/4000)
 
 ```text
 ရောထွေးနေသော ကုဗကို မဖြေနိုင်ဖြစ်နေပါသလား။ ကင်မရာကို ချိန်လိုက်ရုံဖြင့် CubeMentor က လှည့်ကွက်တစ်ခုချင်း ဖြေရှင်းနည်းကို ပြပေးပါမည်။
@@ -1005,7 +1005,7 @@ CubeMentor: ကုဗ ဖြေရှင်းသူ
 ✨ ပုံစံ စာကြည့်တိုက်
 စစ်တုရင်ကွက်၊ ကုဗထဲက ကုဗ စသည်တို့ကို 3D ကုဗပေါ်တွင်။
 
-🌍 ဘာသာစကား 22 မျိုး၊ အော့ဖ်လိုင်း လုံးဝ
+🌍 ဘာသာစကား 22 မျိုး၊ အော့ဖ်လိုင်းဖြင့် ဖြေရှင်း
 အကောင့်မလို၊ စာရင်းသွင်းရန်မလို၊ စကင်ဖတ်ရန်နှင့် ဖြေရှင်းရန် အင်တာနက် မလိုပါ။
 
 CubeMentor သည် ကြော်ငြာများဖြင့် အခမဲ့ ဖြစ်သည်။ 4x4၊ 5x5၊ 6x6 ဖြေရှင်းသူများနှင့် အဆင့်မြင့် သင်ခန်းစာများကို ဖွင့်ရန် ဗီဒီယိုတိုကို ကြည့်ပါ။
@@ -1027,7 +1027,7 @@ CubeMentor: কিউব সলভার
 ক্যামেরায় কিউব স্ক্যান করুন, 2x2 থেকে 6x6 ধাপে ধাপে 3D-তে সমাধান করুন।
 ```
 
-**Full description** (1297/4000)
+**Full description** (1296/4000)
 
 ```text
 এলোমেলো কিউবে আটকে গেছেন? ক্যামেরা তাক করুন, CubeMentor প্রতিটি ঘোরানোর সাথে ঠিক কীভাবে সমাধান করবেন তা দেখাবে।
@@ -1053,7 +1053,7 @@ CubeMentor: কিউব সলভার
 ✨ প্যাটার্ন লাইব্রেরি
 চেকারবোর্ড, কিউবের ভেতর কিউব ও আরও অনেক কিছু 3D কিউবে।
 
-🌍 22টি ভাষা, সম্পূর্ণ অফলাইন
+🌍 22টি ভাষা, অফলাইনে সমাধান
 কোনো অ্যাকাউন্ট নেই, সাইন-আপ নেই, স্ক্যান ও সমাধানে ইন্টারনেট লাগে না। পশ্চিমা ও জাপানি রঙের বিন্যাস সমর্থিত।
 
 CubeMentor বিজ্ঞাপনসহ বিনামূল্যে। 4x4, 5x5 ও 6x6 সলভার এবং উন্নত পাঠ খুলতে একটি ছোট ভিডিও দেখুন।
@@ -1075,7 +1075,7 @@ CubeMentor: кубик җыю
 Кубикны камера белән сканерлагыз һәм 2×2 дән 6×6 га кадәр 3D-да адымлап җыегыз.
 ```
 
-**Full description** (1385/4000)
+**Full description** (1383/4000)
 
 ```text
 Буталган кубикта тукталып калдыгызмы? Камераны юнәлтегез, CubeMentor аны ничек җыярга икәнен әйләнеш саен күрсәтәчәк.
@@ -1101,7 +1101,7 @@ CubeMentor: кубик җыю
 ✨ ҮРНӘКЛӘР КИТАПХАНӘСЕ
 Шахмат тактасы, кубик эчендә кубик һәм башкалар 3D-кубикта.
 
-🌍 22 ТЕЛ, ТУЛЫСЫНЧА ОФЛАЙН
+🌍 22 ТЕЛ, ОФЛАЙН ЧИШЕЛЕШ
 Аккаунт та, теркәлү дә кирәкми, сканерлау һәм җыю өчен интернет кирәкми. Көнбатыш һәм япон төс схемалары.
 
 CubeMentor реклама белән бушлай. 4×4, 5×5 һәм 6×6 чишүчеләрне һәм катлаулы дәресләрне ачу өчен кыска видео карагыз.

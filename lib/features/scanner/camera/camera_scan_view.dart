@@ -8,6 +8,7 @@ import '../../../core/l10n/generated/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/vision/color_science.dart';
 import '../widgets/lighting_tip.dart';
+import '../widgets/scan_layout.dart';
 import 'frame_sampler.dart';
 
 /// Live camera preview with an `n x n` alignment grid. Every grid cell shows
@@ -20,7 +21,8 @@ class CameraScanView extends StatefulWidget {
     required this.size,
     required this.onCapture,
     required this.onUnavailable,
-    this.footer,
+    required this.headerBuilder,
+    required this.footerBuilder,
   });
 
   final int size;
@@ -29,8 +31,11 @@ class CameraScanView extends StatefulWidget {
   /// Called with a message key when no usable camera exists.
   final ValueChanged<CameraProblem> onUnavailable;
 
-  /// Shown under the preview, next to the shutter button.
-  final Widget? footer;
+  /// The top overlay; gets the flashlight toggle (null without a torch).
+  final Widget Function(BuildContext context, Widget? torch) headerBuilder;
+
+  /// The bottom overlay; gets the shutter button to place.
+  final Widget Function(BuildContext context, Widget shutter) footerBuilder;
 
   /// The camera plugin's image stream is available on phones only.
   static bool get supported => Platform.isAndroid || Platform.isIOS;
@@ -58,6 +63,11 @@ class _CameraScanViewState extends State<CameraScanView>
 
   bool _torch = false;
   bool _hasTorch = true;
+
+  /// Where [ScanLayout] put the grid on screen, and the full screen size:
+  /// frames are sampled exactly under it. Written during layout only.
+  Rect? _screenGrid;
+  Size? _viewport;
 
   static const _frameInterval = Duration(milliseconds: 110);
   static const _smoothing = 0.45;
@@ -165,23 +175,21 @@ class _CameraScanViewState extends State<CameraScanView>
       if (frame == null) return;
       final n = widget.size;
       final value = _controller?.value;
-      final preview = value?.previewSize;
-      if (value == null || preview == null) return;
-      // Portrait on phones; tablets and foldables may run in landscape.
-      final rotation = sensorToDisplayRotation(
-        _sensorOrientation,
-        value.deviceOrientation,
-      );
-      // A quarter turn swaps the preview's width and height on screen.
-      final upright = rotation % 180 == 0
-          ? preview
-          : Size(preview.height, preview.width);
-      final cells = sampleGrid(
-        frame,
-        n,
-        gridRect(upright),
-        sensorOrientation: rotation,
-      );
+      final upright = _uprightPreview();
+      if (value == null || upright == null) return;
+      final rotation = _rotation(value);
+      final screenGrid = _screenGrid;
+      final viewport = _viewport;
+      // The preview covers the whole screen: sample what the on-screen
+      // grid actually frames (the centered default before first layout).
+      final grid = screenGrid == null || viewport == null || viewport.isEmpty
+          ? gridRect(upright)
+          : previewGridRect(
+              viewport: viewport,
+              grid: screenGrid,
+              preview: upright,
+            );
+      final cells = sampleGrid(frame, n, grid, sensorOrientation: rotation);
       final smoothed = _smoothed;
       final next = [
         for (var i = 0; i < cells.length; i++)
@@ -206,6 +214,21 @@ class _CameraScanViewState extends State<CameraScanView>
     } finally {
       _busy = false;
     }
+  }
+
+  // Portrait on phones; tablets and foldables may run in landscape.
+  int _rotation(CameraValue value) =>
+      sensorToDisplayRotation(_sensorOrientation, value.deviceOrientation);
+
+  /// The preview size as shown on screen (a quarter turn swaps the
+  /// sensor's width and height).
+  Size? _uprightPreview() {
+    final value = _controller?.value;
+    final preview = value?.previewSize;
+    if (value == null || preview == null) return null;
+    return _rotation(value) % 180 == 0
+        ? preview
+        : Size(preview.height, preview.width);
   }
 
   CameraFrame? _toFrame(CameraImage image) {
@@ -242,79 +265,71 @@ class _CameraScanViewState extends State<CameraScanView>
     final l10n = AppLocalizations.of(context);
     final controller = _controller;
     final colors = _currentColors;
-    return Column(
-      children: [
-        Expanded(
-          child: Center(
-            child: controller == null || !controller.value.isInitialized
-                ? const CircularProgressIndicator()
-                : ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: CameraPreview(
-                      controller,
-                      child: Stack(
-                        children: [
-                          Positioned.fill(
-                            child: _GridOverlay(
-                              n: widget.size,
-                              colors: colors,
-                              glare: _glare,
-                            ),
-                          ),
-                          // Non-intrusive: above the grid, never over it.
-                          PositionedDirectional(
-                            top: 8,
-                            start: 8,
-                            end: 8,
-                            child: Center(
-                              child: AnimatedSwitcher(
-                                duration: const Duration(milliseconds: 250),
-                                child: LightingTip(
-                                  key: ValueKey(_lighting),
-                                  hint: _lighting,
-                                  torchOn: _torch,
-                                  onTorch: _hasTorch ? _toggleTorch : null,
-                                ),
-                              ),
-                            ),
-                          ),
-                          if (_hasTorch)
-                            PositionedDirectional(
-                              bottom: 8,
-                              end: 8,
-                              child: IconButton.filledTonal(
-                                key: const ValueKey('scan-torch-toggle'),
-                                tooltip: l10n.scanTorch,
-                                onPressed: _toggleTorch,
-                                icon: Icon(
-                                  _torch
-                                      ? Icons.flashlight_off_rounded
-                                      : Icons.flashlight_on_rounded,
-                                ),
-                              ),
-                            ),
-                        ],
-                      ),
-                    ),
-                  ),
-          ),
-        ),
-        const SizedBox(height: 10),
-        Row(
-          children: [
-            Expanded(child: widget.footer ?? const SizedBox.shrink()),
-            const SizedBox(width: 12),
-            FloatingActionButton.large(
-              key: const ValueKey('scan-capture'),
-              tooltip: l10n.scanCapture,
-              onPressed: colors == null
-                  ? null
-                  : () => widget.onCapture(List.unmodifiable(colors)),
-              child: const Icon(Icons.camera_rounded, size: 40),
+    final upright = _uprightPreview();
+    final ready =
+        controller != null && controller.value.isInitialized && upright != null;
+    final torch = ready && _hasTorch
+        ? IconButton(
+            key: const ValueKey('scan-torch-toggle'),
+            tooltip: l10n.scanTorch,
+            onPressed: _toggleTorch,
+            style: IconButton.styleFrom(
+              backgroundColor: _torch
+                  ? AppColors.accentWarm.withValues(alpha: 0.35)
+                  : Colors.white.withValues(alpha: 0.12),
             ),
-          ],
+            icon: Icon(
+              _torch
+                  ? Icons.flashlight_off_rounded
+                  : Icons.flashlight_on_rounded,
+              size: 20,
+            ),
+          )
+        : null;
+    final shutter = FloatingActionButton(
+      key: const ValueKey('scan-capture'),
+      tooltip: l10n.scanCapture,
+      shape: const CircleBorder(
+        side: BorderSide(color: Colors.white, width: 3),
+      ),
+      onPressed: colors == null
+          ? null
+          : () => widget.onCapture(List.unmodifiable(colors)),
+      child: const Icon(Icons.camera_rounded, size: 30),
+    );
+    return ScanLayout(
+      background: ColoredBox(
+        color: Colors.black,
+        child: ready
+            // Full bleed: the preview covers the screen, cropping the
+            // overflow; sampling maps the grid through the same crop.
+            ? FittedBox(
+                fit: BoxFit.cover,
+                clipBehavior: Clip.hardEdge,
+                child: SizedBox.fromSize(
+                  size: upright,
+                  child: CameraPreview(controller),
+                ),
+              )
+            : const Center(child: CircularProgressIndicator()),
+      ),
+      header: widget.headerBuilder(context, torch),
+      footer: widget.footerBuilder(context, shutter),
+      grid: _GridOverlay(n: widget.size, colors: colors, glare: _glare),
+      // Under the grid, never over it, and it never blocks a capture.
+      tip: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 250),
+        child: LightingTip(
+          key: ValueKey(_lighting),
+          hint: _lighting,
+          torchOn: _torch,
+          onTorch: _hasTorch ? _toggleTorch : null,
         ),
-      ],
+      ),
+      onGridRect: (grid, viewport) {
+        _screenGrid = grid;
+        _viewport = viewport;
+      },
     );
   }
 }
@@ -335,34 +350,24 @@ class _GridOverlay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final size = constraints.biggest;
-        final rect = gridRect(size);
-        final grid = Rect.fromLTWH(
-          rect.left * size.width,
-          rect.top * size.height,
-          rect.width * size.width,
-          rect.height * size.height,
-        );
-        final cell = grid.width / n;
-        return Stack(
-          children: [
-            for (var row = 0; row < n; row++)
-              for (var col = 0; col < n; col++)
-                Positioned(
-                  left: grid.left + col * cell,
-                  top: grid.top + row * cell,
-                  width: cell,
-                  height: cell,
-                  child: _Cell(
-                    color: colors?[row * n + col],
-                    glare: glare.contains(row * n + col),
+    // ScanLayout hands this a square exactly the size of the grid.
+    return Column(
+      children: [
+        for (var row = 0; row < n; row++)
+          Expanded(
+            child: Row(
+              children: [
+                for (var col = 0; col < n; col++)
+                  Expanded(
+                    child: _Cell(
+                      color: colors?[row * n + col],
+                      glare: glare.contains(row * n + col),
+                    ),
                   ),
-                ),
-          ],
-        );
-      },
+              ],
+            ),
+          ),
+      ],
     );
   }
 }

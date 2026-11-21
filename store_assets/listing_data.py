@@ -7,7 +7,8 @@ Store-policy notes baked into the copy:
 - No third-party trademarks (the generic "cube" / "puzzle cube" only).
 - The daily leaderboard is a live global ranking of real players (Cloud
   Firestore, anonymous sign-in); no fixed player-count claims. Scanning,
-  solving and lessons stay fully offline.
+  solving and lessons stay fully offline, so the copy says "offline-first"
+  rather than "fully offline" for the app as a whole.
 """
 
 # Play Console language code, app locale, language name, then the texts.
@@ -39,7 +40,7 @@ Inspection, +2/DNF, best time and ao5 / ao12 / ao100 averages for every cube siz
 ✨ PATTERN LIBRARY
 Checkerboards, cube-in-cube and more, played out on the 3D cube.
 
-🌍 22 LANGUAGES, FULLY OFFLINE
+🌍 22 LANGUAGES, OFFLINE-FIRST SOLVING
 No account, no sign-up, no internet needed to scan and solve. Western and Japanese color schemes supported.
 
 CubeMentor is free with ads. Watch a short video to unlock the 4x4, 5x5 and 6x6 solvers and advanced lessons.""",
@@ -71,7 +72,7 @@ CubeMentor is free with ads. Watch a short video to unlock the 4x4, 5x5 and 6x6 
 ✨ ספריית דוגמאות
 לוח שחמט, קובייה בתוך קובייה ועוד, על הקובייה התלת־ממדית.
 
-🌍 22 שפות, בלי אינטרנט
+🌍 22 שפות, סריקה ופתרון בלי אינטרנט
 בלי חשבון, בלי הרשמה ובלי צורך באינטרנט כדי לסרוק ולפתור. תמיכה בערכת הצבעים המערבית והיפנית.
 
 CubeMentor חינמית עם פרסומות. צפייה בסרטון קצר פותחת את הפותרים ל־4×4, 5×5 ו־6×6 ואת השיעורים המתקדמים.""",
@@ -103,7 +104,7 @@ Inspección, +2/DNF, mejor tiempo y medias ao5 / ao12 / ao100 para cada tamaño.
 ✨ BIBLIOTECA DE PATRONES
 Tablero de ajedrez, cubo dentro del cubo y más, en el cubo 3D.
 
-🌍 22 IDIOMAS, SIN CONEXIÓN
+🌍 22 IDIOMAS, RESOLUCIÓN SIN CONEXIÓN
 Sin cuenta, sin registro y sin internet para escanear y resolver. Esquemas de color occidental y japonés.
 
 CubeMentor es gratis con anuncios. Mira un vídeo corto para desbloquear los solucionadores de 4x4, 5x5 y 6x6 y las lecciones avanzadas.""",
@@ -135,7 +136,7 @@ Inspeção, +2/DNF, melhor tempo e médias ao5 / ao12 / ao100 para cada tamanho.
 ✨ BIBLIOTECA DE PADRÕES
 Xadrez, cubo dentro do cubo e muito mais, no cubo 3D.
 
-🌍 22 IDIOMAS, TOTALMENTE OFFLINE
+🌍 22 IDIOMAS, RESOLUÇÃO OFFLINE
 Sem conta, sem registo e sem internet para digitalizar e resolver. Esquemas de cores ocidental e japonês.
 
 O CubeMentor é gratuito com anúncios. Vê um vídeo curto para desbloquear os resolvedores de 4x4, 5x5 e 6x6 e as lições avançadas.""",
@@ -167,7 +168,7 @@ Inspeção, +2/DNF, melhor tempo e médias ao5 / ao12 / ao100 para cada tamanho.
 ✨ BIBLIOTECA DE PADRÕES
 Xadrez, cubo dentro do cubo e muito mais, no cubo 3D.
 
-🌍 22 IDIOMAS, 100% OFFLINE
+🌍 22 IDIOMAS, RESOLUÇÃO OFFLINE
 Sem conta, sem cadastro e sem internet para escanear e resolver. Esquemas de cores ocidental e japonês.
 
 O CubeMentor é grátis com anúncios. Assista a um vídeo curto para liberar os resolvedores de 4x4, 5x5 e 6x6 e as aulas avançadas.""",
@@ -199,7 +200,7 @@ Inspeksi, +2/DNF, waktu terbaik, dan rata-rata ao5 / ao12 / ao100 untuk setiap u
 ✨ PUSTAKA POLA
 Papan catur, kubus dalam kubus, dan lainnya di kubus 3D.
 
-🌍 22 BAHASA, SEPENUHNYA OFFLINE
+🌍 22 BAHASA, PENYELESAIAN OFFLINE
 Tanpa akun, tanpa daftar, tanpa internet untuk memindai dan menyelesaikan. Mendukung skema warna Barat dan Jepang.
 
 CubeMentor gratis dengan iklan. Tonton video singkat untuk membuka solver 4x4, 5x5, dan 6x6 serta pelajaran lanjutan.""",
@@ -231,7 +232,7 @@ CubeMentor gratis dengan iklan. Tonton video singkat untuk membuka solver 4x4, 5
 ✨ पैटर्न लाइब्रेरी
 चेकरबोर्ड, क्यूब-इन-क्यूब और बहुत कुछ, 3D क्यूब पर।
 
-🌍 22 भाषाएँ, पूरी तरह ऑफ़लाइन
+🌍 22 भाषाएँ, ऑफ़लाइन हल
 कोई अकाउंट नहीं, कोई साइन-अप नहीं, स्कैन और हल करने के लिए इंटरनेट की ज़रूरत नहीं। पश्चिमी और जापानी रंग योजनाएँ।
 
 CubeMentor विज्ञापनों के साथ मुफ़्त है। 4x4, 5x5 और 6x6 सॉल्वर और उन्नत पाठ खोलने के लिए एक छोटा वीडियो देखें।""",
@@ -263,7 +264,7 @@ Inspection, +2/DNF, best time at ao5 / ao12 / ao100 na average para sa bawat lak
 ✨ PATTERN LIBRARY
 Checkerboard, cube-in-cube at iba pa, sa 3D cube.
 
-🌍 22 WIKA, OFFLINE
+🌍 22 WIKA, OFFLINE NA PAGLUTAS
 Walang account, walang sign-up, walang internet na kailangan para mag-scan at lumutas. May Western at Japanese na color scheme.
 
 Libre ang CubeMentor na may ads. Manood ng maikling video para ma-unlock ang 4x4, 5x5 at 6x6 solver at advanced na aralin.""",
@@ -295,7 +296,7 @@ Libre ang CubeMentor na may ads. Manood ng maikling video para ma-unlock ang 4x4
 ✨ مكتبة الأنماط
 رقعة الشطرنج ومكعب داخل مكعب والمزيد على المكعب ثلاثي الأبعاد.
 
-🌍 22 لغة ودون اتصال بالكامل
+🌍 22 لغة وحلّ دون اتصال
 لا حساب ولا تسجيل ولا حاجة إلى الإنترنت للمسح والحل. يدعم نظامي الألوان الغربي والياباني.
 
 CubeMentor مجاني مع إعلانات. شاهد فيديو قصيرًا لفتح حلول 4×4 و5×5 و6×6 والدروس المتقدمة.""",
@@ -327,7 +328,7 @@ Inspection, +2/DNF, meilleur temps et moyennes ao5 / ao12 / ao100 pour chaque ta
 ✨ BIBLIOTHÈQUE DE MOTIFS
 Damier, cube dans le cube et bien d'autres, sur le cube 3D.
 
-🌍 22 LANGUES, 100 % HORS LIGNE
+🌍 22 LANGUES, RÉSOLUTION HORS LIGNE
 Aucun compte, aucune inscription, pas besoin d'internet pour scanner et résoudre. Schémas de couleurs occidental et japonais.
 
 CubeMentor est gratuit avec publicités. Regardez une courte vidéo pour débloquer les solveurs 4x4, 5x5 et 6x6 et les leçons avancées.""",
@@ -359,7 +360,7 @@ Inspektion, +2/DNF, Bestzeit und ao5- / ao12- / ao100-Schnitte für jede Würfel
 ✨ MUSTER-BIBLIOTHEK
 Schachbrett, Würfel im Würfel und mehr – auf dem 3D-Würfel.
 
-🌍 22 SPRACHEN, KOMPLETT OFFLINE
+🌍 22 SPRACHEN, LÖSEN OHNE INTERNET
 Kein Konto, keine Anmeldung, kein Internet zum Scannen und Lösen nötig. Westliches und japanisches Farbschema.
 
 CubeMentor ist kostenlos mit Werbung. Schau ein kurzes Video, um die 4x4-, 5x5- und 6x6-Löser und die Profi-Lektionen freizuschalten.""",
@@ -391,7 +392,7 @@ CubeMentor ist kostenlos mit Werbung. Schau ein kurzes Video, um die 4x4-, 5x5- 
 ✨ БИБЛИОТЕКА УЗОРОВ
 Шахматка, куб в кубе и многое другое на 3D-кубике.
 
-🌍 22 ЯЗЫКА, ПОЛНОСТЬЮ ОФЛАЙН
+🌍 22 ЯЗЫКА, СБОРКА БЕЗ ИНТЕРНЕТА
 Без аккаунта, без регистрации и без интернета для сканирования и сборки. Западная и японская цветовые схемы.
 
 CubeMentor бесплатен и содержит рекламу. Посмотрите короткое видео, чтобы открыть решатели 4×4, 5×5 и 6×6 и продвинутые уроки.""",
@@ -423,7 +424,7 @@ Inspekcja, +2/DNF, najlepszy czas i średnie ao5 / ao12 / ao100 dla każdego roz
 ✨ BIBLIOTEKA WZORÓW
 Szachownica, kostka w kostce i wiele więcej na kostce 3D.
 
-🌍 22 JĘZYKI, W PEŁNI OFFLINE
+🌍 22 JĘZYKI, UKŁADANIE OFFLINE
 Bez konta, bez rejestracji i bez internetu do skanowania i układania. Zachodni i japoński schemat kolorów.
 
 CubeMentor jest darmowy z reklamami. Obejrzyj krótki film, aby odblokować solvery 4x4, 5x5 i 6x6 oraz zaawansowane lekcje.""",
@@ -455,7 +456,7 @@ Her gün yeni bir karıştırma, korunacak bir seri ve günlük görevin canlı 
 ✨ DESEN KÜTÜPHANESİ
 Dama tahtası, küp içinde küp ve daha fazlası 3D küpte.
 
-🌍 22 DİL, TAMAMEN ÇEVRİMDIŞI
+🌍 22 DİL, ÇEVRİMDIŞI ÇÖZÜM
 Hesap yok, kayıt yok, taramak ve çözmek için internet gerekmez. Batı ve Japon renk şemaları desteklenir.
 
 CubeMentor reklamlarla ücretsizdir. 4x4, 5x5 ve 6x6 çözücüleri ve ileri dersleri açmak için kısa bir video izle.""",
@@ -487,7 +488,7 @@ CubeMentor reklamlarla ücretsizdir. 4x4, 5x5 ve 6x6 çözücüleri ve ileri der
 ✨ パターン集
 チェッカーボード、キューブインキューブなどを 3D キューブで再現。
 
-🌍 22 言語・完全オフライン
+🌍 22 言語・オフラインで解ける
 アカウント登録不要、スキャンと解法にインターネットは不要。西洋配色と日本配色に対応。
 
 CubeMentor は広告付きの無料アプリです。短い動画を見ると 4×4・5×5・6×6 の解法と上級レッスンが使えます。""",
@@ -519,7 +520,7 @@ CubeMentor は広告付きの無料アプリです。短い動画を見ると 4�
 ✨ 패턴 라이브러리
 체커보드, 큐브 속 큐브 등 다양한 패턴을 3D 큐브로.
 
-🌍 22개 언어, 완전 오프라인
+🌍 22개 언어, 오프라인 풀이
 계정도 가입도 필요 없고, 스캔과 풀이에 인터넷이 필요 없어요. 서양식·일본식 색 배치를 지원합니다.
 
 CubeMentor는 광고가 포함된 무료 앱입니다. 짧은 영상을 보면 4×4·5×5·6×6 풀이와 고급 레슨이 열립니다.""",
@@ -551,7 +552,7 @@ CubeMentor는 광고가 포함된 무료 앱입니다. 짧은 영상을 보면 4
 ✨ 花式图案库
 棋盘格、魔方中的魔方等，在 3D 魔方上演示。
 
-🌍 22 种语言，完全离线
+🌍 22 种语言，离线扫描与还原
 无需账号、无需注册，扫描和还原都不需要网络。支持西方配色和日本配色。
 
 CubeMentor 免费使用，含广告。观看一段短视频即可解锁 4×4、5×5、6×6 求解和进阶课程。""",
@@ -583,7 +584,7 @@ CubeMentor 免费使用，含广告。观看一段短视频即可解锁 4×4、5
 ✨ 花式圖案庫
 棋盤格、方塊中的方塊等，在 3D 方塊上示範。
 
-🌍 22 種語言，完全離線
+🌍 22 種語言，離線掃描與還原
 不需帳號、不需註冊，掃描和還原都不需要網路。支援西方配色與日本配色。
 
 CubeMentor 免費使用，含廣告。觀看一段短片即可解鎖 4×4、5×5、6×6 解法與進階課程。""",
@@ -615,7 +616,7 @@ Thời gian quan sát, +2/DNF, kỷ lục và trung bình ao5 / ao12 / ao100 cho
 ✨ THƯ VIỆN HOA VĂN
 Bàn cờ, khối trong khối và nhiều mẫu khác trên khối 3D.
 
-🌍 22 NGÔN NGỮ, HOÀN TOÀN NGOẠI TUYẾN
+🌍 22 NGÔN NGỮ, GIẢI NGOẠI TUYẾN
 Không tài khoản, không đăng ký, không cần internet để quét và giải. Hỗ trợ phối màu phương Tây và Nhật Bản.
 
 CubeMentor miễn phí và có quảng cáo. Xem một video ngắn để mở khóa trình giải 4x4, 5x5, 6x6 và bài học nâng cao.""",
@@ -647,7 +648,7 @@ CubeMentor miễn phí và có quảng cáo. Xem một video ngắn để mở k
 ✨ ပုံစံ စာကြည့်တိုက်
 စစ်တုရင်ကွက်၊ ကုဗထဲက ကုဗ စသည်တို့ကို 3D ကုဗပေါ်တွင်။
 
-🌍 ဘာသာစကား 22 မျိုး၊ အော့ဖ်လိုင်း လုံးဝ
+🌍 ဘာသာစကား 22 မျိုး၊ အော့ဖ်လိုင်းဖြင့် ဖြေရှင်း
 အကောင့်မလို၊ စာရင်းသွင်းရန်မလို၊ စကင်ဖတ်ရန်နှင့် ဖြေရှင်းရန် အင်တာနက် မလိုပါ။
 
 CubeMentor သည် ကြော်ငြာများဖြင့် အခမဲ့ ဖြစ်သည်။ 4x4၊ 5x5၊ 6x6 ဖြေရှင်းသူများနှင့် အဆင့်မြင့် သင်ခန်းစာများကို ဖွင့်ရန် ဗီဒီယိုတိုကို ကြည့်ပါ။""",
@@ -679,7 +680,7 @@ CubeMentor သည် ကြော်ငြာများဖြင့် အခ�
 ✨ প্যাটার্ন লাইব্রেরি
 চেকারবোর্ড, কিউবের ভেতর কিউব ও আরও অনেক কিছু 3D কিউবে।
 
-🌍 22টি ভাষা, সম্পূর্ণ অফলাইন
+🌍 22টি ভাষা, অফলাইনে সমাধান
 কোনো অ্যাকাউন্ট নেই, সাইন-আপ নেই, স্ক্যান ও সমাধানে ইন্টারনেট লাগে না। পশ্চিমা ও জাপানি রঙের বিন্যাস সমর্থিত।
 
 CubeMentor বিজ্ঞাপনসহ বিনামূল্যে। 4x4, 5x5 ও 6x6 সলভার এবং উন্নত পাঠ খুলতে একটি ছোট ভিডিও দেখুন।""",
@@ -711,7 +712,7 @@ CubeMentor বিজ্ঞাপনসহ বিনামূল্যে। 4x4,
 ✨ ҮРНӘКЛӘР КИТАПХАНӘСЕ
 Шахмат тактасы, кубик эчендә кубик һәм башкалар 3D-кубикта.
 
-🌍 22 ТЕЛ, ТУЛЫСЫНЧА ОФЛАЙН
+🌍 22 ТЕЛ, ОФЛАЙН ЧИШЕЛЕШ
 Аккаунт та, теркәлү дә кирәкми, сканерлау һәм җыю өчен интернет кирәкми. Көнбатыш һәм япон төс схемалары.
 
 CubeMentor реклама белән бушлай. 4×4, 5×5 һәм 6×6 чишүчеләрне һәм катлаулы дәресләрне ачу өчен кыска видео карагыз.""",
