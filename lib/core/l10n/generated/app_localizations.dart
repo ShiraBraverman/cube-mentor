@@ -3553,7 +3553,7 @@ abstract class AppLocalizations {
   /// **'Daily challenge complete!'**
   String get celebrateDailyDone;
 
-  /// Fast solve badge: the solution length against the cube's move bound (11 for the 2x2, 21 for the 3x3), e.g. "17 / 21 moves".
+  /// Fast solve badge: the solution length against God's Number for the cube (11 for the 2x2, 20 for the 3x3), e.g. "17 / 20 moves".
   ///
   /// In en, this message translates to:
   /// **'{limit, plural, =1{{count} / 1 move} other{{count} / {limit} moves}}'**

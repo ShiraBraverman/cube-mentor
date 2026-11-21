@@ -260,15 +260,15 @@ void main() {
     testWidgets('shows moves against the bound for the cube size', (
       tester,
     ) async {
-      expect(kFastSolveMoveLimit, {2: 11, 3: 21});
+      expect(kFastSolveMoveLimit, {2: 11, 3: 20});
       await pumpBadge(tester, 3, 17);
-      expect(find.text('17 / 21 moves'), findsOneWidget);
+      expect(find.text('17 / 20 moves'), findsOneWidget);
       expect(find.byType(Tooltip), findsOneWidget);
       await pumpBadge(tester, 2, 9);
       expect(find.text('9 / 11 moves'), findsOneWidget);
       // Past the bound (never expected): the plain count.
-      await pumpBadge(tester, 3, 23);
-      expect(find.text('Solved in 23 moves!'), findsOneWidget);
+      await pumpBadge(tester, 3, 21);
+      expect(find.text('Solved in 21 moves!'), findsOneWidget);
     });
 
     testWidgets('reads left to right inside Hebrew text', (tester) async {
@@ -284,7 +284,7 @@ void main() {
       // Wrapped in LRI ... PDI isolates.
       final lri = String.fromCharCode(0x2066);
       final pdi = String.fromCharCode(0x2069);
-      expect(text, contains('${lri}17 / 21$pdi'));
+      expect(text, contains('${lri}17 / 20$pdi'));
     });
   });
 

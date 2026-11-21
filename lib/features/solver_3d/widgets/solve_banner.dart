@@ -295,7 +295,7 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
 }
 
 /// Headline of a Fast solution as a ratio against the cube's move bound:
-/// "17 / 21 moves" (3x3) or "9 / 11 moves" (2x2, always optimal), so it is
+/// "17 / 20 moves" (3x3) or "9 / 11 moves" (2x2, always optimal), so it is
 /// clear at a glance how short the solution is. Falls back to "Solved in N
 /// moves!" in the rare case a solution runs past the bound.
 class FastMoveBadge extends StatelessWidget {

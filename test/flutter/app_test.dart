@@ -349,7 +349,7 @@ void main() {
     // Fast solutions headline their move count against the 3x3 bound.
     final moves = container.read(cubeSessionProvider(3)).playback.length;
     expect(find.byKey(const ValueKey('fast-move-count')), findsOneWidget);
-    expect(find.text('$moves / 21 moves'), findsOneWidget);
+    expect(find.text('$moves / 20 moves'), findsOneWidget);
   });
 
   testWidgets("the goal sheet's switch stops it opening by itself", (

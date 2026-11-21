@@ -1028,7 +1028,7 @@
   },
   "fastSolveRatio": "{limit, plural, =1{{count} / 1 move} other{{count} / {limit} moves}}",
   "@fastSolveRatio": {
-    "description": "Fast solve badge: the solution length against the cube's move bound (11 for the 2x2, 21 for the 3x3), e.g. \"17 / 21 moves\".",
+    "description": "Fast solve badge: the solution length against God's Number for the cube (11 for the 2x2, 20 for the 3x3), e.g. \"17 / 20 moves\".",
     "placeholders": {
       "count": {
         "type": "int"
