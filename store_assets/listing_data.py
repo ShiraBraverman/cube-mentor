@@ -5,8 +5,9 @@ full <= 4000 characters) and rewrites the Markdown file.
 
 Store-policy notes baked into the copy:
 - No third-party trademarks (the generic "cube" / "puzzle cube" only).
-- The daily leaderboard is described as offline with simulated rivals,
-  matching the in-app disclosure; no "live global" or player-count claims.
+- The daily leaderboard is a live global ranking of real players (Cloud
+  Firestore, anonymous sign-in); no fixed player-count claims. Scanning,
+  solving and lessons stay fully offline.
 """
 
 # Play Console language code, app locale, language name, then the texts.
@@ -30,7 +31,7 @@ Follow every move on a smooth 3D cube with arrows, play/pause, speed control and
 Learn to solve on your own: short interactive lessons from the white cross to the last layer, then advanced tricks and big-cube parity.
 
 🔥 DAILY CHALLENGE
-A new scramble every day, a streak to keep alive and an offline rival leaderboard (simulated rivals, your real time).
+A new scramble every day, a streak to keep alive and a Live Global Daily Challenge Leaderboard: race real players worldwide and watch your rank update in real time.
 
 ⏱ SPEED TIMER
 Inspection, +2/DNF, best time and ao5 / ao12 / ao100 averages for every cube size.
@@ -62,7 +63,7 @@ CubeMentor is free with ads. Watch a short video to unlock the 4x4, 5x5 and 6x6 
 לומדים לפתור לבד: שיעורים אינטראקטיביים קצרים מהצלב הלבן ועד השכבה האחרונה, ואחר כך טריקים מתקדמים ופאריטי של קוביות גדולות.
 
 🔥 אתגר יומי
-ערבוב חדש בכל יום, רצף ימים לשמור עליו וטבלת מובילים לא מקוונת (יריבים מדומים, הזמן שלכם אמיתי).
+ערבוב חדש בכל יום, רצף ימים לשמור עליו וטבלת מובילים עולמית חיה לאתגר היומי: התחרו בשחקנים אמיתיים מכל העולם וראו את הדירוג שלכם מתעדכן בזמן אמת.
 
 ⏱ טיימר מהירות
 זמן בדיקה, ‎+2‎/DNF, השיא שלכם וממוצעי ao5 / ao12 / ao100 לכל גודל קובייה.
@@ -94,7 +95,7 @@ Sigue cada movimiento en un cubo 3D fluido con flechas, reproducir/pausa, contro
 Aprende a resolverlo tú solo: lecciones interactivas cortas desde la cruz blanca hasta la última capa, y después trucos avanzados y paridad de cubos grandes.
 
 🔥 RETO DIARIO
-Una mezcla nueva cada día, una racha que mantener y una clasificación sin conexión (rivales simulados, tu tiempo real).
+Una mezcla nueva cada día, una racha que mantener y una clasificación mundial en vivo del reto diario: compite con jugadores reales de todo el mundo y mira tu puesto actualizarse en tiempo real.
 
 ⏱ CRONÓMETRO
 Inspección, +2/DNF, mejor tiempo y medias ao5 / ao12 / ao100 para cada tamaño.
@@ -126,7 +127,7 @@ Segue cada movimento num cubo 3D fluido com setas, reproduzir/pausa, controlo de
 Aprende a resolver sozinho: lições interativas curtas da cruz branca à última camada, seguidas de truques avançados e paridade dos cubos grandes.
 
 🔥 DESAFIO DIÁRIO
-Uma nova mistura todos os dias, uma sequência para manter e uma classificação offline (rivais simulados, o teu tempo real).
+Uma nova mistura todos os dias, uma sequência para manter e uma classificação mundial em direto do desafio diário: compete com jogadores reais de todo o mundo e vê a tua posição atualizar-se em tempo real.
 
 ⏱ CRONÓMETRO
 Inspeção, +2/DNF, melhor tempo e médias ao5 / ao12 / ao100 para cada tamanho.
@@ -158,7 +159,7 @@ Acompanhe cada movimento em um cubo 3D suave com setas, play/pause, controle de 
 Aprenda a resolver sozinho: aulas interativas curtas da cruz branca até a última camada, depois truques avançados e paridade dos cubos grandes.
 
 🔥 DESAFIO DIÁRIO
-Um embaralhamento novo todo dia, uma sequência para manter e um ranking offline (rivais simulados, seu tempo real).
+Um embaralhamento novo todo dia, uma sequência para manter e um ranking global ao vivo do desafio diário: dispute com jogadores reais do mundo todo e veja sua posição atualizar em tempo real.
 
 ⏱ CRONÔMETRO
 Inspeção, +2/DNF, melhor tempo e médias ao5 / ao12 / ao100 para cada tamanho.
@@ -190,7 +191,7 @@ Ikuti setiap gerakan di kubus 3D yang mulus dengan panah, putar/jeda, kontrol ke
 Belajar menyelesaikan sendiri: pelajaran interaktif singkat dari silang putih hingga lapisan terakhir, lalu trik lanjutan dan paritas kubus besar.
 
 🔥 TANTANGAN HARIAN
-Acakan baru setiap hari, streak untuk dijaga, dan papan peringkat offline (lawan simulasi, waktumu nyata).
+Acakan baru setiap hari, streak untuk dijaga, dan papan peringkat global langsung untuk tantangan harian: bersaing dengan pemain sungguhan di seluruh dunia dan lihat peringkatmu diperbarui secara real time.
 
 ⏱ TIMER CEPAT
 Inspeksi, +2/DNF, waktu terbaik, dan rata-rata ao5 / ao12 / ao100 untuk setiap ukuran.
@@ -222,7 +223,7 @@ CubeMentor gratis dengan iklan. Tonton video singkat untuk membuka solver 4x4, 5
 खुद हल करना सीखें: सफ़ेद क्रॉस से आख़िरी लेयर तक छोटे इंटरैक्टिव पाठ, फिर उन्नत तरकीबें और बड़े क्यूब की पैरिटी।
 
 🔥 दैनिक चुनौती
-हर दिन नया स्क्रैम्बल, बनाए रखने के लिए स्ट्रीक और ऑफ़लाइन प्रतिद्वंद्वी लीडरबोर्ड (सिम्युलेटेड प्रतिद्वंद्वी, आपका असली समय)।
+हर दिन नया स्क्रैम्बल, बनाए रखने के लिए स्ट्रीक और दैनिक चुनौती का लाइव ग्लोबल लीडरबोर्ड: दुनिया भर के असली खिलाड़ियों से मुकाबला करें और अपनी रैंक रियल टाइम में बदलते देखें।
 
 ⏱ स्पीड टाइमर
 इंस्पेक्शन, +2/DNF, सर्वश्रेष्ठ समय और हर साइज़ के लिए ao5 / ao12 / ao100 औसत।
@@ -254,7 +255,7 @@ Sundan ang bawat galaw sa makinis na 3D cube na may mga arrow, play/pause, kontr
 Matutong lumutas nang mag-isa: maiikling interactive na aralin mula white cross hanggang huling layer, pagkatapos ay advanced na teknik at big-cube parity.
 
 🔥 DAILY CHALLENGE
-Bagong scramble araw-araw, streak na dapat panatilihin at offline na leaderboard (simulated na kalaban, totoo ang oras mo).
+Bagong scramble araw-araw, streak na dapat panatilihin at live na global leaderboard ng Daily Challenge: makipagtagisan sa totoong mga manlalaro sa buong mundo at panoorin ang ranggo mo sa real time.
 
 ⏱ SPEED TIMER
 Inspection, +2/DNF, best time at ao5 / ao12 / ao100 na average para sa bawat laki.
@@ -286,7 +287,7 @@ Libre ang CubeMentor na may ads. Manood ng maikling video para ma-unlock ang 4x4
 تعلّم الحل بنفسك: دروس تفاعلية قصيرة من الصليب الأبيض حتى الطبقة الأخيرة، ثم حيل متقدمة وتماثل المكعبات الكبيرة.
 
 🔥 التحدي اليومي
-خلطة جديدة كل يوم، وسلسلة أيام تحافظ عليها، ولوحة صدارة دون اتصال (منافسون محاكون ووقتك حقيقي).
+خلطة جديدة كل يوم، وسلسلة أيام تحافظ عليها، ولوحة صدارة عالمية مباشرة للتحدي اليومي: نافس لاعبين حقيقيين حول العالم وشاهد ترتيبك يتحدّث لحظيًا.
 
 ⏱ مؤقت السرعة
 وقت المعاينة و‎+2‎/DNF وأفضل وقت ومتوسطات ao5 / ao12 / ao100 لكل حجم.
@@ -318,7 +319,7 @@ Suivez chaque mouvement sur un cube 3D fluide avec flèches, lecture/pause, rég
 Apprenez à résoudre seul : de courtes leçons interactives de la croix blanche à la dernière couche, puis des techniques avancées et la parité des grands cubes.
 
 🔥 DÉFI DU JOUR
-Un nouveau mélange chaque jour, une série à entretenir et un classement hors ligne (rivaux simulés, votre temps réel).
+Un nouveau mélange chaque jour, une série à entretenir et un classement mondial en direct du défi du jour : affrontez de vrais joueurs du monde entier et suivez votre rang en temps réel.
 
 ⏱ CHRONOMÈTRE
 Inspection, +2/DNF, meilleur temps et moyennes ao5 / ao12 / ao100 pour chaque taille.
@@ -350,7 +351,7 @@ Verfolge jeden Zug auf einem flüssigen 3D-Würfel mit Pfeilen, Play/Pause, Temp
 Lerne, selbst zu lösen: kurze interaktive Lektionen vom weißen Kreuz bis zur letzten Ebene, danach Profi-Tricks und Parität großer Würfel.
 
 🔥 TAGES-CHALLENGE
-Jeden Tag ein neuer Scramble, eine Serie zum Halten und eine Offline-Rangliste (simulierte Gegner, deine echte Zeit).
+Jeden Tag ein neuer Scramble, eine Serie zum Halten und eine weltweite Live-Rangliste der Tages-Challenge: Miss dich mit echten Spielern aus aller Welt und sieh deinen Rang in Echtzeit.
 
 ⏱ SPEED-TIMER
 Inspektion, +2/DNF, Bestzeit und ao5- / ao12- / ao100-Schnitte für jede Würfelgröße.
@@ -382,7 +383,7 @@ CubeMentor ist kostenlos mit Werbung. Schau ein kurzes Video, um die 4x4-, 5x5- 
 Научитесь собирать сами: короткие интерактивные уроки от белого креста до последнего слоя, затем продвинутые приёмы и паритет больших кубов.
 
 🔥 ИСПЫТАНИЕ ДНЯ
-Новый скрамбл каждый день, серия дней и офлайн-рейтинг (соперники моделируются, ваше время настоящее).
+Новый скрамбл каждый день, серия дней и мировой рейтинг испытания дня в реальном времени: соревнуйтесь с настоящими игроками со всего мира и следите за своим местом.
 
 ⏱ СПИДКУБИНГ-ТАЙМЕР
 Инспекция, +2/DNF, лучшее время и средние ao5 / ao12 / ao100 для каждого размера.
@@ -414,7 +415,7 @@ Szybkie, optymalne rozwiązania dla 2x2 i 3x3 oraz metoda redukcji dla dużych k
 Naucz się układać samodzielnie: krótkie interaktywne lekcje od białego krzyża do ostatniej warstwy, potem zaawansowane triki i parzystość dużych kostek.
 
 🔥 WYZWANIE DNIA
-Nowy scramble każdego dnia, seria do utrzymania i ranking offline (symulowani rywale, twój prawdziwy czas).
+Nowy scramble każdego dnia, seria do utrzymania i globalny ranking wyzwania dnia na żywo: rywalizuj z prawdziwymi graczami z całego świata i śledź swoje miejsce w czasie rzeczywistym.
 
 ⏱ STOPER
 Inspekcja, +2/DNF, najlepszy czas i średnie ao5 / ao12 / ao100 dla każdego rozmiaru.
@@ -446,7 +447,7 @@ Oklar, oynat/duraklat, hız ayarı ve vurgulanan parçalarla akıcı bir 3D küp
 Kendin çözmeyi öğren: beyaz artıdan son katmana kısa etkileşimli dersler, ardından ileri teknikler ve büyük küp paritesi.
 
 🔥 GÜNLÜK GÖREV
-Her gün yeni bir karıştırma, korunacak bir seri ve çevrimdışı sıralama (simüle rakipler, senin gerçek süren).
+Her gün yeni bir karıştırma, korunacak bir seri ve günlük görevin canlı dünya sıralaması: dünyanın dört bir yanındaki gerçek oyuncularla yarış, sıranı anlık takip et.
 
 ⏱ HIZ SAYACI
 İnceleme süresi, +2/DNF, en iyi süre ve her boyut için ao5 / ao12 / ao100 ortalamaları.
@@ -478,7 +479,7 @@ CubeMentor reklamlarla ücretsizdir. 4x4, 5x5 ve 6x6 çözücüleri ve ileri der
 自力で解けるように：白い十字から最終層までの短いインタラクティブレッスン、さらに上級テクニックや大型キューブのパリティまで。
 
 🔥 デイリーチャレンジ
-毎日新しいスクランブル、続けたい連続記録、そしてオフラインのランキング（ライバルはシミュレーション、タイムは本物）。
+毎日新しいスクランブル、続けたい連続記録、そしてデイリーチャレンジの世界ライブランキング。世界中の本物のプレイヤーと競い、順位をリアルタイムで確認できます。
 
 ⏱ スピードタイマー
 インスペクション、+2/DNF、ベストタイム、各サイズの ao5 / ao12 / ao100 平均。
@@ -510,7 +511,7 @@ CubeMentor は広告付きの無料アプリです。短い動画を見ると 4�
 스스로 푸는 법을 배우세요: 흰색 십자부터 마지막 층까지 짧은 인터랙티브 레슨, 이어서 고급 기술과 대형 큐브 패리티까지.
 
 🔥 데일리 챌린지
-매일 새로운 스크램블, 이어 가는 연속 기록, 오프라인 순위표(경쟁자는 시뮬레이션, 내 기록은 실제).
+매일 새로운 스크램블, 이어 가는 연속 기록, 그리고 데일리 챌린지 실시간 글로벌 순위표. 전 세계 실제 플레이어와 겨루고 내 순위를 실시간으로 확인하세요.
 
 ⏱ 스피드 타이머
 인스펙션, +2/DNF, 최고 기록, 크기별 ao5 / ao12 / ao100 평균.
@@ -542,7 +543,7 @@ CubeMentor는 광고가 포함된 무료 앱입니다. 짧은 영상을 보면 4
 学会自己还原：从白色十字到最后一层的简短互动课程，再到进阶技巧和高阶魔方的奇偶校验。
 
 🔥 每日挑战
-每天一个新打乱、需要保持的连续打卡，以及离线排行榜（对手为模拟生成，你的成绩是真实的）。
+每天一个新打乱、需要保持的连续打卡，以及每日挑战全球实时排行榜：与世界各地的真实玩家比拼，实时查看你的排名。
 
 ⏱ 计时器
 观察时间、+2/DNF、最好成绩，以及各阶的 ao5 / ao12 / ao100 平均。
@@ -574,7 +575,7 @@ CubeMentor 免费使用，含广告。观看一段短视频即可解锁 4×4、5
 學會自己還原：從白色十字到最後一層的簡短互動課程，再到進階技巧與高階方塊的奇偶校驗。
 
 🔥 每日挑戰
-每天一個新打亂、需要保持的連續紀錄，以及離線排行榜（對手為模擬產生，你的成績是真實的）。
+每天一個新打亂、需要保持的連續紀錄，以及每日挑戰全球即時排行榜：與世界各地的真實玩家較量，即時查看你的排名。
 
 ⏱ 計時器
 觀察時間、+2/DNF、最佳成績，以及各階的 ao5 / ao12 / ao100 平均。
@@ -606,7 +607,7 @@ Theo dõi mọi bước xoay trên khối 3D mượt mà với mũi tên, phát/
 Tự giải được: bài học tương tác ngắn từ dấu cộng trắng đến tầng cuối, rồi kỹ thuật nâng cao và lỗi chẵn lẻ của khối lớn.
 
 🔥 THỬ THÁCH HẰNG NGÀY
-Mỗi ngày một bài xáo mới, chuỗi ngày cần giữ và bảng xếp hạng ngoại tuyến (đối thủ mô phỏng, thời gian của bạn là thật).
+Mỗi ngày một bài xáo mới, chuỗi ngày cần giữ và bảng xếp hạng toàn cầu trực tiếp của thử thách hằng ngày: so tài với người chơi thật khắp thế giới và xem thứ hạng cập nhật theo thời gian thực.
 
 ⏱ ĐỒNG HỒ BẤM GIỜ
 Thời gian quan sát, +2/DNF, kỷ lục và trung bình ao5 / ao12 / ao100 cho mọi kích cỡ.
@@ -638,7 +639,7 @@ CubeMentor miễn phí và có quảng cáo. Xem một video ngắn để mở k
 ကိုယ်တိုင် ဖြေတတ်အောင် သင်ယူပါ- အဖြူကြက်ခြေခတ်မှ နောက်ဆုံးအလွှာအထိ တိုတောင်းသော အပြန်အလှန် သင်ခန်းစာများ၊ ထို့နောက် အဆင့်မြင့် နည်းလမ်းများ။
 
 🔥 နေ့စဉ် စိန်ခေါ်မှု
-နေ့တိုင်း စကရမ်ဘယ်အသစ်၊ ဆက်တိုက်ရက်မှတ်တမ်းနှင့် အော့ဖ်လိုင်း အဆင့်ဇယား (ပြိုင်ဘက်များ အတုပြုလုပ်ထား၊ သင့်အချိန် အစစ်)။
+နေ့တိုင်း စကရမ်ဘယ်အသစ်၊ ဆက်တိုက်ရက်မှတ်တမ်းနှင့် နေ့စဉ် စိန်ခေါ်မှု၏ တိုက်ရိုက် ကမ္ဘာ့အဆင့်ဇယား - ကမ္ဘာတစ်ဝှမ်းမှ ကစားသမားအစစ်များနှင့် ယှဉ်ပြိုင်ပြီး သင့်အဆင့်ကို အချိန်နှင့်တပြေးညီ ကြည့်ပါ။
 
 ⏱ အမြန်နှုန်း တိုင်မာ
 စစ်ဆေးချိန်၊ +2/DNF၊ အကောင်းဆုံးအချိန်နှင့် အရွယ်အစားတိုင်းအတွက် ao5 / ao12 / ao100 ပျမ်းမျှ။
@@ -670,7 +671,7 @@ CubeMentor သည် ကြော်ငြာများဖြင့် အခ�
 নিজে সমাধান করতে শিখুন: সাদা ক্রস থেকে শেষ স্তর পর্যন্ত ছোট ইন্টারঅ্যাক্টিভ পাঠ, তারপর উন্নত কৌশল ও বড় কিউবের প্যারিটি।
 
 🔥 দৈনিক চ্যালেঞ্জ
-প্রতিদিন নতুন স্ক্র্যাম্বল, ধরে রাখার মতো স্ট্রিক এবং অফলাইন লিডারবোর্ড (সিমুলেটেড প্রতিদ্বন্দ্বী, আপনার আসল সময়)।
+প্রতিদিন নতুন স্ক্র্যাম্বল, ধরে রাখার মতো স্ট্রিক এবং দৈনিক চ্যালেঞ্জের লাইভ গ্লোবাল লিডারবোর্ড: সারা বিশ্বের আসল খেলোয়াড়দের সঙ্গে প্রতিযোগিতা করুন এবং রিয়েল টাইমে আপনার র‍্যাঙ্ক দেখুন।
 
 ⏱ স্পিড টাইমার
 ইন্সপেকশন, +2/DNF, সেরা সময় এবং প্রতিটি সাইজের ao5 / ao12 / ao100 গড়।
@@ -702,7 +703,7 @@ CubeMentor বিজ্ঞাপনসহ বিনামূল্যে। 4x4,
 Үзегез җыярга өйрәнегез: ак хачтан соңгы катламга кадәр кыска интерактив дәресләр, аннары катлаулы алымнар һәм зур кубикларның паритеты.
 
 🔥 КӨНЛЕК СЫНАУ
-Көн саен яңа буталыш, саклыйсы серия һәм офлайн рейтинг (көндәшләр модельләштерелгән, сезнең вакыт — чын).
+Көн саен яңа буталыш, саклыйсы серия һәм көнлек сынауның турыдан-туры дөнья рейтингы: бөтен дөньядагы чын уенчылар белән ярышыгыз һәм урыныгызны реаль вакытта күзәтегез.
 
 ⏱ ТАЙМЕР
 Инспекция, +2/DNF, иң яхшы вакыт һәм һәр зурлык өчен ao5 / ao12 / ao100 уртачалары.

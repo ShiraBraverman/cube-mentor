@@ -2183,9 +2183,35 @@ class AppLocalizationsRu extends AppLocalizations {
       'Решите сегодняшнее испытание, чтобы попасть в рейтинг.';
 
   @override
-  String get leaderboardSimulated =>
-      'Офлайн-рейтинг: соперники моделируются на вашем устройстве. Ваше время — настоящее.';
+  String get leaderboardJumpToMe => 'К моему месту';
 
   @override
-  String get leaderboardJumpToMe => 'К моему месту';
+  String get leaderboardAnonymous => 'Аноним';
+
+  @override
+  String get leaderboardLive =>
+      'Мировой рейтинг в реальном времени: только настоящие игроки.';
+
+  @override
+  String get leaderboardConnecting =>
+      'Подключаемся к рейтингу в реальном времени…';
+
+  @override
+  String get leaderboardOffline =>
+      'Нет подключения. Рейтинг появится, когда вы снова будете в сети.';
+
+  @override
+  String get leaderboardCached =>
+      'Нет подключения: показан последний рейтинг, сохранённый на устройстве.';
+
+  @override
+  String get leaderboardPendingSync =>
+      'Ваше время сохранено и попадёт в рейтинг, когда вы снова будете в сети.';
+
+  @override
+  String get leaderboardBeFirst =>
+      'Сегодняшнее испытание ещё никто не решил. Станьте первым!';
+
+  @override
+  String get leaderboardRetry => 'Повторить';
 }

@@ -595,6 +595,13 @@
   "leaderboardYourTime": "Oras mo: {time}",
   "leaderboardYou": "Ikaw",
   "leaderboardNotRanked": "Lutasin ang hamon ngayong araw para mapasama sa ranking.",
-  "leaderboardSimulated": "Offline na leaderboard: sinisimulate sa device mo ang mga kalaban. Totoo ang oras mo.",
-  "leaderboardJumpToMe": "Pumunta sa rank ko"
+  "leaderboardJumpToMe": "Pumunta sa rank ko",
+  "leaderboardAnonymous": "Anonymous",
+  "leaderboardLive": "Live na global ranking: totoong mga manlalaro, real time ang update.",
+  "leaderboardConnecting": "Kumokonekta sa live na leaderboard…",
+  "leaderboardOffline": "Offline ka. Lalabas ang live na ranking kapag nakakonekta ka ulit.",
+  "leaderboardCached": "Offline: ipinapakita ang huling ranking na naka-save sa device na ito.",
+  "leaderboardPendingSync": "Naka-save ang oras mo at mara-rank ito pagbalik mo online.",
+  "leaderboardBeFirst": "Wala pang nakalutas sa hamon ngayong araw. Ikaw na ang mauna!",
+  "leaderboardRetry": "Subukan ulit"
 }

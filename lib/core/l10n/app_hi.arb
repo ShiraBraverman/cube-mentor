@@ -595,6 +595,13 @@
   "leaderboardYourTime": "आपका समय: {time}",
   "leaderboardYou": "आप",
   "leaderboardNotRanked": "रैंकिंग में आने के लिए आज की चुनौती हल करें।",
-  "leaderboardSimulated": "ऑफ़लाइन लीडरबोर्ड: प्रतिद्वंद्वी आपके डिवाइस पर सिम्युलेट किए गए हैं। आपका समय असली है।",
-  "leaderboardJumpToMe": "मेरी रैंक पर जाएँ"
+  "leaderboardJumpToMe": "मेरी रैंक पर जाएँ",
+  "leaderboardAnonymous": "गुमनाम",
+  "leaderboardLive": "लाइव ग्लोबल रैंकिंग: असली खिलाड़ी, रियल टाइम में अपडेट।",
+  "leaderboardConnecting": "लाइव लीडरबोर्ड से कनेक्ट हो रहा है…",
+  "leaderboardOffline": "आप ऑफ़लाइन हैं। दोबारा कनेक्ट होने पर लाइव रैंकिंग दिखेगी।",
+  "leaderboardCached": "ऑफ़लाइन: इस डिवाइस पर सेव की गई पिछली रैंकिंग दिख रही है।",
+  "leaderboardPendingSync": "आपका समय सेव हो गया है और ऑनलाइन होते ही रैंकिंग में जुड़ जाएगा।",
+  "leaderboardBeFirst": "आज की चुनौती अभी तक किसी ने हल नहीं की है। पहले बनें!",
+  "leaderboardRetry": "फिर से कोशिश करें"
 }

@@ -2130,9 +2130,35 @@ class AppLocalizationsVi extends AppLocalizations {
       'Giải thử thách hôm nay để vào bảng xếp hạng.';
 
   @override
-  String get leaderboardSimulated =>
-      'Bảng xếp hạng ngoại tuyến: đối thủ được mô phỏng trên thiết bị của bạn. Thời gian của bạn là thật.';
+  String get leaderboardJumpToMe => 'Đến hạng của tôi';
 
   @override
-  String get leaderboardJumpToMe => 'Đến hạng của tôi';
+  String get leaderboardAnonymous => 'Ẩn danh';
+
+  @override
+  String get leaderboardLive =>
+      'Bảng xếp hạng toàn cầu trực tiếp: người chơi thật, cập nhật theo thời gian thực.';
+
+  @override
+  String get leaderboardConnecting =>
+      'Đang kết nối với bảng xếp hạng trực tiếp…';
+
+  @override
+  String get leaderboardOffline =>
+      'Bạn đang ngoại tuyến. Bảng xếp hạng trực tiếp sẽ hiện khi bạn kết nối lại.';
+
+  @override
+  String get leaderboardCached =>
+      'Ngoại tuyến: đang hiển thị bảng xếp hạng gần nhất lưu trên thiết bị này.';
+
+  @override
+  String get leaderboardPendingSync =>
+      'Thời gian của bạn đã được lưu và sẽ được xếp hạng khi bạn trực tuyến trở lại.';
+
+  @override
+  String get leaderboardBeFirst =>
+      'Chưa ai giải thử thách hôm nay. Hãy là người đầu tiên!';
+
+  @override
+  String get leaderboardRetry => 'Thử lại';
 }

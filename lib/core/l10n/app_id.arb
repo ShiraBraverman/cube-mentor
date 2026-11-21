@@ -595,6 +595,13 @@
   "leaderboardYourTime": "Waktumu: {time}",
   "leaderboardYou": "Kamu",
   "leaderboardNotRanked": "Selesaikan tantangan hari ini untuk masuk peringkat.",
-  "leaderboardSimulated": "Papan peringkat offline: lawan disimulasikan di perangkatmu. Waktumu nyata.",
-  "leaderboardJumpToMe": "Ke peringkatku"
+  "leaderboardJumpToMe": "Ke peringkatku",
+  "leaderboardAnonymous": "Anonim",
+  "leaderboardLive": "Peringkat global langsung: pemain sungguhan, diperbarui secara real time.",
+  "leaderboardConnecting": "Menghubungkan ke papan peringkat langsung…",
+  "leaderboardOffline": "Kamu sedang offline. Peringkat langsung akan muncul saat kamu terhubung lagi.",
+  "leaderboardCached": "Offline: menampilkan peringkat terakhir yang tersimpan di perangkat ini.",
+  "leaderboardPendingSync": "Waktumu tersimpan dan akan masuk peringkat saat kamu online lagi.",
+  "leaderboardBeFirst": "Belum ada yang menyelesaikan tantangan hari ini. Jadilah yang pertama!",
+  "leaderboardRetry": "Coba lagi"
 }

@@ -595,6 +595,13 @@
   "leaderboardYourTime": "הזמן שלכם: {time}",
   "leaderboardYou": "אני",
   "leaderboardNotRanked": "פתרו את האתגר של היום כדי להיכנס לדירוג.",
-  "leaderboardSimulated": "טבלה לא מקוונת: היריבים מדומים במכשיר שלכם. הזמן שלכם אמיתי.",
-  "leaderboardJumpToMe": "קפיצה למקום שלי"
+  "leaderboardJumpToMe": "קפיצה למקום שלי",
+  "leaderboardAnonymous": "אנונימי",
+  "leaderboardLive": "דירוג עולמי חי: שחקנים אמיתיים, מתעדכן בזמן אמת.",
+  "leaderboardConnecting": "מתחברים לטבלת המובילים החיה…",
+  "leaderboardOffline": "אין חיבור לאינטרנט. הדירוג החי יופיע כשתתחברו שוב.",
+  "leaderboardCached": "אין חיבור: מוצג הדירוג האחרון שנשמר במכשיר.",
+  "leaderboardPendingSync": "הזמן שלכם נשמר וידורג כשתחזרו לרשת.",
+  "leaderboardBeFirst": "עוד אף אחד לא פתר את האתגר של היום. היו הראשונים!",
+  "leaderboardRetry": "נסו שוב"
 }

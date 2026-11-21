@@ -2118,9 +2118,34 @@ class AppLocalizationsTt extends AppLocalizations {
       'Рейтингка керү өчен бүгенге сынауны чишегез.';
 
   @override
-  String get leaderboardSimulated =>
-      'Офлайн рейтинг: көндәшләр җайланмагызда модельләштерелә. Сезнең вакыт — чын.';
+  String get leaderboardJumpToMe => 'Минем урынга';
 
   @override
-  String get leaderboardJumpToMe => 'Минем урынга';
+  String get leaderboardAnonymous => 'Аноним';
+
+  @override
+  String get leaderboardLive =>
+      'Турыдан-туры дөнья рейтингы: чын уенчылар, реаль вакытта яңартыла.';
+
+  @override
+  String get leaderboardConnecting => 'Турыдан-туры рейтингка тоташабыз…';
+
+  @override
+  String get leaderboardOffline =>
+      'Сез офлайн. Кабат тоташкач, турыдан-туры рейтинг күренәчәк.';
+
+  @override
+  String get leaderboardCached =>
+      'Офлайн: бу җайланмада сакланган соңгы рейтинг күрсәтелә.';
+
+  @override
+  String get leaderboardPendingSync =>
+      'Вакытыгыз сакланды, кабат онлайн булгач рейтингка керәчәк.';
+
+  @override
+  String get leaderboardBeFirst =>
+      'Бүгенге сынауны әле беркем дә чишмәде. Беренче булыгыз!';
+
+  @override
+  String get leaderboardRetry => 'Кабатлау';
 }

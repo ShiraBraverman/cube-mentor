@@ -2118,9 +2118,34 @@ class AppLocalizationsBn extends AppLocalizations {
       'র‍্যাঙ্কিংয়ে আসতে আজকের চ্যালেঞ্জ সমাধান করুন।';
 
   @override
-  String get leaderboardSimulated =>
-      'অফলাইন লিডারবোর্ড: প্রতিদ্বন্দ্বীরা আপনার ডিভাইসে সিমুলেট করা। আপনার সময় আসল।';
+  String get leaderboardJumpToMe => 'আমার র‍্যাঙ্কে যান';
 
   @override
-  String get leaderboardJumpToMe => 'আমার র‍্যাঙ্কে যান';
+  String get leaderboardAnonymous => 'বেনামী';
+
+  @override
+  String get leaderboardLive =>
+      'লাইভ গ্লোবাল র‍্যাঙ্কিং: আসল খেলোয়াড়, রিয়েল টাইমে আপডেট।';
+
+  @override
+  String get leaderboardConnecting => 'লাইভ লিডারবোর্ডে সংযোগ করা হচ্ছে…';
+
+  @override
+  String get leaderboardOffline =>
+      'আপনি অফলাইনে আছেন। আবার সংযুক্ত হলে লাইভ র‍্যাঙ্কিং দেখা যাবে।';
+
+  @override
+  String get leaderboardCached =>
+      'অফলাইন: এই ডিভাইসে সংরক্ষিত সর্বশেষ র‍্যাঙ্কিং দেখানো হচ্ছে।';
+
+  @override
+  String get leaderboardPendingSync =>
+      'আপনার সময় সংরক্ষিত হয়েছে, আবার অনলাইনে এলেই র‍্যাঙ্কিংয়ে যুক্ত হবে।';
+
+  @override
+  String get leaderboardBeFirst =>
+      'আজকের চ্যালেঞ্জ এখনও কেউ সমাধান করেনি। প্রথম হোন!';
+
+  @override
+  String get leaderboardRetry => 'আবার চেষ্টা করুন';
 }

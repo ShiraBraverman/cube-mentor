@@ -595,6 +595,13 @@
   "leaderboardYourTime": "Senin süren: {time}",
   "leaderboardYou": "Sen",
   "leaderboardNotRanked": "Sıralamaya girmek için bugünün görevini çöz.",
-  "leaderboardSimulated": "Çevrimdışı sıralama: rakipler cihazında simüle edilir. Senin süren gerçek.",
-  "leaderboardJumpToMe": "Sıralamama git"
+  "leaderboardJumpToMe": "Sıralamama git",
+  "leaderboardAnonymous": "Anonim",
+  "leaderboardLive": "Canlı dünya sıralaması: gerçek oyuncular, anlık güncellenir.",
+  "leaderboardConnecting": "Canlı sıralamaya bağlanılıyor…",
+  "leaderboardOffline": "Çevrimdışısın. Canlı sıralama yeniden bağlandığında görünecek.",
+  "leaderboardCached": "Çevrimdışı: bu cihazda kayıtlı son sıralama gösteriliyor.",
+  "leaderboardPendingSync": "Süren kaydedildi; yeniden çevrimiçi olduğunda sıralamaya eklenecek.",
+  "leaderboardBeFirst": "Bugünün görevini henüz kimse çözmedi. İlk sen ol!",
+  "leaderboardRetry": "Tekrar dene"
 }

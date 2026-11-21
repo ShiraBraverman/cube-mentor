@@ -2016,9 +2016,29 @@ class AppLocalizationsKo extends AppLocalizations {
   String get leaderboardNotRanked => '오늘의 챌린지를 풀면 순위에 들어갑니다.';
 
   @override
-  String get leaderboardSimulated =>
-      '오프라인 순위표: 경쟁자는 기기에서 시뮬레이션됩니다. 내 기록은 실제 기록입니다.';
+  String get leaderboardJumpToMe => '내 순위로 이동';
 
   @override
-  String get leaderboardJumpToMe => '내 순위로 이동';
+  String get leaderboardAnonymous => '익명';
+
+  @override
+  String get leaderboardLive => '실시간 글로벌 순위: 실제 플레이어, 실시간 업데이트.';
+
+  @override
+  String get leaderboardConnecting => '실시간 순위표에 연결하는 중…';
+
+  @override
+  String get leaderboardOffline => '오프라인 상태입니다. 다시 연결되면 실시간 순위가 표시됩니다.';
+
+  @override
+  String get leaderboardCached => '오프라인: 이 기기에 저장된 마지막 순위를 보여 줍니다.';
+
+  @override
+  String get leaderboardPendingSync => '기록이 저장되었으며 다시 온라인이 되면 순위에 반영됩니다.';
+
+  @override
+  String get leaderboardBeFirst => '아직 아무도 오늘의 챌린지를 풀지 않았습니다. 첫 번째가 되어 보세요!';
+
+  @override
+  String get leaderboardRetry => '다시 시도';
 }

@@ -595,6 +595,13 @@
   "leaderboardYourTime": "Deine Zeit: {time}",
   "leaderboardYou": "Du",
   "leaderboardNotRanked": "Löse die heutige Challenge, um in die Rangliste zu kommen.",
-  "leaderboardSimulated": "Offline-Rangliste: Die Gegner werden auf deinem Gerät simuliert. Deine Zeit ist echt.",
-  "leaderboardJumpToMe": "Zu meinem Rang"
+  "leaderboardJumpToMe": "Zu meinem Rang",
+  "leaderboardAnonymous": "Anonym",
+  "leaderboardLive": "Live-Weltrangliste: echte Spieler, in Echtzeit aktualisiert.",
+  "leaderboardConnecting": "Verbindung zur Live-Rangliste wird hergestellt…",
+  "leaderboardOffline": "Du bist offline. Die Live-Rangliste erscheint, sobald du wieder verbunden bist.",
+  "leaderboardCached": "Offline: Es wird die letzte auf diesem Gerät gespeicherte Rangliste angezeigt.",
+  "leaderboardPendingSync": "Deine Zeit ist gespeichert und wird gewertet, sobald du wieder online bist.",
+  "leaderboardBeFirst": "Noch niemand hat die heutige Challenge gelöst. Sei der Erste!",
+  "leaderboardRetry": "Erneut versuchen"
 }

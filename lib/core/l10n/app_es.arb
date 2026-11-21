@@ -595,6 +595,13 @@
   "leaderboardYourTime": "Tu tiempo: {time}",
   "leaderboardYou": "Tú",
   "leaderboardNotRanked": "Resuelve el reto de hoy para entrar en la clasificación.",
-  "leaderboardSimulated": "Clasificación sin conexión: los rivales se simulan en tu dispositivo. Tu tiempo es real.",
-  "leaderboardJumpToMe": "Ir a mi puesto"
+  "leaderboardJumpToMe": "Ir a mi puesto",
+  "leaderboardAnonymous": "Anónimo",
+  "leaderboardLive": "Ranking mundial en vivo: jugadores reales, actualizado en tiempo real.",
+  "leaderboardConnecting": "Conectando con la clasificación en vivo…",
+  "leaderboardOffline": "Estás sin conexión. La clasificación en vivo aparecerá cuando vuelvas a conectarte.",
+  "leaderboardCached": "Sin conexión: se muestra la última clasificación guardada en este dispositivo.",
+  "leaderboardPendingSync": "Tu tiempo está guardado y entrará en la clasificación cuando vuelvas a estar en línea.",
+  "leaderboardBeFirst": "Nadie ha resuelto todavía el reto de hoy. ¡Sé el primero!",
+  "leaderboardRetry": "Reintentar"
 }

@@ -2142,9 +2142,34 @@ class AppLocalizationsTr extends AppLocalizations {
       'Sıralamaya girmek için bugünün görevini çöz.';
 
   @override
-  String get leaderboardSimulated =>
-      'Çevrimdışı sıralama: rakipler cihazında simüle edilir. Senin süren gerçek.';
+  String get leaderboardJumpToMe => 'Sıralamama git';
 
   @override
-  String get leaderboardJumpToMe => 'Sıralamama git';
+  String get leaderboardAnonymous => 'Anonim';
+
+  @override
+  String get leaderboardLive =>
+      'Canlı dünya sıralaması: gerçek oyuncular, anlık güncellenir.';
+
+  @override
+  String get leaderboardConnecting => 'Canlı sıralamaya bağlanılıyor…';
+
+  @override
+  String get leaderboardOffline =>
+      'Çevrimdışısın. Canlı sıralama yeniden bağlandığında görünecek.';
+
+  @override
+  String get leaderboardCached =>
+      'Çevrimdışı: bu cihazda kayıtlı son sıralama gösteriliyor.';
+
+  @override
+  String get leaderboardPendingSync =>
+      'Süren kaydedildi; yeniden çevrimiçi olduğunda sıralamaya eklenecek.';
+
+  @override
+  String get leaderboardBeFirst =>
+      'Bugünün görevini henüz kimse çözmedi. İlk sen ol!';
+
+  @override
+  String get leaderboardRetry => 'Tekrar dene';
 }

@@ -2122,9 +2122,34 @@ class AppLocalizationsHi extends AppLocalizations {
       'रैंकिंग में आने के लिए आज की चुनौती हल करें।';
 
   @override
-  String get leaderboardSimulated =>
-      'ऑफ़लाइन लीडरबोर्ड: प्रतिद्वंद्वी आपके डिवाइस पर सिम्युलेट किए गए हैं। आपका समय असली है।';
+  String get leaderboardJumpToMe => 'मेरी रैंक पर जाएँ';
 
   @override
-  String get leaderboardJumpToMe => 'मेरी रैंक पर जाएँ';
+  String get leaderboardAnonymous => 'गुमनाम';
+
+  @override
+  String get leaderboardLive =>
+      'लाइव ग्लोबल रैंकिंग: असली खिलाड़ी, रियल टाइम में अपडेट।';
+
+  @override
+  String get leaderboardConnecting => 'लाइव लीडरबोर्ड से कनेक्ट हो रहा है…';
+
+  @override
+  String get leaderboardOffline =>
+      'आप ऑफ़लाइन हैं। दोबारा कनेक्ट होने पर लाइव रैंकिंग दिखेगी।';
+
+  @override
+  String get leaderboardCached =>
+      'ऑफ़लाइन: इस डिवाइस पर सेव की गई पिछली रैंकिंग दिख रही है।';
+
+  @override
+  String get leaderboardPendingSync =>
+      'आपका समय सेव हो गया है और ऑनलाइन होते ही रैंकिंग में जुड़ जाएगा।';
+
+  @override
+  String get leaderboardBeFirst =>
+      'आज की चुनौती अभी तक किसी ने हल नहीं की है। पहले बनें!';
+
+  @override
+  String get leaderboardRetry => 'फिर से कोशिश करें';
 }

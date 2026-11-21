@@ -2124,9 +2124,35 @@ class AppLocalizationsId extends AppLocalizations {
       'Selesaikan tantangan hari ini untuk masuk peringkat.';
 
   @override
-  String get leaderboardSimulated =>
-      'Papan peringkat offline: lawan disimulasikan di perangkatmu. Waktumu nyata.';
+  String get leaderboardJumpToMe => 'Ke peringkatku';
 
   @override
-  String get leaderboardJumpToMe => 'Ke peringkatku';
+  String get leaderboardAnonymous => 'Anonim';
+
+  @override
+  String get leaderboardLive =>
+      'Peringkat global langsung: pemain sungguhan, diperbarui secara real time.';
+
+  @override
+  String get leaderboardConnecting =>
+      'Menghubungkan ke papan peringkat langsung…';
+
+  @override
+  String get leaderboardOffline =>
+      'Kamu sedang offline. Peringkat langsung akan muncul saat kamu terhubung lagi.';
+
+  @override
+  String get leaderboardCached =>
+      'Offline: menampilkan peringkat terakhir yang tersimpan di perangkat ini.';
+
+  @override
+  String get leaderboardPendingSync =>
+      'Waktumu tersimpan dan akan masuk peringkat saat kamu online lagi.';
+
+  @override
+  String get leaderboardBeFirst =>
+      'Belum ada yang menyelesaikan tantangan hari ini. Jadilah yang pertama!';
+
+  @override
+  String get leaderboardRetry => 'Coba lagi';
 }

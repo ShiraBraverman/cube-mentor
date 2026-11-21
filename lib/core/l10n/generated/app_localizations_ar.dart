@@ -2166,9 +2166,33 @@ class AppLocalizationsAr extends AppLocalizations {
   String get leaderboardNotRanked => 'حلّ تحدي اليوم لتدخل الترتيب.';
 
   @override
-  String get leaderboardSimulated =>
-      'لوحة صدارة دون اتصال: المنافسون محاكون على جهازك. وقتك حقيقي.';
+  String get leaderboardJumpToMe => 'الانتقال إلى مركزي';
 
   @override
-  String get leaderboardJumpToMe => 'الانتقال إلى مركزي';
+  String get leaderboardAnonymous => 'مجهول';
+
+  @override
+  String get leaderboardLive =>
+      'ترتيب عالمي مباشر: لاعبون حقيقيون، يُحدَّث لحظيًا.';
+
+  @override
+  String get leaderboardConnecting => 'جارٍ الاتصال بلوحة الصدارة المباشرة…';
+
+  @override
+  String get leaderboardOffline =>
+      'أنت غير متصل. سيظهر الترتيب المباشر عند عودة الاتصال.';
+
+  @override
+  String get leaderboardCached =>
+      'غير متصل: يُعرض آخر ترتيب محفوظ على هذا الجهاز.';
+
+  @override
+  String get leaderboardPendingSync =>
+      'تم حفظ وقتك وسيدخل الترتيب عند عودتك إلى الاتصال.';
+
+  @override
+  String get leaderboardBeFirst => 'لم يحلّ أحد تحدي اليوم بعد. كن الأول!';
+
+  @override
+  String get leaderboardRetry => 'إعادة المحاولة';
 }

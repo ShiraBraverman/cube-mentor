@@ -2092,7 +2092,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get leaderboardView => 'לטבלת המובילים';
 
   @override
-  String get leaderboardReminder => 'עוד לא פתרת את האתגר של היום!';
+  String get leaderboardReminder => 'עוד לא פתרתם את האתגר של היום!';
 
   @override
   String leaderboardSolvedToday(int count, String countText) {
@@ -2117,7 +2117,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String leaderboardYourTime(String time) {
-    return 'הזמן שלך: $time';
+    return 'הזמן שלכם: $time';
   }
 
   @override
@@ -2127,9 +2127,32 @@ class AppLocalizationsHe extends AppLocalizations {
   String get leaderboardNotRanked => 'פתרו את האתגר של היום כדי להיכנס לדירוג.';
 
   @override
-  String get leaderboardSimulated =>
-      'טבלה לא מקוונת: היריבים מדומים במכשיר שלך. הזמן שלך אמיתי.';
+  String get leaderboardJumpToMe => 'קפיצה למקום שלי';
 
   @override
-  String get leaderboardJumpToMe => 'קפיצה למקום שלי';
+  String get leaderboardAnonymous => 'אנונימי';
+
+  @override
+  String get leaderboardLive =>
+      'דירוג עולמי חי: שחקנים אמיתיים, מתעדכן בזמן אמת.';
+
+  @override
+  String get leaderboardConnecting => 'מתחברים לטבלת המובילים החיה…';
+
+  @override
+  String get leaderboardOffline =>
+      'אין חיבור לאינטרנט. הדירוג החי יופיע כשתתחברו שוב.';
+
+  @override
+  String get leaderboardCached => 'אין חיבור: מוצג הדירוג האחרון שנשמר במכשיר.';
+
+  @override
+  String get leaderboardPendingSync => 'הזמן שלכם נשמר וידורג כשתחזרו לרשת.';
+
+  @override
+  String get leaderboardBeFirst =>
+      'עוד אף אחד לא פתר את האתגר של היום. היו הראשונים!';
+
+  @override
+  String get leaderboardRetry => 'נסו שוב';
 }

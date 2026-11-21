@@ -2142,9 +2142,34 @@ class AppLocalizationsFil extends AppLocalizations {
       'Lutasin ang hamon ngayong araw para mapasama sa ranking.';
 
   @override
-  String get leaderboardSimulated =>
-      'Offline na leaderboard: sinisimulate sa device mo ang mga kalaban. Totoo ang oras mo.';
+  String get leaderboardJumpToMe => 'Pumunta sa rank ko';
 
   @override
-  String get leaderboardJumpToMe => 'Pumunta sa rank ko';
+  String get leaderboardAnonymous => 'Anonymous';
+
+  @override
+  String get leaderboardLive =>
+      'Live na global ranking: totoong mga manlalaro, real time ang update.';
+
+  @override
+  String get leaderboardConnecting => 'Kumokonekta sa live na leaderboard…';
+
+  @override
+  String get leaderboardOffline =>
+      'Offline ka. Lalabas ang live na ranking kapag nakakonekta ka ulit.';
+
+  @override
+  String get leaderboardCached =>
+      'Offline: ipinapakita ang huling ranking na naka-save sa device na ito.';
+
+  @override
+  String get leaderboardPendingSync =>
+      'Naka-save ang oras mo at mara-rank ito pagbalik mo online.';
+
+  @override
+  String get leaderboardBeFirst =>
+      'Wala pang nakalutas sa hamon ngayong araw. Ikaw na ang mauna!';
+
+  @override
+  String get leaderboardRetry => 'Subukan ulit';
 }

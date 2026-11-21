@@ -3670,7 +3670,7 @@ abstract class AppLocalizations {
   /// **'You haven\'t solved today\'s challenge yet!'**
   String get leaderboardReminder;
 
-  /// How many (simulated) players solved today; countText is count with digit grouping.
+  /// How many players solved today; countText is count with digit grouping.
   ///
   /// In en, this message translates to:
   /// **'{count, plural, one{{countText} player solved it today} other{{countText} players solved it today}}'**
@@ -3706,17 +3706,59 @@ abstract class AppLocalizations {
   /// **'Solve today\'s challenge to join the ranking.'**
   String get leaderboardNotRanked;
 
-  /// Disclosure footnote: the rivals are generated offline, the user time is real.
-  ///
-  /// In en, this message translates to:
-  /// **'Offline leaderboard: rivals are simulated on your device. Your time is real.'**
-  String get leaderboardSimulated;
-
   /// Tooltip: scroll the leaderboard to the user's row.
   ///
   /// In en, this message translates to:
   /// **'Jump to my rank'**
   String get leaderboardJumpToMe;
+
+  /// Leaderboard name of a player who skipped the nickname.
+  ///
+  /// In en, this message translates to:
+  /// **'Anonymous'**
+  String get leaderboardAnonymous;
+
+  /// Footnote under the leaderboard: the ranking is live, global and made of real players.
+  ///
+  /// In en, this message translates to:
+  /// **'Live global ranking: real players, updated in real time.'**
+  String get leaderboardLive;
+
+  /// Shown while the live leaderboard is loading.
+  ///
+  /// In en, this message translates to:
+  /// **'Connecting to the live leaderboard…'**
+  String get leaderboardConnecting;
+
+  /// Shown when the live leaderboard cannot be fetched (no connection).
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re offline. Live rankings will appear when you reconnect.'**
+  String get leaderboardOffline;
+
+  /// Offline notice when the last cached rankings are shown.
+  ///
+  /// In en, this message translates to:
+  /// **'Offline: showing the last rankings saved on this device.'**
+  String get leaderboardCached;
+
+  /// The user's solve waits on the device until it can be uploaded.
+  ///
+  /// In en, this message translates to:
+  /// **'Your time is saved and will be ranked once you\'re back online.'**
+  String get leaderboardPendingSync;
+
+  /// Shown when nobody solved today's challenge yet.
+  ///
+  /// In en, this message translates to:
+  /// **'No one has solved today\'s challenge yet. Be the first!'**
+  String get leaderboardBeFirst;
+
+  /// Button: try to reach the live leaderboard again.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get leaderboardRetry;
 }
 
 class _AppLocalizationsDelegate

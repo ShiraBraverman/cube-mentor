@@ -2012,9 +2012,29 @@ class AppLocalizationsJa extends AppLocalizations {
   String get leaderboardNotRanked => '今日のチャレンジを解くとランキングに参加できます。';
 
   @override
-  String get leaderboardSimulated =>
-      'オフラインのランキング：ライバルは端末上でシミュレートされています。あなたのタイムは本物です。';
+  String get leaderboardJumpToMe => '自分の順位へ';
 
   @override
-  String get leaderboardJumpToMe => '自分の順位へ';
+  String get leaderboardAnonymous => '匿名';
+
+  @override
+  String get leaderboardLive => '世界ライブランキング：本物のプレイヤーをリアルタイムで更新。';
+
+  @override
+  String get leaderboardConnecting => 'ライブランキングに接続中…';
+
+  @override
+  String get leaderboardOffline => 'オフラインです。再接続するとライブランキングが表示されます。';
+
+  @override
+  String get leaderboardCached => 'オフライン：この端末に保存された最新のランキングを表示しています。';
+
+  @override
+  String get leaderboardPendingSync => 'タイムは保存済みです。オンラインに戻るとランキングに反映されます。';
+
+  @override
+  String get leaderboardBeFirst => '今日のチャレンジはまだ誰も解いていません。一番乗りを目指そう！';
+
+  @override
+  String get leaderboardRetry => '再試行';
 }

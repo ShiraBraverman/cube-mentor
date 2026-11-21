@@ -18,6 +18,8 @@ import 'package:cube_mentor/features/academy/model/lesson.dart';
 import 'package:cube_mentor/features/academy/model/lesson_catalog.dart';
 import 'package:cube_mentor/features/daily/daily_screen.dart';
 import 'package:cube_mentor/features/daily/leaderboard/leaderboard_screen.dart';
+import 'package:cube_mentor/features/daily/leaderboard/daily_leaderboard.dart';
+import 'package:cube_mentor/features/daily/leaderboard/leaderboard_service.dart';
 import 'package:cube_mentor/features/home/home_screen.dart';
 import 'package:cube_mentor/features/home/nickname_prompt.dart';
 import 'package:cube_mentor/features/home/root_shell.dart';
@@ -40,6 +42,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'fake_ad_service.dart';
 import 'fake_cube_solver.dart';
+import 'fake_leaderboard_service.dart';
 import 'fake_scan_analyzer.dart';
 import 'fake_scrambler.dart';
 import 'scanner_test.dart' show faceSamples, scrambledFacelets;
@@ -357,6 +360,20 @@ void main() {
         ),
       );
 
+      // A live board with long names and anonymous players.
+      final leaderboard = FakeLeaderboardService(
+        days: {
+          '2026-11-16': [
+            ...FakeLeaderboardService.rivals(120),
+            const LeaderboardRecord(
+              uid: 'long',
+              nickname: 'Supercalifragilistic_99',
+              millis: 30000,
+            ),
+          ],
+        },
+      );
+
       Future<void> show(Widget screen, {bool scroll = true}) async {
         await tester.pumpWidget(
           ProviderScope(
@@ -366,8 +383,11 @@ void main() {
               sharedPreferencesProvider.overrideWithValue(prefs),
               scramblerProvider.overrideWithValue(FakeScrambler()),
               cubeSolverProvider.overrideWithValue(guided),
-              clockProvider.overrideWithValue(() => DateTime(2026, 11, 16, 8)),
+              clockProvider.overrideWithValue(
+                () => DateTime.utc(2026, 11, 16, 8),
+              ),
               scanAnalyzerProvider.overrideWithValue(FakeScanAnalyzer()),
+              leaderboardServiceProvider.overrideWithValue(leaderboard),
               // Banners, "Watch ad" badges and the privacy entry on.
               ...adsOnOverrides(),
             ],
@@ -427,6 +447,11 @@ void main() {
       // The leaderboard before solving (reminder card, unranked board),
       // then after a timed solve (rank card, board centered on the user).
       await show(const DailyLeaderboardScreen());
+      // Offline: the notice with its retry button.
+      leaderboard.online = false;
+      await show(const DailyLeaderboardScreen(), scroll: false);
+      expect(find.byKey(const ValueKey('leaderboard-offline')), findsOneWidget);
+      leaderboard.online = true;
       await prefs.setString('daily_last_day', '2026-11-16');
       await prefs.setString('daily_time_day', '2026-11-16');
       await prefs.setInt('daily_time_ms', 44870);

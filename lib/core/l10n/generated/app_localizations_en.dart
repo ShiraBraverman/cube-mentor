@@ -2150,9 +2150,34 @@ class AppLocalizationsEn extends AppLocalizations {
       'Solve today\'s challenge to join the ranking.';
 
   @override
-  String get leaderboardSimulated =>
-      'Offline leaderboard: rivals are simulated on your device. Your time is real.';
+  String get leaderboardJumpToMe => 'Jump to my rank';
 
   @override
-  String get leaderboardJumpToMe => 'Jump to my rank';
+  String get leaderboardAnonymous => 'Anonymous';
+
+  @override
+  String get leaderboardLive =>
+      'Live global ranking: real players, updated in real time.';
+
+  @override
+  String get leaderboardConnecting => 'Connecting to the live leaderboard…';
+
+  @override
+  String get leaderboardOffline =>
+      'You\'re offline. Live rankings will appear when you reconnect.';
+
+  @override
+  String get leaderboardCached =>
+      'Offline: showing the last rankings saved on this device.';
+
+  @override
+  String get leaderboardPendingSync =>
+      'Your time is saved and will be ranked once you\'re back online.';
+
+  @override
+  String get leaderboardBeFirst =>
+      'No one has solved today\'s challenge yet. Be the first!';
+
+  @override
+  String get leaderboardRetry => 'Retry';
 }

@@ -595,6 +595,13 @@
   "leaderboardYourTime": "Ваше время: {time}",
   "leaderboardYou": "Вы",
   "leaderboardNotRanked": "Решите сегодняшнее испытание, чтобы попасть в рейтинг.",
-  "leaderboardSimulated": "Офлайн-рейтинг: соперники моделируются на вашем устройстве. Ваше время — настоящее.",
-  "leaderboardJumpToMe": "К моему месту"
+  "leaderboardJumpToMe": "К моему месту",
+  "leaderboardAnonymous": "Аноним",
+  "leaderboardLive": "Мировой рейтинг в реальном времени: только настоящие игроки.",
+  "leaderboardConnecting": "Подключаемся к рейтингу в реальном времени…",
+  "leaderboardOffline": "Нет подключения. Рейтинг появится, когда вы снова будете в сети.",
+  "leaderboardCached": "Нет подключения: показан последний рейтинг, сохранённый на устройстве.",
+  "leaderboardPendingSync": "Ваше время сохранено и попадёт в рейтинг, когда вы снова будете в сети.",
+  "leaderboardBeFirst": "Сегодняшнее испытание ещё никто не решил. Станьте первым!",
+  "leaderboardRetry": "Повторить"
 }

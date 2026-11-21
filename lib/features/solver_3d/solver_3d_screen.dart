@@ -52,8 +52,9 @@ class Solver3DScreen extends ConsumerStatefulWidget {
   /// App bar title; defaults to the playground title.
   final String? title;
 
-  /// Called once when the user turns [initialCube] into a solved cube.
-  final VoidCallback? onSolved;
+  /// Called once when the user turns [initialCube] into a solved cube,
+  /// with the number of turns it took.
+  final ValueChanged<int>? onSolved;
 
   @override
   ConsumerState<Solver3DScreen> createState() => _Solver3DScreenState();
@@ -61,6 +62,9 @@ class Solver3DScreen extends ConsumerStatefulWidget {
 
 class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
   bool _reportedSolved = false;
+
+  /// Turns applied to the cube since the screen opened (undo counts too).
+  int _turns = 0;
 
   /// Short message floating under the app bar (e.g. "already solved"),
   /// never over the controls; null while hidden.
@@ -192,6 +196,18 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
       },
     );
 
+    // Counts every applied turn, for the solve's move count.
+    ref.listen(cubeSessionProvider(size).select((s) => (s.epoch, s.cube)), (
+      previous,
+      next,
+    ) {
+      if (previous != null &&
+          previous.$1 == next.$1 &&
+          !identical(previous.$2, next.$2)) {
+        _turns++;
+      }
+    });
+
     // The user solved the cube they started from (e.g. the daily scramble).
     ref.listen(
       cubeSessionProvider(size).select((s) => s.isIdle && s.cube.isSolved),
@@ -200,7 +216,7 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
         if (onSolved == null || _reportedSolved) return;
         if (previous == false && next) {
           _reportedSolved = true;
-          onSolved();
+          onSolved(_turns);
         }
       },
     );

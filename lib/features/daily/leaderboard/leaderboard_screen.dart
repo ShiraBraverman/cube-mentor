@@ -1,21 +1,18 @@
-import 'dart:async';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart' show NumberFormat;
 import 'package:material_ui/material_ui.dart';
 
 import '../../../core/l10n/generated/app_localizations.dart';
-import '../../../core/settings/clock.dart';
 import '../../../core/settings/nickname.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/glass.dart';
 import '../../../core/theme/ui_kit.dart';
 import '../../timer/model/timer_stats.dart';
-import '../daily_controller.dart';
 import 'daily_leaderboard.dart';
+import 'leaderboard_service.dart';
 
 /// Height of one leaderboard row; fixed so the user's row can be centered
-/// without laying out the thousands of rows above it.
+/// without laying out the rows above it.
 const double kLeaderboardRowExtent = 56;
 
 /// "4,820" in the app language (Latin digits where intl lacks the locale).
@@ -26,38 +23,20 @@ String formatCount(AppLocalizations l10n, int value) {
   return NumberFormat.decimalPattern(locale).format(value);
 }
 
-/// Today's board at the current clock, refreshed every minute while shown
-/// so new rivals keep joining.
-mixin LiveLeaderboard<T extends ConsumerStatefulWidget> on ConsumerState<T> {
-  Timer? _tick;
-
-  @override
-  void initState() {
-    super.initState();
-    _tick = Timer.periodic(const Duration(minutes: 1), (_) {
-      if (mounted) setState(() {});
-    });
+/// "238 players solved it today • Avg time: 43.1", or the state of the
+/// connection when there is no board to describe.
+String leaderboardFieldText(AppLocalizations l10n, LeaderboardView view) {
+  final board = view.board;
+  if (board == null) {
+    return view.loading ? l10n.leaderboardConnecting : l10n.leaderboardOffline;
   }
-
-  @override
-  void dispose() {
-    _tick?.cancel();
-    super.dispose();
-  }
-
-  DailyLeaderboard watchLeaderboard() {
-    final daily = ref.watch(dailyProvider);
-    final now = ref.watch(clockProvider)();
-    return DailyLeaderboard.cached(
-      dayKey: dayKey(daily.date),
-      now: now,
-      userMillis: daily.doneToday ? daily.todayMillis : null,
-    );
-  }
+  if (board.isEmpty) return l10n.leaderboardBeFirst;
+  return '${l10n.leaderboardSolvedToday(board.solverCount, formatCount(l10n, board.solverCount))}'
+      ' • ${l10n.leaderboardAvgTime(formatTime(board.averageMillis))}';
 }
 
-/// The daily challenge's ranked list: thousands of simulated rivals plus
-/// the user's real time, opened centered on the user's row.
+/// The live global ranking of today's challenge, opened centered on the
+/// user's row.
 class DailyLeaderboardScreen extends ConsumerStatefulWidget {
   const DailyLeaderboardScreen({super.key});
 
@@ -66,13 +45,17 @@ class DailyLeaderboardScreen extends ConsumerStatefulWidget {
       _DailyLeaderboardScreenState();
 }
 
-class _DailyLeaderboardScreenState extends ConsumerState<DailyLeaderboardScreen>
-    with LiveLeaderboard {
-  ScrollController? _scroll;
+class _DailyLeaderboardScreenState
+    extends ConsumerState<DailyLeaderboardScreen> {
+  final _scroll = ScrollController();
+
+  /// The list was centered on the user once; afterwards live updates keep
+  /// the reader's position.
+  bool _centered = false;
 
   @override
   void dispose() {
-    _scroll?.dispose();
+    _scroll.dispose();
     super.dispose();
   }
 
@@ -83,28 +66,41 @@ class _DailyLeaderboardScreenState extends ConsumerState<DailyLeaderboardScreen>
           index: board.userIndex!,
           rowExtent: kLeaderboardRowExtent,
           viewport: viewport,
-          rowCount: board.total,
+          rowCount: board.rows.length,
         );
 
   void _jumpToMe(DailyLeaderboard board) {
-    final scroll = _scroll;
-    if (scroll == null || !scroll.hasClients) return;
-    scroll.animateTo(
-      _offsetFor(board, scroll.position.viewportDimension),
+    if (!_scroll.hasClients) return;
+    _scroll.animateTo(
+      _offsetFor(board, _scroll.position.viewportDimension),
       duration: const Duration(milliseconds: 450),
       curve: Curves.easeOutCubic,
     );
+  }
+
+  /// Centers the user's row the first time it is on the board (the board
+  /// arrives from the network after the screen opened).
+  void _centerOnce(DailyLeaderboard board) {
+    if (_centered || board.userIndex == null) return;
+    _centered = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || !_scroll.hasClients) return;
+      _scroll.jumpTo(_offsetFor(board, _scroll.position.viewportDimension));
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final textTheme = Theme.of(context).textTheme;
-    final board = watchLeaderboard();
+    final view = ref.watch(leaderboardViewProvider);
+    final board = view.board;
     final name =
         ref.watch(nicknameProvider.select((n) => n.name)) ??
         l10n.leaderboardYou;
-    final rank = board.userRank;
+    final rank = board?.userRank;
+    final myMillis = board?.user?.millis ?? view.localMillis;
+    if (board != null) _centerOnce(board);
 
     return GlassBackground(
       child: Scaffold(
@@ -115,7 +111,7 @@ class _DailyLeaderboardScreenState extends ConsumerState<DailyLeaderboardScreen>
               IconButton(
                 key: const ValueKey('leaderboard-jump'),
                 tooltip: l10n.leaderboardJumpToMe,
-                onPressed: () => _jumpToMe(board),
+                onPressed: () => _jumpToMe(board!),
                 icon: const Icon(Icons.my_location_rounded),
               ),
           ],
@@ -150,36 +146,42 @@ class _DailyLeaderboardScreenState extends ConsumerState<DailyLeaderboardScreen>
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              if (rank != null) ...[
+                              if (rank != null)
                                 Text(
                                   l10n.leaderboardRankOf(
                                     formatCount(l10n, rank),
-                                    formatCount(l10n, board.total),
+                                    formatCount(l10n, board!.total),
                                   ),
                                   key: const ValueKey('leaderboard-rank'),
                                   style: textTheme.headlineSmall?.copyWith(
                                     color: AppColors.gold,
                                   ),
-                                ),
-                                Text(
-                                  l10n.leaderboardYourTime(
-                                    formatTime(board.userMillis),
-                                  ),
-                                  style: textTheme.bodyMedium,
-                                ),
-                              ] else
+                                )
+                              else if (myMillis == null)
                                 Text(
                                   l10n.leaderboardNotRanked,
                                   key: const ValueKey('leaderboard-unranked'),
                                   style: textTheme.titleSmall,
                                 ),
-                              const SizedBox(height: 2),
-                              Text(
-                                '${l10n.leaderboardSolvedToday(board.rivalCount, formatCount(l10n, board.rivalCount))}'
-                                ' • ${l10n.leaderboardAvgTime(formatTime(board.averageMillis))}',
-                                key: const ValueKey('leaderboard-field'),
-                                style: textTheme.bodySmall,
-                              ),
+                              if (myMillis != null)
+                                Text(
+                                  l10n.leaderboardYourTime(
+                                    formatTime(myMillis),
+                                  ),
+                                  style: rank != null
+                                      ? textTheme.bodyMedium
+                                      : textTheme.titleSmall,
+                                ),
+                              // Offline with nothing cached, the notice
+                              // below says it all.
+                              if (board != null || view.loading) ...[
+                                const SizedBox(height: 2),
+                                Text(
+                                  leaderboardFieldText(l10n, view),
+                                  key: const ValueKey('leaderboard-field'),
+                                  style: textTheme.bodySmall,
+                                ),
+                              ],
                             ],
                           ),
                         ),
@@ -187,43 +189,70 @@ class _DailyLeaderboardScreenState extends ConsumerState<DailyLeaderboardScreen>
                     ),
                   ),
                 ),
-                Expanded(
-                  child: LayoutBuilder(
-                    builder: (context, constraints) {
-                      // Opens centered on the user's row; later rebuilds
-                      // (new rivals joining) keep the reader's position.
-                      _scroll ??= ScrollController(
-                        initialScrollOffset: _offsetFor(
-                          board,
-                          constraints.maxHeight,
-                        ),
-                      );
-                      return Scrollbar(
-                        controller: _scroll,
-                        interactive: true,
-                        child: ListView.builder(
-                          key: const ValueKey('leaderboard-list'),
-                          controller: _scroll,
-                          itemExtent: kLeaderboardRowExtent,
-                          padding: EdgeInsets.zero,
-                          itemCount: board.total,
-                          itemBuilder: (context, i) {
-                            final entry = board.entries[i];
-                            return _LeaderboardRow(
-                              key: entry.isUser
-                                  ? const ValueKey('leaderboard-me')
-                                  : null,
-                              rank: formatCount(l10n, i + 1),
-                              place: i + 1,
-                              name: entry.isUser ? name : board.nameOf(entry),
-                              time: formatTime(entry.millis),
-                              isUser: entry.isUser,
-                            );
-                          },
-                        ),
-                      );
-                    },
+                if (view.offline || view.pendingSync)
+                  Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                      AppSpace.gutter,
+                      0,
+                      AppSpace.gutter,
+                      AppSpace.sm,
+                    ),
+                    child: _Notice(
+                      offline: view.offline,
+                      cached: board != null,
+                      pendingSync: view.pendingSync && rank == null,
+                      onRetry: () {
+                        ref.invalidate(leaderboardPageProvider);
+                        ref.read(leaderboardSyncProvider.notifier).sync();
+                      },
+                    ),
                   ),
+                Expanded(
+                  child: board == null
+                      ? (view.loading
+                            ? const Center(
+                                child: CircularProgressIndicator(
+                                  key: ValueKey('leaderboard-loading'),
+                                ),
+                              )
+                            : const Center(
+                                child: Icon(
+                                  Icons.cloud_off_rounded,
+                                  size: 56,
+                                  color: AppColors.textTertiary,
+                                ),
+                              ))
+                      : Scrollbar(
+                          controller: _scroll,
+                          interactive: true,
+                          child: ListView.builder(
+                            key: const ValueKey('leaderboard-list'),
+                            controller: _scroll,
+                            itemExtent: kLeaderboardRowExtent,
+                            padding: EdgeInsets.zero,
+                            itemCount: board.rows.length,
+                            itemBuilder: (context, i) {
+                              final row = board.rows[i];
+                              if (row == null) return const _GapRow();
+                              final nickname = row.record.nickname;
+                              return _LeaderboardRow(
+                                key: row.isUser
+                                    ? const ValueKey('leaderboard-me')
+                                    : null,
+                                rank: formatCount(l10n, row.rank),
+                                place: row.rank,
+                                name: row.isUser
+                                    ? name
+                                    : (nickname.isEmpty
+                                          ? l10n.leaderboardAnonymous
+                                          : nickname),
+                                time: formatTime(row.millis),
+                                isUser: row.isUser,
+                                pending: row.pending,
+                              );
+                            },
+                          ),
+                        ),
                 ),
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(
@@ -235,15 +264,15 @@ class _DailyLeaderboardScreenState extends ConsumerState<DailyLeaderboardScreen>
                   child: Row(
                     children: [
                       const Icon(
-                        Icons.info_outline_rounded,
+                        Icons.public_rounded,
                         size: 14,
                         color: AppColors.textTertiary,
                       ),
                       const SizedBox(width: AppSpace.xxs),
                       Expanded(
                         child: Text(
-                          l10n.leaderboardSimulated,
-                          key: const ValueKey('leaderboard-disclosure'),
+                          l10n.leaderboardLive,
+                          key: const ValueKey('leaderboard-live'),
                           style: textTheme.bodySmall?.copyWith(
                             color: AppColors.textTertiary,
                           ),
@@ -261,6 +290,98 @@ class _DailyLeaderboardScreenState extends ConsumerState<DailyLeaderboardScreen>
   }
 }
 
+/// Offline / not-yet-synced notice above the list.
+class _Notice extends StatelessWidget {
+  const _Notice({
+    required this.offline,
+    required this.cached,
+    required this.pendingSync,
+    required this.onRetry,
+  });
+
+  final bool offline;
+  final bool cached;
+  final bool pendingSync;
+  final VoidCallback onRetry;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final textTheme = Theme.of(context).textTheme;
+    final lines = [
+      if (offline) cached ? l10n.leaderboardCached : l10n.leaderboardOffline,
+      if (pendingSync) l10n.leaderboardPendingSync,
+    ];
+    if (lines.isEmpty) return const SizedBox.shrink();
+    return GlassCard(
+      key: const ValueKey('leaderboard-notice'),
+      accent: AppColors.accentWarm,
+      padding: const EdgeInsetsDirectional.fromSTEB(
+        AppSpace.md,
+        AppSpace.xs,
+        AppSpace.xxs,
+        AppSpace.xs,
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: AppSpace.xxs),
+            child: Icon(
+              offline ? Icons.cloud_off_rounded : Icons.cloud_upload_rounded,
+              size: 20,
+              color: AppColors.accentWarm,
+            ),
+          ),
+          const SizedBox(width: AppSpace.sm),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: AppSpace.xxs),
+                  child: Text(
+                    lines.join('\n'),
+                    key: ValueKey(
+                      offline ? 'leaderboard-offline' : 'leaderboard-pending',
+                    ),
+                    style: textTheme.bodySmall,
+                  ),
+                ),
+                // The theme's full-width button minimum would squeeze the
+                // text, so the retry button sits under it, compact.
+                if (offline)
+                  Align(
+                    alignment: AlignmentDirectional.centerEnd,
+                    child: TextButton(
+                      key: const ValueKey('leaderboard-retry'),
+                      style: TextButton.styleFrom(
+                        minimumSize: const Size(48, 36),
+                      ),
+                      onPressed: onRetry,
+                      child: Text(l10n.leaderboardRetry),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// The "…" between the top rows and the rows around the user.
+class _GapRow extends StatelessWidget {
+  const _GapRow();
+
+  @override
+  Widget build(BuildContext context) => const Center(
+    key: ValueKey('leaderboard-gap'),
+    child: Icon(Icons.more_vert_rounded, color: AppColors.textTertiary),
+  );
+}
+
 class _LeaderboardRow extends StatelessWidget {
   const _LeaderboardRow({
     super.key,
@@ -269,6 +390,7 @@ class _LeaderboardRow extends StatelessWidget {
     required this.name,
     required this.time,
     required this.isUser,
+    this.pending = false,
   });
 
   final String rank;
@@ -276,6 +398,7 @@ class _LeaderboardRow extends StatelessWidget {
   final String name;
   final String time;
   final bool isUser;
+  final bool pending;
 
   static const _podium = [AppColors.gold, Color(0xFFC9D2E3), Color(0xFFE0975A)];
 
@@ -325,7 +448,9 @@ class _LeaderboardRow extends StatelessWidget {
                   alpha: isUser ? 0.9 : 0.22,
                 ),
                 child: Text(
-                  name.characters.first.toUpperCase(),
+                  name.characters.isEmpty
+                      ? '?'
+                      : name.characters.first.toUpperCase(),
                   style: textTheme.labelMedium?.copyWith(
                     color: isUser ? AppColors.onAccent : AppColors.textPrimary,
                   ),
@@ -343,6 +468,15 @@ class _LeaderboardRow extends StatelessWidget {
                   ),
                 ),
               ),
+              if (pending) ...[
+                const Icon(
+                  Icons.cloud_upload_outlined,
+                  key: ValueKey('leaderboard-me-pending'),
+                  size: 16,
+                  color: AppColors.textTertiary,
+                ),
+                const SizedBox(width: AppSpace.xxs),
+              ],
               const SizedBox(width: AppSpace.xs),
               Text(
                 time,
@@ -361,35 +495,40 @@ class _LeaderboardRow extends StatelessWidget {
 }
 
 /// The daily page's live card: before solving, a reminder with how many
-/// rivals solved today and their average; after, the user's rank. Opens
+/// players solved today and their average; after, the user's rank. Opens
 /// the leaderboard.
-class LeaderboardStatusCard extends ConsumerStatefulWidget {
+class LeaderboardStatusCard extends ConsumerWidget {
   const LeaderboardStatusCard({super.key, required this.onOpen});
 
   final VoidCallback onOpen;
 
   @override
-  ConsumerState<LeaderboardStatusCard> createState() =>
-      _LeaderboardStatusCardState();
-}
-
-class _LeaderboardStatusCardState extends ConsumerState<LeaderboardStatusCard>
-    with LiveLeaderboard {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final textTheme = Theme.of(context).textTheme;
-    final board = watchLeaderboard();
-    final rank = board.userRank;
-    final field =
-        '${l10n.leaderboardSolvedToday(board.rivalCount, formatCount(l10n, board.rivalCount))}'
-        ' • ${l10n.leaderboardAvgTime(formatTime(board.averageMillis))}';
-    final accent = rank == null ? AppColors.accentWarm : AppColors.gold;
+    final view = ref.watch(leaderboardViewProvider);
+    final board = view.board;
+    final rank = board?.userRank;
+    final solved = view.localMillis != null;
+    final title = rank != null
+        ? l10n.leaderboardRankOf(
+            formatCount(l10n, rank),
+            formatCount(l10n, board!.total),
+          )
+        : solved
+        ? l10n.leaderboardYourTime(formatTime(view.localMillis))
+        : l10n.leaderboardReminder;
+    final field = solved && rank == null && view.pendingSync
+        ? l10n.leaderboardPendingSync
+        : leaderboardFieldText(l10n, view);
+    final accent = rank == null && !solved
+        ? AppColors.accentWarm
+        : AppColors.gold;
     return GlassCard(
       key: const ValueKey('leaderboard-status'),
       selected: true,
       accent: accent,
-      onTap: widget.onOpen,
+      onTap: onOpen,
       padding: const EdgeInsetsDirectional.fromSTEB(
         AppSpace.md,
         AppSpace.sm,
@@ -399,7 +538,7 @@ class _LeaderboardStatusCardState extends ConsumerState<LeaderboardStatusCard>
       child: Row(
         children: [
           Icon(
-            rank == null
+            rank == null && !solved
                 ? Icons.notifications_active_rounded
                 : Icons.emoji_events_rounded,
             color: accent,
@@ -410,12 +549,7 @@ class _LeaderboardStatusCardState extends ConsumerState<LeaderboardStatusCard>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  rank == null
-                      ? l10n.leaderboardReminder
-                      : l10n.leaderboardRankOf(
-                          formatCount(l10n, rank),
-                          formatCount(l10n, board.total),
-                        ),
+                  title,
                   key: const ValueKey('leaderboard-status-title'),
                   style: textTheme.titleSmall?.copyWith(color: accent),
                 ),

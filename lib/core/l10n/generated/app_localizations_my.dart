@@ -2153,9 +2153,34 @@ class AppLocalizationsMy extends AppLocalizations {
       'အဆင့်ဇယားဝင်ရန် ယနေ့ စိန်ခေါ်မှုကို ဖြေရှင်းပါ။';
 
   @override
-  String get leaderboardSimulated =>
-      'အော့ဖ်လိုင်း အဆင့်ဇယား- ပြိုင်ဘက်များကို သင့်စက်ပေါ်တွင် အတုပြုလုပ်ထားသည်။ သင့်အချိန်မှာ အစစ်ဖြစ်သည်။';
+  String get leaderboardJumpToMe => 'ကျွန်ုပ်၏ အဆင့်သို့';
 
   @override
-  String get leaderboardJumpToMe => 'ကျွန်ုပ်၏ အဆင့်သို့';
+  String get leaderboardAnonymous => 'အမည်မသိ';
+
+  @override
+  String get leaderboardLive =>
+      'တိုက်ရိုက် ကမ္ဘာ့အဆင့်ဇယား - ကစားသမားအစစ်များ၊ အချိန်နှင့်တပြေးညီ အပ်ဒိတ်။';
+
+  @override
+  String get leaderboardConnecting => 'တိုက်ရိုက် အဆင့်ဇယားသို့ ချိတ်ဆက်နေသည်…';
+
+  @override
+  String get leaderboardOffline =>
+      'အော့ဖ်လိုင်း ဖြစ်နေသည်။ ပြန်ချိတ်ဆက်သောအခါ တိုက်ရိုက်အဆင့်များ ပေါ်လာပါမည်။';
+
+  @override
+  String get leaderboardCached =>
+      'အော့ဖ်လိုင်း - ဤစက်တွင် သိမ်းထားသော နောက်ဆုံးအဆင့်ဇယားကို ပြနေသည်။';
+
+  @override
+  String get leaderboardPendingSync =>
+      'သင့်အချိန်ကို သိမ်းထားပြီး အွန်လိုင်း ပြန်ရောက်သောအခါ အဆင့်သတ်မှတ်ပါမည်။';
+
+  @override
+  String get leaderboardBeFirst =>
+      'ယနေ့ စိန်ခေါ်မှုကို မည်သူမျှ မဖြေရှင်းရသေးပါ။ ပထမဆုံး ဖြစ်လိုက်ပါ!';
+
+  @override
+  String get leaderboardRetry => 'ထပ်စမ်းရန်';
 }

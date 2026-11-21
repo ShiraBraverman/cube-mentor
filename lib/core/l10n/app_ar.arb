@@ -595,6 +595,13 @@
   "leaderboardYourTime": "وقتك: {time}",
   "leaderboardYou": "أنت",
   "leaderboardNotRanked": "حلّ تحدي اليوم لتدخل الترتيب.",
-  "leaderboardSimulated": "لوحة صدارة دون اتصال: المنافسون محاكون على جهازك. وقتك حقيقي.",
-  "leaderboardJumpToMe": "الانتقال إلى مركزي"
+  "leaderboardJumpToMe": "الانتقال إلى مركزي",
+  "leaderboardAnonymous": "مجهول",
+  "leaderboardLive": "ترتيب عالمي مباشر: لاعبون حقيقيون، يُحدَّث لحظيًا.",
+  "leaderboardConnecting": "جارٍ الاتصال بلوحة الصدارة المباشرة…",
+  "leaderboardOffline": "أنت غير متصل. سيظهر الترتيب المباشر عند عودة الاتصال.",
+  "leaderboardCached": "غير متصل: يُعرض آخر ترتيب محفوظ على هذا الجهاز.",
+  "leaderboardPendingSync": "تم حفظ وقتك وسيدخل الترتيب عند عودتك إلى الاتصال.",
+  "leaderboardBeFirst": "لم يحلّ أحد تحدي اليوم بعد. كن الأول!",
+  "leaderboardRetry": "إعادة المحاولة"
 }

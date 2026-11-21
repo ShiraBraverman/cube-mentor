@@ -2183,9 +2183,34 @@ class AppLocalizationsPl extends AppLocalizations {
       'Rozwiąż dzisiejsze wyzwanie, aby trafić do rankingu.';
 
   @override
-  String get leaderboardSimulated =>
-      'Ranking offline: rywale są symulowani na Twoim urządzeniu. Twój czas jest prawdziwy.';
+  String get leaderboardJumpToMe => 'Przejdź do mojego miejsca';
 
   @override
-  String get leaderboardJumpToMe => 'Przejdź do mojego miejsca';
+  String get leaderboardAnonymous => 'Anonim';
+
+  @override
+  String get leaderboardLive =>
+      'Globalny ranking na żywo: prawdziwi gracze, aktualizowany w czasie rzeczywistym.';
+
+  @override
+  String get leaderboardConnecting => 'Łączenie z rankingiem na żywo…';
+
+  @override
+  String get leaderboardOffline =>
+      'Jesteś offline. Ranking na żywo pojawi się po ponownym połączeniu.';
+
+  @override
+  String get leaderboardCached =>
+      'Offline: pokazujemy ostatni ranking zapisany na tym urządzeniu.';
+
+  @override
+  String get leaderboardPendingSync =>
+      'Twój czas jest zapisany i trafi do rankingu, gdy wrócisz do sieci.';
+
+  @override
+  String get leaderboardBeFirst =>
+      'Nikt jeszcze nie rozwiązał dzisiejszego wyzwania. Bądź pierwszy!';
+
+  @override
+  String get leaderboardRetry => 'Spróbuj ponownie';
 }

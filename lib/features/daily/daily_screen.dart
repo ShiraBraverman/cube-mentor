@@ -274,10 +274,11 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
                               size: kDailySize,
                               initialCube: cube,
                               title: l10n.dailyTitle,
-                              onSolved: () => controller.complete(
+                              onSolved: (moves) => controller.complete(
                                 millis: clock()
                                     .difference(start)
                                     .inMilliseconds,
+                                moves: moves,
                               ),
                             ),
                           );

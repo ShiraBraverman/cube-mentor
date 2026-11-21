@@ -1129,7 +1129,7 @@
   },
   "leaderboardSolvedToday": "{count, plural, one{{countText} player solved it today} other{{countText} players solved it today}}",
   "@leaderboardSolvedToday": {
-    "description": "How many (simulated) players solved today; countText is count with digit grouping.",
+    "description": "How many players solved today; countText is count with digit grouping.",
     "placeholders": {
       "count": {
         "type": "int"
@@ -1182,12 +1182,40 @@
   "@leaderboardNotRanked": {
     "description": "Shown on the leaderboard before the user solved today."
   },
-  "leaderboardSimulated": "Offline leaderboard: rivals are simulated on your device. Your time is real.",
-  "@leaderboardSimulated": {
-    "description": "Disclosure footnote: the rivals are generated offline, the user time is real."
-  },
   "leaderboardJumpToMe": "Jump to my rank",
   "@leaderboardJumpToMe": {
     "description": "Tooltip: scroll the leaderboard to the user's row."
+  },
+  "leaderboardAnonymous": "Anonymous",
+  "@leaderboardAnonymous": {
+    "description": "Leaderboard name of a player who skipped the nickname."
+  },
+  "leaderboardLive": "Live global ranking: real players, updated in real time.",
+  "@leaderboardLive": {
+    "description": "Footnote under the leaderboard: the ranking is live, global and made of real players."
+  },
+  "leaderboardConnecting": "Connecting to the live leaderboard…",
+  "@leaderboardConnecting": {
+    "description": "Shown while the live leaderboard is loading."
+  },
+  "leaderboardOffline": "You're offline. Live rankings will appear when you reconnect.",
+  "@leaderboardOffline": {
+    "description": "Shown when the live leaderboard cannot be fetched (no connection)."
+  },
+  "leaderboardCached": "Offline: showing the last rankings saved on this device.",
+  "@leaderboardCached": {
+    "description": "Offline notice when the last cached rankings are shown."
+  },
+  "leaderboardPendingSync": "Your time is saved and will be ranked once you're back online.",
+  "@leaderboardPendingSync": {
+    "description": "The user's solve waits on the device until it can be uploaded."
+  },
+  "leaderboardBeFirst": "No one has solved today's challenge yet. Be the first!",
+  "@leaderboardBeFirst": {
+    "description": "Shown when nobody solved today's challenge yet."
+  },
+  "leaderboardRetry": "Retry",
+  "@leaderboardRetry": {
+    "description": "Button: try to reach the live leaderboard again."
   }
 }

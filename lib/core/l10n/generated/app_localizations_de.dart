@@ -2169,9 +2169,35 @@ class AppLocalizationsDe extends AppLocalizations {
       'Löse die heutige Challenge, um in die Rangliste zu kommen.';
 
   @override
-  String get leaderboardSimulated =>
-      'Offline-Rangliste: Die Gegner werden auf deinem Gerät simuliert. Deine Zeit ist echt.';
+  String get leaderboardJumpToMe => 'Zu meinem Rang';
 
   @override
-  String get leaderboardJumpToMe => 'Zu meinem Rang';
+  String get leaderboardAnonymous => 'Anonym';
+
+  @override
+  String get leaderboardLive =>
+      'Live-Weltrangliste: echte Spieler, in Echtzeit aktualisiert.';
+
+  @override
+  String get leaderboardConnecting =>
+      'Verbindung zur Live-Rangliste wird hergestellt…';
+
+  @override
+  String get leaderboardOffline =>
+      'Du bist offline. Die Live-Rangliste erscheint, sobald du wieder verbunden bist.';
+
+  @override
+  String get leaderboardCached =>
+      'Offline: Es wird die letzte auf diesem Gerät gespeicherte Rangliste angezeigt.';
+
+  @override
+  String get leaderboardPendingSync =>
+      'Deine Zeit ist gespeichert und wird gewertet, sobald du wieder online bist.';
+
+  @override
+  String get leaderboardBeFirst =>
+      'Noch niemand hat die heutige Challenge gelöst. Sei der Erste!';
+
+  @override
+  String get leaderboardRetry => 'Erneut versuchen';
 }

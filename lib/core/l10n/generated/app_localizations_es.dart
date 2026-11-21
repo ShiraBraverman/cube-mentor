@@ -2162,9 +2162,35 @@ class AppLocalizationsEs extends AppLocalizations {
       'Resuelve el reto de hoy para entrar en la clasificación.';
 
   @override
-  String get leaderboardSimulated =>
-      'Clasificación sin conexión: los rivales se simulan en tu dispositivo. Tu tiempo es real.';
+  String get leaderboardJumpToMe => 'Ir a mi puesto';
 
   @override
-  String get leaderboardJumpToMe => 'Ir a mi puesto';
+  String get leaderboardAnonymous => 'Anónimo';
+
+  @override
+  String get leaderboardLive =>
+      'Ranking mundial en vivo: jugadores reales, actualizado en tiempo real.';
+
+  @override
+  String get leaderboardConnecting =>
+      'Conectando con la clasificación en vivo…';
+
+  @override
+  String get leaderboardOffline =>
+      'Estás sin conexión. La clasificación en vivo aparecerá cuando vuelvas a conectarte.';
+
+  @override
+  String get leaderboardCached =>
+      'Sin conexión: se muestra la última clasificación guardada en este dispositivo.';
+
+  @override
+  String get leaderboardPendingSync =>
+      'Tu tiempo está guardado y entrará en la clasificación cuando vuelvas a estar en línea.';
+
+  @override
+  String get leaderboardBeFirst =>
+      'Nadie ha resuelto todavía el reto de hoy. ¡Sé el primero!';
+
+  @override
+  String get leaderboardRetry => 'Reintentar';
 }

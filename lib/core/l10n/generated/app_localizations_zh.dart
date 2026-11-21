@@ -1990,10 +1990,31 @@ class AppLocalizationsZh extends AppLocalizations {
   String get leaderboardNotRanked => '完成今天的挑战即可加入排名。';
 
   @override
-  String get leaderboardSimulated => '离线排行榜：对手在你的设备上模拟生成，你的成绩是真实的。';
+  String get leaderboardJumpToMe => '跳到我的排名';
 
   @override
-  String get leaderboardJumpToMe => '跳到我的排名';
+  String get leaderboardAnonymous => '匿名';
+
+  @override
+  String get leaderboardLive => '全球实时排名：真实玩家，实时更新。';
+
+  @override
+  String get leaderboardConnecting => '正在连接实时排行榜…';
+
+  @override
+  String get leaderboardOffline => '你已离线。重新连接后将显示实时排名。';
+
+  @override
+  String get leaderboardCached => '离线：正在显示本设备上保存的最新排名。';
+
+  @override
+  String get leaderboardPendingSync => '你的成绩已保存，恢复联网后将计入排名。';
+
+  @override
+  String get leaderboardBeFirst => '今天的挑战还没有人完成，快来争当第一！';
+
+  @override
+  String get leaderboardRetry => '重试';
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -4007,8 +4028,29 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get leaderboardNotRanked => '完成今天的挑戰即可加入排名。';
 
   @override
-  String get leaderboardSimulated => '離線排行榜：對手在你的裝置上模擬產生，你的成績是真實的。';
+  String get leaderboardJumpToMe => '跳到我的排名';
 
   @override
-  String get leaderboardJumpToMe => '跳到我的排名';
+  String get leaderboardAnonymous => '匿名';
+
+  @override
+  String get leaderboardLive => '全球即時排名：真實玩家，即時更新。';
+
+  @override
+  String get leaderboardConnecting => '正在連線至即時排行榜…';
+
+  @override
+  String get leaderboardOffline => '你目前離線。重新連線後將顯示即時排名。';
+
+  @override
+  String get leaderboardCached => '離線：正在顯示此裝置上儲存的最新排名。';
+
+  @override
+  String get leaderboardPendingSync => '你的成績已儲存，恢復連線後將計入排名。';
+
+  @override
+  String get leaderboardBeFirst => '今天的挑戰還沒有人完成，快來搶頭香！';
+
+  @override
+  String get leaderboardRetry => '重試';
 }

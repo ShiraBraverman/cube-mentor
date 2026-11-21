@@ -595,6 +595,13 @@
   "leaderboardYourTime": "你的用时：{time}",
   "leaderboardYou": "你",
   "leaderboardNotRanked": "完成今天的挑战即可加入排名。",
-  "leaderboardSimulated": "离线排行榜：对手在你的设备上模拟生成，你的成绩是真实的。",
-  "leaderboardJumpToMe": "跳到我的排名"
+  "leaderboardJumpToMe": "跳到我的排名",
+  "leaderboardAnonymous": "匿名",
+  "leaderboardLive": "全球实时排名：真实玩家，实时更新。",
+  "leaderboardConnecting": "正在连接实时排行榜…",
+  "leaderboardOffline": "你已离线。重新连接后将显示实时排名。",
+  "leaderboardCached": "离线：正在显示本设备上保存的最新排名。",
+  "leaderboardPendingSync": "你的成绩已保存，恢复联网后将计入排名。",
+  "leaderboardBeFirst": "今天的挑战还没有人完成，快来争当第一！",
+  "leaderboardRetry": "重试"
 }

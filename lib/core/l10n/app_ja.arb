@@ -595,6 +595,13 @@
   "leaderboardYourTime": "あなたのタイム：{time}",
   "leaderboardYou": "あなた",
   "leaderboardNotRanked": "今日のチャレンジを解くとランキングに参加できます。",
-  "leaderboardSimulated": "オフラインのランキング：ライバルは端末上でシミュレートされています。あなたのタイムは本物です。",
-  "leaderboardJumpToMe": "自分の順位へ"
+  "leaderboardJumpToMe": "自分の順位へ",
+  "leaderboardAnonymous": "匿名",
+  "leaderboardLive": "世界ライブランキング：本物のプレイヤーをリアルタイムで更新。",
+  "leaderboardConnecting": "ライブランキングに接続中…",
+  "leaderboardOffline": "オフラインです。再接続するとライブランキングが表示されます。",
+  "leaderboardCached": "オフライン：この端末に保存された最新のランキングを表示しています。",
+  "leaderboardPendingSync": "タイムは保存済みです。オンラインに戻るとランキングに反映されます。",
+  "leaderboardBeFirst": "今日のチャレンジはまだ誰も解いていません。一番乗りを目指そう！",
+  "leaderboardRetry": "再試行"
 }

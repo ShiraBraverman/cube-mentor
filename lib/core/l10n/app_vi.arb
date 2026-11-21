@@ -595,6 +595,13 @@
   "leaderboardYourTime": "Thời gian của bạn: {time}",
   "leaderboardYou": "Bạn",
   "leaderboardNotRanked": "Giải thử thách hôm nay để vào bảng xếp hạng.",
-  "leaderboardSimulated": "Bảng xếp hạng ngoại tuyến: đối thủ được mô phỏng trên thiết bị của bạn. Thời gian của bạn là thật.",
-  "leaderboardJumpToMe": "Đến hạng của tôi"
+  "leaderboardJumpToMe": "Đến hạng của tôi",
+  "leaderboardAnonymous": "Ẩn danh",
+  "leaderboardLive": "Bảng xếp hạng toàn cầu trực tiếp: người chơi thật, cập nhật theo thời gian thực.",
+  "leaderboardConnecting": "Đang kết nối với bảng xếp hạng trực tiếp…",
+  "leaderboardOffline": "Bạn đang ngoại tuyến. Bảng xếp hạng trực tiếp sẽ hiện khi bạn kết nối lại.",
+  "leaderboardCached": "Ngoại tuyến: đang hiển thị bảng xếp hạng gần nhất lưu trên thiết bị này.",
+  "leaderboardPendingSync": "Thời gian của bạn đã được lưu và sẽ được xếp hạng khi bạn trực tuyến trở lại.",
+  "leaderboardBeFirst": "Chưa ai giải thử thách hôm nay. Hãy là người đầu tiên!",
+  "leaderboardRetry": "Thử lại"
 }

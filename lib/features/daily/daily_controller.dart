@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -9,15 +11,23 @@ import '../../core/settings/clock.dart';
 import '../../core/settings/preferences.dart';
 import '../../core/solver/cube_solver.dart';
 import '../../core/solver/solve_step.dart';
+import 'leaderboard/leaderboard_service.dart';
 
 /// Cube size of the daily challenge.
 const int kDailySize = 3;
 
-/// "2026-11-16": the local calendar day of [time].
+/// "2026-11-16": the calendar day of [time] (its own fields, no zone shift).
 String dayKey(DateTime time) =>
     '${time.year.toString().padLeft(4, '0')}-'
     '${time.month.toString().padLeft(2, '0')}-'
     '${time.day.toString().padLeft(2, '0')}';
+
+/// The challenge day at [now]: its UTC calendar date. The daily scramble,
+/// streak and global leaderboard all roll over at 00:00 UTC.
+DateTime challengeDay(DateTime now) {
+  final utc = now.toUtc();
+  return DateTime(utc.year, utc.month, utc.day);
+}
 
 /// Scramble seed of a day: the same scramble for everyone, fully offline.
 int daySeed(DateTime time) => time.year * 10000 + time.month * 100 + time.day;
@@ -35,7 +45,8 @@ class DailyState {
     this.todayMillis,
   });
 
-  /// Today (local time, midnight).
+  /// Today's challenge day: the UTC calendar day (as a date without a
+  /// zone), so every player worldwide shares one scramble and one board.
   final DateTime date;
 
   /// Today's scramble; null while it is generated.
@@ -92,9 +103,8 @@ class DailyController extends Notifier<DailyState> {
 
   @override
   DailyState build() {
-    final now = ref.watch(clockProvider)();
-    final today = DateTime(now.year, now.month, now.day);
-    final yesterday = DateTime(now.year, now.month, now.day - 1);
+    final today = challengeDay(ref.watch(clockProvider)());
+    final yesterday = DateTime(today.year, today.month, today.day - 1);
     final prefs = ref.watch(sharedPreferencesProvider);
     final last = prefs.getString(_lastKey);
     final stored = prefs.getInt(_streakKey) ?? 0;
@@ -120,8 +130,9 @@ class DailyController extends Notifier<DailyState> {
   }
 
   /// Records today's challenge as done and extends the streak. [millis] is
-  /// the solve time when a clock ran; the best one of the day is kept.
-  Future<void> complete({int? millis}) async {
+  /// the solve time when a clock ran; the best one of the day is kept and
+  /// sent to the live leaderboard ([moves] when known).
+  Future<void> complete({int? millis, int moves = 0}) async {
     final prefs = ref.read(sharedPreferencesProvider);
     if (millis != null && millis > 0) {
       final best = state.todayMillis;
@@ -129,6 +140,11 @@ class DailyController extends Notifier<DailyState> {
         state = state.copyWith(todayMillis: millis);
         await prefs.setString(_timeDayKey, dayKey(state.date));
         await prefs.setInt(_timeKey, millis);
+        unawaited(
+          ref
+              .read(leaderboardSyncProvider.notifier)
+              .submit(dayKey: dayKey(state.date), millis: millis, moves: moves),
+        );
       }
     }
     if (state.doneToday) return;

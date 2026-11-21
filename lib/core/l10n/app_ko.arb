@@ -595,6 +595,13 @@
   "leaderboardYourTime": "내 기록: {time}",
   "leaderboardYou": "나",
   "leaderboardNotRanked": "오늘의 챌린지를 풀면 순위에 들어갑니다.",
-  "leaderboardSimulated": "오프라인 순위표: 경쟁자는 기기에서 시뮬레이션됩니다. 내 기록은 실제 기록입니다.",
-  "leaderboardJumpToMe": "내 순위로 이동"
+  "leaderboardJumpToMe": "내 순위로 이동",
+  "leaderboardAnonymous": "익명",
+  "leaderboardLive": "실시간 글로벌 순위: 실제 플레이어, 실시간 업데이트.",
+  "leaderboardConnecting": "실시간 순위표에 연결하는 중…",
+  "leaderboardOffline": "오프라인 상태입니다. 다시 연결되면 실시간 순위가 표시됩니다.",
+  "leaderboardCached": "오프라인: 이 기기에 저장된 마지막 순위를 보여 줍니다.",
+  "leaderboardPendingSync": "기록이 저장되었으며 다시 온라인이 되면 순위에 반영됩니다.",
+  "leaderboardBeFirst": "아직 아무도 오늘의 챌린지를 풀지 않았습니다. 첫 번째가 되어 보세요!",
+  "leaderboardRetry": "다시 시도"
 }

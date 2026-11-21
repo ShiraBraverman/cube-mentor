@@ -2163,11 +2163,36 @@ class AppLocalizationsPt extends AppLocalizations {
       'Resolve o desafio de hoje para entrares na classificação.';
 
   @override
-  String get leaderboardSimulated =>
-      'Classificação offline: os rivais são simulados no teu dispositivo. O teu tempo é real.';
+  String get leaderboardJumpToMe => 'Ir para a minha posição';
 
   @override
-  String get leaderboardJumpToMe => 'Ir para a minha posição';
+  String get leaderboardAnonymous => 'Anónimo';
+
+  @override
+  String get leaderboardLive =>
+      'Classificação mundial em direto: jogadores reais, atualizada em tempo real.';
+
+  @override
+  String get leaderboardConnecting => 'A ligar à classificação em direto…';
+
+  @override
+  String get leaderboardOffline =>
+      'Estás sem ligação. A classificação em direto aparece quando voltares a ligar-te.';
+
+  @override
+  String get leaderboardCached =>
+      'Sem ligação: a mostrar a última classificação guardada neste dispositivo.';
+
+  @override
+  String get leaderboardPendingSync =>
+      'O teu tempo está guardado e entra na classificação quando voltares a estar online.';
+
+  @override
+  String get leaderboardBeFirst =>
+      'Ainda ninguém resolveu o desafio de hoje. Sê o primeiro!';
+
+  @override
+  String get leaderboardRetry => 'Tentar novamente';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -4322,9 +4347,34 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Resolva o desafio de hoje para entrar no ranking.';
 
   @override
-  String get leaderboardSimulated =>
-      'Ranking offline: os rivais são simulados no seu aparelho. Seu tempo é real.';
+  String get leaderboardJumpToMe => 'Ir para minha posição';
 
   @override
-  String get leaderboardJumpToMe => 'Ir para minha posição';
+  String get leaderboardAnonymous => 'Anônimo';
+
+  @override
+  String get leaderboardLive =>
+      'Ranking global ao vivo: jogadores reais, atualizado em tempo real.';
+
+  @override
+  String get leaderboardConnecting => 'Conectando ao ranking ao vivo…';
+
+  @override
+  String get leaderboardOffline =>
+      'Você está offline. O ranking ao vivo aparece quando você se conectar de novo.';
+
+  @override
+  String get leaderboardCached =>
+      'Offline: mostrando o último ranking salvo neste aparelho.';
+
+  @override
+  String get leaderboardPendingSync =>
+      'Seu tempo foi salvo e entra no ranking quando você voltar a ficar online.';
+
+  @override
+  String get leaderboardBeFirst =>
+      'Ninguém resolveu o desafio de hoje ainda. Seja o primeiro!';
+
+  @override
+  String get leaderboardRetry => 'Tentar de novo';
 }

@@ -595,6 +595,13 @@
   "leaderboardYourTime": "Сезнең вакыт: {time}",
   "leaderboardYou": "Сез",
   "leaderboardNotRanked": "Рейтингка керү өчен бүгенге сынауны чишегез.",
-  "leaderboardSimulated": "Офлайн рейтинг: көндәшләр җайланмагызда модельләштерелә. Сезнең вакыт — чын.",
-  "leaderboardJumpToMe": "Минем урынга"
+  "leaderboardJumpToMe": "Минем урынга",
+  "leaderboardAnonymous": "Аноним",
+  "leaderboardLive": "Турыдан-туры дөнья рейтингы: чын уенчылар, реаль вакытта яңартыла.",
+  "leaderboardConnecting": "Турыдан-туры рейтингка тоташабыз…",
+  "leaderboardOffline": "Сез офлайн. Кабат тоташкач, турыдан-туры рейтинг күренәчәк.",
+  "leaderboardCached": "Офлайн: бу җайланмада сакланган соңгы рейтинг күрсәтелә.",
+  "leaderboardPendingSync": "Вакытыгыз сакланды, кабат онлайн булгач рейтингка керәчәк.",
+  "leaderboardBeFirst": "Бүгенге сынауны әле беркем дә чишмәде. Беренче булыгыз!",
+  "leaderboardRetry": "Кабатлау"
 }

@@ -595,6 +595,13 @@
   "leaderboardYourTime": "Twój czas: {time}",
   "leaderboardYou": "Ty",
   "leaderboardNotRanked": "Rozwiąż dzisiejsze wyzwanie, aby trafić do rankingu.",
-  "leaderboardSimulated": "Ranking offline: rywale są symulowani na Twoim urządzeniu. Twój czas jest prawdziwy.",
-  "leaderboardJumpToMe": "Przejdź do mojego miejsca"
+  "leaderboardJumpToMe": "Przejdź do mojego miejsca",
+  "leaderboardAnonymous": "Anonim",
+  "leaderboardLive": "Globalny ranking na żywo: prawdziwi gracze, aktualizowany w czasie rzeczywistym.",
+  "leaderboardConnecting": "Łączenie z rankingiem na żywo…",
+  "leaderboardOffline": "Jesteś offline. Ranking na żywo pojawi się po ponownym połączeniu.",
+  "leaderboardCached": "Offline: pokazujemy ostatni ranking zapisany na tym urządzeniu.",
+  "leaderboardPendingSync": "Twój czas jest zapisany i trafi do rankingu, gdy wrócisz do sieci.",
+  "leaderboardBeFirst": "Nikt jeszcze nie rozwiązał dzisiejszego wyzwania. Bądź pierwszy!",
+  "leaderboardRetry": "Spróbuj ponownie"
 }
