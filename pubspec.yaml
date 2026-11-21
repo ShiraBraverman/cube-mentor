@@ -107,12 +107,12 @@ flutter:
 
 # Launcher icons: `dart run flutter_launcher_icons` regenerates the Android
 # (legacy + adaptive) and iOS icons from assets/icon/ (drawn by
-# tool/generate_app_icon.py).
+# tool/generate_app_icon.py: cube + camera viewfinder + scan beam).
 flutter_launcher_icons:
   android: "ic_launcher"
   ios: true
   remove_alpha_ios: true
   image_path: "assets/icon/app_icon.png"
-  adaptive_icon_background: "#0C1120"
+  adaptive_icon_background: "assets/icon/app_icon_background.png"
   adaptive_icon_foreground: "assets/icon/app_icon_foreground.png"
   min_sdk_android: 24

@@ -2098,4 +2098,53 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get colorSchemeJapaneseDesc =>
       'Beyazın karşısında mavi, sarının karşısında yeşil';
+
+  @override
+  String get leaderboardTitle => 'Günlük sıralama';
+
+  @override
+  String get leaderboardView => 'Sıralamayı gör';
+
+  @override
+  String get leaderboardReminder => 'Bugünün görevini henüz çözmedin!';
+
+  @override
+  String leaderboardSolvedToday(int count, String countText) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Bugün $countText oyuncu çözdü',
+      one: 'Bugün $countText oyuncu çözdü',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String leaderboardAvgTime(String time) {
+    return 'Ort. süre: $time';
+  }
+
+  @override
+  String leaderboardRankOf(String rank, String total) {
+    return '$total içinde #$rank';
+  }
+
+  @override
+  String leaderboardYourTime(String time) {
+    return 'Senin süren: $time';
+  }
+
+  @override
+  String get leaderboardYou => 'Sen';
+
+  @override
+  String get leaderboardNotRanked =>
+      'Sıralamaya girmek için bugünün görevini çöz.';
+
+  @override
+  String get leaderboardSimulated =>
+      'Çevrimdışı sıralama: rakipler cihazında simüle edilir. Senin süren gerçek.';
+
+  @override
+  String get leaderboardJumpToMe => 'Sıralamama git';
 }

@@ -585,5 +585,16 @@
   "colorSchemeWestern": "서양식",
   "colorSchemeJapanese": "일본식",
   "colorSchemeWesternDesc": "흰색 맞은편 노란색, 파란색 맞은편 초록색",
-  "colorSchemeJapaneseDesc": "흰색 맞은편 파란색, 노란색 맞은편 초록색"
+  "colorSchemeJapaneseDesc": "흰색 맞은편 파란색, 노란색 맞은편 초록색",
+  "leaderboardTitle": "오늘의 순위표",
+  "leaderboardView": "순위표 보기",
+  "leaderboardReminder": "오늘의 챌린지를 아직 풀지 않았어요!",
+  "leaderboardSolvedToday": "{count, plural, other{오늘 {countText}명이 풀었어요}}",
+  "leaderboardAvgTime": "평균 기록: {time}",
+  "leaderboardRankOf": "{total}명 중 {rank}위",
+  "leaderboardYourTime": "내 기록: {time}",
+  "leaderboardYou": "나",
+  "leaderboardNotRanked": "오늘의 챌린지를 풀면 순위에 들어갑니다.",
+  "leaderboardSimulated": "오프라인 순위표: 경쟁자는 기기에서 시뮬레이션됩니다. 내 기록은 실제 기록입니다.",
+  "leaderboardJumpToMe": "내 순위로 이동"
 }

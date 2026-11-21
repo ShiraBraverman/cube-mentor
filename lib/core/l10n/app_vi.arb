@@ -585,5 +585,16 @@
   "colorSchemeWestern": "Phương Tây",
   "colorSchemeJapanese": "Nhật Bản",
   "colorSchemeWesternDesc": "Trắng đối diện vàng, xanh dương đối diện xanh lá",
-  "colorSchemeJapaneseDesc": "Trắng đối diện xanh dương, vàng đối diện xanh lá"
+  "colorSchemeJapaneseDesc": "Trắng đối diện xanh dương, vàng đối diện xanh lá",
+  "leaderboardTitle": "Bảng xếp hạng hôm nay",
+  "leaderboardView": "Xem bảng xếp hạng",
+  "leaderboardReminder": "Bạn chưa giải thử thách hôm nay!",
+  "leaderboardSolvedToday": "{count, plural, other{{countText} người chơi đã giải hôm nay}}",
+  "leaderboardAvgTime": "Thời gian TB: {time}",
+  "leaderboardRankOf": "#{rank} / {total}",
+  "leaderboardYourTime": "Thời gian của bạn: {time}",
+  "leaderboardYou": "Bạn",
+  "leaderboardNotRanked": "Giải thử thách hôm nay để vào bảng xếp hạng.",
+  "leaderboardSimulated": "Bảng xếp hạng ngoại tuyến: đối thủ được mô phỏng trên thiết bị của bạn. Thời gian của bạn là thật.",
+  "leaderboardJumpToMe": "Đến hạng của tôi"
 }

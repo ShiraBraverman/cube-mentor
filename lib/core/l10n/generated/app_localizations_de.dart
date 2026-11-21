@@ -2124,4 +2124,54 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get colorSchemeJapaneseDesc =>
       'Weiß gegenüber Blau, Gelb gegenüber Grün';
+
+  @override
+  String get leaderboardTitle => 'Tagesrangliste';
+
+  @override
+  String get leaderboardView => 'Rangliste ansehen';
+
+  @override
+  String get leaderboardReminder =>
+      'Du hast die heutige Challenge noch nicht gelöst!';
+
+  @override
+  String leaderboardSolvedToday(int count, String countText) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$countText Spieler haben sie heute gelöst',
+      one: '$countText Spieler hat sie heute gelöst',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String leaderboardAvgTime(String time) {
+    return 'Ø Zeit: $time';
+  }
+
+  @override
+  String leaderboardRankOf(String rank, String total) {
+    return '#$rank von $total';
+  }
+
+  @override
+  String leaderboardYourTime(String time) {
+    return 'Deine Zeit: $time';
+  }
+
+  @override
+  String get leaderboardYou => 'Du';
+
+  @override
+  String get leaderboardNotRanked =>
+      'Löse die heutige Challenge, um in die Rangliste zu kommen.';
+
+  @override
+  String get leaderboardSimulated =>
+      'Offline-Rangliste: Die Gegner werden auf deinem Gerät simuliert. Deine Zeit ist echt.';
+
+  @override
+  String get leaderboardJumpToMe => 'Zu meinem Rang';
 }

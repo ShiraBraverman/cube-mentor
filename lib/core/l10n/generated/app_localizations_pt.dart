@@ -2119,6 +2119,55 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get colorSchemeJapaneseDesc =>
       'Branco oposto ao azul, amarelo oposto ao verde';
+
+  @override
+  String get leaderboardTitle => 'Classificação diária';
+
+  @override
+  String get leaderboardView => 'Ver classificação';
+
+  @override
+  String get leaderboardReminder => 'Ainda não resolveste o desafio de hoje!';
+
+  @override
+  String leaderboardSolvedToday(int count, String countText) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$countText jogadores resolveram-no hoje',
+      one: '$countText jogador resolveu-o hoje',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String leaderboardAvgTime(String time) {
+    return 'Tempo médio: $time';
+  }
+
+  @override
+  String leaderboardRankOf(String rank, String total) {
+    return '#$rank de $total';
+  }
+
+  @override
+  String leaderboardYourTime(String time) {
+    return 'O teu tempo: $time';
+  }
+
+  @override
+  String get leaderboardYou => 'Tu';
+
+  @override
+  String get leaderboardNotRanked =>
+      'Resolve o desafio de hoje para entrares na classificação.';
+
+  @override
+  String get leaderboardSimulated =>
+      'Classificação offline: os rivais são simulados no teu dispositivo. O teu tempo é real.';
+
+  @override
+  String get leaderboardJumpToMe => 'Ir para a minha posição';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -4228,4 +4277,54 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get colorSchemeJapaneseDesc =>
       'Branco oposto ao azul, amarelo oposto ao verde';
+
+  @override
+  String get leaderboardTitle => 'Ranking diário';
+
+  @override
+  String get leaderboardView => 'Ver ranking';
+
+  @override
+  String get leaderboardReminder =>
+      'Você ainda não resolveu o desafio de hoje!';
+
+  @override
+  String leaderboardSolvedToday(int count, String countText) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$countText jogadores resolveram hoje',
+      one: '$countText jogador resolveu hoje',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String leaderboardAvgTime(String time) {
+    return 'Tempo médio: $time';
+  }
+
+  @override
+  String leaderboardRankOf(String rank, String total) {
+    return '#$rank de $total';
+  }
+
+  @override
+  String leaderboardYourTime(String time) {
+    return 'Seu tempo: $time';
+  }
+
+  @override
+  String get leaderboardYou => 'Você';
+
+  @override
+  String get leaderboardNotRanked =>
+      'Resolva o desafio de hoje para entrar no ranking.';
+
+  @override
+  String get leaderboardSimulated =>
+      'Ranking offline: os rivais são simulados no seu aparelho. Seu tempo é real.';
+
+  @override
+  String get leaderboardJumpToMe => 'Ir para minha posição';
 }

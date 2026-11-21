@@ -2075,4 +2075,52 @@ class AppLocalizationsTt extends AppLocalizations {
   @override
   String get colorSchemeJapaneseDesc =>
       'Ак – зәңгәргә каршы, сары – яшелгә каршы';
+
+  @override
+  String get leaderboardTitle => 'Көнлек рейтинг';
+
+  @override
+  String get leaderboardView => 'Рейтингны карау';
+
+  @override
+  String get leaderboardReminder => 'Сез бүгенге сынауны әле чишмәдегез!';
+
+  @override
+  String leaderboardSolvedToday(int count, String countText) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Бүген аны $countText уенчы чиште',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String leaderboardAvgTime(String time) {
+    return 'Уртача вакыт: $time';
+  }
+
+  @override
+  String leaderboardRankOf(String rank, String total) {
+    return '$total арасыннан №$rank';
+  }
+
+  @override
+  String leaderboardYourTime(String time) {
+    return 'Сезнең вакыт: $time';
+  }
+
+  @override
+  String get leaderboardYou => 'Сез';
+
+  @override
+  String get leaderboardNotRanked =>
+      'Рейтингка керү өчен бүгенге сынауны чишегез.';
+
+  @override
+  String get leaderboardSimulated =>
+      'Офлайн рейтинг: көндәшләр җайланмагызда модельләштерелә. Сезнең вакыт — чын.';
+
+  @override
+  String get leaderboardJumpToMe => 'Минем урынга';
 }

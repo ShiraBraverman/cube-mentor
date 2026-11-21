@@ -1114,5 +1114,80 @@
   "colorSchemeJapaneseDesc": "White opposite blue, yellow opposite green",
   "@colorSchemeJapaneseDesc": {
     "description": "Explains the Japanese scheme's opposite face colors."
+  },
+  "leaderboardTitle": "Daily leaderboard",
+  "@leaderboardTitle": {
+    "description": "Title of the daily challenge leaderboard screen."
+  },
+  "leaderboardView": "View leaderboard",
+  "@leaderboardView": {
+    "description": "Button that opens the daily leaderboard."
+  },
+  "leaderboardReminder": "You haven't solved today's challenge yet!",
+  "@leaderboardReminder": {
+    "description": "Reminder card headline before the user solved today's challenge."
+  },
+  "leaderboardSolvedToday": "{count, plural, one{{countText} player solved it today} other{{countText} players solved it today}}",
+  "@leaderboardSolvedToday": {
+    "description": "How many (simulated) players solved today; countText is count with digit grouping.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "countText": {
+        "type": "String",
+        "example": "4,820"
+      }
+    }
+  },
+  "leaderboardAvgTime": "Avg time: {time}",
+  "@leaderboardAvgTime": {
+    "description": "Average solve time of the field, e.g. 43.12.",
+    "placeholders": {
+      "time": {
+        "type": "String",
+        "example": "43.12"
+      }
+    }
+  },
+  "leaderboardRankOf": "#{rank} of {total}",
+  "@leaderboardRankOf": {
+    "description": "The user's rank badge, e.g. #1,428 of 6,540.",
+    "placeholders": {
+      "rank": {
+        "type": "String",
+        "example": "1,428"
+      },
+      "total": {
+        "type": "String",
+        "example": "6,540"
+      }
+    }
+  },
+  "leaderboardYourTime": "Your time: {time}",
+  "@leaderboardYourTime": {
+    "description": "The user's solve time today.",
+    "placeholders": {
+      "time": {
+        "type": "String",
+        "example": "41.20"
+      }
+    }
+  },
+  "leaderboardYou": "You",
+  "@leaderboardYou": {
+    "description": "Name of the user on the leaderboard when no nickname is set."
+  },
+  "leaderboardNotRanked": "Solve today's challenge to join the ranking.",
+  "@leaderboardNotRanked": {
+    "description": "Shown on the leaderboard before the user solved today."
+  },
+  "leaderboardSimulated": "Offline leaderboard: rivals are simulated on your device. Your time is real.",
+  "@leaderboardSimulated": {
+    "description": "Disclosure footnote: the rivals are generated offline, the user time is real."
+  },
+  "leaderboardJumpToMe": "Jump to my rank",
+  "@leaderboardJumpToMe": {
+    "description": "Tooltip: scroll the leaderboard to the user's row."
   }
 }

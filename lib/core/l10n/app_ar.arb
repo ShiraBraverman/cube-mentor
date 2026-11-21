@@ -585,5 +585,16 @@
   "colorSchemeWestern": "غربي",
   "colorSchemeJapanese": "ياباني",
   "colorSchemeWesternDesc": "الأبيض مقابل الأصفر، والأزرق مقابل الأخضر",
-  "colorSchemeJapaneseDesc": "الأبيض مقابل الأزرق، والأصفر مقابل الأخضر"
+  "colorSchemeJapaneseDesc": "الأبيض مقابل الأزرق، والأصفر مقابل الأخضر",
+  "leaderboardTitle": "لوحة الصدارة اليومية",
+  "leaderboardView": "عرض لوحة الصدارة",
+  "leaderboardReminder": "لم تحلّ تحدي اليوم بعد!",
+  "leaderboardSolvedToday": "{count, plural, zero{لم يحلّه أي لاعب اليوم} one{حلّه لاعب واحد اليوم} two{حلّه لاعبان اليوم} few{حلّه {countText} لاعبين اليوم} many{حلّه {countText} لاعبًا اليوم} other{حلّه {countText} لاعب اليوم}}",
+  "leaderboardAvgTime": "متوسط الوقت: {time}",
+  "leaderboardRankOf": "المركز {rank} من {total}",
+  "leaderboardYourTime": "وقتك: {time}",
+  "leaderboardYou": "أنت",
+  "leaderboardNotRanked": "حلّ تحدي اليوم لتدخل الترتيب.",
+  "leaderboardSimulated": "لوحة صدارة دون اتصال: المنافسون محاكون على جهازك. وقتك حقيقي.",
+  "leaderboardJumpToMe": "الانتقال إلى مركزي"
 }

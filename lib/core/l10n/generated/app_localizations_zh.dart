@@ -1948,6 +1948,52 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get colorSchemeJapaneseDesc => '白对蓝，黄对绿';
+
+  @override
+  String get leaderboardTitle => '每日排行榜';
+
+  @override
+  String get leaderboardView => '查看排行榜';
+
+  @override
+  String get leaderboardReminder => '你还没有完成今天的挑战！';
+
+  @override
+  String leaderboardSolvedToday(int count, String countText) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '今天已有 $countText 位玩家完成',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String leaderboardAvgTime(String time) {
+    return '平均用时：$time';
+  }
+
+  @override
+  String leaderboardRankOf(String rank, String total) {
+    return '第 $rank 名 / 共 $total 名';
+  }
+
+  @override
+  String leaderboardYourTime(String time) {
+    return '你的用时：$time';
+  }
+
+  @override
+  String get leaderboardYou => '你';
+
+  @override
+  String get leaderboardNotRanked => '完成今天的挑战即可加入排名。';
+
+  @override
+  String get leaderboardSimulated => '离线排行榜：对手在你的设备上模拟生成，你的成绩是真实的。';
+
+  @override
+  String get leaderboardJumpToMe => '跳到我的排名';
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -3919,4 +3965,50 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get colorSchemeJapaneseDesc => '白對藍，黃對綠';
+
+  @override
+  String get leaderboardTitle => '每日排行榜';
+
+  @override
+  String get leaderboardView => '查看排行榜';
+
+  @override
+  String get leaderboardReminder => '你還沒有完成今天的挑戰！';
+
+  @override
+  String leaderboardSolvedToday(int count, String countText) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '今天已有 $countText 位玩家完成',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String leaderboardAvgTime(String time) {
+    return '平均時間：$time';
+  }
+
+  @override
+  String leaderboardRankOf(String rank, String total) {
+    return '第 $rank 名 / 共 $total 名';
+  }
+
+  @override
+  String leaderboardYourTime(String time) {
+    return '你的時間：$time';
+  }
+
+  @override
+  String get leaderboardYou => '你';
+
+  @override
+  String get leaderboardNotRanked => '完成今天的挑戰即可加入排名。';
+
+  @override
+  String get leaderboardSimulated => '離線排行榜：對手在你的裝置上模擬產生，你的成績是真實的。';
+
+  @override
+  String get leaderboardJumpToMe => '跳到我的排名';
 }

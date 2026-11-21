@@ -17,6 +17,7 @@ import 'package:cube_mentor/features/academy/lesson_screen.dart';
 import 'package:cube_mentor/features/academy/model/lesson.dart';
 import 'package:cube_mentor/features/academy/model/lesson_catalog.dart';
 import 'package:cube_mentor/features/daily/daily_screen.dart';
+import 'package:cube_mentor/features/daily/leaderboard/leaderboard_screen.dart';
 import 'package:cube_mentor/features/home/home_screen.dart';
 import 'package:cube_mentor/features/home/nickname_prompt.dart';
 import 'package:cube_mentor/features/home/root_shell.dart';
@@ -423,6 +424,18 @@ void main() {
       await _advance(tester, 8);
       expect(find.byKey(const ValueKey('daily-step-0')), findsOneWidget);
       expect(tester.takeException(), isNull, reason: 'daily text moves');
+      // The leaderboard before solving (reminder card, unranked board),
+      // then after a timed solve (rank card, board centered on the user).
+      await show(const DailyLeaderboardScreen());
+      await prefs.setString('daily_last_day', '2026-11-16');
+      await prefs.setString('daily_time_day', '2026-11-16');
+      await prefs.setInt('daily_time_ms', 44870);
+      await show(const DailyScreen());
+      await show(const DailyLeaderboardScreen(), scroll: false);
+      expect(find.byKey(const ValueKey('leaderboard-me')), findsOneWidget);
+      for (final key in ['daily_last_day', 'daily_time_day', 'daily_time_ms']) {
+        await prefs.remove(key);
+      }
       await show(const PatternsScreen());
       // A locked 4x4 page: unlock banner, free sample and locked cards,
       // then the "watch a video" sheet from a locked pattern.

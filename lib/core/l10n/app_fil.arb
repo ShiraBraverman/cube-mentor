@@ -585,5 +585,16 @@
   "colorSchemeWestern": "Western",
   "colorSchemeJapanese": "Japanese",
   "colorSchemeWesternDesc": "Puti katapat ng dilaw, asul katapat ng berde",
-  "colorSchemeJapaneseDesc": "Puti katapat ng asul, dilaw katapat ng berde"
+  "colorSchemeJapaneseDesc": "Puti katapat ng asul, dilaw katapat ng berde",
+  "leaderboardTitle": "Leaderboard ngayong araw",
+  "leaderboardView": "Tingnan ang leaderboard",
+  "leaderboardReminder": "Hindi mo pa nalulutas ang hamon ngayong araw!",
+  "leaderboardSolvedToday": "{count, plural, one{{countText} manlalaro ang nakalutas nito ngayon} other{{countText} manlalaro ang nakalutas nito ngayon}}",
+  "leaderboardAvgTime": "Average na oras: {time}",
+  "leaderboardRankOf": "#{rank} sa {total}",
+  "leaderboardYourTime": "Oras mo: {time}",
+  "leaderboardYou": "Ikaw",
+  "leaderboardNotRanked": "Lutasin ang hamon ngayong araw para mapasama sa ranking.",
+  "leaderboardSimulated": "Offline na leaderboard: sinisimulate sa device mo ang mga kalaban. Totoo ang oras mo.",
+  "leaderboardJumpToMe": "Pumunta sa rank ko"
 }

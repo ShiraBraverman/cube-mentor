@@ -585,5 +585,16 @@
   "colorSchemeWestern": "Batı",
   "colorSchemeJapanese": "Japon",
   "colorSchemeWesternDesc": "Beyazın karşısında sarı, mavinin karşısında yeşil",
-  "colorSchemeJapaneseDesc": "Beyazın karşısında mavi, sarının karşısında yeşil"
+  "colorSchemeJapaneseDesc": "Beyazın karşısında mavi, sarının karşısında yeşil",
+  "leaderboardTitle": "Günlük sıralama",
+  "leaderboardView": "Sıralamayı gör",
+  "leaderboardReminder": "Bugünün görevini henüz çözmedin!",
+  "leaderboardSolvedToday": "{count, plural, one{Bugün {countText} oyuncu çözdü} other{Bugün {countText} oyuncu çözdü}}",
+  "leaderboardAvgTime": "Ort. süre: {time}",
+  "leaderboardRankOf": "{total} içinde #{rank}",
+  "leaderboardYourTime": "Senin süren: {time}",
+  "leaderboardYou": "Sen",
+  "leaderboardNotRanked": "Sıralamaya girmek için bugünün görevini çöz.",
+  "leaderboardSimulated": "Çevrimdışı sıralama: rakipler cihazında simüle edilir. Senin süren gerçek.",
+  "leaderboardJumpToMe": "Sıralamama git"
 }

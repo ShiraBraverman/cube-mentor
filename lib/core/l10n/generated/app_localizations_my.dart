@@ -2110,4 +2110,52 @@ class AppLocalizationsMy extends AppLocalizations {
   @override
   String get colorSchemeJapaneseDesc =>
       'အဖြူနှင့် အပြာ ဆန့်ကျင်ဘက်၊ အဝါနှင့် အစိမ်း ဆန့်ကျင်ဘက်';
+
+  @override
+  String get leaderboardTitle => 'နေ့စဉ် အဆင့်ဇယား';
+
+  @override
+  String get leaderboardView => 'အဆင့်ဇယား ကြည့်ရန်';
+
+  @override
+  String get leaderboardReminder => 'ယနေ့ စိန်ခေါ်မှုကို မဖြေရှင်းရသေးပါ!';
+
+  @override
+  String leaderboardSolvedToday(int count, String countText) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'ယနေ့ ကစားသူ $countText ဦး ဖြေရှင်းပြီး',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String leaderboardAvgTime(String time) {
+    return 'ပျမ်းမျှ အချိန်: $time';
+  }
+
+  @override
+  String leaderboardRankOf(String rank, String total) {
+    return '$total ဦးတွင် #$rank';
+  }
+
+  @override
+  String leaderboardYourTime(String time) {
+    return 'သင့်အချိန်: $time';
+  }
+
+  @override
+  String get leaderboardYou => 'သင်';
+
+  @override
+  String get leaderboardNotRanked =>
+      'အဆင့်ဇယားဝင်ရန် ယနေ့ စိန်ခေါ်မှုကို ဖြေရှင်းပါ။';
+
+  @override
+  String get leaderboardSimulated =>
+      'အော့ဖ်လိုင်း အဆင့်ဇယား- ပြိုင်ဘက်များကို သင့်စက်ပေါ်တွင် အတုပြုလုပ်ထားသည်။ သင့်အချိန်မှာ အစစ်ဖြစ်သည်။';
+
+  @override
+  String get leaderboardJumpToMe => 'ကျွန်ုပ်၏ အဆင့်သို့';
 }

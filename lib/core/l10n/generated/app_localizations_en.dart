@@ -2105,4 +2105,54 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get colorSchemeJapaneseDesc =>
       'White opposite blue, yellow opposite green';
+
+  @override
+  String get leaderboardTitle => 'Daily leaderboard';
+
+  @override
+  String get leaderboardView => 'View leaderboard';
+
+  @override
+  String get leaderboardReminder =>
+      'You haven\'t solved today\'s challenge yet!';
+
+  @override
+  String leaderboardSolvedToday(int count, String countText) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$countText players solved it today',
+      one: '$countText player solved it today',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String leaderboardAvgTime(String time) {
+    return 'Avg time: $time';
+  }
+
+  @override
+  String leaderboardRankOf(String rank, String total) {
+    return '#$rank of $total';
+  }
+
+  @override
+  String leaderboardYourTime(String time) {
+    return 'Your time: $time';
+  }
+
+  @override
+  String get leaderboardYou => 'You';
+
+  @override
+  String get leaderboardNotRanked =>
+      'Solve today\'s challenge to join the ranking.';
+
+  @override
+  String get leaderboardSimulated =>
+      'Offline leaderboard: rivals are simulated on your device. Your time is real.';
+
+  @override
+  String get leaderboardJumpToMe => 'Jump to my rank';
 }

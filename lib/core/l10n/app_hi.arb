@@ -585,5 +585,16 @@
   "colorSchemeWestern": "पश्चिमी",
   "colorSchemeJapanese": "जापानी",
   "colorSchemeWesternDesc": "सफ़ेद के सामने पीला, नीले के सामने हरा",
-  "colorSchemeJapaneseDesc": "सफ़ेद के सामने नीला, पीले के सामने हरा"
+  "colorSchemeJapaneseDesc": "सफ़ेद के सामने नीला, पीले के सामने हरा",
+  "leaderboardTitle": "दैनिक लीडरबोर्ड",
+  "leaderboardView": "लीडरबोर्ड देखें",
+  "leaderboardReminder": "आपने आज की चुनौती अभी तक हल नहीं की!",
+  "leaderboardSolvedToday": "{count, plural, one{आज {countText} खिलाड़ी ने इसे हल किया} other{आज {countText} खिलाड़ियों ने इसे हल किया}}",
+  "leaderboardAvgTime": "औसत समय: {time}",
+  "leaderboardRankOf": "{total} में #{rank}",
+  "leaderboardYourTime": "आपका समय: {time}",
+  "leaderboardYou": "आप",
+  "leaderboardNotRanked": "रैंकिंग में आने के लिए आज की चुनौती हल करें।",
+  "leaderboardSimulated": "ऑफ़लाइन लीडरबोर्ड: प्रतिद्वंद्वी आपके डिवाइस पर सिम्युलेट किए गए हैं। आपका समय असली है।",
+  "leaderboardJumpToMe": "मेरी रैंक पर जाएँ"
 }

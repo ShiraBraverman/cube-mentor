@@ -1970,4 +1970,51 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get colorSchemeJapaneseDesc => '白の反対が青、黄の反対が緑';
+
+  @override
+  String get leaderboardTitle => '今日のランキング';
+
+  @override
+  String get leaderboardView => 'ランキングを見る';
+
+  @override
+  String get leaderboardReminder => '今日のチャレンジはまだ解いていません！';
+
+  @override
+  String leaderboardSolvedToday(int count, String countText) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '今日 $countText 人が解きました',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String leaderboardAvgTime(String time) {
+    return '平均タイム：$time';
+  }
+
+  @override
+  String leaderboardRankOf(String rank, String total) {
+    return '$total人中 $rank位';
+  }
+
+  @override
+  String leaderboardYourTime(String time) {
+    return 'あなたのタイム：$time';
+  }
+
+  @override
+  String get leaderboardYou => 'あなた';
+
+  @override
+  String get leaderboardNotRanked => '今日のチャレンジを解くとランキングに参加できます。';
+
+  @override
+  String get leaderboardSimulated =>
+      'オフラインのランキング：ライバルは端末上でシミュレートされています。あなたのタイムは本物です。';
+
+  @override
+  String get leaderboardJumpToMe => '自分の順位へ';
 }

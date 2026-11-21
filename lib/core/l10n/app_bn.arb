@@ -585,5 +585,16 @@
   "colorSchemeWestern": "পশ্চিমা",
   "colorSchemeJapanese": "জাপানি",
   "colorSchemeWesternDesc": "সাদার বিপরীতে হলুদ, নীলের বিপরীতে সবুজ",
-  "colorSchemeJapaneseDesc": "সাদার বিপরীতে নীল, হলুদের বিপরীতে সবুজ"
+  "colorSchemeJapaneseDesc": "সাদার বিপরীতে নীল, হলুদের বিপরীতে সবুজ",
+  "leaderboardTitle": "দৈনিক লিডারবোর্ড",
+  "leaderboardView": "লিডারবোর্ড দেখুন",
+  "leaderboardReminder": "আপনি এখনও আজকের চ্যালেঞ্জ সমাধান করেননি!",
+  "leaderboardSolvedToday": "{count, plural, one{আজ {countText} জন খেলোয়াড় এটি সমাধান করেছেন} other{আজ {countText} জন খেলোয়াড় এটি সমাধান করেছেন}}",
+  "leaderboardAvgTime": "গড় সময়: {time}",
+  "leaderboardRankOf": "{total} জনের মধ্যে #{rank}",
+  "leaderboardYourTime": "আপনার সময়: {time}",
+  "leaderboardYou": "আপনি",
+  "leaderboardNotRanked": "র‍্যাঙ্কিংয়ে আসতে আজকের চ্যালেঞ্জ সমাধান করুন।",
+  "leaderboardSimulated": "অফলাইন লিডারবোর্ড: প্রতিদ্বন্দ্বীরা আপনার ডিভাইসে সিমুলেট করা। আপনার সময় আসল।",
+  "leaderboardJumpToMe": "আমার র‍্যাঙ্কে যান"
 }

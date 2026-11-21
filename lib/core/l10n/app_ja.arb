@@ -585,5 +585,16 @@
   "colorSchemeWestern": "西洋配色",
   "colorSchemeJapanese": "日本配色",
   "colorSchemeWesternDesc": "白の反対が黄、青の反対が緑",
-  "colorSchemeJapaneseDesc": "白の反対が青、黄の反対が緑"
+  "colorSchemeJapaneseDesc": "白の反対が青、黄の反対が緑",
+  "leaderboardTitle": "今日のランキング",
+  "leaderboardView": "ランキングを見る",
+  "leaderboardReminder": "今日のチャレンジはまだ解いていません！",
+  "leaderboardSolvedToday": "{count, plural, other{今日 {countText} 人が解きました}}",
+  "leaderboardAvgTime": "平均タイム：{time}",
+  "leaderboardRankOf": "{total}人中 {rank}位",
+  "leaderboardYourTime": "あなたのタイム：{time}",
+  "leaderboardYou": "あなた",
+  "leaderboardNotRanked": "今日のチャレンジを解くとランキングに参加できます。",
+  "leaderboardSimulated": "オフラインのランキング：ライバルは端末上でシミュレートされています。あなたのタイムは本物です。",
+  "leaderboardJumpToMe": "自分の順位へ"
 }

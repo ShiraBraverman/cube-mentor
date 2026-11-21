@@ -2119,4 +2119,56 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get colorSchemeJapaneseDesc =>
       'الأبيض مقابل الأزرق، والأصفر مقابل الأخضر';
+
+  @override
+  String get leaderboardTitle => 'لوحة الصدارة اليومية';
+
+  @override
+  String get leaderboardView => 'عرض لوحة الصدارة';
+
+  @override
+  String get leaderboardReminder => 'لم تحلّ تحدي اليوم بعد!';
+
+  @override
+  String leaderboardSolvedToday(int count, String countText) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'حلّه $countText لاعب اليوم',
+      many: 'حلّه $countText لاعبًا اليوم',
+      few: 'حلّه $countText لاعبين اليوم',
+      two: 'حلّه لاعبان اليوم',
+      one: 'حلّه لاعب واحد اليوم',
+      zero: 'لم يحلّه أي لاعب اليوم',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String leaderboardAvgTime(String time) {
+    return 'متوسط الوقت: $time';
+  }
+
+  @override
+  String leaderboardRankOf(String rank, String total) {
+    return 'المركز $rank من $total';
+  }
+
+  @override
+  String leaderboardYourTime(String time) {
+    return 'وقتك: $time';
+  }
+
+  @override
+  String get leaderboardYou => 'أنت';
+
+  @override
+  String get leaderboardNotRanked => 'حلّ تحدي اليوم لتدخل الترتيب.';
+
+  @override
+  String get leaderboardSimulated =>
+      'لوحة صدارة دون اتصال: المنافسون محاكون على جهازك. وقتك حقيقي.';
+
+  @override
+  String get leaderboardJumpToMe => 'الانتقال إلى مركزي';
 }

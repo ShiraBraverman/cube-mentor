@@ -2080,4 +2080,53 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get colorSchemeJapaneseDesc =>
       'Putih berseberangan dengan biru, kuning dengan hijau';
+
+  @override
+  String get leaderboardTitle => 'Papan peringkat harian';
+
+  @override
+  String get leaderboardView => 'Lihat papan peringkat';
+
+  @override
+  String get leaderboardReminder =>
+      'Kamu belum menyelesaikan tantangan hari ini!';
+
+  @override
+  String leaderboardSolvedToday(int count, String countText) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$countText pemain menyelesaikannya hari ini',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String leaderboardAvgTime(String time) {
+    return 'Waktu rata-rata: $time';
+  }
+
+  @override
+  String leaderboardRankOf(String rank, String total) {
+    return '#$rank dari $total';
+  }
+
+  @override
+  String leaderboardYourTime(String time) {
+    return 'Waktumu: $time';
+  }
+
+  @override
+  String get leaderboardYou => 'Kamu';
+
+  @override
+  String get leaderboardNotRanked =>
+      'Selesaikan tantangan hari ini untuk masuk peringkat.';
+
+  @override
+  String get leaderboardSimulated =>
+      'Papan peringkat offline: lawan disimulasikan di perangkatmu. Waktumu nyata.';
+
+  @override
+  String get leaderboardJumpToMe => 'Ke peringkatku';
 }

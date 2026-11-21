@@ -585,5 +585,16 @@
   "colorSchemeWestern": "Ocidental",
   "colorSchemeJapanese": "Japonês",
   "colorSchemeWesternDesc": "Branco oposto ao amarelo, azul oposto ao verde",
-  "colorSchemeJapaneseDesc": "Branco oposto ao azul, amarelo oposto ao verde"
+  "colorSchemeJapaneseDesc": "Branco oposto ao azul, amarelo oposto ao verde",
+  "leaderboardTitle": "Classificação diária",
+  "leaderboardView": "Ver classificação",
+  "leaderboardReminder": "Ainda não resolveste o desafio de hoje!",
+  "leaderboardSolvedToday": "{count, plural, one{{countText} jogador resolveu-o hoje} other{{countText} jogadores resolveram-no hoje}}",
+  "leaderboardAvgTime": "Tempo médio: {time}",
+  "leaderboardRankOf": "#{rank} de {total}",
+  "leaderboardYourTime": "O teu tempo: {time}",
+  "leaderboardYou": "Tu",
+  "leaderboardNotRanked": "Resolve o desafio de hoje para entrares na classificação.",
+  "leaderboardSimulated": "Classificação offline: os rivais são simulados no teu dispositivo. O teu tempo é real.",
+  "leaderboardJumpToMe": "Ir para a minha posição"
 }

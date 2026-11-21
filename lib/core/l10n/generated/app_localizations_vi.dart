@@ -2087,4 +2087,52 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get colorSchemeJapaneseDesc =>
       'Trắng đối diện xanh dương, vàng đối diện xanh lá';
+
+  @override
+  String get leaderboardTitle => 'Bảng xếp hạng hôm nay';
+
+  @override
+  String get leaderboardView => 'Xem bảng xếp hạng';
+
+  @override
+  String get leaderboardReminder => 'Bạn chưa giải thử thách hôm nay!';
+
+  @override
+  String leaderboardSolvedToday(int count, String countText) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$countText người chơi đã giải hôm nay',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String leaderboardAvgTime(String time) {
+    return 'Thời gian TB: $time';
+  }
+
+  @override
+  String leaderboardRankOf(String rank, String total) {
+    return '#$rank / $total';
+  }
+
+  @override
+  String leaderboardYourTime(String time) {
+    return 'Thời gian của bạn: $time';
+  }
+
+  @override
+  String get leaderboardYou => 'Bạn';
+
+  @override
+  String get leaderboardNotRanked =>
+      'Giải thử thách hôm nay để vào bảng xếp hạng.';
+
+  @override
+  String get leaderboardSimulated =>
+      'Bảng xếp hạng ngoại tuyến: đối thủ được mô phỏng trên thiết bị của bạn. Thời gian của bạn là thật.';
+
+  @override
+  String get leaderboardJumpToMe => 'Đến hạng của tôi';
 }

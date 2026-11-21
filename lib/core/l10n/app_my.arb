@@ -585,5 +585,16 @@
   "colorSchemeWestern": "အနောက်တိုင်း",
   "colorSchemeJapanese": "ဂျပန်",
   "colorSchemeWesternDesc": "အဖြူနှင့် အဝါ ဆန့်ကျင်ဘက်၊ အပြာနှင့် အစိမ်း ဆန့်ကျင်ဘက်",
-  "colorSchemeJapaneseDesc": "အဖြူနှင့် အပြာ ဆန့်ကျင်ဘက်၊ အဝါနှင့် အစိမ်း ဆန့်ကျင်ဘက်"
+  "colorSchemeJapaneseDesc": "အဖြူနှင့် အပြာ ဆန့်ကျင်ဘက်၊ အဝါနှင့် အစိမ်း ဆန့်ကျင်ဘက်",
+  "leaderboardTitle": "နေ့စဉ် အဆင့်ဇယား",
+  "leaderboardView": "အဆင့်ဇယား ကြည့်ရန်",
+  "leaderboardReminder": "ယနေ့ စိန်ခေါ်မှုကို မဖြေရှင်းရသေးပါ!",
+  "leaderboardSolvedToday": "{count, plural, other{ယနေ့ ကစားသူ {countText} ဦး ဖြေရှင်းပြီး}}",
+  "leaderboardAvgTime": "ပျမ်းမျှ အချိန်: {time}",
+  "leaderboardRankOf": "{total} ဦးတွင် #{rank}",
+  "leaderboardYourTime": "သင့်အချိန်: {time}",
+  "leaderboardYou": "သင်",
+  "leaderboardNotRanked": "အဆင့်ဇယားဝင်ရန် ယနေ့ စိန်ခေါ်မှုကို ဖြေရှင်းပါ။",
+  "leaderboardSimulated": "အော့ဖ်လိုင်း အဆင့်ဇယား- ပြိုင်ဘက်များကို သင့်စက်ပေါ်တွင် အတုပြုလုပ်ထားသည်။ သင့်အချိန်မှာ အစစ်ဖြစ်သည်။",
+  "leaderboardJumpToMe": "ကျွန်ုပ်၏ အဆင့်သို့"
 }

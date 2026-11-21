@@ -8,6 +8,7 @@ import '../../core/cube/cube_move.dart';
 import '../../core/cube/cube_state.dart';
 import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/l10n/move_words.dart';
+import '../../core/settings/clock.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
 import '../../core/theme/ui_kit.dart';
@@ -16,6 +17,7 @@ import '../solver_3d/solver_3d_screen.dart';
 import '../solver_3d/widgets/move_instruction.dart';
 import '../timer/timer_screen.dart';
 import 'daily_controller.dart';
+import 'leaderboard/leaderboard_screen.dart';
 
 /// Today's scramble, the streak, and the ways to complete it: scramble a
 /// real cube with the 3D guide, solve on the 3D cube, or time it on a real
@@ -30,6 +32,20 @@ class DailyScreen extends ConsumerStatefulWidget {
 
 class _DailyScreenState extends ConsumerState<DailyScreen> {
   bool _showMoves = false;
+
+  void _openLeaderboard() => Navigator.of(context).push(
+    MaterialPageRoute<void>(builder: (_) => const DailyLeaderboardScreen()),
+  );
+
+  /// Opens a solving page; when it completes today's challenge with a
+  /// time, the leaderboard opens on return, centered on the user's rank.
+  Future<void> _solveOn(WidgetBuilder builder) async {
+    final wasDone = ref.read(dailyProvider).doneToday;
+    await Navigator.of(context).push(MaterialPageRoute<void>(builder: builder));
+    if (!mounted || wasDone) return;
+    final after = ref.read(dailyProvider);
+    if (after.doneToday && after.todayMillis != null) _openLeaderboard();
+  }
 
   @override
   void initState() {
@@ -75,6 +91,10 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
             child: ListView(
               padding: kPagePadding,
               children: [
+                // Live leaderboard status: a reminder before solving, the
+                // user's rank after.
+                LeaderboardStatusCard(onOpen: _openLeaderboard),
+                const SizedBox(height: AppSpace.sm),
                 // Streak hero.
                 GlassCard(
                   selected: lit,
@@ -245,16 +265,23 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
                   ),
                   onPressed: cube == null
                       ? null
-                      : () => Navigator.of(context).push(
-                          MaterialPageRoute<void>(
-                            builder: (_) => Solver3DScreen(
+                      : () {
+                          // The clock runs from opening the cube to solved.
+                          final clock = ref.read(clockProvider);
+                          final start = clock();
+                          _solveOn(
+                            (_) => Solver3DScreen(
                               size: kDailySize,
                               initialCube: cube,
                               title: l10n.dailyTitle,
-                              onSolved: controller.complete,
+                              onSolved: () => controller.complete(
+                                millis: clock()
+                                    .difference(start)
+                                    .inMilliseconds,
+                              ),
                             ),
-                          ),
-                        ),
+                          );
+                        },
                   icon: const Icon(Icons.view_in_ar_rounded),
                   label: Text(l10n.dailySolveVirtual),
                 ),
@@ -268,13 +295,12 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
                   ),
                   onPressed: state.scramble == null
                       ? null
-                      : () => Navigator.of(context).push(
-                          MaterialPageRoute<void>(
-                            builder: (_) => TimerScreen(
-                              size: kDailySize,
-                              scramble: state.scramble,
-                              onSolved: (_) => controller.complete(),
-                            ),
+                      : () => _solveOn(
+                          (_) => TimerScreen(
+                            size: kDailySize,
+                            scramble: state.scramble,
+                            onSolved: (solve) =>
+                                controller.complete(millis: solve.result),
                           ),
                         ),
                   icon: const Icon(Icons.timer_outlined),

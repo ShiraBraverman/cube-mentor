@@ -585,5 +585,16 @@
   "colorSchemeWestern": "Westlich",
   "colorSchemeJapanese": "Japanisch",
   "colorSchemeWesternDesc": "Weiß gegenüber Gelb, Blau gegenüber Grün",
-  "colorSchemeJapaneseDesc": "Weiß gegenüber Blau, Gelb gegenüber Grün"
+  "colorSchemeJapaneseDesc": "Weiß gegenüber Blau, Gelb gegenüber Grün",
+  "leaderboardTitle": "Tagesrangliste",
+  "leaderboardView": "Rangliste ansehen",
+  "leaderboardReminder": "Du hast die heutige Challenge noch nicht gelöst!",
+  "leaderboardSolvedToday": "{count, plural, one{{countText} Spieler hat sie heute gelöst} other{{countText} Spieler haben sie heute gelöst}}",
+  "leaderboardAvgTime": "Ø Zeit: {time}",
+  "leaderboardRankOf": "#{rank} von {total}",
+  "leaderboardYourTime": "Deine Zeit: {time}",
+  "leaderboardYou": "Du",
+  "leaderboardNotRanked": "Löse die heutige Challenge, um in die Rangliste zu kommen.",
+  "leaderboardSimulated": "Offline-Rangliste: Die Gegner werden auf deinem Gerät simuliert. Deine Zeit ist echt.",
+  "leaderboardJumpToMe": "Zu meinem Rang"
 }

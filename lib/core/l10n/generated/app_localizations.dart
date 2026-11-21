@@ -3651,6 +3651,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'White opposite blue, yellow opposite green'**
   String get colorSchemeJapaneseDesc;
+
+  /// Title of the daily challenge leaderboard screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily leaderboard'**
+  String get leaderboardTitle;
+
+  /// Button that opens the daily leaderboard.
+  ///
+  /// In en, this message translates to:
+  /// **'View leaderboard'**
+  String get leaderboardView;
+
+  /// Reminder card headline before the user solved today's challenge.
+  ///
+  /// In en, this message translates to:
+  /// **'You haven\'t solved today\'s challenge yet!'**
+  String get leaderboardReminder;
+
+  /// How many (simulated) players solved today; countText is count with digit grouping.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one{{countText} player solved it today} other{{countText} players solved it today}}'**
+  String leaderboardSolvedToday(int count, String countText);
+
+  /// Average solve time of the field, e.g. 43.12.
+  ///
+  /// In en, this message translates to:
+  /// **'Avg time: {time}'**
+  String leaderboardAvgTime(String time);
+
+  /// The user's rank badge, e.g. #1,428 of 6,540.
+  ///
+  /// In en, this message translates to:
+  /// **'#{rank} of {total}'**
+  String leaderboardRankOf(String rank, String total);
+
+  /// The user's solve time today.
+  ///
+  /// In en, this message translates to:
+  /// **'Your time: {time}'**
+  String leaderboardYourTime(String time);
+
+  /// Name of the user on the leaderboard when no nickname is set.
+  ///
+  /// In en, this message translates to:
+  /// **'You'**
+  String get leaderboardYou;
+
+  /// Shown on the leaderboard before the user solved today.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve today\'s challenge to join the ranking.'**
+  String get leaderboardNotRanked;
+
+  /// Disclosure footnote: the rivals are generated offline, the user time is real.
+  ///
+  /// In en, this message translates to:
+  /// **'Offline leaderboard: rivals are simulated on your device. Your time is real.'**
+  String get leaderboardSimulated;
+
+  /// Tooltip: scroll the leaderboard to the user's row.
+  ///
+  /// In en, this message translates to:
+  /// **'Jump to my rank'**
+  String get leaderboardJumpToMe;
 }
 
 class _AppLocalizationsDelegate

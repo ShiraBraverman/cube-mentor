@@ -2118,4 +2118,53 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get colorSchemeJapaneseDesc =>
       'Blanco opuesto al azul, amarillo opuesto al verde';
+
+  @override
+  String get leaderboardTitle => 'Clasificación diaria';
+
+  @override
+  String get leaderboardView => 'Ver clasificación';
+
+  @override
+  String get leaderboardReminder => '¡Aún no has resuelto el reto de hoy!';
+
+  @override
+  String leaderboardSolvedToday(int count, String countText) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$countText jugadores lo resolvieron hoy',
+      one: '$countText jugador lo resolvió hoy',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String leaderboardAvgTime(String time) {
+    return 'Tiempo medio: $time';
+  }
+
+  @override
+  String leaderboardRankOf(String rank, String total) {
+    return '#$rank de $total';
+  }
+
+  @override
+  String leaderboardYourTime(String time) {
+    return 'Tu tiempo: $time';
+  }
+
+  @override
+  String get leaderboardYou => 'Tú';
+
+  @override
+  String get leaderboardNotRanked =>
+      'Resuelve el reto de hoy para entrar en la clasificación.';
+
+  @override
+  String get leaderboardSimulated =>
+      'Clasificación sin conexión: los rivales se simulan en tu dispositivo. Tu tiempo es real.';
+
+  @override
+  String get leaderboardJumpToMe => 'Ir a mi puesto';
 }

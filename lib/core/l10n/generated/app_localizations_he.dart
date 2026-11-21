@@ -2084,4 +2084,52 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get colorSchemeJapaneseDesc => 'לבן מול כחול, צהוב מול ירוק';
+
+  @override
+  String get leaderboardTitle => 'טבלת המובילים היומית';
+
+  @override
+  String get leaderboardView => 'לטבלת המובילים';
+
+  @override
+  String get leaderboardReminder => 'עוד לא פתרת את האתגר של היום!';
+
+  @override
+  String leaderboardSolvedToday(int count, String countText) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$countText שחקנים פתרו אותו היום',
+      one: 'שחקן אחד פתר אותו היום',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String leaderboardAvgTime(String time) {
+    return 'זמן ממוצע: $time';
+  }
+
+  @override
+  String leaderboardRankOf(String rank, String total) {
+    return 'מקום $rank מתוך $total';
+  }
+
+  @override
+  String leaderboardYourTime(String time) {
+    return 'הזמן שלך: $time';
+  }
+
+  @override
+  String get leaderboardYou => 'אני';
+
+  @override
+  String get leaderboardNotRanked => 'פתרו את האתגר של היום כדי להיכנס לדירוג.';
+
+  @override
+  String get leaderboardSimulated =>
+      'טבלה לא מקוונת: היריבים מדומים במכשיר שלך. הזמן שלך אמיתי.';
+
+  @override
+  String get leaderboardJumpToMe => 'קפיצה למקום שלי';
 }

@@ -585,5 +585,16 @@
   "colorSchemeWestern": "מערבית",
   "colorSchemeJapanese": "יפנית",
   "colorSchemeWesternDesc": "לבן מול צהוב, כחול מול ירוק",
-  "colorSchemeJapaneseDesc": "לבן מול כחול, צהוב מול ירוק"
+  "colorSchemeJapaneseDesc": "לבן מול כחול, צהוב מול ירוק",
+  "leaderboardTitle": "טבלת המובילים היומית",
+  "leaderboardView": "לטבלת המובילים",
+  "leaderboardReminder": "עוד לא פתרתם את האתגר של היום!",
+  "leaderboardSolvedToday": "{count, plural, one{שחקן אחד פתר אותו היום} other{{countText} שחקנים פתרו אותו היום}}",
+  "leaderboardAvgTime": "זמן ממוצע: {time}",
+  "leaderboardRankOf": "מקום {rank} מתוך {total}",
+  "leaderboardYourTime": "הזמן שלכם: {time}",
+  "leaderboardYou": "אני",
+  "leaderboardNotRanked": "פתרו את האתגר של היום כדי להיכנס לדירוג.",
+  "leaderboardSimulated": "טבלה לא מקוונת: היריבים מדומים במכשיר שלכם. הזמן שלכם אמיתי.",
+  "leaderboardJumpToMe": "קפיצה למקום שלי"
 }

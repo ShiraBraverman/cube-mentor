@@ -585,5 +585,16 @@
   "colorSchemeWestern": "西方配色",
   "colorSchemeJapanese": "日本配色",
   "colorSchemeWesternDesc": "白对黄，蓝对绿",
-  "colorSchemeJapaneseDesc": "白对蓝，黄对绿"
+  "colorSchemeJapaneseDesc": "白对蓝，黄对绿",
+  "leaderboardTitle": "每日排行榜",
+  "leaderboardView": "查看排行榜",
+  "leaderboardReminder": "你还没有完成今天的挑战！",
+  "leaderboardSolvedToday": "{count, plural, other{今天已有 {countText} 位玩家完成}}",
+  "leaderboardAvgTime": "平均用时：{time}",
+  "leaderboardRankOf": "第 {rank} 名 / 共 {total} 名",
+  "leaderboardYourTime": "你的用时：{time}",
+  "leaderboardYou": "你",
+  "leaderboardNotRanked": "完成今天的挑战即可加入排名。",
+  "leaderboardSimulated": "离线排行榜：对手在你的设备上模拟生成，你的成绩是真实的。",
+  "leaderboardJumpToMe": "跳到我的排名"
 }

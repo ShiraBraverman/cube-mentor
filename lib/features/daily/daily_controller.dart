@@ -32,6 +32,7 @@ class DailyState {
     this.doneToday = false,
     this.hint,
     this.hintFailed = false,
+    this.todayMillis,
   });
 
   /// Today (local time, midnight).
@@ -49,6 +50,10 @@ class DailyState {
   final List<String>? hint;
   final bool hintFailed;
 
+  /// The user's best time on today's challenge (milliseconds), once solved
+  /// with a clock running; ranks them on the daily leaderboard.
+  final int? todayMillis;
+
   /// Today's scrambled cube (white on top, green in front).
   CubeState? get cube {
     final text = scramble;
@@ -64,6 +69,7 @@ class DailyState {
     bool? doneToday,
     List<String>? hint,
     bool? hintFailed,
+    int? todayMillis,
   }) => DailyState(
     date: date,
     scramble: scramble ?? this.scramble,
@@ -72,6 +78,7 @@ class DailyState {
     doneToday: doneToday ?? this.doneToday,
     hint: hint ?? this.hint,
     hintFailed: hintFailed ?? this.hintFailed,
+    todayMillis: todayMillis ?? this.todayMillis,
   );
 }
 
@@ -80,6 +87,8 @@ class DailyController extends Notifier<DailyState> {
   static const _lastKey = 'daily_last_day';
   static const _streakKey = 'daily_streak';
   static const _bestKey = 'daily_best_streak';
+  static const _timeDayKey = 'daily_time_day';
+  static const _timeKey = 'daily_time_ms';
 
   @override
   DailyState build() {
@@ -95,6 +104,9 @@ class DailyController extends Notifier<DailyState> {
       streak: alive ? stored : 0,
       bestStreak: prefs.getInt(_bestKey) ?? 0,
       doneToday: last == dayKey(today),
+      todayMillis: prefs.getString(_timeDayKey) == dayKey(today)
+          ? prefs.getInt(_timeKey)
+          : null,
     );
   }
 
@@ -107,10 +119,19 @@ class DailyController extends Notifier<DailyState> {
     if (ref.mounted) state = state.copyWith(scramble: text);
   }
 
-  /// Records today's challenge as done and extends the streak.
-  Future<void> complete() async {
-    if (state.doneToday) return;
+  /// Records today's challenge as done and extends the streak. [millis] is
+  /// the solve time when a clock ran; the best one of the day is kept.
+  Future<void> complete({int? millis}) async {
     final prefs = ref.read(sharedPreferencesProvider);
+    if (millis != null && millis > 0) {
+      final best = state.todayMillis;
+      if (best == null || millis < best) {
+        state = state.copyWith(todayMillis: millis);
+        await prefs.setString(_timeDayKey, dayKey(state.date));
+        await prefs.setInt(_timeKey, millis);
+      }
+    }
+    if (state.doneToday) return;
     final yesterday = DateTime(
       state.date.year,
       state.date.month,
@@ -131,6 +152,8 @@ class DailyController extends Notifier<DailyState> {
   Future<void> resetStreak() async {
     state = DailyState(date: state.date, scramble: state.scramble);
     final prefs = ref.read(sharedPreferencesProvider);
+    await prefs.remove(_timeDayKey);
+    await prefs.remove(_timeKey);
     await prefs.remove(_lastKey);
     await prefs.remove(_streakKey);
     await prefs.remove(_bestKey);

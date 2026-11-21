@@ -2137,4 +2137,55 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get colorSchemeJapaneseDesc =>
       'Белый напротив синего, жёлтый напротив зелёного';
+
+  @override
+  String get leaderboardTitle => 'Рейтинг дня';
+
+  @override
+  String get leaderboardView => 'Открыть рейтинг';
+
+  @override
+  String get leaderboardReminder => 'Вы ещё не решили сегодняшнее испытание!';
+
+  @override
+  String leaderboardSolvedToday(int count, String countText) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Сегодня его решили $countText игрока',
+      many: 'Сегодня его решили $countText игроков',
+      few: 'Сегодня его решили $countText игрока',
+      one: 'Сегодня его решил $countText игрок',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String leaderboardAvgTime(String time) {
+    return 'Среднее время: $time';
+  }
+
+  @override
+  String leaderboardRankOf(String rank, String total) {
+    return '№$rank из $total';
+  }
+
+  @override
+  String leaderboardYourTime(String time) {
+    return 'Ваше время: $time';
+  }
+
+  @override
+  String get leaderboardYou => 'Вы';
+
+  @override
+  String get leaderboardNotRanked =>
+      'Решите сегодняшнее испытание, чтобы попасть в рейтинг.';
+
+  @override
+  String get leaderboardSimulated =>
+      'Офлайн-рейтинг: соперники моделируются на вашем устройстве. Ваше время — настоящее.';
+
+  @override
+  String get leaderboardJumpToMe => 'К моему месту';
 }

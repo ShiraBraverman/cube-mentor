@@ -585,5 +585,16 @@
   "colorSchemeWestern": "Barat",
   "colorSchemeJapanese": "Jepang",
   "colorSchemeWesternDesc": "Putih berseberangan dengan kuning, biru dengan hijau",
-  "colorSchemeJapaneseDesc": "Putih berseberangan dengan biru, kuning dengan hijau"
+  "colorSchemeJapaneseDesc": "Putih berseberangan dengan biru, kuning dengan hijau",
+  "leaderboardTitle": "Papan peringkat harian",
+  "leaderboardView": "Lihat papan peringkat",
+  "leaderboardReminder": "Kamu belum menyelesaikan tantangan hari ini!",
+  "leaderboardSolvedToday": "{count, plural, other{{countText} pemain menyelesaikannya hari ini}}",
+  "leaderboardAvgTime": "Waktu rata-rata: {time}",
+  "leaderboardRankOf": "#{rank} dari {total}",
+  "leaderboardYourTime": "Waktumu: {time}",
+  "leaderboardYou": "Kamu",
+  "leaderboardNotRanked": "Selesaikan tantangan hari ini untuk masuk peringkat.",
+  "leaderboardSimulated": "Papan peringkat offline: lawan disimulasikan di perangkatmu. Waktumu nyata.",
+  "leaderboardJumpToMe": "Ke peringkatku"
 }

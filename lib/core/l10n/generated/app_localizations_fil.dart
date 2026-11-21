@@ -2097,4 +2097,54 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get colorSchemeJapaneseDesc =>
       'Puti katapat ng asul, dilaw katapat ng berde';
+
+  @override
+  String get leaderboardTitle => 'Leaderboard ngayong araw';
+
+  @override
+  String get leaderboardView => 'Tingnan ang leaderboard';
+
+  @override
+  String get leaderboardReminder =>
+      'Hindi mo pa nalulutas ang hamon ngayong araw!';
+
+  @override
+  String leaderboardSolvedToday(int count, String countText) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$countText manlalaro ang nakalutas nito ngayon',
+      one: '$countText manlalaro ang nakalutas nito ngayon',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String leaderboardAvgTime(String time) {
+    return 'Average na oras: $time';
+  }
+
+  @override
+  String leaderboardRankOf(String rank, String total) {
+    return '#$rank sa $total';
+  }
+
+  @override
+  String leaderboardYourTime(String time) {
+    return 'Oras mo: $time';
+  }
+
+  @override
+  String get leaderboardYou => 'Ikaw';
+
+  @override
+  String get leaderboardNotRanked =>
+      'Lutasin ang hamon ngayong araw para mapasama sa ranking.';
+
+  @override
+  String get leaderboardSimulated =>
+      'Offline na leaderboard: sinisimulate sa device mo ang mga kalaban. Totoo ang oras mo.';
+
+  @override
+  String get leaderboardJumpToMe => 'Pumunta sa rank ko';
 }

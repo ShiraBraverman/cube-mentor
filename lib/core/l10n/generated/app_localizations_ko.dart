@@ -1974,4 +1974,51 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get colorSchemeJapaneseDesc => '흰색 맞은편 파란색, 노란색 맞은편 초록색';
+
+  @override
+  String get leaderboardTitle => '오늘의 순위표';
+
+  @override
+  String get leaderboardView => '순위표 보기';
+
+  @override
+  String get leaderboardReminder => '오늘의 챌린지를 아직 풀지 않았어요!';
+
+  @override
+  String leaderboardSolvedToday(int count, String countText) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '오늘 $countText명이 풀었어요',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String leaderboardAvgTime(String time) {
+    return '평균 기록: $time';
+  }
+
+  @override
+  String leaderboardRankOf(String rank, String total) {
+    return '$total명 중 $rank위';
+  }
+
+  @override
+  String leaderboardYourTime(String time) {
+    return '내 기록: $time';
+  }
+
+  @override
+  String get leaderboardYou => '나';
+
+  @override
+  String get leaderboardNotRanked => '오늘의 챌린지를 풀면 순위에 들어갑니다.';
+
+  @override
+  String get leaderboardSimulated =>
+      '오프라인 순위표: 경쟁자는 기기에서 시뮬레이션됩니다. 내 기록은 실제 기록입니다.';
+
+  @override
+  String get leaderboardJumpToMe => '내 순위로 이동';
 }

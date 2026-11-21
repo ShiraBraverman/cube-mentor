@@ -585,5 +585,16 @@
   "colorSchemeWestern": "Көнбатыш",
   "colorSchemeJapanese": "Япон",
   "colorSchemeWesternDesc": "Ак – сарыга каршы, зәңгәр – яшелгә каршы",
-  "colorSchemeJapaneseDesc": "Ак – зәңгәргә каршы, сары – яшелгә каршы"
+  "colorSchemeJapaneseDesc": "Ак – зәңгәргә каршы, сары – яшелгә каршы",
+  "leaderboardTitle": "Көнлек рейтинг",
+  "leaderboardView": "Рейтингны карау",
+  "leaderboardReminder": "Сез бүгенге сынауны әле чишмәдегез!",
+  "leaderboardSolvedToday": "{count, plural, other{Бүген аны {countText} уенчы чиште}}",
+  "leaderboardAvgTime": "Уртача вакыт: {time}",
+  "leaderboardRankOf": "{total} арасыннан №{rank}",
+  "leaderboardYourTime": "Сезнең вакыт: {time}",
+  "leaderboardYou": "Сез",
+  "leaderboardNotRanked": "Рейтингка керү өчен бүгенге сынауны чишегез.",
+  "leaderboardSimulated": "Офлайн рейтинг: көндәшләр җайланмагызда модельләштерелә. Сезнең вакыт — чын.",
+  "leaderboardJumpToMe": "Минем урынга"
 }

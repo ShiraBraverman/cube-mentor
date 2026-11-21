@@ -2074,4 +2074,53 @@ class AppLocalizationsBn extends AppLocalizations {
   @override
   String get colorSchemeJapaneseDesc =>
       'সাদার বিপরীতে নীল, হলুদের বিপরীতে সবুজ';
+
+  @override
+  String get leaderboardTitle => 'দৈনিক লিডারবোর্ড';
+
+  @override
+  String get leaderboardView => 'লিডারবোর্ড দেখুন';
+
+  @override
+  String get leaderboardReminder => 'আপনি এখনও আজকের চ্যালেঞ্জ সমাধান করেননি!';
+
+  @override
+  String leaderboardSolvedToday(int count, String countText) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'আজ $countText জন খেলোয়াড় এটি সমাধান করেছেন',
+      one: 'আজ $countText জন খেলোয়াড় এটি সমাধান করেছেন',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String leaderboardAvgTime(String time) {
+    return 'গড় সময়: $time';
+  }
+
+  @override
+  String leaderboardRankOf(String rank, String total) {
+    return '$total জনের মধ্যে #$rank';
+  }
+
+  @override
+  String leaderboardYourTime(String time) {
+    return 'আপনার সময়: $time';
+  }
+
+  @override
+  String get leaderboardYou => 'আপনি';
+
+  @override
+  String get leaderboardNotRanked =>
+      'র‍্যাঙ্কিংয়ে আসতে আজকের চ্যালেঞ্জ সমাধান করুন।';
+
+  @override
+  String get leaderboardSimulated =>
+      'অফলাইন লিডারবোর্ড: প্রতিদ্বন্দ্বীরা আপনার ডিভাইসে সিমুলেট করা। আপনার সময় আসল।';
+
+  @override
+  String get leaderboardJumpToMe => 'আমার র‍্যাঙ্কে যান';
 }

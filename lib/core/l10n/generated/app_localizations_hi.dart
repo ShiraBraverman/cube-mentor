@@ -2078,4 +2078,53 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get colorSchemeJapaneseDesc =>
       'सफ़ेद के सामने नीला, पीले के सामने हरा';
+
+  @override
+  String get leaderboardTitle => 'दैनिक लीडरबोर्ड';
+
+  @override
+  String get leaderboardView => 'लीडरबोर्ड देखें';
+
+  @override
+  String get leaderboardReminder => 'आपने आज की चुनौती अभी तक हल नहीं की!';
+
+  @override
+  String leaderboardSolvedToday(int count, String countText) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'आज $countText खिलाड़ियों ने इसे हल किया',
+      one: 'आज $countText खिलाड़ी ने इसे हल किया',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String leaderboardAvgTime(String time) {
+    return 'औसत समय: $time';
+  }
+
+  @override
+  String leaderboardRankOf(String rank, String total) {
+    return '$total में #$rank';
+  }
+
+  @override
+  String leaderboardYourTime(String time) {
+    return 'आपका समय: $time';
+  }
+
+  @override
+  String get leaderboardYou => 'आप';
+
+  @override
+  String get leaderboardNotRanked =>
+      'रैंकिंग में आने के लिए आज की चुनौती हल करें।';
+
+  @override
+  String get leaderboardSimulated =>
+      'ऑफ़लाइन लीडरबोर्ड: प्रतिद्वंद्वी आपके डिवाइस पर सिम्युलेट किए गए हैं। आपका समय असली है।';
+
+  @override
+  String get leaderboardJumpToMe => 'मेरी रैंक पर जाएँ';
 }
