@@ -1,3 +1,4 @@
+import 'package:cube_mentor/core/celebration/celebration.dart';
 import 'package:cube_mentor/core/cube/cube_move.dart';
 import 'package:cube_mentor/core/cube/cube_state.dart';
 import 'package:cube_mentor/core/cube/facelets.dart';
@@ -398,6 +399,13 @@ void main() {
     await _advance(tester, 160);
     expect(container.read(cubeSessionProvider(3)).isIdle, isTrue);
     expect(container.read(cubeSessionProvider(3)).cube.isSolved, isTrue);
+    // A celebration card floats in over the page, then slides away.
+    expect(find.byKey(const ValueKey('celebration-toast')), findsOneWidget);
+    expect(find.text('Daily challenge complete!'), findsOneWidget);
+    expect(find.text('Way to go!'), findsOneWidget);
+    await tester.pump(kCelebrationDuration);
+    await _advance(tester, 4);
+    expect(find.byKey(const ValueKey('celebration-toast')), findsNothing);
 
     await tester.pageBack();
     await _advance(tester);

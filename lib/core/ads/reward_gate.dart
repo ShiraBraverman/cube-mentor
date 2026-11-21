@@ -16,6 +16,10 @@ enum RewardFeature {
 
   /// Hints for the daily challenge (unlocked for the rest of the day).
   dailyHint,
+
+  /// Every 4x4-6x6 pattern past the free sample (unlocked for 20 minutes
+  /// per ad).
+  bigCubePatterns,
 }
 
 /// How an unlock request ended.
@@ -54,6 +58,7 @@ class RewardUnlocks {
     this.lessons = const {},
     this.bigCubeUntil,
     this.hintDay,
+    this.patternsUntil,
     this.sessionPasses = const {},
   });
 
@@ -66,6 +71,9 @@ class RewardUnlocks {
   /// The day (yyyy-mm-dd) daily hints are unlocked for.
   final String? hintDay;
 
+  /// When the timed 4x4-6x6 Pattern Library unlock expires.
+  final DateTime? patternsUntil;
+
   /// Free passes granted when no ad was available, for this session only.
   final Set<String> sessionPasses;
 
@@ -73,11 +81,13 @@ class RewardUnlocks {
     Set<String>? lessons,
     DateTime? bigCubeUntil,
     String? hintDay,
+    DateTime? patternsUntil,
     Set<String>? sessionPasses,
   }) => RewardUnlocks(
     lessons: lessons ?? this.lessons,
     bigCubeUntil: bigCubeUntil ?? this.bigCubeUntil,
     hintDay: hintDay ?? this.hintDay,
+    patternsUntil: patternsUntil ?? this.patternsUntil,
     sessionPasses: sessionPasses ?? this.sessionPasses,
   );
 }
@@ -89,17 +99,22 @@ class AdMobRewardGate extends Notifier<RewardUnlocks> implements RewardGate {
   static const _lessonsKey = 'reward.lessons';
   static const _bigCubeKey = 'reward.bigCubeUntil';
   static const _hintDayKey = 'reward.hintDay';
+  static const _patternsKey = 'reward.patternsUntil';
 
   @override
   RewardUnlocks build() {
     final prefs = ref.watch(sharedPreferencesProvider);
     final until = prefs.getInt(_bigCubeKey);
+    final patternsUntil = prefs.getInt(_patternsKey);
     return RewardUnlocks(
       lessons: (prefs.getStringList(_lessonsKey) ?? const []).toSet(),
       bigCubeUntil: until == null
           ? null
           : DateTime.fromMillisecondsSinceEpoch(until),
       hintDay: prefs.getString(_hintDayKey),
+      patternsUntil: patternsUntil == null
+          ? null
+          : DateTime.fromMillisecondsSinceEpoch(patternsUntil),
     );
   }
 
@@ -122,7 +137,19 @@ class AdMobRewardGate extends Notifier<RewardUnlocks> implements RewardGate {
       RewardFeature.bigCubeSolver =>
         state.bigCubeUntil != null && _now.isBefore(state.bigCubeUntil!),
       RewardFeature.dailyHint => state.hintDay == _day(_now),
+      RewardFeature.bigCubePatterns =>
+        state.patternsUntil != null && _now.isBefore(state.patternsUntil!),
     };
+  }
+
+  /// Time left on the timed Pattern Library unlock; null when it is not
+  /// running (never watched, expired, or no ads on this platform).
+  Duration? patternsTimeLeft() {
+    if (!ref.read(adServiceProvider).supported) return null;
+    final until = state.patternsUntil;
+    if (until == null) return null;
+    final left = until.difference(_now);
+    return left > Duration.zero ? left : null;
   }
 
   @override
@@ -163,6 +190,10 @@ class AdMobRewardGate extends Notifier<RewardUnlocks> implements RewardGate {
         final day = _day(_now);
         state = state.copyWith(hintDay: day);
         await prefs.setString(_hintDayKey, day);
+      case RewardFeature.bigCubePatterns:
+        final until = _now.add(AdConfig.patternsUnlockDuration);
+        state = state.copyWith(patternsUntil: until);
+        await prefs.setInt(_patternsKey, until.millisecondsSinceEpoch);
     }
   }
 }

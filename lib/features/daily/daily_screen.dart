@@ -3,6 +3,7 @@ import 'package:material_ui/material_ui.dart';
 
 import '../../core/ads/reward_gate.dart';
 import '../../core/ads/reward_prompt.dart';
+import '../../core/celebration/celebration.dart';
 import '../../core/cube/cube_move.dart';
 import '../../core/cube/cube_state.dart';
 import '../../core/l10n/generated/app_localizations.dart';
@@ -51,6 +52,19 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
         ? null
         : MoveNotation.parseSequence(state.scramble!, kDailySize);
     final lit = state.streak > 0;
+
+    // Finishing today's challenge (virtual solve or timed) celebrates over
+    // whatever page is open.
+    ref.listen(dailyProvider.select((s) => s.doneToday), (previous, done) {
+      if (previous == false && done) {
+        showCelebration(
+          context,
+          message: l10n.celebrateDailyDone,
+          icon: Icons.local_fire_department_rounded,
+          accent: AppColors.accentWarm,
+        );
+      }
+    });
 
     return GlassBackground(
       child: Scaffold(

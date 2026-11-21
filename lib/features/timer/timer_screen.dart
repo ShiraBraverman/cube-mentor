@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../core/ads/app_banner_ad.dart';
+import '../../core/celebration/celebration.dart';
 import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/feedback/feedback_service.dart';
 import '../../core/settings/clock.dart';
@@ -14,8 +15,10 @@ import 'model/solve_record.dart';
 import 'model/timer_controller.dart';
 import 'model/timer_stats.dart';
 
-/// Speed timer: scramble, hold-to-start pad, optional inspection, penalties
-/// and ao5 / ao12 / ao100 / best statistics per cube size.
+/// Speed timer: hold-to-start pad, optional inspection, penalties and
+/// ao5 / ao12 / ao100 / best statistics per cube size. Free play is kept
+/// distraction-free (no scramble text); only the daily challenge passes a
+/// fixed [scramble], which is shown above the pad.
 class TimerScreen extends ConsumerStatefulWidget {
   const TimerScreen({
     super.key,
@@ -79,6 +82,12 @@ class _TimerScreenState extends ConsumerState<TimerScreen>
       final feedback = ref.read(feedbackProvider);
       if (ref.read(timerProvider(_size)).newBest) {
         feedback.success();
+        showCelebration(
+          context,
+          message: AppLocalizations.of(context).timerNewPb,
+          icon: Icons.emoji_events_rounded,
+          accent: AppColors.gold,
+        );
       } else {
         feedback.step();
       }
@@ -169,12 +178,10 @@ class _TimerScreenState extends ConsumerState<TimerScreen>
                         selected: _size,
                         onSelect: (size) => setState(() => _size = size),
                       ),
-                    if (!busy) ...[
+                    // Daily challenge only: its fixed scramble.
+                    if (!busy && widget.scramble != null) ...[
                       const SizedBox(height: AppSpace.md),
-                      _ScrambleCard(
-                        state: state,
-                        onRefresh: notifier.newScramble,
-                      ),
+                      _ScrambleCard(state: state),
                     ],
                     Expanded(
                       child: Listener(
@@ -240,10 +247,9 @@ class _SizePicker extends StatelessWidget {
 }
 
 class _ScrambleCard extends StatelessWidget {
-  const _ScrambleCard({required this.state, required this.onRefresh});
+  const _ScrambleCard({required this.state});
 
   final TimerState state;
-  final VoidCallback onRefresh;
 
   @override
   Widget build(BuildContext context) {
@@ -279,13 +285,6 @@ class _ScrambleCard extends StatelessWidget {
               ],
             ),
           ),
-          if (!state.fixedScramble)
-            IconButton(
-              key: const ValueKey('timer-new-scramble'),
-              tooltip: l10n.timerNewScramble,
-              onPressed: scramble == null ? null : onRefresh,
-              icon: const Icon(Icons.refresh_rounded),
-            ),
         ],
       ),
     );
@@ -555,12 +554,14 @@ class _HistorySheet extends ConsumerWidget {
                             textAlign: TextAlign.start,
                             style: const TextStyle(fontWeight: FontWeight.w700),
                           ),
-                          subtitle: Text(
-                            solve.scramble,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            textDirection: TextDirection.ltr,
-                          ),
+                          subtitle: solve.scramble.isEmpty
+                              ? null
+                              : Text(
+                                  solve.scramble,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  textDirection: TextDirection.ltr,
+                                ),
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [

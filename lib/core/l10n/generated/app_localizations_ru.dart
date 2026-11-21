@@ -903,9 +903,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get timerInspectionToggle => 'Инспекция 15 с';
 
   @override
-  String get timerNewScramble => 'Новый скрамбл';
-
-  @override
   String get timerLoadingScramble => 'Создаём скрамбл…';
 
   @override
@@ -1977,19 +1974,6 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String fastSolveOptimal(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'Оптимально: $count хода',
-      many: 'Оптимально: $count ходов',
-      few: 'Оптимально: $count хода',
-      one: 'Оптимально: $count ход',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get feedbackTitle => 'Создайте следующую версию вместе с нами';
 
   @override
@@ -2017,4 +2001,123 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get settingsPrivacyAdsError =>
       'Не удалось открыть настройки конфиденциальности. Попробуйте позже.';
+
+  @override
+  String get nicknamePromptTitle => 'Как к вам обращаться?';
+
+  @override
+  String get nicknamePromptBody =>
+      'Мы будем подбадривать вас по имени после каждой сборки.';
+
+  @override
+  String get nicknameHint => 'Ваше имя или никнейм';
+
+  @override
+  String get nicknameGo => 'Поехали';
+
+  @override
+  String get nicknameSkip => 'Пропустить';
+
+  @override
+  String get nicknameSave => 'Сохранить';
+
+  @override
+  String get settingsNickname => 'Ваше имя';
+
+  @override
+  String get settingsNicknameNotSet => 'Не указано — нажмите, чтобы добавить';
+
+  @override
+  String celebrateNamed(String name) {
+    return 'Так держать, $name!';
+  }
+
+  @override
+  String get celebrateAnon => 'Так держать!';
+
+  @override
+  String get celebrateCubeSolved => 'Кубик собран!';
+
+  @override
+  String get celebrateDailyDone => 'Ежедневное испытание пройдено!';
+
+  @override
+  String fastSolveRatio(int count, int limit) {
+    String _temp0 = intl.Intl.pluralLogic(
+      limit,
+      locale: localeName,
+      other: '$count / $limit хода',
+      many: '$count / $limit ходов',
+      few: '$count / $limit хода',
+      one: '$count / $limit ход',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String fastSolveRatioTooltip(int limit) {
+    String _temp0 = intl.Intl.pluralLogic(
+      limit,
+      locale: localeName,
+      other: 'Любую комбинацию можно собрать не более чем за $limit хода',
+      many: 'Любую комбинацию можно собрать не более чем за $limit ходов',
+      few: 'Любую комбинацию можно собрать не более чем за $limit хода',
+      one: 'Любую комбинацию можно собрать не более чем за $limit ход',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get patternsUnlockTitle => 'Открыть все узоры';
+
+  @override
+  String patternsUnlockPrompt(int minutes) {
+    String _temp0 = intl.Intl.pluralLogic(
+      minutes,
+      locale: localeName,
+      other:
+          'Посмотрите 1 короткое видео, чтобы открыть все узоры на $minutes минуты',
+      many:
+          'Посмотрите 1 короткое видео, чтобы открыть все узоры на $minutes минут',
+      few:
+          'Посмотрите 1 короткое видео, чтобы открыть все узоры на $minutes минуты',
+      one:
+          'Посмотрите 1 короткое видео, чтобы открыть все узоры на $minutes минуту',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get patternsWatchVideo => 'Смотреть видео';
+
+  @override
+  String get patternsNotNow => 'Не сейчас';
+
+  @override
+  String patternsUnlockedLeft(String time) {
+    return 'Открыто • осталось $time';
+  }
+
+  @override
+  String get patternsExpiredTitle => 'Пробный доступ закончился';
+
+  @override
+  String patternsExpiredBody(int minutes) {
+    String _temp0 = intl.Intl.pluralLogic(
+      minutes,
+      locale: localeName,
+      other:
+          'Посмотрите 1 видео, чтобы узоры оставались открытыми ещё $minutes минуты!',
+      many:
+          'Посмотрите 1 видео, чтобы узоры оставались открытыми ещё $minutes минут!',
+      few:
+          'Посмотрите 1 видео, чтобы узоры оставались открытыми ещё $minutes минуты!',
+      one:
+          'Посмотрите 1 видео, чтобы узоры оставались открытыми ещё $minutes минуту!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get patternsFreeSample => 'Бесплатно';
 }

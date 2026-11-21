@@ -839,9 +839,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get timerInspectionToggle => '15초 인스펙션';
 
   @override
-  String get timerNewScramble => '새 스크램블';
-
-  @override
   String get timerLoadingScramble => '스크램블 생성 중…';
 
   @override
@@ -1861,11 +1858,6 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String fastSolveOptimal(int count) {
-    return '최적해: $count수';
-  }
-
-  @override
   String get feedbackTitle => '다음 버전을 함께 만들어요';
 
   @override
@@ -1889,4 +1881,82 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get settingsPrivacyAdsError => '개인정보 옵션을 열 수 없어요. 잠시 후 다시 시도해 주세요.';
+
+  @override
+  String get nicknamePromptTitle => '어떻게 불러 드릴까요?';
+
+  @override
+  String get nicknamePromptBody => '큐브를 맞출 때마다 이름을 불러 응원할게요.';
+
+  @override
+  String get nicknameHint => '이름 또는 닉네임';
+
+  @override
+  String get nicknameGo => '시작하기';
+
+  @override
+  String get nicknameSkip => '건너뛰기';
+
+  @override
+  String get nicknameSave => '저장';
+
+  @override
+  String get settingsNickname => '이름';
+
+  @override
+  String get settingsNicknameNotSet => '설정 안 됨 — 탭해서 추가';
+
+  @override
+  String celebrateNamed(String name) {
+    return '$name님, 잘했어요!';
+  }
+
+  @override
+  String get celebrateAnon => '잘했어요!';
+
+  @override
+  String get celebrateCubeSolved => '큐브 완성!';
+
+  @override
+  String get celebrateDailyDone => '오늘의 챌린지 완료!';
+
+  @override
+  String fastSolveRatio(int count, int limit) {
+    return '$count / $limit수';
+  }
+
+  @override
+  String fastSolveRatioTooltip(int limit) {
+    return '어떤 스크램블도 $limit수 이내로 맞출 수 있어요';
+  }
+
+  @override
+  String get patternsUnlockTitle => '모든 패턴 잠금 해제';
+
+  @override
+  String patternsUnlockPrompt(int minutes) {
+    return '짧은 동영상 1개를 보면 모든 패턴이 $minutes분 동안 열려요';
+  }
+
+  @override
+  String get patternsWatchVideo => '동영상 보기';
+
+  @override
+  String get patternsNotNow => '나중에';
+
+  @override
+  String patternsUnlockedLeft(String time) {
+    return '잠금 해제 • $time 남음';
+  }
+
+  @override
+  String get patternsExpiredTitle => '미리 보기 시간이 끝났어요';
+
+  @override
+  String patternsExpiredBody(int minutes) {
+    return '동영상 1개를 보면 모든 패턴을 $minutes분 더 열어 둘 수 있어요!';
+  }
+
+  @override
+  String get patternsFreeSample => '무료';
 }

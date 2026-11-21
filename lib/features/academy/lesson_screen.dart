@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../core/celebration/celebration.dart';
 import '../../core/feedback/feedback_service.dart';
 import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/l10n/move_words.dart';
@@ -429,17 +430,15 @@ class _Completed extends ConsumerWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Icon(
-              Icons.celebration_rounded,
-              size: 48,
-              color: AppColors.accentSecondary,
+            CelebrationCard(
+              message: l10n.lessonComplete,
+              icon: Icons.school_rounded,
             ),
             const SizedBox(height: 12),
-            Text(l10n.lessonComplete, style: textTheme.headlineSmall),
-            const SizedBox(height: 4),
             Text(
               lessonTitle(l10n, lesson.id),
-              style: textTheme.bodyMedium?.copyWith(
+              textAlign: TextAlign.center,
+              style: textTheme.titleMedium?.copyWith(
                 color: AppColors.textSecondary,
               ),
             ),

@@ -88,7 +88,8 @@ void main() {
       final c = await _container();
       final timer = c.read(timerProvider(3).notifier);
       await Future<void>.delayed(Duration.zero);
-      expect(c.read(timerProvider(3)).scramble, FakeScrambler.random[0]);
+      // Free play is distraction-free: no scramble is generated.
+      expect(c.read(timerProvider(3)).scramble, isNull);
 
       // A short tap does nothing without inspection.
       timer.press(1000);
@@ -107,9 +108,9 @@ void main() {
       final state = c.read(timerProvider(3));
       expect(state.phase, TimerPhase.idle);
       expect(state.history.single.millis, 12340);
-      expect(state.history.single.scramble, FakeScrambler.random[0]);
+      expect(state.history.single.scramble, isEmpty);
       await Future<void>.delayed(Duration.zero);
-      expect(c.read(timerProvider(3)).scramble, FakeScrambler.random[1]);
+      expect(c.read(timerProvider(3)).scramble, isNull);
     });
 
     test('inspection adds +2 after 15 s and DNF after 17 s', () async {
@@ -194,7 +195,9 @@ void main() {
       ),
     );
     await tester.pump();
-    expect(find.text(FakeScrambler.random[0]), findsOneWidget);
+    // Free play shows no scramble notation, only the clock.
+    expect(find.byKey(const ValueKey('timer-scramble')), findsNothing);
+    expect(find.text(FakeScrambler.random[0]), findsNothing);
     expect(find.text('0.00'), findsOneWidget);
 
     final pad = tester.getCenter(find.byKey(const ValueKey('timer-pad')));
@@ -218,7 +221,7 @@ void main() {
     await tester.pump();
     expect(solved.single.millis, 8420);
     expect(find.text('8.42'), findsWidgets);
-    expect(find.text(FakeScrambler.random[1]), findsOneWidget);
+    expect(find.byKey(const ValueKey('timer-scramble')), findsNothing);
 
     await tester.tap(find.byKey(const ValueKey('timer-plus2')));
     await tester.pump();

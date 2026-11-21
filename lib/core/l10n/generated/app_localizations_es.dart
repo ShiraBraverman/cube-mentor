@@ -900,9 +900,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get timerInspectionToggle => 'Inspección de 15 s';
 
   @override
-  String get timerNewScramble => 'Nueva mezcla';
-
-  @override
   String get timerLoadingScramble => 'Generando una mezcla…';
 
   @override
@@ -1973,17 +1970,6 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
-  String fastSolveOptimal(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'Óptimo: $count movimientos',
-      one: 'Óptimo: 1 movimiento',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get feedbackTitle => 'Da forma a la próxima versión';
 
   @override
@@ -2010,4 +1996,109 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get settingsPrivacyAdsError =>
       'No se pudieron abrir las opciones de privacidad. Inténtalo más tarde.';
+
+  @override
+  String get nicknamePromptTitle => '¿Cómo te llamamos?';
+
+  @override
+  String get nicknamePromptBody =>
+      'Te animaremos por tu nombre cada vez que resuelvas.';
+
+  @override
+  String get nicknameHint => 'Tu nombre o apodo';
+
+  @override
+  String get nicknameGo => '¡Vamos!';
+
+  @override
+  String get nicknameSkip => 'Omitir';
+
+  @override
+  String get nicknameSave => 'Guardar';
+
+  @override
+  String get settingsNickname => 'Tu nombre';
+
+  @override
+  String get settingsNicknameNotSet => 'Sin definir: toca para añadirlo';
+
+  @override
+  String celebrateNamed(String name) {
+    return '¡Bien hecho, $name!';
+  }
+
+  @override
+  String get celebrateAnon => '¡Bien hecho!';
+
+  @override
+  String get celebrateCubeSolved => '¡Cubo resuelto!';
+
+  @override
+  String get celebrateDailyDone => '¡Reto diario completado!';
+
+  @override
+  String fastSolveRatio(int count, int limit) {
+    String _temp0 = intl.Intl.pluralLogic(
+      limit,
+      locale: localeName,
+      other: '$count / $limit movimientos',
+      one: '$count / 1 movimiento',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String fastSolveRatioTooltip(int limit) {
+    String _temp0 = intl.Intl.pluralLogic(
+      limit,
+      locale: localeName,
+      other: 'Cualquier mezcla se puede resolver en $limit movimientos o menos',
+      one: 'Cualquier mezcla se puede resolver en 1 movimiento o menos',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get patternsUnlockTitle => 'Desbloquea todos los patrones';
+
+  @override
+  String patternsUnlockPrompt(int minutes) {
+    String _temp0 = intl.Intl.pluralLogic(
+      minutes,
+      locale: localeName,
+      other:
+          'Mira 1 vídeo corto para desbloquear todos los patrones durante $minutes minutos',
+      one: 'Mira 1 vídeo corto para desbloquear todos los patrones durante 1 minuto',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get patternsWatchVideo => 'Ver vídeo';
+
+  @override
+  String get patternsNotNow => 'Ahora no';
+
+  @override
+  String patternsUnlockedLeft(String time) {
+    return 'Desbloqueado • quedan $time';
+  }
+
+  @override
+  String get patternsExpiredTitle => 'Tu vista previa ha terminado';
+
+  @override
+  String patternsExpiredBody(int minutes) {
+    String _temp0 = intl.Intl.pluralLogic(
+      minutes,
+      locale: localeName,
+      other:
+          '¡Mira 1 vídeo para mantener todos los patrones desbloqueados $minutes minutos más!',
+      one: '¡Mira 1 vídeo para mantener todos los patrones desbloqueados 1 minuto más!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get patternsFreeSample => 'Gratis';
 }

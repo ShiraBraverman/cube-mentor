@@ -22,6 +22,12 @@ abstract interface class CubeSolver {
 /// stage by stage (reduction, then the three crowns).
 const Set<int> kFastSolveSizes = {2, 3};
 
+/// Upper bound shown next to a Fast solution's move count ("17 / 21
+/// moves"), in face turns: God's Number for the 2x2 (11, every position is
+/// solvable in 11 moves or fewer) and the length the two-phase Kociemba
+/// search reliably stays within for the 3x3 (21; God's Number itself is 20).
+const Map<int, int> kFastSolveMoveLimit = {2: 11, 3: 21};
+
 /// Which solve modes the app offers for cubes of [size] (2x2 to 6x6).
 bool solveMethodOffered(int size, SolveMethod method) {
   if (size < 2 || size > 6) return false;

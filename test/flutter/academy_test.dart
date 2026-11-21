@@ -261,7 +261,7 @@ void main() {
   testWidgets('academy tab → continue learning → lesson with 3D demo → done', (
     tester,
   ) async {
-    SharedPreferences.setMockInitialValues({});
+    SharedPreferences.setMockInitialValues({'nickname_prompted': true});
     final prefs = await SharedPreferences.getInstance();
     tester.view.physicalSize = const Size(1080, 2340);
     tester.view.devicePixelRatio = 2.75;
@@ -412,7 +412,10 @@ void main() {
   testWidgets('the Academy lists every track in Hebrew, right to left', (
     tester,
   ) async {
-    SharedPreferences.setMockInitialValues({'app_locale': 'he'});
+    SharedPreferences.setMockInitialValues({
+      'app_locale': 'he',
+      'nickname_prompted': true,
+    });
     final prefs = await SharedPreferences.getInstance();
     tester.view.physicalSize = const Size(1080, 2340);
     tester.view.devicePixelRatio = 2.75;

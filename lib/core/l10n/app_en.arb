@@ -505,7 +505,6 @@
   "timerInspecting": "Inspection: hold, then release to start",
   "timerTapToInspect": "Tap to start the 15-second inspection",
   "timerInspectionToggle": "15 s inspection",
-  "timerNewScramble": "New scramble",
   "timerLoadingScramble": "Generating a scramble…",
   "timerPb": "Best",
   "timerSolves": "Solves",
@@ -941,15 +940,6 @@
       }
     }
   },
-  "fastSolveOptimal": "{count, plural, =1{Optimal: 1 move} other{Optimal: {count} moves}}",
-  "@fastSolveOptimal": {
-    "description": "Badge on an optimal 2x2 solution: its total move count.",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "feedbackTitle": "Shape the Next Version",
   "feedbackBody": "Want to suggest a feature or influence the next version of CubeMentor? Write to us at:",
   "feedbackEmailCopied": "No email app found, so we copied the address to your clipboard.",
@@ -981,5 +971,128 @@
   "settingsPrivacyAdsError": "Couldn't open the privacy options. Try again later.",
   "@settingsPrivacyAdsError": {
     "description": "Snack bar when the privacy options form could not be shown."
+  },
+  "nicknamePromptTitle": "What should we call you?",
+  "@nicknamePromptTitle": {
+    "description": "First-launch welcome prompt title asking for the user's nickname."
+  },
+  "nicknamePromptBody": "We'll cheer you on by name every time you solve.",
+  "@nicknamePromptBody": {
+    "description": "First-launch welcome prompt text under the title."
+  },
+  "nicknameHint": "Your name or nickname",
+  "@nicknameHint": {
+    "description": "Hint inside the nickname text field."
+  },
+  "nicknameGo": "Let's Go",
+  "@nicknameGo": {
+    "description": "Primary button of the first-launch nickname prompt."
+  },
+  "nicknameSkip": "Skip",
+  "@nicknameSkip": {
+    "description": "Subtle button that dismisses the first-launch nickname prompt without a name."
+  },
+  "nicknameSave": "Save",
+  "@nicknameSave": {
+    "description": "Button saving an edited nickname (opened from Settings)."
+  },
+  "settingsNickname": "Your name",
+  "@settingsNickname": {
+    "description": "Settings row title for the user's nickname."
+  },
+  "settingsNicknameNotSet": "Not set — tap to add one",
+  "@settingsNicknameNotSet": {
+    "description": "Settings nickname row subtitle when no nickname was given."
+  },
+  "celebrateNamed": "Way to go, {name}!",
+  "@celebrateNamed": {
+    "description": "Celebration card headline with the user's nickname.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Shira"
+      }
+    }
+  },
+  "celebrateAnon": "Way to go!",
+  "@celebrateAnon": {
+    "description": "Celebration card headline when no nickname was set."
+  },
+  "celebrateCubeSolved": "Cube solved!",
+  "@celebrateCubeSolved": {
+    "description": "Celebration card message after the Guided or Fast solver finishes a solve."
+  },
+  "celebrateDailyDone": "Daily challenge complete!",
+  "@celebrateDailyDone": {
+    "description": "Celebration card message when the daily challenge is finished."
+  },
+  "fastSolveRatio": "{limit, plural, =1{{count} / 1 move} other{{count} / {limit} moves}}",
+  "@fastSolveRatio": {
+    "description": "Fast solve badge: the solution length against the cube's move bound (11 for the 2x2, 21 for the 3x3), e.g. \"17 / 21 moves\".",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "limit": {
+        "type": "int"
+      }
+    }
+  },
+  "fastSolveRatioTooltip": "{limit, plural, =1{Any scramble can be solved in 1 move or fewer} other{Any scramble can be solved in {limit} moves or fewer}}",
+  "@fastSolveRatioTooltip": {
+    "description": "Tooltip on the fast solve ratio badge explaining the bound.",
+    "placeholders": {
+      "limit": {
+        "type": "int"
+      }
+    }
+  },
+  "patternsUnlockTitle": "Unlock all patterns",
+  "@patternsUnlockTitle": {
+    "description": "Title of the sheet offering a rewarded video to unlock the 4x4-6x6 patterns."
+  },
+  "patternsUnlockPrompt": "{minutes, plural, =1{Watch 1 short video to unlock all patterns for 1 minute} other{Watch 1 short video to unlock all patterns for {minutes} minutes}}",
+  "@patternsUnlockPrompt": {
+    "description": "Pattern Library banner and sheet text: one rewarded video unlocks every pattern for a while.",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "patternsWatchVideo": "Watch Video",
+  "@patternsWatchVideo": {
+    "description": "Button that plays a rewarded video to unlock the patterns."
+  },
+  "patternsNotNow": "Not Now",
+  "@patternsNotNow": {
+    "description": "Button that closes the pattern unlock sheet."
+  },
+  "patternsUnlockedLeft": "Unlocked • {time} left",
+  "@patternsUnlockedLeft": {
+    "description": "Countdown pill at the top of the Pattern Library while the timed unlock runs; time is m:ss.",
+    "placeholders": {
+      "time": {
+        "type": "String",
+        "example": "19:42"
+      }
+    }
+  },
+  "patternsExpiredTitle": "Your preview has ended",
+  "@patternsExpiredTitle": {
+    "description": "Title of the sheet shown when the timed pattern unlock runs out."
+  },
+  "patternsExpiredBody": "{minutes, plural, =1{Watch 1 video to keep all patterns unlocked for another minute!} other{Watch 1 video to keep all patterns unlocked for another {minutes} minutes!}}",
+  "@patternsExpiredBody": {
+    "description": "Text of the sheet shown when the timed pattern unlock runs out.",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "patternsFreeSample": "Free",
+  "@patternsFreeSample": {
+    "description": "Badge on the free sample pattern of a locked 4x4-6x6 page."
   }
 }

@@ -906,9 +906,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get timerInspectionToggle => '15 s na inspection';
 
   @override
-  String get timerNewScramble => 'Bagong scramble';
-
-  @override
   String get timerLoadingScramble => 'Gumagawa ng scramble…';
 
   @override
@@ -1977,11 +1974,6 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String fastSolveOptimal(int count) {
-    return 'Pinakamaikli: $count galaw';
-  }
-
-  @override
   String get feedbackTitle => 'Hubugin ang Susunod na Bersyon';
 
   @override
@@ -2009,4 +2001,83 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get settingsPrivacyAdsError =>
       'Hindi mabuksan ang mga opsyon sa privacy. Subukan ulit mamaya.';
+
+  @override
+  String get nicknamePromptTitle => 'Ano ang itatawag namin sa iyo?';
+
+  @override
+  String get nicknamePromptBody =>
+      'Ichi-cheer ka namin gamit ang pangalan mo tuwing makakalutas ka.';
+
+  @override
+  String get nicknameHint => 'Pangalan o palayaw mo';
+
+  @override
+  String get nicknameGo => 'Tara na';
+
+  @override
+  String get nicknameSkip => 'Laktawan';
+
+  @override
+  String get nicknameSave => 'I-save';
+
+  @override
+  String get settingsNickname => 'Pangalan mo';
+
+  @override
+  String get settingsNicknameNotSet => 'Wala pa — i-tap para magdagdag';
+
+  @override
+  String celebrateNamed(String name) {
+    return 'Ang galing mo, $name!';
+  }
+
+  @override
+  String get celebrateAnon => 'Ang galing mo!';
+
+  @override
+  String get celebrateCubeSolved => 'Nalutas ang cube!';
+
+  @override
+  String get celebrateDailyDone => 'Tapos na ang daily challenge!';
+
+  @override
+  String fastSolveRatio(int count, int limit) {
+    return '$count / $limit galaw';
+  }
+
+  @override
+  String fastSolveRatioTooltip(int limit) {
+    return 'Malulutas ang anumang scramble sa $limit galaw o mas kaunti';
+  }
+
+  @override
+  String get patternsUnlockTitle => 'I-unlock ang lahat ng pattern';
+
+  @override
+  String patternsUnlockPrompt(int minutes) {
+    return 'Manood ng 1 maikling video para ma-unlock ang lahat ng pattern sa loob ng $minutes minuto';
+  }
+
+  @override
+  String get patternsWatchVideo => 'Manood ng video';
+
+  @override
+  String get patternsNotNow => 'Mamaya na';
+
+  @override
+  String patternsUnlockedLeft(String time) {
+    return 'Naka-unlock • $time na lang';
+  }
+
+  @override
+  String get patternsExpiredTitle => 'Tapos na ang preview mo';
+
+  @override
+  String patternsExpiredBody(int minutes) {
+    return 'Manood ng 1 video para manatiling naka-unlock ang lahat ng pattern nang $minutes minuto pa!';
+  }
+
+  @override
+  String get patternsFreeSample => 'Libre';
 }

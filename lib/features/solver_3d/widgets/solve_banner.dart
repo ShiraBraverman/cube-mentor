@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../../core/celebration/celebration.dart';
 import '../../../core/cube/facelets.dart';
 import '../../../core/cube/cube_state.dart';
 import '../../../core/l10n/generated/app_localizations.dart';
@@ -59,6 +60,28 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
 
     if (complete) {
       final guided = session.steps.any((s) => s.hasCrown);
+      final summary = fast
+          ? FastMoveBadge(size: size, moves: session.playback.length)
+          : Text(
+              l10n.solveAllStagesDone,
+              key: const ValueKey('solve-summary'),
+              style: secondary,
+            );
+      // A solver solution (Guided or Fast) ends in a personal celebration;
+      // patterns and scramble guides just say they are done.
+      if (session.solvedWith != null) {
+        return KeyedSubtree(
+          key: const ValueKey('solve-complete'),
+          child: CelebrationCard(
+            compact: true,
+            message: l10n.celebrateCubeSolved,
+            icon: Icons.emoji_events_rounded,
+            // All three crowns finished.
+            trailing: guided ? const CrownTracker(active: kCrowns + 1) : null,
+            footer: summary,
+          ),
+        );
+      }
       return GlassCard(
         selected: true,
         accent: AppColors.accentSecondary,
@@ -77,11 +100,6 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
               color: AppColors.accentSecondary,
             ),
             const SizedBox(width: 12),
-            // All three crowns finished.
-            if (guided) ...[
-              const CrownTracker(active: kCrowns + 1),
-              const SizedBox(width: 12),
-            ],
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,14 +111,7 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
                       color: AppColors.accentSecondary,
                     ),
                   ),
-                  if (fast)
-                    FastMoveBadge(size: size, moves: session.playback.length)
-                  else
-                    Text(
-                      l10n.solveAllStagesDone,
-                      key: const ValueKey('solve-summary'),
-                      style: secondary,
-                    ),
+                  summary,
                 ],
               ),
             ),
@@ -283,8 +294,10 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
   }
 }
 
-/// Headline of a Fast solution: "Solved in 18 moves!" (3x3) or
-/// "Optimal: 9 moves" (2x2, always the shortest solution).
+/// Headline of a Fast solution as a ratio against the cube's move bound:
+/// "17 / 21 moves" (3x3) or "9 / 11 moves" (2x2, always optimal), so it is
+/// clear at a glance how short the solution is. Falls back to "Solved in N
+/// moves!" in the rare case a solution runs past the bound.
 class FastMoveBadge extends StatelessWidget {
   const FastMoveBadge({super.key, required this.size, required this.moves});
 
@@ -294,7 +307,12 @@ class FastMoveBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    return Container(
+    final limit = kFastSolveMoveLimit[size];
+    final withinLimit = limit != null && moves <= limit;
+    final label = withinLimit
+        ? l10n.fastSolveRatio(moves, limit)
+        : l10n.fastSolveMoves(moves);
+    final badge = Container(
       key: const ValueKey('fast-move-count'),
       padding: const EdgeInsetsDirectional.fromSTEB(8, 4, 12, 4),
       decoration: BoxDecoration(
@@ -306,6 +324,13 @@ class FastMoveBadge extends StatelessWidget {
           ],
         ),
         border: Border.all(color: AppColors.gold.withValues(alpha: 0.6)),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.gold.withValues(alpha: 0.22),
+            blurRadius: 14,
+            spreadRadius: -4,
+          ),
+        ],
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -314,20 +339,22 @@ class FastMoveBadge extends StatelessWidget {
           const SizedBox(width: 4),
           Flexible(
             child: Text(
-              size == 2
-                  ? l10n.fastSolveOptimal(moves)
-                  : l10n.fastSolveMoves(moves),
+              label,
+              key: const ValueKey('fast-move-ratio'),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: Theme.of(context).textTheme.labelLarge?.copyWith(
                 color: AppColors.gold,
                 fontWeight: FontWeight.w800,
+                fontFeatures: const [FontFeature.tabularFigures()],
               ),
             ),
           ),
         ],
       ),
     );
+    if (!withinLimit) return badge;
+    return Tooltip(message: l10n.fastSolveRatioTooltip(limit), child: badge);
   }
 }
 

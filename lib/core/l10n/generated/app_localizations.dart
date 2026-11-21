@@ -1597,12 +1597,6 @@ abstract class AppLocalizations {
   /// **'15 s inspection'**
   String get timerInspectionToggle;
 
-  /// No description provided for @timerNewScramble.
-  ///
-  /// In en, this message translates to:
-  /// **'New scramble'**
-  String get timerNewScramble;
-
   /// No description provided for @timerLoadingScramble.
   ///
   /// In en, this message translates to:
@@ -3439,12 +3433,6 @@ abstract class AppLocalizations {
   /// **'{count, plural, =1{Solved in 1 move!} other{Solved in {count} moves!}}'**
   String fastSolveMoves(int count);
 
-  /// Badge on an optimal 2x2 solution: its total move count.
-  ///
-  /// In en, this message translates to:
-  /// **'{count, plural, =1{Optimal: 1 move} other{Optimal: {count} moves}}'**
-  String fastSolveOptimal(int count);
-
   /// Settings card inviting feature ideas by email.
   ///
   /// In en, this message translates to:
@@ -3492,6 +3480,138 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Couldn\'t open the privacy options. Try again later.'**
   String get settingsPrivacyAdsError;
+
+  /// First-launch welcome prompt title asking for the user's nickname.
+  ///
+  /// In en, this message translates to:
+  /// **'What should we call you?'**
+  String get nicknamePromptTitle;
+
+  /// First-launch welcome prompt text under the title.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'ll cheer you on by name every time you solve.'**
+  String get nicknamePromptBody;
+
+  /// Hint inside the nickname text field.
+  ///
+  /// In en, this message translates to:
+  /// **'Your name or nickname'**
+  String get nicknameHint;
+
+  /// Primary button of the first-launch nickname prompt.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s Go'**
+  String get nicknameGo;
+
+  /// Subtle button that dismisses the first-launch nickname prompt without a name.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get nicknameSkip;
+
+  /// Button saving an edited nickname (opened from Settings).
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get nicknameSave;
+
+  /// Settings row title for the user's nickname.
+  ///
+  /// In en, this message translates to:
+  /// **'Your name'**
+  String get settingsNickname;
+
+  /// Settings nickname row subtitle when no nickname was given.
+  ///
+  /// In en, this message translates to:
+  /// **'Not set — tap to add one'**
+  String get settingsNicknameNotSet;
+
+  /// Celebration card headline with the user's nickname.
+  ///
+  /// In en, this message translates to:
+  /// **'Way to go, {name}!'**
+  String celebrateNamed(String name);
+
+  /// Celebration card headline when no nickname was set.
+  ///
+  /// In en, this message translates to:
+  /// **'Way to go!'**
+  String get celebrateAnon;
+
+  /// Celebration card message after the Guided or Fast solver finishes a solve.
+  ///
+  /// In en, this message translates to:
+  /// **'Cube solved!'**
+  String get celebrateCubeSolved;
+
+  /// Celebration card message when the daily challenge is finished.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily challenge complete!'**
+  String get celebrateDailyDone;
+
+  /// Fast solve badge: the solution length against the cube's move bound (11 for the 2x2, 21 for the 3x3), e.g. "17 / 21 moves".
+  ///
+  /// In en, this message translates to:
+  /// **'{limit, plural, =1{{count} / 1 move} other{{count} / {limit} moves}}'**
+  String fastSolveRatio(int count, int limit);
+
+  /// Tooltip on the fast solve ratio badge explaining the bound.
+  ///
+  /// In en, this message translates to:
+  /// **'{limit, plural, =1{Any scramble can be solved in 1 move or fewer} other{Any scramble can be solved in {limit} moves or fewer}}'**
+  String fastSolveRatioTooltip(int limit);
+
+  /// Title of the sheet offering a rewarded video to unlock the 4x4-6x6 patterns.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock all patterns'**
+  String get patternsUnlockTitle;
+
+  /// Pattern Library banner and sheet text: one rewarded video unlocks every pattern for a while.
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes, plural, =1{Watch 1 short video to unlock all patterns for 1 minute} other{Watch 1 short video to unlock all patterns for {minutes} minutes}}'**
+  String patternsUnlockPrompt(int minutes);
+
+  /// Button that plays a rewarded video to unlock the patterns.
+  ///
+  /// In en, this message translates to:
+  /// **'Watch Video'**
+  String get patternsWatchVideo;
+
+  /// Button that closes the pattern unlock sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'Not Now'**
+  String get patternsNotNow;
+
+  /// Countdown pill at the top of the Pattern Library while the timed unlock runs; time is m:ss.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocked • {time} left'**
+  String patternsUnlockedLeft(String time);
+
+  /// Title of the sheet shown when the timed pattern unlock runs out.
+  ///
+  /// In en, this message translates to:
+  /// **'Your preview has ended'**
+  String get patternsExpiredTitle;
+
+  /// Text of the sheet shown when the timed pattern unlock runs out.
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes, plural, =1{Watch 1 video to keep all patterns unlocked for another minute!} other{Watch 1 video to keep all patterns unlocked for another {minutes} minutes!}}'**
+  String patternsExpiredBody(int minutes);
+
+  /// Badge on the free sample pattern of a locked 4x4-6x6 page.
+  ///
+  /// In en, this message translates to:
+  /// **'Free'**
+  String get patternsFreeSample;
 }
 
 class _AppLocalizationsDelegate

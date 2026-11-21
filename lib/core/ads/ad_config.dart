@@ -56,4 +56,7 @@ abstract final class AdConfig {
 
   /// How long a 4x4-6x6 solver unlock lasts after one rewarded ad.
   static const Duration bigCubeUnlockDuration = Duration(hours: 24);
+
+  /// How long the 4x4-6x6 Pattern Library stays open after one rewarded ad.
+  static const Duration patternsUnlockDuration = Duration(minutes: 20);
 }

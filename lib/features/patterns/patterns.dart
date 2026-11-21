@@ -25,6 +25,15 @@ class CubePattern {
       CubeState.solved(size).applyAll(movesFor(size));
 }
 
+/// Patterns of each 4x4-6x6 page that are always free (the first one), so
+/// every size can be tried right away. The 2x2 and 3x3 pages are all free.
+const int kFreeBigCubePatterns = 1;
+
+/// Whether the pattern at [index] of the [size] page needs the timed
+/// rewarded unlock.
+bool patternNeedsUnlock(int size, int index) =>
+    size >= 4 && index >= kFreeBigCubePatterns;
+
 const String _cubeInCube = "F L F U' R U F2 L2 U' L' B D' B' L2 U";
 const String _cubeInCubeWide =
     "Fw Lw Fw Uw' Rw Uw Fw2 Lw2 Uw' Lw' Bw Dw' Bw' Lw2 Uw";

@@ -894,9 +894,6 @@ class AppLocalizationsHi extends AppLocalizations {
   String get timerInspectionToggle => '15 से. इंस्पेक्शन';
 
   @override
-  String get timerNewScramble => 'नया स्क्रैम्बल';
-
-  @override
   String get timerLoadingScramble => 'स्क्रैम्बल बन रहा है…';
 
   @override
@@ -1960,17 +1957,6 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String fastSolveOptimal(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'सर्वोत्तम: $count चालें',
-      one: 'सर्वोत्तम: 1 चाल',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get feedbackTitle => 'अगला संस्करण मिलकर बनाएँ';
 
   @override
@@ -1997,4 +1983,83 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get settingsPrivacyAdsError =>
       'निजता विकल्प नहीं खुल सके। बाद में फिर कोशिश करें।';
+
+  @override
+  String get nicknamePromptTitle => 'हम आपको क्या कहकर बुलाएँ?';
+
+  @override
+  String get nicknamePromptBody =>
+      'हर बार हल करने पर हम आपका नाम लेकर हौसला बढ़ाएँगे।';
+
+  @override
+  String get nicknameHint => 'आपका नाम या उपनाम';
+
+  @override
+  String get nicknameGo => 'चलिए शुरू करें';
+
+  @override
+  String get nicknameSkip => 'छोड़ें';
+
+  @override
+  String get nicknameSave => 'सहेजें';
+
+  @override
+  String get settingsNickname => 'आपका नाम';
+
+  @override
+  String get settingsNicknameNotSet => 'सेट नहीं है — जोड़ने के लिए टैप करें';
+
+  @override
+  String celebrateNamed(String name) {
+    return 'शाबाश, $name!';
+  }
+
+  @override
+  String get celebrateAnon => 'शाबाश!';
+
+  @override
+  String get celebrateCubeSolved => 'क्यूब हल हो गया!';
+
+  @override
+  String get celebrateDailyDone => 'आज की चुनौती पूरी हुई!';
+
+  @override
+  String fastSolveRatio(int count, int limit) {
+    return '$count / $limit चालें';
+  }
+
+  @override
+  String fastSolveRatioTooltip(int limit) {
+    return 'हर स्क्रैम्बल $limit या उससे कम चालों में हल हो सकता है';
+  }
+
+  @override
+  String get patternsUnlockTitle => 'सभी पैटर्न अनलॉक करें';
+
+  @override
+  String patternsUnlockPrompt(int minutes) {
+    return 'सभी पैटर्न $minutes मिनट के लिए अनलॉक करने हेतु 1 छोटा वीडियो देखें';
+  }
+
+  @override
+  String get patternsWatchVideo => 'वीडियो देखें';
+
+  @override
+  String get patternsNotNow => 'अभी नहीं';
+
+  @override
+  String patternsUnlockedLeft(String time) {
+    return 'अनलॉक • $time बाकी';
+  }
+
+  @override
+  String get patternsExpiredTitle => 'आपका प्रीव्यू समय खत्म हो गया';
+
+  @override
+  String patternsExpiredBody(int minutes) {
+    return 'सभी पैटर्न अगले $minutes मिनट तक अनलॉक रखने के लिए 1 वीडियो देखें!';
+  }
+
+  @override
+  String get patternsFreeSample => 'मुफ़्त';
 }

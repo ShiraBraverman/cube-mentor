@@ -14,7 +14,10 @@ Future<ProviderContainer> _pumpHome(
   WidgetTester tester, {
   String? locale,
 }) async {
-  SharedPreferences.setMockInitialValues({'app_locale': ?locale});
+  SharedPreferences.setMockInitialValues({
+    'app_locale': ?locale,
+    'nickname_prompted': true,
+  });
   final prefs = await SharedPreferences.getInstance();
   tester.view.physicalSize = const Size(1080, 2340);
   tester.view.devicePixelRatio = 2.75;

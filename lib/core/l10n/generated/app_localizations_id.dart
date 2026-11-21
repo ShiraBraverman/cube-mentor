@@ -893,9 +893,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get timerInspectionToggle => 'Inspeksi 15 dtk';
 
   @override
-  String get timerNewScramble => 'Acakan baru';
-
-  @override
   String get timerLoadingScramble => 'Membuat acakan…';
 
   @override
@@ -1960,11 +1957,6 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String fastSolveOptimal(int count) {
-    return 'Optimal: $count gerakan';
-  }
-
-  @override
   String get feedbackTitle => 'Bentuk Versi Berikutnya';
 
   @override
@@ -1992,4 +1984,83 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get settingsPrivacyAdsError =>
       'Tidak dapat membuka opsi privasi. Coba lagi nanti.';
+
+  @override
+  String get nicknamePromptTitle => 'Kami panggil kamu siapa?';
+
+  @override
+  String get nicknamePromptBody =>
+      'Kami akan menyemangatimu dengan namamu setiap kali kamu berhasil menyelesaikan kubus.';
+
+  @override
+  String get nicknameHint => 'Nama atau panggilanmu';
+
+  @override
+  String get nicknameGo => 'Ayo mulai';
+
+  @override
+  String get nicknameSkip => 'Lewati';
+
+  @override
+  String get nicknameSave => 'Simpan';
+
+  @override
+  String get settingsNickname => 'Namamu';
+
+  @override
+  String get settingsNicknameNotSet => 'Belum diatur — ketuk untuk menambahkan';
+
+  @override
+  String celebrateNamed(String name) {
+    return 'Hebat, $name!';
+  }
+
+  @override
+  String get celebrateAnon => 'Hebat!';
+
+  @override
+  String get celebrateCubeSolved => 'Kubus selesai!';
+
+  @override
+  String get celebrateDailyDone => 'Tantangan harian selesai!';
+
+  @override
+  String fastSolveRatio(int count, int limit) {
+    return '$count / $limit gerakan';
+  }
+
+  @override
+  String fastSolveRatioTooltip(int limit) {
+    return 'Setiap acakan bisa diselesaikan dalam $limit gerakan atau kurang';
+  }
+
+  @override
+  String get patternsUnlockTitle => 'Buka semua pola';
+
+  @override
+  String patternsUnlockPrompt(int minutes) {
+    return 'Tonton 1 video singkat untuk membuka semua pola selama $minutes menit';
+  }
+
+  @override
+  String get patternsWatchVideo => 'Tonton video';
+
+  @override
+  String get patternsNotNow => 'Nanti saja';
+
+  @override
+  String patternsUnlockedLeft(String time) {
+    return 'Terbuka • sisa $time';
+  }
+
+  @override
+  String get patternsExpiredTitle => 'Waktu pratinjaumu sudah habis';
+
+  @override
+  String patternsExpiredBody(int minutes) {
+    return 'Tonton 1 video agar semua pola tetap terbuka $minutes menit lagi!';
+  }
+
+  @override
+  String get patternsFreeSample => 'Gratis';
 }

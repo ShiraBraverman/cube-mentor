@@ -834,9 +834,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get timerInspectionToggle => '15 秒观察';
 
   @override
-  String get timerNewScramble => '新打乱';
-
-  @override
   String get timerLoadingScramble => '正在生成打乱…';
 
   @override
@@ -1836,11 +1833,6 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String fastSolveOptimal(int count) {
-    return '最优解：$count 步';
-  }
-
-  @override
   String get feedbackTitle => '一起打造下一个版本';
 
   @override
@@ -1863,4 +1855,82 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get settingsPrivacyAdsError => '无法打开隐私选项，请稍后重试。';
+
+  @override
+  String get nicknamePromptTitle => '我们该怎么称呼你？';
+
+  @override
+  String get nicknamePromptBody => '每次还原成功，我们都会喊着你的名字为你喝彩。';
+
+  @override
+  String get nicknameHint => '你的名字或昵称';
+
+  @override
+  String get nicknameGo => '开始吧';
+
+  @override
+  String get nicknameSkip => '跳过';
+
+  @override
+  String get nicknameSave => '保存';
+
+  @override
+  String get settingsNickname => '你的名字';
+
+  @override
+  String get settingsNicknameNotSet => '未设置 — 点按添加';
+
+  @override
+  String celebrateNamed(String name) {
+    return '干得好，$name！';
+  }
+
+  @override
+  String get celebrateAnon => '干得好！';
+
+  @override
+  String get celebrateCubeSolved => '魔方还原成功！';
+
+  @override
+  String get celebrateDailyDone => '每日挑战完成！';
+
+  @override
+  String fastSolveRatio(int count, int limit) {
+    return '$count / $limit 步';
+  }
+
+  @override
+  String fastSolveRatioTooltip(int limit) {
+    return '任何打乱都能在 $limit 步以内还原';
+  }
+
+  @override
+  String get patternsUnlockTitle => '解锁全部图案';
+
+  @override
+  String patternsUnlockPrompt(int minutes) {
+    return '观看 1 个短视频，即可解锁全部图案 $minutes 分钟';
+  }
+
+  @override
+  String get patternsWatchVideo => '观看视频';
+
+  @override
+  String get patternsNotNow => '以后再说';
+
+  @override
+  String patternsUnlockedLeft(String time) {
+    return '已解锁 • 剩余 $time';
+  }
+
+  @override
+  String get patternsExpiredTitle => '试用时间已结束';
+
+  @override
+  String patternsExpiredBody(int minutes) {
+    return '观看 1 个视频，全部图案再解锁 $minutes 分钟！';
+  }
+
+  @override
+  String get patternsFreeSample => '免费';
 }

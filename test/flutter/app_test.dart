@@ -22,6 +22,7 @@ import 'fake_cube_solver.dart';
 Future<SharedPreferences> _prefs([Map<String, Object> values = const {}]) {
   SharedPreferences.setMockInitialValues({
     'settings_animation_speed': 1.0,
+    'nickname_prompted': true,
     ...values,
   });
   return SharedPreferences.getInstance();
@@ -323,7 +324,10 @@ void main() {
     await tester.tap(find.byTooltip('Play'));
     await _advance(tester, 12);
     expect(container.read(cubeSessionProvider(3)).cube.isSolved, isTrue);
-    expect(find.text('Solved! Great job.'), findsOneWidget);
+    // The finish is a personal celebration card (no nickname set here).
+    expect(find.byKey(const ValueKey('celebration-card')), findsOneWidget);
+    expect(find.text('Way to go!'), findsOneWidget);
+    expect(find.text('Cube solved!'), findsOneWidget);
     expect(find.text('Solved'), findsOneWidget);
 
     // Stepping back replays the solution in reverse.
@@ -342,13 +346,10 @@ void main() {
     expect(container.read(cubeSessionProvider(3)).solvedWith, SolveMethod.fast);
     final prefs = container.read(sharedPreferencesProvider);
     expect(prefs.getString('solve_method'), 'fast');
-    // Fast solutions headline their total move count.
+    // Fast solutions headline their move count against the 3x3 bound.
     final moves = container.read(cubeSessionProvider(3)).playback.length;
     expect(find.byKey(const ValueKey('fast-move-count')), findsOneWidget);
-    expect(
-      find.text(moves == 1 ? 'Solved in 1 move!' : 'Solved in $moves moves!'),
-      findsOneWidget,
-    );
+    expect(find.text('$moves / 21 moves'), findsOneWidget);
   });
 
   testWidgets("the goal sheet's switch stops it opening by itself", (
@@ -604,7 +605,7 @@ void main() {
       await tester.tap(find.byKey(const ValueKey('playback-next')));
       await _advance(tester, 12);
       expect(container.read(cubeSessionProvider(3)).cube.isSolved, isTrue);
-      expect(find.text('Solved! Great job.'), findsOneWidget);
+      expect(find.text('Cube solved!'), findsOneWidget);
       // The warm success chime's haptic.
       expect(haptic('mediumImpact'), isTrue);
       // The wrong move was a gentle double light tap (playback turns do

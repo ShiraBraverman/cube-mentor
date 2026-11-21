@@ -1,4 +1,5 @@
 import 'package:cube_mentor/app.dart';
+import 'package:cube_mentor/core/celebration/celebration.dart';
 import 'package:cube_mentor/core/cube/cube_move.dart';
 import 'package:cube_mentor/core/cube/cube_state.dart';
 import 'package:cube_mentor/core/l10n/app_delegates.dart';
@@ -16,6 +17,7 @@ import 'package:cube_mentor/features/academy/model/lesson.dart';
 import 'package:cube_mentor/features/academy/model/lesson_catalog.dart';
 import 'package:cube_mentor/features/daily/daily_screen.dart';
 import 'package:cube_mentor/features/home/home_screen.dart';
+import 'package:cube_mentor/features/home/nickname_prompt.dart';
 import 'package:cube_mentor/features/home/root_shell.dart';
 import 'package:cube_mentor/features/home/settings_sheet.dart';
 import 'package:cube_mentor/features/patterns/patterns_screen.dart';
@@ -209,7 +211,7 @@ void main() {
     tester,
   ) async {
     _smallPhone(tester);
-    SharedPreferences.setMockInitialValues({});
+    SharedPreferences.setMockInitialValues({'nickname_prompted': true});
     final prefs = await SharedPreferences.getInstance();
     await tester.pumpWidget(
       ProviderScope(
@@ -271,7 +273,12 @@ void main() {
       tester,
     ) async {
       _smallPhone(tester);
-      SharedPreferences.setMockInitialValues({'app_locale': language.tag});
+      SharedPreferences.setMockInitialValues({
+        'app_locale': language.tag,
+        'nickname_prompted': true,
+        // A long name for the celebration cards.
+        'user_nickname': 'Maximiliana Alexandra',
+      });
       final prefs = await SharedPreferences.getInstance();
 
       // A guided (3-crown) plan for the playground banner.
@@ -367,6 +374,59 @@ void main() {
       expect(find.byKey(const ValueKey('daily-step-0')), findsOneWidget);
       expect(tester.takeException(), isNull, reason: 'daily text moves');
       await show(const PatternsScreen());
+      // A locked 4x4 page: unlock banner, free sample and locked cards,
+      // then the "watch a video" sheet from a locked pattern.
+      await show(const PatternsScreen(initialSize: 4), scroll: false);
+      expect(
+        find.byKey(const ValueKey('patterns-unlock-banner-4')),
+        findsOneWidget,
+      );
+      await tester.ensureVisible(
+        find.byKey(const ValueKey('pattern-superflip')),
+      );
+      await tester.pump();
+      await tester.tap(find.byKey(const ValueKey('pattern-superflip')));
+      await _advance(tester, 8);
+      expect(
+        find.byKey(const ValueKey('patterns-unlock-sheet')),
+        findsOneWidget,
+      );
+      expect(tester.takeException(), isNull, reason: 'patterns unlock sheet');
+      // The re-offer when the 20 minutes run out.
+      await show(
+        const Scaffold(
+          body: Align(
+            alignment: Alignment.bottomCenter,
+            child: PatternsUnlockSheet(expired: true),
+          ),
+        ),
+        scroll: false,
+      );
+      // The first-launch nickname prompt and its Settings edit version.
+      for (final onboarding in [true, false]) {
+        await show(
+          Scaffold(body: NicknameDialog(onboarding: onboarding)),
+          scroll: false,
+        );
+        expect(find.byKey(const ValueKey('nickname-prompt')), findsOneWidget);
+      }
+      // Celebration cards with a long name, full size and compact.
+      for (final compact in [false, true]) {
+        await show(
+          Scaffold(
+            body: Center(
+              child: Builder(
+                builder: (context) => CelebrationCard(
+                  compact: compact,
+                  message: AppLocalizations.of(context).celebrateDailyDone,
+                ),
+              ),
+            ),
+          ),
+          scroll: false,
+        );
+        expect(find.byKey(const ValueKey('celebration-card')), findsOneWidget);
+      }
       // Settings, with the feedback card, on a small phone.
       await show(const Scaffold(body: SettingsSheet()));
 

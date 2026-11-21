@@ -838,9 +838,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get timerInspectionToggle => '15秒インスペクション';
 
   @override
-  String get timerNewScramble => '新しいスクランブル';
-
-  @override
   String get timerLoadingScramble => 'スクランブルを生成中…';
 
   @override
@@ -1857,11 +1854,6 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String fastSolveOptimal(int count) {
-    return '最適解：$count手';
-  }
-
-  @override
   String get feedbackTitle => '次のバージョンを一緒に作ろう';
 
   @override
@@ -1885,4 +1877,82 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get settingsPrivacyAdsError =>
       'プライバシー設定を開けませんでした。しばらくしてからもう一度お試しください。';
+
+  @override
+  String get nicknamePromptTitle => 'なんとお呼びしましょうか？';
+
+  @override
+  String get nicknamePromptBody => '揃えるたびに、お名前で応援します。';
+
+  @override
+  String get nicknameHint => 'お名前またはニックネーム';
+
+  @override
+  String get nicknameGo => 'はじめよう';
+
+  @override
+  String get nicknameSkip => 'スキップ';
+
+  @override
+  String get nicknameSave => '保存';
+
+  @override
+  String get settingsNickname => 'お名前';
+
+  @override
+  String get settingsNicknameNotSet => '未設定 — タップして追加';
+
+  @override
+  String celebrateNamed(String name) {
+    return 'やったね、$nameさん！';
+  }
+
+  @override
+  String get celebrateAnon => 'やったね！';
+
+  @override
+  String get celebrateCubeSolved => 'キューブ完成！';
+
+  @override
+  String get celebrateDailyDone => 'デイリーチャレンジ達成！';
+
+  @override
+  String fastSolveRatio(int count, int limit) {
+    return '$count / $limit 手';
+  }
+
+  @override
+  String fastSolveRatioTooltip(int limit) {
+    return 'どんなスクランブルも$limit手以内で揃えられます';
+  }
+
+  @override
+  String get patternsUnlockTitle => 'すべての模様を解放';
+
+  @override
+  String patternsUnlockPrompt(int minutes) {
+    return '短い動画を1本見ると、すべての模様が$minutes分間解放されます';
+  }
+
+  @override
+  String get patternsWatchVideo => '動画を見る';
+
+  @override
+  String get patternsNotNow => '今はしない';
+
+  @override
+  String patternsUnlockedLeft(String time) {
+    return '解放中 • 残り $time';
+  }
+
+  @override
+  String get patternsExpiredTitle => 'お試し時間が終了しました';
+
+  @override
+  String patternsExpiredBody(int minutes) {
+    return '動画を1本見ると、さらに$minutes分間すべての模様を使えます！';
+  }
+
+  @override
+  String get patternsFreeSample => '無料';
 }

@@ -7,12 +7,14 @@ import '../../core/ads/ad_service.dart';
 import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/settings/app_settings.dart';
 import '../../core/settings/locale_controller.dart';
+import '../../core/settings/nickname.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
 import '../../core/theme/ui_kit.dart';
 import '../academy/model/academy_progress.dart';
 import '../daily/daily_controller.dart';
 import 'language_sheet.dart';
+import 'nickname_prompt.dart';
 
 /// Where users send feature ideas and feedback.
 const String kFeedbackEmail = 'MyCubeMentor@gmail.com';
@@ -66,7 +68,7 @@ Future<void> showSettingsSheet(BuildContext context) =>
       builder: (_) => const SettingsSheet(),
     );
 
-/// Language, sound & haptics, default animation speed, progress reset,
+/// Nickname, language, sound & haptics, default animation speed, progress reset,
 /// feedback and (where required) privacy & ad consent.
 class SettingsSheet extends ConsumerWidget {
   const SettingsSheet({super.key});
@@ -80,6 +82,7 @@ class SettingsSheet extends ConsumerWidget {
     final locale = ref.watch(localeProvider);
     final language = languageForTag(locale.toString()) ?? kAppLanguages.first;
     final media = MediaQuery.of(context);
+    final nickname = ref.watch(nicknameProvider.select((n) => n.name));
     final privacyOptionsRequired = ref.watch(
       adsProvider.select((c) => c.privacyOptionsRequired),
     );
@@ -106,6 +109,30 @@ class SettingsSheet extends ConsumerWidget {
                 children: [
                   Text(l10n.settings, style: textTheme.titleLarge),
                   const SizedBox(height: AppSpace.md),
+                  _SettingsRow(
+                    key: const ValueKey('settings-nickname'),
+                    icon: Icons.badge_outlined,
+                    accent: AppColors.gold,
+                    title: l10n.settingsNickname,
+                    subtitle: Text(
+                      nickname ?? l10n.settingsNicknameNotSet,
+                      key: const ValueKey('settings-nickname-value'),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: nickname == null
+                          ? textTheme.bodySmall
+                          : textTheme.bodyMedium?.copyWith(
+                              color: AppColors.gold,
+                              fontWeight: FontWeight.w700,
+                            ),
+                    ),
+                    trailing: const Icon(
+                      Icons.edit_rounded,
+                      size: 20,
+                      color: AppColors.textTertiary,
+                    ),
+                    onTap: () => showNicknamePrompt(context, onboarding: false),
+                  ),
                   _SettingsRow(
                     key: const ValueKey('settings-language'),
                     icon: Icons.translate_rounded,

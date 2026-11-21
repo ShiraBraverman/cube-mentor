@@ -896,9 +896,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get timerInspectionToggle => 'فحص 15 ث';
 
   @override
-  String get timerNewScramble => 'بعثرة جديدة';
-
-  @override
   String get timerLoadingScramble => 'جارٍ إنشاء بعثرة…';
 
   @override
@@ -1961,21 +1958,6 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String fastSolveOptimal(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'الحل الأمثل: $count حركة',
-      many: 'الحل الأمثل: $count حركة',
-      few: 'الحل الأمثل: $count حركات',
-      two: 'الحل الأمثل: حركتان',
-      one: 'الحل الأمثل: حركة واحدة',
-      zero: 'الحل الأمثل: بلا حركات',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get feedbackTitle => 'ساهم في تشكيل الإصدار القادم';
 
   @override
@@ -2002,4 +1984,122 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get settingsPrivacyAdsError =>
       'تعذّر فتح خيارات الخصوصية. حاول مرة أخرى لاحقًا.';
+
+  @override
+  String get nicknamePromptTitle => 'بماذا نناديك؟';
+
+  @override
+  String get nicknamePromptBody => 'سنشجّعك باسمك في كل مرة تحل فيها المكعب.';
+
+  @override
+  String get nicknameHint => 'اسمك أو لقبك';
+
+  @override
+  String get nicknameGo => 'هيا بنا';
+
+  @override
+  String get nicknameSkip => 'تخطي';
+
+  @override
+  String get nicknameSave => 'حفظ';
+
+  @override
+  String get settingsNickname => 'اسمك';
+
+  @override
+  String get settingsNicknameNotSet => 'غير محدد — اضغط للإضافة';
+
+  @override
+  String celebrateNamed(String name) {
+    return 'أحسنت يا ⁨$name⁩!';
+  }
+
+  @override
+  String get celebrateAnon => 'أحسنت!';
+
+  @override
+  String get celebrateCubeSolved => 'تم حل المكعب!';
+
+  @override
+  String get celebrateDailyDone => 'اكتمل التحدي اليومي!';
+
+  @override
+  String fastSolveRatio(int count, int limit) {
+    String _temp0 = intl.Intl.pluralLogic(
+      limit,
+      locale: localeName,
+      other: '⁦$count / $limit⁩ حركة',
+      many: '⁦$count / $limit⁩ حركة',
+      few: '⁦$count / $limit⁩ حركات',
+      two: '⁦$count / $limit⁩ حركة',
+      one: '⁦$count / $limit⁩ حركة',
+      zero: '⁦$count / $limit⁩ حركة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String fastSolveRatioTooltip(int limit) {
+    String _temp0 = intl.Intl.pluralLogic(
+      limit,
+      locale: localeName,
+      other: 'يمكن حل أي خلطة في $limit حركة أو أقل',
+      many: 'يمكن حل أي خلطة في $limit حركة أو أقل',
+      few: 'يمكن حل أي خلطة في $limit حركات أو أقل',
+      two: 'يمكن حل أي خلطة بحركتين أو أقل',
+      one: 'يمكن حل أي خلطة بحركة واحدة أو أقل',
+      zero: 'يمكن حل أي خلطة دون أي حركة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get patternsUnlockTitle => 'افتح جميع الأنماط';
+
+  @override
+  String patternsUnlockPrompt(int minutes) {
+    String _temp0 = intl.Intl.pluralLogic(
+      minutes,
+      locale: localeName,
+      other: 'شاهد فيديو قصيرًا واحدًا لفتح جميع الأنماط لمدة $minutes دقيقة',
+      many: 'شاهد فيديو قصيرًا واحدًا لفتح جميع الأنماط لمدة $minutes دقيقة',
+      few: 'شاهد فيديو قصيرًا واحدًا لفتح جميع الأنماط لمدة $minutes دقائق',
+      two: 'شاهد فيديو قصيرًا واحدًا لفتح جميع الأنماط لمدة دقيقتين',
+      one: 'شاهد فيديو قصيرًا واحدًا لفتح جميع الأنماط لمدة دقيقة واحدة',
+      zero: 'شاهد فيديو قصيرًا واحدًا لفتح جميع الأنماط',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get patternsWatchVideo => 'شاهد الفيديو';
+
+  @override
+  String get patternsNotNow => 'ليس الآن';
+
+  @override
+  String patternsUnlockedLeft(String time) {
+    return 'مفتوح • يتبقى ⁦$time⁩';
+  }
+
+  @override
+  String get patternsExpiredTitle => 'انتهت فترة المعاينة';
+
+  @override
+  String patternsExpiredBody(int minutes) {
+    String _temp0 = intl.Intl.pluralLogic(
+      minutes,
+      locale: localeName,
+      other: 'شاهد فيديو واحدًا لتبقى جميع الأنماط مفتوحة $minutes دقيقة أخرى!',
+      many: 'شاهد فيديو واحدًا لتبقى جميع الأنماط مفتوحة $minutes دقيقة أخرى!',
+      few: 'شاهد فيديو واحدًا لتبقى جميع الأنماط مفتوحة $minutes دقائق أخرى!',
+      two: 'شاهد فيديو واحدًا لتبقى جميع الأنماط مفتوحة دقيقتين أخريين!',
+      one: 'شاهد فيديو واحدًا لتبقى جميع الأنماط مفتوحة دقيقة أخرى!',
+      zero: 'شاهد فيديو واحدًا لتبقى جميع الأنماط مفتوحة!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get patternsFreeSample => 'مجاني';
 }

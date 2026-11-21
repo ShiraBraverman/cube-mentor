@@ -891,9 +891,6 @@ class AppLocalizationsTt extends AppLocalizations {
   String get timerInspectionToggle => '15 с карап чыгу';
 
   @override
-  String get timerNewScramble => 'Яңа бутау';
-
-  @override
   String get timerLoadingScramble => 'Бутау ясала…';
 
   @override
@@ -1957,17 +1954,6 @@ class AppLocalizationsTt extends AppLocalizations {
   }
 
   @override
-  String fastSolveOptimal(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'Оптималь: $count хәрәкәт',
-      one: 'Оптималь: 1 хәрәкәт',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get feedbackTitle => 'Киләсе версияне бергә төзик';
 
   @override
@@ -1993,4 +1979,83 @@ class AppLocalizationsTt extends AppLocalizations {
   @override
   String get settingsPrivacyAdsError =>
       'Хосусыйлык көйләүләрен ачып булмады. Соңрак тагын карагыз.';
+
+  @override
+  String get nicknamePromptTitle => 'Сезгә ничек эндәшик?';
+
+  @override
+  String get nicknamePromptBody =>
+      'Һәр җыйганда без сезне исемегез белән котлыйбыз.';
+
+  @override
+  String get nicknameHint => 'Исемегез яки кушаматыгыз';
+
+  @override
+  String get nicknameGo => 'Киттек';
+
+  @override
+  String get nicknameSkip => 'Калдыру';
+
+  @override
+  String get nicknameSave => 'Саклау';
+
+  @override
+  String get settingsNickname => 'Исемегез';
+
+  @override
+  String get settingsNicknameNotSet => 'Билгеләнмәгән — өстәү өчен басыгыз';
+
+  @override
+  String celebrateNamed(String name) {
+    return 'Афәрин, $name!';
+  }
+
+  @override
+  String get celebrateAnon => 'Афәрин!';
+
+  @override
+  String get celebrateCubeSolved => 'Куб җыелды!';
+
+  @override
+  String get celebrateDailyDone => 'Көнлек бирем үтәлде!';
+
+  @override
+  String fastSolveRatio(int count, int limit) {
+    return '$count / $limit хәрәкәт';
+  }
+
+  @override
+  String fastSolveRatioTooltip(int limit) {
+    return 'Теләсә нинди буталышны $limit яки азрак хәрәкәттә җыеп була';
+  }
+
+  @override
+  String get patternsUnlockTitle => 'Бөтен үрнәкләрне ачу';
+
+  @override
+  String patternsUnlockPrompt(int minutes) {
+    return 'Бөтен үрнәкләрне $minutes минутка ачу өчен 1 кыска видео карагыз';
+  }
+
+  @override
+  String get patternsWatchVideo => 'Видео карау';
+
+  @override
+  String get patternsNotNow => 'Хәзер түгел';
+
+  @override
+  String patternsUnlockedLeft(String time) {
+    return 'Ачык • $time калды';
+  }
+
+  @override
+  String get patternsExpiredTitle => 'Сынау вакыты тәмам';
+
+  @override
+  String patternsExpiredBody(int minutes) {
+    return 'Бөтен үрнәкләр тагын $minutes минут ачык калсын өчен 1 видео карагыз!';
+  }
+
+  @override
+  String get patternsFreeSample => 'Бушлай';
 }

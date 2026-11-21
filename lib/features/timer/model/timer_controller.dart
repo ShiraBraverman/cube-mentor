@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../core/scramble/scrambler.dart';
 import '../../../core/settings/preferences.dart';
 import 'solve_record.dart';
 import 'timer_stats.dart';
@@ -54,7 +53,8 @@ class TimerState {
   /// WCA inspection before each solve.
   final bool inspection;
 
-  /// Scramble to apply before the next solve; null while generating.
+  /// The daily challenge's fixed scramble; null in free play, which is
+  /// kept distraction-free.
   final String? scramble;
 
   /// The scramble is given (daily challenge) and never replaced.
@@ -141,22 +141,11 @@ class TimerController extends Notifier<TimerState> {
         history = const [];
       }
     }
-    Future.microtask(newScramble);
     return TimerState(
       size: size,
       inspection: prefs.getBool(_inspectionKey) ?? false,
       history: history,
     );
-  }
-
-  /// Generates the next scramble (unless one was given).
-  Future<void> newScramble() async {
-    if (!ref.mounted || state.fixedScramble) return;
-    state = state.copyWith(clearScramble: true);
-    final text = await ref.read(scramblerProvider).scramble(size);
-    if (ref.mounted && !state.fixedScramble) {
-      state = state.copyWith(scramble: text);
-    }
   }
 
   /// Uses [scramble] for every solve (daily challenge).
@@ -235,7 +224,6 @@ class TimerController extends Notifier<TimerState> {
           (previousBest == null || result < previousBest),
     );
     state = state.copyWith(phase: TimerPhase.idle, holdFromInspection: false);
-    newScramble();
   }
 
   /// Abandons the current attempt without recording it.
