@@ -473,7 +473,7 @@ void main() {
     });
 
     test('tall scripts get roomier line heights', () {
-      for (final code in ['he', 'ar', 'bn', 'hi']) {
+      for (final code in ['he', 'ar', 'bn', 'hi', 'vi', 'my']) {
         final theme = AppTheme.dark(languageCode: code).textTheme;
         for (final style in [
           theme.headlineLarge,

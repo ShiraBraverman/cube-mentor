@@ -4,6 +4,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/ads/ad_service.dart';
+import '../../core/cube/color_scheme.dart';
 import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/settings/app_settings.dart';
 import '../../core/settings/locale_controller.dart';
@@ -68,7 +69,8 @@ Future<void> showSettingsSheet(BuildContext context) =>
       builder: (_) => const SettingsSheet(),
     );
 
-/// Nickname, language, sound & haptics, default animation speed, progress reset,
+/// Nickname, language, cube color scheme, sound & haptics, default animation
+/// speed, progress reset,
 /// feedback and (where required) privacy & ad consent.
 class SettingsSheet extends ConsumerWidget {
   const SettingsSheet({super.key});
@@ -155,6 +157,49 @@ class SettingsSheet extends ConsumerWidget {
                       navigator.pop();
                       showLanguageSheet(host);
                     },
+                  ),
+                  _SettingsRow(
+                    key: const ValueKey('settings-color-scheme'),
+                    icon: Icons.palette_outlined,
+                    accent: AppColors.accentWarm,
+                    title: l10n.settingsColorScheme,
+                    subtitle: Text(
+                      switch (settings.colorScheme) {
+                        CubeColorScheme.western => l10n.colorSchemeWesternDesc,
+                        CubeColorScheme.japanese =>
+                          l10n.colorSchemeJapaneseDesc,
+                      },
+                      key: const ValueKey('settings-color-scheme-desc'),
+                      style: textTheme.bodySmall,
+                    ),
+                    below: Padding(
+                      padding: const EdgeInsetsDirectional.only(top: 10),
+                      child: SegmentedButton<CubeColorScheme>(
+                        key: const ValueKey('settings-color-scheme-toggle'),
+                        showSelectedIcon: false,
+                        segments: [
+                          ButtonSegment(
+                            value: CubeColorScheme.western,
+                            label: Text(
+                              l10n.colorSchemeWestern,
+                              key: const ValueKey('color-scheme-western'),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                          ButtonSegment(
+                            value: CubeColorScheme.japanese,
+                            label: Text(
+                              l10n.colorSchemeJapanese,
+                              key: const ValueKey('color-scheme-japanese'),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                        selected: {settings.colorScheme},
+                        onSelectionChanged: (selection) =>
+                            controller.setColorScheme(selection.first),
+                      ),
+                    ),
                   ),
                   _SettingsRow(
                     icon: Icons.vibration_rounded,

@@ -2,7 +2,8 @@ import 'dart:math' as math;
 import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
-import 'package:vector_math/vector_math_64.dart' show Matrix3, Quaternion, Vector3;
+import 'package:vector_math/vector_math_64.dart'
+    show Matrix3, Quaternion, Vector3;
 
 import '../../../core/cube/cube_move.dart';
 import '../../../core/cube/cube_state.dart';
@@ -57,19 +58,22 @@ class CubeOrientation {
   /// which is plenty for short UI animations).
   CubeOrientation lerpTo(CubeOrientation target, double t) {
     final sign = _dot(target) < 0 ? -1.0 : 1.0;
-    return CubeOrientation._of(Quaternion(
-      _x + (target._x * sign - _x) * t,
-      _y + (target._y * sign - _y) * t,
-      _z + (target._z * sign - _z) * t,
-      _w + (target._w * sign - _w) * t,
-    ));
+    return CubeOrientation._of(
+      Quaternion(
+        _x + (target._x * sign - _x) * t,
+        _y + (target._y * sign - _y) * t,
+        _z + (target._z * sign - _z) * t,
+        _w + (target._w * sign - _w) * t,
+      ),
+    );
   }
 
   /// Rotation angle (radians) separating this orientation from [other].
   double angleTo(CubeOrientation other) =>
       2 * math.acos(_dot(other).abs().clamp(0.0, 1.0));
 
-  double _dot(CubeOrientation o) => _x * o._x + _y * o._y + _z * o._z + _w * o._w;
+  double _dot(CubeOrientation o) =>
+      _x * o._x + _y * o._y + _z * o._z + _w * o._w;
 
   @override
   bool operator ==(Object other) =>
@@ -209,18 +213,12 @@ abstract final class CubeProjection {
   /// Perspective projection of a view-space point.
   static Offset project(Vector3 p, Size size, double focal) {
     final scale = focal / (cameraDistance - p.z);
-    return Offset(
-      size.width / 2 + p.x * scale,
-      size.height / 2 - p.y * scale,
-    );
+    return Offset(size.width / 2 + p.x * scale, size.height / 2 - p.y * scale);
   }
 
   /// Unit vector along a model axis.
-  static Vector3 unit(int axis) => Vector3(
-    axis == 0 ? 1 : 0,
-    axis == 1 ? 1 : 0,
-    axis == 2 ? 1 : 0,
-  );
+  static Vector3 unit(int axis) =>
+      Vector3(axis == 0 ? 1 : 0, axis == 1 ? 1 : 0, axis == 2 ? 1 : 0);
 }
 
 /// One projected cubie face, in back-to-front draw order.
@@ -305,8 +303,7 @@ abstract final class CubeScene {
       var slab = 0;
       var rotation = view;
       if (turn != null) {
-        final layer =
-            cube.layerIndexOf(componentOf(cubie.position, turn.axis));
+        final layer = cube.layerIndexOf(componentOf(cubie.position, turn.axis));
         slab = layer < turn.fromLayer ? 0 : (layer > turn.toLayer ? 2 : 1);
         if (slab == 1) rotation = turnedView;
       }
@@ -314,13 +311,15 @@ abstract final class CubeScene {
       final center = rotation.transformed(
         Vector3(x.toDouble(), y.toDouble(), z.toDouble()) / n.toDouble(),
       );
-      items.add(_CubieItem(
-        cubie: cubie,
-        rotation: rotation,
-        center: center,
-        slab: slab,
-        distanceSq: center.distanceToSquared(cameraView),
-      ));
+      items.add(
+        _CubieItem(
+          cubie: cubie,
+          rotation: rotation,
+          center: center,
+          slab: slab,
+          distanceSq: center.distanceToSquared(cameraView),
+        ),
+      );
     }
 
     // Camera position in model space decides which slab is farthest.

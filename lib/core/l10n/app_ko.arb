@@ -580,5 +580,10 @@
   "patternsUnlockedLeft": "잠금 해제 • {time} 남음",
   "patternsExpiredTitle": "미리 보기 시간이 끝났어요",
   "patternsExpiredBody": "동영상 1개를 보면 모든 패턴을 {minutes}분 더 열어 둘 수 있어요!",
-  "patternsFreeSample": "무료"
+  "patternsFreeSample": "무료",
+  "settingsColorScheme": "큐브 색 배열",
+  "colorSchemeWestern": "서양식",
+  "colorSchemeJapanese": "일본식",
+  "colorSchemeWesternDesc": "흰색 맞은편 노란색, 파란색 맞은편 초록색",
+  "colorSchemeJapaneseDesc": "흰색 맞은편 파란색, 노란색 맞은편 초록색"
 }

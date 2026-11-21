@@ -2062,4 +2062,20 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get patternsFreeSample => 'मुफ़्त';
+
+  @override
+  String get settingsColorScheme => 'क्यूब की रंग योजना';
+
+  @override
+  String get colorSchemeWestern => 'पश्चिमी';
+
+  @override
+  String get colorSchemeJapanese => 'जापानी';
+
+  @override
+  String get colorSchemeWesternDesc => 'सफ़ेद के सामने पीला, नीले के सामने हरा';
+
+  @override
+  String get colorSchemeJapaneseDesc =>
+      'सफ़ेद के सामने नीला, पीले के सामने हरा';
 }

@@ -2120,4 +2120,21 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get patternsFreeSample => 'Бесплатно';
+
+  @override
+  String get settingsColorScheme => 'Цветовая схема кубика';
+
+  @override
+  String get colorSchemeWestern => 'Западная';
+
+  @override
+  String get colorSchemeJapanese => 'Японская';
+
+  @override
+  String get colorSchemeWesternDesc =>
+      'Белый напротив жёлтого, синий напротив зелёного';
+
+  @override
+  String get colorSchemeJapaneseDesc =>
+      'Белый напротив синего, жёлтый напротив зелёного';
 }

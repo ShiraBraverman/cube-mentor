@@ -580,5 +580,10 @@
   "patternsUnlockedLeft": "Freigeschaltet • noch {time}",
   "patternsExpiredTitle": "Deine Vorschau ist abgelaufen",
   "patternsExpiredBody": "{minutes, plural, =1{Sieh dir 1 Video an, damit alle Muster eine weitere Minute freigeschaltet bleiben!} other{Sieh dir 1 Video an, damit alle Muster weitere {minutes} Minuten freigeschaltet bleiben!}}",
-  "patternsFreeSample": "Gratis"
+  "patternsFreeSample": "Gratis",
+  "settingsColorScheme": "Farbschema des Würfels",
+  "colorSchemeWestern": "Westlich",
+  "colorSchemeJapanese": "Japanisch",
+  "colorSchemeWesternDesc": "Weiß gegenüber Gelb, Blau gegenüber Grün",
+  "colorSchemeJapaneseDesc": "Weiß gegenüber Blau, Gelb gegenüber Grün"
 }

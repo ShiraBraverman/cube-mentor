@@ -580,5 +580,10 @@
   "patternsUnlockedLeft": "Открыто • осталось {time}",
   "patternsExpiredTitle": "Пробный доступ закончился",
   "patternsExpiredBody": "{minutes, plural, one{Посмотрите 1 видео, чтобы узоры оставались открытыми ещё {minutes} минуту!} few{Посмотрите 1 видео, чтобы узоры оставались открытыми ещё {minutes} минуты!} many{Посмотрите 1 видео, чтобы узоры оставались открытыми ещё {minutes} минут!} other{Посмотрите 1 видео, чтобы узоры оставались открытыми ещё {minutes} минуты!}}",
-  "patternsFreeSample": "Бесплатно"
+  "patternsFreeSample": "Бесплатно",
+  "settingsColorScheme": "Цветовая схема кубика",
+  "colorSchemeWestern": "Западная",
+  "colorSchemeJapanese": "Японская",
+  "colorSchemeWesternDesc": "Белый напротив жёлтого, синий напротив зелёного",
+  "colorSchemeJapaneseDesc": "Белый напротив синего, жёлтый напротив зелёного"
 }

@@ -1,8 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/cube/color_scheme.dart';
 import '../../../core/cube/cube_state.dart';
 import '../../../core/cube/facelets.dart';
+import '../../../core/settings/app_settings.dart';
 import '../../../core/vision/color_science.dart';
 import '../../../core/vision/scan_analyzer.dart';
 
@@ -215,9 +217,14 @@ class ScanSessionController extends Notifier<ScanSession> {
     final facelets = analysis.facelets;
     // Without the native classifier, fall back to the per-sticker guesses of
     // the live preview so the colors can still be fixed by hand.
-    final stickers = facelets == null
+    final physical = facelets == null
         ? [for (final s in ordered) nearestStickerColor(s)]
         : [for (final c in facelets.split('')) stickerColorOf(c)!];
+    // The classifier names the colors it sees; the rest of the app works in
+    // logical (Western-layout) colors, so a Japanese-scheme cube swaps
+    // blue and yellow here and is validated again below.
+    final scheme = ref.read(cubeColorSchemeProvider);
+    final stickers = [for (final c in physical) scheme.logicalOf(c)];
     // Hand edits outside the rescanned face win over the new classification.
     final edited = <int>{};
     final faceStart = rescanned * state.perFace;
@@ -236,7 +243,7 @@ class ScanSessionController extends Notifier<ScanSession> {
       analysis: analysis,
       manual: false,
     );
-    if (edited.isNotEmpty) _validate();
+    if (edited.isNotEmpty || scheme != CubeColorScheme.western) _validate();
   }
 
   void _validate() {

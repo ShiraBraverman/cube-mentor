@@ -580,5 +580,10 @@
   "patternsUnlockedLeft": "Débloqué • encore {time}",
   "patternsExpiredTitle": "Votre aperçu est terminé",
   "patternsExpiredBody": "{minutes, plural, one{Regardez 1 vidéo pour garder tous les motifs débloqués {minutes} minute de plus !} other{Regardez 1 vidéo pour garder tous les motifs débloqués {minutes} minutes de plus !}}",
-  "patternsFreeSample": "Gratuit"
+  "patternsFreeSample": "Gratuit",
+  "settingsColorScheme": "Schéma de couleurs du cube",
+  "colorSchemeWestern": "Occidental",
+  "colorSchemeJapanese": "Japonais",
+  "colorSchemeWesternDesc": "Blanc opposé au jaune, bleu opposé au vert",
+  "colorSchemeJapaneseDesc": "Blanc opposé au bleu, jaune opposé au vert"
 }

@@ -14,9 +14,10 @@ const _viewport = Size(400, 400);
 /// Screen center of the visible sticker with outward [normal] on the cubie
 /// at [position] (doubled coordinates).
 Offset stickerCenter(CubeFrame frame, IVec3 position, IVec3 normal) {
-  final face = CubeScene.build(frame, _viewport).firstWhere(
-    (f) => f.cubie.position == position && f.normal == normal,
-  );
+  final face = CubeScene.build(
+    frame,
+    _viewport,
+  ).firstWhere((f) => f.cubie.position == position && f.normal == normal);
   return (face.quad[0] + face.quad[1] + face.quad[2] + face.quad[3]) / 4;
 }
 
@@ -86,7 +87,10 @@ void main() {
     });
 
     test('tumbling over the top reveals the bottom face', () {
-      expect(visibleFaces(CubeOrientation.initial), isNot(contains(kNormalDown)));
+      expect(
+        visibleFaces(CubeOrientation.initial),
+        isNot(contains(kNormalDown)),
+      );
       final flipped = CubeOrientation.initial.rotatedOnScreen(0, math.pi);
       expect(visibleFaces(flipped), contains(kNormalDown));
     });
@@ -118,14 +122,17 @@ void main() {
       final focal = CubeProjection.focalLength(size);
       for (var yaw = 0.0; yaw < 6.3; yaw += 0.7) {
         for (var pitch = -1.4; pitch <= 1.4; pitch += 0.7) {
-          final view =
-              CubeProjection.viewMatrix(
-                CubeOrientation.fromYawPitch(yaw: yaw, pitch: pitch));
+          final view = CubeProjection.viewMatrix(
+            CubeOrientation.fromYawPitch(yaw: yaw, pitch: pitch),
+          );
           for (final x in [-1.0, 1.0]) {
             for (final y in [-1.0, 1.0]) {
               for (final z in [-1.0, 1.0]) {
                 final p = CubeProjection.project(
-                  view.transformed(Vector3(x, y, z)), size, focal);
+                  view.transformed(Vector3(x, y, z)),
+                  size,
+                  focal,
+                );
                 expect(p.dx, inInclusiveRange(0, size.width));
                 expect(p.dy, inInclusiveRange(0, size.height));
               }
@@ -140,8 +147,10 @@ void main() {
       for (final token in ["R'", 'U', 'F2', 'x']) {
         final move = MoveNotation.parse(token, 3);
         final turn = LayerTurn.ofMove(move, 1);
-        final rotated = CubeProjection.axisRotation(turn.axis, turn.angle)
-            .transformed(Vector3(0, 1, 1));
+        final rotated = CubeProjection.axisRotation(
+          turn.axis,
+          turn.angle,
+        ).transformed(Vector3(0, 1, 1));
         final expected = rotateQuarter((0, 1, 1), move.axis, move.quarterTurns);
         expect(rotated.x, closeTo(expected.$1.toDouble(), 1e-9), reason: token);
         expect(rotated.y, closeTo(expected.$2.toDouble(), 1e-9), reason: token);
@@ -158,10 +167,11 @@ void main() {
           _viewport,
         );
         expect(faces.where((f) => f.color != null), hasLength(3 * n * n));
-        expect(
-          faces.map((f) => f.normal).toSet(),
-          {kNormalUp, kNormalFront, kNormalRight},
-        );
+        expect(faces.map((f) => f.normal).toSet(), {
+          kNormalUp,
+          kNormalFront,
+          kNormalRight,
+        });
       }
     });
 
@@ -197,10 +207,7 @@ void main() {
     test('ignores x-ray mode so hidden stickers cannot be grabbed', () {
       final xray = solved3.copyWith(xray: true);
       final point = stickerCenter(solved3, (0, 0, 2), kNormalFront);
-      expect(
-        CubeScene.hitTest(xray, _viewport, point)?.normal,
-        kNormalFront,
-      );
+      expect(CubeScene.hitTest(xray, _viewport, point)?.normal, kNormalFront);
     });
   });
 
@@ -244,8 +251,11 @@ void main() {
     test('a short drag snaps back with no move, a fling completes it', () {
       final point = stickerCenter(solved3, (2, 0, 2), kNormalFront);
       final hit = CubeScene.hitTest(solved3, _viewport, point)!;
-      final drag = LayerGrab.fromFace(hit, solved3, _viewport)
-          .resolve(const Offset(0, -15))!;
+      final drag = LayerGrab.fromFace(
+        hit,
+        solved3,
+        _viewport,
+      ).resolve(const Offset(0, -15))!;
       final angle = drag.angleFor(const Offset(0, -15));
       expect(angle.abs(), lessThan(math.pi / 4));
       expect(drag.moveFor(drag.snapQuarterTurns(angle, Offset.zero)), isNull);
@@ -263,7 +273,12 @@ void main() {
       final max = n - 1;
       // Second column from the right on the front face (first for 2x2).
       final x = n == 2 ? max : max - 2;
-      final move = dragMove(frame, (x, max, max), kNormalFront, const Offset(0, -150));
+      final move = dragMove(
+        frame,
+        (x, max, max),
+        kNormalFront,
+        const Offset(0, -150),
+      );
       expect(move, isNotNull, reason: '${n}x$n');
       expect(move!.axis, 0);
       expect(move.fromLayer, (x + max) ~/ 2);
@@ -283,21 +298,28 @@ void main() {
       paintFrame(CubeFrame(cube: cube, orbit: CubeOrientation.initial));
       for (final move in moves) {
         for (final progress in [0.0, 0.33, 0.5, 1.0]) {
-          paintFrame(CubeFrame(
-            cube: cube,
-            orbit: CubeOrientation.fromYawPitch(yaw: 2.4, pitch: -0.8),
-            turn: LayerTurn.ofMove(move, progress),
-          ));
+          paintFrame(
+            CubeFrame(
+              cube: cube,
+              orbit: CubeOrientation.fromYawPitch(yaw: 2.4, pitch: -0.8),
+              turn: LayerTurn.ofMove(move, progress),
+            ),
+          );
         }
       }
-      paintFrame(CubeFrame(
-        cube: cube,
-        orbit: CubeOrientation.initial,
-        highlighted: const {0, 1, 2},
-        xray: true,
-        turn: LayerTurn.ofMove(moves.first, 0.4),
-      ));
-      paintFrame(CubeFrame(cube: cube, orbit: CubeOrientation.initial), Size.zero);
+      paintFrame(
+        CubeFrame(
+          cube: cube,
+          orbit: CubeOrientation.initial,
+          highlighted: const {0, 1, 2},
+          xray: true,
+          turn: LayerTurn.ofMove(moves.first, 0.4),
+        ),
+      );
+      paintFrame(
+        CubeFrame(cube: cube, orbit: CubeOrientation.initial),
+        Size.zero,
+      );
     });
   }
 }

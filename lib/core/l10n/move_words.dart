@@ -1,4 +1,5 @@
 import '../cube/cube_move.dart';
+import '../cube/color_scheme.dart';
 import '../cube/cube_state.dart';
 import 'generated/app_localizations.dart';
 
@@ -71,8 +72,13 @@ String _faceName(AppLocalizations l10n, String letter) => switch (letter) {
   _ => l10n.moveFaceB,
 };
 
-/// Localized color name ("white", "לבן").
-String colorName(AppLocalizations l10n, StickerColor color) => switch (color) {
+/// Localized name of the color a [logical] sticker shows on the user's
+/// cube ("white", "לבן"); see [CubeColorScheme].
+String colorName(
+  AppLocalizations l10n,
+  StickerColor logical, {
+  CubeColorScheme scheme = CubeColorScheme.western,
+}) => switch (scheme.shown(logical)) {
   StickerColor.white => l10n.colorWhite,
   StickerColor.yellow => l10n.colorYellow,
   StickerColor.green => l10n.colorGreen,
@@ -86,8 +92,12 @@ String colorName(AppLocalizations l10n, StickerColor color) => switch (color) {
 String holdPrompt(
   AppLocalizations l10n,
   StickerColor top,
-  StickerColor front,
-) => l10n.holdPrompt(colorName(l10n, top), colorName(l10n, front));
+  StickerColor front, {
+  CubeColorScheme scheme = CubeColorScheme.western,
+}) => l10n.holdPrompt(
+  colorName(l10n, top, scheme: scheme),
+  colorName(l10n, front, scheme: scheme),
+);
 
 /// Arrow shown with a move instruction, as the move looks from the front.
 enum MoveArrow { up, down, left, right, clockwise, counterClockwise }

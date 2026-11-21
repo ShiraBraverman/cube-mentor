@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../../core/cube/cube_state.dart';
+import '../../../core/theme/sticker_palette.dart';
 import '../render/cube_painter.dart';
 
 /// Lightweight non-interactive cube render, optionally spinning slowly.
@@ -78,6 +79,7 @@ class _CubePreviewState extends State<CubePreview>
         builder: (context, _) => CustomPaint(
           size: Size.infinite,
           painter: CubePainter(
+            palette: StickerPalette.of(context),
             frame: CubeFrame(
               cube: _cube,
               orbit:

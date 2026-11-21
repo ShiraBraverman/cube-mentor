@@ -1094,5 +1094,25 @@
   "patternsFreeSample": "Free",
   "@patternsFreeSample": {
     "description": "Badge on the free sample pattern of a locked 4x4-6x6 page."
+  },
+  "settingsColorScheme": "Cube color scheme",
+  "@settingsColorScheme": {
+    "description": "Settings row title: which colors sit opposite each other on the user's physical cube."
+  },
+  "colorSchemeWestern": "Western",
+  "@colorSchemeWestern": {
+    "description": "Segment label: the Western (default) cube color scheme."
+  },
+  "colorSchemeJapanese": "Japanese",
+  "@colorSchemeJapanese": {
+    "description": "Segment label: the Japanese cube color scheme."
+  },
+  "colorSchemeWesternDesc": "White opposite yellow, blue opposite green",
+  "@colorSchemeWesternDesc": {
+    "description": "Explains the Western scheme's opposite face colors."
+  },
+  "colorSchemeJapaneseDesc": "White opposite blue, yellow opposite green",
+  "@colorSchemeJapaneseDesc": {
+    "description": "Explains the Japanese scheme's opposite face colors."
   }
 }

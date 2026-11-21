@@ -2107,4 +2107,21 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get patternsFreeSample => 'Gratis';
+
+  @override
+  String get settingsColorScheme => 'Farbschema des Würfels';
+
+  @override
+  String get colorSchemeWestern => 'Westlich';
+
+  @override
+  String get colorSchemeJapanese => 'Japanisch';
+
+  @override
+  String get colorSchemeWesternDesc =>
+      'Weiß gegenüber Gelb, Blau gegenüber Grün';
+
+  @override
+  String get colorSchemeJapaneseDesc =>
+      'Weiß gegenüber Blau, Gelb gegenüber Grün';
 }

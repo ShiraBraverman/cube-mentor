@@ -4,6 +4,7 @@ import 'package:material_ui/material_ui.dart';
 
 import '../../../core/cube/cube_state.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/sticker_palette.dart';
 
 /// Tile showing a tiny isometric 3x3 cube in the checkerboard pattern, so
 /// the Pattern Library card says at a glance what "patterns" are. Styled
@@ -48,7 +49,9 @@ class PatternIcon extends StatelessWidget {
             : null,
       ),
       padding: EdgeInsets.all(size * 0.14),
-      child: const CustomPaint(painter: CheckerboardCubePainter()),
+      child: CustomPaint(
+        painter: CheckerboardCubePainter(palette: StickerPalette.of(context)),
+      ),
     );
   }
 }
@@ -56,7 +59,10 @@ class PatternIcon extends StatelessWidget {
 /// Paints an isometric 3x3 cube whose three visible faces show the
 /// checkerboard pattern (each face alternates with its opposite color).
 class CheckerboardCubePainter extends CustomPainter {
-  const CheckerboardCubePainter();
+  const CheckerboardCubePainter({this.palette = AppColors.stickers});
+
+  /// Screen color of each logical sticker color (see [StickerPalette]).
+  final Map<StickerColor, Color> palette;
 
   static const _faces = [
     // Top, left (front) and right faces: own color, opposite color, and how
@@ -91,7 +97,7 @@ class CheckerboardCubePainter extends CustomPainter {
       final (own, opposite, shade) = _faces[f];
       for (var i = 0; i < 3; i++) {
         for (var j = 0; j < 3; j++) {
-          final base = AppColors.stickers[(i + j).isEven ? own : opposite]!;
+          final base = palette[(i + j).isEven ? own : opposite]!;
           final color = Color.lerp(base, Colors.black, shade)!;
           canvas.drawPath(
             _sticker(origin, a / 3, b / 3, i, j),

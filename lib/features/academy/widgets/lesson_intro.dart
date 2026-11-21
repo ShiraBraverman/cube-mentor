@@ -6,6 +6,7 @@ import '../../../core/l10n/generated/app_localizations.dart';
 import '../../../core/settings/intro_preference.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/glass.dart';
+import '../../../core/theme/sticker_palette.dart';
 import '../../solver_3d/interaction/eager_pan.dart';
 import '../../solver_3d/render/cube_painter.dart';
 import '../model/lesson.dart';
@@ -158,6 +159,7 @@ class _GoalPreviewState extends State<GoalPreview>
               Positioned.fill(
                 child: CustomPaint(
                   painter: CubePainter(
+                    palette: StickerPalette.of(context),
                     frame: CubeFrame(
                       cube: cube,
                       orbit: _orbit.rotatedOnScreen(

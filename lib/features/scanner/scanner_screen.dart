@@ -9,6 +9,7 @@ import '../../core/solver/cube_solver.dart';
 import '../../core/solver/solve_step.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
+import '../../core/theme/sticker_palette.dart';
 import '../../core/theme/ui_kit.dart';
 import '../../core/vision/scan_analyzer.dart';
 import '../solver_3d/solver_3d_screen.dart';
@@ -153,121 +154,132 @@ class _ScannerScreenState extends ConsumerState<ScannerScreen> {
       }
     }
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        GlassCard(
-          padding: const EdgeInsetsDirectional.fromSTEB(
-            AppSpace.md,
-            AppSpace.md,
-            AppSpace.xs,
-            AppSpace.md,
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      l10n.scanFaceProgress(session.captureStep, 6),
-                      key: const ValueKey('scan-step'),
-                      style: textTheme.labelLarge?.copyWith(
-                        color: AppColors.accent,
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      faceName(l10n, session.face),
-                      style: textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    const SizedBox(height: 6),
-                    if (turns.isEmpty)
-                      Text(
-                        faceHint(l10n, session.face),
-                        style: textTheme.bodyMedium,
-                      )
-                    else
-                      for (var i = 0; i < turns.length; i++)
-                        _TurnStep(
-                          key: ValueKey('scan-turn-$i'),
-                          turn: turns[i].turn,
-                          number: turns.length > 1 ? i + 1 : null,
-                        ),
-                    const SizedBox(height: 4),
-                    Text(
-                      session.samples.isEmpty
-                          ? l10n.scanAlignHint
-                          : l10n.scanTapToRescan,
-                      style: textTheme.bodySmall?.copyWith(
-                        color: AppColors.textSecondary,
-                      ),
-                    ),
-                  ],
-                ),
+    // Tall scripts (Burmese) and long hints can make the guide card taller
+    // than the space it has: cap it at half the height and let its text
+    // scroll, so the camera keeps the rest.
+    return LayoutBuilder(
+      builder: (context, constraints) => Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          ConstrainedBox(
+            constraints: BoxConstraints(maxHeight: constraints.maxHeight / 2),
+            child: GlassCard(
+              padding: const EdgeInsetsDirectional.fromSTEB(
+                AppSpace.md,
+                AppSpace.md,
+                AppSpace.xs,
+                AppSpace.md,
               ),
-              const SizedBox(width: 6),
-              SizedBox(
-                width: 112,
-                height: 112,
-                child: MiniCube(
-                  key: const ValueKey('scan-minicube'),
-                  size: size,
-                  face: session.face,
-                  turnFrom: turnFrom,
-                  semanticLabel: l10n.scanGuideLabel,
-                  stickers: [
-                    for (var face = 0; face < 6; face++)
-                      ...switch (session.samples[face]) {
-                        final samples? => previewColors(samples),
-                        null => List<StickerColor?>.filled(
-                          session.perFace,
-                          null,
-                        ),
-                      },
-                  ],
-                  onFaceTap: rescan,
-                ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: SingleChildScrollView(
+                      key: const ValueKey('scan-guide-text'),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            l10n.scanFaceProgress(session.captureStep, 6),
+                            key: const ValueKey('scan-step'),
+                            style: textTheme.labelLarge?.copyWith(
+                              color: AppColors.accent,
+                            ),
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            faceName(l10n, session.face),
+                            style: textTheme.titleLarge?.copyWith(
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          const SizedBox(height: 6),
+                          if (turns.isEmpty)
+                            Text(
+                              faceHint(l10n, session.face),
+                              style: textTheme.bodyMedium,
+                            )
+                          else
+                            for (var i = 0; i < turns.length; i++)
+                              _TurnStep(
+                                key: ValueKey('scan-turn-$i'),
+                                turn: turns[i].turn,
+                                number: turns.length > 1 ? i + 1 : null,
+                              ),
+                          const SizedBox(height: 4),
+                          Text(
+                            session.samples.isEmpty
+                                ? l10n.scanAlignHint
+                                : l10n.scanTapToRescan,
+                            style: textTheme.bodySmall?.copyWith(
+                              color: AppColors.textSecondary,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 6),
+                  SizedBox(
+                    width: 112,
+                    height: 112,
+                    child: MiniCube(
+                      key: const ValueKey('scan-minicube'),
+                      size: size,
+                      face: session.face,
+                      turnFrom: turnFrom,
+                      semanticLabel: l10n.scanGuideLabel,
+                      stickers: [
+                        for (var face = 0; face < 6; face++)
+                          ...switch (session.samples[face]) {
+                            final samples? => previewColors(samples),
+                            null => List<StickerColor?>.filled(
+                              session.perFace,
+                              null,
+                            ),
+                          },
+                      ],
+                      onFaceTap: rescan,
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
-        const SizedBox(height: 8),
-        _FacePills(
-          current: session.face,
-          scanned: session.samples.keys.toSet(),
-          onTap: rescan,
-          trailing: rescanning
-              ? TextButton(
-                  key: const ValueKey('scan-cancel-rescan'),
-                  onPressed: _controller.cancelRescan,
-                  child: Text(l10n.scanCancelRescan),
-                )
-              : null,
-        ),
-        const SizedBox(height: 8),
-        Expanded(
-          child: _problem != null || !widget.cameraSupported
-              ? _CameraProblemView(
-                  problem: _problem ?? CameraProblem.missing,
-                  onManual: _controller.startManual,
-                )
-              : CameraScanView(
-                  key: ValueKey('camera-${session.face}'),
-                  size: size,
-                  onCapture: (cells) {
-                    // A soft shutter tick for each captured face.
-                    ref.read(feedbackProvider).step();
-                    _controller.capture(cells);
-                  },
-                  onUnavailable: (problem) =>
-                      setState(() => _problem = problem),
-                ),
-        ),
-      ],
+          const SizedBox(height: 8),
+          _FacePills(
+            current: session.face,
+            scanned: session.samples.keys.toSet(),
+            onTap: rescan,
+            trailing: rescanning
+                ? TextButton(
+                    key: const ValueKey('scan-cancel-rescan'),
+                    onPressed: _controller.cancelRescan,
+                    child: Text(l10n.scanCancelRescan),
+                  )
+                : null,
+          ),
+          const SizedBox(height: 8),
+          Expanded(
+            child: _problem != null || !widget.cameraSupported
+                ? _CameraProblemView(
+                    problem: _problem ?? CameraProblem.missing,
+                    onManual: _controller.startManual,
+                  )
+                : CameraScanView(
+                    key: ValueKey('camera-${session.face}'),
+                    size: size,
+                    onCapture: (cells) {
+                      // A soft shutter tick for each captured face.
+                      ref.read(feedbackProvider).step();
+                      _controller.capture(cells);
+                    },
+                    onUnavailable: (problem) =>
+                        setState(() => _problem = problem),
+                  ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -640,7 +652,7 @@ class _PaletteSheet extends StatelessWidget {
                       width: 48,
                       height: 48,
                       decoration: BoxDecoration(
-                        color: AppColors.stickers[color],
+                        color: StickerPalette.of(context)[color],
                         shape: BoxShape.circle,
                         border: Border.all(color: Colors.white54, width: 2),
                       ),

@@ -580,5 +580,10 @@
   "patternsUnlockedLeft": "Terbuka • sisa {time}",
   "patternsExpiredTitle": "Waktu pratinjaumu sudah habis",
   "patternsExpiredBody": "Tonton 1 video agar semua pola tetap terbuka {minutes} menit lagi!",
-  "patternsFreeSample": "Gratis"
+  "patternsFreeSample": "Gratis",
+  "settingsColorScheme": "Skema warna kubus",
+  "colorSchemeWestern": "Barat",
+  "colorSchemeJapanese": "Jepang",
+  "colorSchemeWesternDesc": "Putih berseberangan dengan kuning, biru dengan hijau",
+  "colorSchemeJapaneseDesc": "Putih berseberangan dengan biru, kuning dengan hijau"
 }

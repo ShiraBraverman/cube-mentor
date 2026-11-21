@@ -3,6 +3,7 @@ import 'dart:ui' as ui;
 import 'package:material_ui/material_ui.dart';
 
 import '../../../core/cube/cube_move.dart';
+import '../../../core/cube/cube_state.dart';
 import '../../../core/theme/app_colors.dart';
 import 'cube_geometry.dart';
 import 'move_arrow.dart';
@@ -15,8 +16,9 @@ class CubePainter extends CustomPainter {
     required this.frame,
     this.guide,
     this.guidePhase = 0,
+    Map<StickerColor, Color>? palette,
     super.repaint,
-  });
+  }) : palette = palette ?? AppColors.stickers;
 
   final CubeFrame frame;
 
@@ -25,6 +27,9 @@ class CubePainter extends CustomPainter {
 
   /// Animation phase of the guide arrow, in `[0, 1)`.
   final double guidePhase;
+
+  /// Screen color of each logical sticker color (see [StickerPalette]).
+  final Map<StickerColor, Color> palette;
 
   static const double _stickerInset = 0.86;
   static const Color _mutedSticker = Color(0xFF3A3F4B);
@@ -64,7 +69,7 @@ class CubePainter extends CustomPainter {
       final isHighlighted = frame.highlighted.contains(id);
       final muted = frame.muted.contains(id);
       var stickerColor = _shaded(
-        muted ? _mutedSticker : AppColors.stickers[color]!,
+        muted ? _mutedSticker : palette[color]!,
         face.shade,
       );
       // Gray pieces stay flat: neither dimmed further nor outlined.
@@ -89,8 +94,10 @@ class CubePainter extends CustomPainter {
   void _paintXray(Canvas canvas, List<ProjectedFace> faces) {
     for (final face in faces) {
       final path = _roundedSticker(face.quad);
-      _fill.color = _shaded(AppColors.stickers[face.color]!, face.shade)
-          .withValues(alpha: face.frontFacing ? 0.55 : 0.35);
+      _fill.color = _shaded(
+        palette[face.color]!,
+        face.shade,
+      ).withValues(alpha: face.frontFacing ? 0.55 : 0.35);
       canvas.drawPath(path, _fill);
       _stroke
         ..color = Colors.white.withValues(alpha: face.frontFacing ? 0.35 : 0.15)
@@ -100,16 +107,16 @@ class CubePainter extends CustomPainter {
   }
 
   void _paintShadow(Canvas canvas, Size size) {
-    final scale = CubeProjection.focalLength(size) / CubeProjection.cameraDistance;
+    final scale =
+        CubeProjection.focalLength(size) / CubeProjection.cameraDistance;
     final center = Offset(size.width / 2, size.height / 2 + scale * 1.55);
     final width = scale * 2.6;
     final height = scale * 0.5;
     final shadow = Paint()
-      ..shader = ui.Gradient.radial(
-        center,
-        width / 2,
-        [Colors.black.withValues(alpha: 0.45), Colors.transparent],
-      );
+      ..shader = ui.Gradient.radial(center, width / 2, [
+        Colors.black.withValues(alpha: 0.45),
+        Colors.transparent,
+      ]);
     canvas.save();
     canvas.translate(center.dx, center.dy);
     canvas.scale(1, height / width);
@@ -156,5 +163,6 @@ class CubePainter extends CustomPainter {
   bool shouldRepaint(CubePainter oldDelegate) =>
       oldDelegate.frame != frame ||
       oldDelegate.guide != guide ||
-      oldDelegate.guidePhase != guidePhase;
+      oldDelegate.guidePhase != guidePhase ||
+      oldDelegate.palette != palette;
 }

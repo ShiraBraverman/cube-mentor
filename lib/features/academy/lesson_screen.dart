@@ -7,6 +7,7 @@ import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/l10n/move_words.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
+import '../../core/theme/sticker_palette.dart';
 import '../../core/theme/ui_kit.dart';
 import '../solver_3d/model/cube_session.dart';
 import '../solver_3d/widgets/cube_viewport.dart';
@@ -336,7 +337,12 @@ class _ExplanationState extends ConsumerState<_Explanation> {
                 // How to hold the cube, at a glance; the sentence is in the
                 // details below.
                 Tooltip(
-                  message: holdPrompt(l10n, step.top, step.front),
+                  message: holdPrompt(
+                    l10n,
+                    step.top,
+                    step.front,
+                    scheme: StickerPalette.schemeOf(context),
+                  ),
                   child: HoldSwatch(
                     key: const ValueKey('lesson-hold'),
                     top: step.top,
@@ -382,7 +388,12 @@ class _ExplanationState extends ConsumerState<_Explanation> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        holdPrompt(l10n, step.top, step.front),
+                        holdPrompt(
+                          l10n,
+                          step.top,
+                          step.front,
+                          scheme: StickerPalette.schemeOf(context),
+                        ),
                         key: const ValueKey('lesson-hold-text'),
                         style: secondary,
                       ),

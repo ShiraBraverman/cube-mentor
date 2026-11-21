@@ -1959,4 +1959,19 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get patternsFreeSample => '무료';
+
+  @override
+  String get settingsColorScheme => '큐브 색 배열';
+
+  @override
+  String get colorSchemeWestern => '서양식';
+
+  @override
+  String get colorSchemeJapanese => '일본식';
+
+  @override
+  String get colorSchemeWesternDesc => '흰색 맞은편 노란색, 파란색 맞은편 초록색';
+
+  @override
+  String get colorSchemeJapaneseDesc => '흰색 맞은편 파란색, 노란색 맞은편 초록색';
 }

@@ -580,5 +580,10 @@
   "patternsUnlockedLeft": "আনলক • {time} বাকি",
   "patternsExpiredTitle": "আপনার প্রিভিউয়ের সময় শেষ",
   "patternsExpiredBody": "আরও {minutes} মিনিট সব প্যাটার্ন আনলক রাখতে 1টি ভিডিও দেখুন!",
-  "patternsFreeSample": "ফ্রি"
+  "patternsFreeSample": "ফ্রি",
+  "settingsColorScheme": "কিউবের রঙের বিন্যাস",
+  "colorSchemeWestern": "পশ্চিমা",
+  "colorSchemeJapanese": "জাপানি",
+  "colorSchemeWesternDesc": "সাদার বিপরীতে হলুদ, নীলের বিপরীতে সবুজ",
+  "colorSchemeJapaneseDesc": "সাদার বিপরীতে নীল, হলুদের বিপরীতে সবুজ"
 }

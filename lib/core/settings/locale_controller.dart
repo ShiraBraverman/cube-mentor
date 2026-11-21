@@ -40,9 +40,14 @@ const List<AppLanguage> kAppLanguages = [
   AppLanguage(Locale('fr'), 'Français', 'French'),
   AppLanguage(Locale('de'), 'Deutsch', 'German'),
   AppLanguage(Locale('ru'), 'Русский', 'Russian'),
+  AppLanguage(Locale('pl'), 'Polski', 'Polish'),
+  AppLanguage(Locale('tr'), 'Türkçe', 'Turkish'),
   AppLanguage(Locale('ja'), '日本語', 'Japanese'),
   AppLanguage(Locale('ko'), '한국어', 'Korean'),
   AppLanguage(Locale('zh'), '简体中文', 'Chinese (Simplified)'),
+  AppLanguage(Locale('zh', 'TW'), '繁體中文', 'Chinese (Traditional)'),
+  AppLanguage(Locale('vi'), 'Tiếng Việt', 'Vietnamese'),
+  AppLanguage(Locale('my'), 'မြန်မာဘာသာ', 'Burmese (Myanmar)'),
   AppLanguage(Locale('bn'), 'বাংলা', 'Bengali'),
   AppLanguage(Locale('tt'), 'Татарча', 'Tatar'),
 ];
@@ -69,6 +74,14 @@ AppLanguage? matchDeviceLocale(Locale device) {
     'tl' => 'fil',
     final other => other,
   };
+  if (code == 'zh') {
+    // Traditional Chinese for Taiwan, Hong Kong, Macau or an explicit
+    // Traditional script; Simplified everywhere else.
+    final traditional =
+        device.scriptCode == 'Hant' ||
+        const {'TW', 'HK', 'MO'}.contains(device.countryCode);
+    return languageForTag(traditional ? 'zh_TW' : 'zh');
+  }
   if (code == 'pt') {
     // European Portuguese only for Portugal; every other region, including
     // no region at all, reads Brazilian Portuguese.

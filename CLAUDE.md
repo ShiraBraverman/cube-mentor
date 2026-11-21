@@ -3,7 +3,8 @@
 ## 1. Product Vision & Scope
 An offline-first, high-performance mobile application (Android-first via Flutter) that scans physical twisty puzzles (2x2, 3x3, 4x4, 5x5, 6x6) via the device camera, solves them rapidly, and provides an interactive 3D visual guide and step-by-step beginner/advanced academy.
 - **No Accounts / No Backend:** 100% offline execution for core features. Zero user registration/login, zero subscriptions.
-- **Localization (i18n):** 16 languages (17 locales) in a single app binary using `flutter_localizations` / `intl`, with **English (`en`) as the default and fallback**: English, Hebrew (RTL), Spanish, Portuguese (`pt_BR` Brazil + `pt` Portugal), Indonesian, Hindi, Filipino (`fil`), Arabic (RTL), French, German, Russian, Japanese, Korean, Simplified Chinese (`zh`), Bengali (`bn`) and Tatar (`tt`; Flutter has no Material strings for Tatar, so `lib/core/l10n/app_delegates.dart` falls back to English Material/Cupertino strings). Users pick a language from the searchable Language sheet on the Home header (native names; LTR/RTL switches automatically); the choice is persisted, and first launch follows the device language when it is supported.
+- **Localization (i18n):** 21 languages (22 locales) in a single app binary using `flutter_localizations` / `intl`, with **English (`en`) as the default and fallback**: English, Hebrew (RTL), Spanish, Portuguese (`pt_BR` Brazil + `pt` Portugal), Indonesian, Hindi, Filipino (`fil`), Arabic (RTL), French, German, Russian, Japanese, Korean, Simplified Chinese (`zh`), Traditional Chinese (`zh_TW`), Vietnamese (`vi`), Burmese (`my`), Polish (`pl`), Turkish (`tr`), Bengali (`bn`) and Tatar (`tt`; Flutter has no Material strings for Tatar, so `lib/core/l10n/app_delegates.dart` falls back to English Material/Cupertino strings). Users pick a language from the searchable Language sheet on the Home header (native names; LTR/RTL switches automatically); the choice is persisted, and first launch follows the device language when it is supported (Chinese devices in TW/HK/MO or with the Hant script get `zh_TW`). Tall scripts get extra line height via `AppTheme.minLineHeightFor` (Burmese the most).
+- **Cube color scheme:** Settings toggles Western (white opposite yellow, default) or Japanese (white opposite blue, yellow opposite green). The model, solvers and lessons always use logical Western-layout colors; `CubeColorScheme` maps them to what the physical cube shows via `StickerPalette` (3D cube, pattern previews, hold swatches, color names) and maps scanned colors back to logical ones before validation.
 - **Monetization:** Google AdMob (`google_mobile_ads`):
   - Bottom adaptive Banner ad (never overlapping the 3D canvas).
   - Rewarded Video ads gating 4x4, 5x5, and 6x6 solvers and advanced academy lessons (use official Google Test Ad Unit IDs during development).
@@ -41,7 +42,7 @@ An offline-first, high-performance mobile application (Android-first via Flutter
 │   ├── main.dart
 │   ├── core/
 │   │   ├── ffi/              # Dart FFI bindings to C++ native library
-│   │   ├── l10n/             # ARB files: app_en.arb (template) + 16 translations
+│   │   ├── l10n/             # ARB files: app_en.arb (template) + 21 translations
 │   │   ├── theme/            # Dark glassmorphic theme, colors, typography
 │   │   └── ads/              # AdMob service wrapper (Banner & Rewarded)
 │   ├── features/
@@ -78,6 +79,6 @@ An offline-first, high-performance mobile application (Android-first via Flutter
 4. **Algorithmic Integrity:** Implement proven group-theory tables/pruning for Kociemba and standard Reduction phases for big cubes, verified against automated scramble-and-solve tests (1,000+ random scrambles per cube size).
 5. **Context Hygiene:** Keep modules decoupled and concise. Propose `/compact` after completing each milestone or major feature.
 6. **Localization Rule (all languages, every feature):** Any user-visible string added or changed in any milestone (Big Cubes 4x4-6x6, Academy lessons, Speed Timer, Daily Challenge, Pattern Library, AdMob/Milestone 5 and later) MUST:
-   - be added as a key to `app_en.arb` (with `@key` placeholder metadata) **and** to every other ARB file in the same change: `he`, `es`, `pt`, `pt_BR`, `id`, `hi`, `fil`, `ar`, `fr`, `de`, `ru`, `ja`, `ko`, `zh`, `bn`, `tt`, with natural native-quality translations (correct cubing terminology; each language's ICU plural categories, e.g. `one/few/many` in Russian and `two/few/many` in Arabic);
+   - be added as a key to `app_en.arb` (with `@key` placeholder metadata) **and** to every other ARB file in the same change: `he`, `es`, `pt`, `pt_BR`, `id`, `hi`, `fil`, `ar`, `fr`, `de`, `ru`, `pl`, `tr`, `ja`, `ko`, `zh`, `zh_TW`, `vi`, `my`, `bn`, `tt`, with natural native-quality translations (correct cubing terminology; each language's ICU plural categories, e.g. `one/few/many` in Russian and Polish and `two/few/many` in Arabic);
    - never be hard-coded in Dart; cube notation inside RTL strings (`he`, `ar`) is wrapped in U+2066 ... U+2069 so it reads left to right;
-   - pass `flutter gen-l10n` with no untranslated messages and the per-locale layout test `test/flutter/l10n_test.dart` (no overflow on a 360 dp phone in any language). New screens are added to that test.
+   - pass `flutter gen-l10n` with no untranslated messages, the ARB parity smoke test `test/flutter/arb_files_test.dart`, and the per-locale layout test `test/flutter/l10n_test.dart` (no overflow on a 360 dp phone in any language). New screens are added to that test.

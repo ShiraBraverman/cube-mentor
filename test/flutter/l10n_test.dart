@@ -11,6 +11,7 @@ import 'package:cube_mentor/core/settings/locale_controller.dart';
 import 'package:cube_mentor/core/settings/preferences.dart';
 import 'package:cube_mentor/core/solver/cube_solver.dart';
 import 'package:cube_mentor/core/solver/solve_step.dart';
+import 'package:cube_mentor/core/theme/app_theme.dart';
 import 'package:cube_mentor/features/academy/academy_screen.dart';
 import 'package:cube_mentor/features/academy/lesson_screen.dart';
 import 'package:cube_mentor/features/academy/model/lesson.dart';
@@ -61,14 +62,17 @@ void _smallPhone(WidgetTester tester) {
 
 void main() {
   group('supported languages', () {
-    test('seventeen languages, English first, every one fully loadable', () {
+    test('twenty-two languages, English first, every one fully loadable', () {
       expect(kAppLanguages.first.tag, 'en');
-      expect(kAppLanguages, hasLength(17));
+      expect(kAppLanguages, hasLength(22));
       expect(kAppLanguages.map((l) => l.locale.languageCode).toSet(), {
         'en', 'he', 'es', 'pt', 'id', 'hi', 'fil', 'ar', 'fr', //
-        'de', 'ru', 'ja', 'ko', 'zh', 'bn', 'tt',
+        'de', 'ru', 'pl', 'tr', 'ja', 'ko', 'zh', 'vi', 'my', 'bn', 'tt',
       });
-      expect(kAppLanguages.map((l) => l.tag), containsAll(['pt', 'pt_BR']));
+      expect(
+        kAppLanguages.map((l) => l.tag),
+        containsAll(['pt', 'pt_BR', 'zh', 'zh_TW']),
+      );
       for (final language in kAppLanguages) {
         expect(
           AppLocalizations.delegate.isSupported(language.locale),
@@ -136,6 +140,36 @@ void main() {
       },
     );
 
+    test('Simplified and Traditional Chinese differ', () {
+      final hans = lookupAppLocalizations(const Locale('zh'));
+      final hant = lookupAppLocalizations(const Locale('zh', 'TW'));
+      expect(hans.language, '语言');
+      expect(hant.language, '語言');
+      expect(hant.localeName, 'zh_TW');
+    });
+
+    test('new languages speak their own words', () {
+      expect(lookupAppLocalizations(const Locale('vi')).language, 'Ngôn ngữ');
+      expect(lookupAppLocalizations(const Locale('my')).language, 'ဘာသာစကား');
+      expect(lookupAppLocalizations(const Locale('pl')).language, 'Język');
+      expect(lookupAppLocalizations(const Locale('tr')).language, 'Dil');
+      expect(
+        lookupAppLocalizations(const Locale('tr')).moveCount(3),
+        '3 hamle',
+      );
+      expect(lookupAppLocalizations(const Locale('vi')).moveCount(3), '3 nước');
+    });
+
+    test('Burmese and Vietnamese get extra line height', () {
+      expect(AppTheme.minLineHeightFor('my'), AppTheme.burmeseMinHeight);
+      expect(AppTheme.minLineHeightFor('vi'), AppTheme.tallScriptMinHeight);
+      expect(AppTheme.minLineHeightFor('hi'), AppTheme.tallScriptMinHeight);
+      expect(AppTheme.minLineHeightFor('en'), isNull);
+      final body = AppTheme.dark(languageCode: 'my').textTheme.bodyMedium!;
+      expect(body.height, greaterThanOrEqualTo(AppTheme.burmeseMinHeight));
+      expect(body.leadingDistribution, TextLeadingDistribution.even);
+    });
+
     test('Brazilian and European Portuguese differ', () {
       final br = lookupAppLocalizations(const Locale('pt', 'BR'));
       final pt = lookupAppLocalizations(const Locale('pt'));
@@ -148,6 +182,11 @@ void main() {
       expect(ru.moveCount(1), '1 ход');
       expect(ru.moveCount(3), '3 хода');
       expect(ru.moveCount(5), '5 ходов');
+      final pl = lookupAppLocalizations(const Locale('pl'));
+      expect(pl.moveCount(1), '1 ruch');
+      expect(pl.moveCount(3), '3 ruchy');
+      expect(pl.moveCount(5), '5 ruchów');
+      expect(pl.moveCount(22), '22 ruchy');
       final ar = lookupAppLocalizations(const Locale('ar'));
       expect(ar.moveCount(2), 'حركتان');
       expect(ar.moveCount(3), '3 حركات');
@@ -163,6 +202,17 @@ void main() {
       expect(tag(const Locale('iw')), 'he');
       expect(tag(const Locale('in')), 'id');
       expect(tag(const Locale('zh', 'CN')), 'zh');
+      expect(tag(const Locale('zh')), 'zh');
+      expect(tag(const Locale('zh', 'TW')), 'zh_TW');
+      expect(tag(const Locale('zh', 'HK')), 'zh_TW');
+      expect(
+        tag(const Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant')),
+        'zh_TW',
+      );
+      expect(tag(const Locale('vi', 'VN')), 'vi');
+      expect(tag(const Locale('my', 'MM')), 'my');
+      expect(tag(const Locale('pl', 'PL')), 'pl');
+      expect(tag(const Locale('tr', 'TR')), 'tr');
       expect(tag(const Locale('sv')), isNull);
       expect(tag(const Locale('bn', 'BD')), 'bn');
       expect(tag(const Locale('tt', 'RU')), 'tt');

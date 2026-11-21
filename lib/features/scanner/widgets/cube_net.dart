@@ -4,6 +4,7 @@ import 'package:material_ui/material_ui.dart';
 
 import '../../../core/cube/cube_state.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/sticker_palette.dart';
 import '../model/scan_session.dart';
 
 /// Cell (column, row) of every face in the unfolded cross:
@@ -180,7 +181,7 @@ class _CubeNetState extends State<CubeNet> with SingleTickerProviderStateMixin {
     final radius = BorderRadius.circular(extent * 0.18);
     final fill = color == null
         ? AppColors.glassFill
-        : AppColors.stickers[color]!;
+        : StickerPalette.of(context)[color]!;
     Widget tile = AnimatedBuilder(
       animation: _pulse,
       builder: (context, _) {

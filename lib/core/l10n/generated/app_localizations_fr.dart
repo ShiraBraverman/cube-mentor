@@ -2112,4 +2112,21 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get patternsFreeSample => 'Gratuit';
+
+  @override
+  String get settingsColorScheme => 'Schéma de couleurs du cube';
+
+  @override
+  String get colorSchemeWestern => 'Occidental';
+
+  @override
+  String get colorSchemeJapanese => 'Japonais';
+
+  @override
+  String get colorSchemeWesternDesc =>
+      'Blanc opposé au jaune, bleu opposé au vert';
+
+  @override
+  String get colorSchemeJapaneseDesc =>
+      'Blanc opposé au bleu, jaune opposé au vert';
 }

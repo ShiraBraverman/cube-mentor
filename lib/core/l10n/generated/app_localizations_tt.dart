@@ -2058,4 +2058,21 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get patternsFreeSample => 'Бушлай';
+
+  @override
+  String get settingsColorScheme => 'Кубик төсләре схемасы';
+
+  @override
+  String get colorSchemeWestern => 'Көнбатыш';
+
+  @override
+  String get colorSchemeJapanese => 'Япон';
+
+  @override
+  String get colorSchemeWesternDesc =>
+      'Ак – сарыга каршы, зәңгәр – яшелгә каршы';
+
+  @override
+  String get colorSchemeJapaneseDesc =>
+      'Ак – зәңгәргә каршы, сары – яшелгә каршы';
 }

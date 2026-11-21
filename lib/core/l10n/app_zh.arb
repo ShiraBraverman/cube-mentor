@@ -580,5 +580,10 @@
   "patternsUnlockedLeft": "已解锁 • 剩余 {time}",
   "patternsExpiredTitle": "试用时间已结束",
   "patternsExpiredBody": "观看 1 个视频，全部图案再解锁 {minutes} 分钟！",
-  "patternsFreeSample": "免费"
+  "patternsFreeSample": "免费",
+  "settingsColorScheme": "魔方配色",
+  "colorSchemeWestern": "西方配色",
+  "colorSchemeJapanese": "日本配色",
+  "colorSchemeWesternDesc": "白对黄，蓝对绿",
+  "colorSchemeJapaneseDesc": "白对蓝，黄对绿"
 }

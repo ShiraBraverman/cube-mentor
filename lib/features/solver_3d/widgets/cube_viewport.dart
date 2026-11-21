@@ -7,6 +7,7 @@ import 'package:material_ui/material_ui.dart';
 
 import '../../../core/cube/cube_move.dart';
 import '../../../core/feedback/feedback_service.dart';
+import '../../../core/theme/sticker_palette.dart';
 import '../interaction/layer_drag.dart';
 import '../model/cube_session.dart';
 import '../render/cube_painter.dart';
@@ -420,6 +421,7 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
               child: CustomPaint(
                 size: Size.infinite,
                 painter: CubePainter(
+                  palette: StickerPalette.of(context),
                   frame: CubeFrame(
                     cube: session.cube,
                     orbit: _orbit.value,

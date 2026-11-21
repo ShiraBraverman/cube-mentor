@@ -2,14 +2,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../../core/celebration/celebration.dart';
+import '../../../core/cube/color_scheme.dart';
 import '../../../core/cube/facelets.dart';
-import '../../../core/cube/cube_state.dart';
 import '../../../core/l10n/generated/app_localizations.dart';
+import '../../../core/l10n/move_words.dart';
 import '../../../core/solver/cube_solver.dart';
 import '../../../core/solver/solve_stages.dart';
 import '../../../core/solver/solve_step.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/glass.dart';
+import '../../../core/theme/sticker_palette.dart';
 import '../model/cube_session.dart';
 import '../../../core/l10n/crown_words.dart';
 import '../../academy/widgets/lesson_intro.dart';
@@ -217,7 +219,11 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
         ],
         const SizedBox(height: 2),
         Text(
-          solveExplanation(l10n, step),
+          solveExplanation(
+            l10n,
+            step,
+            scheme: StickerPalette.schemeOf(context),
+          ),
           key: const ValueKey('solve-explanation'),
           style: textTheme.bodyMedium,
         ),
@@ -452,8 +458,12 @@ String solvePhaseTitle(AppLocalizations l10n, String phase) => switch (phase) {
 };
 
 /// Localized explanation of a step's sub-goal.
-String solveExplanation(AppLocalizations l10n, SolveStep step) {
-  final piece = pieceName(l10n, step.pieceColors);
+String solveExplanation(
+  AppLocalizations l10n,
+  SolveStep step, {
+  CubeColorScheme scheme = CubeColorScheme.western,
+}) {
+  final piece = pieceName(l10n, step.pieceColors, scheme: scheme);
   return switch (step.explanationKey) {
     'optimal2x2Explain' => l10n.explainOptimal2x2,
     'kociembaPhase1Explain' => l10n.explainKociemba1,
@@ -491,16 +501,16 @@ String solveExplanation(AppLocalizations l10n, SolveStep step) {
   };
 }
 
-/// Localized piece name from color letters, e.g. "WR" -> "white-red".
-String pieceName(AppLocalizations l10n, String letters) => [
+/// Localized piece name from logical color letters, e.g. "WR" ->
+/// "white-red", named as the colors show under [scheme].
+String pieceName(
+  AppLocalizations l10n,
+  String letters, {
+  CubeColorScheme scheme = CubeColorScheme.western,
+}) => [
   for (final letter in letters.split(''))
     switch (stickerColorOf(letter)) {
-      StickerColor.white => l10n.colorWhite,
-      StickerColor.yellow => l10n.colorYellow,
-      StickerColor.green => l10n.colorGreen,
-      StickerColor.blue => l10n.colorBlue,
-      StickerColor.red => l10n.colorRed,
-      StickerColor.orange => l10n.colorOrange,
+      final color? => colorName(l10n, color, scheme: scheme),
       null => letter,
     },
 ].join('-');

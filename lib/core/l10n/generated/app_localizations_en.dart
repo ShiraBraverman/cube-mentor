@@ -2088,4 +2088,21 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get patternsFreeSample => 'Free';
+
+  @override
+  String get settingsColorScheme => 'Cube color scheme';
+
+  @override
+  String get colorSchemeWestern => 'Western';
+
+  @override
+  String get colorSchemeJapanese => 'Japanese';
+
+  @override
+  String get colorSchemeWesternDesc =>
+      'White opposite yellow, blue opposite green';
+
+  @override
+  String get colorSchemeJapaneseDesc =>
+      'White opposite blue, yellow opposite green';
 }

@@ -580,5 +580,10 @@
   "patternsUnlockedLeft": "פתוח • נותרו ⁦{time}⁩",
   "patternsExpiredTitle": "זמן התצוגה המקדימה הסתיים",
   "patternsExpiredBody": "{minutes, plural, =1{צפו בסרטון אחד כדי להשאיר את כל הדוגמאות פתוחות לדקה נוספת!} other{צפו בסרטון אחד כדי להשאיר את כל הדוגמאות פתוחות ל־{minutes} דקות נוספות!}}",
-  "patternsFreeSample": "חינם"
+  "patternsFreeSample": "חינם",
+  "settingsColorScheme": "ערכת הצבעים של הקובייה",
+  "colorSchemeWestern": "מערבית",
+  "colorSchemeJapanese": "יפנית",
+  "colorSchemeWesternDesc": "לבן מול צהוב, כחול מול ירוק",
+  "colorSchemeJapaneseDesc": "לבן מול כחול, צהוב מול ירוק"
 }

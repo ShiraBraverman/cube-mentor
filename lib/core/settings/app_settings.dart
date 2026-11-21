@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../cube/color_scheme.dart';
 import 'preferences.dart';
 
 /// Slowest and fastest cube animation speed (multiplier of the base turn).
@@ -18,6 +19,7 @@ class AppSettings {
   const AppSettings({
     this.soundHaptics = true,
     this.animationSpeed = kDefaultAnimationSpeed,
+    this.colorScheme = CubeColorScheme.western,
   });
 
   /// Clicks and vibrations on cube turns and the timer.
@@ -27,16 +29,25 @@ class AppSettings {
   /// changes it per session).
   final double animationSpeed;
 
-  AppSettings copyWith({bool? soundHaptics, double? animationSpeed}) =>
-      AppSettings(
-        soundHaptics: soundHaptics ?? this.soundHaptics,
-        animationSpeed: animationSpeed ?? this.animationSpeed,
-      );
+  /// Color layout of the user's physical cube: drives sticker colors on
+  /// screen, color names and how scanned colors are read.
+  final CubeColorScheme colorScheme;
+
+  AppSettings copyWith({
+    bool? soundHaptics,
+    double? animationSpeed,
+    CubeColorScheme? colorScheme,
+  }) => AppSettings(
+    soundHaptics: soundHaptics ?? this.soundHaptics,
+    animationSpeed: animationSpeed ?? this.animationSpeed,
+    colorScheme: colorScheme ?? this.colorScheme,
+  );
 }
 
 class AppSettingsController extends Notifier<AppSettings> {
   static const _hapticsKey = 'settings_sound_haptics';
   static const _speedKey = 'settings_animation_speed';
+  static const _colorSchemeKey = 'settings_color_scheme';
 
   SharedPreferences? _prefs;
 
@@ -54,6 +65,7 @@ class AppSettingsController extends Notifier<AppSettings> {
       soundHaptics: prefs.getBool(_hapticsKey) ?? true,
       animationSpeed: (prefs.getDouble(_speedKey) ?? kDefaultAnimationSpeed)
           .clamp(kMinAnimationSpeed, kMaxAnimationSpeed),
+      colorScheme: CubeColorScheme.fromName(prefs.getString(_colorSchemeKey)),
     );
   }
 
@@ -67,7 +79,17 @@ class AppSettingsController extends Notifier<AppSettings> {
     state = state.copyWith(animationSpeed: value);
     await _prefs?.setDouble(_speedKey, value);
   }
+
+  Future<void> setColorScheme(CubeColorScheme scheme) async {
+    state = state.copyWith(colorScheme: scheme);
+    await _prefs?.setString(_colorSchemeKey, scheme.name);
+  }
 }
+
+/// The user's cube color scheme (Western unless changed in Settings).
+final cubeColorSchemeProvider = Provider<CubeColorScheme>(
+  (ref) => ref.watch(appSettingsProvider.select((s) => s.colorScheme)),
+);
 
 final appSettingsProvider =
     NotifierProvider<AppSettingsController, AppSettings>(

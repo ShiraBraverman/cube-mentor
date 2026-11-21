@@ -580,5 +580,10 @@
   "patternsUnlockedLeft": "مفتوح • يتبقى ⁦{time}⁩",
   "patternsExpiredTitle": "انتهت فترة المعاينة",
   "patternsExpiredBody": "{minutes, plural, zero{شاهد فيديو واحدًا لتبقى جميع الأنماط مفتوحة!} one{شاهد فيديو واحدًا لتبقى جميع الأنماط مفتوحة دقيقة أخرى!} two{شاهد فيديو واحدًا لتبقى جميع الأنماط مفتوحة دقيقتين أخريين!} few{شاهد فيديو واحدًا لتبقى جميع الأنماط مفتوحة {minutes} دقائق أخرى!} many{شاهد فيديو واحدًا لتبقى جميع الأنماط مفتوحة {minutes} دقيقة أخرى!} other{شاهد فيديو واحدًا لتبقى جميع الأنماط مفتوحة {minutes} دقيقة أخرى!}}",
-  "patternsFreeSample": "مجاني"
+  "patternsFreeSample": "مجاني",
+  "settingsColorScheme": "نظام ألوان المكعب",
+  "colorSchemeWestern": "غربي",
+  "colorSchemeJapanese": "ياباني",
+  "colorSchemeWesternDesc": "الأبيض مقابل الأصفر، والأزرق مقابل الأخضر",
+  "colorSchemeJapaneseDesc": "الأبيض مقابل الأزرق، والأصفر مقابل الأخضر"
 }

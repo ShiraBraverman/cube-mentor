@@ -580,5 +580,10 @@
   "patternsUnlockedLeft": "Naka-unlock • {time} na lang",
   "patternsExpiredTitle": "Tapos na ang preview mo",
   "patternsExpiredBody": "Manood ng 1 video para manatiling naka-unlock ang lahat ng pattern nang {minutes} minuto pa!",
-  "patternsFreeSample": "Libre"
+  "patternsFreeSample": "Libre",
+  "settingsColorScheme": "Color scheme ng cube",
+  "colorSchemeWestern": "Western",
+  "colorSchemeJapanese": "Japanese",
+  "colorSchemeWesternDesc": "Puti katapat ng dilaw, asul katapat ng berde",
+  "colorSchemeJapaneseDesc": "Puti katapat ng asul, dilaw katapat ng berde"
 }

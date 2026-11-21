@@ -1955,4 +1955,19 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get patternsFreeSample => '無料';
+
+  @override
+  String get settingsColorScheme => 'キューブの配色';
+
+  @override
+  String get colorSchemeWestern => '西洋配色';
+
+  @override
+  String get colorSchemeJapanese => '日本配色';
+
+  @override
+  String get colorSchemeWesternDesc => '白の反対が黄、青の反対が緑';
+
+  @override
+  String get colorSchemeJapaneseDesc => '白の反対が青、黄の反対が緑';
 }

@@ -2058,4 +2058,20 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get patternsFreeSample => 'ফ্রি';
+
+  @override
+  String get settingsColorScheme => 'কিউবের রঙের বিন্যাস';
+
+  @override
+  String get colorSchemeWestern => 'পশ্চিমা';
+
+  @override
+  String get colorSchemeJapanese => 'জাপানি';
+
+  @override
+  String get colorSchemeWesternDesc => 'সাদার বিপরীতে হলুদ, নীলের বিপরীতে সবুজ';
+
+  @override
+  String get colorSchemeJapaneseDesc =>
+      'সাদার বিপরীতে নীল, হলুদের বিপরীতে সবুজ';
 }

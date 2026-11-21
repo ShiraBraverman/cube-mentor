@@ -580,5 +580,10 @@
   "patternsUnlockedLeft": "अनलॉक • {time} बाकी",
   "patternsExpiredTitle": "आपका प्रीव्यू समय खत्म हो गया",
   "patternsExpiredBody": "सभी पैटर्न अगले {minutes} मिनट तक अनलॉक रखने के लिए 1 वीडियो देखें!",
-  "patternsFreeSample": "मुफ़्त"
+  "patternsFreeSample": "मुफ़्त",
+  "settingsColorScheme": "क्यूब की रंग योजना",
+  "colorSchemeWestern": "पश्चिमी",
+  "colorSchemeJapanese": "जापानी",
+  "colorSchemeWesternDesc": "सफ़ेद के सामने पीला, नीले के सामने हरा",
+  "colorSchemeJapaneseDesc": "सफ़ेद के सामने नीला, पीले के सामने हरा"
 }

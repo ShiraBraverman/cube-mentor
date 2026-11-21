@@ -1,8 +1,12 @@
 import 'package:cube_mentor/app.dart';
+import 'package:cube_mentor/core/cube/color_scheme.dart';
+import 'package:cube_mentor/core/cube/cube_state.dart';
 import 'package:cube_mentor/core/settings/app_settings.dart';
 import 'package:cube_mentor/core/settings/clock.dart';
 import 'package:cube_mentor/core/settings/preferences.dart';
 import 'package:cube_mentor/core/solver/cube_solver.dart';
+import 'package:cube_mentor/core/theme/app_colors.dart';
+import 'package:cube_mentor/core/theme/sticker_palette.dart';
 import 'package:cube_mentor/core/vision/scan_analyzer.dart';
 import 'package:cube_mentor/features/academy/academy_screen.dart';
 import 'package:cube_mentor/features/daily/daily_screen.dart';
@@ -293,6 +297,8 @@ void main() {
 
       // Drag the slider all the way to its fastest end.
       final slider = find.byKey(const ValueKey('settings-speed'));
+      await tester.ensureVisible(slider);
+      await _advance(tester, 2);
       await tester.drag(slider, const Offset(1000, 0));
       await _advance(tester, 2);
       expect(container.read(appSettingsProvider).animationSpeed, 3);
@@ -300,6 +306,66 @@ void main() {
       expect(find.text('3.00×'), findsOneWidget);
       // A new 3D cube starts at the chosen speed.
       expect(container.read(cubeSessionProvider(5)).speed, 3);
+    });
+
+    testWidgets('the color scheme toggle persists and repaints stickers', (
+      tester,
+    ) async {
+      final prefs = await _prefs();
+      final container = await _pumpApp(tester, prefs);
+      StickerPalette palette() =>
+          tester.widget<StickerPalette>(find.byType(StickerPalette));
+      expect(palette().scheme, CubeColorScheme.western);
+      await _openSettings(tester);
+
+      final row = find.byKey(const ValueKey('settings-color-scheme'));
+      await tester.scrollUntilVisible(
+        row,
+        100,
+        scrollable: find.descendant(
+          of: find.byKey(const ValueKey('settings-sheet')),
+          matching: find.byType(Scrollable),
+        ),
+      );
+      expect(
+        find.text('White opposite yellow, blue opposite green'),
+        findsOneWidget,
+      );
+      await tester.tap(find.byKey(const ValueKey('color-scheme-japanese')));
+      await _advance(tester, 2);
+
+      expect(
+        container.read(appSettingsProvider).colorScheme,
+        CubeColorScheme.japanese,
+      );
+      expect(prefs.getString('settings_color_scheme'), 'japanese');
+      expect(
+        find.text('White opposite blue, yellow opposite green'),
+        findsOneWidget,
+      );
+      // Every route now paints logical yellow as blue and vice versa.
+      expect(palette().scheme, CubeColorScheme.japanese);
+      final colors = StickerPalette.colorsFor(CubeColorScheme.japanese);
+      expect(
+        colors[StickerColor.yellow],
+        AppColors.stickers[StickerColor.blue],
+      );
+      expect(
+        colors[StickerColor.blue],
+        AppColors.stickers[StickerColor.yellow],
+      );
+    });
+
+    testWidgets('a saved Japanese scheme is restored on launch', (
+      tester,
+    ) async {
+      final prefs = await _prefs({'settings_color_scheme': 'japanese'});
+      final container = await _pumpApp(tester, prefs);
+      expect(container.read(cubeColorSchemeProvider), CubeColorScheme.japanese);
+      expect(
+        tester.widget<StickerPalette>(find.byType(StickerPalette)).scheme,
+        CubeColorScheme.japanese,
+      );
     });
 
     testWidgets('the feedback card opens an email draft to the team', (
@@ -381,6 +447,8 @@ void main() {
       expect(find.text('2/29'), findsOneWidget);
       await _openSettings(tester);
 
+      await tester.ensureVisible(find.byKey(const ValueKey('settings-reset')));
+      await _advance(tester, 2);
       await tester.tap(find.byKey(const ValueKey('settings-reset')));
       await _advance(tester, 8);
       expect(find.text('Reset all progress?'), findsOneWidget);
@@ -389,6 +457,8 @@ void main() {
       expect(prefs.getInt('daily_streak'), 5);
       expect(prefs.getStringList('academy_completed'), hasLength(2));
 
+      await tester.ensureVisible(find.byKey(const ValueKey('settings-reset')));
+      await _advance(tester, 2);
       await tester.tap(find.byKey(const ValueKey('settings-reset')));
       await _advance(tester, 8);
       await tester.tap(find.byKey(const ValueKey('reset-confirm')));

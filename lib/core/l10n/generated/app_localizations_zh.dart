@@ -1933,4 +1933,1990 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get patternsFreeSample => '免费';
+
+  @override
+  String get settingsColorScheme => '魔方配色';
+
+  @override
+  String get colorSchemeWestern => '西方配色';
+
+  @override
+  String get colorSchemeJapanese => '日本配色';
+
+  @override
+  String get colorSchemeWesternDesc => '白对黄，蓝对绿';
+
+  @override
+  String get colorSchemeJapaneseDesc => '白对蓝，黄对绿';
+}
+
+/// The translations for Chinese, as used in Taiwan (`zh_TW`).
+class AppLocalizationsZhTw extends AppLocalizationsZh {
+  AppLocalizationsZhTw() : super('zh_TW');
+
+  @override
+  String get appTitle => 'CubeMentor';
+
+  @override
+  String get homeTagline => '從 2×2 到 6×6，掃描、解開並精通每一顆魔術方塊。';
+
+  @override
+  String get chooseCubeSize => '選擇你的方塊';
+
+  @override
+  String cubeSizeLabel(int size) {
+    return '$size×$size';
+  }
+
+  @override
+  String get cubeLevel2 => '入門';
+
+  @override
+  String get cubeLevel3 => '經典';
+
+  @override
+  String get cubeLevel4 => '進階';
+
+  @override
+  String get cubeLevel5 => '專家';
+
+  @override
+  String get cubeLevel6 => '大師';
+
+  @override
+  String get cubeComingSoon => '新方塊即將推出';
+
+  @override
+  String get carouselPrevious => '上一顆方塊';
+
+  @override
+  String get carouselNext => '下一顆方塊';
+
+  @override
+  String get chooseMode => '你想做什麼？';
+
+  @override
+  String get modePlayground => '3D 遊樂場';
+
+  @override
+  String get modePlaygroundDesc => '在 3D 中轉動層、打亂並重播步驟。';
+
+  @override
+  String get modeScanSolve => '掃描並解開';
+
+  @override
+  String get modeScanSolveDesc => '用相機掃描你的方塊，取得解法。';
+
+  @override
+  String get modeAcademy => '學院';
+
+  @override
+  String get modeAcademyDesc => '透過互動課程一步步學習。';
+
+  @override
+  String get language => '語言';
+
+  @override
+  String get languageSearch => '搜尋語言';
+
+  @override
+  String get languageNoResults => '沒有符合搜尋的語言。';
+
+  @override
+  String playgroundTitle(int size) {
+    return '$size×$size 遊樂場';
+  }
+
+  @override
+  String get scramble => '打亂';
+
+  @override
+  String get reset => '重設';
+
+  @override
+  String get undo => '復原';
+
+  @override
+  String get speed => '速度';
+
+  @override
+  String get xray => '透視';
+
+  @override
+  String get prime => '逆時針';
+
+  @override
+  String get wide => '雙層';
+
+  @override
+  String layer(int index) {
+    return '第 $index 層';
+  }
+
+  @override
+  String get cubeRotations => '整體轉動';
+
+  @override
+  String get play => '播放';
+
+  @override
+  String get pause => '暫停';
+
+  @override
+  String moveCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count 步',
+      zero: '沒有步驟',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get solved => '已還原';
+
+  @override
+  String get scrambled => '已打亂';
+
+  @override
+  String get orbitHint => '拖曳一列即可轉動 · 拖曳背景可環繞檢視';
+
+  @override
+  String get notationPad => '記號面板';
+
+  @override
+  String get solve => '解開';
+
+  @override
+  String get solving => '正在求解…';
+
+  @override
+  String get solveFast => '快速解法';
+
+  @override
+  String get solveLearn => '一步步學習';
+
+  @override
+  String get solveModeGuided => '引導模式（三頂皇冠）';
+
+  @override
+  String get solveModeFast => '快速（最佳解）';
+
+  @override
+  String solveUnavailable(int size) {
+    return '$size×$size 解題器將在之後的更新推出。';
+  }
+
+  @override
+  String get solveAlreadySolved => '方塊已經還原了。';
+
+  @override
+  String solveFailed(String reason) {
+    return '這顆方塊無法解開（$reason）。';
+  }
+
+  @override
+  String get solveEngineMissing => '此裝置無法使用求解引擎。';
+
+  @override
+  String get solveComplete => '還原了！做得好。';
+
+  @override
+  String solveSummary(int count) {
+    return '$count 步';
+  }
+
+  @override
+  String get nextMove => '下一步';
+
+  @override
+  String get previousMove => '上一步';
+
+  @override
+  String get halfTurnHalfway => '很好，完成一半了！再轉一次就是 180° 的雙轉。';
+
+  @override
+  String get wideTurnInner => '太棒了！現在滑動相鄰的內層，完成雙層轉動。';
+
+  @override
+  String get wideTurnOuter => '太棒了！現在滑動旁邊的外層，完成雙層轉動。';
+
+  @override
+  String get wideTurnMore => '太棒了！繼續一層一層滑動發亮的層，完成雙層轉動。';
+
+  @override
+  String get guideSwipeHint => '依箭頭方向滑動發亮的層，或點一下「下一步」。';
+
+  @override
+  String get guideRotateHint => '依箭頭所示轉動整顆方塊：點一下「下一步」。';
+
+  @override
+  String get guideWrongMove => '請依照醒目提示的箭頭操作';
+
+  @override
+  String get guideExit => '離開引導';
+
+  @override
+  String get colorWhite => '白';
+
+  @override
+  String get colorYellow => '黃';
+
+  @override
+  String get colorGreen => '綠';
+
+  @override
+  String get colorBlue => '藍';
+
+  @override
+  String get colorRed => '紅';
+
+  @override
+  String get colorOrange => '橘';
+
+  @override
+  String get phaseOptimal2x2 => '最佳解';
+
+  @override
+  String get phaseKociemba1 => '階段 1 · 調整方向';
+
+  @override
+  String get phaseKociemba2 => '階段 2 · 完成方塊';
+
+  @override
+  String get phaseLblCross => '白色十字';
+
+  @override
+  String get phaseLblCorners => '第一頂皇冠的角塊';
+
+  @override
+  String get phaseLblMiddle => '中層邊塊';
+
+  @override
+  String get phaseLblYellowCross => '黃色十字';
+
+  @override
+  String get phaseLblYellowEdges => '對齊黃色十字的邊塊';
+
+  @override
+  String get phaseLblYellowCorners => '歸位黃色角塊';
+
+  @override
+  String get phaseLblYellowCornersOrient => '翻轉黃色角塊';
+
+  @override
+  String get crownFirst => '第一頂皇冠';
+
+  @override
+  String get crownSecond => '第二頂皇冠';
+
+  @override
+  String get crownThird => '第三頂皇冠';
+
+  @override
+  String get crownFirstGoal => '白色面與第一層';
+
+  @override
+  String get crownSecondGoal => '中層';
+
+  @override
+  String get crownThirdGoal => '黃色面與最後一層';
+
+  @override
+  String get subStepGoal11 => '做出白色十字，讓每個白色邊塊也與旁邊的中心塊同色。';
+
+  @override
+  String get subStepGoal12 => '把 4 個白色角塊放進對應的位置，完成白色面與整個第一圈。';
+
+  @override
+  String get subStepGoal21 => '放入 4 個中層邊塊，同時不破壞第一頂皇冠。';
+
+  @override
+  String get subStepGoal31 => '在最後一層做出黃色十字。';
+
+  @override
+  String get subStepGoal32 => '交換黃色十字的邊塊，直到每個邊塊都對上側面的中心塊。';
+
+  @override
+  String get subStepGoal33 => '把 4 個黃色角塊移到正確位置，即使方向還沒轉正。';
+
+  @override
+  String get subStepGoal34 => '在原位翻轉每個黃色角塊，直到所有貼紙都對齊、方塊還原。';
+
+  @override
+  String get explainOptimal2x2 => '搜尋所有 2×2 狀態後找到的最短解法。';
+
+  @override
+  String get explainKociemba1 => '調整所有塊的方向，並把中層邊塊集中到中層。';
+
+  @override
+  String get explainKociemba2 => '只用 U、D 和半圈轉動完成，這些轉動會保持方向不變。';
+
+  @override
+  String get explainLblOrient => '轉動整顆方塊，讓白色中心朝下。';
+
+  @override
+  String explainLblCrossEdge(String piece) {
+    return '把$piece邊塊移到白色中心旁，並對齊側面顏色。';
+  }
+
+  @override
+  String explainLblCornerExtract(String piece) {
+    return '$piece角塊卡在錯誤位置。用 R U R\' U\' 把它移到頂層。';
+  }
+
+  @override
+  String explainLblCornerAlign(String piece) {
+    return '轉動頂層，直到$piece角塊位於它的槽位正上方。';
+  }
+
+  @override
+  String explainLblCornerInsert(String piece) {
+    return '重複 R U R\' U\'，直到$piece角塊歸位。';
+  }
+
+  @override
+  String explainLblMiddleExtract(String piece) {
+    return '$piece邊塊在中層但位置錯了。把它移到頂層。';
+  }
+
+  @override
+  String explainLblMiddleAlign(String piece) {
+    return '轉動頂層，讓$piece邊塊的側面顏色對上中心塊。';
+  }
+
+  @override
+  String explainLblMiddleRight(String piece) {
+    return '把$piece邊塊放到右邊：U R U\' R\' U\' F\' U F。';
+  }
+
+  @override
+  String explainLblMiddleLeft(String piece) {
+    return '把$piece邊塊放到左邊：U\' L\' U L U F U\' F\'。';
+  }
+
+  @override
+  String get explainLblYellowCrossAlign => '轉動頂層，把黃色圖形擺好以執行下一個公式。';
+
+  @override
+  String get explainLblYellowCrossAlg => '用 F R U R\' U\' F\' 做出黃色十字。';
+
+  @override
+  String get explainLblYellowEdgesAlign => '轉動頂層，讓黃色邊塊對齊各自的中心塊。';
+
+  @override
+  String get explainLblYellowEdgesAlg => '用 R U R\' U R U2 R\' U 交換黃色邊塊。';
+
+  @override
+  String get explainLblYellowCornersAlg =>
+      '用 U R U\' L\' U R\' U\' L 循環移動黃色角塊到位。';
+
+  @override
+  String get explainLblNextCorner => '轉動頂層，把下一個未完成的黃色角塊移到右前方。';
+
+  @override
+  String get explainLblCornerTwist => '重複 R\' D\' R D 直到黃色朝上。底層最後會自動復原。';
+
+  @override
+  String get explainLblFinalAlign => '轉動頂層完成方塊。';
+
+  @override
+  String scanTitle(int size) {
+    return '掃描 $size×$size';
+  }
+
+  @override
+  String get scanManualInput => '手動輸入顏色';
+
+  @override
+  String get scanUseCamera => '用相機掃描';
+
+  @override
+  String scanFaceProgress(int current, int total) {
+    return '第 $current 面，共 $total 面';
+  }
+
+  @override
+  String get faceUp => '頂面';
+
+  @override
+  String get faceRight => '右面';
+
+  @override
+  String get faceFront => '前面';
+
+  @override
+  String get faceDown => '底面';
+
+  @override
+  String get faceLeft => '左面';
+
+  @override
+  String get faceBack => '後面';
+
+  @override
+  String get scanHintFront => '拿著方塊，任一面朝向你。這就是前面：掃描時請保持同一面朝上。';
+
+  @override
+  String get scanHintRight => '從前面開始，把整顆方塊向左轉一次，讓右面朝向你。';
+
+  @override
+  String get scanHintBack => '從前面開始，把整顆方塊向左轉兩次。';
+
+  @override
+  String get scanHintLeft => '從前面開始，把整顆方塊向右轉一次。';
+
+  @override
+  String get scanHintUp => '從前面開始，把頂面朝你傾斜，讓它面向相機。';
+
+  @override
+  String get scanHintDown => '從前面開始，把底面朝你傾斜，讓它面向相機。';
+
+  @override
+  String get scanAlignHint => '讓這一面填滿格線，然後點快門。';
+
+  @override
+  String get scanCapture => '拍下這一面';
+
+  @override
+  String get scanTurnLeft => '把整顆方塊向左轉';
+
+  @override
+  String get scanTurnRight => '把整顆方塊向右轉';
+
+  @override
+  String get scanTipTop => '把頂面朝你傾斜';
+
+  @override
+  String get scanTipBottom => '把底面朝你傾斜';
+
+  @override
+  String get scanGlareTip => '偵測到反光：稍微傾斜方塊，或用手機遮住上方的燈光。';
+
+  @override
+  String get scanDimTip => '太暗了：移到較亮的地方或開啟手電筒。';
+
+  @override
+  String get scanTorch => '手電筒';
+
+  @override
+  String get scanGuideLabel => '掃描指南：已掃描的面會顯示顏色。點一下已掃描的面即可重新掃描。';
+
+  @override
+  String get scanTapToRescan => '點一下已掃描的面即可重新掃描。';
+
+  @override
+  String get scanCameraMissing => '此裝置找不到相機。';
+
+  @override
+  String get scanCameraDenied => '相機存取遭拒。你仍可手動輸入顏色。';
+
+  @override
+  String get scanCameraFailed => '無法啟動相機。';
+
+  @override
+  String get scanAllGood => '所有貼紙看起來都正確。';
+
+  @override
+  String scanStickersWrong(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '有 $count 張貼紙看起來不對',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get scanCheckCube => '有些地方對不上';
+
+  @override
+  String scanIssueColors(int count) {
+    return '每種顏色都必須正好出現 $count 次。';
+  }
+
+  @override
+  String get scanIssueCenters => '有兩個中心塊顏色相同。';
+
+  @override
+  String get scanIssuePieces => '這些貼紙組成了真實方塊上不存在的塊。';
+
+  @override
+  String get scanIssueTwist => '有一個角塊被轉歪了。請檢查角塊貼紙。';
+
+  @override
+  String get scanIssueFlip => '有一個邊塊被翻轉了。請檢查邊塊貼紙。';
+
+  @override
+  String get scanIssueParity => '有兩個塊似乎互換了。';
+
+  @override
+  String get scanIssueUnavailable => '此裝置無法檢查顏色。';
+
+  @override
+  String scanUncertain(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '有 $count 張貼紙不易辨識：請快速確認一下。',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get scanEditHint => '點一下貼紙可更換顏色 · 長按開啟調色盤';
+
+  @override
+  String get scanRescanFace => '重新掃描一面';
+
+  @override
+  String get scanCancelRescan => '回到顏色';
+
+  @override
+  String get scanPaletteTitle => '選擇顏色';
+
+  @override
+  String get scanOpen3d => '在 3D 中開啟';
+
+  @override
+  String get scanRestart => '重新開始';
+
+  @override
+  String get modeTimer => '速解計時器';
+
+  @override
+  String get modeTimerDesc => '打亂、觀察、平均成績與個人最佳。';
+
+  @override
+  String get modeDaily => '每日挑戰';
+
+  @override
+  String get modeDailyDesc => '每天一個新的打亂。保持你的連續紀錄。';
+
+  @override
+  String get modePatterns => '花式圖案庫';
+
+  @override
+  String get modePatternsDesc => '棋盤、Superflip 等花式，以 3D 播放。';
+
+  @override
+  String streakDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '連續 $count 天',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get continueLearning => '繼續學習';
+
+  @override
+  String get startLearning => '開始學習';
+
+  @override
+  String lessonOf(int index, int total) {
+    return '第 $index 課，共 $total 課';
+  }
+
+  @override
+  String get academyAllDone => '所有課程都完成了！';
+
+  @override
+  String get academyTitle => '學院';
+
+  @override
+  String academyProgress(int done, int total) {
+    return '已完成 $done/$total 課';
+  }
+
+  @override
+  String get lessonAdvanced => '進階';
+
+  @override
+  String lessonPartOf(int index, int total) {
+    return '第 $index 部分，共 $total 部分';
+  }
+
+  @override
+  String get lessonNext => '下一步';
+
+  @override
+  String get lessonPrevious => '上一步';
+
+  @override
+  String get lessonFinish => '完成課程';
+
+  @override
+  String get lessonComplete => '課程完成！';
+
+  @override
+  String get lessonNextLesson => '下一課';
+
+  @override
+  String get lessonBackToAcademy => '回到學院';
+
+  @override
+  String get lessonTryIt => '換你了：滑動箭頭指示的層，或點一下「下一步」。';
+
+  @override
+  String get lessonLookAround => '拖曳背景，從各個角度觀察方塊。';
+
+  @override
+  String get lessonDemoDone => '很好！點一下「下一步」繼續。';
+
+  @override
+  String holdPrompt(String top, String front) {
+    return '拿好方塊：$top色中心朝上，$front色中心朝向你。';
+  }
+
+  @override
+  String get trackBeginner => '3×3 新手：三頂皇冠';
+
+  @override
+  String get trackCfop => 'CFOP 入門';
+
+  @override
+  String get trackTwoByTwo => '2×2 新手與 Ortega';
+
+  @override
+  String get trackBigCubes => '高階方塊：降階與 Parity';
+
+  @override
+  String moveSentence(String layer, String direction) {
+    return '將$layer$direction轉動';
+  }
+
+  @override
+  String get moveFaceR => '右面';
+
+  @override
+  String get moveFaceL => '左面';
+
+  @override
+  String get moveFaceU => '頂面';
+
+  @override
+  String get moveFaceD => '底面';
+
+  @override
+  String get moveFaceF => '前面';
+
+  @override
+  String get moveFaceB => '後面';
+
+  @override
+  String moveLayerInner(int depth, String face) {
+    return '從$face數第 $depth 層';
+  }
+
+  @override
+  String moveLayerWide(int depth, String face) {
+    return '$face（$depth 層厚）';
+  }
+
+  @override
+  String moveLayerBlock(int near, int far, String face) {
+    return '從$face數第 $near–$far 層';
+  }
+
+  @override
+  String get moveLayerMiddle => '中間層';
+
+  @override
+  String get moveDirUp => '向上';
+
+  @override
+  String get moveDirDown => '向下';
+
+  @override
+  String get moveDirLeft => '向左';
+
+  @override
+  String get moveDirRight => '向右';
+
+  @override
+  String get moveDirClockwise => '順時針';
+
+  @override
+  String get moveDirCounter => '逆時針';
+
+  @override
+  String get moveDirBackClockwise => '從後面看順時針';
+
+  @override
+  String get moveDirBackCounter => '從後面看逆時針';
+
+  @override
+  String get moveDirHalf => '半圈（兩次）';
+
+  @override
+  String get moveRotateX => '傾轉整顆方塊：前面轉到頂部';
+
+  @override
+  String get moveRotateXPrime => '傾轉整顆方塊：前面轉到底部';
+
+  @override
+  String get moveRotateX2 => '把整顆方塊翻過來：前面轉到後面';
+
+  @override
+  String get moveRotateY => '旋轉整顆方塊：前面轉到左邊';
+
+  @override
+  String get moveRotateYPrime => '旋轉整顆方塊：前面轉到右邊';
+
+  @override
+  String get moveRotateY2 => '把整顆方塊轉半圈：後面轉到前面';
+
+  @override
+  String get moveRotateZ => '順時針滾動整顆方塊：頂面轉到右邊';
+
+  @override
+  String get moveRotateZPrime => '逆時針滾動整顆方塊：頂面轉到左邊';
+
+  @override
+  String get moveRotateZ2 => '把整顆方塊上下顛倒：頂面轉到底部';
+
+  @override
+  String get phaseReductionCenters => '中心';
+
+  @override
+  String get phaseReductionEdges => '配對邊塊';
+
+  @override
+  String get phaseReductionEdgeParity => '邊塊 Parity';
+
+  @override
+  String get phaseReductionOllParity => 'OLL Parity';
+
+  @override
+  String get phaseReductionPllParity => 'PLL Parity';
+
+  @override
+  String get explainReductionCenterBlock => '用內層轉動一次把好幾個中心塊送回原位。';
+
+  @override
+  String explainReductionCenterCycle(String piece) {
+    return '用三循環把一個$piece中心塊送到它的面上，不影響已完成的中心。';
+  }
+
+  @override
+  String get explainReductionParityCenters => '重建被 Parity 內層轉動打亂的中心。';
+
+  @override
+  String explainReductionEdgeCycle(String piece) {
+    return '用三循環把$piece邊塊組合起來；中心保持完成狀態。';
+  }
+
+  @override
+  String get explainReductionEdgeParity =>
+      '最後的邊塊無法只靠三循環配對（邊塊 Parity）。一次內層轉動就能修正。';
+
+  @override
+  String get explainReductionOllParity =>
+      'OLL Parity：有一個邊塊被翻轉，這在 3×3 上不可能發生。這個公式會把它翻回來。';
+
+  @override
+  String get explainReductionPllParity =>
+      'PLL Parity：有兩個邊塊互換，這在 3×3 上不可能發生。這個公式會把它們換回來。';
+
+  @override
+  String get patternsTitle => '花式圖案庫';
+
+  @override
+  String get patternsHint => '點一個花式觀看，然後在你自己的方塊上跟著做。';
+
+  @override
+  String get patternCheckerboard => '棋盤';
+
+  @override
+  String get patternCubeInCube => '方塊中的方塊';
+
+  @override
+  String get patternSuperflip => 'Superflip';
+
+  @override
+  String get patternDots => '圓點';
+
+  @override
+  String get patternCross => '十字';
+
+  @override
+  String get patternPython => '蟒蛇';
+
+  @override
+  String get phasePattern => '做出花式';
+
+  @override
+  String get explainPatternStep => '在你自己的方塊上照著每一步做。點「解開」即可恢復原狀。';
+
+  @override
+  String patternTitle(String name, int size) {
+    return '$name · $size×$size';
+  }
+
+  @override
+  String get timerTitle => '速解計時器';
+
+  @override
+  String get timerHoldToStart => '按住，放開即開始';
+
+  @override
+  String get timerReleaseToStart => '放開即開始';
+
+  @override
+  String get timerTapToStop => '點任意處停止';
+
+  @override
+  String get timerInspecting => '觀察中：按住，放開即開始';
+
+  @override
+  String get timerTapToInspect => '點一下開始 15 秒觀察';
+
+  @override
+  String get timerInspectionToggle => '15 秒觀察';
+
+  @override
+  String get timerLoadingScramble => '正在產生打亂…';
+
+  @override
+  String get timerPb => '最佳';
+
+  @override
+  String get timerSolves => '次數';
+
+  @override
+  String get timerPlus2 => '+2';
+
+  @override
+  String get timerDnf => 'DNF';
+
+  @override
+  String get timerDelete => '刪除';
+
+  @override
+  String get timerHistory => '紀錄';
+
+  @override
+  String get timerNoSolves => '還沒有成績。打亂方塊，開始吧！';
+
+  @override
+  String get timerNewPb => '新的個人最佳！';
+
+  @override
+  String get timerClearHistory => '清除紀錄';
+
+  @override
+  String get timerScrambleHint => '白色朝上、綠色朝前，然後打亂：';
+
+  @override
+  String get dailyTitle => '每日挑戰';
+
+  @override
+  String dailyFor(String date) {
+    return '$date 的挑戰';
+  }
+
+  @override
+  String dailyBestStreak(int count) {
+    return '最長連續紀錄：$count';
+  }
+
+  @override
+  String get dailyDone => '今天完成了！明天再來。';
+
+  @override
+  String get dailyNotDone => '解開今天的打亂，保持連續紀錄。';
+
+  @override
+  String get dailySolveVirtual => '在 3D 方塊上解';
+
+  @override
+  String get dailyTimeIt => '在你的方塊上計時';
+
+  @override
+  String get dailyHint => '提示';
+
+  @override
+  String dailyHintText(String moves) {
+    return '從白色十字開始：$moves';
+  }
+
+  @override
+  String get dailyHintFailed => '目前沒有提示。';
+
+  @override
+  String get lessonBasics => '認識方塊';
+
+  @override
+  String get lessonBasicsDesc => '塊、面與轉動名稱。';
+
+  @override
+  String get stepBasicsPieces => '三種塊';
+
+  @override
+  String get stepBasicsPiecesBody =>
+      '中心塊永遠不會移動，決定每一面的顏色。邊塊有兩種顏色，角塊有三種。還原就是把每個邊塊和角塊移到同色的中心塊旁邊。';
+
+  @override
+  String get stepBasicsFaces => '六個面的字母';
+
+  @override
+  String get stepBasicsFacesBody =>
+      'R、L、U、D、F、B 分別是右、左、上、下、前、後面。單獨一個字母表示順時針轉 90°，就像你正對著那一面看。';
+
+  @override
+  String get stepBasicsPrime => '逆轉與雙轉';
+
+  @override
+  String get stepBasicsPrimeBody => '加上撇號（R\'）表示反方向、逆時針轉。2（U2）表示轉半圈：轉兩次 90°。';
+
+  @override
+  String get stepCrossGoal => '目標';
+
+  @override
+  String get stepCrossGoalBody => '黃色朝上。四個白色邊塊圍繞底部的白色中心，每個邊塊的側面顏色都對上旁邊的中心塊。';
+
+  @override
+  String get stepCrossTop => '頂層的邊塊';
+
+  @override
+  String get stepCrossTopBody =>
+      '在頂層找到一個白色邊塊。轉動頂層，直到它的側面顏色位於同色中心塊上方，再把那一面轉兩次放下去。';
+
+  @override
+  String get stepCrossMiddle => '中層的邊塊';
+
+  @override
+  String get stepCrossMiddleBody =>
+      '卡在中層的邊塊要先移上去：把它所在的側面轉上去，把頂層移開，再把側面轉回來，十字就不會被破壞。然後從頂層放入。';
+
+  @override
+  String get stepCornersInsert => '在位置正上方';
+
+  @override
+  String get stepCornersInsertBody =>
+      '轉動頂層，直到白色角塊位於它顏色所屬位置的正上方，也就是右前方。R U R\' U\' 就能把它放下去。';
+
+  @override
+  String get stepCornersRepeat => '重複這組動作';
+
+  @override
+  String get stepCornersRepeatBody =>
+      '如果白色朝向不對，就在同一個位置繼續重複 R U R\' U\'。每個角塊最多重複五次就會完成。';
+
+  @override
+  String get stepMiddleRight => '邊塊放右邊';
+
+  @override
+  String get stepMiddleRightBody =>
+      '把頂層邊塊對齊前面的中心塊。如果它的頂部顏色與右邊中心塊相同，用 U R U\' R\' U\' F\' U F 放入。';
+
+  @override
+  String get stepMiddleLeft => '邊塊放左邊';
+
+  @override
+  String get stepMiddleLeftBody =>
+      '如果頂部顏色與左邊中心塊相同，就用鏡像公式：U\' L\' U L U F U\' F\'。';
+
+  @override
+  String get stepYellowCross => '一個公式';
+
+  @override
+  String get stepYellowCrossBody =>
+      'F R U R\' U\' F\' 能把黃色點變成 L 形、L 形變成一字形、一字形變成十字。L 形放在左後方，一字形橫放。';
+
+  @override
+  String get stepYellowEdges => '對齊邊塊';
+
+  @override
+  String get stepYellowEdgesBody =>
+      '轉動頂層，直到兩個邊塊對上中心塊。一個在後、一個在右時，R U R\' U R U2 R\' U 會交換另外兩個。';
+
+  @override
+  String get stepPlaceCorners => '歸位角塊';
+
+  @override
+  String get stepPlaceCornersBody =>
+      '把已經在正確位置的角塊放在右前方。U R U\' L\' U R\' U\' L 會移動另外三個；重複直到四個都歸位。';
+
+  @override
+  String get stepTwistCorners => '翻轉角塊';
+
+  @override
+  String get stepTwistCornersBody =>
+      '把未完成的角塊放在右前方，重複 R\' D\' R D 直到黃色朝上，然後只轉頂層帶出下一個。底層直到最後都會看起來亂掉：繼續做就對了。';
+
+  @override
+  String get lessonCfopIntro => '什麼是 CFOP？';
+
+  @override
+  String get lessonCfopIntroDesc => 'Cross、F2L、OLL、PLL。';
+
+  @override
+  String get stepCfopOverview => '四個階段';
+
+  @override
+  String get stepCfopOverviewBody =>
+      '速解玩家先完成十字，再把每個第一層角塊和對應的中層邊塊配對（F2L），接著調整最後一層的方向（OLL），最後交換位置（PLL）。';
+
+  @override
+  String get stepCfopCross => '規劃十字';
+
+  @override
+  String get stepCfopCrossBody => '在 CFOP 中，十字會在觀察時規劃好，並在底部用大約八步完成。';
+
+  @override
+  String get lessonF2l => 'F2L 基礎';
+
+  @override
+  String get lessonF2lDesc => '把角塊與它的邊塊配對。';
+
+  @override
+  String get stepF2lRight => '放入一組';
+
+  @override
+  String get stepF2lRightBody => '當角塊和它的邊塊在頂層並排時，把它們移到槽位上方，一起放入。';
+
+  @override
+  String get stepF2lLeft => '左手配對';
+
+  @override
+  String get stepF2lLeftBody =>
+      '另一側的相同情況就是鏡像：U\' L\' U L。轉動整顆方塊（y）就能用比較順手的那隻手。';
+
+  @override
+  String get lessonOll => '兩段式 OLL';
+
+  @override
+  String get lessonOllDesc => '讓頂面全黃。';
+
+  @override
+  String get stepOllCross => '先做邊塊';
+
+  @override
+  String get stepOllCrossBody => '兩段式 OLL 從你已經學會的黃色十字公式開始。';
+
+  @override
+  String get stepOllSune => 'Sune';
+
+  @override
+  String get stepOllSuneBody =>
+      '當左前方有一個黃色朝上的角塊時，Sune（R U R\' U R U2 R\'）會調整另外三個角塊。其他大多數情況都用 Sune 和它的鏡像。';
+
+  @override
+  String get lessonPll => '兩段式 PLL';
+
+  @override
+  String get lessonPllDesc => '完成方塊。';
+
+  @override
+  String get stepPllT => 'T-perm';
+
+  @override
+  String get stepPllTBody => 'T-perm 會交換兩個角塊和兩個邊塊。用它來歸位角塊：把需要交換的兩個角塊放在右邊。';
+
+  @override
+  String get stepPllU => 'U-perm';
+
+  @override
+  String get stepPllUBody => '角塊完成後，U-perm 會循環三個邊塊。把已完成的那一側放在後面。';
+
+  @override
+  String get lessonTwoFirst => '2×2 第一層';
+
+  @override
+  String get lessonTwoFirstDesc => '用相符的角塊拼出一面。';
+
+  @override
+  String get stepTwoIntro => '只有角塊';
+
+  @override
+  String get stepTwoIntroBody =>
+      '2×2 就是沒有邊塊和中心塊的 3×3。選一個顏色，把那一面拼在底部，並讓相鄰角塊的側面顏色相符。';
+
+  @override
+  String get stepTwoCorner => '放入角塊';
+
+  @override
+  String get stepTwoCornerBody =>
+      '就像 3×3 的白色角塊：把角塊移到它的位置上方，重複 R U R\' U\' 直到放好。';
+
+  @override
+  String get lessonTwoOll => '調整頂面方向';
+
+  @override
+  String get lessonTwoOllDesc => '用 Sune 做 Ortega OLL。';
+
+  @override
+  String get stepTwoSune => '又是 Sune';
+
+  @override
+  String get stepTwoSuneBody =>
+      'Sune 也能讓 2×2 的頂面變黃。Ortega 玩家會學七種短公式；Sune 和它的鏡像就涵蓋了大部分。';
+
+  @override
+  String get lessonTwoPbl => '兩層同時歸位';
+
+  @override
+  String get lessonTwoPblDesc => '交換角塊完成。';
+
+  @override
+  String get stepTwoAdjacent => '相鄰交換';
+
+  @override
+  String get stepTwoAdjacentBody => '當頂層兩個相鄰角塊需要交換時，把它們放在右邊並使用 T-perm。';
+
+  @override
+  String get stepTwoDiagonal => '對角交換';
+
+  @override
+  String get stepTwoDiagonalBody => '位於對角的兩個角塊用 Y-perm 交換。';
+
+  @override
+  String get lessonBigIntro => '高階方塊的塊';
+
+  @override
+  String get lessonBigIntroDesc => '中心、翼邊與內層。';
+
+  @override
+  String get stepBigPieces => '中心不固定';
+
+  @override
+  String get stepBigPiecesBody =>
+      '在 4×4 上，每一面有四個會移動的中心塊，每條邊由兩個翼邊組成。降階法把它們組合起來，讓方塊像 3×3 一樣運作。';
+
+  @override
+  String get stepBigSlices => '雙層與內層轉動';
+
+  @override
+  String get stepBigSlicesBody => 'Rw 同時轉動右邊兩層。2R 只轉右邊數來第二層。這些轉動會移動中心塊和翼邊。';
+
+  @override
+  String get lessonBigCenters => '中心';
+
+  @override
+  String get lessonBigCentersDesc => '把中心塊集中起來。';
+
+  @override
+  String get stepBigCenterCycle => '中心三循環';
+
+  @override
+  String get stepBigCenterCycleBody => '這個交換子只移動三個中心塊，其他都不動，所以已完成的中心會保持完成。';
+
+  @override
+  String get lessonBigEdges => '配對邊塊';
+
+  @override
+  String get lessonBigEdgesDesc => '把翼邊組成完整的邊。';
+
+  @override
+  String get stepBigEdgePair => '配對並還原';
+
+  @override
+  String get stepBigEdgePairBody =>
+      'Uw\' 讓兩個相同的翼邊對齊，R U R\' F R\' F\' R 換入一個未配對的邊，再用 Uw 把中心轉回來。';
+
+  @override
+  String get lessonBigParity => 'Parity';
+
+  @override
+  String get lessonBigParityDesc => '偶數階方塊的 OLL 與 PLL Parity。';
+
+  @override
+  String get stepBigOllParity => 'OLL Parity';
+
+  @override
+  String get stepBigOllParityBody =>
+      '3×3 上不可能只有一個邊塊被翻轉。在偶數階方塊上，這個公式會把頂層前方的邊塊翻回來。它可能打亂頂層其他部分，但最後的 3×3 步驟反正都會修好。';
+
+  @override
+  String get stepBigPllParity => 'PLL Parity';
+
+  @override
+  String get stepBigPllParityBody =>
+      '最後剩兩個邊塊互換？2R2 U2 2R2 Uw2 2R2 Uw2 會交換頂層前後的邊塊。';
+
+  @override
+  String get introGoalHeading => '目標是什麼？';
+
+  @override
+  String get introHowHeading => '怎麼做？';
+
+  @override
+  String get introStart => '了解，開始一步步做';
+
+  @override
+  String get introDontShowAgain => '不再自動顯示';
+
+  @override
+  String get introShowGoal => '顯示目標';
+
+  @override
+  String get introStateStart => '開始';
+
+  @override
+  String get introStateGoal => '目標';
+
+  @override
+  String get introPlayMorph => '從開始播放到目標';
+
+  @override
+  String get introGoalBasics => '學會看懂方塊：它的塊、六個面，以及轉動字母如何轉動它們。';
+
+  @override
+  String get introGoalCross => '做出白色十字，讓每個白色邊塊也與旁邊的中心塊同色。';
+
+  @override
+  String get introGoalCorners => '補上四個白色角塊，完成第一頂皇冠，也就是整個白色層。';
+
+  @override
+  String get introGoalMiddle => '放好四個中層邊塊，完成前兩層。';
+
+  @override
+  String get introGoalYellowCross => '在頂面做出黃色十字；側面顏色暫時不必對齊。';
+
+  @override
+  String get introGoalYellowEdges => '讓黃色十字的每個邊塊對上側面的中心顏色。';
+
+  @override
+  String get introGoalYellowCorners => '把每個黃色角塊移到自己的位置，即使方向還沒轉正。';
+
+  @override
+  String get introGoalTwistCorners => '把黃色角塊轉到正確方向，讓整顆方塊還原。';
+
+  @override
+  String get introGoalCfopIntro => '了解速解的流程：十字、前兩層，再用兩段式完成最後一層。';
+
+  @override
+  String get introGoalF2l => '把每個白色角塊和它的中層邊塊一起放入，同時完成兩層。';
+
+  @override
+  String get introGoalOll => '用一到兩個公式讓整個頂面變黃。';
+
+  @override
+  String get introGoalPll => '把最後一層的塊移到正確位置，完成方塊。';
+
+  @override
+  String get introGoalTwoFirst => '在 2×2 上拼出完整的白色層。';
+
+  @override
+  String get introGoalTwoOll => '讓 2×2 的頂面全部變黃。';
+
+  @override
+  String get introGoalTwoPbl => '交換最後的角塊到位，還原 2×2。';
+
+  @override
+  String get introGoalBigIntro => '認識 4×4：中心、邊塊組與角塊，以及轉動它們的步驟。';
+
+  @override
+  String get introGoalBigCenters => '把每一面的中心塊集中成一整塊同色區域。';
+
+  @override
+  String get introGoalBigEdges => '把相同的邊塊配對，讓每條邊看起來就像一個 3×3 邊塊。';
+
+  @override
+  String get introGoalBigParity => '修正 3×3 不會出現的兩種 4×4 情況：一個邊塊翻轉，或兩個邊塊互換。';
+
+  @override
+  String get introHowBasics =>
+      '中心塊永遠不動，所以它們代表每一面的顏色。\n每個字母把一面順時針轉 90°。\n撇號（\'）表示轉回來；2 表示轉兩次。';
+
+  @override
+  String get introHowCross =>
+      '黃色朝上：白色十字做在底部。\n找到一個白色邊塊，把它的側面顏色對上同色中心塊。\n把那一面轉兩次，讓邊塊歸位。';
+
+  @override
+  String get introHowCorners =>
+      '把一個白色角塊移到它空位的正上方。\n重複 R U R\' U\'，直到它以正確方向歸位。\n其他三個角塊也照做。';
+
+  @override
+  String get introHowMiddle =>
+      '在頂層找一個沒有黃色的邊塊，把它的前面顏色對上中心塊。\n用一個 8 步的短公式把它送到右邊或左邊。\n每次白色層都會完好地回來。';
+
+  @override
+  String get introHowYellowCross =>
+      '看頂面：一個點、一個 L 形或一條線。\n照圖拿好，做 F R U R\' U\' F\'。\n重複直到出現黃色十字。';
+
+  @override
+  String get introHowYellowEdges =>
+      '轉動頂層，直到兩個邊塊對上中心塊。\n把它們放在後面和右邊，然後做 R U R\' U R U2 R\' U。\n重複直到四個邊塊都對上。';
+
+  @override
+  String get introHowYellowCorners =>
+      '角塊的顏色和周圍三個面相符時，就代表它在正確位置。\n把一個已歸位的角塊放在右前方。\nU R U\' L\' U R\' U\' L 會循環另外三個，直到全部歸位。';
+
+  @override
+  String get introHowTwistCorners =>
+      '把一個未完成的角塊放在右前方。\n重複 R\' D\' R D，直到它的黃色朝上。\n只轉頂層換到下一個；底層最後會自動復原。';
+
+  @override
+  String get introHowCfopIntro =>
+      'Cross：四個邊塊，在觀察時規劃。\nF2L：每個角塊和它的邊塊一起放入。\nOLL 讓頂面變黃，再用 PLL 把塊送回原位。';
+
+  @override
+  String get introHowF2l =>
+      '在頂層找到一個角塊和與它相配的邊塊。\n在它們的槽位上方把兩者配成一組。\n用三到四步把這組放進去。';
+
+  @override
+  String get introHowOll =>
+      '先用 F R U R\' U\' F\' 做出黃色十字。\n再調整角塊方向，例如用 Sune。\n從看到的黃色辨認情況。';
+
+  @override
+  String get introHowPll => '頂面已經全黃了。\nT-perm 交換角塊；U-perm 循環三個邊塊。\n看側面顏色來選擇公式。';
+
+  @override
+  String get introHowTwoFirst =>
+      '2×2 只有角塊，就像沒有邊塊的 3×3。\n把每個白色角塊移到它的位置上方。\n重複 R U R\' U\' 直到它歸位。';
+
+  @override
+  String get introHowTwoOll =>
+      '白色層保持在底部。\nSune（R U R\' U R U2 R\'）會轉動頂層的角塊。\n從正確的角度重複，直到頂面全黃。';
+
+  @override
+  String get introHowTwoPbl =>
+      '找一個已經有兩個角塊相符的側面。\n相鄰交換：一個類似 T-perm 的公式。\n對角交換：一個較長的公式。';
+
+  @override
+  String get introHowBigIntro =>
+      '沒有固定的中心：四個中心塊組成每一面的顏色。\n像 Rw 這樣的雙層轉動一次轉兩層。\n像 2R 這樣的內層轉動只轉一個內層。';
+
+  @override
+  String get introHowBigCenters =>
+      '先完成兩個相對的中心。\n內層可以交換中心塊，而不破壞已完成的中心。\n用同樣方法完成最後四個中心。';
+
+  @override
+  String get introHowBigEdges => '找到兩個顏色相同的邊塊。\n用一個內層把它們並排對齊。\n把這組移開，再把中心轉回來。';
+
+  @override
+  String get introHowBigParity =>
+      '像 3×3 一樣解 4×4，直到卡住。\n一個邊塊翻轉：長的 OLL Parity 公式。\n兩個邊塊互換：2R2 U2 2R2 Uw2 2R2 Uw2。';
+
+  @override
+  String get dirFaceR => '右側';
+
+  @override
+  String get dirFaceL => '左側';
+
+  @override
+  String get dirFaceU => '頂排';
+
+  @override
+  String get dirFaceD => '底排';
+
+  @override
+  String get dirFaceF => '前面';
+
+  @override
+  String get dirFaceB => '後面';
+
+  @override
+  String get dirMiddle => '中間層';
+
+  @override
+  String get dirWholeCube => '整顆方塊';
+
+  @override
+  String dirLayerInner(int depth, String face) {
+    return '$face，第 $depth 層';
+  }
+
+  @override
+  String dirLayerWide(int depth, String face) {
+    return '$face，$depth 層厚';
+  }
+
+  @override
+  String dirLayerBlock(int near, int far, String face) {
+    return '$face，第 $near–$far 層';
+  }
+
+  @override
+  String get dirUp => '向上';
+
+  @override
+  String get dirDown => '向下';
+
+  @override
+  String get dirLeft => '向左';
+
+  @override
+  String get dirRight => '向右';
+
+  @override
+  String get dirClockwise => '順時針';
+
+  @override
+  String get dirCounter => '逆時針';
+
+  @override
+  String get dirBackClockwise => '從後面看順時針';
+
+  @override
+  String get dirBackCounter => '從後面看逆時針';
+
+  @override
+  String get dirHalf => '雙轉（180°）';
+
+  @override
+  String moveInstruction(String layer, String direction) {
+    return '$layer — $direction';
+  }
+
+  @override
+  String get solveCollapse => '隱藏詳細資料';
+
+  @override
+  String get solveExpand => '顯示詳細資料';
+
+  @override
+  String get dailyScrambleSteps => '一步步打亂';
+
+  @override
+  String get dailyScrambleGuide => '3D 打亂指南';
+
+  @override
+  String get dailyShowMoves => '顯示文字步驟';
+
+  @override
+  String get dailyHideMoves => '隱藏文字步驟';
+
+  @override
+  String get dailyScrambleGuideTitle => '打亂指南';
+
+  @override
+  String get phaseDailyScramble => '打亂今天的方塊';
+
+  @override
+  String get explainDailyScramble => '從還原好的方塊開始，白色朝上、綠色朝前，在你的實體方塊上照著每一步轉。';
+
+  @override
+  String get stageCenters => '拼出中心塊';
+
+  @override
+  String get stageEdges => '配對外側與內側邊塊';
+
+  @override
+  String get stageParity => '處理 Parity';
+
+  @override
+  String get stageCrown1 => '第一頂皇冠（白）';
+
+  @override
+  String get stageCrown2 => '第二頂皇冠';
+
+  @override
+  String get stageCrown3 => '第三頂皇冠（黃）';
+
+  @override
+  String get stageOrient => '調整方向';
+
+  @override
+  String get stageFinish => '完成方塊';
+
+  @override
+  String get stageAsThree => '像 3×3 一樣解';
+
+  @override
+  String get stageTwoByTwo => '解開 2×2';
+
+  @override
+  String stageHeader(int number, int total, String title) {
+    return '第 $number/$total 階段：$title';
+  }
+
+  @override
+  String stageCrownHeader(int crown, int number, int total, String title) {
+    return '皇冠 $crown • 第 $number/$total 階段：$title';
+  }
+
+  @override
+  String get solveAllStagesDone => '所有階段都完成了。做得好！';
+
+  @override
+  String get trackFiveByFive => '5×5 Professor\'s Cube';
+
+  @override
+  String get trackSixBySix => '6×6 方塊';
+
+  @override
+  String get lessonFiveIntro => '認識 5×5';
+
+  @override
+  String get lessonFiveIntroDesc => '固定中心、中心條、中間邊塊與翼邊。';
+
+  @override
+  String get introGoalFiveIntro => '認識 5×5：固定中心、中心條、中間邊塊與翼邊。';
+
+  @override
+  String get introHowFiveIntro =>
+      '每一面正中央的塊永遠不動。\n每條邊由一個中間塊和兩個翼邊組成。\n內層轉動可以移動塊而不影響外側。';
+
+  @override
+  String get lessonFiveCenters => '5×5 中心';
+
+  @override
+  String get lessonFiveCentersDesc => '用三塊一條的中心條拼出每個中心。';
+
+  @override
+  String get introGoalFiveCenters => '在每一面拼出同一顏色的 3×3 中心區塊。';
+
+  @override
+  String get introHowFiveCenters =>
+      '從正中央的塊開始：它決定顏色。\n拼出三塊一條的中心條，用內層滑進去。\n最後兩個中心一起完成。';
+
+  @override
+  String get lessonFiveEdges => '5×5 邊塊';
+
+  @override
+  String get lessonFiveEdgesDesc => '把兩個翼邊和它們的中間邊塊組合。';
+
+  @override
+  String get introGoalFiveEdges => '把每個中間邊塊和它的兩個翼邊組合，讓 12 條邊都像單一塊。';
+
+  @override
+  String get introHowFiveEdges =>
+      '在前面把兩個翼邊對上它們的中間邊塊。\n轉動內層，換入一個未完成的邊，再轉回來。\n配對最後的邊塊，不破壞已完成的邊。';
+
+  @override
+  String get lessonFiveSolve => '像 3×3 一樣解 5×5';
+
+  @override
+  String get lessonFiveSolveDesc => '用三頂皇冠完成。';
+
+  @override
+  String get introGoalFiveSolve => '把降階後的 5×5 像 3×3 一樣，一頂皇冠一頂皇冠地解開。';
+
+  @override
+  String get introHowFiveSolve =>
+      '從現在起只轉外層。\n第一頂皇冠、第二頂皇冠，然後是黃色皇冠。\n固定中心代表每一面的顏色。';
+
+  @override
+  String get lessonFiveParity => '5×5 邊塊 Parity';
+
+  @override
+  String get lessonFiveParityDesc => '修正翼邊互換的邊塊。';
+
+  @override
+  String get introGoalFiveParity => '修正兩個翼邊互換的那一條邊，然後完成。';
+
+  @override
+  String get introHowFiveParity => '它會以一條無法配對的邊出現。\n做一次長的內層修正公式。\n其他一切都會回到原位。';
+
+  @override
+  String get lessonSixIntro => '認識 6×6';
+
+  @override
+  String get lessonSixIntroDesc => '中心不固定，每條邊有四個塊。';
+
+  @override
+  String get introGoalSixIntro => '認識 6×6：每面十六個中心塊，每條邊四個塊。';
+
+  @override
+  String get introHowSixIntro =>
+      '沒有固定的中心：顏色由你拼的時候決定。\n每條邊都有外翼邊和內翼邊。\n雙層轉動最多可移動三層。';
+
+  @override
+  String get lessonSixCenters => '6×6 中心';
+
+  @override
+  String get lessonSixCentersDesc => '用四塊一條的中心條拼出 4×4 中心。';
+
+  @override
+  String get introGoalSixCenters => '在每一面拼出一整塊同色的 4×4 中心區塊。';
+
+  @override
+  String get introHowSixCenters =>
+      '先完成兩個相對的中心。\n拼出四塊一條的中心條，再把它們併在一起。\n用「內層、頂層、復原」技巧移動單一塊。';
+
+  @override
+  String get lessonSixEdges => '6×6 邊塊';
+
+  @override
+  String get lessonSixEdgesDesc => '集齊每條邊的四個塊。';
+
+  @override
+  String get introGoalSixEdges => '集齊每條邊的四個塊，讓 6×6 有 12 條完整的邊。';
+
+  @override
+  String get introHowSixEdges =>
+      '在前面把外翼邊和內翼邊對齊。\n深層的雙層轉動把一條邊帶進來再帶出去。\n已完成的邊永遠不會被破壞。';
+
+  @override
+  String get lessonSixSolve => '像 3×3 一樣解 6×6';
+
+  @override
+  String get lessonSixSolveDesc => '用三頂皇冠完成。';
+
+  @override
+  String get introGoalSixSolve => '把降階後的 6×6 像 3×3 一樣，一頂皇冠一頂皇冠地解開。';
+
+  @override
+  String get introHowSixSolve =>
+      '從現在起只轉外層。\n你拼好的中心代表每一面的顏色。\n第一頂皇冠、第二頂皇冠，然後是黃色皇冠。';
+
+  @override
+  String get lessonSixParity => '6×6 Parity';
+
+  @override
+  String get lessonSixParityDesc => '一個邊塊翻轉或兩個邊塊互換。';
+
+  @override
+  String get introGoalSixParity => '修正 3×3 不會出現的兩種 6×6 情況：一個邊塊翻轉，或兩個邊塊互換。';
+
+  @override
+  String get introHowSixParity =>
+      '像 3×3 一樣解，直到卡住。\n一個邊塊翻轉：長的 Parity 修正公式。\n兩個邊塊互換：短的雙轉修正公式。';
+
+  @override
+  String get stepFivePieces => '5×5 的塊';
+
+  @override
+  String get stepFivePiecesBody =>
+      '每一面正中央的塊永遠不動，所以和 3×3 一樣代表那一面的顏色。它周圍還有八個中心塊；每條邊有一個中間塊和兩個翼邊，角塊則和 3×3 一樣。';
+
+  @override
+  String get stepFiveSlices => '三種轉動';
+
+  @override
+  String get stepFiveSlicesBody =>
+      '外層轉動移動一個面。雙層轉動移動一個面和它後面的那一層。內層轉動只移動裡面的一層：塊就是這樣在不影響外側的情況下換位置。';
+
+  @override
+  String get stepFiveCenterBar => '中心條';
+
+  @override
+  String get stepFiveCenterBarBody =>
+      '拼出一排三個同色的中心塊，再用內層轉動把它滑到同色的正中央塊旁邊。三條就組成一個完整的中心。';
+
+  @override
+  String get stepFiveCenterSwap => '交換而不破壞';
+
+  @override
+  String get stepFiveCenterSwapBody =>
+      '要移動單一中心塊：轉一個內層、轉頂層、把內層轉回、再把頂層轉回。已完成的中心每次都會恢復。';
+
+  @override
+  String get stepFiveEdgePair => '把翼邊和中間邊塊配對';
+
+  @override
+  String get stepFiveEdgePairBody =>
+      '在前面把兩個翼邊對齊到同色的中間邊塊旁，把內層往下轉，從頂層換入一個未完成的邊，再把內層轉回來。';
+
+  @override
+  String get stepFiveEdgeLast => '最後的邊塊';
+
+  @override
+  String get stepFiveEdgeLastBody =>
+      '只剩幾條邊時，用一次雙層轉動、一組短公式，再把雙層轉回，就能配對它們而不破壞已完成的邊。';
+
+  @override
+  String get stepFiveAsThree => '現在它是 3×3 了';
+
+  @override
+  String get stepFiveAsThreeBody =>
+      '中心和邊塊完成後，5×5 就像一顆大 3×3。只用外層轉動，照三頂皇冠進行：白色十字與角塊、中層，然後是黃色層。';
+
+  @override
+  String get stepFiveEdgeParity => '交換最後一條邊的翼邊';
+
+  @override
+  String get stepFiveEdgeParityBody =>
+      '有時最後一條邊的兩個翼邊互換了。用一個較長的內層公式把它們換回來，其他一切都會回到原位。然後像 3×3 一樣完成。';
+
+  @override
+  String get stepSixPieces => '6×6 的塊';
+
+  @override
+  String get stepSixPiecesBody =>
+      '和 4×4 一樣，6×6 沒有固定的中心：十六個中心塊組成每一面的顏色。每條邊有四個塊：兩個外翼邊和兩個內翼邊。';
+
+  @override
+  String get stepSixSlices => '轉動更深的層';
+
+  @override
+  String get stepSixSlicesBody => '雙層轉動可以從一面移動兩層或三層。第二或第三層的內層轉動是處理中心和邊塊的工具。';
+
+  @override
+  String get stepSixCenterBar => '四塊一條';
+
+  @override
+  String get stepSixCenterBarBody => '拼出一排排四個同色的中心塊，用內層轉動把它們併在一起，直到整面變成同一顏色。';
+
+  @override
+  String get stepSixCenterSwap => '一次移動一塊';
+
+  @override
+  String get stepSixCenterSwapBody => '轉第三層、轉頂層、復原、轉回：移動一個中心塊，同時已完成的中心會恢復。';
+
+  @override
+  String get stepSixEdgePair => '四個塊，一條邊';
+
+  @override
+  String get stepSixEdgePairBody => '用深層的雙層轉動在前面集齊一條邊的四個塊，再換入一個未完成的邊，把雙層轉回來。';
+
+  @override
+  String get stepSixEdgeLast => '最後的邊塊';
+
+  @override
+  String get stepSixEdgeLastBody => '在深層雙層轉動和它的復原之間夾一組短公式來配對最後的邊塊，讓已完成的邊保持配對。';
+
+  @override
+  String get stepSixAsThree => '現在它是 3×3 了';
+
+  @override
+  String get stepSixAsThreeBody =>
+      '有了 4×4 中心和配對好的邊塊，就用外層轉動和三頂皇冠，像 3×3 一樣解開 6×6。';
+
+  @override
+  String get stepSixOllParity => '一個邊塊翻轉';
+
+  @override
+  String get stepSixOllParityBody =>
+      '如果在解最後一層時有一個邊塊看起來被翻轉，那就是 Parity。把它放在頂層前方，做長的修正公式：前兩頂皇冠會完好如初。';
+
+  @override
+  String get stepSixPllParity => '兩個邊塊互換';
+
+  @override
+  String get stepSixPllParityBody =>
+      '如果到最後有兩個邊塊看起來互換了，把它們放在頂層的前方和後方，做由內層雙轉組成的短修正公式。';
+
+  @override
+  String get stageTwoFirstLayer => '拼出底層';
+
+  @override
+  String get stageTwoTopColor => '讓頂面同一顏色';
+
+  @override
+  String get stageTwoFinish => '完成角塊';
+
+  @override
+  String get explainTwoFirstLayer => '完成底層：四個角塊彼此相符，也與側面顏色相符。';
+
+  @override
+  String get explainTwoTopColor => '保持底層不動，轉動頂層直到頂面四張貼紙都是同一顏色。';
+
+  @override
+  String get explainTwoFinish => '把最後的角塊移到正確位置，完成方塊。';
+
+  @override
+  String get tabSolve => '解題';
+
+  @override
+  String get tabScan => '掃描';
+
+  @override
+  String get tabAcademy => '學院';
+
+  @override
+  String get tabTrain => '訓練';
+
+  @override
+  String get openCubeSolver => '開啟 3D 方塊與解題器';
+
+  @override
+  String progressFraction(int done, int total) {
+    return '$done/$total';
+  }
+
+  @override
+  String get trainTitle => '訓練';
+
+  @override
+  String get trainSubtitle => '每天磨練你的技巧。';
+
+  @override
+  String get settings => '設定';
+
+  @override
+  String get settingsSoundHaptics => '音效與震動';
+
+  @override
+  String get settingsSoundHapticsDesc => '轉動方塊時的喀嚓聲與震動。';
+
+  @override
+  String get settingsAnimationSpeed => '預設動畫速度';
+
+  @override
+  String get settingsAnimationSpeedDesc => '播放步驟時方塊轉動的速度。';
+
+  @override
+  String get settingsResetProgress => '重設進度';
+
+  @override
+  String get settingsResetProgressDesc => '清除已完成的學院課程與每日連續紀錄。';
+
+  @override
+  String get resetProgressTitle => '要重設所有進度嗎？';
+
+  @override
+  String get resetProgressBody => '已完成的課程和每日連續紀錄將被清除。此動作無法復原。';
+
+  @override
+  String get resetProgressDone => '進度已重設。';
+
+  @override
+  String get cancel => '取消';
+
+  @override
+  String get settingsPrivacyAds => '隱私權與廣告';
+
+  @override
+  String get settingsPrivacyAdsDesc => '檢視或變更你的廣告同意選擇。';
+
+  @override
+  String get playbackPrevious => '上一步';
+
+  @override
+  String get playbackNext => '下一步';
+
+  @override
+  String fastSolveMoves(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '用 $count 步還原！',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get feedbackTitle => '一起打造下一個版本';
+
+  @override
+  String get feedbackBody => '想建議新功能，或影響 CubeMentor 的下一個版本嗎？寫信給我們：';
+
+  @override
+  String get feedbackEmailCopied => '找不到電子郵件 App，所以我們已將地址複製到剪貼簿。';
+
+  @override
+  String get adWatchToUnlock => '觀看廣告';
+
+  @override
+  String get adLoading => '正在載入短片…';
+
+  @override
+  String get adRewardNotEarned => '看完整支影片才能解鎖。';
+
+  @override
+  String get adUnavailableFreePass => '目前沒有可用的影片——這次免費為你解鎖。';
+
+  @override
+  String get settingsPrivacyAdsError => '無法開啟隱私權選項。請稍後再試。';
+
+  @override
+  String get nicknamePromptTitle => '我們該怎麼稱呼你？';
+
+  @override
+  String get nicknamePromptBody => '每次你還原方塊時，我們都會叫著你的名字為你喝采。';
+
+  @override
+  String get nicknameHint => '你的名字或暱稱';
+
+  @override
+  String get nicknameGo => '開始吧';
+
+  @override
+  String get nicknameSkip => '略過';
+
+  @override
+  String get nicknameSave => '儲存';
+
+  @override
+  String get settingsNickname => '你的名字';
+
+  @override
+  String get settingsNicknameNotSet => '尚未設定——點一下新增';
+
+  @override
+  String celebrateNamed(String name) {
+    return '太棒了，$name！';
+  }
+
+  @override
+  String get celebrateAnon => '太棒了！';
+
+  @override
+  String get celebrateCubeSolved => '方塊還原了！';
+
+  @override
+  String get celebrateDailyDone => '每日挑戰完成！';
+
+  @override
+  String fastSolveRatio(int count, int limit) {
+    String _temp0 = intl.Intl.pluralLogic(
+      limit,
+      locale: localeName,
+      other: '$count / $limit 步',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String fastSolveRatioTooltip(int limit) {
+    String _temp0 = intl.Intl.pluralLogic(
+      limit,
+      locale: localeName,
+      other: '任何打亂都能在 $limit 步以內還原',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get patternsUnlockTitle => '解鎖所有花式';
+
+  @override
+  String patternsUnlockPrompt(int minutes) {
+    String _temp0 = intl.Intl.pluralLogic(
+      minutes,
+      locale: localeName,
+      other: '觀看 1 支短片，即可解鎖所有花式 $minutes 分鐘',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get patternsWatchVideo => '觀看影片';
+
+  @override
+  String get patternsNotNow => '稍後再說';
+
+  @override
+  String patternsUnlockedLeft(String time) {
+    return '已解鎖 • 剩餘 $time';
+  }
+
+  @override
+  String get patternsExpiredTitle => '預覽時間已結束';
+
+  @override
+  String patternsExpiredBody(int minutes) {
+    String _temp0 = intl.Intl.pluralLogic(
+      minutes,
+      locale: localeName,
+      other: '觀看 1 支影片，所有花式再解鎖 $minutes 分鐘！',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get patternsFreeSample => '免費';
+
+  @override
+  String get settingsColorScheme => '魔術方塊配色';
+
+  @override
+  String get colorSchemeWestern => '西方配色';
+
+  @override
+  String get colorSchemeJapanese => '日本配色';
+
+  @override
+  String get colorSchemeWesternDesc => '白對黃，藍對綠';
+
+  @override
+  String get colorSchemeJapaneseDesc => '白對藍，黃對綠';
 }

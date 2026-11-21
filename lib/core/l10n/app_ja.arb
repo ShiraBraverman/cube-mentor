@@ -580,5 +580,10 @@
   "patternsUnlockedLeft": "解放中 • 残り {time}",
   "patternsExpiredTitle": "お試し時間が終了しました",
   "patternsExpiredBody": "動画を1本見ると、さらに{minutes}分間すべての模様を使えます！",
-  "patternsFreeSample": "無料"
+  "patternsFreeSample": "無料",
+  "settingsColorScheme": "キューブの配色",
+  "colorSchemeWestern": "西洋配色",
+  "colorSchemeJapanese": "日本配色",
+  "colorSchemeWesternDesc": "白の反対が黄、青の反対が緑",
+  "colorSchemeJapaneseDesc": "白の反対が青、黄の反対が緑"
 }

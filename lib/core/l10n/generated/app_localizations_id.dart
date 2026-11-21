@@ -2063,4 +2063,21 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get patternsFreeSample => 'Gratis';
+
+  @override
+  String get settingsColorScheme => 'Skema warna kubus';
+
+  @override
+  String get colorSchemeWestern => 'Barat';
+
+  @override
+  String get colorSchemeJapanese => 'Jepang';
+
+  @override
+  String get colorSchemeWesternDesc =>
+      'Putih berseberangan dengan kuning, biru dengan hijau';
+
+  @override
+  String get colorSchemeJapaneseDesc =>
+      'Putih berseberangan dengan biru, kuning dengan hijau';
 }

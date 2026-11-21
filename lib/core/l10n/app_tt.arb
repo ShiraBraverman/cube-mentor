@@ -580,5 +580,10 @@
   "patternsUnlockedLeft": "Ачык • {time} калды",
   "patternsExpiredTitle": "Сынау вакыты тәмам",
   "patternsExpiredBody": "Бөтен үрнәкләр тагын {minutes} минут ачык калсын өчен 1 видео карагыз!",
-  "patternsFreeSample": "Бушлай"
+  "patternsFreeSample": "Бушлай",
+  "settingsColorScheme": "Кубик төсләре схемасы",
+  "colorSchemeWestern": "Көнбатыш",
+  "colorSchemeJapanese": "Япон",
+  "colorSchemeWesternDesc": "Ак – сарыга каршы, зәңгәр – яшелгә каршы",
+  "colorSchemeJapaneseDesc": "Ак – зәңгәргә каршы, сары – яшелгә каршы"
 }

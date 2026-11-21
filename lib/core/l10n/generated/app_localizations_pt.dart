@@ -2102,6 +2102,23 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get patternsFreeSample => 'Grátis';
+
+  @override
+  String get settingsColorScheme => 'Esquema de cores do cubo';
+
+  @override
+  String get colorSchemeWestern => 'Ocidental';
+
+  @override
+  String get colorSchemeJapanese => 'Japonês';
+
+  @override
+  String get colorSchemeWesternDesc =>
+      'Branco oposto ao amarelo, azul oposto ao verde';
+
+  @override
+  String get colorSchemeJapaneseDesc =>
+      'Branco oposto ao azul, amarelo oposto ao verde';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -4194,4 +4211,21 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get patternsFreeSample => 'Grátis';
+
+  @override
+  String get settingsColorScheme => 'Esquema de cores do cubo';
+
+  @override
+  String get colorSchemeWestern => 'Ocidental';
+
+  @override
+  String get colorSchemeJapanese => 'Japonês';
+
+  @override
+  String get colorSchemeWesternDesc =>
+      'Branco oposto ao amarelo, azul oposto ao verde';
+
+  @override
+  String get colorSchemeJapaneseDesc =>
+      'Branco oposto ao azul, amarelo oposto ao verde';
 }

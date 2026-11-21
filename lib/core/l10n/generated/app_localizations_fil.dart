@@ -2080,4 +2080,21 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get patternsFreeSample => 'Libre';
+
+  @override
+  String get settingsColorScheme => 'Color scheme ng cube';
+
+  @override
+  String get colorSchemeWestern => 'Western';
+
+  @override
+  String get colorSchemeJapanese => 'Japanese';
+
+  @override
+  String get colorSchemeWesternDesc =>
+      'Puti katapat ng dilaw, asul katapat ng berde';
+
+  @override
+  String get colorSchemeJapaneseDesc =>
+      'Puti katapat ng asul, dilaw katapat ng berde';
 }

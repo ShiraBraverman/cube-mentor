@@ -2102,4 +2102,21 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get patternsFreeSample => 'مجاني';
+
+  @override
+  String get settingsColorScheme => 'نظام ألوان المكعب';
+
+  @override
+  String get colorSchemeWestern => 'غربي';
+
+  @override
+  String get colorSchemeJapanese => 'ياباني';
+
+  @override
+  String get colorSchemeWesternDesc =>
+      'الأبيض مقابل الأصفر، والأزرق مقابل الأخضر';
+
+  @override
+  String get colorSchemeJapaneseDesc =>
+      'الأبيض مقابل الأزرق، والأصفر مقابل الأخضر';
 }

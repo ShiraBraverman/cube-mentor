@@ -2069,4 +2069,19 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get patternsFreeSample => 'חינם';
+
+  @override
+  String get settingsColorScheme => 'ערכת הצבעים של הקובייה';
+
+  @override
+  String get colorSchemeWestern => 'מערבית';
+
+  @override
+  String get colorSchemeJapanese => 'יפנית';
+
+  @override
+  String get colorSchemeWesternDesc => 'לבן מול צהוב, כחול מול ירוק';
+
+  @override
+  String get colorSchemeJapaneseDesc => 'לבן מול כחול, צהוב מול ירוק';
 }

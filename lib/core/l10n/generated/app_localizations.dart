@@ -17,9 +17,13 @@ import 'app_localizations_hi.dart';
 import 'app_localizations_id.dart';
 import 'app_localizations_ja.dart';
 import 'app_localizations_ko.dart';
+import 'app_localizations_my.dart';
+import 'app_localizations_pl.dart';
 import 'app_localizations_pt.dart';
 import 'app_localizations_ru.dart';
+import 'app_localizations_tr.dart';
 import 'app_localizations_tt.dart';
+import 'app_localizations_vi.dart';
 import 'app_localizations_zh.dart';
 
 // ignore_for_file: type=lint
@@ -120,11 +124,16 @@ abstract class AppLocalizations {
     Locale('id'),
     Locale('ja'),
     Locale('ko'),
+    Locale('my'),
+    Locale('pl'),
     Locale('pt'),
     Locale('pt', 'BR'),
     Locale('ru'),
+    Locale('tr'),
     Locale('tt'),
+    Locale('vi'),
     Locale('zh'),
+    Locale('zh', 'TW'),
   ];
 
   /// No description provided for @appTitle.
@@ -3612,6 +3621,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Free'**
   String get patternsFreeSample;
+
+  /// Settings row title: which colors sit opposite each other on the user's physical cube.
+  ///
+  /// In en, this message translates to:
+  /// **'Cube color scheme'**
+  String get settingsColorScheme;
+
+  /// Segment label: the Western (default) cube color scheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Western'**
+  String get colorSchemeWestern;
+
+  /// Segment label: the Japanese cube color scheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Japanese'**
+  String get colorSchemeJapanese;
+
+  /// Explains the Western scheme's opposite face colors.
+  ///
+  /// In en, this message translates to:
+  /// **'White opposite yellow, blue opposite green'**
+  String get colorSchemeWesternDesc;
+
+  /// Explains the Japanese scheme's opposite face colors.
+  ///
+  /// In en, this message translates to:
+  /// **'White opposite blue, yellow opposite green'**
+  String get colorSchemeJapaneseDesc;
 }
 
 class _AppLocalizationsDelegate
@@ -3637,9 +3676,13 @@ class _AppLocalizationsDelegate
     'id',
     'ja',
     'ko',
+    'my',
+    'pl',
     'pt',
     'ru',
+    'tr',
     'tt',
+    'vi',
     'zh',
   ].contains(locale.languageCode);
 
@@ -3655,6 +3698,14 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
         switch (locale.countryCode) {
           case 'BR':
             return AppLocalizationsPtBr();
+        }
+        break;
+      }
+    case 'zh':
+      {
+        switch (locale.countryCode) {
+          case 'TW':
+            return AppLocalizationsZhTw();
         }
         break;
       }
@@ -3686,12 +3737,20 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsJa();
     case 'ko':
       return AppLocalizationsKo();
+    case 'my':
+      return AppLocalizationsMy();
+    case 'pl':
+      return AppLocalizationsPl();
     case 'pt':
       return AppLocalizationsPt();
     case 'ru':
       return AppLocalizationsRu();
+    case 'tr':
+      return AppLocalizationsTr();
     case 'tt':
       return AppLocalizationsTt();
+    case 'vi':
+      return AppLocalizationsVi();
     case 'zh':
       return AppLocalizationsZh();
   }

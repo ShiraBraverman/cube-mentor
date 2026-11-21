@@ -6,11 +6,32 @@ import 'app_colors.dart';
 /// radii and touch sizes so every screen gets them without local styling.
 abstract final class AppTheme {
   /// Scripts whose marks reach far above or below the Latin line box
-  /// (Arabic and Hebrew diacritics, Bengali and Devanagari conjuncts).
-  static const Set<String> tallScriptLanguages = {'ar', 'he', 'bn', 'hi'};
+  /// (Arabic and Hebrew diacritics, Bengali and Devanagari conjuncts,
+  /// Vietnamese stacked tone marks, Burmese stacked vowels and medials).
+  static const Set<String> tallScriptLanguages = {
+    'ar',
+    'he',
+    'bn',
+    'hi',
+    'vi',
+    'my',
+  };
 
   /// Minimum line height for [tallScriptLanguages], so glyphs never clip.
   static const double tallScriptMinHeight = 1.4;
+
+  /// Burmese stacks marks both above and below the base consonant and its
+  /// glyphs are taller than Devanagari's, so it needs extra room.
+  static const double burmeseMinHeight = 1.7;
+
+  /// Minimum line height for [languageCode], or null for Latin-like scripts.
+  static double? minLineHeightFor(String? languageCode) =>
+      switch (languageCode) {
+        'my' => burmeseMinHeight,
+        final code when tallScriptLanguages.contains(code) =>
+          tallScriptMinHeight,
+        _ => null,
+      };
 
   /// The app theme; [languageCode] adds line-height room for tall scripts.
   static ThemeData dark({String? languageCode}) {
@@ -91,9 +112,10 @@ abstract final class AppTheme {
         letterSpacing: 0.1,
       ),
     );
-    final textTheme = tallScriptLanguages.contains(languageCode)
-        ? _withRoom(latinTextTheme)
-        : latinTextTheme;
+    final minHeight = minLineHeightFor(languageCode);
+    final textTheme = minHeight == null
+        ? latinTextTheme
+        : _withRoom(latinTextTheme, minHeight);
 
     const shape = RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(AppRadius.sm + 2)),
@@ -248,14 +270,14 @@ abstract final class AppTheme {
     );
   }
 
-  /// Raises every style's line height to at least [tallScriptMinHeight],
-  /// spreading the extra leading evenly above and below the glyphs.
-  static TextTheme _withRoom(TextTheme theme) {
+  /// Raises every style's line height to at least [minHeight], spreading
+  /// the extra leading evenly above and below the glyphs.
+  static TextTheme _withRoom(TextTheme theme, double minHeight) {
     TextStyle? roomy(TextStyle? style) {
       if (style == null) return null;
       final height = style.height ?? 0;
       return style.copyWith(
-        height: height < tallScriptMinHeight ? tallScriptMinHeight : height,
+        height: height < minHeight ? minHeight : height,
         leadingDistribution: TextLeadingDistribution.even,
       );
     }
