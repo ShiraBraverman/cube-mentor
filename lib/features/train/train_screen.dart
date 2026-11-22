@@ -5,11 +5,11 @@ import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
 import '../../core/theme/ui_kit.dart';
+import '../../shared/widgets/cube_icons/cube_icons.dart';
 import '../daily/daily_controller.dart';
 import '../daily/daily_screen.dart';
 import '../home/home_controller.dart';
 import '../patterns/patterns_screen.dart';
-import '../patterns/widgets/pattern_icon.dart';
 import '../timer/timer_screen.dart';
 
 /// The Train tab: daily challenge, speed timer and pattern library as three
@@ -47,7 +47,7 @@ class TrainScreen extends ConsumerWidget {
                 const SizedBox(height: AppSpace.lg),
                 _TrainCard(
                   key: const ValueKey('train-daily'),
-                  icon: Icons.local_fire_department_rounded,
+                  icon: const AnimatedStreakStepIcon(),
                   title: l10n.modeDaily,
                   description: l10n.modeDailyDesc,
                   accent: AppColors.accentWarm,
@@ -60,7 +60,7 @@ class TrainScreen extends ConsumerWidget {
                 const SizedBox(height: AppSpace.md),
                 _TrainCard(
                   key: const ValueKey('train-timer'),
-                  icon: Icons.timer_outlined,
+                  icon: const AnimatedTimerCubeIcon(),
                   title: l10n.modeTimer,
                   description: l10n.modeTimerDesc,
                   accent: AppColors.danger,
@@ -69,12 +69,7 @@ class TrainScreen extends ConsumerWidget {
                 const SizedBox(height: AppSpace.md),
                 _TrainCard(
                   key: const ValueKey('train-patterns'),
-                  icon: Icons.grid_view_rounded,
-                  leading: const PatternIcon(
-                    color: AppColors.accent,
-                    size: 60,
-                    glow: true,
-                  ),
+                  icon: const AnimatedPatternCubeIcon(),
                   title: l10n.modePatterns,
                   description: l10n.modePatternsDesc,
                   accent: AppColors.accent,
@@ -99,13 +94,10 @@ class _TrainCard extends StatelessWidget {
     required this.onTap,
     this.badge,
     this.done = false,
-    this.leading,
   });
 
-  final IconData icon;
-
-  /// Custom artwork shown instead of [icon].
-  final Widget? leading;
+  /// Animated mini-cube icon, shown on an accent tile.
+  final Widget icon;
   final String title;
   final String description;
   final Color accent;
@@ -131,8 +123,7 @@ class _TrainCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          leading ??
-              AccentIcon(icon: icon, color: accent, size: 60, glow: true),
+          CubeIconTile(accent: accent, size: 60, glow: true, child: icon),
           const SizedBox(width: AppSpace.md),
           Expanded(
             child: Column(

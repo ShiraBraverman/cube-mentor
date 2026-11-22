@@ -8,6 +8,7 @@ import '../../core/feedback/feedback_service.dart';
 import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
+import '../../shared/widgets/cube_icons/cube_icons.dart';
 import '../academy/academy_screen.dart';
 import '../academy/model/academy_progress.dart';
 import '../academy/model/lesson_catalog.dart';
@@ -139,24 +140,21 @@ class GlassDock extends ConsumerWidget {
                   children: [
                     _DockItem(
                       tab: AppTab.solve,
-                      icon: Icons.view_in_ar_outlined,
-                      activeIcon: Icons.view_in_ar_rounded,
+                      icon: AnimatedSolveCubeIcon.new,
                       label: l10n.tabSolve,
                       selected: tab == AppTab.solve,
                       onTap: select,
                     ),
                     _DockItem(
                       tab: AppTab.scan,
-                      icon: Icons.photo_camera_outlined,
-                      activeIcon: Icons.photo_camera_rounded,
+                      icon: AnimatedScannerCubeIcon.new,
                       label: l10n.tabScan,
                       selected: tab == AppTab.scan,
                       onTap: select,
                     ),
                     _DockItem(
                       tab: AppTab.academy,
-                      icon: Icons.school_outlined,
-                      activeIcon: Icons.school_rounded,
+                      icon: AnimatedAcademyCubeIcon.new,
                       label: l10n.tabAcademy,
                       selected: tab == AppTab.academy,
                       onTap: select,
@@ -164,8 +162,7 @@ class GlassDock extends ConsumerWidget {
                     ),
                     _DockItem(
                       tab: AppTab.train,
-                      icon: Icons.fitness_center_outlined,
-                      activeIcon: Icons.fitness_center_rounded,
+                      icon: AnimatedTimerCubeIcon.new,
                       label: l10n.tabTrain,
                       selected: tab == AppTab.train,
                       onTap: select,
@@ -185,7 +182,6 @@ class _DockItem extends StatelessWidget {
   const _DockItem({
     required this.tab,
     required this.icon,
-    required this.activeIcon,
     required this.label,
     required this.selected,
     required this.onTap,
@@ -193,8 +189,15 @@ class _DockItem extends StatelessWidget {
   });
 
   final AppTab tab;
-  final IconData icon;
-  final IconData activeIcon;
+
+  /// Builds the tab's mini-cube icon; only the selected tab animates.
+  final AnimatedCubeIcon Function({
+    Key? key,
+    double size,
+    bool animate,
+    String? semanticLabel,
+  })
+  icon;
   final String label;
   final bool selected;
   final ValueChanged<AppTab> onTap;
@@ -202,10 +205,22 @@ class _DockItem extends StatelessWidget {
   /// Small progress badge on the icon, e.g. "1/29".
   final String? badge;
 
+  static const _muted = ColorFilter.matrix([
+    0.55, 0.36, 0.05, 0, 0, //
+    0.15, 0.76, 0.05, 0, 0, //
+    0.15, 0.36, 0.45, 0, 0, //
+    0, 0, 0, 0.6, 0,
+  ]);
+
   @override
   Widget build(BuildContext context) {
     final color = selected ? AppColors.accent : AppColors.textSecondary;
-    Widget glyph = Icon(selected ? activeIcon : icon, color: color, size: 24);
+    Widget glyph = icon(size: 26, animate: selected);
+    if (!selected) {
+      // Resting tabs are muted (partly desaturated and dimmed) so the
+      // active, animated one stands out.
+      glyph = ColorFiltered(colorFilter: _muted, child: glyph);
+    }
     if (badge != null) {
       glyph = Badge(
         key: ValueKey('tab-${tab.name}-badge'),

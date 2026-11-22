@@ -9,6 +9,7 @@ import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
 import '../../core/theme/ui_kit.dart';
+import '../../shared/widgets/cube_icons/cube_icons.dart';
 import '../solver_3d/widgets/crown_tracker.dart';
 import 'lesson_screen.dart';
 import 'model/academy_progress.dart';
@@ -132,10 +133,10 @@ class ContinueLearningCard extends ConsumerWidget {
         children: [
           Row(
             children: [
-              const AccentIcon(
-                icon: Icons.school_rounded,
-                color: AppColors.gold,
+              const CubeIconTile(
+                accent: AppColors.gold,
                 glow: true,
+                child: AnimatedAcademyCubeIcon(),
               ),
               const SizedBox(width: AppSpace.md),
               Expanded(

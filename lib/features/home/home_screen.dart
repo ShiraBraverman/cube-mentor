@@ -5,6 +5,7 @@ import '../../core/l10n/generated/app_localizations.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
 import '../../core/theme/ui_kit.dart';
+import '../../shared/widgets/cube_icons/cube_icons.dart';
 import '../solver_3d/solver_3d_screen.dart';
 import 'cube_carousel.dart';
 import 'home_controller.dart';
@@ -161,7 +162,10 @@ class _OpenSolverButton extends ConsumerWidget {
                   builder: (_) => Solver3DScreen(size: size),
                 ),
               ),
-        icon: const Icon(Icons.view_in_ar_rounded, size: 26),
+        icon: Opacity(
+          opacity: mystery ? 0.4 : 1,
+          child: AnimatedSolveCubeIcon(size: 30, animate: !mystery),
+        ),
         label: Text(
           l10n.openCubeSolver,
           maxLines: 1,

@@ -11,6 +11,7 @@ import '../../core/l10n/move_words.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
 import '../../core/theme/ui_kit.dart';
+import '../../shared/widgets/cube_icons/cube_icons.dart';
 import '../solver_3d/model/guide_script.dart';
 import '../solver_3d/solver_3d_screen.dart';
 import '../solver_3d/widgets/move_instruction.dart';
@@ -174,7 +175,7 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
                 // challenge.
                 _StepCard(
                   key: const ValueKey('daily-step1'),
-                  icon: Icons.shuffle_rounded,
+                  icon: const AnimatedScrambleCubeIcon(),
                   title: l10n.dailyStep1Title,
                   children: [
                     FilledButton.tonalIcon(
@@ -189,7 +190,10 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
                       onPressed: scramble == null
                           ? null
                           : () => _openScrambleGuide(scramble),
-                      icon: const Icon(Icons.view_in_ar_rounded),
+                      icon: _ButtonCube(
+                        enabled: scramble != null,
+                        icon: AnimatedScrambleCubeIcon.new,
+                      ),
                       label: Text(l10n.dailyScrambleGuide),
                     ),
                     const SizedBox(height: AppSpace.xxs),
@@ -244,7 +248,7 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
                 // Step 2: solve it, timed on the real cube or on the 3D one.
                 _StepCard(
                   key: const ValueKey('daily-step2'),
-                  icon: Icons.threesixty_rounded,
+                  icon: const AnimatedSolveCubeIcon(),
                   title: l10n.dailyStep2Title,
                   children: [
                     FilledButton.icon(
@@ -253,7 +257,10 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
                         minimumSize: const Size.fromHeight(48),
                       ),
                       onPressed: state.scramble == null ? null : _openTimer,
-                      icon: const Icon(Icons.timer_outlined),
+                      icon: _ButtonCube(
+                        enabled: state.scramble != null,
+                        icon: AnimatedTimerCubeIcon.new,
+                      ),
                       label: Text(l10n.dailyTimeIt),
                     ),
                     const SizedBox(height: AppSpace.sm),
@@ -265,7 +272,10 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
                         foregroundColor: AppColors.textPrimary,
                       ),
                       onPressed: cube == null ? null : _openVirtual,
-                      icon: const Icon(Icons.view_in_ar_rounded),
+                      icon: _ButtonCube(
+                        enabled: cube != null,
+                        icon: AnimatedSolveCubeIcon.new,
+                      ),
                       label: Text(l10n.dailySolveVirtual),
                     ),
                   ],
@@ -285,7 +295,10 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
                             await controller.requestHint();
                           }
                         },
-                  icon: const Icon(Icons.lightbulb_outline_rounded),
+                  icon: _ButtonCube(
+                    enabled: cube != null && hint == null,
+                    icon: AnimatedHintCubeIcon.new,
+                  ),
                   label: Text(l10n.dailyHint),
                 ),
                 if (hint != null || state.hintFailed) ...[
@@ -296,14 +309,13 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Icon(
-                          hint == null
-                              ? Icons.info_outline_rounded
-                              : Icons.lightbulb_rounded,
-                          color: hint == null
-                              ? AppColors.textSecondary
-                              : AppColors.gold,
-                        ),
+                        if (hint == null)
+                          const Icon(
+                            Icons.info_outline_rounded,
+                            color: AppColors.textSecondary,
+                          )
+                        else
+                          const AnimatedHintCubeIcon(size: 28),
                         const SizedBox(width: AppSpace.sm),
                         Expanded(
                           child: Text(
@@ -363,11 +375,11 @@ class _StatsCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              AccentIcon(
-                icon: Icons.local_fire_department_rounded,
-                color: lit ? AppColors.accentWarm : AppColors.textTertiary,
+              CubeIconTile(
+                accent: lit ? AppColors.accentWarm : AppColors.textTertiary,
                 size: 56,
                 glow: lit,
+                child: AnimatedStreakStepIcon(animate: lit),
               ),
               const SizedBox(width: AppSpace.md),
               Expanded(
@@ -409,9 +421,7 @@ class _StatsCard extends StatelessWidget {
                 Text(
                   l10n.dailyPersonalBest(formatTime(state.bestMillis)),
                   key: const ValueKey('daily-personal-best'),
-                  style: textTheme.titleSmall?.copyWith(
-                    color: AppColors.gold,
-                  ),
+                  style: textTheme.titleSmall?.copyWith(color: AppColors.gold),
                 ),
               // The user's best time on today's challenge.
               if (state.todayMillis != null)
@@ -534,7 +544,8 @@ class _StepCard extends StatelessWidget {
     required this.children,
   });
 
-  final IconData icon;
+  /// Animated mini-cube icon of the step.
+  final Widget icon;
   final String title;
   final List<Widget> children;
 
@@ -547,7 +558,7 @@ class _StepCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              AccentIcon(icon: icon, color: AppColors.accent, size: 40),
+              CubeIconTile(size: 44, child: icon),
               const SizedBox(width: AppSpace.sm),
               Expanded(
                 child: Text(
@@ -591,7 +602,7 @@ class _SolveNextButtons extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: AppSpace.xs),
             ),
             onPressed: onTimer,
-            icon: const Icon(Icons.timer_outlined, size: 18),
+            icon: const AnimatedTimerCubeIcon(size: 22),
             label: label(l10n.dailyTimeIt),
           ),
         ),
@@ -603,7 +614,7 @@ class _SolveNextButtons extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: AppSpace.xs),
             ),
             onPressed: onVirtual,
-            icon: const Icon(Icons.view_in_ar_rounded, size: 18),
+            icon: const AnimatedSolveCubeIcon(size: 22),
             label: label(l10n.dailySolveVirtual),
           ),
         ),
@@ -700,9 +711,7 @@ class DailyCongratsDialog extends StatelessWidget {
                   l10n.dailyMilestone(streak),
                   key: const ValueKey('daily-congrats-milestone'),
                   textAlign: TextAlign.center,
-                  style: textTheme.titleSmall?.copyWith(
-                    color: AppColors.gold,
-                  ),
+                  style: textTheme.titleSmall?.copyWith(color: AppColors.gold),
                 ),
               ],
               const SizedBox(height: AppSpace.lg),
@@ -756,4 +765,25 @@ class _ScrambleSteps extends StatelessWidget {
       ],
     );
   }
+}
+
+/// A mini-cube icon sized for a full-width button; it rests (and dims)
+/// while the button is disabled.
+class _ButtonCube extends StatelessWidget {
+  const _ButtonCube({required this.enabled, required this.icon});
+
+  final bool enabled;
+  final AnimatedCubeIcon Function({
+    Key? key,
+    double size,
+    bool animate,
+    String? semanticLabel,
+  })
+  icon;
+
+  @override
+  Widget build(BuildContext context) => Opacity(
+    opacity: enabled ? 1 : 0.4,
+    child: icon(size: 26, animate: enabled),
+  );
 }

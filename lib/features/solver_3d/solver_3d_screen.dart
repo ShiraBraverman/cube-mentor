@@ -18,6 +18,7 @@ import '../../core/solver/solve_step.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
 import '../../core/theme/ui_kit.dart';
+import '../../shared/widgets/cube_icons/cube_icons.dart';
 import '../academy/widgets/lesson_intro.dart';
 import '../timer/model/timer_stats.dart';
 import 'model/cube_session.dart';
@@ -820,6 +821,7 @@ class _ActionBar extends ConsumerWidget {
           Expanded(
             child: _ActionButton(
               icon: Icons.shuffle_rounded,
+              cube: AnimatedScrambleCubeIcon.new,
               label: l10n.scramble,
               onTap: free ? controller.scramble : null,
             ),
@@ -829,6 +831,7 @@ class _ActionBar extends ConsumerWidget {
             child: _ActionButton(
               key: const ValueKey('solve'),
               icon: Icons.auto_fix_high_rounded,
+              cube: AnimatedSolveCubeIcon.new,
               label: session.isSolving ? l10n.solving : l10n.solve,
               busy: session.isSolving,
               primary: true,
@@ -1002,9 +1005,19 @@ class _ActionButton extends StatelessWidget {
     required this.onTap,
     this.primary = false,
     this.busy = false,
+    this.cube,
   });
 
   final IconData icon;
+
+  /// Animated mini-cube shown instead of [icon]; it rests while disabled.
+  final AnimatedCubeIcon Function({
+    Key? key,
+    double size,
+    bool animate,
+    String? semanticLabel,
+  })?
+  cube;
   final String label;
   final VoidCallback? onTap;
   final bool primary;
@@ -1045,6 +1058,11 @@ class _ActionButton extends StatelessWidget {
               ? const SizedBox.square(
                   dimension: 22,
                   child: CircularProgressIndicator(strokeWidth: 2.5),
+                )
+              : cube != null
+              ? Opacity(
+                  opacity: onTap == null ? 0.45 : 1,
+                  child: cube!(size: 26, animate: onTap != null),
                 )
               : Icon(icon, size: 22),
           const SizedBox(height: AppSpace.xxs),
