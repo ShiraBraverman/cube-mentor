@@ -15,7 +15,6 @@ import '../scanner/scanner_screen.dart';
 import '../train/train_screen.dart';
 import 'home_controller.dart';
 import 'home_screen.dart';
-import 'nickname_prompt.dart';
 
 /// The app's root: four tabs (Solve, Scan, Academy, Train) under a floating
 /// glass dock. Solve, Academy and Train keep their state while hidden; the
@@ -35,45 +34,42 @@ class RootShell extends ConsumerWidget {
       child: child,
     );
 
-    // First launch: "What should we call you?" over the Home screen.
-    return NicknameOnboarding(
-      child: PopScope(
-        // Back from another tab returns to Solve before leaving the app.
-        canPop: tab == AppTab.solve,
-        onPopInvokedWithResult: (didPop, _) {
-          if (!didPop) {
-            ref.read(currentTabProvider.notifier).select(AppTab.solve);
-          }
-        },
-        child: GlassBackground(
-          child: Scaffold(
-            body: IndexedStack(
-              index: tab.index,
-              children: [
-                page(AppTab.solve, const HomeScreen()),
-                page(
-                  AppTab.scan,
-                  tab == AppTab.scan
-                      ? ScannerScreen(
-                          key: ValueKey('scan-tab-$size'),
-                          size: size,
-                          embedded: true,
-                        )
-                      : const SizedBox.shrink(),
-                ),
-                page(AppTab.academy, const AcademyScreen()),
-                page(AppTab.train, const TrainScreen()),
-              ],
-            ),
-            // The banner sits between the page and the dock, never over the
-            // content; it is hidden while the camera preview is on screen.
-            bottomNavigationBar: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                AppBannerAd(visible: tab != AppTab.scan),
-                const GlassDock(),
-              ],
-            ),
+    return PopScope(
+      // Back from another tab returns to Solve before leaving the app.
+      canPop: tab == AppTab.solve,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) {
+          ref.read(currentTabProvider.notifier).select(AppTab.solve);
+        }
+      },
+      child: GlassBackground(
+        child: Scaffold(
+          body: IndexedStack(
+            index: tab.index,
+            children: [
+              page(AppTab.solve, const HomeScreen()),
+              page(
+                AppTab.scan,
+                tab == AppTab.scan
+                    ? ScannerScreen(
+                        key: ValueKey('scan-tab-$size'),
+                        size: size,
+                        embedded: true,
+                      )
+                    : const SizedBox.shrink(),
+              ),
+              page(AppTab.academy, const AcademyScreen()),
+              page(AppTab.train, const TrainScreen()),
+            ],
+          ),
+          // The banner sits between the page and the dock, never over the
+          // content; it is hidden while the camera preview is on screen.
+          bottomNavigationBar: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              AppBannerAd(visible: tab != AppTab.scan),
+              const GlassDock(),
+            ],
           ),
         ),
       ),

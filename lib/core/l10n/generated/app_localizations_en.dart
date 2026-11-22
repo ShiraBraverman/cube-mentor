@@ -1996,12 +1996,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get nicknameHint => 'Your name or nickname';
 
   @override
-  String get nicknameGo => 'Let\'s Go';
-
-  @override
-  String get nicknameSkip => 'Skip';
-
-  @override
   String get nicknameSave => 'Save';
 
   @override
@@ -2107,77 +2101,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'White opposite blue, yellow opposite green';
 
   @override
-  String get leaderboardTitle => 'Daily leaderboard';
-
-  @override
-  String get leaderboardView => 'View leaderboard';
-
-  @override
-  String get leaderboardReminder =>
-      'You haven\'t solved today\'s challenge yet!';
-
-  @override
-  String leaderboardSolvedToday(int count, String countText) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$countText players solved it today',
-      one: '$countText player solved it today',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String leaderboardAvgTime(String time) {
-    return 'Avg time: $time';
-  }
-
-  @override
-  String leaderboardRankOf(String rank, String total) {
-    return '#$rank of $total';
-  }
-
-  @override
-  String leaderboardYourTime(String time) {
+  String dailyYourTime(String time) {
     return 'Your time: $time';
   }
-
-  @override
-  String get leaderboardYou => 'You';
-
-  @override
-  String get leaderboardNotRanked =>
-      'Solve today\'s challenge to join the ranking.';
-
-  @override
-  String get leaderboardJumpToMe => 'Jump to my rank';
-
-  @override
-  String get leaderboardAnonymous => 'Anonymous';
-
-  @override
-  String get leaderboardLive =>
-      'Live global ranking: real players, updated in real time.';
-
-  @override
-  String get leaderboardConnecting => 'Connecting to the live leaderboard…';
-
-  @override
-  String get leaderboardOffline =>
-      'You\'re offline. Live rankings will appear when you reconnect.';
-
-  @override
-  String get leaderboardCached =>
-      'Offline: showing the last rankings saved on this device.';
-
-  @override
-  String get leaderboardPendingSync =>
-      'Your time is saved and will be ranked once you\'re back online.';
-
-  @override
-  String get leaderboardBeFirst =>
-      'No one has solved today\'s challenge yet. Be the first!';
-
-  @override
-  String get leaderboardRetry => 'Retry';
 }

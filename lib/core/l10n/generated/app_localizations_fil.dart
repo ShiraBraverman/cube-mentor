@@ -2013,12 +2013,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get nicknameHint => 'Pangalan o palayaw mo';
 
   @override
-  String get nicknameGo => 'Tara na';
-
-  @override
-  String get nicknameSkip => 'Laktawan';
-
-  @override
   String get nicknameSave => 'I-save';
 
   @override
@@ -2099,77 +2093,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Puti katapat ng asul, dilaw katapat ng berde';
 
   @override
-  String get leaderboardTitle => 'Leaderboard ngayong araw';
-
-  @override
-  String get leaderboardView => 'Tingnan ang leaderboard';
-
-  @override
-  String get leaderboardReminder =>
-      'Hindi mo pa nalulutas ang hamon ngayong araw!';
-
-  @override
-  String leaderboardSolvedToday(int count, String countText) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$countText manlalaro ang nakalutas nito ngayon',
-      one: '$countText manlalaro ang nakalutas nito ngayon',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String leaderboardAvgTime(String time) {
-    return 'Average na oras: $time';
-  }
-
-  @override
-  String leaderboardRankOf(String rank, String total) {
-    return '#$rank sa $total';
-  }
-
-  @override
-  String leaderboardYourTime(String time) {
+  String dailyYourTime(String time) {
     return 'Oras mo: $time';
   }
-
-  @override
-  String get leaderboardYou => 'Ikaw';
-
-  @override
-  String get leaderboardNotRanked =>
-      'Lutasin ang hamon ngayong araw para mapasama sa ranking.';
-
-  @override
-  String get leaderboardJumpToMe => 'Pumunta sa rank ko';
-
-  @override
-  String get leaderboardAnonymous => 'Anonymous';
-
-  @override
-  String get leaderboardLive =>
-      'Live na global ranking: totoong mga manlalaro, real time ang update.';
-
-  @override
-  String get leaderboardConnecting => 'Kumokonekta sa live na leaderboard…';
-
-  @override
-  String get leaderboardOffline =>
-      'Offline ka. Lalabas ang live na ranking kapag nakakonekta ka ulit.';
-
-  @override
-  String get leaderboardCached =>
-      'Offline: ipinapakita ang huling ranking na naka-save sa device na ito.';
-
-  @override
-  String get leaderboardPendingSync =>
-      'Naka-save ang oras mo at mara-rank ito pagbalik mo online.';
-
-  @override
-  String get leaderboardBeFirst =>
-      'Wala pang nakalutas sa hamon ngayong araw. Ikaw na ang mauna!';
-
-  @override
-  String get leaderboardRetry => 'Subukan ulit';
 }

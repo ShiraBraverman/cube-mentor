@@ -2004,12 +2004,6 @@ class AppLocalizationsMy extends AppLocalizations {
   String get nicknameHint => 'သင့်နာမည် သို့မဟုတ် အမည်ပြောင်';
 
   @override
-  String get nicknameGo => 'စကြစို့';
-
-  @override
-  String get nicknameSkip => 'ကျော်';
-
-  @override
   String get nicknameSave => 'သိမ်း';
 
   @override
@@ -2112,75 +2106,7 @@ class AppLocalizationsMy extends AppLocalizations {
       'အဖြူနှင့် အပြာ ဆန့်ကျင်ဘက်၊ အဝါနှင့် အစိမ်း ဆန့်ကျင်ဘက်';
 
   @override
-  String get leaderboardTitle => 'နေ့စဉ် အဆင့်ဇယား';
-
-  @override
-  String get leaderboardView => 'အဆင့်ဇယား ကြည့်ရန်';
-
-  @override
-  String get leaderboardReminder => 'ယနေ့ စိန်ခေါ်မှုကို မဖြေရှင်းရသေးပါ!';
-
-  @override
-  String leaderboardSolvedToday(int count, String countText) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'ယနေ့ ကစားသူ $countText ဦး ဖြေရှင်းပြီး',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String leaderboardAvgTime(String time) {
-    return 'ပျမ်းမျှ အချိန်: $time';
-  }
-
-  @override
-  String leaderboardRankOf(String rank, String total) {
-    return '$total ဦးတွင် #$rank';
-  }
-
-  @override
-  String leaderboardYourTime(String time) {
+  String dailyYourTime(String time) {
     return 'သင့်အချိန်: $time';
   }
-
-  @override
-  String get leaderboardYou => 'သင်';
-
-  @override
-  String get leaderboardNotRanked =>
-      'အဆင့်ဇယားဝင်ရန် ယနေ့ စိန်ခေါ်မှုကို ဖြေရှင်းပါ။';
-
-  @override
-  String get leaderboardJumpToMe => 'ကျွန်ုပ်၏ အဆင့်သို့';
-
-  @override
-  String get leaderboardAnonymous => 'အမည်မသိ';
-
-  @override
-  String get leaderboardLive =>
-      'တိုက်ရိုက် ကမ္ဘာ့အဆင့်ဇယား - ကစားသမားအစစ်များ၊ အချိန်နှင့်တပြေးညီ အပ်ဒိတ်။';
-
-  @override
-  String get leaderboardConnecting => 'တိုက်ရိုက် အဆင့်ဇယားသို့ ချိတ်ဆက်နေသည်…';
-
-  @override
-  String get leaderboardOffline =>
-      'အော့ဖ်လိုင်း ဖြစ်နေသည်။ ပြန်ချိတ်ဆက်သောအခါ တိုက်ရိုက်အဆင့်များ ပေါ်လာပါမည်။';
-
-  @override
-  String get leaderboardCached =>
-      'အော့ဖ်လိုင်း - ဤစက်တွင် သိမ်းထားသော နောက်ဆုံးအဆင့်ဇယားကို ပြနေသည်။';
-
-  @override
-  String get leaderboardPendingSync =>
-      'သင့်အချိန်ကို သိမ်းထားပြီး အွန်လိုင်း ပြန်ရောက်သောအခါ အဆင့်သတ်မှတ်ပါမည်။';
-
-  @override
-  String get leaderboardBeFirst =>
-      'ယနေ့ စိန်ခေါ်မှုကို မည်သူမျှ မဖြေရှင်းရသေးပါ။ ပထမဆုံး ဖြစ်လိုက်ပါ!';
-
-  @override
-  String get leaderboardRetry => 'ထပ်စမ်းရန်';
 }

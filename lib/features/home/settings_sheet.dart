@@ -133,7 +133,7 @@ class SettingsSheet extends ConsumerWidget {
                       size: 20,
                       color: AppColors.textTertiary,
                     ),
-                    onTap: () => showNicknamePrompt(context, onboarding: false),
+                    onTap: () => showNicknamePrompt(context),
                   ),
                   _SettingsRow(
                     key: const ValueKey('settings-language'),

@@ -1996,12 +1996,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get nicknameHint => 'Nama atau panggilanmu';
 
   @override
-  String get nicknameGo => 'Ayo mulai';
-
-  @override
-  String get nicknameSkip => 'Lewati';
-
-  @override
   String get nicknameSave => 'Simpan';
 
   @override
@@ -2082,77 +2076,7 @@ class AppLocalizationsId extends AppLocalizations {
       'Putih berseberangan dengan biru, kuning dengan hijau';
 
   @override
-  String get leaderboardTitle => 'Papan peringkat harian';
-
-  @override
-  String get leaderboardView => 'Lihat papan peringkat';
-
-  @override
-  String get leaderboardReminder =>
-      'Kamu belum menyelesaikan tantangan hari ini!';
-
-  @override
-  String leaderboardSolvedToday(int count, String countText) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$countText pemain menyelesaikannya hari ini',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String leaderboardAvgTime(String time) {
-    return 'Waktu rata-rata: $time';
-  }
-
-  @override
-  String leaderboardRankOf(String rank, String total) {
-    return '#$rank dari $total';
-  }
-
-  @override
-  String leaderboardYourTime(String time) {
+  String dailyYourTime(String time) {
     return 'Waktumu: $time';
   }
-
-  @override
-  String get leaderboardYou => 'Kamu';
-
-  @override
-  String get leaderboardNotRanked =>
-      'Selesaikan tantangan hari ini untuk masuk peringkat.';
-
-  @override
-  String get leaderboardJumpToMe => 'Ke peringkatku';
-
-  @override
-  String get leaderboardAnonymous => 'Anonim';
-
-  @override
-  String get leaderboardLive =>
-      'Peringkat global langsung: pemain sungguhan, diperbarui secara real time.';
-
-  @override
-  String get leaderboardConnecting =>
-      'Menghubungkan ke papan peringkat langsung…';
-
-  @override
-  String get leaderboardOffline =>
-      'Kamu sedang offline. Peringkat langsung akan muncul saat kamu terhubung lagi.';
-
-  @override
-  String get leaderboardCached =>
-      'Offline: menampilkan peringkat terakhir yang tersimpan di perangkat ini.';
-
-  @override
-  String get leaderboardPendingSync =>
-      'Waktumu tersimpan dan akan masuk peringkat saat kamu online lagi.';
-
-  @override
-  String get leaderboardBeFirst =>
-      'Belum ada yang menyelesaikan tantangan hari ini. Jadilah yang pertama!';
-
-  @override
-  String get leaderboardRetry => 'Coba lagi';
 }

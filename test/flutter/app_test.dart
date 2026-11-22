@@ -22,7 +22,6 @@ import 'fake_cube_solver.dart';
 Future<SharedPreferences> _prefs([Map<String, Object> values = const {}]) {
   SharedPreferences.setMockInitialValues({
     'settings_animation_speed': 1.0,
-    'nickname_prompted': true,
     ...values,
   });
   return SharedPreferences.getInstance();

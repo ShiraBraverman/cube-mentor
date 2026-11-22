@@ -1991,12 +1991,6 @@ class AppLocalizationsBn extends AppLocalizations {
   String get nicknameHint => 'আপনার নাম বা ডাকনাম';
 
   @override
-  String get nicknameGo => 'চলুন শুরু করি';
-
-  @override
-  String get nicknameSkip => 'এড়িয়ে যান';
-
-  @override
   String get nicknameSave => 'সংরক্ষণ করুন';
 
   @override
@@ -2076,76 +2070,7 @@ class AppLocalizationsBn extends AppLocalizations {
       'সাদার বিপরীতে নীল, হলুদের বিপরীতে সবুজ';
 
   @override
-  String get leaderboardTitle => 'দৈনিক লিডারবোর্ড';
-
-  @override
-  String get leaderboardView => 'লিডারবোর্ড দেখুন';
-
-  @override
-  String get leaderboardReminder => 'আপনি এখনও আজকের চ্যালেঞ্জ সমাধান করেননি!';
-
-  @override
-  String leaderboardSolvedToday(int count, String countText) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'আজ $countText জন খেলোয়াড় এটি সমাধান করেছেন',
-      one: 'আজ $countText জন খেলোয়াড় এটি সমাধান করেছেন',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String leaderboardAvgTime(String time) {
-    return 'গড় সময়: $time';
-  }
-
-  @override
-  String leaderboardRankOf(String rank, String total) {
-    return '$total জনের মধ্যে #$rank';
-  }
-
-  @override
-  String leaderboardYourTime(String time) {
+  String dailyYourTime(String time) {
     return 'আপনার সময়: $time';
   }
-
-  @override
-  String get leaderboardYou => 'আপনি';
-
-  @override
-  String get leaderboardNotRanked =>
-      'র‍্যাঙ্কিংয়ে আসতে আজকের চ্যালেঞ্জ সমাধান করুন।';
-
-  @override
-  String get leaderboardJumpToMe => 'আমার র‍্যাঙ্কে যান';
-
-  @override
-  String get leaderboardAnonymous => 'বেনামী';
-
-  @override
-  String get leaderboardLive =>
-      'লাইভ গ্লোবাল র‍্যাঙ্কিং: আসল খেলোয়াড়, রিয়েল টাইমে আপডেট।';
-
-  @override
-  String get leaderboardConnecting => 'লাইভ লিডারবোর্ডে সংযোগ করা হচ্ছে…';
-
-  @override
-  String get leaderboardOffline =>
-      'আপনি অফলাইনে আছেন। আবার সংযুক্ত হলে লাইভ র‍্যাঙ্কিং দেখা যাবে।';
-
-  @override
-  String get leaderboardCached =>
-      'অফলাইন: এই ডিভাইসে সংরক্ষিত সর্বশেষ র‍্যাঙ্কিং দেখানো হচ্ছে।';
-
-  @override
-  String get leaderboardPendingSync =>
-      'আপনার সময় সংরক্ষিত হয়েছে, আবার অনলাইনে এলেই র‍্যাঙ্কিংয়ে যুক্ত হবে।';
-
-  @override
-  String get leaderboardBeFirst =>
-      'আজকের চ্যালেঞ্জ এখনও কেউ সমাধান করেনি। প্রথম হোন!';
-
-  @override
-  String get leaderboardRetry => 'আবার চেষ্টা করুন';
 }

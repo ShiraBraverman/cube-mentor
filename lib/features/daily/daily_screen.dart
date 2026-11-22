@@ -15,9 +15,9 @@ import '../../core/theme/ui_kit.dart';
 import '../solver_3d/model/guide_script.dart';
 import '../solver_3d/solver_3d_screen.dart';
 import '../solver_3d/widgets/move_instruction.dart';
+import '../timer/model/timer_stats.dart';
 import '../timer/timer_screen.dart';
 import 'daily_controller.dart';
-import 'leaderboard/leaderboard_screen.dart';
 
 /// Today's scramble, the streak, and the ways to complete it: scramble a
 /// real cube with the 3D guide, solve on the 3D cube, or time it on a real
@@ -33,19 +33,9 @@ class DailyScreen extends ConsumerStatefulWidget {
 class _DailyScreenState extends ConsumerState<DailyScreen> {
   bool _showMoves = false;
 
-  void _openLeaderboard() => Navigator.of(context).push(
-    MaterialPageRoute<void>(builder: (_) => const DailyLeaderboardScreen()),
-  );
-
-  /// Opens a solving page; when it completes today's challenge with a
-  /// time, the leaderboard opens on return, centered on the user's rank.
-  Future<void> _solveOn(WidgetBuilder builder) async {
-    final wasDone = ref.read(dailyProvider).doneToday;
-    await Navigator.of(context).push(MaterialPageRoute<void>(builder: builder));
-    if (!mounted || wasDone) return;
-    final after = ref.read(dailyProvider);
-    if (after.doneToday && after.todayMillis != null) _openLeaderboard();
-  }
+  /// Opens a solving page (3D cube or timer) for today's challenge.
+  void _solveOn(WidgetBuilder builder) =>
+      Navigator.of(context).push(MaterialPageRoute<void>(builder: builder));
 
   @override
   void initState() {
@@ -91,10 +81,6 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
             child: ListView(
               padding: kPagePadding,
               children: [
-                // Live leaderboard status: a reminder before solving, the
-                // user's rank after.
-                LeaderboardStatusCard(onOpen: _openLeaderboard),
-                const SizedBox(height: AppSpace.sm),
                 // Streak hero.
                 GlassCard(
                   selected: lit,
@@ -131,6 +117,19 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
                               l10n.dailyBestStreak(state.bestStreak),
                               style: textTheme.bodySmall,
                             ),
+                            // The user's best time on today's challenge.
+                            if (state.todayMillis != null) ...[
+                              const SizedBox(height: 2),
+                              Text(
+                                l10n.dailyYourTime(
+                                  formatTime(state.todayMillis),
+                                ),
+                                key: const ValueKey('daily-best-time'),
+                                style: textTheme.titleSmall?.copyWith(
+                                  color: AppColors.gold,
+                                ),
+                              ),
+                            ],
                           ],
                         ),
                       ),
@@ -274,11 +273,10 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
                               size: kDailySize,
                               initialCube: cube,
                               title: l10n.dailyTitle,
-                              onSolved: (moves) => controller.complete(
+                              onSolved: (_) => controller.complete(
                                 millis: clock()
                                     .difference(start)
                                     .inMilliseconds,
-                                moves: moves,
                               ),
                             ),
                           );

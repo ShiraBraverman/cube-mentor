@@ -1888,12 +1888,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get nicknameHint => 'お名前またはニックネーム';
 
   @override
-  String get nicknameGo => 'はじめよう';
-
-  @override
-  String get nicknameSkip => 'スキップ';
-
-  @override
   String get nicknameSave => '保存';
 
   @override
@@ -1972,69 +1966,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get colorSchemeJapaneseDesc => '白の反対が青、黄の反対が緑';
 
   @override
-  String get leaderboardTitle => '今日のランキング';
-
-  @override
-  String get leaderboardView => 'ランキングを見る';
-
-  @override
-  String get leaderboardReminder => '今日のチャレンジはまだ解いていません！';
-
-  @override
-  String leaderboardSolvedToday(int count, String countText) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '今日 $countText 人が解きました',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String leaderboardAvgTime(String time) {
-    return '平均タイム：$time';
-  }
-
-  @override
-  String leaderboardRankOf(String rank, String total) {
-    return '$total人中 $rank位';
-  }
-
-  @override
-  String leaderboardYourTime(String time) {
+  String dailyYourTime(String time) {
     return 'あなたのタイム：$time';
   }
-
-  @override
-  String get leaderboardYou => 'あなた';
-
-  @override
-  String get leaderboardNotRanked => '今日のチャレンジを解くとランキングに参加できます。';
-
-  @override
-  String get leaderboardJumpToMe => '自分の順位へ';
-
-  @override
-  String get leaderboardAnonymous => '匿名';
-
-  @override
-  String get leaderboardLive => '世界ライブランキング：本物のプレイヤーをリアルタイムで更新。';
-
-  @override
-  String get leaderboardConnecting => 'ライブランキングに接続中…';
-
-  @override
-  String get leaderboardOffline => 'オフラインです。再接続するとライブランキングが表示されます。';
-
-  @override
-  String get leaderboardCached => 'オフライン：この端末に保存された最新のランキングを表示しています。';
-
-  @override
-  String get leaderboardPendingSync => 'タイムは保存済みです。オンラインに戻るとランキングに反映されます。';
-
-  @override
-  String get leaderboardBeFirst => '今日のチャレンジはまだ誰も解いていません。一番乗りを目指そう！';
-
-  @override
-  String get leaderboardRetry => '再試行';
 }

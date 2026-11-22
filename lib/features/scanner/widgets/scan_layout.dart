@@ -47,7 +47,13 @@ class ScanLayout extends StatelessWidget {
     return Stack(
       fit: StackFit.expand,
       children: [
-        Positioned.fill(child: background),
+        // The camera preview is physical space: never mirrored in RTL.
+        Positioned.fill(
+          child: Directionality(
+            textDirection: TextDirection.ltr,
+            child: background,
+          ),
+        ),
         CustomMultiChildLayout(
           delegate: _ScanLayoutDelegate(
             fillCenter: fillCenter,

@@ -840,7 +840,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get patternDots => 'נקודות';
 
   @override
-  String get patternCross => 'צלב';
+  String get patternCross => 'פלוס';
 
   @override
   String get patternPython => 'פיתון';
@@ -1056,21 +1056,21 @@ class AppLocalizationsHe extends AppLocalizations {
   String get lessonCfopIntro => 'מה זה CFOP?';
 
   @override
-  String get lessonCfopIntroDesc => 'צלב, F2L,‏ OLL,‏ PLL.';
+  String get lessonCfopIntroDesc => 'פלוס, F2L,‏ OLL,‏ PLL.';
 
   @override
   String get stepCfopOverview => 'ארבעה שלבים';
 
   @override
   String get stepCfopOverviewBody =>
-      'קוביסטים מהירים פותרים צלב, מצמידים כל פינה של השכבה הראשונה לצלע האמצע שלה (F2L), מכוונים את השכבה האחרונה (OLL) ולבסוף מסדרים אותה (PLL).';
+      'קוביסטים מהירים פותרים פלוס, מצמידים כל פינה של השכבה הראשונה לצלע האמצע שלה (F2L), מכוונים את השכבה האחרונה (OLL) ולבסוף מסדרים אותה (PLL).';
 
   @override
-  String get stepCfopCross => 'מתכננים את הצלב';
+  String get stepCfopCross => 'מתכננים את הפלוס';
 
   @override
   String get stepCfopCrossBody =>
-      'ב־CFOP מתכננים את הצלב בזמן הבחינה ובונים אותו בתחתית בכשמונה מהלכים.';
+      'ב־CFOP מתכננים את הפלוס בזמן הבחינה ובונים אותו בתחתית בכשמונה מהלכים.';
 
   @override
   String get lessonF2l => 'יסודות F2L';
@@ -1977,12 +1977,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get nicknameHint => 'השם או הכינוי שלכם';
 
   @override
-  String get nicknameGo => 'יוצאים לדרך';
-
-  @override
-  String get nicknameSkip => 'דילוג';
-
-  @override
   String get nicknameSave => 'שמירה';
 
   @override
@@ -2086,73 +2080,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get colorSchemeJapaneseDesc => 'לבן מול כחול, צהוב מול ירוק';
 
   @override
-  String get leaderboardTitle => 'טבלת המובילים היומית';
-
-  @override
-  String get leaderboardView => 'לטבלת המובילים';
-
-  @override
-  String get leaderboardReminder => 'עוד לא פתרתם את האתגר של היום!';
-
-  @override
-  String leaderboardSolvedToday(int count, String countText) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$countText שחקנים פתרו אותו היום',
-      one: 'שחקן אחד פתר אותו היום',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String leaderboardAvgTime(String time) {
-    return 'זמן ממוצע: $time';
-  }
-
-  @override
-  String leaderboardRankOf(String rank, String total) {
-    return 'מקום $rank מתוך $total';
-  }
-
-  @override
-  String leaderboardYourTime(String time) {
+  String dailyYourTime(String time) {
     return 'הזמן שלכם: $time';
   }
-
-  @override
-  String get leaderboardYou => 'אני';
-
-  @override
-  String get leaderboardNotRanked => 'פתרו את האתגר של היום כדי להיכנס לדירוג.';
-
-  @override
-  String get leaderboardJumpToMe => 'קפיצה למקום שלי';
-
-  @override
-  String get leaderboardAnonymous => 'אנונימי';
-
-  @override
-  String get leaderboardLive =>
-      'דירוג עולמי חי: שחקנים אמיתיים, מתעדכן בזמן אמת.';
-
-  @override
-  String get leaderboardConnecting => 'מתחברים לטבלת המובילים החיה…';
-
-  @override
-  String get leaderboardOffline =>
-      'אין חיבור לאינטרנט. הדירוג החי יופיע כשתתחברו שוב.';
-
-  @override
-  String get leaderboardCached => 'אין חיבור: מוצג הדירוג האחרון שנשמר במכשיר.';
-
-  @override
-  String get leaderboardPendingSync => 'הזמן שלכם נשמר וידורג כשתחזרו לרשת.';
-
-  @override
-  String get leaderboardBeFirst =>
-      'עוד אף אחד לא פתר את האתגר של היום. היו הראשונים!';
-
-  @override
-  String get leaderboardRetry => 'נסו שוב';
 }

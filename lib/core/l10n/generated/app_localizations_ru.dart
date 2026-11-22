@@ -2013,12 +2013,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get nicknameHint => 'Ваше имя или никнейм';
 
   @override
-  String get nicknameGo => 'Поехали';
-
-  @override
-  String get nicknameSkip => 'Пропустить';
-
-  @override
   String get nicknameSave => 'Сохранить';
 
   @override
@@ -2139,79 +2133,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Белый напротив синего, жёлтый напротив зелёного';
 
   @override
-  String get leaderboardTitle => 'Рейтинг дня';
-
-  @override
-  String get leaderboardView => 'Открыть рейтинг';
-
-  @override
-  String get leaderboardReminder => 'Вы ещё не решили сегодняшнее испытание!';
-
-  @override
-  String leaderboardSolvedToday(int count, String countText) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'Сегодня его решили $countText игрока',
-      many: 'Сегодня его решили $countText игроков',
-      few: 'Сегодня его решили $countText игрока',
-      one: 'Сегодня его решил $countText игрок',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String leaderboardAvgTime(String time) {
-    return 'Среднее время: $time';
-  }
-
-  @override
-  String leaderboardRankOf(String rank, String total) {
-    return '№$rank из $total';
-  }
-
-  @override
-  String leaderboardYourTime(String time) {
+  String dailyYourTime(String time) {
     return 'Ваше время: $time';
   }
-
-  @override
-  String get leaderboardYou => 'Вы';
-
-  @override
-  String get leaderboardNotRanked =>
-      'Решите сегодняшнее испытание, чтобы попасть в рейтинг.';
-
-  @override
-  String get leaderboardJumpToMe => 'К моему месту';
-
-  @override
-  String get leaderboardAnonymous => 'Аноним';
-
-  @override
-  String get leaderboardLive =>
-      'Мировой рейтинг в реальном времени: только настоящие игроки.';
-
-  @override
-  String get leaderboardConnecting =>
-      'Подключаемся к рейтингу в реальном времени…';
-
-  @override
-  String get leaderboardOffline =>
-      'Нет подключения. Рейтинг появится, когда вы снова будете в сети.';
-
-  @override
-  String get leaderboardCached =>
-      'Нет подключения: показан последний рейтинг, сохранённый на устройстве.';
-
-  @override
-  String get leaderboardPendingSync =>
-      'Ваше время сохранено и попадёт в рейтинг, когда вы снова будете в сети.';
-
-  @override
-  String get leaderboardBeFirst =>
-      'Сегодняшнее испытание ещё никто не решил. Станьте первым!';
-
-  @override
-  String get leaderboardRetry => 'Повторить';
 }

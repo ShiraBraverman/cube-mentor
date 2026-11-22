@@ -315,7 +315,7 @@ class _CameraScanViewState extends State<CameraScanView>
       ),
       header: widget.headerBuilder(context, torch),
       footer: widget.footerBuilder(context, shutter),
-      grid: _GridOverlay(n: widget.size, colors: colors, glare: _glare),
+      grid: ScanGridOverlay(n: widget.size, colors: colors, glare: _glare),
       // Under the grid, never over it, and it never blocks a capture.
       tip: AnimatedSwitcher(
         duration: const Duration(milliseconds: 250),
@@ -335,8 +335,12 @@ class _CameraScanViewState extends State<CameraScanView>
 }
 
 /// The alignment grid drawn over the preview, with each cell's live color.
-class _GridOverlay extends StatelessWidget {
-  const _GridOverlay({
+/// Cell `row * n + col` is always drawn at physical column `col` counted
+/// from the left, in every locale: it sits over the camera pixels it
+/// samples, so an RTL layout must never mirror it.
+class ScanGridOverlay extends StatelessWidget {
+  const ScanGridOverlay({
+    super.key,
     required this.n,
     required this.colors,
     this.glare = const {},
@@ -351,29 +355,33 @@ class _GridOverlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // ScanLayout hands this a square exactly the size of the grid.
-    return Column(
-      children: [
-        for (var row = 0; row < n; row++)
-          Expanded(
-            child: Row(
-              children: [
-                for (var col = 0; col < n; col++)
-                  Expanded(
-                    child: _Cell(
-                      color: colors?[row * n + col],
-                      glare: glare.contains(row * n + col),
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Column(
+        children: [
+          for (var row = 0; row < n; row++)
+            Expanded(
+              child: Row(
+                children: [
+                  for (var col = 0; col < n; col++)
+                    Expanded(
+                      child: _Cell(
+                        key: ValueKey('scan-cell-${row * n + col}'),
+                        color: colors?[row * n + col],
+                        glare: glare.contains(row * n + col),
+                      ),
                     ),
-                  ),
-              ],
+                ],
+              ),
             ),
-          ),
-      ],
+        ],
+      ),
     );
   }
 }
 
 class _Cell extends StatelessWidget {
-  const _Cell({required this.color, this.glare = false});
+  const _Cell({super.key, required this.color, this.glare = false});
 
   final Rgb? color;
   final bool glare;

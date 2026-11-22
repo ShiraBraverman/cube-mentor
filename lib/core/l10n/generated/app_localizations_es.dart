@@ -2008,12 +2008,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get nicknameHint => 'Tu nombre o apodo';
 
   @override
-  String get nicknameGo => '¡Vamos!';
-
-  @override
-  String get nicknameSkip => 'Omitir';
-
-  @override
   String get nicknameSave => 'Guardar';
 
   @override
@@ -2120,77 +2114,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Blanco opuesto al azul, amarillo opuesto al verde';
 
   @override
-  String get leaderboardTitle => 'Clasificación diaria';
-
-  @override
-  String get leaderboardView => 'Ver clasificación';
-
-  @override
-  String get leaderboardReminder => '¡Aún no has resuelto el reto de hoy!';
-
-  @override
-  String leaderboardSolvedToday(int count, String countText) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$countText jugadores lo resolvieron hoy',
-      one: '$countText jugador lo resolvió hoy',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String leaderboardAvgTime(String time) {
-    return 'Tiempo medio: $time';
-  }
-
-  @override
-  String leaderboardRankOf(String rank, String total) {
-    return '#$rank de $total';
-  }
-
-  @override
-  String leaderboardYourTime(String time) {
+  String dailyYourTime(String time) {
     return 'Tu tiempo: $time';
   }
-
-  @override
-  String get leaderboardYou => 'Tú';
-
-  @override
-  String get leaderboardNotRanked =>
-      'Resuelve el reto de hoy para entrar en la clasificación.';
-
-  @override
-  String get leaderboardJumpToMe => 'Ir a mi puesto';
-
-  @override
-  String get leaderboardAnonymous => 'Anónimo';
-
-  @override
-  String get leaderboardLive =>
-      'Ranking mundial en vivo: jugadores reales, actualizado en tiempo real.';
-
-  @override
-  String get leaderboardConnecting =>
-      'Conectando con la clasificación en vivo…';
-
-  @override
-  String get leaderboardOffline =>
-      'Estás sin conexión. La clasificación en vivo aparecerá cuando vuelvas a conectarte.';
-
-  @override
-  String get leaderboardCached =>
-      'Sin conexión: se muestra la última clasificación guardada en este dispositivo.';
-
-  @override
-  String get leaderboardPendingSync =>
-      'Tu tiempo está guardado y entrará en la clasificación cuando vuelvas a estar en línea.';
-
-  @override
-  String get leaderboardBeFirst =>
-      'Nadie ha resuelto todavía el reto de hoy. ¡Sé el primero!';
-
-  @override
-  String get leaderboardRetry => 'Reintentar';
 }

@@ -69,47 +69,15 @@ void main() {
       expect(normalizeNickname('x' * 40), hasLength(kNicknameMaxLength));
     });
 
-    testWidgets('first launch asks for a name; "Let\'s Go" saves it', (
-      tester,
-    ) async {
+    testWidgets('first launch never asks for a name', (tester) async {
       final prefs = await _prefs();
       await _pumpApp(tester, prefs);
-      expect(find.byKey(const ValueKey('nickname-prompt')), findsOneWidget);
-      expect(find.text('What should we call you?'), findsOneWidget);
-
-      await tester.enterText(
-        find.byKey(const ValueKey('nickname-field')),
-        '  Shira ',
-      );
-      await tester.tap(find.byKey(const ValueKey('nickname-go')));
-      await _advance(tester, 8);
       expect(find.byKey(const ValueKey('nickname-prompt')), findsNothing);
-      expect(prefs.getString('user_nickname'), 'Shira');
-      expect(prefs.getBool('nickname_prompted'), isTrue);
-
-      // Never asked again on the next launch.
-      await tester.pumpWidget(const SizedBox());
-      await _pumpApp(tester, prefs);
-      expect(find.byKey(const ValueKey('nickname-prompt')), findsNothing);
-    });
-
-    testWidgets('Skip closes the prompt for good without a name', (
-      tester,
-    ) async {
-      final prefs = await _prefs();
-      await _pumpApp(tester, prefs);
-      await tester.tap(find.byKey(const ValueKey('nickname-skip')));
-      await _advance(tester, 8);
-      expect(find.byKey(const ValueKey('nickname-prompt')), findsNothing);
-      expect(prefs.getString('user_nickname'), isNull);
-      expect(prefs.getBool('nickname_prompted'), isTrue);
+      expect(find.text('What should we call you?'), findsNothing);
     });
 
     testWidgets('Settings shows and edits the nickname', (tester) async {
-      final prefs = await _prefs({
-        'nickname_prompted': true,
-        'user_nickname': 'Shira',
-      });
+      final prefs = await _prefs({'user_nickname': 'Shira'});
       _phone(tester);
       await tester.pumpWidget(
         ProviderScope(
@@ -131,7 +99,7 @@ void main() {
         find.byKey(const ValueKey('nickname-field')),
         'Noa',
       );
-      await tester.tap(find.byKey(const ValueKey('nickname-go')));
+      await tester.tap(find.byKey(const ValueKey('nickname-save')));
       await _advance(tester, 8);
       expect(value().data, 'Noa');
       expect(prefs.getString('user_nickname'), 'Noa');
@@ -140,7 +108,7 @@ void main() {
       await tester.tap(find.byKey(const ValueKey('settings-nickname')));
       await _advance(tester, 8);
       await tester.enterText(find.byKey(const ValueKey('nickname-field')), '');
-      await tester.tap(find.byKey(const ValueKey('nickname-go')));
+      await tester.tap(find.byKey(const ValueKey('nickname-save')));
       await _advance(tester, 8);
       expect(value().data, 'Not set — tap to add one');
       expect(prefs.getString('user_nickname'), isNull);

@@ -3490,7 +3490,7 @@ abstract class AppLocalizations {
   /// **'Couldn\'t open the privacy options. Try again later.'**
   String get settingsPrivacyAdsError;
 
-  /// First-launch welcome prompt title asking for the user's nickname.
+  /// Title of the Settings dialog asking for the user's nickname.
   ///
   /// In en, this message translates to:
   /// **'What should we call you?'**
@@ -3507,18 +3507,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your name or nickname'**
   String get nicknameHint;
-
-  /// Primary button of the first-launch nickname prompt.
-  ///
-  /// In en, this message translates to:
-  /// **'Let\'s Go'**
-  String get nicknameGo;
-
-  /// Subtle button that dismisses the first-launch nickname prompt without a name.
-  ///
-  /// In en, this message translates to:
-  /// **'Skip'**
-  String get nicknameSkip;
 
   /// Button saving an edited nickname (opened from Settings).
   ///
@@ -3652,113 +3640,11 @@ abstract class AppLocalizations {
   /// **'White opposite blue, yellow opposite green'**
   String get colorSchemeJapaneseDesc;
 
-  /// Title of the daily challenge leaderboard screen.
-  ///
-  /// In en, this message translates to:
-  /// **'Daily leaderboard'**
-  String get leaderboardTitle;
-
-  /// Button that opens the daily leaderboard.
-  ///
-  /// In en, this message translates to:
-  /// **'View leaderboard'**
-  String get leaderboardView;
-
-  /// Reminder card headline before the user solved today's challenge.
-  ///
-  /// In en, this message translates to:
-  /// **'You haven\'t solved today\'s challenge yet!'**
-  String get leaderboardReminder;
-
-  /// How many players solved today; countText is count with digit grouping.
-  ///
-  /// In en, this message translates to:
-  /// **'{count, plural, one{{countText} player solved it today} other{{countText} players solved it today}}'**
-  String leaderboardSolvedToday(int count, String countText);
-
-  /// Average solve time of the field, e.g. 43.12.
-  ///
-  /// In en, this message translates to:
-  /// **'Avg time: {time}'**
-  String leaderboardAvgTime(String time);
-
-  /// The user's rank badge, e.g. #1,428 of 6,540.
-  ///
-  /// In en, this message translates to:
-  /// **'#{rank} of {total}'**
-  String leaderboardRankOf(String rank, String total);
-
-  /// The user's solve time today.
+  /// The user's best solve time on today's daily challenge.
   ///
   /// In en, this message translates to:
   /// **'Your time: {time}'**
-  String leaderboardYourTime(String time);
-
-  /// Name of the user on the leaderboard when no nickname is set.
-  ///
-  /// In en, this message translates to:
-  /// **'You'**
-  String get leaderboardYou;
-
-  /// Shown on the leaderboard before the user solved today.
-  ///
-  /// In en, this message translates to:
-  /// **'Solve today\'s challenge to join the ranking.'**
-  String get leaderboardNotRanked;
-
-  /// Tooltip: scroll the leaderboard to the user's row.
-  ///
-  /// In en, this message translates to:
-  /// **'Jump to my rank'**
-  String get leaderboardJumpToMe;
-
-  /// Leaderboard name of a player who skipped the nickname.
-  ///
-  /// In en, this message translates to:
-  /// **'Anonymous'**
-  String get leaderboardAnonymous;
-
-  /// Footnote under the leaderboard: the ranking is live, global and made of real players.
-  ///
-  /// In en, this message translates to:
-  /// **'Live global ranking: real players, updated in real time.'**
-  String get leaderboardLive;
-
-  /// Shown while the live leaderboard is loading.
-  ///
-  /// In en, this message translates to:
-  /// **'Connecting to the live leaderboard…'**
-  String get leaderboardConnecting;
-
-  /// Shown when the live leaderboard cannot be fetched (no connection).
-  ///
-  /// In en, this message translates to:
-  /// **'You\'re offline. Live rankings will appear when you reconnect.'**
-  String get leaderboardOffline;
-
-  /// Offline notice when the last cached rankings are shown.
-  ///
-  /// In en, this message translates to:
-  /// **'Offline: showing the last rankings saved on this device.'**
-  String get leaderboardCached;
-
-  /// The user's solve waits on the device until it can be uploaded.
-  ///
-  /// In en, this message translates to:
-  /// **'Your time is saved and will be ranked once you\'re back online.'**
-  String get leaderboardPendingSync;
-
-  /// Shown when nobody solved today's challenge yet.
-  ///
-  /// In en, this message translates to:
-  /// **'No one has solved today\'s challenge yet. Be the first!'**
-  String get leaderboardBeFirst;
-
-  /// Button: try to reach the live leaderboard again.
-  ///
-  /// In en, this message translates to:
-  /// **'Retry'**
-  String get leaderboardRetry;
+  String dailyYourTime(String time);
 }
 
 class _AppLocalizationsDelegate

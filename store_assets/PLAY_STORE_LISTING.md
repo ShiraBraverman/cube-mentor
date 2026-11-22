@@ -9,10 +9,10 @@ Limits: app name <= 30, short description <= 80, full description
 <= 4,000 characters; the counts below are checked on every build.
 
 **Policy notes.** No third-party trademarks in the metadata; the
-Live Global Daily Challenge Leaderboard ranks real players (Cloud
-Firestore, anonymous sign-in), so the Data safety form declares a
-nickname and an app user ID. Tatar has no Play listing language;
-its text is kept for the website or other stores.
+Daily Challenge is personal (streak and best time kept on the
+device, no leaderboard, nicknames or sign-in), so the Data safety
+form declares no nickname or app user ID. Tatar has no Play listing
+language; its text is kept for the website or other stores.
 
 ## Graphic assets
 
@@ -67,7 +67,7 @@ CubeMentor: Cube Solver & Scan
 Scan your cube with the camera and solve 2x2 to 6x6 step by step in 3D.
 ```
 
-**Full description** (1358/4000)
+**Full description** (1321/4000)
 
 ```text
 Stuck on a scrambled cube? Point your camera at it and CubeMentor shows you exactly how to solve it, one turn at a time.
@@ -85,7 +85,7 @@ Follow every move on a smooth 3D cube with arrows, play/pause, speed control and
 Learn to solve on your own: short interactive lessons from the white cross to the last layer, then advanced tricks and big-cube parity.
 
 🔥 DAILY CHALLENGE
-A new scramble every day, a streak to keep alive and a Live Global Daily Challenge Leaderboard: race real players worldwide and watch your rank update in real time.
+A new scramble every day, the same for every player, a streak to keep alive and your best time of the day saved on your device.
 
 ⏱ SPEED TIMER
 Inspection, +2/DNF, best time and ao5 / ao12 / ao100 averages for every cube size.
@@ -115,7 +115,7 @@ CubeMentor: פותר קובייה
 סורקים את הקובייה במצלמה ופותרים 2×2 עד 6×6 צעד אחר צעד בתלת־ממד.
 ```
 
-**Full description** (1237/4000)
+**Full description** (1188/4000)
 
 ```text
 נתקעתם עם קובייה מעורבבת? כוונו אליה את המצלמה ו־CubeMentor יראה לכם בדיוק איך לפתור אותה, סיבוב אחר סיבוב.
@@ -130,10 +130,10 @@ CubeMentor: פותר קובייה
 עוקבים אחרי כל מהלך על קובייה תלת־ממדית חלקה עם חצים, הפעלה/השהיה, בקרת מהירות וחלקים מודגשים. בוחרים בשיטת המתחילים שכבה אחר שכבה או בפתרון המהיר ביותר.
 
 🎓 האקדמיה לקובייה
-לומדים לפתור לבד: שיעורים אינטראקטיביים קצרים מהצלב הלבן ועד השכבה האחרונה, ואחר כך טריקים מתקדמים ופאריטי של קוביות גדולות.
+לומדים לפתור לבד: שיעורים אינטראקטיביים קצרים מהפלוס הלבן ועד השכבה האחרונה, ואחר כך טריקים מתקדמים ופאריטי של קוביות גדולות.
 
 🔥 אתגר יומי
-ערבוב חדש בכל יום, רצף ימים לשמור עליו וטבלת מובילים עולמית חיה לאתגר היומי: התחרו בשחקנים אמיתיים מכל העולם וראו את הדירוג שלכם מתעדכן בזמן אמת.
+ערבוב חדש בכל יום, זהה לכל השחקנים, רצף ימים לשמור עליו והזמן הטוב ביותר שלכם היום נשמר במכשיר.
 
 ⏱ טיימר מהירות
 זמן בדיקה, ‎+2‎/DNF, השיא שלכם וממוצעי ao5 / ao12 / ao100 לכל גודל קובייה.
@@ -163,7 +163,7 @@ CubeMentor: Resolver cubo
 Escanea tu cubo con la cámara y resuelve de 2x2 a 6x6 paso a paso en 3D.
 ```
 
-**Full description** (1498/4000)
+**Full description** (1428/4000)
 
 ```text
 ¿Atascado con un cubo desordenado? Apunta la cámara y CubeMentor te enseña exactamente cómo resolverlo, giro a giro.
@@ -181,7 +181,7 @@ Sigue cada movimiento en un cubo 3D fluido con flechas, reproducir/pausa, contro
 Aprende a resolverlo tú solo: lecciones interactivas cortas desde la cruz blanca hasta la última capa, y después trucos avanzados y paridad de cubos grandes.
 
 🔥 RETO DIARIO
-Una mezcla nueva cada día, una racha que mantener y una clasificación mundial en vivo del reto diario: compite con jugadores reales de todo el mundo y mira tu puesto actualizarse en tiempo real.
+Una mezcla nueva cada día, la misma para todos, una racha que mantener y tu mejor tiempo del día guardado en tu dispositivo.
 
 ⏱ CRONÓMETRO
 Inspección, +2/DNF, mejor tiempo y medias ao5 / ao12 / ao100 para cada tamaño.
@@ -211,7 +211,7 @@ CubeMentor: Resolver o cubo
 Digitaliza o cubo com a câmara e resolve do 2x2 ao 6x6 passo a passo em 3D.
 ```
 
-**Full description** (1469/4000)
+**Full description** (1392/4000)
 
 ```text
 Ficaste preso num cubo baralhado? Aponta a câmara e o CubeMentor mostra-te exatamente como o resolver, rotação a rotação.
@@ -229,7 +229,7 @@ Segue cada movimento num cubo 3D fluido com setas, reproduzir/pausa, controlo de
 Aprende a resolver sozinho: lições interativas curtas da cruz branca à última camada, seguidas de truques avançados e paridade dos cubos grandes.
 
 🔥 DESAFIO DIÁRIO
-Uma nova mistura todos os dias, uma sequência para manter e uma classificação mundial em direto do desafio diário: compete com jogadores reais de todo o mundo e vê a tua posição atualizar-se em tempo real.
+Uma nova mistura todos os dias, igual para todos, uma sequência para manter e o teu melhor tempo do dia guardado no dispositivo.
 
 ⏱ CRONÓMETRO
 Inspeção, +2/DNF, melhor tempo e médias ao5 / ao12 / ao100 para cada tamanho.
@@ -259,7 +259,7 @@ CubeMentor: Resolver o Cubo
 Escaneie seu cubo com a câmera e resolva do 2x2 ao 6x6 passo a passo em 3D.
 ```
 
-**Full description** (1437/4000)
+**Full description** (1367/4000)
 
 ```text
 Travou num cubo embaralhado? Aponte a câmera e o CubeMentor mostra exatamente como resolver, giro por giro.
@@ -277,7 +277,7 @@ Acompanhe cada movimento em um cubo 3D suave com setas, play/pause, controle de 
 Aprenda a resolver sozinho: aulas interativas curtas da cruz branca até a última camada, depois truques avançados e paridade dos cubos grandes.
 
 🔥 DESAFIO DIÁRIO
-Um embaralhamento novo todo dia, uma sequência para manter e um ranking global ao vivo do desafio diário: dispute com jogadores reais do mundo todo e veja sua posição atualizar em tempo real.
+Um embaralhamento novo todo dia, igual para todos, uma sequência para manter e seu melhor tempo do dia salvo no aparelho.
 
 ⏱ CRONÔMETRO
 Inspeção, +2/DNF, melhor tempo e médias ao5 / ao12 / ao100 para cada tamanho.
@@ -307,7 +307,7 @@ CubeMentor: Solver Kubus
 Pindai kubusmu dengan kamera dan selesaikan 2x2 hingga 6x6 langkah demi langkah.
 ```
 
-**Full description** (1479/4000)
+**Full description** (1396/4000)
 
 ```text
 Bingung dengan kubus yang teracak? Arahkan kamera dan CubeMentor akan menunjukkan cara menyelesaikannya, putaran demi putaran.
@@ -325,7 +325,7 @@ Ikuti setiap gerakan di kubus 3D yang mulus dengan panah, putar/jeda, kontrol ke
 Belajar menyelesaikan sendiri: pelajaran interaktif singkat dari silang putih hingga lapisan terakhir, lalu trik lanjutan dan paritas kubus besar.
 
 🔥 TANTANGAN HARIAN
-Acakan baru setiap hari, streak untuk dijaga, dan papan peringkat global langsung untuk tantangan harian: bersaing dengan pemain sungguhan di seluruh dunia dan lihat peringkatmu diperbarui secara real time.
+Acakan baru setiap hari, sama untuk semua pemain, streak untuk dijaga, dan waktu terbaikmu hari ini tersimpan di perangkat.
 
 ⏱ TIMER CEPAT
 Inspeksi, +2/DNF, waktu terbaik, dan rata-rata ao5 / ao12 / ao100 untuk setiap ukuran.
@@ -355,7 +355,7 @@ CubeMentor: क्यूब सॉल्वर
 कैमरे से क्यूब स्कैन करें और 2x2 से 6x6 तक 3D में कदम-दर-कदम हल करें।
 ```
 
-**Full description** (1285/4000)
+**Full description** (1227/4000)
 
 ```text
 बिखरे हुए क्यूब में अटक गए? कैमरा उसकी ओर करें और CubeMentor आपको हर चाल के साथ ठीक-ठीक दिखाएगा कि उसे कैसे हल करें।
@@ -373,7 +373,7 @@ CubeMentor: क्यूब सॉल्वर
 खुद हल करना सीखें: सफ़ेद क्रॉस से आख़िरी लेयर तक छोटे इंटरैक्टिव पाठ, फिर उन्नत तरकीबें और बड़े क्यूब की पैरिटी।
 
 🔥 दैनिक चुनौती
-हर दिन नया स्क्रैम्बल, बनाए रखने के लिए स्ट्रीक और दैनिक चुनौती का लाइव ग्लोबल लीडरबोर्ड: दुनिया भर के असली खिलाड़ियों से मुकाबला करें और अपनी रैंक रियल टाइम में बदलते देखें।
+हर दिन नया स्क्रैम्बल, सभी के लिए एक जैसा, बनाए रखने के लिए स्ट्रीक और आज का आपका सबसे अच्छा समय आपके डिवाइस पर सेव।
 
 ⏱ स्पीड टाइमर
 इंस्पेक्शन, +2/DNF, सर्वश्रेष्ठ समय और हर साइज़ के लिए ao5 / ao12 / ao100 औसत।
@@ -403,7 +403,7 @@ CubeMentor: Cube Solver
 I-scan ang cube gamit ang camera at lutasin ang 2x2 hanggang 6x6 nang 3D.
 ```
 
-**Full description** (1510/4000)
+**Full description** (1453/4000)
 
 ```text
 Naiipit sa magulong cube? Itutok ang camera at ipapakita ng CubeMentor kung paano ito lutasin, isang ikot bawat hakbang.
@@ -421,7 +421,7 @@ Sundan ang bawat galaw sa makinis na 3D cube na may mga arrow, play/pause, kontr
 Matutong lumutas nang mag-isa: maiikling interactive na aralin mula white cross hanggang huling layer, pagkatapos ay advanced na teknik at big-cube parity.
 
 🔥 DAILY CHALLENGE
-Bagong scramble araw-araw, streak na dapat panatilihin at live na global leaderboard ng Daily Challenge: makipagtagisan sa totoong mga manlalaro sa buong mundo at panoorin ang ranggo mo sa real time.
+Bagong scramble araw-araw, pareho para sa lahat, streak na dapat panatilihin at ang pinakamabilis mong oras sa araw na naka-save sa device mo.
 
 ⏱ SPEED TIMER
 Inspection, +2/DNF, best time at ao5 / ao12 / ao100 na average para sa bawat laki.
@@ -451,7 +451,7 @@ CubeMentor: حل المكعب
 امسح مكعبك بالكاميرا وحلّ من 2×2 إلى 6×6 خطوة بخطوة بالأبعاد الثلاثية.
 ```
 
-**Full description** (1172/4000)
+**Full description** (1125/4000)
 
 ```text
 هل علقت مع مكعب مبعثر؟ وجّه الكاميرا نحوه وسيريك CubeMentor كيف تحلّه بالضبط، دورة بعد دورة.
@@ -469,7 +469,7 @@ CubeMentor: حل المكعب
 تعلّم الحل بنفسك: دروس تفاعلية قصيرة من الصليب الأبيض حتى الطبقة الأخيرة، ثم حيل متقدمة وتماثل المكعبات الكبيرة.
 
 🔥 التحدي اليومي
-خلطة جديدة كل يوم، وسلسلة أيام تحافظ عليها، ولوحة صدارة عالمية مباشرة للتحدي اليومي: نافس لاعبين حقيقيين حول العالم وشاهد ترتيبك يتحدّث لحظيًا.
+خلطة جديدة كل يوم، هي نفسها للجميع، وسلسلة أيام تحافظ عليها، وأفضل وقت لك اليوم محفوظ على جهازك.
 
 ⏱ مؤقت السرعة
 وقت المعاينة و‎+2‎/DNF وأفضل وقت ومتوسطات ao5 / ao12 / ao100 لكل حجم.
@@ -499,7 +499,7 @@ CubeMentor : Solveur de cube
 Scannez votre cube avec la caméra et résolvez du 2x2 au 6x6 pas à pas en 3D.
 ```
 
-**Full description** (1580/4000)
+**Full description** (1530/4000)
 
 ```text
 Bloqué sur un cube mélangé ? Pointez la caméra et CubeMentor vous montre exactement comment le résoudre, mouvement par mouvement.
@@ -517,7 +517,7 @@ Suivez chaque mouvement sur un cube 3D fluide avec flèches, lecture/pause, rég
 Apprenez à résoudre seul : de courtes leçons interactives de la croix blanche à la dernière couche, puis des techniques avancées et la parité des grands cubes.
 
 🔥 DÉFI DU JOUR
-Un nouveau mélange chaque jour, une série à entretenir et un classement mondial en direct du défi du jour : affrontez de vrais joueurs du monde entier et suivez votre rang en temps réel.
+Un nouveau mélange chaque jour, le même pour tous, une série à entretenir et votre meilleur temps du jour enregistré sur votre appareil.
 
 ⏱ CHRONOMÈTRE
 Inspection, +2/DNF, meilleur temps et moyennes ao5 / ao12 / ao100 pour chaque taille.
@@ -547,7 +547,7 @@ CubeMentor: Würfel-Löser
 Scanne deinen Würfel mit der Kamera und löse 2x2 bis 6x6 Schritt für Schritt.
 ```
 
-**Full description** (1499/4000)
+**Full description** (1438/4000)
 
 ```text
 Hängst du an einem verdrehten Würfel fest? Richte die Kamera darauf und CubeMentor zeigt dir genau, wie du ihn löst – Zug für Zug.
@@ -565,7 +565,7 @@ Verfolge jeden Zug auf einem flüssigen 3D-Würfel mit Pfeilen, Play/Pause, Temp
 Lerne, selbst zu lösen: kurze interaktive Lektionen vom weißen Kreuz bis zur letzten Ebene, danach Profi-Tricks und Parität großer Würfel.
 
 🔥 TAGES-CHALLENGE
-Jeden Tag ein neuer Scramble, eine Serie zum Halten und eine weltweite Live-Rangliste der Tages-Challenge: Miss dich mit echten Spielern aus aller Welt und sieh deinen Rang in Echtzeit.
+Jeden Tag ein neuer Scramble, für alle derselbe, eine Serie zum Halten und deine Tagesbestzeit auf deinem Gerät gespeichert.
 
 ⏱ SPEED-TIMER
 Inspektion, +2/DNF, Bestzeit und ao5- / ao12- / ao100-Schnitte für jede Würfelgröße.
@@ -595,7 +595,7 @@ CubeMentor: сборка кубика
 Сканируйте кубик камерой и собирайте от 2×2 до 6×6 шаг за шагом в 3D.
 ```
 
-**Full description** (1379/4000)
+**Full description** (1322/4000)
 
 ```text
 Застряли на перемешанном кубике? Наведите камеру, и CubeMentor покажет, как его собрать, поворот за поворотом.
@@ -613,7 +613,7 @@ CubeMentor: сборка кубика
 Научитесь собирать сами: короткие интерактивные уроки от белого креста до последнего слоя, затем продвинутые приёмы и паритет больших кубов.
 
 🔥 ИСПЫТАНИЕ ДНЯ
-Новый скрамбл каждый день, серия дней и мировой рейтинг испытания дня в реальном времени: соревнуйтесь с настоящими игроками со всего мира и следите за своим местом.
+Новый скрамбл каждый день, один для всех, серия дней и ваше лучшее время за день, сохранённое на устройстве.
 
 ⏱ СПИДКУБИНГ-ТАЙМЕР
 Инспекция, +2/DNF, лучшее время и средние ao5 / ao12 / ao100 для каждого размера.
@@ -643,7 +643,7 @@ CubeMentor: Układanie kostki
 Zeskanuj kostkę aparatem i ułóż od 2x2 do 6x6 krok po kroku w 3D.
 ```
 
-**Full description** (1447/4000)
+**Full description** (1387/4000)
 
 ```text
 Utknąłeś na pomieszanej kostce? Skieruj na nią aparat, a CubeMentor pokaże ci dokładnie, jak ją ułożyć, ruch po ruchu.
@@ -661,7 +661,7 @@ Szybkie, optymalne rozwiązania dla 2x2 i 3x3 oraz metoda redukcji dla dużych k
 Naucz się układać samodzielnie: krótkie interaktywne lekcje od białego krzyża do ostatniej warstwy, potem zaawansowane triki i parzystość dużych kostek.
 
 🔥 WYZWANIE DNIA
-Nowy scramble każdego dnia, seria do utrzymania i globalny ranking wyzwania dnia na żywo: rywalizuj z prawdziwymi graczami z całego świata i śledź swoje miejsce w czasie rzeczywistym.
+Nowy scramble każdego dnia, taki sam dla wszystkich, seria do utrzymania i Twój najlepszy czas dnia zapisany na urządzeniu.
 
 ⏱ STOPER
 Inspekcja, +2/DNF, najlepszy czas i średnie ao5 / ao12 / ao100 dla każdego rozmiaru.
@@ -691,7 +691,7 @@ CubeMentor: Küp Çözücü
 Küpünü kamerayla tara, 2x2 ile 6x6 arasını 3D olarak adım adım çöz.
 ```
 
-**Full description** (1299/4000)
+**Full description** (1240/4000)
 
 ```text
 Karışık bir küpte mi takıldın? Kamerayı tut, CubeMentor sana nasıl çözeceğini hamle hamle göstersin.
@@ -709,7 +709,7 @@ Oklar, oynat/duraklat, hız ayarı ve vurgulanan parçalarla akıcı bir 3D küp
 Kendin çözmeyi öğren: beyaz artıdan son katmana kısa etkileşimli dersler, ardından ileri teknikler ve büyük küp paritesi.
 
 🔥 GÜNLÜK GÖREV
-Her gün yeni bir karıştırma, korunacak bir seri ve günlük görevin canlı dünya sıralaması: dünyanın dört bir yanındaki gerçek oyuncularla yarış, sıranı anlık takip et.
+Her gün herkes için aynı yeni bir karıştırma, korunacak bir seri ve cihazına kaydedilen günün en iyi süren.
 
 ⏱ HIZ SAYACI
 İnceleme süresi, +2/DNF, en iyi süre ve her boyut için ao5 / ao12 / ao100 ortalamaları.
@@ -739,7 +739,7 @@ CubeMentor: キューブ解法アプリ
 カメラでキューブをスキャン。2×2〜6×6の解き方を3Dで一手ずつ案内します。
 ```
 
-**Full description** (673/4000)
+**Full description** (641/4000)
 
 ```text
 崩れたキューブが戻せない？カメラを向けるだけで、CubeMentor が一手ずつ解き方を教えます。
@@ -757,7 +757,7 @@ CubeMentor: キューブ解法アプリ
 自力で解けるように：白い十字から最終層までの短いインタラクティブレッスン、さらに上級テクニックや大型キューブのパリティまで。
 
 🔥 デイリーチャレンジ
-毎日新しいスクランブル、続けたい連続記録、そしてデイリーチャレンジの世界ライブランキング。世界中の本物のプレイヤーと競い、順位をリアルタイムで確認できます。
+毎日みんな同じ新しいスクランブル、続けたい連続記録、そしてその日のベストタイムを端末に保存。
 
 ⏱ スピードタイマー
 インスペクション、+2/DNF、ベストタイム、各サイズの ao5 / ao12 / ao100 平均。
@@ -787,7 +787,7 @@ CubeMentor: 큐브 풀이
 카메라로 큐브를 스캔하고 2×2부터 6×6까지 3D로 한 단계씩 풀어 보세요.
 ```
 
-**Full description** (734/4000)
+**Full description** (704/4000)
 
 ```text
 섞인 큐브가 막막한가요? 카메라를 비추면 CubeMentor가 한 수씩 정확한 풀이를 보여 줍니다.
@@ -805,7 +805,7 @@ CubeMentor: 큐브 풀이
 스스로 푸는 법을 배우세요: 흰색 십자부터 마지막 층까지 짧은 인터랙티브 레슨, 이어서 고급 기술과 대형 큐브 패리티까지.
 
 🔥 데일리 챌린지
-매일 새로운 스크램블, 이어 가는 연속 기록, 그리고 데일리 챌린지 실시간 글로벌 순위표. 전 세계 실제 플레이어와 겨루고 내 순위를 실시간으로 확인하세요.
+매일 모두에게 같은 새로운 스크램블, 이어 가는 연속 기록, 그리고 기기에 저장되는 오늘의 최고 기록.
 
 ⏱ 스피드 타이머
 인스펙션, +2/DNF, 최고 기록, 크기별 ao5 / ao12 / ao100 평균.
@@ -835,7 +835,7 @@ CubeMentor：魔方还原助手
 用相机扫描魔方，3D 逐步教你还原 2×2 到 6×6。
 ```
 
-**Full description** (517/4000)
+**Full description** (503/4000)
 
 ```text
 魔方打乱了还不回去？用相机对准它，CubeMentor 会一步一步告诉你怎么还原。
@@ -853,7 +853,7 @@ CubeMentor：魔方还原助手
 学会自己还原：从白色十字到最后一层的简短互动课程，再到进阶技巧和高阶魔方的奇偶校验。
 
 🔥 每日挑战
-每天一个新打乱、需要保持的连续打卡，以及每日挑战全球实时排行榜：与世界各地的真实玩家比拼，实时查看你的排名。
+每天一个所有人相同的新打乱、需要保持的连续打卡，以及保存在设备上的当日最佳成绩。
 
 ⏱ 计时器
 观察时间、+2/DNF、最好成绩，以及各阶的 ao5 / ao12 / ao100 平均。
@@ -883,7 +883,7 @@ CubeMentor：魔術方塊解法
 用相機掃描魔術方塊，3D 逐步教你還原 2×2 到 6×6。
 ```
 
-**Full description** (520/4000)
+**Full description** (506/4000)
 
 ```text
 魔術方塊轉亂了回不去？用相機對準它，CubeMentor 會一步一步告訴你怎麼還原。
@@ -901,7 +901,7 @@ CubeMentor：魔術方塊解法
 學會自己還原：從白色十字到最後一層的簡短互動課程，再到進階技巧與高階方塊的奇偶校驗。
 
 🔥 每日挑戰
-每天一個新打亂、需要保持的連續紀錄，以及每日挑戰全球即時排行榜：與世界各地的真實玩家較量，即時查看你的排名。
+每天一個所有人相同的新打亂、需要保持的連續紀錄，以及儲存在裝置上的當日最佳成績。
 
 ⏱ 計時器
 觀察時間、+2/DNF、最佳成績，以及各階的 ao5 / ao12 / ao100 平均。
@@ -931,7 +931,7 @@ CubeMentor: Giải Khối 3D
 Quét khối bằng camera và giải từ 2x2 đến 6x6 từng bước trong 3D.
 ```
 
-**Full description** (1361/4000)
+**Full description** (1296/4000)
 
 ```text
 Bí với khối lập phương bị xáo trộn? Hướng camera vào và CubeMentor sẽ chỉ cho bạn cách giải, từng bước xoay một.
@@ -949,7 +949,7 @@ Theo dõi mọi bước xoay trên khối 3D mượt mà với mũi tên, phát/
 Tự giải được: bài học tương tác ngắn từ dấu cộng trắng đến tầng cuối, rồi kỹ thuật nâng cao và lỗi chẵn lẻ của khối lớn.
 
 🔥 THỬ THÁCH HẰNG NGÀY
-Mỗi ngày một bài xáo mới, chuỗi ngày cần giữ và bảng xếp hạng toàn cầu trực tiếp của thử thách hằng ngày: so tài với người chơi thật khắp thế giới và xem thứ hạng cập nhật theo thời gian thực.
+Mỗi ngày một bài xáo mới, giống nhau cho mọi người, chuỗi ngày cần giữ và thời gian tốt nhất trong ngày được lưu trên thiết bị.
 
 ⏱ ĐỒNG HỒ BẤM GIỜ
 Thời gian quan sát, +2/DNF, kỷ lục và trung bình ao5 / ao12 / ao100 cho mọi kích cỡ.
@@ -979,7 +979,7 @@ CubeMentor: ကုဗ ဖြေရှင်းသူ
 ကင်မရာဖြင့် ကုဗကို စကင်ဖတ်ပြီး 2x2 မှ 6x6 အထိ 3D ဖြင့် အဆင့်လိုက် ဖြေရှင်းပါ။
 ```
 
-**Full description** (1518/4000)
+**Full description** (1454/4000)
 
 ```text
 ရောထွေးနေသော ကုဗကို မဖြေနိုင်ဖြစ်နေပါသလား။ ကင်မရာကို ချိန်လိုက်ရုံဖြင့် CubeMentor က လှည့်ကွက်တစ်ခုချင်း ဖြေရှင်းနည်းကို ပြပေးပါမည်။
@@ -997,7 +997,7 @@ CubeMentor: ကုဗ ဖြေရှင်းသူ
 ကိုယ်တိုင် ဖြေတတ်အောင် သင်ယူပါ- အဖြူကြက်ခြေခတ်မှ နောက်ဆုံးအလွှာအထိ တိုတောင်းသော အပြန်အလှန် သင်ခန်းစာများ၊ ထို့နောက် အဆင့်မြင့် နည်းလမ်းများ။
 
 🔥 နေ့စဉ် စိန်ခေါ်မှု
-နေ့တိုင်း စကရမ်ဘယ်အသစ်၊ ဆက်တိုက်ရက်မှတ်တမ်းနှင့် နေ့စဉ် စိန်ခေါ်မှု၏ တိုက်ရိုက် ကမ္ဘာ့အဆင့်ဇယား - ကမ္ဘာတစ်ဝှမ်းမှ ကစားသမားအစစ်များနှင့် ယှဉ်ပြိုင်ပြီး သင့်အဆင့်ကို အချိန်နှင့်တပြေးညီ ကြည့်ပါ။
+နေ့တိုင်း လူတိုင်းအတွက် တူညီသော စကရမ်ဘယ်အသစ်၊ ဆက်တိုက်ရက်မှတ်တမ်းနှင့် ယနေ့ သင့်အကောင်းဆုံးအချိန်ကို စက်ထဲတွင် သိမ်းဆည်းထားသည်။
 
 ⏱ အမြန်နှုန်း တိုင်မာ
 စစ်ဆေးချိန်၊ +2/DNF၊ အကောင်းဆုံးအချိန်နှင့် အရွယ်အစားတိုင်းအတွက် ao5 / ao12 / ao100 ပျမ်းမျှ။
@@ -1027,7 +1027,7 @@ CubeMentor: কিউব সলভার
 ক্যামেরায় কিউব স্ক্যান করুন, 2x2 থেকে 6x6 ধাপে ধাপে 3D-তে সমাধান করুন।
 ```
 
-**Full description** (1296/4000)
+**Full description** (1215/4000)
 
 ```text
 এলোমেলো কিউবে আটকে গেছেন? ক্যামেরা তাক করুন, CubeMentor প্রতিটি ঘোরানোর সাথে ঠিক কীভাবে সমাধান করবেন তা দেখাবে।
@@ -1045,7 +1045,7 @@ CubeMentor: কিউব সলভার
 নিজে সমাধান করতে শিখুন: সাদা ক্রস থেকে শেষ স্তর পর্যন্ত ছোট ইন্টারঅ্যাক্টিভ পাঠ, তারপর উন্নত কৌশল ও বড় কিউবের প্যারিটি।
 
 🔥 দৈনিক চ্যালেঞ্জ
-প্রতিদিন নতুন স্ক্র্যাম্বল, ধরে রাখার মতো স্ট্রিক এবং দৈনিক চ্যালেঞ্জের লাইভ গ্লোবাল লিডারবোর্ড: সারা বিশ্বের আসল খেলোয়াড়দের সঙ্গে প্রতিযোগিতা করুন এবং রিয়েল টাইমে আপনার র‍্যাঙ্ক দেখুন।
+প্রতিদিন সবার জন্য একই নতুন স্ক্র্যাম্বল, ধরে রাখার মতো স্ট্রিক এবং আজকের আপনার সেরা সময় ডিভাইসে সংরক্ষিত।
 
 ⏱ স্পিড টাইমার
 ইন্সপেকশন, +2/DNF, সেরা সময় এবং প্রতিটি সাইজের ao5 / ao12 / ao100 গড়।
@@ -1075,7 +1075,7 @@ CubeMentor: кубик җыю
 Кубикны камера белән сканерлагыз һәм 2×2 дән 6×6 га кадәр 3D-да адымлап җыегыз.
 ```
 
-**Full description** (1383/4000)
+**Full description** (1321/4000)
 
 ```text
 Буталган кубикта тукталып калдыгызмы? Камераны юнәлтегез, CubeMentor аны ничек җыярга икәнен әйләнеш саен күрсәтәчәк.
@@ -1093,7 +1093,7 @@ CubeMentor: кубик җыю
 Үзегез җыярга өйрәнегез: ак хачтан соңгы катламга кадәр кыска интерактив дәресләр, аннары катлаулы алымнар һәм зур кубикларның паритеты.
 
 🔥 КӨНЛЕК СЫНАУ
-Көн саен яңа буталыш, саклыйсы серия һәм көнлек сынауның турыдан-туры дөнья рейтингы: бөтен дөньядагы чын уенчылар белән ярышыгыз һәм урыныгызны реаль вакытта күзәтегез.
+Көн саен барысы өчен дә бер үк яңа буталыш, саклыйсы серия һәм көннең иң яхшы вакытыгыз җайланмада саклана.
 
 ⏱ ТАЙМЕР
 Инспекция, +2/DNF, иң яхшы вакыт һәм һәр зурлык өчен ao5 / ao12 / ao100 уртачалары.

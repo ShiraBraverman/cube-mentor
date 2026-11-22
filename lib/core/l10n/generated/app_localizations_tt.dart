@@ -1991,12 +1991,6 @@ class AppLocalizationsTt extends AppLocalizations {
   String get nicknameHint => 'Исемегез яки кушаматыгыз';
 
   @override
-  String get nicknameGo => 'Киттек';
-
-  @override
-  String get nicknameSkip => 'Калдыру';
-
-  @override
   String get nicknameSave => 'Саклау';
 
   @override
@@ -2077,75 +2071,7 @@ class AppLocalizationsTt extends AppLocalizations {
       'Ак – зәңгәргә каршы, сары – яшелгә каршы';
 
   @override
-  String get leaderboardTitle => 'Көнлек рейтинг';
-
-  @override
-  String get leaderboardView => 'Рейтингны карау';
-
-  @override
-  String get leaderboardReminder => 'Сез бүгенге сынауны әле чишмәдегез!';
-
-  @override
-  String leaderboardSolvedToday(int count, String countText) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'Бүген аны $countText уенчы чиште',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String leaderboardAvgTime(String time) {
-    return 'Уртача вакыт: $time';
-  }
-
-  @override
-  String leaderboardRankOf(String rank, String total) {
-    return '$total арасыннан №$rank';
-  }
-
-  @override
-  String leaderboardYourTime(String time) {
+  String dailyYourTime(String time) {
     return 'Сезнең вакыт: $time';
   }
-
-  @override
-  String get leaderboardYou => 'Сез';
-
-  @override
-  String get leaderboardNotRanked =>
-      'Рейтингка керү өчен бүгенге сынауны чишегез.';
-
-  @override
-  String get leaderboardJumpToMe => 'Минем урынга';
-
-  @override
-  String get leaderboardAnonymous => 'Аноним';
-
-  @override
-  String get leaderboardLive =>
-      'Турыдан-туры дөнья рейтингы: чын уенчылар, реаль вакытта яңартыла.';
-
-  @override
-  String get leaderboardConnecting => 'Турыдан-туры рейтингка тоташабыз…';
-
-  @override
-  String get leaderboardOffline =>
-      'Сез офлайн. Кабат тоташкач, турыдан-туры рейтинг күренәчәк.';
-
-  @override
-  String get leaderboardCached =>
-      'Офлайн: бу җайланмада сакланган соңгы рейтинг күрсәтелә.';
-
-  @override
-  String get leaderboardPendingSync =>
-      'Вакытыгыз сакланды, кабат онлайн булгач рейтингка керәчәк.';
-
-  @override
-  String get leaderboardBeFirst =>
-      'Бүгенге сынауны әле беркем дә чишмәде. Беренче булыгыз!';
-
-  @override
-  String get leaderboardRetry => 'Кабатлау';
 }

@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -11,7 +9,6 @@ import '../../core/settings/clock.dart';
 import '../../core/settings/preferences.dart';
 import '../../core/solver/cube_solver.dart';
 import '../../core/solver/solve_step.dart';
-import 'leaderboard/leaderboard_service.dart';
 
 /// Cube size of the daily challenge.
 const int kDailySize = 3;
@@ -22,8 +19,8 @@ String dayKey(DateTime time) =>
     '${time.month.toString().padLeft(2, '0')}-'
     '${time.day.toString().padLeft(2, '0')}';
 
-/// The challenge day at [now]: its UTC calendar date. The daily scramble,
-/// streak and global leaderboard all roll over at 00:00 UTC.
+/// The challenge day at [now]: its UTC calendar date. The daily scramble
+/// and streak roll over at 00:00 UTC.
 DateTime challengeDay(DateTime now) {
   final utc = now.toUtc();
   return DateTime(utc.year, utc.month, utc.day);
@@ -46,7 +43,7 @@ class DailyState {
   });
 
   /// Today's challenge day: the UTC calendar day (as a date without a
-  /// zone), so every player worldwide shares one scramble and one board.
+  /// zone), so every player worldwide shares one scramble.
   final DateTime date;
 
   /// Today's scramble; null while it is generated.
@@ -62,7 +59,7 @@ class DailyState {
   final bool hintFailed;
 
   /// The user's best time on today's challenge (milliseconds), once solved
-  /// with a clock running; ranks them on the daily leaderboard.
+  /// with a clock running; shown on the daily page.
   final int? todayMillis;
 
   /// Today's scrambled cube (white on top, green in front).
@@ -130,9 +127,8 @@ class DailyController extends Notifier<DailyState> {
   }
 
   /// Records today's challenge as done and extends the streak. [millis] is
-  /// the solve time when a clock ran; the best one of the day is kept and
-  /// sent to the live leaderboard ([moves] when known).
-  Future<void> complete({int? millis, int moves = 0}) async {
+  /// the solve time when a clock ran; the best one of the day is kept.
+  Future<void> complete({int? millis}) async {
     final prefs = ref.read(sharedPreferencesProvider);
     if (millis != null && millis > 0) {
       final best = state.todayMillis;
@@ -140,11 +136,6 @@ class DailyController extends Notifier<DailyState> {
         state = state.copyWith(todayMillis: millis);
         await prefs.setString(_timeDayKey, dayKey(state.date));
         await prefs.setInt(_timeKey, millis);
-        unawaited(
-          ref
-              .read(leaderboardSyncProvider.notifier)
-              .submit(dayKey: dayKey(state.date), millis: millis, moves: moves),
-        );
       }
     }
     if (state.doneToday) return;

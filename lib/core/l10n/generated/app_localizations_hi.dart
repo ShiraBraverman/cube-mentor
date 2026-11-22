@@ -1995,12 +1995,6 @@ class AppLocalizationsHi extends AppLocalizations {
   String get nicknameHint => 'आपका नाम या उपनाम';
 
   @override
-  String get nicknameGo => 'चलिए शुरू करें';
-
-  @override
-  String get nicknameSkip => 'छोड़ें';
-
-  @override
   String get nicknameSave => 'सहेजें';
 
   @override
@@ -2080,76 +2074,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'सफ़ेद के सामने नीला, पीले के सामने हरा';
 
   @override
-  String get leaderboardTitle => 'दैनिक लीडरबोर्ड';
-
-  @override
-  String get leaderboardView => 'लीडरबोर्ड देखें';
-
-  @override
-  String get leaderboardReminder => 'आपने आज की चुनौती अभी तक हल नहीं की!';
-
-  @override
-  String leaderboardSolvedToday(int count, String countText) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'आज $countText खिलाड़ियों ने इसे हल किया',
-      one: 'आज $countText खिलाड़ी ने इसे हल किया',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String leaderboardAvgTime(String time) {
-    return 'औसत समय: $time';
-  }
-
-  @override
-  String leaderboardRankOf(String rank, String total) {
-    return '$total में #$rank';
-  }
-
-  @override
-  String leaderboardYourTime(String time) {
+  String dailyYourTime(String time) {
     return 'आपका समय: $time';
   }
-
-  @override
-  String get leaderboardYou => 'आप';
-
-  @override
-  String get leaderboardNotRanked =>
-      'रैंकिंग में आने के लिए आज की चुनौती हल करें।';
-
-  @override
-  String get leaderboardJumpToMe => 'मेरी रैंक पर जाएँ';
-
-  @override
-  String get leaderboardAnonymous => 'गुमनाम';
-
-  @override
-  String get leaderboardLive =>
-      'लाइव ग्लोबल रैंकिंग: असली खिलाड़ी, रियल टाइम में अपडेट।';
-
-  @override
-  String get leaderboardConnecting => 'लाइव लीडरबोर्ड से कनेक्ट हो रहा है…';
-
-  @override
-  String get leaderboardOffline =>
-      'आप ऑफ़लाइन हैं। दोबारा कनेक्ट होने पर लाइव रैंकिंग दिखेगी।';
-
-  @override
-  String get leaderboardCached =>
-      'ऑफ़लाइन: इस डिवाइस पर सेव की गई पिछली रैंकिंग दिख रही है।';
-
-  @override
-  String get leaderboardPendingSync =>
-      'आपका समय सेव हो गया है और ऑनलाइन होते ही रैंकिंग में जुड़ जाएगा।';
-
-  @override
-  String get leaderboardBeFirst =>
-      'आज की चुनौती अभी तक किसी ने हल नहीं की है। पहले बनें!';
-
-  @override
-  String get leaderboardRetry => 'फिर से कोशिश करें';
 }

@@ -1987,12 +1987,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get nicknameHint => 'Adın veya takma adın';
 
   @override
-  String get nicknameGo => 'Hadi Başlayalım';
-
-  @override
-  String get nicknameSkip => 'Atla';
-
-  @override
   String get nicknameSave => 'Kaydet';
 
   @override
@@ -2100,76 +2094,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Beyazın karşısında mavi, sarının karşısında yeşil';
 
   @override
-  String get leaderboardTitle => 'Günlük sıralama';
-
-  @override
-  String get leaderboardView => 'Sıralamayı gör';
-
-  @override
-  String get leaderboardReminder => 'Bugünün görevini henüz çözmedin!';
-
-  @override
-  String leaderboardSolvedToday(int count, String countText) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'Bugün $countText oyuncu çözdü',
-      one: 'Bugün $countText oyuncu çözdü',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String leaderboardAvgTime(String time) {
-    return 'Ort. süre: $time';
-  }
-
-  @override
-  String leaderboardRankOf(String rank, String total) {
-    return '$total içinde #$rank';
-  }
-
-  @override
-  String leaderboardYourTime(String time) {
+  String dailyYourTime(String time) {
     return 'Senin süren: $time';
   }
-
-  @override
-  String get leaderboardYou => 'Sen';
-
-  @override
-  String get leaderboardNotRanked =>
-      'Sıralamaya girmek için bugünün görevini çöz.';
-
-  @override
-  String get leaderboardJumpToMe => 'Sıralamama git';
-
-  @override
-  String get leaderboardAnonymous => 'Anonim';
-
-  @override
-  String get leaderboardLive =>
-      'Canlı dünya sıralaması: gerçek oyuncular, anlık güncellenir.';
-
-  @override
-  String get leaderboardConnecting => 'Canlı sıralamaya bağlanılıyor…';
-
-  @override
-  String get leaderboardOffline =>
-      'Çevrimdışısın. Canlı sıralama yeniden bağlandığında görünecek.';
-
-  @override
-  String get leaderboardCached =>
-      'Çevrimdışı: bu cihazda kayıtlı son sıralama gösteriliyor.';
-
-  @override
-  String get leaderboardPendingSync =>
-      'Süren kaydedildi; yeniden çevrimiçi olduğunda sıralamaya eklenecek.';
-
-  @override
-  String get leaderboardBeFirst =>
-      'Bugünün görevini henüz kimse çözmedi. İlk sen ol!';
-
-  @override
-  String get leaderboardRetry => 'Tekrar dene';
 }

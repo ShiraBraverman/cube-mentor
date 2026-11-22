@@ -7,24 +7,19 @@ import 'preferences.dart';
 /// Longest nickname kept (characters); longer input is cut.
 const int kNicknameMaxLength = 24;
 
-/// The user's nickname and whether the first-launch prompt was answered.
+/// The user's nickname, set from Settings.
 @immutable
 class NicknameState {
-  const NicknameState({this.name, this.prompted = false});
+  const NicknameState({this.name});
 
   /// What celebrations call the user; null when none was given.
   final String? name;
-
-  /// The welcome prompt was answered ("Let's Go" or "Skip") and is never
-  /// shown by itself again.
-  final bool prompted;
 }
 
-/// Stores the nickname in shared preferences. Edited from the welcome
-/// prompt and the Settings sheet; read by every celebration card.
+/// Stores the nickname in shared preferences. Edited from the Settings
+/// sheet; read by every celebration card.
 class NicknameController extends Notifier<NicknameState> {
   static const _nameKey = 'user_nickname';
-  static const _promptedKey = 'nickname_prompted';
 
   SharedPreferences? _prefs;
 
@@ -35,19 +30,15 @@ class NicknameController extends Notifier<NicknameState> {
     } catch (_) {
       // Isolated widget tests run without stored preferences.
       _prefs = null;
-      return const NicknameState(prompted: true);
+      return const NicknameState();
     }
-    final prefs = _prefs!;
-    return NicknameState(
-      name: normalizeNickname(prefs.getString(_nameKey)),
-      prompted: prefs.getBool(_promptedKey) ?? false,
-    );
+    return NicknameState(name: normalizeNickname(_prefs!.getString(_nameKey)));
   }
 
-  /// Saves [name] (blank clears it) and marks the prompt as answered.
+  /// Saves [name]; a blank one clears it.
   Future<void> save(String? name) async {
     final value = normalizeNickname(name);
-    state = NicknameState(name: value, prompted: true);
+    state = NicknameState(name: value);
     final prefs = _prefs;
     if (prefs == null) return;
     if (value == null) {
@@ -55,13 +46,6 @@ class NicknameController extends Notifier<NicknameState> {
     } else {
       await prefs.setString(_nameKey, value);
     }
-    await prefs.setBool(_promptedKey, true);
-  }
-
-  /// Dismisses the welcome prompt without a name.
-  Future<void> skip() async {
-    state = NicknameState(name: state.name, prompted: true);
-    await _prefs?.setBool(_promptedKey, true);
   }
 }
 

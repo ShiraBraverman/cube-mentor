@@ -2017,12 +2017,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get nicknameHint => 'Votre prénom ou pseudo';
 
   @override
-  String get nicknameGo => 'C\'est parti';
-
-  @override
-  String get nicknameSkip => 'Passer';
-
-  @override
   String get nicknameSave => 'Enregistrer';
 
   @override
@@ -2131,77 +2125,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Blanc opposé au bleu, jaune opposé au vert';
 
   @override
-  String get leaderboardTitle => 'Classement du jour';
-
-  @override
-  String get leaderboardView => 'Voir le classement';
-
-  @override
-  String get leaderboardReminder =>
-      'Vous n\'avez pas encore résolu le défi du jour !';
-
-  @override
-  String leaderboardSolvedToday(int count, String countText) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$countText joueurs l\'ont résolu aujourd\'hui',
-      one: '$countText joueur l\'a résolu aujourd\'hui',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String leaderboardAvgTime(String time) {
-    return 'Temps moyen : $time';
-  }
-
-  @override
-  String leaderboardRankOf(String rank, String total) {
-    return '#$rank sur $total';
-  }
-
-  @override
-  String leaderboardYourTime(String time) {
+  String dailyYourTime(String time) {
     return 'Votre temps : $time';
   }
-
-  @override
-  String get leaderboardYou => 'Vous';
-
-  @override
-  String get leaderboardNotRanked =>
-      'Résolvez le défi du jour pour entrer dans le classement.';
-
-  @override
-  String get leaderboardJumpToMe => 'Aller à mon rang';
-
-  @override
-  String get leaderboardAnonymous => 'Anonyme';
-
-  @override
-  String get leaderboardLive =>
-      'Classement mondial en direct : de vrais joueurs, mis à jour en temps réel.';
-
-  @override
-  String get leaderboardConnecting => 'Connexion au classement en direct…';
-
-  @override
-  String get leaderboardOffline =>
-      'Vous êtes hors ligne. Le classement en direct s\'affichera dès que vous serez reconnecté.';
-
-  @override
-  String get leaderboardCached =>
-      'Hors ligne : affichage du dernier classement enregistré sur cet appareil.';
-
-  @override
-  String get leaderboardPendingSync =>
-      'Votre temps est enregistré et sera classé dès votre retour en ligne.';
-
-  @override
-  String get leaderboardBeFirst =>
-      'Personne n\'a encore résolu le défi du jour. Soyez le premier !';
-
-  @override
-  String get leaderboardRetry => 'Réessayer';
 }

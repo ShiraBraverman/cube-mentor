@@ -27,10 +27,7 @@ import 'fake_scan_analyzer.dart';
 import 'test_app.dart';
 
 Future<SharedPreferences> _prefs([Map<String, Object> values = const {}]) {
-  SharedPreferences.setMockInitialValues({
-    'nickname_prompted': true,
-    ...values,
-  });
+  SharedPreferences.setMockInitialValues({...values});
   return SharedPreferences.getInstance();
 }
 

@@ -1866,12 +1866,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get nicknameHint => '你的名字或昵称';
 
   @override
-  String get nicknameGo => '开始吧';
-
-  @override
-  String get nicknameSkip => '跳过';
-
-  @override
   String get nicknameSave => '保存';
 
   @override
@@ -1950,71 +1944,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get colorSchemeJapaneseDesc => '白对蓝，黄对绿';
 
   @override
-  String get leaderboardTitle => '每日排行榜';
-
-  @override
-  String get leaderboardView => '查看排行榜';
-
-  @override
-  String get leaderboardReminder => '你还没有完成今天的挑战！';
-
-  @override
-  String leaderboardSolvedToday(int count, String countText) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '今天已有 $countText 位玩家完成',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String leaderboardAvgTime(String time) {
-    return '平均用时：$time';
-  }
-
-  @override
-  String leaderboardRankOf(String rank, String total) {
-    return '第 $rank 名 / 共 $total 名';
-  }
-
-  @override
-  String leaderboardYourTime(String time) {
+  String dailyYourTime(String time) {
     return '你的用时：$time';
   }
-
-  @override
-  String get leaderboardYou => '你';
-
-  @override
-  String get leaderboardNotRanked => '完成今天的挑战即可加入排名。';
-
-  @override
-  String get leaderboardJumpToMe => '跳到我的排名';
-
-  @override
-  String get leaderboardAnonymous => '匿名';
-
-  @override
-  String get leaderboardLive => '全球实时排名：真实玩家，实时更新。';
-
-  @override
-  String get leaderboardConnecting => '正在连接实时排行榜…';
-
-  @override
-  String get leaderboardOffline => '你已离线。重新连接后将显示实时排名。';
-
-  @override
-  String get leaderboardCached => '离线：正在显示本设备上保存的最新排名。';
-
-  @override
-  String get leaderboardPendingSync => '你的成绩已保存，恢复联网后将计入排名。';
-
-  @override
-  String get leaderboardBeFirst => '今天的挑战还没有人完成，快来争当第一！';
-
-  @override
-  String get leaderboardRetry => '重试';
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -3884,12 +3816,6 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get nicknameHint => '你的名字或暱稱';
 
   @override
-  String get nicknameGo => '開始吧';
-
-  @override
-  String get nicknameSkip => '略過';
-
-  @override
   String get nicknameSave => '儲存';
 
   @override
@@ -3988,69 +3914,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get colorSchemeJapaneseDesc => '白對藍，黃對綠';
 
   @override
-  String get leaderboardTitle => '每日排行榜';
-
-  @override
-  String get leaderboardView => '查看排行榜';
-
-  @override
-  String get leaderboardReminder => '你還沒有完成今天的挑戰！';
-
-  @override
-  String leaderboardSolvedToday(int count, String countText) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '今天已有 $countText 位玩家完成',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String leaderboardAvgTime(String time) {
-    return '平均時間：$time';
-  }
-
-  @override
-  String leaderboardRankOf(String rank, String total) {
-    return '第 $rank 名 / 共 $total 名';
-  }
-
-  @override
-  String leaderboardYourTime(String time) {
+  String dailyYourTime(String time) {
     return '你的時間：$time';
   }
-
-  @override
-  String get leaderboardYou => '你';
-
-  @override
-  String get leaderboardNotRanked => '完成今天的挑戰即可加入排名。';
-
-  @override
-  String get leaderboardJumpToMe => '跳到我的排名';
-
-  @override
-  String get leaderboardAnonymous => '匿名';
-
-  @override
-  String get leaderboardLive => '全球即時排名：真實玩家，即時更新。';
-
-  @override
-  String get leaderboardConnecting => '正在連線至即時排行榜…';
-
-  @override
-  String get leaderboardOffline => '你目前離線。重新連線後將顯示即時排名。';
-
-  @override
-  String get leaderboardCached => '離線：正在顯示此裝置上儲存的最新排名。';
-
-  @override
-  String get leaderboardPendingSync => '你的成績已儲存，恢復連線後將計入排名。';
-
-  @override
-  String get leaderboardBeFirst => '今天的挑戰還沒有人完成，快來搶頭香！';
-
-  @override
-  String get leaderboardRetry => '重試';
 }

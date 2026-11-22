@@ -974,7 +974,7 @@
   },
   "nicknamePromptTitle": "What should we call you?",
   "@nicknamePromptTitle": {
-    "description": "First-launch welcome prompt title asking for the user's nickname."
+    "description": "Title of the Settings dialog asking for the user's nickname."
   },
   "nicknamePromptBody": "We'll cheer you on by name every time you solve.",
   "@nicknamePromptBody": {
@@ -983,14 +983,6 @@
   "nicknameHint": "Your name or nickname",
   "@nicknameHint": {
     "description": "Hint inside the nickname text field."
-  },
-  "nicknameGo": "Let's Go",
-  "@nicknameGo": {
-    "description": "Primary button of the first-launch nickname prompt."
-  },
-  "nicknameSkip": "Skip",
-  "@nicknameSkip": {
-    "description": "Subtle button that dismisses the first-launch nickname prompt without a name."
   },
   "nicknameSave": "Save",
   "@nicknameSave": {
@@ -1115,107 +1107,14 @@
   "@colorSchemeJapaneseDesc": {
     "description": "Explains the Japanese scheme's opposite face colors."
   },
-  "leaderboardTitle": "Daily leaderboard",
-  "@leaderboardTitle": {
-    "description": "Title of the daily challenge leaderboard screen."
-  },
-  "leaderboardView": "View leaderboard",
-  "@leaderboardView": {
-    "description": "Button that opens the daily leaderboard."
-  },
-  "leaderboardReminder": "You haven't solved today's challenge yet!",
-  "@leaderboardReminder": {
-    "description": "Reminder card headline before the user solved today's challenge."
-  },
-  "leaderboardSolvedToday": "{count, plural, one{{countText} player solved it today} other{{countText} players solved it today}}",
-  "@leaderboardSolvedToday": {
-    "description": "How many players solved today; countText is count with digit grouping.",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      },
-      "countText": {
-        "type": "String",
-        "example": "4,820"
-      }
-    }
-  },
-  "leaderboardAvgTime": "Avg time: {time}",
-  "@leaderboardAvgTime": {
-    "description": "Average solve time of the field, e.g. 43.12.",
-    "placeholders": {
-      "time": {
-        "type": "String",
-        "example": "43.12"
-      }
-    }
-  },
-  "leaderboardRankOf": "#{rank} of {total}",
-  "@leaderboardRankOf": {
-    "description": "The user's rank badge, e.g. #1,428 of 6,540.",
-    "placeholders": {
-      "rank": {
-        "type": "String",
-        "example": "1,428"
-      },
-      "total": {
-        "type": "String",
-        "example": "6,540"
-      }
-    }
-  },
-  "leaderboardYourTime": "Your time: {time}",
-  "@leaderboardYourTime": {
-    "description": "The user's solve time today.",
+  "dailyYourTime": "Your time: {time}",
+  "@dailyYourTime": {
+    "description": "The user's best solve time on today's daily challenge.",
     "placeholders": {
       "time": {
         "type": "String",
         "example": "41.20"
       }
     }
-  },
-  "leaderboardYou": "You",
-  "@leaderboardYou": {
-    "description": "Name of the user on the leaderboard when no nickname is set."
-  },
-  "leaderboardNotRanked": "Solve today's challenge to join the ranking.",
-  "@leaderboardNotRanked": {
-    "description": "Shown on the leaderboard before the user solved today."
-  },
-  "leaderboardJumpToMe": "Jump to my rank",
-  "@leaderboardJumpToMe": {
-    "description": "Tooltip: scroll the leaderboard to the user's row."
-  },
-  "leaderboardAnonymous": "Anonymous",
-  "@leaderboardAnonymous": {
-    "description": "Leaderboard name of a player who skipped the nickname."
-  },
-  "leaderboardLive": "Live global ranking: real players, updated in real time.",
-  "@leaderboardLive": {
-    "description": "Footnote under the leaderboard: the ranking is live, global and made of real players."
-  },
-  "leaderboardConnecting": "Connecting to the live leaderboard…",
-  "@leaderboardConnecting": {
-    "description": "Shown while the live leaderboard is loading."
-  },
-  "leaderboardOffline": "You're offline. Live rankings will appear when you reconnect.",
-  "@leaderboardOffline": {
-    "description": "Shown when the live leaderboard cannot be fetched (no connection)."
-  },
-  "leaderboardCached": "Offline: showing the last rankings saved on this device.",
-  "@leaderboardCached": {
-    "description": "Offline notice when the last cached rankings are shown."
-  },
-  "leaderboardPendingSync": "Your time is saved and will be ranked once you're back online.",
-  "@leaderboardPendingSync": {
-    "description": "The user's solve waits on the device until it can be uploaded."
-  },
-  "leaderboardBeFirst": "No one has solved today's challenge yet. Be the first!",
-  "@leaderboardBeFirst": {
-    "description": "Shown when nobody solved today's challenge yet."
-  },
-  "leaderboardRetry": "Retry",
-  "@leaderboardRetry": {
-    "description": "Button: try to reach the live leaderboard again."
   }
 }
