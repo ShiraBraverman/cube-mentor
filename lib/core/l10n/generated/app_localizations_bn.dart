@@ -2016,34 +2016,10 @@ class AppLocalizationsBn extends AppLocalizations {
   }
 
   @override
-  String get patternsUnlockTitle => 'সব প্যাটার্ন আনলক করুন';
-
-  @override
-  String patternsUnlockPrompt(int minutes) {
-    return '$minutes মিনিটের জন্য সব প্যাটার্ন আনলক করতে 1টি ছোট ভিডিও দেখুন';
-  }
-
-  @override
   String get patternsWatchVideo => 'ভিডিও দেখুন';
 
   @override
   String get patternsNotNow => 'এখন নয়';
-
-  @override
-  String patternsUnlockedLeft(String time) {
-    return 'আনলক • $time বাকি';
-  }
-
-  @override
-  String get patternsExpiredTitle => 'আপনার প্রিভিউয়ের সময় শেষ';
-
-  @override
-  String patternsExpiredBody(int minutes) {
-    return 'আরও $minutes মিনিট সব প্যাটার্ন আনলক রাখতে 1টি ভিডিও দেখুন!';
-  }
-
-  @override
-  String get patternsFreeSample => 'ফ্রি';
 
   @override
   String get settingsColorScheme => 'কিউবের রঙের বিন্যাস';
@@ -2198,4 +2174,46 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get dailyCongratsDone => 'চ্যালেঞ্জে ফিরে যান';
+
+  @override
+  String patternsSizeChip(String size, int count) {
+    return '$size • $countটি প্যাটার্ন';
+  }
+
+  @override
+  String unlockHoursLeft(int hours) {
+    return '$hours ঘণ্টা বাকি';
+  }
+
+  @override
+  String unlockMinutesLeft(int minutes) {
+    return '$minutes মিনিট বাকি';
+  }
+
+  @override
+  String get lockedLabel => 'লক করা';
+
+  @override
+  String get unlockedLabel => 'আনলক করা';
+
+  @override
+  String patternUnlockBody(int hours) {
+    return 'এই প্যাটার্ন ও এর ধাপে ধাপে গাইড $hours ঘণ্টার জন্য আনলক করতে 1টি ছোট ভিডিও দেখুন।';
+  }
+
+  @override
+  String lessonUnlockBody(int hours) {
+    return 'পরের $hours ঘণ্টা এই পাঠ যতবার খুশি খুলতে 1টি ছোট ভিডিও দেখুন।';
+  }
+
+  @override
+  String get bigCubeUnlockTitle => 'বড় কিউব সমাধান করুন';
+
+  @override
+  String bigCubeUnlockBody(int hours) {
+    return '4×4–6×6-এর বিনামূল্যের সমাধানটি ব্যবহার হয়ে গেছে। পরের $hours ঘণ্টা বড় কিউব সমাধান করতে 1টি ছোট ভিডিও দেখুন।';
+  }
+
+  @override
+  String get doubleTurnBadge => 'ডাবল টার্ন · 180°';
 }

@@ -14,6 +14,8 @@ class AdMobService implements AdService {
   bool _sdkStarted = false;
   RewardedAd? _rewarded;
   Future<RewardedAd?>? _rewardedLoading;
+  InterstitialAd? _interstitial;
+  bool _interstitialLoading = false;
 
   @override
   bool get supported => true;
@@ -117,6 +119,49 @@ class AdMobService implements AdService {
     return outcome;
   }
 
+  @override
+  Future<bool> showInterstitial() async {
+    final ad = _interstitial;
+    _interstitial = null;
+    if (!_sdkStarted || ad == null) {
+      _preloadInterstitial();
+      return false;
+    }
+    final closed = Completer<bool>();
+    ad.fullScreenContentCallback = FullScreenContentCallback<InterstitialAd>(
+      onAdDismissedFullScreenContent: (ad) {
+        ad.dispose();
+        if (!closed.isCompleted) closed.complete(true);
+      },
+      onAdFailedToShowFullScreenContent: (ad, error) {
+        ad.dispose();
+        if (!closed.isCompleted) closed.complete(false);
+      },
+    );
+    await ad.show();
+    final shown = await closed.future;
+    _preloadInterstitial();
+    return shown;
+  }
+
+  void _preloadInterstitial() {
+    if (!_sdkStarted || _interstitial != null || _interstitialLoading) return;
+    _interstitialLoading = true;
+    unawaited(
+      InterstitialAd.load(
+        adUnitId: AdConfig.interstitialUnitId,
+        request: const AdRequest(),
+        adLoadCallback: InterstitialAdLoadCallback(
+          onAdLoaded: (ad) {
+            _interstitialLoading = false;
+            _interstitial = ad;
+          },
+          onAdFailedToLoad: (_) => _interstitialLoading = false,
+        ),
+      ),
+    );
+  }
+
   Future<void> _requestConsentUpdate() {
     final done = Completer<void>();
     ConsentInformation.instance.requestConsentInfoUpdate(
@@ -149,6 +194,7 @@ class AdMobService implements AdService {
     _sdkStarted = true;
     await MobileAds.instance.initialize();
     _preloadRewarded();
+    _preloadInterstitial();
   }
 
   void _preloadRewarded() {

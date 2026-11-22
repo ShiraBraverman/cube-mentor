@@ -2045,48 +2045,10 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
-  String get patternsUnlockTitle => 'Desbloquea todos los patrones';
-
-  @override
-  String patternsUnlockPrompt(int minutes) {
-    String _temp0 = intl.Intl.pluralLogic(
-      minutes,
-      locale: localeName,
-      other:
-          'Mira 1 vídeo corto para desbloquear todos los patrones durante $minutes minutos',
-      one: 'Mira 1 vídeo corto para desbloquear todos los patrones durante 1 minuto',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get patternsWatchVideo => 'Ver vídeo';
 
   @override
   String get patternsNotNow => 'Ahora no';
-
-  @override
-  String patternsUnlockedLeft(String time) {
-    return 'Desbloqueado • quedan $time';
-  }
-
-  @override
-  String get patternsExpiredTitle => 'Tu vista previa ha terminado';
-
-  @override
-  String patternsExpiredBody(int minutes) {
-    String _temp0 = intl.Intl.pluralLogic(
-      minutes,
-      locale: localeName,
-      other:
-          '¡Mira 1 vídeo para mantener todos los patrones desbloqueados $minutes minutos más!',
-      one: '¡Mira 1 vídeo para mantener todos los patrones desbloqueados 1 minuto más!',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get patternsFreeSample => 'Gratis';
 
   @override
   String get settingsColorScheme => 'Esquema de colores del cubo';
@@ -2243,4 +2205,85 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get dailyCongratsDone => 'Volver al reto';
+
+  @override
+  String patternsSizeChip(String size, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count patrones',
+      one: '1 patrón',
+    );
+    return '$size • $_temp0';
+  }
+
+  @override
+  String unlockHoursLeft(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other: 'Quedan $hours horas',
+      one: 'Queda 1 hora',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String unlockMinutesLeft(int minutes) {
+    String _temp0 = intl.Intl.pluralLogic(
+      minutes,
+      locale: localeName,
+      other: 'Quedan $minutes minutos',
+      one: 'Queda 1 minuto',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get lockedLabel => 'Bloqueado';
+
+  @override
+  String get unlockedLabel => 'Desbloqueado';
+
+  @override
+  String patternUnlockBody(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other:
+          'Mira 1 vídeo corto para desbloquear este patrón y su guía paso a paso durante $hours horas.',
+      one: 'Mira 1 vídeo corto para desbloquear este patrón y su guía paso a paso durante 1 hora.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String lessonUnlockBody(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other:
+          'Mira 1 vídeo corto para abrir esta lección tantas veces como quieras durante las próximas $hours horas.',
+      one: 'Mira 1 vídeo corto para abrir esta lección tantas veces como quieras durante la próxima hora.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get bigCubeUnlockTitle => 'Resolver cubos grandes';
+
+  @override
+  String bigCubeUnlockBody(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other:
+          'Ya usaste tu resolución gratis de 4×4–6×6. Mira 1 vídeo corto para resolver cubos grandes durante las próximas $hours horas.',
+      one: 'Ya usaste tu resolución gratis de 4×4–6×6. Mira 1 vídeo corto para resolver cubos grandes durante la próxima hora.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get doubleTurnBadge => 'Giro doble · 180°';
 }

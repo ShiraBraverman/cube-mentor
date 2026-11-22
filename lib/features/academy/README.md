@@ -14,6 +14,8 @@ Interactive, localized lessons (Milestone 4).
 - `lesson_screen.dart`: plays a lesson on the shared 3D session with the
   guided-playback arrows; "Show me" animates the demo, swipes follow it.
 
-Advanced lessons are flagged and go through `RewardGate`
-(`lib/core/ads/reward_gate.dart`), which unlocks everything until rewarded
-ads arrive in Milestone 5.
+The first two lessons are open (green open padlock). Every later lesson
+goes through `RewardGate` (`lib/core/ads/reward_gate.dart`): a sheet offers
+one rewarded video that opens that lesson alone for 24 hours. A `×2` pill
+(`solver_3d/widgets/double_turn_badge.dart`) sits above the cube on every
+half-turn step.

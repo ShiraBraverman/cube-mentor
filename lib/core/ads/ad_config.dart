@@ -22,13 +22,17 @@ abstract final class AdConfig {
   // Info.plist).
   static const String iosAppId = 'ca-app-pub-3940256099942544~1458002511';
 
-  // TODO(milestone-6): replace the four test ad unit IDs below with the
+  // TODO(milestone-6): replace the six test ad unit IDs below with the
   // production ad units created in the AdMob console.
   static const String _androidBanner = 'ca-app-pub-3940256099942544/9214589741';
   static const String _iosBanner = 'ca-app-pub-3940256099942544/2435281174';
   static const String _androidRewarded =
       'ca-app-pub-3940256099942544/5224354917';
   static const String _iosRewarded = 'ca-app-pub-3940256099942544/1712485313';
+  static const String _androidInterstitial =
+      'ca-app-pub-3940256099942544/1033173712';
+  static const String _iosInterstitial =
+      'ca-app-pub-3940256099942544/4411468910';
 
   /// Whether the Google Mobile Ads SDK runs on this platform (Android and
   /// iOS only; desktop and web builds show no ads).
@@ -47,6 +51,12 @@ abstract final class AdConfig {
       ? _iosRewarded
       : _androidRewarded;
 
+  /// The interstitial ad unit for this platform.
+  static String get interstitialUnitId =>
+      defaultTargetPlatform == TargetPlatform.iOS
+      ? _iosInterstitial
+      : _androidInterstitial;
+
   /// Tallest banner the layout reserves room for (dp).
   static const double maxBannerHeight = 60;
 
@@ -54,10 +64,12 @@ abstract final class AdConfig {
   /// falls back to unlocking for free.
   static const Duration rewardedLoadTimeout = Duration(seconds: 6);
 
-  /// How long a 4x4-6x6 solver unlock lasts after one rewarded ad.
-  static const Duration bigCubeUnlockDuration = Duration(hours: 24);
+  /// How long one rewarded ad unlocks a gated item: a single lesson, a
+  /// single pattern, or 4x4-6x6 solving.
+  static const Duration itemUnlockDuration = Duration(hours: 24);
 
-  /// How long the whole Pattern Library (every size) stays open after one
-  /// rewarded ad.
-  static const Duration patternsUnlockDuration = Duration(minutes: 15);
+  /// Completed 2x2 / 3x3 solves per interstitial: at most one interstitial
+  /// every this many solves, shown only after the user leaves a finished
+  /// solve (never before or during one).
+  static const int solvesPerInterstitial = 3;
 }

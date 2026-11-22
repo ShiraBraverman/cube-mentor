@@ -2016,47 +2016,10 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get patternsUnlockTitle => 'פתיחת כל הדוגמאות';
-
-  @override
-  String patternsUnlockPrompt(int minutes) {
-    String _temp0 = intl.Intl.pluralLogic(
-      minutes,
-      locale: localeName,
-      other: 'צפו בסרטון קצר אחד כדי לפתוח את כל הדוגמאות ל־$minutes דקות',
-      one: 'צפו בסרטון קצר אחד כדי לפתוח את כל הדוגמאות לדקה אחת',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get patternsWatchVideo => 'צפייה בסרטון';
 
   @override
   String get patternsNotNow => 'לא עכשיו';
-
-  @override
-  String patternsUnlockedLeft(String time) {
-    return 'פתוח • נותרו ⁦$time⁩';
-  }
-
-  @override
-  String get patternsExpiredTitle => 'זמן התצוגה המקדימה הסתיים';
-
-  @override
-  String patternsExpiredBody(int minutes) {
-    String _temp0 = intl.Intl.pluralLogic(
-      minutes,
-      locale: localeName,
-      other:
-          'צפו בסרטון אחד כדי להשאיר את כל הדוגמאות פתוחות ל־$minutes דקות נוספות!',
-      one: 'צפו בסרטון אחד כדי להשאיר את כל הדוגמאות פתוחות לדקה נוספת!',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get patternsFreeSample => 'חינם';
 
   @override
   String get settingsColorScheme => 'ערכת הצבעים של הקובייה';
@@ -2209,4 +2172,90 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get dailyCongratsDone => 'חזרה לאתגר';
+
+  @override
+  String patternsSizeChip(String size, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count דוגמאות',
+      one: 'דוגמה אחת',
+    );
+    return '⁦$size⁩ • $_temp0';
+  }
+
+  @override
+  String unlockHoursLeft(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other: 'נותרו $hours שעות',
+      two: 'נותרו שעתיים',
+      one: 'נותרה שעה אחת',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String unlockMinutesLeft(int minutes) {
+    String _temp0 = intl.Intl.pluralLogic(
+      minutes,
+      locale: localeName,
+      other: 'נותרו $minutes דקות',
+      two: 'נותרו שתי דקות',
+      one: 'נותרה דקה אחת',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get lockedLabel => 'נעול';
+
+  @override
+  String get unlockedLabel => 'פתוח';
+
+  @override
+  String patternUnlockBody(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other:
+          'צפו בסרטון קצר אחד כדי לפתוח את הדוגמה הזו ואת המדריך שלב אחר שלב ל־$hours שעות.',
+      two: 'צפו בסרטון קצר אחד כדי לפתוח את הדוגמה הזו ואת המדריך שלב אחר שלב לשעתיים.',
+      one: 'צפו בסרטון קצר אחד כדי לפתוח את הדוגמה הזו ואת המדריך שלב אחר שלב לשעה אחת.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String lessonUnlockBody(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other:
+          'צפו בסרטון קצר אחד כדי לפתוח את השיעור הזה כמה פעמים שתרצו ב־$hours השעות הקרובות.',
+      two: 'צפו בסרטון קצר אחד כדי לפתוח את השיעור הזה כמה פעמים שתרצו בשעתיים הקרובות.',
+      one: 'צפו בסרטון קצר אחד כדי לפתוח את השיעור הזה כמה פעמים שתרצו בשעה הקרובה.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get bigCubeUnlockTitle => 'פתרון קוביות גדולות';
+
+  @override
+  String bigCubeUnlockBody(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other:
+          'הפתרון החינמי שלכם ל־⁦4×4–6×6⁩ נוצל. צפו בסרטון קצר אחד כדי לפתור קוביות גדולות ב־$hours השעות הקרובות.',
+      two: 'הפתרון החינמי שלכם ל־⁦4×4–6×6⁩ נוצל. צפו בסרטון קצר אחד כדי לפתור קוביות גדולות בשעתיים הקרובות.',
+      one: 'הפתרון החינמי שלכם ל־⁦4×4–6×6⁩ נוצל. צפו בסרטון קצר אחד כדי לפתור קוביות גדולות בשעה הקרובה.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get doubleTurnBadge => 'סיבוב כפול · 180°';
 }

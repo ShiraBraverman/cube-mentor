@@ -11,6 +11,7 @@ import '../../core/theme/sticker_palette.dart';
 import '../../core/theme/ui_kit.dart';
 import '../solver_3d/model/cube_session.dart';
 import '../solver_3d/widgets/cube_viewport.dart';
+import '../solver_3d/widgets/double_turn_badge.dart';
 import '../solver_3d/widgets/move_instruction.dart';
 import '../solver_3d/widgets/solve_banner.dart';
 import 'academy_screen.dart';
@@ -186,6 +187,14 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                                     size: size,
                                     highlighted: solveHighlights(session),
                                     focus: solveFocus(session),
+                                  ),
+                                ),
+                                PositionedDirectional(
+                                  top: AppSpace.xs,
+                                  start: 0,
+                                  end: 0,
+                                  child: Center(
+                                    child: DoubleTurnBadge(size: size),
                                   ),
                                 ),
                               ],

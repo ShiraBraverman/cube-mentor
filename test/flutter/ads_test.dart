@@ -4,7 +4,12 @@ import 'package:cube_mentor/app.dart';
 import 'package:cube_mentor/core/ads/ad_config.dart';
 import 'package:cube_mentor/core/ads/ad_service.dart';
 import 'package:cube_mentor/core/ads/app_banner_ad.dart';
+import 'package:cube_mentor/core/ads/interstitial_pacer.dart';
 import 'package:cube_mentor/core/ads/reward_gate.dart';
+import 'package:cube_mentor/features/solver_3d/solver_3d_screen.dart';
+import 'package:cube_mentor/core/solver/solve_step.dart';
+import 'package:cube_mentor/core/cube/cube_state.dart';
+import 'package:cube_mentor/core/cube/cube_move.dart';
 import 'package:cube_mentor/core/settings/clock.dart';
 import 'package:cube_mentor/core/settings/preferences.dart';
 import 'package:cube_mentor/core/solver/cube_solver.dart';
@@ -97,6 +102,7 @@ void main() {
         AdConfig.iosAppId,
         AdConfig.bannerUnitId,
         AdConfig.rewardedUnitId,
+        AdConfig.interstitialUnitId,
       ]) {
         expect(id, startsWith(publisher));
       }
@@ -109,69 +115,143 @@ void main() {
       expect(ads.supported, isFalse);
       expect(await ads.loadBanner(360), isNull);
       expect(await ads.showRewarded(), RewardOutcome.unsupported);
+      expect(await ads.showInterstitial(), isFalse);
     });
   });
 
   group('AdMobRewardGate', () {
-    test('an earned reward unlocks a lesson for good', () async {
+    test('an earned reward unlocks one lesson for 24 hours', () async {
       final prefs = await _prefs();
       final ads = FakeAdService();
-      final c = _container(prefs, ads);
+      var now = DateTime(2026, 11, 20, 9);
+      final c = _container(prefs, ads, clock: () => now);
       final gate = c.read(rewardGateProvider.notifier);
 
-      expect(gate.isUnlocked(RewardFeature.advancedLesson, item: 'oll'), false);
-      final result = await gate.unlock(
-        RewardFeature.advancedLesson,
-        item: 'oll',
-      );
+      expect(gate.isUnlocked(RewardFeature.lesson, item: 'oll'), false);
+      final result = await gate.unlock(RewardFeature.lesson, item: 'oll');
       expect(result, UnlockResult.rewarded);
       expect(ads.rewardedShown, 1);
-      expect(gate.isUnlocked(RewardFeature.advancedLesson, item: 'oll'), true);
+      expect(gate.isUnlocked(RewardFeature.lesson, item: 'oll'), true);
+      expect(
+        gate.timeLeft(RewardFeature.lesson, item: 'oll'),
+        const Duration(hours: 24),
+      );
       // Other lessons stay locked.
-      expect(gate.isUnlocked(RewardFeature.advancedLesson, item: 'pll'), false);
-      expect(prefs.getStringList('reward.lessons'), ['oll']);
+      expect(gate.isUnlocked(RewardFeature.lesson, item: 'pll'), false);
 
       // Already unlocked: no second ad.
       expect(
-        await gate.unlock(RewardFeature.advancedLesson, item: 'oll'),
+        await gate.unlock(RewardFeature.lesson, item: 'oll'),
         UnlockResult.alreadyUnlocked,
       );
       expect(ads.rewardedShown, 1);
 
-      // A new launch remembers it.
-      final again = _container(prefs, ads).read(rewardGateProvider.notifier);
-      expect(again.isUnlocked(RewardFeature.advancedLesson, item: 'oll'), true);
+      // A new launch remembers it, until the 24 hours are up.
+      final again = _container(
+        prefs,
+        ads,
+        clock: () => now,
+      ).read(rewardGateProvider.notifier);
+      now = DateTime(2026, 11, 21, 8, 59);
+      expect(again.isUnlocked(RewardFeature.lesson, item: 'oll'), true);
+      expect(
+        again.timeLeft(RewardFeature.lesson, item: 'oll'),
+        const Duration(minutes: 1),
+      );
+      now = DateTime(2026, 11, 21, 9);
+      expect(again.isUnlocked(RewardFeature.lesson, item: 'oll'), false);
+      expect(again.timeLeft(RewardFeature.lesson, item: 'oll'), isNull);
+    });
+
+    test('patterns unlock one by one, per size', () async {
+      final prefs = await _prefs();
+      final ads = FakeAdService();
+      final gate = _container(prefs, ads).read(rewardGateProvider.notifier);
+      final item = patternItem(4, 'cubeInCube');
+      await gate.unlock(RewardFeature.pattern, item: item);
+      expect(gate.isUnlocked(RewardFeature.pattern, item: item), isTrue);
+      expect(
+        gate.isUnlocked(
+          RewardFeature.pattern,
+          item: patternItem(3, 'cubeInCube'),
+        ),
+        isFalse,
+      );
+      // A lesson with the same id is a different item.
+      expect(gate.isUnlocked(RewardFeature.lesson, item: item), isFalse);
+    });
+
+    test('lessons unlocked for good by older versions stay open', () async {
+      final prefs = await _prefs({
+        'reward.lessons': ['oll'],
+      });
+      final gate = _container(
+        prefs,
+        FakeAdService(),
+      ).read(rewardGateProvider.notifier);
+      expect(gate.isUnlocked(RewardFeature.lesson, item: 'oll'), isTrue);
+      expect(gate.isUnlocked(RewardFeature.lesson, item: 'pll'), isFalse);
     });
 
     test('closing the video early keeps the lesson locked', () async {
       final prefs = await _prefs();
       final ads = FakeAdService(outcome: RewardOutcome.dismissed);
       final gate = _container(prefs, ads).read(rewardGateProvider.notifier);
-      final result = await gate.unlock(
-        RewardFeature.advancedLesson,
-        item: 'f2l',
-      );
+      final result = await gate.unlock(RewardFeature.lesson, item: 'f2l');
       expect(result, UnlockResult.declined);
       expect(result.granted, isFalse);
-      expect(gate.isUnlocked(RewardFeature.advancedLesson, item: 'f2l'), false);
-      expect(prefs.getStringList('reward.lessons'), isNull);
+      expect(gate.isUnlocked(RewardFeature.lesson, item: 'f2l'), false);
+      expect(prefs.getStringList('reward.itemsUntil'), isNull);
     });
 
     test('no ad available (offline) unlocks for this session only', () async {
       final prefs = await _prefs();
       final ads = FakeAdService(outcome: RewardOutcome.unavailable);
       final gate = _container(prefs, ads).read(rewardGateProvider.notifier);
-      final result = await gate.unlock(
-        RewardFeature.advancedLesson,
-        item: 'pll',
-      );
+      final result = await gate.unlock(RewardFeature.lesson, item: 'pll');
       expect(result, UnlockResult.freePass);
       expect(result.granted, isTrue);
-      expect(gate.isUnlocked(RewardFeature.advancedLesson, item: 'pll'), true);
+      expect(gate.isUnlocked(RewardFeature.lesson, item: 'pll'), true);
       // Not persisted: the next launch offers the ad again.
-      expect(prefs.getStringList('reward.lessons'), isNull);
+      expect(prefs.getStringList('reward.itemsUntil'), isNull);
       final next = _container(prefs, ads).read(rewardGateProvider.notifier);
-      expect(next.isUnlocked(RewardFeature.advancedLesson, item: 'pll'), false);
+      expect(next.isUnlocked(RewardFeature.lesson, item: 'pll'), false);
+    });
+
+    test('the first big-cube solve is free, once', () async {
+      final prefs = await _prefs();
+      final gate = _container(
+        prefs,
+        FakeAdService(),
+      ).read(rewardGateProvider.notifier);
+      expect(await gate.takeFreeBigCubeSolve(), isTrue);
+      expect(await gate.takeFreeBigCubeSolve(), isFalse);
+      final next = _container(
+        prefs,
+        FakeAdService(),
+      ).read(rewardGateProvider.notifier);
+      expect(await next.takeFreeBigCubeSolve(), isFalse);
+    });
+
+    test('an interstitial at most once every 3 finished solves', () async {
+      final prefs = await _prefs();
+      final ads = FakeAdService();
+      final c = _container(prefs, ads);
+      final pacer = c.read(interstitialPacerProvider.notifier);
+      for (var solve = 1; solve <= 2; solve++) {
+        await pacer.recordSolve();
+        expect(await pacer.maybeShow(), isFalse);
+      }
+      await pacer.recordSolve();
+      // No ad ready: the count is kept for the next exit.
+      ads.interstitialReady = false;
+      expect(await pacer.maybeShow(), isFalse);
+      ads.interstitialReady = true;
+      expect(await pacer.maybeShow(), isTrue);
+      expect(ads.interstitialsShown, 1);
+      // Counting starts over.
+      expect(await pacer.maybeShow(), isFalse);
+      expect(prefs.getInt('ads.solvesSinceInterstitial'), 0);
     });
 
     test('platforms without ads have everything unlocked', () async {
@@ -388,27 +468,50 @@ void main() {
       await tester.pump();
     }
 
+    /// Taps a locked lesson and chooses "Watch Video" in the unlock sheet.
     Future<void> tapLesson(WidgetTester tester, String id) async {
       final tile = find.byKey(ValueKey('lesson-$id'));
       await reveal(tester, tile);
       await tester.tap(tile);
       await _advance(tester, 8);
+      expect(find.byKey(const ValueKey('reward-unlock-sheet')), findsOneWidget);
+      await tester.tap(find.byKey(const ValueKey('reward-sheet-watch')));
+      await _advance(tester, 8);
     }
 
-    testWidgets('advanced lessons carry a "Watch ad" badge', (tester) async {
+    testWidgets('only the first two lessons are open', (tester) async {
       await pumpAcademy(tester, FakeAdService());
-      final badge = find.byKey(const ValueKey('lesson-oll-ad-badge'));
-      await reveal(tester, badge);
-      expect(badge, findsOneWidget);
+      // The first two lessons: a green open padlock, no ad badge.
+      for (final id in ['basics', 'cross']) {
+        expect(
+          find.byKey(ValueKey('lesson-$id-open'), skipOffstage: false),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(ValueKey('lesson-$id-ad-badge'), skipOffstage: false),
+          findsNothing,
+        );
+      }
+      // Every later lesson, beginner or advanced, is locked.
+      for (final id in ['corners', 'oll']) {
+        final badge = find.byKey(ValueKey('lesson-$id-ad-badge'));
+        await reveal(tester, badge);
+        expect(badge, findsOneWidget);
+      }
       expect(find.text('Watch ad'), findsWidgets);
-      // Beginner lessons are free.
-      expect(
-        find.byKey(
-          const ValueKey('lesson-cross-ad-badge'),
-          skipOffstage: false,
-        ),
-        findsNothing,
-      );
+      expect(find.text('Free'), findsNothing);
+    });
+
+    testWidgets('"Not Now" in the unlock sheet shows no ad', (tester) async {
+      final ads = await pumpAcademy(tester, FakeAdService());
+      final tile = find.byKey(const ValueKey('lesson-corners'));
+      await reveal(tester, tile);
+      await tester.tap(tile);
+      await _advance(tester, 8);
+      await tester.tap(find.byKey(const ValueKey('reward-sheet-not-now')));
+      await _advance(tester, 8);
+      expect(ads.rewardedShown, 0);
+      expect(find.byType(LessonScreen), findsNothing);
     });
 
     testWidgets('watching the ad opens the lesson and drops the badge', (
@@ -425,6 +528,8 @@ void main() {
         find.byKey(const ValueKey('lesson-oll-ad-badge'), skipOffstage: false),
         findsNothing,
       );
+      // Open for 24 hours, with the time left.
+      expect(find.text('24 hours left', skipOffstage: false), findsOneWidget);
     });
 
     testWidgets('closing the ad early stays on the Academy', (tester) async {
@@ -453,6 +558,70 @@ void main() {
       expect(find.byType(LessonScreen), findsOneWidget);
       // Shown on both scaffolds while the lesson route slides in.
       expect(find.byKey(const ValueKey('reward-free-pass')), findsWidgets);
+    });
+  });
+
+  group('big-cube solves', () {
+    testWidgets('the first 4x4 solve is free, then a video unlocks 24 h', (
+      tester,
+    ) async {
+      _phone(tester);
+      final ads = FakeAdService();
+      final solver = FakeCubeSolver(
+        bigCubes: true,
+        plan: const SolvePlan(
+          method: 'reduction',
+          steps: [
+            SolveStep(
+              cubeState: '',
+              phaseName: 'centers',
+              moveNotation: 'R',
+              explanationKey: 'centers',
+            ),
+          ],
+        ),
+      );
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            sharedPreferencesProvider.overrideWithValue(await _prefs()),
+            cubeSolverProvider.overrideWithValue(solver),
+            ...adsOnOverrides(ads),
+          ],
+          child: testApp(
+            Solver3DScreen(
+              size: 4,
+              initialCube: CubeState.solved(4)
+                  .applyAll(MoveNotation.parseSequence("R U R' U'", 4)),
+            ),
+          ),
+        ),
+      );
+      await _advance(tester, 4);
+
+      // Free solve: no sheet, no ad.
+      await tester.tap(find.byKey(const ValueKey('solve')));
+      await _advance(tester, 8);
+      expect(solver.calls, hasLength(1));
+      expect(find.byKey(const ValueKey('reward-unlock-sheet')), findsNothing);
+      expect(ads.rewardedShown, 0);
+
+      // Back to free play on a scrambled cube; the next solve asks first.
+      await tester.tap(find.byKey(const ValueKey('guide-exit')));
+      await _advance(tester, 8);
+      await tester.tap(find.byKey(const ValueKey('solve')));
+      await _advance(tester, 8);
+      expect(find.byKey(const ValueKey('reward-unlock-sheet')), findsOneWidget);
+      await tester.tap(find.byKey(const ValueKey('reward-sheet-not-now')));
+      await _advance(tester, 8);
+      expect(solver.calls, hasLength(1));
+
+      await tester.tap(find.byKey(const ValueKey('solve')));
+      await _advance(tester, 8);
+      await tester.tap(find.byKey(const ValueKey('reward-sheet-watch')));
+      await _advance(tester, 8);
+      expect(ads.rewardedShown, 1);
+      expect(solver.calls, hasLength(2));
     });
   });
 

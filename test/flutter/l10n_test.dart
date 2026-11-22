@@ -1,4 +1,5 @@
 import 'package:cube_mentor/app.dart';
+import 'package:cube_mentor/core/ads/reward_prompt.dart';
 import 'package:cube_mentor/core/celebration/celebration.dart';
 import 'package:cube_mentor/core/cube/cube_move.dart';
 import 'package:cube_mentor/core/cube/cube_state.dart';
@@ -447,10 +448,13 @@ void main() {
       await prefs.setString('daily_time_day', '2026-11-16');
       await prefs.setInt('daily_time_ms', 44870);
       await prefs.setInt('daily_best_time_ms', 38420);
-      await prefs.setString('daily_log', [
-        for (var d = 7; d <= 16; d++)
-          '{"d":"2026-11-${d.toString().padLeft(2, '0')}","t":${40000 + d}}',
-      ].toString());
+      await prefs.setString(
+        'daily_log',
+        [
+          for (var d = 7; d <= 16; d++)
+            '{"d":"2026-11-${d.toString().padLeft(2, '0')}","t":${40000 + d}}',
+        ].toString(),
+      );
       await show(const DailyScreen(), scroll: false);
       expect(find.byKey(const ValueKey('daily-best-time')), findsOneWidget);
       expect(find.byKey(const ValueKey('daily-personal-best')), findsOneWidget);
@@ -518,37 +522,62 @@ void main() {
       expect(find.byKey(const ValueKey('guide-counter')), findsOneWidget);
       await tester.tap(find.byKey(const ValueKey('playback-next')));
       await _advance(tester, 16);
-      expect(find.byKey(const ValueKey('guide-complete-title')), findsOneWidget);
-      expect(tester.takeException(), isNull, reason: 'scrambled card');
-      await show(const PatternsScreen());
-      // A locked 4x4 page: the one unlock banner, free sample and locked
-      // cards, then the "watch a video" sheet from a locked pattern.
-      await show(const PatternsScreen(initialSize: 4), scroll: false);
       expect(
-        find.byKey(const ValueKey('patterns-unlock-banner')),
+        find.byKey(const ValueKey('guide-complete-title')),
         findsOneWidget,
       );
+      expect(tester.takeException(), isNull, reason: 'scrambled card');
+      await show(const PatternsScreen());
+      // A 4x4 page: size chips with counts, open and locked padlocks, then
+      // the 3D preview + "watch a video" sheet from a locked pattern.
+      await show(const PatternsScreen(initialSize: 4), scroll: false);
       await tester.ensureVisible(
         find.byKey(const ValueKey('pattern-cubeInCube')),
       );
       await tester.pump();
       await tester.tap(find.byKey(const ValueKey('pattern-cubeInCube')));
       await _advance(tester, 8);
-      expect(
-        find.byKey(const ValueKey('patterns-unlock-sheet')),
-        findsOneWidget,
-      );
-      expect(tester.takeException(), isNull, reason: 'patterns unlock sheet');
-      // The re-offer when the 15 minutes run out.
+      expect(find.byKey(const ValueKey('reward-unlock-sheet')), findsOneWidget);
+      expect(tester.takeException(), isNull, reason: 'pattern unlock sheet');
+      // The big-cube and lesson unlock sheets (longest bodies).
+      for (final big in [true, false]) {
+        await show(
+          Scaffold(
+            body: Align(
+              alignment: Alignment.bottomCenter,
+              child: Builder(
+                builder: (context) {
+                  final l10n = AppLocalizations.of(context);
+                  return RewardUnlockSheet(
+                    title: big
+                        ? l10n.bigCubeUnlockTitle
+                        : lessonTitle(l10n, 'yellowCorners'),
+                    body: big
+                        ? l10n.bigCubeUnlockBody(24)
+                        : l10n.lessonUnlockBody(24),
+                  );
+                },
+              ),
+            ),
+          ),
+          scroll: false,
+        );
+      }
+      // The double-turn pill above the cube, on a guided R2.
       await show(
-        const Scaffold(
-          body: Align(
-            alignment: Alignment.bottomCenter,
-            child: PatternsUnlockSheet(expired: true),
+        Solver3DScreen(
+          size: 3,
+          guide: GuideScript(
+            start: CubeState.solved(3),
+            moves: MoveNotation.parseSequence('R2', 3),
+            phase: 'pattern',
+            explanation: 'patternStep',
           ),
         ),
         scroll: false,
       );
+      expect(find.byKey(const ValueKey('double-turn-badge')), findsOneWidget);
+      expect(tester.takeException(), isNull, reason: 'double-turn badge');
       // The Settings nickname dialog.
       await show(const Scaffold(body: NicknameDialog()), scroll: false);
       expect(find.byKey(const ValueKey('nickname-prompt')), findsOneWidget);

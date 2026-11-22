@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../core/ads/reward_prompt.dart';
 import '../../core/cube/cube_state.dart';
 import '../../core/feedback/feedback_service.dart';
 import '../../core/l10n/generated/app_localizations.dart';
@@ -74,6 +75,11 @@ class _ScannerScreenState extends ConsumerState<ScannerScreen> {
       ref.read(scanSessionProvider(size).notifier);
 
   Future<void> _open(CubeState cube, SolveMethod? method) async {
+    // 4x4-6x6: the first solve is free, then a rewarded video unlocks 24 h.
+    if (method != null && !await ensureBigCubeSolve(context, ref, size)) {
+      return;
+    }
+    if (!mounted) return;
     final route = MaterialPageRoute<void>(
       builder: (_) =>
           Solver3DScreen(size: size, initialCube: cube, autoSolve: method),

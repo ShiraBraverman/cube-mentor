@@ -7,7 +7,8 @@ An offline-first, high-performance mobile application (Android-first via Flutter
 - **Cube color scheme:** Settings toggles Western (white opposite yellow, default) or Japanese (white opposite blue, yellow opposite green). The model, solvers and lessons always use logical Western-layout colors; `CubeColorScheme` maps them to what the physical cube shows via `StickerPalette` (3D cube, pattern previews, hold swatches, color names) and maps scanned colors back to logical ones before validation.
 - **Monetization:** Google AdMob (`google_mobile_ads`):
   - Bottom adaptive Banner ad (never overlapping the 3D canvas).
-  - Rewarded Video ads gating 4x4, 5x5, and 6x6 solvers and advanced academy lessons (use official Google Test Ad Unit IDs during development).
+  - Rewarded Video ads (official Google Test Ad Unit IDs during development), each unlocking one item for 24 hours (expiry stored in `SharedPreferences`): every Academy lesson after the first two, every Pattern Library pattern after the first of its size (locked ones still preview in 3D), and 4x4-6x6 solving after the first free big-cube solve. Open items show a green open padlock, locked ones a closed padlock (no "Free" badges).
+  - Interstitial ad after 2x2/3x3 solves, at most once every 3 finished solves and only when the user leaves a finished solve; scanning and 3x3 solving are never gated.
 - **Future AI Coach Readiness:** Every pedagogical `SolveStep` struct must carry structured metadata (`cubeState`, `phaseName`, `moveNotation`, `explanationKey`, `highlightedCubies`) so an optional LLM-based "Personal AI Coach" module (`lib/features/ai_coach/`) can be plugged in later without refactoring the core solver.
 
 ---

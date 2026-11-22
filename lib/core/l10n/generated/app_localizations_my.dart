@@ -2042,45 +2042,10 @@ class AppLocalizationsMy extends AppLocalizations {
   }
 
   @override
-  String get patternsUnlockTitle => 'ပုံစံအားလုံးကို ဖွင့်';
-
-  @override
-  String patternsUnlockPrompt(int minutes) {
-    String _temp0 = intl.Intl.pluralLogic(
-      minutes,
-      locale: localeName,
-      other: 'ပုံစံအားလုံးကို $minutes မိနစ် ဖွင့်ရန် ဗီဒီယိုတို ၁ ခု ကြည့်ပါ',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get patternsWatchVideo => 'ဗီဒီယို ကြည့်';
 
   @override
   String get patternsNotNow => 'ယခု မဟုတ်သေး';
-
-  @override
-  String patternsUnlockedLeft(String time) {
-    return 'ဖွင့်ထားသည် • $time ကျန်';
-  }
-
-  @override
-  String get patternsExpiredTitle => 'အစမ်းကြည့်ချိန် ကုန်ပါပြီ';
-
-  @override
-  String patternsExpiredBody(int minutes) {
-    String _temp0 = intl.Intl.pluralLogic(
-      minutes,
-      locale: localeName,
-      other:
-          'ပုံစံအားလုံးကို နောက်ထပ် $minutes မိနစ် ဖွင့်ထားရန် ဗီဒီယို ၁ ခု ကြည့်ပါ။',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get patternsFreeSample => 'အခမဲ့';
 
   @override
   String get settingsColorScheme => 'ကုဗ အရောင်စနစ်';
@@ -2236,4 +2201,46 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get dailyCongratsDone => 'စိန်ခေါ်မှုသို့ ပြန်သွားရန်';
+
+  @override
+  String patternsSizeChip(String size, int count) {
+    return '$size • ပုံစံ $count ခု';
+  }
+
+  @override
+  String unlockHoursLeft(int hours) {
+    return '$hours နာရီ ကျန်သည်';
+  }
+
+  @override
+  String unlockMinutesLeft(int minutes) {
+    return '$minutes မိနစ် ကျန်သည်';
+  }
+
+  @override
+  String get lockedLabel => 'သော့ခတ်ထားသည်';
+
+  @override
+  String get unlockedLabel => 'သော့ဖွင့်ထားသည်';
+
+  @override
+  String patternUnlockBody(int hours) {
+    return 'ဤပုံစံနှင့် အဆင့်လိုက် လမ်းညွှန်ကို $hours နာရီ ဖွင့်ရန် ဗီဒီယိုတို ၁ ခု ကြည့်ပါ';
+  }
+
+  @override
+  String lessonUnlockBody(int hours) {
+    return 'ဤသင်ခန်းစာကို နောက် $hours နာရီအတွင်း ကြိုက်သလောက် ဖွင့်ရန် ဗီဒီယိုတို ၁ ခု ကြည့်ပါ';
+  }
+
+  @override
+  String get bigCubeUnlockTitle => 'ကုဗကြီးများ ဖြေရှင်းရန်';
+
+  @override
+  String bigCubeUnlockBody(int hours) {
+    return '4×4–6×6 အခမဲ့ ဖြေရှင်းခွင့်ကို သုံးပြီးပါပြီ။ နောက် $hours နာရီအတွင်း ကုဗကြီးများ ဖြေရှင်းရန် ဗီဒီယိုတို ၁ ခု ကြည့်ပါ';
+  }
+
+  @override
+  String get doubleTurnBadge => 'နှစ်ကြိမ်လှည့် · 180°';
 }

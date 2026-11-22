@@ -5,6 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../core/ads/app_banner_ad.dart';
+import '../../core/ads/interstitial_pacer.dart';
+import '../../core/ads/reward_prompt.dart';
 import '../../core/cube/cube_state.dart';
 import '../../core/feedback/feedback_service.dart';
 import '../../core/l10n/generated/app_localizations.dart';
@@ -21,6 +23,7 @@ import '../timer/model/timer_stats.dart';
 import 'model/cube_session.dart';
 import 'model/guide_script.dart';
 import 'widgets/cube_viewport.dart';
+import 'widgets/double_turn_badge.dart';
 import 'widgets/move_pad.dart';
 import 'widgets/solve_banner.dart';
 
@@ -120,6 +123,19 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
   void dispose() {
     _noticeTimer?.cancel();
     super.dispose();
+  }
+
+  /// A 2x2 / 3x3 solver solution was played to the end and the user has
+  /// not left it yet.
+  bool _quickSolveFinished = false;
+
+  /// The user leaves a finished quick solve (Exit, back, scan the next
+  /// cube): the frequency-capped interstitial may show now, never before
+  /// or during a solve.
+  void _leaveFinishedSolve() {
+    if (!_quickSolveFinished) return;
+    _quickSolveFinished = false;
+    unawaited(ref.read(interstitialPacerProvider.notifier).maybeShow());
   }
 
   /// Sub-steps of the loaded guided solution whose goal card was shown.
@@ -258,6 +274,18 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
       },
     );
 
+    // A quick (2x2 / 3x3) solver solution played to the end counts toward
+    // the next interstitial.
+    ref.listen(
+      cubeSessionProvider(size)
+          .select((s) => s.isComplete && s.solvedWith != null),
+      (previous, next) {
+        if (size > 3 || previous != false || !next) return;
+        _quickSolveFinished = true;
+        unawaited(ref.read(interstitialPacerProvider.notifier).recordSolve());
+      },
+    );
+
     // A timed challenge stops its clock once solved.
     ref.listen(
       cubeSessionProvider(size).select((s) => s.isIdle && s.cube.isSolved),
@@ -274,149 +302,167 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
       },
     );
 
-    return GlassBackground(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title ?? l10n.playgroundTitle(size)),
-          actions: [
-            if (widget.challenge)
-              _ChallengeClock(
-                start: _challengeStart,
-                finishedMillis: _challengeMillis,
-              )
-            else
-              _StatusPill(
-                label: solved ? l10n.solved : l10n.scrambled,
-                positive: solved,
+    return PopScope(
+      onPopInvokedWithResult: (didPop, _) {
+        if (didPop) _leaveFinishedSolve();
+      },
+      child: GlassBackground(
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text(widget.title ?? l10n.playgroundTitle(size)),
+            actions: [
+              if (widget.challenge)
+                _ChallengeClock(
+                  start: _challengeStart,
+                  finishedMillis: _challengeMillis,
+                )
+              else
+                _StatusPill(
+                  label: solved ? l10n.solved : l10n.scrambled,
+                  positive: solved,
+                ),
+              IconButton(
+                tooltip: l10n.xray,
+                isSelected: session.xray,
+                icon: const Icon(Icons.visibility_outlined),
+                selectedIcon: const Icon(
+                  Icons.visibility,
+                  color: AppColors.accentSecondary,
+                ),
+                onPressed: controller.toggleXray,
               ),
-            IconButton(
-              tooltip: l10n.xray,
-              isSelected: session.xray,
-              icon: const Icon(Icons.visibility_outlined),
-              selectedIcon: const Icon(
-                Icons.visibility,
-                color: AppColors.accentSecondary,
+              IconButton(
+                key: const ValueKey('toggle-notation'),
+                tooltip: l10n.notationPad,
+                icon: const Icon(Icons.keyboard_outlined),
+                onPressed: () => showNotationSheet(context, size),
               ),
-              onPressed: controller.toggleXray,
-            ),
-            IconButton(
-              key: const ValueKey('toggle-notation'),
-              tooltip: l10n.notationPad,
-              icon: const Icon(Icons.keyboard_outlined),
-              onPressed: () => showNotationSheet(context, size),
-            ),
-            const SizedBox(width: 4),
-          ],
-        ),
-        // The banner (when one loaded) sits below the playback controls and
-        // keeps the system navigation inset under it.
-        bottomNavigationBar: const SafeArea(top: false, child: AppBannerAd()),
-        body: SafeArea(
-          top: false,
-          child: Column(
-            children: [
-              Expanded(
-                child: Stack(
-                  children: [
-                    const Positioned.fill(child: CubeStage(intensity: 0.8)),
-                    Positioned.fill(
-                      child: CubeViewport(
-                        size: size,
-                        highlighted: solveHighlights(session),
-                        focus: solveFocus(session),
+              const SizedBox(width: 4),
+            ],
+          ),
+          // The banner (when one loaded) sits below the playback controls and
+          // keeps the system navigation inset under it.
+          bottomNavigationBar: const SafeArea(top: false, child: AppBannerAd()),
+          body: SafeArea(
+            top: false,
+            child: Column(
+              children: [
+                Expanded(
+                  child: Stack(
+                    children: [
+                      const Positioned.fill(child: CubeStage(intensity: 0.8)),
+                      Positioned.fill(
+                        child: CubeViewport(
+                          size: size,
+                          highlighted: solveHighlights(session),
+                          focus: solveFocus(session),
+                        ),
                       ),
-                    ),
-                    if (session.steps.isEmpty)
+                      if (session.steps.isEmpty)
+                        PositionedDirectional(
+                          bottom: AppSpace.xs,
+                          start: AppSpace.lg,
+                          end: AppSpace.lg,
+                          child: IgnorePointer(
+                            child: Text(
+                              l10n.orbitHint,
+                              textAlign: TextAlign.center,
+                              style: Theme.of(context).textTheme.bodySmall
+                                  ?.copyWith(color: AppColors.textSecondary),
+                            ),
+                          ),
+                        ),
+                      // A half turn is called out right above the cube.
                       PositionedDirectional(
-                        bottom: AppSpace.xs,
+                        top: AppSpace.xs,
+                        start: AppSpace.md,
+                        end: AppSpace.md,
+                        child: Center(child: DoubleTurnBadge(size: size)),
+                      ),
+                      // Non-blocking notice under the app bar.
+                      PositionedDirectional(
+                        top: AppSpace.xs,
                         start: AppSpace.lg,
                         end: AppSpace.lg,
                         child: IgnorePointer(
-                          child: Text(
-                            l10n.orbitHint,
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.bodySmall
-                                ?.copyWith(color: AppColors.textSecondary),
+                          child: Center(
+                            child: AnimatedSwitcher(
+                              duration: const Duration(milliseconds: 200),
+                              transitionBuilder: (child, animation) =>
+                                  FadeTransition(
+                                    opacity: animation,
+                                    child: SlideTransition(
+                                      position: Tween(
+                                        begin: const Offset(0, -0.4),
+                                        end: Offset.zero,
+                                      ).animate(animation),
+                                      child: child,
+                                    ),
+                                  ),
+                              child: _notice == null
+                                  ? const SizedBox.shrink()
+                                  : _NoticePill(
+                                      key: const ValueKey('solve-notice'),
+                                      message: _notice!,
+                                    ),
+                            ),
                           ),
                         ),
                       ),
-                    // Non-blocking notice under the app bar.
-                    PositionedDirectional(
-                      top: AppSpace.xs,
-                      start: AppSpace.lg,
-                      end: AppSpace.lg,
-                      child: IgnorePointer(
-                        child: Center(
-                          child: AnimatedSwitcher(
-                            duration: const Duration(milliseconds: 200),
-                            transitionBuilder: (child, animation) =>
-                                FadeTransition(
-                                  opacity: animation,
-                                  child: SlideTransition(
-                                    position: Tween(
-                                      begin: const Offset(0, -0.4),
-                                      end: Offset.zero,
-                                    ).animate(animation),
-                                    child: child,
-                                  ),
-                                ),
-                            child: _notice == null
-                                ? const SizedBox.shrink()
-                                : _NoticePill(
-                                    key: const ValueKey('solve-notice'),
-                                    message: _notice!,
-                                  ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Center(
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 560),
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(
-                      AppSpace.md,
-                      AppSpace.xs,
-                      AppSpace.md,
-                      AppSpace.md,
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        // A solution or guide: the step dock under the cube
-                        // (never over it) and the playback dock only.
-                        if (session.hasPlayback) ...[
-                          if (session.steps.isNotEmpty)
-                            Padding(
-                              padding: const EdgeInsetsDirectional.only(
-                                bottom: AppSpace.xs,
+                Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 560),
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                        AppSpace.md,
+                        AppSpace.xs,
+                        AppSpace.md,
+                        AppSpace.md,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          // A solution or guide: the step dock under the cube
+                          // (never over it) and the playback dock only.
+                          if (session.hasPlayback) ...[
+                            if (session.steps.isNotEmpty)
+                              Padding(
+                                padding: const EdgeInsetsDirectional.only(
+                                  bottom: AppSpace.xs,
+                                ),
+                                child: SolveBanner(
+                                  size: size,
+                                  guideDoneAction: widget.guideDoneAction,
+                                ),
                               ),
-                              child: SolveBanner(
+                            _GuideDock(
                               size: size,
-                              guideDoneAction: widget.guideDoneAction,
+                              // Pattern and scramble guides were opened for
+                              // the guide alone: exiting leaves the screen.
+                              onExit: widget.guide != null
+                                  ? () => Navigator.of(context).maybePop()
+                                  : () {
+                                      controller.clearSolution();
+                                      _leaveFinishedSolve();
+                                    },
                             ),
-                            ),
-                          _GuideDock(
-                            size: size,
-                            // Pattern and scramble guides were opened for
-                            // the guide alone: exiting leaves the screen.
-                            onExit: widget.guide != null
-                                ? () => Navigator.of(context).maybePop()
-                                : controller.clearSolution,
-                          ),
-                        ] else if (widget.challenge)
-                          _ChallengeBar(size: size, onReset: _restartChallenge)
-                        else
-                          _ActionBar(size: size, onNotice: _showNotice),
-                      ],
+                          ] else if (widget.challenge)
+                            _ChallengeBar(
+                              size: size,
+                              onReset: _restartChallenge,
+                            )
+                          else
+                            _ActionBar(size: size, onNotice: _showNotice),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -834,6 +880,8 @@ extension on _ActionBar {
     final method = guided && fast
         ? ref.read(solvePreferenceProvider)
         : (guided ? SolveMethod.layerByLayer : SolveMethod.fast);
+    // 4x4-6x6: the first solve is free, then a rewarded video unlocks 24 h.
+    if (!await ensureBigCubeSolve(context, ref, size)) return;
     await controller.solve(method);
   }
 }

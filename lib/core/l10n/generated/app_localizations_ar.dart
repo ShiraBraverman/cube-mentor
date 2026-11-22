@@ -2042,54 +2042,10 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get patternsUnlockTitle => 'افتح جميع الأنماط';
-
-  @override
-  String patternsUnlockPrompt(int minutes) {
-    String _temp0 = intl.Intl.pluralLogic(
-      minutes,
-      locale: localeName,
-      other: 'شاهد فيديو قصيرًا واحدًا لفتح جميع الأنماط لمدة $minutes دقيقة',
-      many: 'شاهد فيديو قصيرًا واحدًا لفتح جميع الأنماط لمدة $minutes دقيقة',
-      few: 'شاهد فيديو قصيرًا واحدًا لفتح جميع الأنماط لمدة $minutes دقائق',
-      two: 'شاهد فيديو قصيرًا واحدًا لفتح جميع الأنماط لمدة دقيقتين',
-      one: 'شاهد فيديو قصيرًا واحدًا لفتح جميع الأنماط لمدة دقيقة واحدة',
-      zero: 'شاهد فيديو قصيرًا واحدًا لفتح جميع الأنماط',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get patternsWatchVideo => 'شاهد الفيديو';
 
   @override
   String get patternsNotNow => 'ليس الآن';
-
-  @override
-  String patternsUnlockedLeft(String time) {
-    return 'مفتوح • يتبقى ⁦$time⁩';
-  }
-
-  @override
-  String get patternsExpiredTitle => 'انتهت فترة المعاينة';
-
-  @override
-  String patternsExpiredBody(int minutes) {
-    String _temp0 = intl.Intl.pluralLogic(
-      minutes,
-      locale: localeName,
-      other: 'شاهد فيديو واحدًا لتبقى جميع الأنماط مفتوحة $minutes دقيقة أخرى!',
-      many: 'شاهد فيديو واحدًا لتبقى جميع الأنماط مفتوحة $minutes دقيقة أخرى!',
-      few: 'شاهد فيديو واحدًا لتبقى جميع الأنماط مفتوحة $minutes دقائق أخرى!',
-      two: 'شاهد فيديو واحدًا لتبقى جميع الأنماط مفتوحة دقيقتين أخريين!',
-      one: 'شاهد فيديو واحدًا لتبقى جميع الأنماط مفتوحة دقيقة أخرى!',
-      zero: 'شاهد فيديو واحدًا لتبقى جميع الأنماط مفتوحة!',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get patternsFreeSample => 'مجاني';
 
   @override
   String get settingsColorScheme => 'نظام ألوان المكعب';
@@ -2248,4 +2204,118 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get dailyCongratsDone => 'العودة إلى التحدي';
+
+  @override
+  String patternsSizeChip(String size, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count نمطًا',
+      many: '$count نمطًا',
+      few: '$count أنماط',
+      two: 'نمطان',
+      one: 'نمط واحد',
+      zero: '$count نمطًا',
+    );
+    return '⁦$size⁩ • $_temp0';
+  }
+
+  @override
+  String unlockHoursLeft(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other: 'تبقّت $hours ساعة',
+      many: 'تبقّت $hours ساعة',
+      few: 'تبقّت $hours ساعات',
+      two: 'تبقّت ساعتان',
+      one: 'تبقّت ساعة واحدة',
+      zero: 'تبقّت $hours ساعة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String unlockMinutesLeft(int minutes) {
+    String _temp0 = intl.Intl.pluralLogic(
+      minutes,
+      locale: localeName,
+      other: 'تبقّت $minutes دقيقة',
+      many: 'تبقّت $minutes دقيقة',
+      few: 'تبقّت $minutes دقائق',
+      two: 'تبقّت دقيقتان',
+      one: 'تبقّت دقيقة واحدة',
+      zero: 'تبقّت $minutes دقيقة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get lockedLabel => 'مقفل';
+
+  @override
+  String get unlockedLabel => 'مفتوح';
+
+  @override
+  String patternUnlockBody(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other:
+          'شاهد فيديو قصيرًا واحدًا لفتح هذا النمط ودليله خطوة بخطوة لمدة $hours ساعة.',
+      many:
+          'شاهد فيديو قصيرًا واحدًا لفتح هذا النمط ودليله خطوة بخطوة لمدة $hours ساعة.',
+      few:
+          'شاهد فيديو قصيرًا واحدًا لفتح هذا النمط ودليله خطوة بخطوة لمدة $hours ساعات.',
+      two: 'شاهد فيديو قصيرًا واحدًا لفتح هذا النمط ودليله خطوة بخطوة لمدة ساعتين.',
+      one: 'شاهد فيديو قصيرًا واحدًا لفتح هذا النمط ودليله خطوة بخطوة لمدة ساعة واحدة.',
+      zero:
+          'شاهد فيديو قصيرًا واحدًا لفتح هذا النمط ودليله خطوة بخطوة لمدة $hours ساعة.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String lessonUnlockBody(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other:
+          'شاهد فيديو قصيرًا واحدًا لفتح هذا الدرس متى شئت خلال الـ$hours ساعة القادمة.',
+      many:
+          'شاهد فيديو قصيرًا واحدًا لفتح هذا الدرس متى شئت خلال الـ$hours ساعة القادمة.',
+      few:
+          'شاهد فيديو قصيرًا واحدًا لفتح هذا الدرس متى شئت خلال الـ$hours ساعات القادمة.',
+      two: 'شاهد فيديو قصيرًا واحدًا لفتح هذا الدرس متى شئت خلال الساعتين القادمتين.',
+      one: 'شاهد فيديو قصيرًا واحدًا لفتح هذا الدرس متى شئت خلال الساعة القادمة.',
+      zero:
+          'شاهد فيديو قصيرًا واحدًا لفتح هذا الدرس متى شئت خلال الـ$hours ساعة القادمة.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get bigCubeUnlockTitle => 'حلّ المكعبات الكبيرة';
+
+  @override
+  String bigCubeUnlockBody(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other:
+          'لقد استخدمت حلّك المجاني لمكعبات ⁦4×4–6×6⁩. شاهد فيديو قصيرًا واحدًا لحلّ المكعبات الكبيرة خلال الـ$hours ساعة القادمة.',
+      many:
+          'لقد استخدمت حلّك المجاني لمكعبات ⁦4×4–6×6⁩. شاهد فيديو قصيرًا واحدًا لحلّ المكعبات الكبيرة خلال الـ$hours ساعة القادمة.',
+      few:
+          'لقد استخدمت حلّك المجاني لمكعبات ⁦4×4–6×6⁩. شاهد فيديو قصيرًا واحدًا لحلّ المكعبات الكبيرة خلال الـ$hours ساعات القادمة.',
+      two: 'لقد استخدمت حلّك المجاني لمكعبات ⁦4×4–6×6⁩. شاهد فيديو قصيرًا واحدًا لحلّ المكعبات الكبيرة خلال الساعتين القادمتين.',
+      one: 'لقد استخدمت حلّك المجاني لمكعبات ⁦4×4–6×6⁩. شاهد فيديو قصيرًا واحدًا لحلّ المكعبات الكبيرة خلال الساعة القادمة.',
+      zero:
+          'لقد استخدمت حلّك المجاني لمكعبات ⁦4×4–6×6⁩. شاهد فيديو قصيرًا واحدًا لحلّ المكعبات الكبيرة خلال الـ$hours ساعة القادمة.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get doubleTurnBadge => 'دوران مزدوج · 180°';
 }

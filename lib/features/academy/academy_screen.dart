@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../core/ads/ad_config.dart';
 import '../../core/ads/reward_gate.dart';
 import '../../core/ads/reward_prompt.dart';
 import '../../core/l10n/crown_words.dart';
@@ -14,22 +15,33 @@ import 'model/academy_progress.dart';
 import 'model/lesson.dart';
 import 'model/lesson_catalog.dart';
 
-/// Opens [lesson], first asking the reward gate (a rewarded ad) when it is
-/// advanced and still locked.
+/// Opens [lesson]. Past the free first lessons, a locked lesson first
+/// offers one rewarded video (in a sheet) that opens it for 24 hours.
 Future<void> openLesson(
   BuildContext context,
   WidgetRef ref,
   Lesson lesson, {
   bool replace = false,
 }) async {
-  if (lesson.advanced &&
-      !await unlockWithFeedback(
-        context,
-        ref,
-        RewardFeature.advancedLesson,
-        item: lesson.id,
-      )) {
-    return;
+  if (lessonNeedsUnlock(lesson.id) &&
+      !ref
+          .read(rewardGateProvider.notifier)
+          .isUnlocked(RewardFeature.lesson, item: lesson.id)) {
+    final l10n = AppLocalizations.of(context);
+    final watch = await showRewardUnlockSheet(
+      context,
+      title: lessonTitle(l10n, lesson.id),
+      body: l10n.lessonUnlockBody(AdConfig.itemUnlockDuration.inHours),
+    );
+    if (watch != true || !context.mounted) return;
+    if (!await unlockWithFeedback(
+      context,
+      ref,
+      RewardFeature.lesson,
+      item: lesson.id,
+    )) {
+      return;
+    }
   }
   if (!context.mounted) return;
   final route = MaterialPageRoute<void>(
@@ -249,12 +261,13 @@ class _LessonTile extends ConsumerWidget {
     final textTheme = Theme.of(context).textTheme;
     // Rebuild when a rewarded ad unlocks this lesson.
     ref.watch(rewardGateProvider);
+    final gate = ref.read(rewardGateProvider.notifier);
+    final gated = lessonNeedsUnlock(lesson.id);
     final locked =
-        lesson.advanced &&
-        !done &&
-        !ref
-            .read(rewardGateProvider.notifier)
-            .isUnlocked(RewardFeature.advancedLesson, item: lesson.id);
+        gated && !gate.isUnlocked(RewardFeature.lesson, item: lesson.id);
+    final timeLeft = gated
+        ? gate.timeLeft(RewardFeature.lesson, item: lesson.id)
+        : null;
     final accent = done
         ? AppColors.accentSecondary
         : (next ? AppColors.accent : AppColors.textTertiary);
@@ -322,13 +335,27 @@ class _LessonTile extends ConsumerWidget {
                         label: l10n.lessonAdvanced,
                         color: AppColors.accentWarm,
                       ),
-                    // Says up front that this lesson opens after an ad.
+                    // Open (free or unlocked, with the time left) or locked
+                    // behind a video, said up front.
                     if (locked)
                       AppPill(
                         key: ValueKey('lesson-${lesson.id}-ad-badge'),
                         label: l10n.adWatchToUnlock,
-                        icon: Icons.ondemand_video_rounded,
+                        icon: Icons.lock_rounded,
                         color: AppColors.gold,
+                      )
+                    else if (timeLeft != null)
+                      AppPill(
+                        key: ValueKey('lesson-${lesson.id}-open'),
+                        label: unlockTimeLeftLabel(l10n, timeLeft),
+                        icon: Icons.lock_open_rounded,
+                        color: AppColors.accentSecondary,
+                      )
+                    else if (!gated)
+                      LockBadge(
+                        key: ValueKey('lesson-${lesson.id}-open'),
+                        open: true,
+                        size: 14,
                       ),
                   ],
                 ),
@@ -338,12 +365,14 @@ class _LessonTile extends ConsumerWidget {
           const SizedBox(width: AppSpace.xs),
           Icon(
             locked
-                ? Icons.lock_outline_rounded
+                ? Icons.lock_rounded
                 : (next
                       ? Icons.play_circle_fill_rounded
                       : Icons.chevron_right_rounded),
-            color: next ? AppColors.accent : AppColors.textTertiary,
-            size: next ? 32 : 24,
+            color: locked
+                ? AppColors.gold
+                : (next ? AppColors.accent : AppColors.textTertiary),
+            size: next && !locked ? 32 : 24,
           ),
         ],
       ),

@@ -2023,34 +2023,10 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String get patternsUnlockTitle => 'Buka semua pola';
-
-  @override
-  String patternsUnlockPrompt(int minutes) {
-    return 'Tonton 1 video singkat untuk membuka semua pola selama $minutes menit';
-  }
-
-  @override
   String get patternsWatchVideo => 'Tonton video';
 
   @override
   String get patternsNotNow => 'Nanti saja';
-
-  @override
-  String patternsUnlockedLeft(String time) {
-    return 'Terbuka • sisa $time';
-  }
-
-  @override
-  String get patternsExpiredTitle => 'Waktu pratinjaumu sudah habis';
-
-  @override
-  String patternsExpiredBody(int minutes) {
-    return 'Tonton 1 video agar semua pola tetap terbuka $minutes menit lagi!';
-  }
-
-  @override
-  String get patternsFreeSample => 'Gratis';
 
   @override
   String get settingsColorScheme => 'Skema warna kubus';
@@ -2205,4 +2181,46 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get dailyCongratsDone => 'Kembali ke tantangan';
+
+  @override
+  String patternsSizeChip(String size, int count) {
+    return '$size • $count pola';
+  }
+
+  @override
+  String unlockHoursLeft(int hours) {
+    return 'Sisa $hours jam';
+  }
+
+  @override
+  String unlockMinutesLeft(int minutes) {
+    return 'Sisa $minutes menit';
+  }
+
+  @override
+  String get lockedLabel => 'Terkunci';
+
+  @override
+  String get unlockedLabel => 'Terbuka';
+
+  @override
+  String patternUnlockBody(int hours) {
+    return 'Tonton 1 video singkat untuk membuka pola ini beserta panduan langkah demi langkahnya selama $hours jam.';
+  }
+
+  @override
+  String lessonUnlockBody(int hours) {
+    return 'Tonton 1 video singkat untuk membuka pelajaran ini sesering yang diinginkan selama $hours jam ke depan.';
+  }
+
+  @override
+  String get bigCubeUnlockTitle => 'Selesaikan kubus besar';
+
+  @override
+  String bigCubeUnlockBody(int hours) {
+    return 'Penyelesaian gratis 4×4–6×6 sudah terpakai. Tonton 1 video singkat untuk menyelesaikan kubus besar selama $hours jam ke depan.';
+  }
+
+  @override
+  String get doubleTurnBadge => 'Putaran ganda · 180°';
 }

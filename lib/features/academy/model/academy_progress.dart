@@ -78,3 +78,11 @@ final academyProgressProvider =
 
 /// Index of a lesson in [kLessons], or -1.
 int lessonIndex(String id) => kLessons.indexWhere((l) => l.id == id);
+
+/// Lessons open without an ad: the first beginner lessons, so anyone can
+/// start learning right away.
+const int kFreeLessons = 2;
+
+/// Whether the lesson [id] needs its own 24-hour rewarded unlock (every
+/// lesson after the first [kFreeLessons]).
+bool lessonNeedsUnlock(String id) => lessonIndex(id) >= kFreeLessons;

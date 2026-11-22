@@ -1919,34 +1919,10 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get patternsUnlockTitle => '모든 패턴 잠금 해제';
-
-  @override
-  String patternsUnlockPrompt(int minutes) {
-    return '짧은 동영상 1개를 보면 모든 패턴이 $minutes분 동안 열려요';
-  }
-
-  @override
   String get patternsWatchVideo => '동영상 보기';
 
   @override
   String get patternsNotNow => '나중에';
-
-  @override
-  String patternsUnlockedLeft(String time) {
-    return '잠금 해제 • $time 남음';
-  }
-
-  @override
-  String get patternsExpiredTitle => '미리 보기 시간이 끝났어요';
-
-  @override
-  String patternsExpiredBody(int minutes) {
-    return '동영상 1개를 보면 모든 패턴을 $minutes분 더 열어 둘 수 있어요!';
-  }
-
-  @override
-  String get patternsFreeSample => '무료';
 
   @override
   String get settingsColorScheme => '큐브 색 배열';
@@ -2099,4 +2075,46 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get dailyCongratsDone => '도전으로 돌아가기';
+
+  @override
+  String patternsSizeChip(String size, int count) {
+    return '$size • 패턴 $count개';
+  }
+
+  @override
+  String unlockHoursLeft(int hours) {
+    return '$hours시간 남음';
+  }
+
+  @override
+  String unlockMinutesLeft(int minutes) {
+    return '$minutes분 남음';
+  }
+
+  @override
+  String get lockedLabel => '잠김';
+
+  @override
+  String get unlockedLabel => '열림';
+
+  @override
+  String patternUnlockBody(int hours) {
+    return '짧은 동영상 1개를 보면 이 패턴과 단계별 가이드가 $hours시간 동안 열려요.';
+  }
+
+  @override
+  String lessonUnlockBody(int hours) {
+    return '짧은 동영상 1개를 보면 앞으로 $hours시간 동안 이 강의를 마음껏 열 수 있어요.';
+  }
+
+  @override
+  String get bigCubeUnlockTitle => '큰 큐브 풀기';
+
+  @override
+  String bigCubeUnlockBody(int hours) {
+    return '4×4–6×6 무료 풀이를 이미 사용했어요. 짧은 동영상 1개를 보면 앞으로 $hours시간 동안 큰 큐브를 풀 수 있어요.';
+  }
+
+  @override
+  String get doubleTurnBadge => '두 번 돌리기 · 180°';
 }

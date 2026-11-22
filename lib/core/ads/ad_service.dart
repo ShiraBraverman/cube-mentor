@@ -76,6 +76,10 @@ abstract interface class AdService {
 
   /// Shows a rewarded video, loading one first when none is ready.
   Future<RewardOutcome> showRewarded();
+
+  /// Shows a preloaded interstitial and resolves once it is closed. Never
+  /// waits for a load: resolves to false right away when none is ready.
+  Future<bool> showInterstitial();
 }
 
 /// No ads: desktop builds and tests.
@@ -99,6 +103,9 @@ class NoAdService implements AdService {
 
   @override
   Future<RewardOutcome> showRewarded() async => RewardOutcome.unsupported;
+
+  @override
+  Future<bool> showInterstitial() async => false;
 }
 
 /// The ad network. Defaults to [NoAdService]; `main()` swaps in

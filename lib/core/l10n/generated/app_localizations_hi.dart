@@ -2020,34 +2020,10 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get patternsUnlockTitle => 'सभी पैटर्न अनलॉक करें';
-
-  @override
-  String patternsUnlockPrompt(int minutes) {
-    return 'सभी पैटर्न $minutes मिनट के लिए अनलॉक करने हेतु 1 छोटा वीडियो देखें';
-  }
-
-  @override
   String get patternsWatchVideo => 'वीडियो देखें';
 
   @override
   String get patternsNotNow => 'अभी नहीं';
-
-  @override
-  String patternsUnlockedLeft(String time) {
-    return 'अनलॉक • $time बाकी';
-  }
-
-  @override
-  String get patternsExpiredTitle => 'आपका प्रीव्यू समय खत्म हो गया';
-
-  @override
-  String patternsExpiredBody(int minutes) {
-    return 'सभी पैटर्न अगले $minutes मिनट तक अनलॉक रखने के लिए 1 वीडियो देखें!';
-  }
-
-  @override
-  String get patternsFreeSample => 'मुफ़्त';
 
   @override
   String get settingsColorScheme => 'क्यूब की रंग योजना';
@@ -2204,4 +2180,79 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get dailyCongratsDone => 'चैलेंज पर वापस जाएँ';
+
+  @override
+  String patternsSizeChip(String size, int count) {
+    return '$size • $count पैटर्न';
+  }
+
+  @override
+  String unlockHoursLeft(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other: '$hours घंटे बाकी',
+      one: '1 घंटा बाकी',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String unlockMinutesLeft(int minutes) {
+    String _temp0 = intl.Intl.pluralLogic(
+      minutes,
+      locale: localeName,
+      other: '$minutes मिनट बाकी',
+      one: '1 मिनट बाकी',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get lockedLabel => 'लॉक है';
+
+  @override
+  String get unlockedLabel => 'अनलॉक है';
+
+  @override
+  String patternUnlockBody(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other:
+          'यह पैटर्न और इसकी स्टेप-बाय-स्टेप गाइड $hours घंटे के लिए अनलॉक करने हेतु 1 छोटा वीडियो देखें।',
+      one: 'यह पैटर्न और इसकी स्टेप-बाय-स्टेप गाइड 1 घंटे के लिए अनलॉक करने हेतु 1 छोटा वीडियो देखें।',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String lessonUnlockBody(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other:
+          'यह पाठ अगले $hours घंटों तक जितनी बार चाहें खोलने के लिए 1 छोटा वीडियो देखें।',
+      one: 'यह पाठ अगले 1 घंटे तक जितनी बार चाहें खोलने के लिए 1 छोटा वीडियो देखें।',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get bigCubeUnlockTitle => 'बड़े क्यूब हल करें';
+
+  @override
+  String bigCubeUnlockBody(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other:
+          '4×4–6×6 का आपका मुफ़्त हल इस्तेमाल हो चुका है। अगले $hours घंटों तक बड़े क्यूब हल करने के लिए 1 छोटा वीडियो देखें।',
+      one: '4×4–6×6 का आपका मुफ़्त हल इस्तेमाल हो चुका है। अगले 1 घंटे तक बड़े क्यूब हल करने के लिए 1 छोटा वीडियो देखें।',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get doubleTurnBadge => 'डबल टर्न · 180°';
 }

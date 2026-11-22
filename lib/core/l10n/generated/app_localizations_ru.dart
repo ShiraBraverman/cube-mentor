@@ -2055,58 +2055,10 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get patternsUnlockTitle => 'Открыть все узоры';
-
-  @override
-  String patternsUnlockPrompt(int minutes) {
-    String _temp0 = intl.Intl.pluralLogic(
-      minutes,
-      locale: localeName,
-      other:
-          'Посмотрите 1 короткое видео, чтобы открыть все узоры на $minutes минуты',
-      many:
-          'Посмотрите 1 короткое видео, чтобы открыть все узоры на $minutes минут',
-      few:
-          'Посмотрите 1 короткое видео, чтобы открыть все узоры на $minutes минуты',
-      one:
-          'Посмотрите 1 короткое видео, чтобы открыть все узоры на $minutes минуту',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get patternsWatchVideo => 'Смотреть видео';
 
   @override
   String get patternsNotNow => 'Не сейчас';
-
-  @override
-  String patternsUnlockedLeft(String time) {
-    return 'Открыто • осталось $time';
-  }
-
-  @override
-  String get patternsExpiredTitle => 'Пробный доступ закончился';
-
-  @override
-  String patternsExpiredBody(int minutes) {
-    String _temp0 = intl.Intl.pluralLogic(
-      minutes,
-      locale: localeName,
-      other:
-          'Посмотрите 1 видео, чтобы узоры оставались открытыми ещё $minutes минуты!',
-      many:
-          'Посмотрите 1 видео, чтобы узоры оставались открытыми ещё $minutes минут!',
-      few:
-          'Посмотрите 1 видео, чтобы узоры оставались открытыми ещё $minutes минуты!',
-      one:
-          'Посмотрите 1 видео, чтобы узоры оставались открытыми ещё $minutes минуту!',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get patternsFreeSample => 'Бесплатно';
 
   @override
   String get settingsColorScheme => 'Цветовая схема кубика';
@@ -2265,4 +2217,106 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get dailyCongratsDone => 'Назад к заданию';
+
+  @override
+  String patternsSizeChip(String size, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count узора',
+      many: '$count узоров',
+      few: '$count узора',
+      one: '$count узор',
+    );
+    return '$size • $_temp0';
+  }
+
+  @override
+  String unlockHoursLeft(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other: 'Осталось $hours часа',
+      many: 'Осталось $hours часов',
+      few: 'Осталось $hours часа',
+      one: 'Остался $hours час',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String unlockMinutesLeft(int minutes) {
+    String _temp0 = intl.Intl.pluralLogic(
+      minutes,
+      locale: localeName,
+      other: 'Осталось $minutes минуты',
+      many: 'Осталось $minutes минут',
+      few: 'Осталось $minutes минуты',
+      one: 'Осталась $minutes минута',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get lockedLabel => 'Заблокировано';
+
+  @override
+  String get unlockedLabel => 'Открыто';
+
+  @override
+  String patternUnlockBody(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other:
+          'Посмотрите 1 короткое видео, чтобы открыть этот узор и пошаговую инструкцию на $hours часа.',
+      many:
+          'Посмотрите 1 короткое видео, чтобы открыть этот узор и пошаговую инструкцию на $hours часов.',
+      few:
+          'Посмотрите 1 короткое видео, чтобы открыть этот узор и пошаговую инструкцию на $hours часа.',
+      one:
+          'Посмотрите 1 короткое видео, чтобы открыть этот узор и пошаговую инструкцию на $hours час.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String lessonUnlockBody(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other:
+          'Посмотрите 1 короткое видео, чтобы открывать этот урок сколько угодно раз на $hours часа.',
+      many:
+          'Посмотрите 1 короткое видео, чтобы открывать этот урок сколько угодно раз на $hours часов.',
+      few:
+          'Посмотрите 1 короткое видео, чтобы открывать этот урок сколько угодно раз на $hours часа.',
+      one:
+          'Посмотрите 1 короткое видео, чтобы открывать этот урок сколько угодно раз на $hours час.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get bigCubeUnlockTitle => 'Сборка больших кубиков';
+
+  @override
+  String bigCubeUnlockBody(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other:
+          'Бесплатная сборка 4×4–6×6 уже использована. Посмотрите 1 короткое видео, чтобы собирать большие кубики ещё $hours часа.',
+      many:
+          'Бесплатная сборка 4×4–6×6 уже использована. Посмотрите 1 короткое видео, чтобы собирать большие кубики ещё $hours часов.',
+      few:
+          'Бесплатная сборка 4×4–6×6 уже использована. Посмотрите 1 короткое видео, чтобы собирать большие кубики ещё $hours часа.',
+      one:
+          'Бесплатная сборка 4×4–6×6 уже использована. Посмотрите 1 короткое видео, чтобы собирать большие кубики ещё $hours час.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get doubleTurnBadge => 'Двойной поворот · 180°';
 }

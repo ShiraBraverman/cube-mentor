@@ -2038,34 +2038,10 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get patternsUnlockTitle => 'I-unlock ang lahat ng pattern';
-
-  @override
-  String patternsUnlockPrompt(int minutes) {
-    return 'Manood ng 1 maikling video para ma-unlock ang lahat ng pattern sa loob ng $minutes minuto';
-  }
-
-  @override
   String get patternsWatchVideo => 'Manood ng video';
 
   @override
   String get patternsNotNow => 'Mamaya na';
-
-  @override
-  String patternsUnlockedLeft(String time) {
-    return 'Naka-unlock • $time na lang';
-  }
-
-  @override
-  String get patternsExpiredTitle => 'Tapos na ang preview mo';
-
-  @override
-  String patternsExpiredBody(int minutes) {
-    return 'Manood ng 1 video para manatiling naka-unlock ang lahat ng pattern nang $minutes minuto pa!';
-  }
-
-  @override
-  String get patternsFreeSample => 'Libre';
 
   @override
   String get settingsColorScheme => 'Color scheme ng cube';
@@ -2222,4 +2198,46 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get dailyCongratsDone => 'Bumalik sa hamon';
+
+  @override
+  String patternsSizeChip(String size, int count) {
+    return '$size • $count pattern';
+  }
+
+  @override
+  String unlockHoursLeft(int hours) {
+    return '$hours oras na lang';
+  }
+
+  @override
+  String unlockMinutesLeft(int minutes) {
+    return '$minutes minuto na lang';
+  }
+
+  @override
+  String get lockedLabel => 'Naka-lock';
+
+  @override
+  String get unlockedLabel => 'Naka-unlock';
+
+  @override
+  String patternUnlockBody(int hours) {
+    return 'Manood ng 1 maikling video para ma-unlock ang pattern na ito at ang step-by-step na gabay nito sa loob ng $hours oras.';
+  }
+
+  @override
+  String lessonUnlockBody(int hours) {
+    return 'Manood ng 1 maikling video para mabuksan ang araling ito nang paulit-ulit sa susunod na $hours oras.';
+  }
+
+  @override
+  String get bigCubeUnlockTitle => 'Lutasin ang malalaking cube';
+
+  @override
+  String bigCubeUnlockBody(int hours) {
+    return 'Nagamit mo na ang libreng paglutas mo ng 4×4–6×6. Manood ng 1 maikling video para makalutas ng malalaking cube sa susunod na $hours oras.';
+  }
+
+  @override
+  String get doubleTurnBadge => 'Dobleng ikot · 180°';
 }

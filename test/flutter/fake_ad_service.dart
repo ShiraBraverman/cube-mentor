@@ -36,6 +36,10 @@ class FakeAdService implements AdService {
   int privacyCalls = 0;
   int rewardedShown = 0;
   int bannersLoaded = 0;
+  int interstitialsShown = 0;
+
+  /// Whether an interstitial is ready to show.
+  bool interstitialReady = true;
   final List<FakeBannerSlot> banners = [];
 
   @override
@@ -70,6 +74,13 @@ class FakeAdService implements AdService {
     final pending = pendingReward;
     if (pending != null) return pending.future;
     return outcome;
+  }
+
+  @override
+  Future<bool> showInterstitial() async {
+    if (!interstitialReady) return false;
+    interstitialsShown++;
+    return true;
   }
 }
 

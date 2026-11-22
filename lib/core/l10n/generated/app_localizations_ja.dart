@@ -1915,34 +1915,10 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get patternsUnlockTitle => 'すべての模様を解放';
-
-  @override
-  String patternsUnlockPrompt(int minutes) {
-    return '短い動画を1本見ると、すべての模様が$minutes分間解放されます';
-  }
-
-  @override
   String get patternsWatchVideo => '動画を見る';
 
   @override
   String get patternsNotNow => '今はしない';
-
-  @override
-  String patternsUnlockedLeft(String time) {
-    return '解放中 • 残り $time';
-  }
-
-  @override
-  String get patternsExpiredTitle => 'お試し時間が終了しました';
-
-  @override
-  String patternsExpiredBody(int minutes) {
-    return '動画を1本見ると、さらに$minutes分間すべての模様を使えます！';
-  }
-
-  @override
-  String get patternsFreeSample => '無料';
 
   @override
   String get settingsColorScheme => 'キューブの配色';
@@ -2095,4 +2071,46 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get dailyCongratsDone => 'チャレンジに戻る';
+
+  @override
+  String patternsSizeChip(String size, int count) {
+    return '$size • $count種類';
+  }
+
+  @override
+  String unlockHoursLeft(int hours) {
+    return '残り$hours時間';
+  }
+
+  @override
+  String unlockMinutesLeft(int minutes) {
+    return '残り$minutes分';
+  }
+
+  @override
+  String get lockedLabel => 'ロック中';
+
+  @override
+  String get unlockedLabel => '解放済み';
+
+  @override
+  String patternUnlockBody(int hours) {
+    return '短い動画を1本見ると、この模様とステップごとのガイドが$hours時間解放されます。';
+  }
+
+  @override
+  String lessonUnlockBody(int hours) {
+    return '短い動画を1本見ると、これから$hours時間、このレッスンを何度でも開けます。';
+  }
+
+  @override
+  String get bigCubeUnlockTitle => '大型キューブを解く';
+
+  @override
+  String bigCubeUnlockBody(int hours) {
+    return '4×4–6×6の無料ソルブは使用済みです。短い動画を1本見ると、これから$hours時間、大型キューブを解けます。';
+  }
+
+  @override
+  String get doubleTurnBadge => '2回回す・180°';
 }

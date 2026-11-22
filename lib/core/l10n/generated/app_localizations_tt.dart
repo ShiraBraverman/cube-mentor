@@ -2016,34 +2016,10 @@ class AppLocalizationsTt extends AppLocalizations {
   }
 
   @override
-  String get patternsUnlockTitle => 'Бөтен үрнәкләрне ачу';
-
-  @override
-  String patternsUnlockPrompt(int minutes) {
-    return 'Бөтен үрнәкләрне $minutes минутка ачу өчен 1 кыска видео карагыз';
-  }
-
-  @override
   String get patternsWatchVideo => 'Видео карау';
 
   @override
   String get patternsNotNow => 'Хәзер түгел';
-
-  @override
-  String patternsUnlockedLeft(String time) {
-    return 'Ачык • $time калды';
-  }
-
-  @override
-  String get patternsExpiredTitle => 'Сынау вакыты тәмам';
-
-  @override
-  String patternsExpiredBody(int minutes) {
-    return 'Бөтен үрнәкләр тагын $minutes минут ачык калсын өчен 1 видео карагыз!';
-  }
-
-  @override
-  String get patternsFreeSample => 'Бушлай';
 
   @override
   String get settingsColorScheme => 'Кубик төсләре схемасы';
@@ -2198,4 +2174,46 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get dailyCongratsDone => 'Бурычка кайту';
+
+  @override
+  String patternsSizeChip(String size, int count) {
+    return '$size • $count үрнәк';
+  }
+
+  @override
+  String unlockHoursLeft(int hours) {
+    return '$hours сәгать калды';
+  }
+
+  @override
+  String unlockMinutesLeft(int minutes) {
+    return '$minutes минут калды';
+  }
+
+  @override
+  String get lockedLabel => 'Йозакланган';
+
+  @override
+  String get unlockedLabel => 'Ачык';
+
+  @override
+  String patternUnlockBody(int hours) {
+    return 'Бу үрнәкне һәм аның адымлап күрсәтмәсен $hours сәгатькә ачу өчен 1 кыска видео карагыз.';
+  }
+
+  @override
+  String lessonUnlockBody(int hours) {
+    return 'Бу дәресне киләсе $hours сәгать эчендә теләсә ничә тапкыр ачу өчен 1 кыска видео карагыз.';
+  }
+
+  @override
+  String get bigCubeUnlockTitle => 'Зур кубларны җыю';
+
+  @override
+  String bigCubeUnlockBody(int hours) {
+    return '4×4–6×6 өчен бушлай җыю кулланылды. Киләсе $hours сәгать эчендә зур кубларны җыю өчен 1 кыска видео карагыз.';
+  }
+
+  @override
+  String get doubleTurnBadge => 'Ике тапкыр бору · 180°';
 }

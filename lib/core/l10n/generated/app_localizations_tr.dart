@@ -2024,49 +2024,10 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get patternsUnlockTitle => 'Tüm desenlerin kilidini aç';
-
-  @override
-  String patternsUnlockPrompt(int minutes) {
-    String _temp0 = intl.Intl.pluralLogic(
-      minutes,
-      locale: localeName,
-      other:
-          'Tüm desenlerin kilidini $minutes dakikalığına açmak için 1 kısa video izle',
-      one:
-          'Tüm desenlerin kilidini 1 dakikalığına açmak için 1 kısa video izle',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get patternsWatchVideo => 'Video İzle';
 
   @override
   String get patternsNotNow => 'Şimdi Değil';
-
-  @override
-  String patternsUnlockedLeft(String time) {
-    return 'Kilit açık • $time kaldı';
-  }
-
-  @override
-  String get patternsExpiredTitle => 'Önizlemen sona erdi';
-
-  @override
-  String patternsExpiredBody(int minutes) {
-    String _temp0 = intl.Intl.pluralLogic(
-      minutes,
-      locale: localeName,
-      other:
-          'Tüm desenleri $minutes dakika daha açık tutmak için 1 video izle!',
-      one: 'Tüm desenleri 1 dakika daha açık tutmak için 1 video izle!',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get patternsFreeSample => 'Ücretsiz';
 
   @override
   String get settingsColorScheme => 'Küp renk düzeni';
@@ -2222,4 +2183,46 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get dailyCongratsDone => 'Meydan okumaya dön';
+
+  @override
+  String patternsSizeChip(String size, int count) {
+    return '$size • $count desen';
+  }
+
+  @override
+  String unlockHoursLeft(int hours) {
+    return '$hours saat kaldı';
+  }
+
+  @override
+  String unlockMinutesLeft(int minutes) {
+    return '$minutes dakika kaldı';
+  }
+
+  @override
+  String get lockedLabel => 'Kilitli';
+
+  @override
+  String get unlockedLabel => 'Kilidi açık';
+
+  @override
+  String patternUnlockBody(int hours) {
+    return 'Bu desenin ve adım adım rehberinin kilidini $hours saatliğine açmak için 1 kısa video izle.';
+  }
+
+  @override
+  String lessonUnlockBody(int hours) {
+    return 'Bu dersi önümüzdeki $hours saat boyunca istediğin kadar açmak için 1 kısa video izle.';
+  }
+
+  @override
+  String get bigCubeUnlockTitle => 'Büyük küpleri çöz';
+
+  @override
+  String bigCubeUnlockBody(int hours) {
+    return 'Ücretsiz 4×4–6×6 çözüm hakkını kullandın. Önümüzdeki $hours saat boyunca büyük küpleri çözmek için 1 kısa video izle.';
+  }
+
+  @override
+  String get doubleTurnBadge => 'Çift çevirme · 180°';
 }

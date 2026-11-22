@@ -1037,19 +1037,6 @@
       }
     }
   },
-  "patternsUnlockTitle": "Unlock all patterns",
-  "@patternsUnlockTitle": {
-    "description": "Title of the sheet offering a rewarded video to unlock the 4x4-6x6 patterns."
-  },
-  "patternsUnlockPrompt": "{minutes, plural, =1{Watch 1 short video to unlock all patterns for 1 minute} other{Watch 1 short video to unlock all patterns for {minutes} minutes}}",
-  "@patternsUnlockPrompt": {
-    "description": "Pattern Library banner and sheet text: one rewarded video unlocks every pattern for a while.",
-    "placeholders": {
-      "minutes": {
-        "type": "int"
-      }
-    }
-  },
   "patternsWatchVideo": "Watch Video",
   "@patternsWatchVideo": {
     "description": "Button that plays a rewarded video to unlock the patterns."
@@ -1057,33 +1044,6 @@
   "patternsNotNow": "Not Now",
   "@patternsNotNow": {
     "description": "Button that closes the pattern unlock sheet."
-  },
-  "patternsUnlockedLeft": "Unlocked • {time} left",
-  "@patternsUnlockedLeft": {
-    "description": "Countdown pill at the top of the Pattern Library while the timed unlock runs; time is m:ss.",
-    "placeholders": {
-      "time": {
-        "type": "String",
-        "example": "19:42"
-      }
-    }
-  },
-  "patternsExpiredTitle": "Your preview has ended",
-  "@patternsExpiredTitle": {
-    "description": "Title of the sheet shown when the timed pattern unlock runs out."
-  },
-  "patternsExpiredBody": "{minutes, plural, =1{Watch 1 video to keep all patterns unlocked for another minute!} other{Watch 1 video to keep all patterns unlocked for another {minutes} minutes!}}",
-  "@patternsExpiredBody": {
-    "description": "Text of the sheet shown when the timed pattern unlock runs out.",
-    "placeholders": {
-      "minutes": {
-        "type": "int"
-      }
-    }
-  },
-  "patternsFreeSample": "Free",
-  "@patternsFreeSample": {
-    "description": "Badge on the free sample pattern of a locked 4x4-6x6 page."
   },
   "settingsColorScheme": "Cube color scheme",
   "@settingsColorScheme": {
@@ -1318,5 +1278,79 @@
   "dailyCongratsDone": "Back to the challenge",
   "@dailyCongratsDone": {
     "description": "Dialog button: back to the daily challenge page."
+  },
+  "patternsSizeChip": "{size} • {count, plural, =1{1 pattern} other{{count} patterns}}",
+  "@patternsSizeChip": {
+    "description": "Pattern Library size chip: the cube size and how many patterns it has.",
+    "placeholders": {
+      "size": {
+        "type": "String",
+        "example": "3×3"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "unlockHoursLeft": "{hours, plural, =1{1 hour left} other{{hours} hours left}}",
+  "@unlockHoursLeft": {
+    "description": "Time left on a 24-hour rewarded unlock (a pattern or a lesson), in whole hours rounded up.",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "unlockMinutesLeft": "{minutes, plural, =1{1 minute left} other{{minutes} minutes left}}",
+  "@unlockMinutesLeft": {
+    "description": "Time left on a rewarded unlock during its last hour, in whole minutes rounded up.",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "lockedLabel": "Locked",
+  "@lockedLabel": {
+    "description": "Screen-reader label of the closed padlock on content that needs a rewarded video."
+  },
+  "unlockedLabel": "Unlocked",
+  "@unlockedLabel": {
+    "description": "Screen-reader label of the green open padlock on open content."
+  },
+  "patternUnlockBody": "{hours, plural, =1{Watch 1 short video to unlock this pattern and its step-by-step guide for 1 hour.} other{Watch 1 short video to unlock this pattern and its step-by-step guide for {hours} hours.}}",
+  "@patternUnlockBody": {
+    "description": "Sheet text under a locked pattern preview: one rewarded video unlocks this one pattern.",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "lessonUnlockBody": "{hours, plural, =1{Watch 1 short video to open this lesson as often as you like for the next hour.} other{Watch 1 short video to open this lesson as often as you like for the next {hours} hours.}}",
+  "@lessonUnlockBody": {
+    "description": "Sheet text before a locked Academy lesson: one rewarded video unlocks this one lesson.",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "bigCubeUnlockTitle": "Solve big cubes",
+  "@bigCubeUnlockTitle": {
+    "description": "Title of the sheet offering a rewarded video to unlock 4x4-6x6 solving."
+  },
+  "bigCubeUnlockBody": "{hours, plural, =1{Your free 4×4–6×6 solve is used. Watch 1 short video to solve big cubes for the next hour.} other{Your free 4×4–6×6 solve is used. Watch 1 short video to solve big cubes for the next {hours} hours.}}",
+  "@bigCubeUnlockBody": {
+    "description": "Sheet text once the free 4x4-6x6 solve is used: one rewarded video unlocks big-cube solving.",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "doubleTurnBadge": "Double turn · 180°",
+  "@doubleTurnBadge": {
+    "description": "Bold pill above the 3D cube when the current guided move is a 180° (double) turn."
   }
 }

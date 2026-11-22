@@ -2020,44 +2020,10 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get patternsUnlockTitle => 'Mở khóa mọi hoa văn';
-
-  @override
-  String patternsUnlockPrompt(int minutes) {
-    String _temp0 = intl.Intl.pluralLogic(
-      minutes,
-      locale: localeName,
-      other: 'Xem 1 video ngắn để mở khóa mọi hoa văn trong $minutes phút',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get patternsWatchVideo => 'Xem video';
 
   @override
   String get patternsNotNow => 'Để sau';
-
-  @override
-  String patternsUnlockedLeft(String time) {
-    return 'Đã mở khóa • còn $time';
-  }
-
-  @override
-  String get patternsExpiredTitle => 'Thời gian xem thử đã hết';
-
-  @override
-  String patternsExpiredBody(int minutes) {
-    String _temp0 = intl.Intl.pluralLogic(
-      minutes,
-      locale: localeName,
-      other: 'Xem 1 video để tiếp tục mở khóa mọi hoa văn thêm $minutes phút!',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get patternsFreeSample => 'Miễn phí';
 
   @override
   String get settingsColorScheme => 'Bảng màu khối Rubik';
@@ -2212,4 +2178,46 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get dailyCongratsDone => 'Quay lại thử thách';
+
+  @override
+  String patternsSizeChip(String size, int count) {
+    return '$size • $count hoa văn';
+  }
+
+  @override
+  String unlockHoursLeft(int hours) {
+    return 'Còn $hours giờ';
+  }
+
+  @override
+  String unlockMinutesLeft(int minutes) {
+    return 'Còn $minutes phút';
+  }
+
+  @override
+  String get lockedLabel => 'Đã khóa';
+
+  @override
+  String get unlockedLabel => 'Đã mở khóa';
+
+  @override
+  String patternUnlockBody(int hours) {
+    return 'Xem 1 video ngắn để mở khóa hoa văn này và hướng dẫn từng bước trong $hours giờ.';
+  }
+
+  @override
+  String lessonUnlockBody(int hours) {
+    return 'Xem 1 video ngắn để mở bài học này bao nhiêu lần tùy thích trong $hours giờ tới.';
+  }
+
+  @override
+  String get bigCubeUnlockTitle => 'Giải khối lớn';
+
+  @override
+  String bigCubeUnlockBody(int hours) {
+    return 'Bạn đã dùng lượt giải miễn phí cho 4×4–6×6. Xem 1 video ngắn để giải khối lớn trong $hours giờ tới.';
+  }
+
+  @override
+  String get doubleTurnBadge => 'Xoay hai lần · 180°';
 }

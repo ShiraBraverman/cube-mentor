@@ -25,11 +25,11 @@ class CubePattern {
       CubeState.solved(size).applyAll(movesFor(size));
 }
 
-/// Patterns of each size page that are always free (the first one, the
+/// Patterns of each size page that are always open (the first one, the
 /// most striking), so every size can be tried right away.
 const int kFreePatterns = 1;
 
-/// Whether the pattern at [index] of the [size] page needs the timed
+/// Whether the pattern at [index] of the [size] page needs its own 24-hour
 /// rewarded unlock (every size, the 2x2 and 3x3 included).
 bool patternNeedsUnlock(int size, int index) => index >= kFreePatterns;
 
@@ -44,8 +44,7 @@ const String _dotsWide = "Uw Dw' Rw Lw' Fw Bw' Uw Dw'";
 const String _cross = "R2 L' D F2 R' D' R' L U' D R D B2 R' U D2";
 const String _cubeInCubeInCube =
     "U' L' U' F' R2 B' R F U B2 U B' L U' F U R F'";
-const String _kilt =
-    "U' R2 L2 F2 B2 U' R L F B' U F2 D2 R2 L2 F2 U2 F2 U' F2";
+const String _kilt = "U' R2 L2 F2 B2 U' R L F B' U F2 D2 R2 L2 F2 U2 F2 U' F2";
 const String _twinPeaks = "F2 R2 D R2 U D F2 D' R' D' F L2 F' D R U'";
 const String _spiral = "L' B' D U R U' R' D2 R2 D L D' L' R' F U";
 const String _tetris = "L R F B U' D' L' R'";
@@ -111,7 +110,7 @@ final List<CubePattern> kPatterns = [
 ];
 
 /// Pattern order of each size page: the most visually striking first (the
-/// first one is the free sample).
+/// first one is open without an ad).
 const Map<int, List<String>> kPatternOrder = {
   2: ['cubeInCube', 'stripes'],
   3: [

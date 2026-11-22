@@ -1893,34 +1893,10 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get patternsUnlockTitle => '解锁全部图案';
-
-  @override
-  String patternsUnlockPrompt(int minutes) {
-    return '观看 1 个短视频，即可解锁全部图案 $minutes 分钟';
-  }
-
-  @override
   String get patternsWatchVideo => '观看视频';
 
   @override
   String get patternsNotNow => '以后再说';
-
-  @override
-  String patternsUnlockedLeft(String time) {
-    return '已解锁 • 剩余 $time';
-  }
-
-  @override
-  String get patternsExpiredTitle => '试用时间已结束';
-
-  @override
-  String patternsExpiredBody(int minutes) {
-    return '观看 1 个视频，全部图案再解锁 $minutes 分钟！';
-  }
-
-  @override
-  String get patternsFreeSample => '免费';
 
   @override
   String get settingsColorScheme => '魔方配色';
@@ -2073,6 +2049,48 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get dailyCongratsDone => '返回挑战';
+
+  @override
+  String patternsSizeChip(String size, int count) {
+    return '$size • $count 个图案';
+  }
+
+  @override
+  String unlockHoursLeft(int hours) {
+    return '剩余 $hours 小时';
+  }
+
+  @override
+  String unlockMinutesLeft(int minutes) {
+    return '剩余 $minutes 分钟';
+  }
+
+  @override
+  String get lockedLabel => '已锁定';
+
+  @override
+  String get unlockedLabel => '已解锁';
+
+  @override
+  String patternUnlockBody(int hours) {
+    return '观看 1 个短视频，即可解锁此图案及其分步指南 $hours 小时。';
+  }
+
+  @override
+  String lessonUnlockBody(int hours) {
+    return '观看 1 个短视频，即可在接下来的 $hours 小时内随时打开本课。';
+  }
+
+  @override
+  String get bigCubeUnlockTitle => '还原高阶魔方';
+
+  @override
+  String bigCubeUnlockBody(int hours) {
+    return '你已用完 4×4–6×6 的免费还原次数。观看 1 个短视频，即可在接下来的 $hours 小时内还原高阶魔方。';
+  }
+
+  @override
+  String get doubleTurnBadge => '转两次 · 180°';
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -3979,44 +3997,10 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   }
 
   @override
-  String get patternsUnlockTitle => '解鎖所有花式';
-
-  @override
-  String patternsUnlockPrompt(int minutes) {
-    String _temp0 = intl.Intl.pluralLogic(
-      minutes,
-      locale: localeName,
-      other: '觀看 1 支短片，即可解鎖所有花式 $minutes 分鐘',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get patternsWatchVideo => '觀看影片';
 
   @override
   String get patternsNotNow => '稍後再說';
-
-  @override
-  String patternsUnlockedLeft(String time) {
-    return '已解鎖 • 剩餘 $time';
-  }
-
-  @override
-  String get patternsExpiredTitle => '預覽時間已結束';
-
-  @override
-  String patternsExpiredBody(int minutes) {
-    String _temp0 = intl.Intl.pluralLogic(
-      minutes,
-      locale: localeName,
-      other: '觀看 1 支影片，所有花式再解鎖 $minutes 分鐘！',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get patternsFreeSample => '免費';
 
   @override
   String get settingsColorScheme => '魔術方塊配色';
@@ -4169,4 +4153,46 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get dailyCongratsDone => '返回挑戰';
+
+  @override
+  String patternsSizeChip(String size, int count) {
+    return '$size • $count 個花式';
+  }
+
+  @override
+  String unlockHoursLeft(int hours) {
+    return '剩餘 $hours 小時';
+  }
+
+  @override
+  String unlockMinutesLeft(int minutes) {
+    return '剩餘 $minutes 分鐘';
+  }
+
+  @override
+  String get lockedLabel => '已鎖定';
+
+  @override
+  String get unlockedLabel => '已解鎖';
+
+  @override
+  String patternUnlockBody(int hours) {
+    return '觀看 1 支短片，即可解鎖此花式及其逐步教學 $hours 小時。';
+  }
+
+  @override
+  String lessonUnlockBody(int hours) {
+    return '觀看 1 支短片，即可在接下來的 $hours 小時內隨時開啟本課。';
+  }
+
+  @override
+  String get bigCubeUnlockTitle => '解開高階方塊';
+
+  @override
+  String bigCubeUnlockBody(int hours) {
+    return '你已用完 4×4–6×6 的免費解法次數。觀看 1 支短片，即可在接下來的 $hours 小時內解開高階方塊。';
+  }
+
+  @override
+  String get doubleTurnBadge => '轉兩次 · 180°';
 }

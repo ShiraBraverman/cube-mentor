@@ -3550,18 +3550,6 @@ abstract class AppLocalizations {
   /// **'{limit, plural, =1{Any scramble can be solved in 1 move or fewer} other{Any scramble can be solved in {limit} moves or fewer}}'**
   String fastSolveRatioTooltip(int limit);
 
-  /// Title of the sheet offering a rewarded video to unlock the 4x4-6x6 patterns.
-  ///
-  /// In en, this message translates to:
-  /// **'Unlock all patterns'**
-  String get patternsUnlockTitle;
-
-  /// Pattern Library banner and sheet text: one rewarded video unlocks every pattern for a while.
-  ///
-  /// In en, this message translates to:
-  /// **'{minutes, plural, =1{Watch 1 short video to unlock all patterns for 1 minute} other{Watch 1 short video to unlock all patterns for {minutes} minutes}}'**
-  String patternsUnlockPrompt(int minutes);
-
   /// Button that plays a rewarded video to unlock the patterns.
   ///
   /// In en, this message translates to:
@@ -3573,30 +3561,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Not Now'**
   String get patternsNotNow;
-
-  /// Countdown pill at the top of the Pattern Library while the timed unlock runs; time is m:ss.
-  ///
-  /// In en, this message translates to:
-  /// **'Unlocked • {time} left'**
-  String patternsUnlockedLeft(String time);
-
-  /// Title of the sheet shown when the timed pattern unlock runs out.
-  ///
-  /// In en, this message translates to:
-  /// **'Your preview has ended'**
-  String get patternsExpiredTitle;
-
-  /// Text of the sheet shown when the timed pattern unlock runs out.
-  ///
-  /// In en, this message translates to:
-  /// **'{minutes, plural, =1{Watch 1 video to keep all patterns unlocked for another minute!} other{Watch 1 video to keep all patterns unlocked for another {minutes} minutes!}}'**
-  String patternsExpiredBody(int minutes);
-
-  /// Badge on the free sample pattern of a locked 4x4-6x6 page.
-  ///
-  /// In en, this message translates to:
-  /// **'Free'**
-  String get patternsFreeSample;
 
   /// Settings row title: which colors sit opposite each other on the user's physical cube.
   ///
@@ -3855,6 +3819,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Back to the challenge'**
   String get dailyCongratsDone;
+
+  /// Pattern Library size chip: the cube size and how many patterns it has.
+  ///
+  /// In en, this message translates to:
+  /// **'{size} • {count, plural, =1{1 pattern} other{{count} patterns}}'**
+  String patternsSizeChip(String size, int count);
+
+  /// Time left on a 24-hour rewarded unlock (a pattern or a lesson), in whole hours rounded up.
+  ///
+  /// In en, this message translates to:
+  /// **'{hours, plural, =1{1 hour left} other{{hours} hours left}}'**
+  String unlockHoursLeft(int hours);
+
+  /// Time left on a rewarded unlock during its last hour, in whole minutes rounded up.
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes, plural, =1{1 minute left} other{{minutes} minutes left}}'**
+  String unlockMinutesLeft(int minutes);
+
+  /// Screen-reader label of the closed padlock on content that needs a rewarded video.
+  ///
+  /// In en, this message translates to:
+  /// **'Locked'**
+  String get lockedLabel;
+
+  /// Screen-reader label of the green open padlock on open content.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocked'**
+  String get unlockedLabel;
+
+  /// Sheet text under a locked pattern preview: one rewarded video unlocks this one pattern.
+  ///
+  /// In en, this message translates to:
+  /// **'{hours, plural, =1{Watch 1 short video to unlock this pattern and its step-by-step guide for 1 hour.} other{Watch 1 short video to unlock this pattern and its step-by-step guide for {hours} hours.}}'**
+  String patternUnlockBody(int hours);
+
+  /// Sheet text before a locked Academy lesson: one rewarded video unlocks this one lesson.
+  ///
+  /// In en, this message translates to:
+  /// **'{hours, plural, =1{Watch 1 short video to open this lesson as often as you like for the next hour.} other{Watch 1 short video to open this lesson as often as you like for the next {hours} hours.}}'**
+  String lessonUnlockBody(int hours);
+
+  /// Title of the sheet offering a rewarded video to unlock 4x4-6x6 solving.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve big cubes'**
+  String get bigCubeUnlockTitle;
+
+  /// Sheet text once the free 4x4-6x6 solve is used: one rewarded video unlocks big-cube solving.
+  ///
+  /// In en, this message translates to:
+  /// **'{hours, plural, =1{Your free 4×4–6×6 solve is used. Watch 1 short video to solve big cubes for the next hour.} other{Your free 4×4–6×6 solve is used. Watch 1 short video to solve big cubes for the next {hours} hours.}}'**
+  String bigCubeUnlockBody(int hours);
+
+  /// Bold pill above the 3D cube when the current guided move is a 180° (double) turn.
+  ///
+  /// In en, this message translates to:
+  /// **'Double turn · 180°'**
+  String get doubleTurnBadge;
 }
 
 class _AppLocalizationsDelegate

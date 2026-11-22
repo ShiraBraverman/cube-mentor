@@ -2055,56 +2055,10 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get patternsUnlockTitle => 'Odblokuj wszystkie wzory';
-
-  @override
-  String patternsUnlockPrompt(int minutes) {
-    String _temp0 = intl.Intl.pluralLogic(
-      minutes,
-      locale: localeName,
-      other:
-          'Obejrzyj 1 krótki film, aby odblokować wszystkie wzory na $minutes minuty',
-      many:
-          'Obejrzyj 1 krótki film, aby odblokować wszystkie wzory na $minutes minut',
-      few:
-          'Obejrzyj 1 krótki film, aby odblokować wszystkie wzory na $minutes minuty',
-      one: 'Obejrzyj 1 krótki film, aby odblokować wszystkie wzory na 1 minutę',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get patternsWatchVideo => 'Obejrzyj film';
 
   @override
   String get patternsNotNow => 'Nie teraz';
-
-  @override
-  String patternsUnlockedLeft(String time) {
-    return 'Odblokowane • zostało $time';
-  }
-
-  @override
-  String get patternsExpiredTitle => 'Podgląd się zakończył';
-
-  @override
-  String patternsExpiredBody(int minutes) {
-    String _temp0 = intl.Intl.pluralLogic(
-      minutes,
-      locale: localeName,
-      other:
-          'Obejrzyj 1 film, aby wzory pozostały odblokowane przez kolejne $minutes minuty!',
-      many:
-          'Obejrzyj 1 film, aby wzory pozostały odblokowane przez kolejne $minutes minut!',
-      few:
-          'Obejrzyj 1 film, aby wzory pozostały odblokowane przez kolejne $minutes minuty!',
-      one: 'Obejrzyj 1 film, aby wzory pozostały odblokowane przez kolejną minutę!',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get patternsFreeSample => 'Za darmo';
 
   @override
   String get settingsColorScheme => 'Schemat kolorów kostki';
@@ -2263,4 +2217,103 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get dailyCongratsDone => 'Wróć do wyzwania';
+
+  @override
+  String patternsSizeChip(String size, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count wzoru',
+      many: '$count wzorów',
+      few: '$count wzory',
+      one: '1 wzór',
+    );
+    return '$size • $_temp0';
+  }
+
+  @override
+  String unlockHoursLeft(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other: 'Zostało $hours godziny',
+      many: 'Zostało $hours godzin',
+      few: 'Zostały $hours godziny',
+      one: 'Została 1 godzina',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String unlockMinutesLeft(int minutes) {
+    String _temp0 = intl.Intl.pluralLogic(
+      minutes,
+      locale: localeName,
+      other: 'Zostało $minutes minuty',
+      many: 'Zostało $minutes minut',
+      few: 'Zostały $minutes minuty',
+      one: 'Została 1 minuta',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get lockedLabel => 'Zablokowane';
+
+  @override
+  String get unlockedLabel => 'Odblokowane';
+
+  @override
+  String patternUnlockBody(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other:
+          'Obejrzyj 1 krótki film, aby odblokować ten wzór i jego instrukcję krok po kroku na $hours godziny.',
+      many:
+          'Obejrzyj 1 krótki film, aby odblokować ten wzór i jego instrukcję krok po kroku na $hours godzin.',
+      few:
+          'Obejrzyj 1 krótki film, aby odblokować ten wzór i jego instrukcję krok po kroku na $hours godziny.',
+      one: 'Obejrzyj 1 krótki film, aby odblokować ten wzór i jego instrukcję krok po kroku na 1 godzinę.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String lessonUnlockBody(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other:
+          'Obejrzyj 1 krótki film, aby przez następne $hours godziny otwierać tę lekcję, ile razy chcesz.',
+      many:
+          'Obejrzyj 1 krótki film, aby przez następne $hours godzin otwierać tę lekcję, ile razy chcesz.',
+      few:
+          'Obejrzyj 1 krótki film, aby przez następne $hours godziny otwierać tę lekcję, ile razy chcesz.',
+      one: 'Obejrzyj 1 krótki film, aby przez następną godzinę otwierać tę lekcję, ile razy chcesz.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get bigCubeUnlockTitle => 'Układanie dużych kostek';
+
+  @override
+  String bigCubeUnlockBody(int hours) {
+    String _temp0 = intl.Intl.pluralLogic(
+      hours,
+      locale: localeName,
+      other:
+          'Darmowe ułożenie kostki 4×4–6×6 zostało już wykorzystane. Obejrzyj 1 krótki film, aby układać duże kostki przez następne $hours godziny.',
+      many:
+          'Darmowe ułożenie kostki 4×4–6×6 zostało już wykorzystane. Obejrzyj 1 krótki film, aby układać duże kostki przez następne $hours godzin.',
+      few:
+          'Darmowe ułożenie kostki 4×4–6×6 zostało już wykorzystane. Obejrzyj 1 krótki film, aby układać duże kostki przez następne $hours godziny.',
+      one: 'Darmowe ułożenie kostki 4×4–6×6 zostało już wykorzystane. Obejrzyj 1 krótki film, aby układać duże kostki przez następną godzinę.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get doubleTurnBadge => 'Podwójny obrót · 180°';
 }
