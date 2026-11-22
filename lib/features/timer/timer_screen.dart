@@ -42,7 +42,11 @@ class TimerScreen extends ConsumerStatefulWidget {
 class _TimerScreenState extends ConsumerState<TimerScreen>
     with SingleTickerProviderStateMixin {
   late int _size = widget.size;
-  late final Ticker _ticker = createTicker((_) => setState(() {}));
+  late final Ticker _ticker = createTicker((_) {
+    // Runs out the 15-second inspection (then the clock starts with +2).
+    ref.read(timerProvider(_size).notifier).tick(_now());
+    setState(() {});
+  });
 
   int _now() => ref.read(clockProvider)().millisecondsSinceEpoch;
 
@@ -134,11 +138,8 @@ class _TimerScreenState extends ConsumerState<TimerScreen>
                     key: const ValueKey('timer-inspection'),
                     tooltip: l10n.timerInspectionToggle,
                     isSelected: state.inspection,
-                    icon: const Icon(Icons.hourglass_empty_rounded),
-                    selectedIcon: const Icon(
-                      Icons.hourglass_bottom_rounded,
-                      color: AppColors.accentSecondary,
-                    ),
+                    icon: const InspectionBadge(active: false),
+                    selectedIcon: const InspectionBadge(active: true),
                     onPressed: notifier.toggleInspection,
                   ),
                   IconButton(
@@ -308,30 +309,47 @@ class _TimeDisplay extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     String time;
     String hint;
+    String? note;
     var color = AppColors.textPrimary;
+    const seconds = kInspectionMillis ~/ 1000;
+    final secondsLeft =
+        ((kInspectionMillis - (now - state.inspectionStartedAt)) / 1000)
+            .ceil()
+            .clamp(0, seconds);
+    final plus2 =
+        state.phase == TimerPhase.running &&
+        state.inspectionPenalty(state.startedAt) == Penalty.plus2;
     switch (state.phase) {
       case TimerPhase.running:
         time = formatTime(now - state.startedAt);
         hint = '';
+        if (plus2) note = l10n.timerInspectPlus2(seconds);
       case TimerPhase.inspecting:
-        time = _countdown(now - state.inspectionStartedAt);
+        time = '$secondsLeft';
         color = AppColors.accentWarm;
-        hint = l10n.timerInspecting;
+        hint = l10n.timerInspectTapReady;
+      case TimerPhase.holding when state.holdFromInspection:
+        time = _countdown(now - state.inspectionStartedAt);
+        color = AppColors.accentSecondary;
+        hint = l10n.timerReleaseToStart;
+      case TimerPhase.holding when state.inspection:
+        // Lifting the finger starts the countdown.
+        time = '$seconds';
+        color = AppColors.accentWarm;
+        hint = l10n.timerInspectIntro(seconds);
       case TimerPhase.holding:
-        time = state.holdFromInspection
-            ? _countdown(now - state.inspectionStartedAt)
-            : formatTime(0);
+        time = formatTime(0);
         color = ready ? AppColors.accentSecondary : AppColors.danger;
         hint = ready ? l10n.timerReleaseToStart : l10n.timerHoldToStart;
       case TimerPhase.idle:
         final last = state.last;
         time = last == null ? formatTime(0) : formatSolve(last);
         hint = state.inspection
-            ? l10n.timerTapToInspect
+            ? l10n.timerInspectIntro(seconds)
             : l10n.timerHoldToStart;
     }
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+    final column = Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         if (state.phase == TimerPhase.idle && state.newBest)
           AppPill(
@@ -339,6 +357,14 @@ class _TimeDisplay extends StatelessWidget {
             label: l10n.timerNewPb,
             color: AppColors.gold,
             icon: Icons.emoji_events_rounded,
+          ),
+        // The inspection ran out: the clock started on its own with +2.
+        if (plus2)
+          AppPill(
+            key: const ValueKey('timer-inspection-plus2'),
+            label: l10n.timerPlus2,
+            color: AppColors.accentWarm,
+            icon: Icons.timer_outlined,
           ),
         const SizedBox(height: AppSpace.xs),
         FittedBox(
@@ -367,12 +393,33 @@ class _TimeDisplay extends StatelessWidget {
           ),
         ),
         const SizedBox(height: AppSpace.sm),
-        Text(
-          hint,
-          textAlign: TextAlign.center,
-          style: textTheme.bodyLarge?.copyWith(color: AppColors.textSecondary),
-        ),
+        if (hint.isNotEmpty)
+          Text(
+            hint,
+            key: const ValueKey('timer-hint'),
+            textAlign: TextAlign.center,
+            style: textTheme.bodyLarge?.copyWith(
+              color: AppColors.textSecondary,
+            ),
+          ),
+        if (note != null)
+          Text(
+            note,
+            key: const ValueKey('timer-plus2-note'),
+            textAlign: TextAlign.center,
+            style: textTheme.bodyMedium?.copyWith(color: AppColors.accentWarm),
+          ),
       ],
+    );
+    // On short screens (long hints, small phones) the whole block shrinks
+    // to fit the pad instead of overflowing.
+    return LayoutBuilder(
+      builder: (context, constraints) => Center(
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: SizedBox(width: constraints.maxWidth, child: column),
+        ),
+      ),
     );
   }
 
@@ -392,48 +439,103 @@ class _StatsRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final best = bestSingle(history);
-    Widget stat(String key, String label, String value) => Expanded(
-      child: Column(
-        children: [
-          FittedBox(
-            child: Text(
-              label,
-              maxLines: 1,
-              style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                color: key == 'pb' ? AppColors.gold : AppColors.textSecondary,
-              ),
-            ),
-          ),
-          const SizedBox(height: AppSpace.xxs),
-          FittedBox(
-            child: Text(
-              value,
-              key: ValueKey('timer-stat-$key'),
-              textDirection: TextDirection.ltr,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w800,
-                fontFeatures: [FontFeature.tabularFigures()],
-              ),
-            ),
-          ),
-        ],
-      ),
+    final textTheme = Theme.of(context).textTheme;
+    final tiny = textTheme.labelSmall?.copyWith(
+      fontSize: 10,
+      height: 1.2,
+      color: AppColors.textTertiary,
     );
+    Widget stat(String key, String label, String value, String? sub) =>
+        Expanded(
+          child: Column(
+            children: [
+              FittedBox(
+                child: Text(
+                  label,
+                  maxLines: 1,
+                  style: textTheme.labelSmall?.copyWith(
+                    color: key == 'pb'
+                        ? AppColors.gold
+                        : AppColors.textSecondary,
+                  ),
+                ),
+              ),
+              const SizedBox(height: AppSpace.xxs),
+              FittedBox(
+                child: Text(
+                  value,
+                  key: ValueKey('timer-stat-$key'),
+                  textDirection: TextDirection.ltr,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w800,
+                    fontFeatures: [FontFeature.tabularFigures()],
+                  ),
+                ),
+              ),
+              // What the stat means, in tiny muted words.
+              if (sub != null)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 2),
+                  child: Text(
+                    sub,
+                    key: ValueKey('timer-stat-$key-sub'),
+                    maxLines: 2,
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                    style: tiny,
+                  ),
+                ),
+            ],
+          ),
+        );
     return GlassCard(
       padding: const EdgeInsetsDirectional.fromSTEB(
         AppSpace.xs,
         AppSpace.md,
         AppSpace.xs,
-        AppSpace.md,
+        AppSpace.sm,
       ),
-      child: Row(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          stat('pb', l10n.timerPb, best == null ? '–' : formatTime(best)),
-          stat('ao5', 'ao5', formatAverage(averageOf(history, 5))),
-          stat('ao12', 'ao12', formatAverage(averageOf(history, 12))),
-          stat('ao100', 'ao100', formatAverage(averageOf(history, 100))),
-          stat('count', l10n.timerSolves, '${history.length}'),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              stat(
+                'pb',
+                l10n.timerPb,
+                best == null ? '–' : formatTime(best),
+                l10n.timerPbSub,
+              ),
+              stat(
+                'ao5',
+                'ao5',
+                formatAverage(averageOf(history, 5)),
+                l10n.timerAvgOf(5),
+              ),
+              stat(
+                'ao12',
+                'ao12',
+                formatAverage(averageOf(history, 12)),
+                l10n.timerAvgOf(12),
+              ),
+              stat(
+                'ao100',
+                'ao100',
+                formatAverage(averageOf(history, 100)),
+                l10n.timerAvgOf(100),
+              ),
+              stat('count', l10n.timerSolves, '${history.length}', null),
+            ],
+          ),
+          const SizedBox(height: AppSpace.xs),
+          Text(
+            l10n.timerAvgNote,
+            key: const ValueKey('timer-avg-note'),
+            textAlign: TextAlign.center,
+            style: tiny,
+          ),
         ],
       ),
     );
@@ -453,31 +555,104 @@ class _LastSolveActions extends ConsumerWidget {
     final index = state.history.length - 1;
     final penalty = state.history[index].penalty;
     Penalty toggle(Penalty p) => penalty == p ? Penalty.none : p;
+    final caption = Theme.of(context).textTheme.labelSmall?.copyWith(
+      fontSize: 10,
+      height: 1.2,
+      color: AppColors.textTertiary,
+    );
+    // Each button with a tiny caption saying what it does.
+    Widget labeled(String key, Widget button, String text) => SizedBox(
+      width: 108,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          button,
+          Text(
+            text,
+            key: ValueKey('$key-caption'),
+            maxLines: 2,
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            style: caption,
+          ),
+        ],
+      ),
+    );
     return Wrap(
       alignment: WrapAlignment.center,
       runSpacing: AppSpace.xs,
       children: [
-        FilterChip(
-          key: const ValueKey('timer-plus2'),
-          label: Text(l10n.timerPlus2),
-          selected: penalty == Penalty.plus2,
-          onSelected: (_) => notifier.setPenalty(index, toggle(Penalty.plus2)),
+        labeled(
+          'timer-plus2',
+          FilterChip(
+            key: const ValueKey('timer-plus2'),
+            label: Text(l10n.timerPlus2),
+            selected: penalty == Penalty.plus2,
+            onSelected: (_) =>
+                notifier.setPenalty(index, toggle(Penalty.plus2)),
+          ),
+          l10n.timerPlus2Caption,
         ),
-        const SizedBox(width: 8),
-        FilterChip(
-          key: const ValueKey('timer-dnf'),
-          label: Text(l10n.timerDnf),
-          selected: penalty == Penalty.dnf,
-          onSelected: (_) => notifier.setPenalty(index, toggle(Penalty.dnf)),
+        labeled(
+          'timer-dnf',
+          FilterChip(
+            key: const ValueKey('timer-dnf'),
+            label: Text(l10n.timerDnf),
+            selected: penalty == Penalty.dnf,
+            onSelected: (_) => notifier.setPenalty(index, toggle(Penalty.dnf)),
+          ),
+          l10n.timerDnfCaption,
         ),
-        const SizedBox(width: 8),
-        ActionChip(
-          key: const ValueKey('timer-delete'),
-          avatar: const Icon(Icons.delete_outline_rounded, size: 18),
-          label: Text(l10n.timerDelete),
-          onPressed: () => notifier.delete(index),
+        labeled(
+          'timer-delete',
+          ActionChip(
+            key: const ValueKey('timer-delete'),
+            avatar: const Icon(Icons.delete_outline_rounded, size: 18),
+            label: Text(l10n.timerDelete),
+            onPressed: () => notifier.delete(index),
+          ),
+          l10n.timerDeleteCaption,
         ),
       ],
+    );
+  }
+}
+
+/// The inspection toggle: a stopwatch with "15" (seconds), lit when on.
+class InspectionBadge extends StatelessWidget {
+  const InspectionBadge({super.key, required this.active});
+
+  final bool active;
+
+  @override
+  Widget build(BuildContext context) {
+    final color = active ? AppColors.accentSecondary : AppColors.textSecondary;
+    return Container(
+      key: ValueKey(active ? 'inspection-badge-on' : 'inspection-badge-off'),
+      padding: const EdgeInsetsDirectional.fromSTEB(4, 2, 6, 2),
+      decoration: BoxDecoration(
+        color: active ? color.withValues(alpha: 0.18) : null,
+        borderRadius: BorderRadius.circular(AppRadius.pill),
+        border: Border.all(color: color.withValues(alpha: 0.8), width: 1.5),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        textDirection: TextDirection.ltr,
+        children: [
+          Icon(Icons.timer_outlined, size: 16, color: color),
+          const SizedBox(width: 2),
+          Text(
+            '${kInspectionMillis ~/ 1000}',
+            textDirection: TextDirection.ltr,
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w800,
+              color: color,
+              fontFeatures: const [FontFeature.tabularFigures()],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

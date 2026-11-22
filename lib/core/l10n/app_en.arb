@@ -502,8 +502,6 @@
   "timerHoldToStart": "Hold, then release to start",
   "timerReleaseToStart": "Release to start",
   "timerTapToStop": "Tap anywhere to stop",
-  "timerInspecting": "Inspection: hold, then release to start",
-  "timerTapToInspect": "Tap to start the 15-second inspection",
   "timerInspectionToggle": "15 s inspection",
   "timerLoadingScramble": "Generating a scramble…",
   "timerPb": "Best",
@@ -1116,5 +1114,209 @@
         "example": "41.20"
       }
     }
+  },
+  "timerInspectIntro": "You have {seconds} seconds to inspect the cube. Tap to start the countdown.",
+  "@timerInspectIntro": {
+    "description": "Idle timer hint when 15-second WCA inspection is on.",
+    "placeholders": {
+      "seconds": {
+        "type": "int",
+        "example": "15"
+      }
+    }
+  },
+  "timerInspectTapReady": "Tap when ready to start solving",
+  "@timerInspectTapReady": {
+    "description": "Hint under the inspection countdown numbers."
+  },
+  "timerInspectPlus2": "Inspection passed {seconds} s, so the clock started on its own: +2 s penalty",
+  "@timerInspectPlus2": {
+    "description": "Shown while timing after the inspection ran out untouched and the clock started on its own with a +2 penalty.",
+    "placeholders": {
+      "seconds": {
+        "type": "int",
+        "example": "15"
+      }
+    }
+  },
+  "timerAvgOf": "Avg of {count}",
+  "@timerAvgOf": {
+    "description": "Tiny caption under ao5 / ao12 / ao100 explaining the stat.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "timerAvgNote": "Averages drop the best and worst times",
+  "@timerAvgNote": {
+    "description": "Footnote under the timer stats explaining how averages are computed."
+  },
+  "timerPbSub": "Best single",
+  "@timerPbSub": {
+    "description": "Tiny caption under the timer personal best."
+  },
+  "timerPlus2Caption": "+2 s penalty",
+  "@timerPlus2Caption": {
+    "description": "Caption under the +2 penalty button."
+  },
+  "timerDnfCaption": "Did Not Finish",
+  "@timerDnfCaption": {
+    "description": "Caption under the DNF button: what DNF stands for."
+  },
+  "timerDeleteCaption": "Remove this solve",
+  "@timerDeleteCaption": {
+    "description": "Caption under the Delete button of the last solve."
+  },
+  "patternBullsEye": "Bull's-eye",
+  "@patternBullsEye": {
+    "description": "Pattern name: concentric rings on every face."
+  },
+  "patternFramedCenter": "Framed center",
+  "@patternFramedCenter": {
+    "description": "Pattern name: a frame of another color around the center block."
+  },
+  "patternBlockCheckerboard": "Block checkerboard",
+  "@patternBlockCheckerboard": {
+    "description": "Pattern name: checkerboard of 2x2 blocks (6x6)."
+  },
+  "patternCubeInCubeInCube": "Cube in a cube in a cube",
+  "@patternCubeInCubeInCube": {
+    "description": "Pattern name."
+  },
+  "patternUnionJack": "Union Jack",
+  "@patternUnionJack": {
+    "description": "Pattern name (like the British flag)."
+  },
+  "patternKilt": "Kilt",
+  "@patternKilt": {
+    "description": "Pattern name (tartan-like)."
+  },
+  "patternSixTs": "Six T's",
+  "@patternSixTs": {
+    "description": "Pattern name: a T shape on each of the six faces."
+  },
+  "patternTwinPeaks": "Twin peaks",
+  "@patternTwinPeaks": {
+    "description": "Pattern name: staircase triangles."
+  },
+  "patternSpiral": "Spiral",
+  "@patternSpiral": {
+    "description": "Pattern name."
+  },
+  "patternTetris": "Tetris",
+  "@patternTetris": {
+    "description": "Pattern name (L-shaped blocks)."
+  },
+  "patternSpots": "Center spots",
+  "@patternSpots": {
+    "description": "Pattern name: a small spot in the middle of each face."
+  },
+  "patternStripes": "Stripes",
+  "@patternStripes": {
+    "description": "Pattern name."
+  },
+  "patternAnaconda": "Anaconda",
+  "@patternAnaconda": {
+    "description": "Pattern name."
+  },
+  "patternZigzag": "Zigzag",
+  "@patternZigzag": {
+    "description": "Pattern name."
+  },
+  "patternFourSpots": "Four spots",
+  "@patternFourSpots": {
+    "description": "Pattern name: spots on four side faces."
+  },
+  "patternGreenMamba": "Green mamba",
+  "@patternGreenMamba": {
+    "description": "Pattern name."
+  },
+  "patternPlusMinus": "Plus minus",
+  "@patternPlusMinus": {
+    "description": "Pattern name."
+  },
+  "guideStepCounter": "Step {current} / {total}",
+  "@guideStepCounter": {
+    "description": "Counter pill while stepping through a pattern or lesson guide.",
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "example": "10"
+      },
+      "total": {
+        "type": "int",
+        "example": "30"
+      }
+    }
+  },
+  "guideMoveCounter": "Move {current} / {total}",
+  "@guideMoveCounter": {
+    "description": "Counter pill while following the daily scramble guide.",
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "example": "3"
+      },
+      "total": {
+        "type": "int",
+        "example": "15"
+      }
+    }
+  },
+  "dailyStep1Title": "Step 1: Scramble your cube",
+  "@dailyStep1Title": {
+    "description": "Daily challenge: title of the scramble step card."
+  },
+  "dailyStep2Title": "Step 2: Solve the cube",
+  "@dailyStep2Title": {
+    "description": "Daily challenge: title of the solve step card."
+  },
+  "dailyPersonalBest": "Personal best: {time}",
+  "@dailyPersonalBest": {
+    "description": "Daily challenge: best time over all days.",
+    "placeholders": {
+      "time": {
+        "type": "String",
+        "example": "38.42"
+      }
+    }
+  },
+  "dailyRecentDays": "Recent days",
+  "@dailyRecentDays": {
+    "description": "Daily challenge: heading of the personal log of solved days."
+  },
+  "dailyMilestone": "{count, plural, other{{count}-day streak! You're on fire!}}",
+  "@dailyMilestone": {
+    "description": "Celebration on every fifth streak day (5, 10, 15, ...).",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "10"
+      }
+    }
+  },
+  "dailyScrambledTitle": "Cube scrambled! Now go solve it",
+  "@dailyScrambledTitle": {
+    "description": "End of the daily 3D scramble guide: the cube is scrambled, not solved."
+  },
+  "dailyCongratsTitle": "Congratulations!",
+  "@dailyCongratsTitle": {
+    "description": "Title of the dialog after solving the daily challenge on the 3D cube."
+  },
+  "dailyCongratsBody": "You solved today's challenge in {time}.",
+  "@dailyCongratsBody": {
+    "description": "Dialog body with the solve time.",
+    "placeholders": {
+      "time": {
+        "type": "String",
+        "example": "1:02.35"
+      }
+    }
+  },
+  "dailyCongratsDone": "Back to the challenge",
+  "@dailyCongratsDone": {
+    "description": "Dialog button: back to the daily challenge page."
   }
 }

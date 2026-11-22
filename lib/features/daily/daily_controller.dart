@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -29,6 +31,45 @@ DateTime challengeDay(DateTime now) {
 /// Scramble seed of a day: the same scramble for everyone, fully offline.
 int daySeed(DateTime time) => time.year * 10000 + time.month * 100 + time.day;
 
+/// Shortest and longest daily scramble: short enough to follow on a real
+/// cube in a minute, long enough to mix it well.
+const int kDailyMinMoves = 12;
+const int kDailyMaxMoves = 15;
+
+/// Caps a scramble to the daily length: 12 to 15 moves, picked by [seed]
+/// so every player gets the same one.
+String capDailyScramble(String text, int seed) {
+  final tokens = text.trim().split(RegExp(r'\s+'));
+  final limit = kDailyMinMoves + seed % (kDailyMaxMoves - kDailyMinMoves + 1);
+  if (tokens.length <= limit) return tokens.join(' ');
+  return tokens.sublist(0, limit).join(' ');
+}
+
+/// Every fifth day of a streak (5, 10, 15, ...) is celebrated.
+bool isStreakMilestone(int streak) => streak > 0 && streak % 5 == 0;
+
+/// Days kept in the personal log.
+const int kDailyLogLimit = 60;
+
+/// One solved challenge day in the personal log.
+@immutable
+class DailyLogEntry {
+  const DailyLogEntry(this.day, this.millis);
+
+  /// "2026-11-16" (see [dayKey]).
+  final String day;
+
+  /// Best time of that day; null when solved without a clock.
+  final int? millis;
+
+  DateTime get date => DateTime.parse(day);
+
+  Map<String, Object?> toJson() => {'d': day, 't': millis};
+
+  static DailyLogEntry fromJson(Map<String, dynamic> json) =>
+      DailyLogEntry(json['d'] as String, json['t'] as int?);
+}
+
 @immutable
 class DailyState {
   const DailyState({
@@ -40,6 +81,8 @@ class DailyState {
     this.hint,
     this.hintFailed = false,
     this.todayMillis,
+    this.bestMillis,
+    this.log = const [],
   });
 
   /// Today's challenge day: the UTC calendar day (as a date without a
@@ -62,6 +105,12 @@ class DailyState {
   /// with a clock running; shown on the daily page.
   final int? todayMillis;
 
+  /// Personal best Daily Challenge time over all days.
+  final int? bestMillis;
+
+  /// Solved days, oldest first (at most [kDailyLogLimit]).
+  final List<DailyLogEntry> log;
+
   /// Today's scrambled cube (white on top, green in front).
   CubeState? get cube {
     final text = scramble;
@@ -78,6 +127,8 @@ class DailyState {
     List<String>? hint,
     bool? hintFailed,
     int? todayMillis,
+    int? bestMillis,
+    List<DailyLogEntry>? log,
   }) => DailyState(
     date: date,
     scramble: scramble ?? this.scramble,
@@ -87,6 +138,8 @@ class DailyState {
     hint: hint ?? this.hint,
     hintFailed: hintFailed ?? this.hintFailed,
     todayMillis: todayMillis ?? this.todayMillis,
+    bestMillis: bestMillis ?? this.bestMillis,
+    log: log ?? this.log,
   );
 }
 
@@ -97,6 +150,8 @@ class DailyController extends Notifier<DailyState> {
   static const _bestKey = 'daily_best_streak';
   static const _timeDayKey = 'daily_time_day';
   static const _timeKey = 'daily_time_ms';
+  static const _bestTimeKey = 'daily_best_time_ms';
+  static const _logKey = 'daily_log';
 
   @override
   DailyState build() {
@@ -114,7 +169,21 @@ class DailyController extends Notifier<DailyState> {
       todayMillis: prefs.getString(_timeDayKey) == dayKey(today)
           ? prefs.getInt(_timeKey)
           : null,
+      bestMillis: prefs.getInt(_bestTimeKey),
+      log: _readLog(prefs.getString(_logKey)),
     );
+  }
+
+  static List<DailyLogEntry> _readLog(String? raw) {
+    if (raw == null) return const [];
+    try {
+      return List.unmodifiable([
+        for (final item in jsonDecode(raw) as List<dynamic>)
+          DailyLogEntry.fromJson(item as Map<String, dynamic>),
+      ]);
+    } on Object {
+      return const [];
+    }
   }
 
   /// Generates today's scramble (once).
@@ -123,7 +192,8 @@ class DailyController extends Notifier<DailyState> {
     final text = await ref
         .read(scramblerProvider)
         .scramble(kDailySize, seed: daySeed(state.date));
-    if (ref.mounted) state = state.copyWith(scramble: text);
+    final capped = capDailyScramble(text, daySeed(state.date));
+    if (ref.mounted) state = state.copyWith(scramble: capped);
   }
 
   /// Records today's challenge as done and extends the streak. [millis] is
@@ -137,7 +207,13 @@ class DailyController extends Notifier<DailyState> {
         await prefs.setString(_timeDayKey, dayKey(state.date));
         await prefs.setInt(_timeKey, millis);
       }
+      final allTime = state.bestMillis;
+      if (allTime == null || millis < allTime) {
+        state = state.copyWith(bestMillis: millis);
+        await prefs.setInt(_bestTimeKey, millis);
+      }
     }
+    await _logToday();
     if (state.doneToday) return;
     final yesterday = DateTime(
       state.date.year,
@@ -155,6 +231,23 @@ class DailyController extends Notifier<DailyState> {
     await prefs.setInt(_bestKey, best);
   }
 
+  /// Adds today (with its best time) to the personal log.
+  Future<void> _logToday() async {
+    final today = dayKey(state.date);
+    final log = [
+      for (final e in state.log)
+        if (e.day != today) e,
+      DailyLogEntry(today, state.todayMillis),
+    ];
+    final kept = log.length > kDailyLogLimit
+        ? log.sublist(log.length - kDailyLogLimit)
+        : log;
+    state = state.copyWith(log: List.unmodifiable(kept));
+    await ref
+        .read(sharedPreferencesProvider)
+        .setString(_logKey, jsonEncode([for (final e in kept) e.toJson()]));
+  }
+
   /// Clears the streak, the best streak and today's completion.
   Future<void> resetStreak() async {
     state = DailyState(date: state.date, scramble: state.scramble);
@@ -164,6 +257,8 @@ class DailyController extends Notifier<DailyState> {
     await prefs.remove(_lastKey);
     await prefs.remove(_streakKey);
     await prefs.remove(_bestKey);
+    await prefs.remove(_bestTimeKey);
+    await prefs.remove(_logKey);
   }
 
   /// Reveals how to start: the white-cross moves of the beginner's

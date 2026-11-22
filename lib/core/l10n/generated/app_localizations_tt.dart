@@ -880,14 +880,6 @@ class AppLocalizationsTt extends AppLocalizations {
   String get timerTapToStop => 'Туктатыр өчен теләсә кайда басыгыз';
 
   @override
-  String get timerInspecting =>
-      'Карап чыгу: басып торыгыз, аннары җибәреп башлагыз';
-
-  @override
-  String get timerTapToInspect =>
-      '15 секундлык карап чыгуны башлар өчен басыгыз';
-
-  @override
   String get timerInspectionToggle => '15 с карап чыгу';
 
   @override
@@ -2074,4 +2066,136 @@ class AppLocalizationsTt extends AppLocalizations {
   String dailyYourTime(String time) {
     return 'Сезнең вакыт: $time';
   }
+
+  @override
+  String timerInspectIntro(int seconds) {
+    return 'Кубны карап чыгу өчен сездә $seconds секунд бар. Кире санауны башлар өчен басыгыз.';
+  }
+
+  @override
+  String get timerInspectTapReady => 'Җыярга әзер булгач басыгыз';
+
+  @override
+  String timerInspectPlus2(int seconds) {
+    return 'Карап чыгу $seconds с узды, сәгать үзе башланды: +2 с штраф';
+  }
+
+  @override
+  String timerAvgOf(int count) {
+    return '$count җыюның уртачасы';
+  }
+
+  @override
+  String get timerAvgNote => 'Уртачада иң яхшы һәм иң начар вакыт исәпләнми';
+
+  @override
+  String get timerPbSub => 'Иң яхшы җыю';
+
+  @override
+  String get timerPlus2Caption => '+2 с штраф';
+
+  @override
+  String get timerDnfCaption => 'Тәмамланмады (DNF)';
+
+  @override
+  String get timerDeleteCaption => 'Бу җыюны бетерү';
+
+  @override
+  String get patternBullsEye => 'Максат';
+
+  @override
+  String get patternFramedCenter => 'Рамкалы үзәк';
+
+  @override
+  String get patternBlockCheckerboard => 'Блоклы шахмат';
+
+  @override
+  String get patternCubeInCubeInCube => 'Куб эчендә куб эчендә куб';
+
+  @override
+  String get patternUnionJack => 'Юнион Джек';
+
+  @override
+  String get patternKilt => 'Килт';
+
+  @override
+  String get patternSixTs => 'Алты T';
+
+  @override
+  String get patternTwinPeaks => 'Игез түбәләр';
+
+  @override
+  String get patternSpiral => 'Спираль';
+
+  @override
+  String get patternTetris => 'Тетрис';
+
+  @override
+  String get patternSpots => 'Үзәк нокталар';
+
+  @override
+  String get patternStripes => 'Сызыклар';
+
+  @override
+  String get patternAnaconda => 'Анаконда';
+
+  @override
+  String get patternZigzag => 'Зигзаг';
+
+  @override
+  String get patternFourSpots => 'Дүрт нокта';
+
+  @override
+  String get patternGreenMamba => 'Яшел мамба';
+
+  @override
+  String get patternPlusMinus => 'Плюс-минус';
+
+  @override
+  String guideStepCounter(int current, int total) {
+    return 'Адым $current / $total';
+  }
+
+  @override
+  String guideMoveCounter(int current, int total) {
+    return 'Хәрәкәт $current / $total';
+  }
+
+  @override
+  String get dailyStep1Title => '1 нче адым: кубыгызны бутагыз';
+
+  @override
+  String get dailyStep2Title => '2 нче адым: кубны җыегыз';
+
+  @override
+  String dailyPersonalBest(String time) {
+    return 'Шәхси рекорд: $time';
+  }
+
+  @override
+  String get dailyRecentDays => 'Соңгы көннәр';
+
+  @override
+  String dailyMilestone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count көнлек серия! Сез бик шәп!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get dailyScrambledTitle => 'Куб бутап куелды! Хәзер аны җыегыз';
+
+  @override
+  String get dailyCongratsTitle => 'Котлыйбыз!';
+
+  @override
+  String dailyCongratsBody(String time) {
+    return 'Сез бүгенге бурычны $time эчендә җыйдыгыз.';
+  }
+
+  @override
+  String get dailyCongratsDone => 'Бурычка кайту';
 }

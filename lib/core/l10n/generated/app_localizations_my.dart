@@ -886,12 +886,6 @@ class AppLocalizationsMy extends AppLocalizations {
   String get timerTapToStop => 'ရပ်ရန် မည်သည့်နေရာမဆို နှိပ်ပါ';
 
   @override
-  String get timerInspecting => 'စစ်ဆေးချိန်- ဖိထားပြီး စတင်ရန် လွှတ်ပါ';
-
-  @override
-  String get timerTapToInspect => '၁၅ စက္ကန့် စစ်ဆေးချိန် စတင်ရန် နှိပ်ပါ';
-
-  @override
   String get timerInspectionToggle => '၁၅ စက္ကန့် စစ်ဆေးချိန်';
 
   @override
@@ -2109,4 +2103,137 @@ class AppLocalizationsMy extends AppLocalizations {
   String dailyYourTime(String time) {
     return 'သင့်အချိန်: $time';
   }
+
+  @override
+  String timerInspectIntro(int seconds) {
+    return 'ကုဗကို ကြည့်ရှုရန် $seconds စက္ကန့် ရှိသည်။ နောက်ပြန်ရေတွက်ရန် နှိပ်ပါ။';
+  }
+
+  @override
+  String get timerInspectTapReady => 'ဖြေရှင်းရန် အသင့်ဖြစ်လျှင် နှိပ်ပါ';
+
+  @override
+  String timerInspectPlus2(int seconds) {
+    return 'စစ်ဆေးချိန် $seconds စက္ကန့် ကျော်သွား၍ နာရီ အလိုအလျောက် စတင်သည်- +2 စက္ကန့် ဒဏ်';
+  }
+
+  @override
+  String timerAvgOf(int count) {
+    return '$count ကြိမ် ပျမ်းမျှ';
+  }
+
+  @override
+  String get timerAvgNote =>
+      'ပျမ်းမျှတွင် အကောင်းဆုံးနှင့် အဆိုးဆုံး အချိန်ကို ဖယ်ထားသည်';
+
+  @override
+  String get timerPbSub => 'အကောင်းဆုံး တစ်ကြိမ်';
+
+  @override
+  String get timerPlus2Caption => '+2 စက္ကန့် ဒဏ်';
+
+  @override
+  String get timerDnfCaption => 'မပြီးဆုံး (DNF)';
+
+  @override
+  String get timerDeleteCaption => 'ဤဖြေရှင်းမှုကို ဖျက်ရန်';
+
+  @override
+  String get patternBullsEye => 'ပစ်မှတ်';
+
+  @override
+  String get patternFramedCenter => 'ဘောင်ခတ် အလယ်';
+
+  @override
+  String get patternBlockCheckerboard => 'အကွက်ကြီး စစ်တုရင်';
+
+  @override
+  String get patternCubeInCubeInCube => 'ကုဗထဲ ကုဗထဲ ကုဗ';
+
+  @override
+  String get patternUnionJack => 'ယူနီယံဂျက်';
+
+  @override
+  String get patternKilt => 'ကစ်လ်';
+
+  @override
+  String get patternSixTs => 'T ခြောက်ခု';
+
+  @override
+  String get patternTwinPeaks => 'အမြင့်ထိပ် နှစ်ခု';
+
+  @override
+  String get patternSpiral => 'ခရုပတ်';
+
+  @override
+  String get patternTetris => 'တက်ထရစ်';
+
+  @override
+  String get patternSpots => 'အလယ် အစက်များ';
+
+  @override
+  String get patternStripes => 'အစင်းများ';
+
+  @override
+  String get patternAnaconda => 'အနာကွန်ဒါ';
+
+  @override
+  String get patternZigzag => 'ဇစ်ဇက်';
+
+  @override
+  String get patternFourSpots => 'အစက် လေးခု';
+
+  @override
+  String get patternGreenMamba => 'မာမ်ဘာ အစိမ်း';
+
+  @override
+  String get patternPlusMinus => 'အပေါင်း အနုတ်';
+
+  @override
+  String guideStepCounter(int current, int total) {
+    return 'အဆင့် $current / $total';
+  }
+
+  @override
+  String guideMoveCounter(int current, int total) {
+    return 'လှည့်ကွက် $current / $total';
+  }
+
+  @override
+  String get dailyStep1Title => 'အဆင့် 1- သင့်ကုဗကို ရောမွှေပါ';
+
+  @override
+  String get dailyStep2Title => 'အဆင့် 2- ကုဗကို ဖြေရှင်းပါ';
+
+  @override
+  String dailyPersonalBest(String time) {
+    return 'ကိုယ်ပိုင် အကောင်းဆုံး: $time';
+  }
+
+  @override
+  String get dailyRecentDays => 'မကြာသေးမီ ရက်များ';
+
+  @override
+  String dailyMilestone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'ဆက်တိုက် $count ရက်! အရမ်းတော်တယ်!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get dailyScrambledTitle => 'ကုဗ ရောမွှေပြီးပါပြီ! ယခု ဖြေရှင်းပါ';
+
+  @override
+  String get dailyCongratsTitle => 'ဂုဏ်ယူပါတယ်!';
+
+  @override
+  String dailyCongratsBody(String time) {
+    return 'ယနေ့ စိန်ခေါ်မှုကို $time ဖြင့် ဖြေရှင်းခဲ့သည်။';
+  }
+
+  @override
+  String get dailyCongratsDone => 'စိန်ခေါ်မှုသို့ ပြန်သွားရန်';
 }

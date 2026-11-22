@@ -26,9 +26,13 @@ import 'stage_header.dart';
 /// loaded until Exit in the playback dock. Celebrates once the cube is
 /// solved.
 class SolveBanner extends ConsumerStatefulWidget {
-  const SolveBanner({super.key, required this.size});
+  const SolveBanner({super.key, required this.size, this.guideDoneAction});
 
   final int size;
+
+  /// What to do next once a guide (pattern or scramble) is played through,
+  /// e.g. "now solve it" buttons after the daily scramble guide.
+  final Widget? guideDoneAction;
 
   @override
   ConsumerState<SolveBanner> createState() => _SolveBannerState();
@@ -62,13 +66,27 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
 
     if (complete) {
       final guided = session.steps.any((s) => s.hasCrown);
-      final summary = fast
-          ? FastMoveBadge(size: size, moves: session.playback.length)
-          : Text(
-              l10n.solveAllStagesDone,
-              key: const ValueKey('solve-summary'),
-              style: secondary,
-            );
+      // The daily scramble guide ends on a scrambled cube: never "Solved!".
+      final scrambleGuide = session.steps.first.phaseName == 'dailyScramble';
+      final Widget summary;
+      if (fast) {
+        summary = FastMoveBadge(size: size, moves: session.playback.length);
+      } else if (session.solvedWith == null && stage == null) {
+        summary = Padding(
+          padding: const EdgeInsets.only(top: 4),
+          child: GuideCounterPill(
+            phase: session.steps.first.phaseName,
+            current: total,
+            total: total,
+          ),
+        );
+      } else {
+        summary = Text(
+          l10n.solveAllStagesDone,
+          key: const ValueKey('solve-summary'),
+          style: secondary,
+        );
+      }
       // A solver solution (Guided or Fast) ends in a personal celebration;
       // patterns and scramble guides just say they are done.
       if (session.solvedWith != null) {
@@ -94,29 +112,47 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
           AppSpace.xxs,
           AppSpace.sm,
         ),
-        child: Row(
+        child: Column(
           key: const ValueKey('solve-complete'),
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Icon(
-              Icons.celebration_rounded,
-              color: AppColors.accentSecondary,
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    l10n.solveComplete,
-                    style: textTheme.titleMedium?.copyWith(
-                      color: AppColors.accentSecondary,
-                    ),
+            Row(
+              children: [
+                Icon(
+                  scrambleGuide
+                      ? Icons.shuffle_on_rounded
+                      : Icons.celebration_rounded,
+                  color: AppColors.accentSecondary,
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        scrambleGuide
+                            ? l10n.dailyScrambledTitle
+                            : l10n.solveComplete,
+                        key: const ValueKey('guide-complete-title'),
+                        style: textTheme.titleMedium?.copyWith(
+                          color: AppColors.accentSecondary,
+                        ),
+                      ),
+                      summary,
+                    ],
                   ),
-                  summary,
-                ],
-              ),
+                ),
+              ],
             ),
+            if (widget.guideDoneAction case final action?) ...[
+              const SizedBox(height: AppSpace.xs),
+              Padding(
+                padding: const EdgeInsetsDirectional.only(end: AppSpace.xs),
+                child: action,
+              ),
+            ],
           ],
         ),
       );
@@ -203,16 +239,29 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
                 : null,
           )
         else ...[
-          // Patterns, lessons, scramble guides: what it is and how far.
-          Text(
-            solvePhaseTitle(l10n, step.phaseName),
-            key: const ValueKey('stage-title'),
-            style: textTheme.labelLarge?.copyWith(
-              color: AppColors.accent,
-              fontWeight: FontWeight.w700,
-            ),
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
+          // Patterns, lessons, scramble guides: what it is and how far,
+          // with an explicit "Step 10 / 30" counter.
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  solvePhaseTitle(l10n, step.phaseName),
+                  key: const ValueKey('stage-title'),
+                  style: textTheme.labelLarge?.copyWith(
+                    color: AppColors.accent,
+                    fontWeight: FontWeight.w700,
+                  ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              const SizedBox(width: AppSpace.xs),
+              GuideCounterPill(
+                phase: step.phaseName,
+                current: index + 1,
+                total: total,
+              ),
+            ],
           ),
           const SizedBox(height: 6),
           StageProgressBar(value: stageProgress),
@@ -294,6 +343,47 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
                 child: SolveMethodToggle(size: size),
               ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+/// "Step 10 / 30" (patterns, lessons) or "Move 3 / 15" (the daily scramble
+/// guide): where a scripted guide stands, updated on every move.
+class GuideCounterPill extends StatelessWidget {
+  const GuideCounterPill({
+    super.key,
+    required this.phase,
+    required this.current,
+    required this.total,
+  });
+
+  final String phase;
+  final int current;
+  final int total;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final label = phase == 'dailyScramble'
+        ? l10n.guideMoveCounter(current, total)
+        : l10n.guideStepCounter(current, total);
+    return Container(
+      key: const ValueKey('guide-counter'),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+      decoration: BoxDecoration(
+        color: AppColors.accent.withValues(alpha: 0.16),
+        borderRadius: BorderRadius.circular(AppRadius.pill),
+        border: Border.all(color: AppColors.accent.withValues(alpha: 0.5)),
+      ),
+      child: Text(
+        label,
+        maxLines: 1,
+        style: Theme.of(context).textTheme.labelMedium?.copyWith(
+          color: AppColors.textPrimary,
+          fontWeight: FontWeight.w800,
+          fontFeatures: const [FontFeature.tabularFigures()],
         ),
       ),
     );

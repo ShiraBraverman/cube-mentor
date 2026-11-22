@@ -1588,18 +1588,6 @@ abstract class AppLocalizations {
   /// **'Tap anywhere to stop'**
   String get timerTapToStop;
 
-  /// No description provided for @timerInspecting.
-  ///
-  /// In en, this message translates to:
-  /// **'Inspection: hold, then release to start'**
-  String get timerInspecting;
-
-  /// No description provided for @timerTapToInspect.
-  ///
-  /// In en, this message translates to:
-  /// **'Tap to start the 15-second inspection'**
-  String get timerTapToInspect;
-
   /// No description provided for @timerInspectionToggle.
   ///
   /// In en, this message translates to:
@@ -3645,6 +3633,228 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your time: {time}'**
   String dailyYourTime(String time);
+
+  /// Idle timer hint when 15-second WCA inspection is on.
+  ///
+  /// In en, this message translates to:
+  /// **'You have {seconds} seconds to inspect the cube. Tap to start the countdown.'**
+  String timerInspectIntro(int seconds);
+
+  /// Hint under the inspection countdown numbers.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap when ready to start solving'**
+  String get timerInspectTapReady;
+
+  /// Shown while timing after the inspection ran out untouched and the clock started on its own with a +2 penalty.
+  ///
+  /// In en, this message translates to:
+  /// **'Inspection passed {seconds} s, so the clock started on its own: +2 s penalty'**
+  String timerInspectPlus2(int seconds);
+
+  /// Tiny caption under ao5 / ao12 / ao100 explaining the stat.
+  ///
+  /// In en, this message translates to:
+  /// **'Avg of {count}'**
+  String timerAvgOf(int count);
+
+  /// Footnote under the timer stats explaining how averages are computed.
+  ///
+  /// In en, this message translates to:
+  /// **'Averages drop the best and worst times'**
+  String get timerAvgNote;
+
+  /// Tiny caption under the timer personal best.
+  ///
+  /// In en, this message translates to:
+  /// **'Best single'**
+  String get timerPbSub;
+
+  /// Caption under the +2 penalty button.
+  ///
+  /// In en, this message translates to:
+  /// **'+2 s penalty'**
+  String get timerPlus2Caption;
+
+  /// Caption under the DNF button: what DNF stands for.
+  ///
+  /// In en, this message translates to:
+  /// **'Did Not Finish'**
+  String get timerDnfCaption;
+
+  /// Caption under the Delete button of the last solve.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove this solve'**
+  String get timerDeleteCaption;
+
+  /// Pattern name: concentric rings on every face.
+  ///
+  /// In en, this message translates to:
+  /// **'Bull\'s-eye'**
+  String get patternBullsEye;
+
+  /// Pattern name: a frame of another color around the center block.
+  ///
+  /// In en, this message translates to:
+  /// **'Framed center'**
+  String get patternFramedCenter;
+
+  /// Pattern name: checkerboard of 2x2 blocks (6x6).
+  ///
+  /// In en, this message translates to:
+  /// **'Block checkerboard'**
+  String get patternBlockCheckerboard;
+
+  /// Pattern name.
+  ///
+  /// In en, this message translates to:
+  /// **'Cube in a cube in a cube'**
+  String get patternCubeInCubeInCube;
+
+  /// Pattern name (like the British flag).
+  ///
+  /// In en, this message translates to:
+  /// **'Union Jack'**
+  String get patternUnionJack;
+
+  /// Pattern name (tartan-like).
+  ///
+  /// In en, this message translates to:
+  /// **'Kilt'**
+  String get patternKilt;
+
+  /// Pattern name: a T shape on each of the six faces.
+  ///
+  /// In en, this message translates to:
+  /// **'Six T\'s'**
+  String get patternSixTs;
+
+  /// Pattern name: staircase triangles.
+  ///
+  /// In en, this message translates to:
+  /// **'Twin peaks'**
+  String get patternTwinPeaks;
+
+  /// Pattern name.
+  ///
+  /// In en, this message translates to:
+  /// **'Spiral'**
+  String get patternSpiral;
+
+  /// Pattern name (L-shaped blocks).
+  ///
+  /// In en, this message translates to:
+  /// **'Tetris'**
+  String get patternTetris;
+
+  /// Pattern name: a small spot in the middle of each face.
+  ///
+  /// In en, this message translates to:
+  /// **'Center spots'**
+  String get patternSpots;
+
+  /// Pattern name.
+  ///
+  /// In en, this message translates to:
+  /// **'Stripes'**
+  String get patternStripes;
+
+  /// Pattern name.
+  ///
+  /// In en, this message translates to:
+  /// **'Anaconda'**
+  String get patternAnaconda;
+
+  /// Pattern name.
+  ///
+  /// In en, this message translates to:
+  /// **'Zigzag'**
+  String get patternZigzag;
+
+  /// Pattern name: spots on four side faces.
+  ///
+  /// In en, this message translates to:
+  /// **'Four spots'**
+  String get patternFourSpots;
+
+  /// Pattern name.
+  ///
+  /// In en, this message translates to:
+  /// **'Green mamba'**
+  String get patternGreenMamba;
+
+  /// Pattern name.
+  ///
+  /// In en, this message translates to:
+  /// **'Plus minus'**
+  String get patternPlusMinus;
+
+  /// Counter pill while stepping through a pattern or lesson guide.
+  ///
+  /// In en, this message translates to:
+  /// **'Step {current} / {total}'**
+  String guideStepCounter(int current, int total);
+
+  /// Counter pill while following the daily scramble guide.
+  ///
+  /// In en, this message translates to:
+  /// **'Move {current} / {total}'**
+  String guideMoveCounter(int current, int total);
+
+  /// Daily challenge: title of the scramble step card.
+  ///
+  /// In en, this message translates to:
+  /// **'Step 1: Scramble your cube'**
+  String get dailyStep1Title;
+
+  /// Daily challenge: title of the solve step card.
+  ///
+  /// In en, this message translates to:
+  /// **'Step 2: Solve the cube'**
+  String get dailyStep2Title;
+
+  /// Daily challenge: best time over all days.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal best: {time}'**
+  String dailyPersonalBest(String time);
+
+  /// Daily challenge: heading of the personal log of solved days.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent days'**
+  String get dailyRecentDays;
+
+  /// Celebration on every fifth streak day (5, 10, 15, ...).
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, other{{count}-day streak! You\'re on fire!}}'**
+  String dailyMilestone(int count);
+
+  /// End of the daily 3D scramble guide: the cube is scrambled, not solved.
+  ///
+  /// In en, this message translates to:
+  /// **'Cube scrambled! Now go solve it'**
+  String get dailyScrambledTitle;
+
+  /// Title of the dialog after solving the daily challenge on the 3D cube.
+  ///
+  /// In en, this message translates to:
+  /// **'Congratulations!'**
+  String get dailyCongratsTitle;
+
+  /// Dialog body with the solve time.
+  ///
+  /// In en, this message translates to:
+  /// **'You solved today\'s challenge in {time}.'**
+  String dailyCongratsBody(String time);
+
+  /// Dialog button: back to the daily challenge page.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to the challenge'**
+  String get dailyCongratsDone;
 }
 
 class _AppLocalizationsDelegate

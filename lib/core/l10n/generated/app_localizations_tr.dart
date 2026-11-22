@@ -874,14 +874,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get timerTapToStop => 'Durdurmak için herhangi bir yere dokun';
 
   @override
-  String get timerInspecting =>
-      'İnceleme: basılı tut, sonra başlatmak için bırak';
-
-  @override
-  String get timerTapToInspect =>
-      '15 saniyelik incelemeyi başlatmak için dokun';
-
-  @override
   String get timerInspectionToggle => '15 sn inceleme';
 
   @override
@@ -2097,4 +2089,137 @@ class AppLocalizationsTr extends AppLocalizations {
   String dailyYourTime(String time) {
     return 'Senin süren: $time';
   }
+
+  @override
+  String timerInspectIntro(int seconds) {
+    return 'Küpü incelemek için $seconds saniyen var. Geri sayımı başlatmak için dokun.';
+  }
+
+  @override
+  String get timerInspectTapReady => 'Çözmeye hazır olduğunda dokun';
+
+  @override
+  String timerInspectPlus2(int seconds) {
+    return 'İnceleme $seconds sn\'yi geçti, saat kendiliğinden başladı: +2 sn ceza';
+  }
+
+  @override
+  String timerAvgOf(int count) {
+    return '$count ortalaması';
+  }
+
+  @override
+  String get timerAvgNote => 'Ortalamalarda en iyi ve en kötü süre sayılmaz';
+
+  @override
+  String get timerPbSub => 'En iyi süre';
+
+  @override
+  String get timerPlus2Caption => '+2 sn ceza';
+
+  @override
+  String get timerDnfCaption => 'Bitirilmedi (DNF)';
+
+  @override
+  String get timerDeleteCaption => 'Bu çözümü sil';
+
+  @override
+  String get patternBullsEye => 'On ikiden vuruş';
+
+  @override
+  String get patternFramedCenter => 'Çerçeveli merkez';
+
+  @override
+  String get patternBlockCheckerboard => 'Blok dama tahtası';
+
+  @override
+  String get patternCubeInCubeInCube => 'Küp içinde küp içinde küp';
+
+  @override
+  String get patternUnionJack => 'Union Jack';
+
+  @override
+  String get patternKilt => 'Kilt';
+
+  @override
+  String get patternSixTs => 'Altı T';
+
+  @override
+  String get patternTwinPeaks => 'İkiz tepeler';
+
+  @override
+  String get patternSpiral => 'Spiral';
+
+  @override
+  String get patternTetris => 'Tetris';
+
+  @override
+  String get patternSpots => 'Merkez noktalar';
+
+  @override
+  String get patternStripes => 'Çizgiler';
+
+  @override
+  String get patternAnaconda => 'Anakonda';
+
+  @override
+  String get patternZigzag => 'Zikzak';
+
+  @override
+  String get patternFourSpots => 'Dört nokta';
+
+  @override
+  String get patternGreenMamba => 'Yeşil mamba';
+
+  @override
+  String get patternPlusMinus => 'Artı eksi';
+
+  @override
+  String guideStepCounter(int current, int total) {
+    return 'Adım $current / $total';
+  }
+
+  @override
+  String guideMoveCounter(int current, int total) {
+    return 'Hamle $current / $total';
+  }
+
+  @override
+  String get dailyStep1Title => 'Adım 1: Küpünü karıştır';
+
+  @override
+  String get dailyStep2Title => 'Adım 2: Küpü çöz';
+
+  @override
+  String dailyPersonalBest(String time) {
+    return 'Kişisel rekor: $time';
+  }
+
+  @override
+  String get dailyRecentDays => 'Son günler';
+
+  @override
+  String dailyMilestone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count günlük seri! Harikasın!',
+      one: '1 günlük seri! Harikasın!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get dailyScrambledTitle => 'Küp karıştırıldı! Şimdi çöz';
+
+  @override
+  String get dailyCongratsTitle => 'Tebrikler!';
+
+  @override
+  String dailyCongratsBody(String time) {
+    return 'Bugünün meydan okumasını $time sürede çözdün.';
+  }
+
+  @override
+  String get dailyCongratsDone => 'Meydan okumaya dön';
 }

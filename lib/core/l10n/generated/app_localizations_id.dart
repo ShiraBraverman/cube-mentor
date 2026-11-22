@@ -884,12 +884,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get timerTapToStop => 'Ketuk di mana saja untuk berhenti';
 
   @override
-  String get timerInspecting => 'Inspeksi: tahan, lalu lepas untuk mulai';
-
-  @override
-  String get timerTapToInspect => 'Ketuk untuk memulai inspeksi 15 detik';
-
-  @override
   String get timerInspectionToggle => 'Inspeksi 15 dtk';
 
   @override
@@ -2079,4 +2073,136 @@ class AppLocalizationsId extends AppLocalizations {
   String dailyYourTime(String time) {
     return 'Waktumu: $time';
   }
+
+  @override
+  String timerInspectIntro(int seconds) {
+    return 'Kamu punya $seconds detik untuk memeriksa kubus. Ketuk untuk memulai hitung mundur.';
+  }
+
+  @override
+  String get timerInspectTapReady => 'Ketuk saat siap mulai memecahkan';
+
+  @override
+  String timerInspectPlus2(int seconds) {
+    return 'Inspeksi lewat $seconds detik, jadi jam mulai sendiri: penalti +2 detik';
+  }
+
+  @override
+  String timerAvgOf(int count) {
+    return 'Rata-rata $count';
+  }
+
+  @override
+  String get timerAvgNote => 'Rata-rata membuang waktu terbaik dan terburuk';
+
+  @override
+  String get timerPbSub => 'Waktu terbaik';
+
+  @override
+  String get timerPlus2Caption => 'Penalti +2 detik';
+
+  @override
+  String get timerDnfCaption => 'Tidak selesai (DNF)';
+
+  @override
+  String get timerDeleteCaption => 'Hapus solve ini';
+
+  @override
+  String get patternBullsEye => 'Mata banteng';
+
+  @override
+  String get patternFramedCenter => 'Pusat berbingkai';
+
+  @override
+  String get patternBlockCheckerboard => 'Papan catur blok';
+
+  @override
+  String get patternCubeInCubeInCube => 'Kubus dalam kubus dalam kubus';
+
+  @override
+  String get patternUnionJack => 'Union Jack';
+
+  @override
+  String get patternKilt => 'Kilt';
+
+  @override
+  String get patternSixTs => 'Enam T';
+
+  @override
+  String get patternTwinPeaks => 'Puncak kembar';
+
+  @override
+  String get patternSpiral => 'Spiral';
+
+  @override
+  String get patternTetris => 'Tetris';
+
+  @override
+  String get patternSpots => 'Titik tengah';
+
+  @override
+  String get patternStripes => 'Garis-garis';
+
+  @override
+  String get patternAnaconda => 'Anakonda';
+
+  @override
+  String get patternZigzag => 'Zigzag';
+
+  @override
+  String get patternFourSpots => 'Empat titik';
+
+  @override
+  String get patternGreenMamba => 'Mamba hijau';
+
+  @override
+  String get patternPlusMinus => 'Plus minus';
+
+  @override
+  String guideStepCounter(int current, int total) {
+    return 'Langkah $current / $total';
+  }
+
+  @override
+  String guideMoveCounter(int current, int total) {
+    return 'Gerakan $current / $total';
+  }
+
+  @override
+  String get dailyStep1Title => 'Langkah 1: Acak kubusmu';
+
+  @override
+  String get dailyStep2Title => 'Langkah 2: Pecahkan kubusnya';
+
+  @override
+  String dailyPersonalBest(String time) {
+    return 'Rekor pribadi: $time';
+  }
+
+  @override
+  String get dailyRecentDays => 'Hari-hari terakhir';
+
+  @override
+  String dailyMilestone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Runtutan $count hari! Kamu luar biasa!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get dailyScrambledTitle => 'Kubus sudah teracak! Sekarang pecahkan';
+
+  @override
+  String get dailyCongratsTitle => 'Selamat!';
+
+  @override
+  String dailyCongratsBody(String time) {
+    return 'Kamu memecahkan tantangan hari ini dalam $time.';
+  }
+
+  @override
+  String get dailyCongratsDone => 'Kembali ke tantangan';
 }

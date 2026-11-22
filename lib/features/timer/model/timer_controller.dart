@@ -44,6 +44,7 @@ class TimerState {
     this.holdStartedAt = 0,
     this.inspectionStartedAt = 0,
     this.holdFromInspection = false,
+    this.inspectionOverrun = false,
     this.newBest = false,
   });
 
@@ -69,6 +70,10 @@ class TimerState {
   final int inspectionStartedAt;
   final bool holdFromInspection;
 
+  /// The 15-second inspection ran out without a tap, so the solve clock
+  /// started on its own with a +2 penalty.
+  final bool inspectionOverrun;
+
   /// The last solve set a new personal best.
   final bool newBest;
 
@@ -77,6 +82,7 @@ class TimerState {
   /// Penalty the inspection earned if the solve started at [now].
   Penalty inspectionPenalty(int now) {
     if (!holdFromInspection) return Penalty.none;
+    if (inspectionOverrun) return Penalty.plus2;
     final used = now - inspectionStartedAt;
     if (used > kInspectionDnfMillis) return Penalty.dnf;
     if (used > kInspectionMillis) return Penalty.plus2;
@@ -94,6 +100,7 @@ class TimerState {
     int? holdStartedAt,
     int? inspectionStartedAt,
     bool? holdFromInspection,
+    bool? inspectionOverrun,
     bool? newBest,
   }) => TimerState(
     size: size,
@@ -106,6 +113,7 @@ class TimerState {
     holdStartedAt: holdStartedAt ?? this.holdStartedAt,
     inspectionStartedAt: inspectionStartedAt ?? this.inspectionStartedAt,
     holdFromInspection: holdFromInspection ?? this.holdFromInspection,
+    inspectionOverrun: inspectionOverrun ?? this.inspectionOverrun,
     newBest: newBest ?? this.newBest,
   );
 }
@@ -162,6 +170,7 @@ class TimerController extends Notifier<TimerState> {
           phase: TimerPhase.holding,
           holdStartedAt: now,
           holdFromInspection: false,
+          inspectionOverrun: false,
         );
       case TimerPhase.inspecting:
         state = state.copyWith(
@@ -175,35 +184,61 @@ class TimerController extends Notifier<TimerState> {
   }
 
   /// The finger left the pad at [now].
+  ///
+  /// With inspection on, any tap (short or long) starts the 15-second
+  /// countdown, and a tap during the countdown starts the solve right away.
+  /// Without inspection the pad must be held for [kHoldMillis].
   void release(int now) {
     if (_ignoreRelease) {
       _ignoreRelease = false;
       return;
     }
     if (state.phase != TimerPhase.holding) return;
-    final fromInspection = state.holdFromInspection;
-    if (now - state.holdStartedAt >= kHoldMillis) {
+    if (state.holdFromInspection) {
       state = state.copyWith(phase: TimerPhase.running, startedAt: now);
       return;
     }
-    // A short tap: starts the inspection when enabled, else nothing.
-    if (fromInspection) {
-      state = state.copyWith(phase: TimerPhase.inspecting);
-    } else if (state.inspection) {
+    if (state.inspection) {
       state = state.copyWith(
         phase: TimerPhase.inspecting,
         inspectionStartedAt: now,
         holdFromInspection: true,
+        inspectionOverrun: false,
       );
+      return;
+    }
+    if (now - state.holdStartedAt >= kHoldMillis) {
+      state = state.copyWith(phase: TimerPhase.running, startedAt: now);
     } else {
       state = state.copyWith(phase: TimerPhase.idle);
     }
   }
 
+  /// Called every frame: when the 15-second inspection runs out untouched,
+  /// the solve clock starts on its own (from the 15-second mark) with a +2
+  /// penalty, as the WCA allows a start up to 17 seconds.
+  void tick(int now) {
+    if (state.phase != TimerPhase.inspecting) return;
+    final end = state.inspectionStartedAt + kInspectionMillis;
+    if (now < end) return;
+    state = state.copyWith(
+      phase: TimerPhase.running,
+      startedAt: end,
+      holdFromInspection: true,
+      inspectionOverrun: true,
+    );
+  }
+
+  /// Seconds of inspection left at [now] (15 down to 1).
+  int inspectionSecondsLeft(int now) {
+    final left = kInspectionMillis - (now - state.inspectionStartedAt);
+    return left <= 0 ? 0 : (left / 1000).ceil();
+  }
+
   /// Whether the pad has been held long enough to start at [now].
   bool isReady(int now) =>
       state.phase == TimerPhase.holding &&
-      now - state.holdStartedAt >= kHoldMillis;
+      (state.holdFromInspection || now - state.holdStartedAt >= kHoldMillis);
 
   void _stop(int now) {
     _ignoreRelease = true;
@@ -223,13 +258,21 @@ class TimerController extends Notifier<TimerState> {
           state.history.isNotEmpty &&
           (previousBest == null || result < previousBest),
     );
-    state = state.copyWith(phase: TimerPhase.idle, holdFromInspection: false);
+    state = state.copyWith(
+      phase: TimerPhase.idle,
+      holdFromInspection: false,
+      inspectionOverrun: false,
+    );
   }
 
   /// Abandons the current attempt without recording it.
   void cancel() {
     _ignoreRelease = false;
-    state = state.copyWith(phase: TimerPhase.idle, holdFromInspection: false);
+    state = state.copyWith(
+      phase: TimerPhase.idle,
+      holdFromInspection: false,
+      inspectionOverrun: false,
+    );
   }
 
   void setPenalty(int index, Penalty penalty) {

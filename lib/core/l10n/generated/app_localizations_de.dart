@@ -894,13 +894,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get timerTapToStop => 'Zum Stoppen irgendwo tippen';
 
   @override
-  String get timerInspecting =>
-      'Inspektion: gedrückt halten, dann zum Start loslassen';
-
-  @override
-  String get timerTapToInspect => 'Tippen für 15 Sekunden Inspektion';
-
-  @override
   String get timerInspectionToggle => '15 s Inspektion';
 
   @override
@@ -2123,4 +2116,138 @@ class AppLocalizationsDe extends AppLocalizations {
   String dailyYourTime(String time) {
     return 'Deine Zeit: $time';
   }
+
+  @override
+  String timerInspectIntro(int seconds) {
+    return 'Du hast $seconds Sekunden, um den Würfel anzusehen. Tippe, um den Countdown zu starten.';
+  }
+
+  @override
+  String get timerInspectTapReady => 'Tippe, sobald du bereit bist zu lösen';
+
+  @override
+  String timerInspectPlus2(int seconds) {
+    return 'Die Inspektion lief über $seconds s, die Uhr startete von selbst: +2 s Strafe';
+  }
+
+  @override
+  String timerAvgOf(int count) {
+    return 'Schnitt aus $count';
+  }
+
+  @override
+  String get timerAvgNote =>
+      'Schnitte lassen die beste und schlechteste Zeit weg';
+
+  @override
+  String get timerPbSub => 'Beste Einzelzeit';
+
+  @override
+  String get timerPlus2Caption => '+2 s Strafe';
+
+  @override
+  String get timerDnfCaption => 'Nicht beendet (DNF)';
+
+  @override
+  String get timerDeleteCaption => 'Diesen Solve löschen';
+
+  @override
+  String get patternBullsEye => 'Zielscheibe';
+
+  @override
+  String get patternFramedCenter => 'Gerahmte Mitte';
+
+  @override
+  String get patternBlockCheckerboard => 'Block-Schachbrett';
+
+  @override
+  String get patternCubeInCubeInCube => 'Würfel im Würfel im Würfel';
+
+  @override
+  String get patternUnionJack => 'Union Jack';
+
+  @override
+  String get patternKilt => 'Kilt';
+
+  @override
+  String get patternSixTs => 'Sechs T';
+
+  @override
+  String get patternTwinPeaks => 'Zwillingsgipfel';
+
+  @override
+  String get patternSpiral => 'Spirale';
+
+  @override
+  String get patternTetris => 'Tetris';
+
+  @override
+  String get patternSpots => 'Mittelpunkte';
+
+  @override
+  String get patternStripes => 'Streifen';
+
+  @override
+  String get patternAnaconda => 'Anakonda';
+
+  @override
+  String get patternZigzag => 'Zickzack';
+
+  @override
+  String get patternFourSpots => 'Vier Punkte';
+
+  @override
+  String get patternGreenMamba => 'Grüne Mamba';
+
+  @override
+  String get patternPlusMinus => 'Plus minus';
+
+  @override
+  String guideStepCounter(int current, int total) {
+    return 'Schritt $current / $total';
+  }
+
+  @override
+  String guideMoveCounter(int current, int total) {
+    return 'Zug $current / $total';
+  }
+
+  @override
+  String get dailyStep1Title => 'Schritt 1: Würfel verdrehen';
+
+  @override
+  String get dailyStep2Title => 'Schritt 2: Würfel lösen';
+
+  @override
+  String dailyPersonalBest(String time) {
+    return 'Persönliche Bestzeit: $time';
+  }
+
+  @override
+  String get dailyRecentDays => 'Letzte Tage';
+
+  @override
+  String dailyMilestone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count-Tage-Serie! Du bist on fire!',
+      one: '1-Tage-Serie! Du bist on fire!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get dailyScrambledTitle => 'Würfel verdreht! Jetzt lös ihn';
+
+  @override
+  String get dailyCongratsTitle => 'Glückwunsch!';
+
+  @override
+  String dailyCongratsBody(String time) {
+    return 'Du hast die heutige Herausforderung in $time gelöst.';
+  }
+
+  @override
+  String get dailyCongratsDone => 'Zurück zur Herausforderung';
 }

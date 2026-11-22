@@ -23,10 +23,11 @@ import 'patterns.dart';
 /// step by step (follow along on a real cube), and the Solve button brings
 /// it back to normal.
 ///
-/// The 2x2 and 3x3 pages and the first pattern of each 4x4-6x6 page are
-/// free; the rest open for 20 minutes per rewarded video. A countdown pill
-/// shows the time left, and when it runs out while the library is open a
-/// friendly sheet offers another 20 minutes.
+/// The first (most striking) pattern of every size page is free; the rest
+/// open for 15 minutes per rewarded video, offered once by a banner at the
+/// top of the library. While unlocked, a countdown pill shows the time
+/// left, and when it runs out while the library is open a friendly sheet
+/// offers another 15 minutes.
 class PatternsScreen extends ConsumerStatefulWidget {
   /// Always opens on the 3x3, the size most people own.
   const PatternsScreen({super.key, this.initialSize = 3});
@@ -96,8 +97,8 @@ class _PatternsScreenState extends ConsumerState<PatternsScreen> {
     _syncTicker();
   }
 
-  /// "Watch 1 short video to unlock all patterns for 20 minutes", or, once
-  /// the time is up ([expired]), the offer to keep them for another 20.
+  /// "Watch 1 short video to unlock all patterns for 15 minutes", or, once
+  /// the time is up ([expired]), the offer to keep them for another 15.
   Future<void> _promptUnlock({required bool expired}) async {
     _sheetOpen = true;
     final watch = await showPatternsUnlockSheet(context, expired: expired);
@@ -163,6 +164,8 @@ class _PatternsScreenState extends ConsumerState<PatternsScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          // One unlock for the whole library: the offer
+                          // while locked, the time left while unlocked.
                           if (timeLeft != null) ...[
                             AppPill(
                               key: const ValueKey('patterns-countdown'),
@@ -172,6 +175,9 @@ class _PatternsScreenState extends ConsumerState<PatternsScreen> {
                               icon: Icons.lock_open_rounded,
                               color: AppColors.accentSecondary,
                             ),
+                            const SizedBox(height: AppSpace.sm),
+                          ] else if (!unlocked) ...[
+                            _UnlockBanner(onUnlock: _unlock),
                             const SizedBox(height: AppSpace.sm),
                           ],
                           Text(
@@ -207,7 +213,6 @@ class _PatternsScreenState extends ConsumerState<PatternsScreen> {
                       itemBuilder: (context, i) => _PatternGrid(
                         size: kCubeSizes[i],
                         unlocked: unlocked,
-                        onUnlock: _unlock,
                         onLockedTap: () => _promptUnlock(expired: false),
                       ),
                     ),
@@ -222,13 +227,12 @@ class _PatternsScreenState extends ConsumerState<PatternsScreen> {
   }
 }
 
-/// The patterns of one cube size. On a locked 4x4-6x6 page an unlock
-/// banner leads, and the gated patterns show dimmed with a video badge.
+/// The patterns of one cube size, most striking first. While locked, the
+/// gated patterns show dimmed with a lock badge.
 class _PatternGrid extends StatelessWidget {
   const _PatternGrid({
     required this.size,
     required this.unlocked,
-    required this.onUnlock,
     required this.onLockedTap,
   });
 
@@ -236,34 +240,14 @@ class _PatternGrid extends StatelessWidget {
 
   /// The timed unlock is running (or not needed on this platform).
   final bool unlocked;
-  final VoidCallback onUnlock;
   final VoidCallback onLockedTap;
 
   @override
   Widget build(BuildContext context) {
-    final patterns = [
-      for (final p in kPatterns)
-        if (p.supports(size)) p,
-    ];
-    final gated =
-        !unlocked &&
-        Iterable<int>.generate(patterns.length)
-            .any((i) => patternNeedsUnlock(size, i));
+    final patterns = patternsFor(size);
     return CustomScrollView(
       key: PageStorageKey('patterns-grid-$size'),
       slivers: [
-        if (gated)
-          SliverPadding(
-            padding: const EdgeInsetsDirectional.fromSTEB(
-              AppSpace.gutter,
-              0,
-              AppSpace.gutter,
-              AppSpace.xxs,
-            ),
-            sliver: SliverToBoxAdapter(
-              child: _UnlockBanner(size: size, onUnlock: onUnlock),
-            ),
-          ),
         SliverPadding(
           padding: kPagePadding,
           sliver: SliverGrid.builder(
@@ -278,8 +262,8 @@ class _PatternGrid extends StatelessWidget {
               pattern: patterns[i],
               size: size,
               locked: !unlocked && patternNeedsUnlock(size, i),
-              // The always-free sample of a locked big-cube page.
-              freeSample: gated && !patternNeedsUnlock(size, i),
+              // The always-free sample of a locked page.
+              freeSample: !unlocked && !patternNeedsUnlock(size, i),
               onLockedTap: onLockedTap,
             ),
           ),
@@ -289,11 +273,11 @@ class _PatternGrid extends StatelessWidget {
   }
 }
 
-/// "Watch 1 short video to unlock all patterns for 20 minutes".
+/// "Watch a short video to unlock all patterns for 15 minutes": shown once,
+/// above the size chips, for every size.
 class _UnlockBanner extends StatelessWidget {
-  const _UnlockBanner({required this.size, required this.onUnlock});
+  const _UnlockBanner({required this.onUnlock});
 
-  final int size;
   final VoidCallback onUnlock;
 
   @override
@@ -301,7 +285,7 @@ class _UnlockBanner extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
     final textTheme = Theme.of(context).textTheme;
     return GlassCard(
-      key: ValueKey('patterns-unlock-banner-$size'),
+      key: const ValueKey('patterns-unlock-banner'),
       selected: true,
       accent: AppColors.gold,
       padding: const EdgeInsetsDirectional.fromSTEB(
@@ -328,7 +312,7 @@ class _UnlockBanner extends StatelessWidget {
           ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 132),
             child: FilledButton(
-              key: ValueKey('patterns-unlock-$size'),
+              key: const ValueKey('patterns-unlock'),
               style: FilledButton.styleFrom(
                 backgroundColor: AppColors.gold,
                 foregroundColor: AppColors.onAccent,
@@ -365,7 +349,7 @@ class _PatternCard extends StatelessWidget {
   /// Needs the timed unlock: dimmed, and tapping offers the video.
   final bool locked;
 
-  /// The always-free pattern of a locked big-cube page.
+  /// The always-free pattern of a locked page.
   final bool freeSample;
   final VoidCallback onLockedTap;
 
@@ -470,8 +454,8 @@ class _PatternCard extends StatelessWidget {
   }
 }
 
-/// "19:42": minutes and seconds left, rounded up so a fresh unlock reads
-/// "20:00".
+/// "14:42": minutes and seconds left, rounded up so a fresh unlock reads
+/// "15:00".
 String formatUnlockTime(Duration left) {
   final seconds = (left.inMilliseconds + 999) ~/ 1000;
   final minutes = seconds ~/ 60;
@@ -479,7 +463,7 @@ String formatUnlockTime(Duration left) {
   return '$minutes:$rest';
 }
 
-/// Bottom sheet offering one rewarded video for 20 minutes of every
+/// Bottom sheet offering one rewarded video for 15 minutes of every
 /// pattern: on a locked pattern, or ([expired]) right when the timed unlock
 /// ran out. Resolves to true when the user chose "Watch Video".
 Future<bool?> showPatternsUnlockSheet(

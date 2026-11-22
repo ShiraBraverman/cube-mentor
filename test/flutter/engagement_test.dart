@@ -258,18 +258,15 @@ void main() {
 
   group('pattern library unlock', () {
     test('which patterns are free', () {
-      // Every 2x2 and 3x3 pattern, and the first of each big cube.
-      for (var i = 0; i < 6; i++) {
-        expect(patternNeedsUnlock(2, i), isFalse);
-        expect(patternNeedsUnlock(3, i), isFalse);
-      }
-      for (final size in [4, 5, 6]) {
+      // Only the first (most striking) pattern of every size, 3x3 included.
+      for (final size in [2, 3, 4, 5, 6]) {
         expect(patternNeedsUnlock(size, 0), isFalse);
         expect(patternNeedsUnlock(size, 1), isTrue);
+        expect(patternNeedsUnlock(size, 5), isTrue);
       }
     });
 
-    test('a rewarded video unlocks big-cube patterns for 20 minutes', () async {
+    test('a rewarded video unlocks all patterns for 15 minutes', () async {
       final prefs = await _prefs();
       var now = DateTime(2026, 11, 20, 8);
       final c = ProviderContainer(
@@ -288,14 +285,14 @@ void main() {
         await gate.unlock(RewardFeature.bigCubePatterns),
         UnlockResult.rewarded,
       );
-      expect(AdConfig.patternsUnlockDuration, const Duration(minutes: 20));
-      expect(gate.patternsTimeLeft(), const Duration(minutes: 20));
+      expect(AdConfig.patternsUnlockDuration, const Duration(minutes: 15));
+      expect(gate.patternsTimeLeft(), const Duration(minutes: 15));
       expect(
         prefs.getInt('reward.patternsUntil'),
-        now.add(const Duration(minutes: 20)).millisecondsSinceEpoch,
+        now.add(const Duration(minutes: 15)).millisecondsSinceEpoch,
       );
 
-      now = now.add(const Duration(minutes: 19, seconds: 30));
+      now = now.add(const Duration(minutes: 14, seconds: 30));
       expect(gate.isUnlocked(RewardFeature.bigCubePatterns), isTrue);
       expect(gate.patternsTimeLeft(), const Duration(seconds: 30));
       now = now.add(const Duration(seconds: 30));
@@ -315,7 +312,7 @@ void main() {
     });
 
     testWidgets(
-      'locked big-cube patterns: watch, count down, re-offer on expiry',
+      'locked patterns: one banner, watch, count down, re-offer on expiry',
       (tester) async {
         final prefs = await _prefs();
         final ads = FakeAdService();
@@ -334,40 +331,41 @@ void main() {
         );
         await tester.pump();
 
-        // 3x3: everything free, no banner.
-        expect(
-          find.byKey(const ValueKey('patterns-unlock-banner-3')),
-          findsNothing,
-        );
-        expect(
-          find.byKey(const ValueKey('pattern-superflip-locked')),
-          findsNothing,
-        );
-
-        // 4x4: the first pattern is a free sample, the rest are locked.
-        await tester.tap(find.byKey(const ValueKey('patterns-size-4')));
-        await _advance(tester, 30);
-        expect(
-          find.byKey(const ValueKey('patterns-unlock-banner-4')),
-          findsOneWidget,
-        );
+        // One banner at the top for the whole library; on the 3x3 only
+        // the checkerboard is free.
+        final banner = find.byKey(const ValueKey('patterns-unlock-banner'));
+        expect(banner, findsOneWidget);
         expect(
           find.text(
-            'Watch 1 short video to unlock all patterns for 20 minutes',
+            'Watch 1 short video to unlock all patterns for 15 minutes',
           ),
           findsOneWidget,
         );
         expect(
-          find.byKey(const ValueKey('pattern-cubeInCube-free')),
+          find.byKey(const ValueKey('pattern-checkerboard-free')),
           findsOneWidget,
         );
         expect(
-          find.byKey(const ValueKey('pattern-dots-locked')),
+          find.byKey(const ValueKey('pattern-cubeInCubeInCube-locked')),
+          findsOneWidget,
+        );
+
+        // 4x4: the same single banner; the first pattern is a free sample,
+        // the rest are locked.
+        await tester.tap(find.byKey(const ValueKey('patterns-size-4')));
+        await _advance(tester, 30);
+        expect(banner, findsOneWidget);
+        expect(
+          find.byKey(const ValueKey('pattern-framedCenter-free')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const ValueKey('pattern-cubeInCube-locked')),
           findsOneWidget,
         );
 
         // Tapping a locked pattern offers the video instead of opening it.
-        await tester.tap(find.byKey(const ValueKey('pattern-dots')));
+        await tester.tap(find.byKey(const ValueKey('pattern-cubeInCube')));
         await _advance(tester, 8);
         expect(find.byType(Solver3DScreen), findsNothing);
         expect(
@@ -378,24 +376,24 @@ void main() {
         await _advance(tester, 8);
         expect(ads.rewardedShown, 0);
 
-        // Watching from the banner unlocks every pattern for 20 minutes.
-        await tester.tap(find.byKey(const ValueKey('patterns-unlock-4')));
+        // Watching from the banner unlocks every pattern for 15 minutes.
+        await tester.tap(find.byKey(const ValueKey('patterns-unlock')));
         await _advance(tester, 4);
         expect(ads.rewardedShown, 1);
+        expect(banner, findsNothing);
         expect(
-          find.byKey(const ValueKey('patterns-unlock-banner-4')),
+          find.byKey(const ValueKey('pattern-cubeInCube-locked')),
           findsNothing,
         );
-        expect(find.byKey(const ValueKey('pattern-dots-locked')), findsNothing);
-        expect(find.text('Unlocked • 20:00 left'), findsOneWidget);
+        expect(find.text('Unlocked • 15:00 left'), findsOneWidget);
 
         // The pill counts down live.
         now = now.add(const Duration(minutes: 1, seconds: 18));
         await tester.pump(const Duration(seconds: 1));
-        expect(find.text('Unlocked • 18:42 left'), findsOneWidget);
+        expect(find.text('Unlocked • 13:42 left'), findsOneWidget);
 
         // Time is up while browsing: the friendly re-offer slides up.
-        now = now.add(const Duration(minutes: 19));
+        now = now.add(const Duration(minutes: 14));
         await tester.pump(const Duration(seconds: 1));
         await _advance(tester, 8);
         expect(find.byKey(const ValueKey('patterns-countdown')), findsNothing);
@@ -405,21 +403,24 @@ void main() {
         );
         expect(
           find.text(
-            'Watch 1 video to keep all patterns unlocked for another 20 minutes!',
+            'Watch 1 video to keep all patterns unlocked for another 15 minutes!',
           ),
           findsOneWidget,
         );
         expect(
-          find.byKey(const ValueKey('pattern-dots-locked')),
+          find.byKey(const ValueKey('pattern-cubeInCube-locked')),
           findsOneWidget,
         );
 
-        // "Watch Video" starts another 20 minutes.
+        // "Watch Video" starts another 15 minutes.
         await tester.tap(find.byKey(const ValueKey('patterns-sheet-watch')));
         await _advance(tester, 8);
         expect(ads.rewardedShown, 2);
-        expect(find.text('Unlocked • 20:00 left'), findsOneWidget);
-        expect(find.byKey(const ValueKey('pattern-dots-locked')), findsNothing);
+        expect(find.text('Unlocked • 15:00 left'), findsOneWidget);
+        expect(
+          find.byKey(const ValueKey('pattern-cubeInCube-locked')),
+          findsNothing,
+        );
       },
     );
   });

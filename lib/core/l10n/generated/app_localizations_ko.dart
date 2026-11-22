@@ -830,12 +830,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get timerTapToStop => '아무 곳이나 탭하면 정지';
 
   @override
-  String get timerInspecting => '인스펙션: 길게 누른 뒤 손을 떼면 시작';
-
-  @override
-  String get timerTapToInspect => '탭하면 15초 인스펙션 시작';
-
-  @override
   String get timerInspectionToggle => '15초 인스펙션';
 
   @override
@@ -1973,4 +1967,136 @@ class AppLocalizationsKo extends AppLocalizations {
   String dailyYourTime(String time) {
     return '내 기록: $time';
   }
+
+  @override
+  String timerInspectIntro(int seconds) {
+    return '큐브를 살펴볼 시간은 $seconds초입니다. 탭하면 카운트다운이 시작돼요.';
+  }
+
+  @override
+  String get timerInspectTapReady => '준비되면 탭해서 풀기 시작';
+
+  @override
+  String timerInspectPlus2(int seconds) {
+    return '인스펙션이 $seconds초를 넘어 시계가 자동으로 시작됐어요: +2초 페널티';
+  }
+
+  @override
+  String timerAvgOf(int count) {
+    return '$count회 평균';
+  }
+
+  @override
+  String get timerAvgNote => '평균은 최고·최저 기록을 빼고 계산해요';
+
+  @override
+  String get timerPbSub => '최고 단일 기록';
+
+  @override
+  String get timerPlus2Caption => '+2초 페널티';
+
+  @override
+  String get timerDnfCaption => '완료 못 함(DNF)';
+
+  @override
+  String get timerDeleteCaption => '이 기록 삭제';
+
+  @override
+  String get patternBullsEye => '과녁';
+
+  @override
+  String get patternFramedCenter => '테두리 센터';
+
+  @override
+  String get patternBlockCheckerboard => '블록 체커보드';
+
+  @override
+  String get patternCubeInCubeInCube => '큐브 속 큐브 속 큐브';
+
+  @override
+  String get patternUnionJack => '유니언 잭';
+
+  @override
+  String get patternKilt => '킬트';
+
+  @override
+  String get patternSixTs => '여섯 개의 T';
+
+  @override
+  String get patternTwinPeaks => '쌍둥이 봉우리';
+
+  @override
+  String get patternSpiral => '나선';
+
+  @override
+  String get patternTetris => '테트리스';
+
+  @override
+  String get patternSpots => '센터 점';
+
+  @override
+  String get patternStripes => '줄무늬';
+
+  @override
+  String get patternAnaconda => '아나콘다';
+
+  @override
+  String get patternZigzag => '지그재그';
+
+  @override
+  String get patternFourSpots => '네 개의 점';
+
+  @override
+  String get patternGreenMamba => '그린 맘바';
+
+  @override
+  String get patternPlusMinus => '플러스 마이너스';
+
+  @override
+  String guideStepCounter(int current, int total) {
+    return '단계 $current / $total';
+  }
+
+  @override
+  String guideMoveCounter(int current, int total) {
+    return '동작 $current / $total';
+  }
+
+  @override
+  String get dailyStep1Title => '1단계: 큐브 섞기';
+
+  @override
+  String get dailyStep2Title => '2단계: 큐브 풀기';
+
+  @override
+  String dailyPersonalBest(String time) {
+    return '개인 최고 기록: $time';
+  }
+
+  @override
+  String get dailyRecentDays => '최근 기록';
+
+  @override
+  String dailyMilestone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count일 연속! 대단해요!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get dailyScrambledTitle => '큐브를 다 섞었어요! 이제 풀어 보세요';
+
+  @override
+  String get dailyCongratsTitle => '축하해요!';
+
+  @override
+  String dailyCongratsBody(String time) {
+    return '오늘의 도전을 $time에 풀었어요.';
+  }
+
+  @override
+  String get dailyCongratsDone => '도전으로 돌아가기';
 }

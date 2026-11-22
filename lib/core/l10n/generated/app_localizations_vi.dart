@@ -871,12 +871,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get timerTapToStop => 'Chạm bất kỳ đâu để dừng';
 
   @override
-  String get timerInspecting => 'Quan sát: giữ, rồi thả ra để bắt đầu';
-
-  @override
-  String get timerTapToInspect => 'Chạm để bắt đầu 15 giây quan sát';
-
-  @override
   String get timerInspectionToggle => 'Quan sát 15 giây';
 
   @override
@@ -2086,4 +2080,136 @@ class AppLocalizationsVi extends AppLocalizations {
   String dailyYourTime(String time) {
     return 'Thời gian của bạn: $time';
   }
+
+  @override
+  String timerInspectIntro(int seconds) {
+    return 'Bạn có $seconds giây để quan sát khối. Chạm để bắt đầu đếm ngược.';
+  }
+
+  @override
+  String get timerInspectTapReady => 'Chạm khi sẵn sàng bắt đầu giải';
+
+  @override
+  String timerInspectPlus2(int seconds) {
+    return 'Quan sát quá $seconds giây nên đồng hồ tự chạy: phạt +2 giây';
+  }
+
+  @override
+  String timerAvgOf(int count) {
+    return 'Trung bình $count';
+  }
+
+  @override
+  String get timerAvgNote => 'Trung bình bỏ thời gian tốt nhất và tệ nhất';
+
+  @override
+  String get timerPbSub => 'Lần tốt nhất';
+
+  @override
+  String get timerPlus2Caption => 'Phạt +2 giây';
+
+  @override
+  String get timerDnfCaption => 'Không hoàn thành (DNF)';
+
+  @override
+  String get timerDeleteCaption => 'Xóa lần giải này';
+
+  @override
+  String get patternBullsEye => 'Hồng tâm';
+
+  @override
+  String get patternFramedCenter => 'Tâm có khung';
+
+  @override
+  String get patternBlockCheckerboard => 'Bàn cờ khối';
+
+  @override
+  String get patternCubeInCubeInCube => 'Khối trong khối trong khối';
+
+  @override
+  String get patternUnionJack => 'Cờ Union Jack';
+
+  @override
+  String get patternKilt => 'Váy kilt';
+
+  @override
+  String get patternSixTs => 'Sáu chữ T';
+
+  @override
+  String get patternTwinPeaks => 'Đỉnh đôi';
+
+  @override
+  String get patternSpiral => 'Xoắn ốc';
+
+  @override
+  String get patternTetris => 'Tetris';
+
+  @override
+  String get patternSpots => 'Chấm giữa';
+
+  @override
+  String get patternStripes => 'Sọc';
+
+  @override
+  String get patternAnaconda => 'Trăn anaconda';
+
+  @override
+  String get patternZigzag => 'Ziczac';
+
+  @override
+  String get patternFourSpots => 'Bốn chấm';
+
+  @override
+  String get patternGreenMamba => 'Rắn mamba xanh';
+
+  @override
+  String get patternPlusMinus => 'Cộng trừ';
+
+  @override
+  String guideStepCounter(int current, int total) {
+    return 'Bước $current / $total';
+  }
+
+  @override
+  String guideMoveCounter(int current, int total) {
+    return 'Nước $current / $total';
+  }
+
+  @override
+  String get dailyStep1Title => 'Bước 1: Xáo trộn khối của bạn';
+
+  @override
+  String get dailyStep2Title => 'Bước 2: Giải khối';
+
+  @override
+  String dailyPersonalBest(String time) {
+    return 'Kỷ lục cá nhân: $time';
+  }
+
+  @override
+  String get dailyRecentDays => 'Những ngày gần đây';
+
+  @override
+  String dailyMilestone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Chuỗi $count ngày! Bạn đang rất phong độ!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get dailyScrambledTitle => 'Đã xáo trộn xong! Giờ hãy giải nó';
+
+  @override
+  String get dailyCongratsTitle => 'Chúc mừng!';
+
+  @override
+  String dailyCongratsBody(String time) {
+    return 'Bạn đã giải thử thách hôm nay trong $time.';
+  }
+
+  @override
+  String get dailyCongratsDone => 'Quay lại thử thách';
 }

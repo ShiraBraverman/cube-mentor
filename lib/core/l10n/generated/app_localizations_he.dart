@@ -870,12 +870,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get timerTapToStop => 'הקישו בכל מקום כדי לעצור';
 
   @override
-  String get timerInspecting => 'זמן בחינה: החזיקו ושחררו כדי להתחיל';
-
-  @override
-  String get timerTapToInspect => 'הקישו כדי להתחיל 15 שניות של בחינה';
-
-  @override
   String get timerInspectionToggle => '15 שניות בחינה';
 
   @override
@@ -2083,4 +2077,136 @@ class AppLocalizationsHe extends AppLocalizations {
   String dailyYourTime(String time) {
     return 'הזמן שלכם: $time';
   }
+
+  @override
+  String timerInspectIntro(int seconds) {
+    return 'יש לכם $seconds שניות לבחון את הקובייה. הקישו כדי להתחיל את הספירה לאחור.';
+  }
+
+  @override
+  String get timerInspectTapReady => 'הקישו כשאתם מוכנים להתחיל לפתור';
+
+  @override
+  String timerInspectPlus2(int seconds) {
+    return 'הבחינה עברה $seconds שניות, אז השעון התחיל לבד: קנס של ⁦+2⁩ שניות';
+  }
+
+  @override
+  String timerAvgOf(int count) {
+    return 'ממוצע של $count';
+  }
+
+  @override
+  String get timerAvgNote => 'בממוצעים לא נספרים הזמן הטוב והגרוע ביותר';
+
+  @override
+  String get timerPbSub => 'הזמן הטוב ביותר';
+
+  @override
+  String get timerPlus2Caption => 'קנס של ⁦+2⁩ שניות';
+
+  @override
+  String get timerDnfCaption => 'לא הושלם';
+
+  @override
+  String get timerDeleteCaption => 'מחיקת הפתרון הזה';
+
+  @override
+  String get patternBullsEye => 'בול בעין';
+
+  @override
+  String get patternFramedCenter => 'מרכז ממוסגר';
+
+  @override
+  String get patternBlockCheckerboard => 'שחמט של ריבועים';
+
+  @override
+  String get patternCubeInCubeInCube => 'קובייה בתוך קובייה בתוך קובייה';
+
+  @override
+  String get patternUnionJack => 'יוניון ג\'ק';
+
+  @override
+  String get patternKilt => 'קילט';
+
+  @override
+  String get patternSixTs => 'שש צורות ⁦T⁩';
+
+  @override
+  String get patternTwinPeaks => 'פסגות תאומות';
+
+  @override
+  String get patternSpiral => 'ספירלה';
+
+  @override
+  String get patternTetris => 'טטריס';
+
+  @override
+  String get patternSpots => 'נקודות במרכז';
+
+  @override
+  String get patternStripes => 'פסים';
+
+  @override
+  String get patternAnaconda => 'אנקונדה';
+
+  @override
+  String get patternZigzag => 'זיגזג';
+
+  @override
+  String get patternFourSpots => 'ארבע נקודות';
+
+  @override
+  String get patternGreenMamba => 'ממבה ירוקה';
+
+  @override
+  String get patternPlusMinus => 'פלוס מינוס';
+
+  @override
+  String guideStepCounter(int current, int total) {
+    return 'שלב $current / $total';
+  }
+
+  @override
+  String guideMoveCounter(int current, int total) {
+    return 'מהלך $current / $total';
+  }
+
+  @override
+  String get dailyStep1Title => 'שלב 1: ערבבו את הקובייה';
+
+  @override
+  String get dailyStep2Title => 'שלב 2: פתרו את הקובייה';
+
+  @override
+  String dailyPersonalBest(String time) {
+    return 'שיא אישי: $time';
+  }
+
+  @override
+  String get dailyRecentDays => 'ימים אחרונים';
+
+  @override
+  String dailyMilestone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'רצף של $count ימים! אתם בוערים!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get dailyScrambledTitle => 'הקובייה מעורבבת! עכשיו לכו לפתור אותה';
+
+  @override
+  String get dailyCongratsTitle => 'כל הכבוד!';
+
+  @override
+  String dailyCongratsBody(String time) {
+    return 'פתרתם את האתגר של היום ב־$time.';
+  }
+
+  @override
+  String get dailyCongratsDone => 'חזרה לאתגר';
 }

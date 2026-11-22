@@ -135,6 +135,48 @@ void main() {
       expect(await attempt(200000, 18000), Penalty.dnf);
     });
 
+    test('with inspection on, any tap runs the 15 s countdown first', () async {
+      final c = await _container();
+      final timer = c.read(timerProvider(3).notifier);
+      await timer.toggleInspection();
+      // Even a long press never skips the inspection.
+      timer.press(0);
+      timer.release(900);
+      expect(c.read(timerProvider(3)).phase, TimerPhase.inspecting);
+      expect(timer.inspectionSecondsLeft(900), 15);
+      expect(timer.inspectionSecondsLeft(900 + 3200), 12);
+      timer.tick(900 + 14000);
+      expect(c.read(timerProvider(3)).phase, TimerPhase.inspecting);
+      // A quick tap during the countdown starts the solve right away.
+      timer.press(900 + 14000);
+      expect(timer.isReady(900 + 14000), isTrue);
+      timer.release(900 + 14080);
+      expect(c.read(timerProvider(3)).phase, TimerPhase.running);
+      timer.press(30000);
+      timer.release(30050);
+      expect(c.read(timerProvider(3)).last!.penalty, Penalty.none);
+      expect(c.read(timerProvider(3)).last!.millis, 30000 - 14980);
+    });
+
+    test('an untouched inspection starts the clock itself with +2', () async {
+      final c = await _container();
+      final timer = c.read(timerProvider(3).notifier);
+      await timer.toggleInspection();
+      timer.press(0);
+      timer.release(50);
+      timer.tick(50 + 15000);
+      final state = c.read(timerProvider(3));
+      expect(state.phase, TimerPhase.running);
+      expect(state.startedAt, 15050);
+      expect(state.inspectionPenalty(state.startedAt), Penalty.plus2);
+      timer.press(25050);
+      timer.release(25100);
+      final last = c.read(timerProvider(3)).last!;
+      expect(last.millis, 10000);
+      expect(last.penalty, Penalty.plus2);
+      expect(last.result, 12000);
+    });
+
     test('penalties, deletion and history survive a restart', () async {
       final c = await _container();
       final timer = c.read(timerProvider(4).notifier);
@@ -236,5 +278,67 @@ void main() {
       tester.widget<Text>(find.byKey(const ValueKey('timer-stat-count'))).data,
       '0',
     );
+  });
+
+  testWidgets('timer screen: 15 s inspection countdown, then +2', (
+    tester,
+  ) async {
+    SharedPreferences.setMockInitialValues({});
+    final prefs = await SharedPreferences.getInstance();
+    var now = DateTime(2026, 11, 16, 9);
+    tester.view.physicalSize = const Size(1080, 2340);
+    tester.view.devicePixelRatio = 2.75;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          sharedPreferencesProvider.overrideWithValue(prefs),
+          scramblerProvider.overrideWithValue(FakeScrambler()),
+          clockProvider.overrideWithValue(() => now),
+        ],
+        child: testApp(const TimerScreen(size: 3)),
+      ),
+    );
+    await tester.pump();
+    // A "15" stopwatch badge toggles the inspection.
+    expect(find.byKey(const ValueKey('inspection-badge-off')), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('timer-inspection')));
+    await tester.pump();
+    expect(find.byKey(const ValueKey('inspection-badge-on')), findsOneWidget);
+    expect(
+      find.text(
+        'You have 15 seconds to inspect the cube. Tap to start the countdown.',
+      ),
+      findsOneWidget,
+    );
+    // Captions explain every stat and button.
+    expect(find.text('Avg of 5'), findsOneWidget);
+    expect(find.text('Avg of 100'), findsOneWidget);
+
+    final pad = find.byKey(const ValueKey('timer-pad'));
+    await tester.tap(pad);
+    await tester.pump(const Duration(milliseconds: 16));
+    expect(find.text('15'), findsWidgets);
+    expect(find.text('Tap when ready to start solving'), findsOneWidget);
+    now = now.add(const Duration(seconds: 4));
+    await tester.pump(const Duration(milliseconds: 16));
+    expect(find.text('11'), findsOneWidget);
+
+    // The 15 seconds run out: the clock starts on its own with +2.
+    now = now.add(const Duration(seconds: 11, milliseconds: 500));
+    await tester.pump(const Duration(milliseconds: 16));
+    await tester.pump(const Duration(milliseconds: 16));
+    expect(
+      find.byKey(const ValueKey('timer-inspection-plus2')),
+      findsOneWidget,
+    );
+    expect(find.byKey(const ValueKey('timer-plus2-note')), findsOneWidget);
+    expect(find.text('0.50'), findsOneWidget);
+    await tester.tap(pad);
+    await tester.pump();
+    // 0.50 plus the 2-second penalty.
+    expect(find.text('2.50+'), findsOneWidget);
+    expect(find.text('Did Not Finish'), findsOneWidget);
+    expect(find.text('+2 s penalty'), findsOneWidget);
   });
 }

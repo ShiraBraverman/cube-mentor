@@ -825,12 +825,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get timerTapToStop => '点按任意位置停止';
 
   @override
-  String get timerInspecting => '观察中：按住后松开开始';
-
-  @override
-  String get timerTapToInspect => '点按开始 15 秒观察';
-
-  @override
   String get timerInspectionToggle => '15 秒观察';
 
   @override
@@ -1947,6 +1941,138 @@ class AppLocalizationsZh extends AppLocalizations {
   String dailyYourTime(String time) {
     return '你的用时：$time';
   }
+
+  @override
+  String timerInspectIntro(int seconds) {
+    return '你有 $seconds 秒观察魔方。点按开始倒计时。';
+  }
+
+  @override
+  String get timerInspectTapReady => '准备好后点按开始复原';
+
+  @override
+  String timerInspectPlus2(int seconds) {
+    return '观察超过 $seconds 秒，计时已自动开始：罚时 +2 秒';
+  }
+
+  @override
+  String timerAvgOf(int count) {
+    return '$count 次平均';
+  }
+
+  @override
+  String get timerAvgNote => '平均成绩会去掉最快和最慢的成绩';
+
+  @override
+  String get timerPbSub => '最佳单次';
+
+  @override
+  String get timerPlus2Caption => '罚时 +2 秒';
+
+  @override
+  String get timerDnfCaption => '未完成（DNF）';
+
+  @override
+  String get timerDeleteCaption => '删除这次成绩';
+
+  @override
+  String get patternBullsEye => '靶心';
+
+  @override
+  String get patternFramedCenter => '框形中心';
+
+  @override
+  String get patternBlockCheckerboard => '方块棋盘';
+
+  @override
+  String get patternCubeInCubeInCube => '三层魔方中魔方';
+
+  @override
+  String get patternUnionJack => '米字旗';
+
+  @override
+  String get patternKilt => '苏格兰裙';
+
+  @override
+  String get patternSixTs => '六个 T';
+
+  @override
+  String get patternTwinPeaks => '双峰';
+
+  @override
+  String get patternSpiral => '螺旋';
+
+  @override
+  String get patternTetris => '俄罗斯方块';
+
+  @override
+  String get patternSpots => '中心圆点';
+
+  @override
+  String get patternStripes => '条纹';
+
+  @override
+  String get patternAnaconda => '森蚺';
+
+  @override
+  String get patternZigzag => '之字形';
+
+  @override
+  String get patternFourSpots => '四个圆点';
+
+  @override
+  String get patternGreenMamba => '绿曼巴';
+
+  @override
+  String get patternPlusMinus => '加减号';
+
+  @override
+  String guideStepCounter(int current, int total) {
+    return '第 $current / $total 步';
+  }
+
+  @override
+  String guideMoveCounter(int current, int total) {
+    return '转动 $current / $total';
+  }
+
+  @override
+  String get dailyStep1Title => '第 1 步：打乱你的魔方';
+
+  @override
+  String get dailyStep2Title => '第 2 步：复原魔方';
+
+  @override
+  String dailyPersonalBest(String time) {
+    return '个人最佳：$time';
+  }
+
+  @override
+  String get dailyRecentDays => '最近记录';
+
+  @override
+  String dailyMilestone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '连续 $count 天！势不可挡！',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get dailyScrambledTitle => '魔方已打乱！现在去复原吧';
+
+  @override
+  String get dailyCongratsTitle => '恭喜！';
+
+  @override
+  String dailyCongratsBody(String time) {
+    return '你用 $time 完成了今天的挑战。';
+  }
+
+  @override
+  String get dailyCongratsDone => '返回挑战';
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -2767,12 +2893,6 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get timerTapToStop => '點任意處停止';
-
-  @override
-  String get timerInspecting => '觀察中：按住，放開即開始';
-
-  @override
-  String get timerTapToInspect => '點一下開始 15 秒觀察';
 
   @override
   String get timerInspectionToggle => '15 秒觀察';
@@ -3917,4 +4037,136 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String dailyYourTime(String time) {
     return '你的時間：$time';
   }
+
+  @override
+  String timerInspectIntro(int seconds) {
+    return '你有 $seconds 秒觀察魔術方塊。點一下開始倒數。';
+  }
+
+  @override
+  String get timerInspectTapReady => '準備好後點一下開始解';
+
+  @override
+  String timerInspectPlus2(int seconds) {
+    return '觀察超過 $seconds 秒，計時已自動開始：加罰 +2 秒';
+  }
+
+  @override
+  String timerAvgOf(int count) {
+    return '$count 次平均';
+  }
+
+  @override
+  String get timerAvgNote => '平均成績會去掉最快和最慢的成績';
+
+  @override
+  String get timerPbSub => '最佳單次';
+
+  @override
+  String get timerPlus2Caption => '加罰 +2 秒';
+
+  @override
+  String get timerDnfCaption => '未完成（DNF）';
+
+  @override
+  String get timerDeleteCaption => '刪除這次成績';
+
+  @override
+  String get patternBullsEye => '靶心';
+
+  @override
+  String get patternFramedCenter => '框形中心';
+
+  @override
+  String get patternBlockCheckerboard => '方塊棋盤';
+
+  @override
+  String get patternCubeInCubeInCube => '三層方塊中方塊';
+
+  @override
+  String get patternUnionJack => '米字旗';
+
+  @override
+  String get patternKilt => '蘇格蘭裙';
+
+  @override
+  String get patternSixTs => '六個 T';
+
+  @override
+  String get patternTwinPeaks => '雙峰';
+
+  @override
+  String get patternSpiral => '螺旋';
+
+  @override
+  String get patternTetris => '俄羅斯方塊';
+
+  @override
+  String get patternSpots => '中心圓點';
+
+  @override
+  String get patternStripes => '條紋';
+
+  @override
+  String get patternAnaconda => '森蚺';
+
+  @override
+  String get patternZigzag => '之字形';
+
+  @override
+  String get patternFourSpots => '四個圓點';
+
+  @override
+  String get patternGreenMamba => '綠曼巴';
+
+  @override
+  String get patternPlusMinus => '加減號';
+
+  @override
+  String guideStepCounter(int current, int total) {
+    return '第 $current / $total 步';
+  }
+
+  @override
+  String guideMoveCounter(int current, int total) {
+    return '轉動 $current / $total';
+  }
+
+  @override
+  String get dailyStep1Title => '第 1 步：打亂你的方塊';
+
+  @override
+  String get dailyStep2Title => '第 2 步：解開方塊';
+
+  @override
+  String dailyPersonalBest(String time) {
+    return '個人最佳：$time';
+  }
+
+  @override
+  String get dailyRecentDays => '最近紀錄';
+
+  @override
+  String dailyMilestone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '連續 $count 天！勢不可擋！',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get dailyScrambledTitle => '方塊已打亂！現在去解開它吧';
+
+  @override
+  String get dailyCongratsTitle => '恭喜！';
+
+  @override
+  String dailyCongratsBody(String time) {
+    return '你用 $time 完成了今天的挑戰。';
+  }
+
+  @override
+  String get dailyCongratsDone => '返回挑戰';
 }

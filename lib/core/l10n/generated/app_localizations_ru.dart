@@ -893,13 +893,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get timerTapToStop => 'Коснитесь экрана, чтобы остановить';
 
   @override
-  String get timerInspecting => 'Инспекция: удерживайте и отпустите для старта';
-
-  @override
-  String get timerTapToInspect =>
-      'Коснитесь, чтобы начать 15-секундную инспекцию';
-
-  @override
   String get timerInspectionToggle => 'Инспекция 15 с';
 
   @override
@@ -2136,4 +2129,140 @@ class AppLocalizationsRu extends AppLocalizations {
   String dailyYourTime(String time) {
     return 'Ваше время: $time';
   }
+
+  @override
+  String timerInspectIntro(int seconds) {
+    return 'У вас $seconds секунд, чтобы осмотреть кубик. Коснитесь, чтобы начать обратный отсчёт.';
+  }
+
+  @override
+  String get timerInspectTapReady =>
+      'Коснитесь, когда будете готовы начать сборку';
+
+  @override
+  String timerInspectPlus2(int seconds) {
+    return 'Инспекция превысила $seconds с, и таймер запустился сам: штраф +2 с';
+  }
+
+  @override
+  String timerAvgOf(int count) {
+    return 'Среднее из $count';
+  }
+
+  @override
+  String get timerAvgNote => 'В средних не учитываются лучшее и худшее время';
+
+  @override
+  String get timerPbSub => 'Лучшая сборка';
+
+  @override
+  String get timerPlus2Caption => 'Штраф +2 с';
+
+  @override
+  String get timerDnfCaption => 'Не собран (DNF)';
+
+  @override
+  String get timerDeleteCaption => 'Удалить эту сборку';
+
+  @override
+  String get patternBullsEye => 'Мишень';
+
+  @override
+  String get patternFramedCenter => 'Центр в рамке';
+
+  @override
+  String get patternBlockCheckerboard => 'Шахматка из блоков';
+
+  @override
+  String get patternCubeInCubeInCube => 'Куб в кубе в кубе';
+
+  @override
+  String get patternUnionJack => 'Юнион Джек';
+
+  @override
+  String get patternKilt => 'Килт';
+
+  @override
+  String get patternSixTs => 'Шесть букв T';
+
+  @override
+  String get patternTwinPeaks => 'Две вершины';
+
+  @override
+  String get patternSpiral => 'Спираль';
+
+  @override
+  String get patternTetris => 'Тетрис';
+
+  @override
+  String get patternSpots => 'Точки в центре';
+
+  @override
+  String get patternStripes => 'Полосы';
+
+  @override
+  String get patternAnaconda => 'Анаконда';
+
+  @override
+  String get patternZigzag => 'Зигзаг';
+
+  @override
+  String get patternFourSpots => 'Четыре точки';
+
+  @override
+  String get patternGreenMamba => 'Зелёная мамба';
+
+  @override
+  String get patternPlusMinus => 'Плюс-минус';
+
+  @override
+  String guideStepCounter(int current, int total) {
+    return 'Шаг $current / $total';
+  }
+
+  @override
+  String guideMoveCounter(int current, int total) {
+    return 'Ход $current / $total';
+  }
+
+  @override
+  String get dailyStep1Title => 'Шаг 1: запутайте кубик';
+
+  @override
+  String get dailyStep2Title => 'Шаг 2: соберите кубик';
+
+  @override
+  String dailyPersonalBest(String time) {
+    return 'Личный рекорд: $time';
+  }
+
+  @override
+  String get dailyRecentDays => 'Последние дни';
+
+  @override
+  String dailyMilestone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Серия: $count дня! Вы в ударе!',
+      many: 'Серия: $count дней! Вы в ударе!',
+      few: 'Серия: $count дня! Вы в ударе!',
+      one: 'Серия: $count день! Вы в ударе!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get dailyScrambledTitle => 'Кубик запутан! Теперь соберите его';
+
+  @override
+  String get dailyCongratsTitle => 'Поздравляем!';
+
+  @override
+  String dailyCongratsBody(String time) {
+    return 'Вы собрали задание дня за $time.';
+  }
+
+  @override
+  String get dailyCongratsDone => 'Назад к заданию';
 }

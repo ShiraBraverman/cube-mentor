@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
@@ -7,6 +8,7 @@ import '../../core/ads/app_banner_ad.dart';
 import '../../core/cube/cube_state.dart';
 import '../../core/feedback/feedback_service.dart';
 import '../../core/l10n/generated/app_localizations.dart';
+import '../../core/settings/clock.dart';
 import '../../core/settings/intro_preference.dart';
 import '../../core/settings/solve_preference.dart';
 import '../../core/solver/cube_solver.dart';
@@ -15,6 +17,7 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
 import '../../core/theme/ui_kit.dart';
 import '../academy/widgets/lesson_intro.dart';
+import '../timer/model/timer_stats.dart';
 import 'model/cube_session.dart';
 import 'model/guide_script.dart';
 import 'widgets/cube_viewport.dart';
@@ -35,6 +38,9 @@ class Solver3DScreen extends ConsumerStatefulWidget {
     this.guide,
     this.title,
     this.onSolved,
+    this.challenge = false,
+    this.onTimedSolve,
+    this.guideDoneAction,
   });
 
   final int size;
@@ -56,12 +62,43 @@ class Solver3DScreen extends ConsumerStatefulWidget {
   /// with the number of turns it took.
   final ValueChanged<int>? onSolved;
 
+  /// A timed challenge on [initialCube] (the daily scramble): a running
+  /// clock replaces the status pill, and the bottom bar keeps only Undo and
+  /// Reset, which returns to [initialCube] (not a solved cube) and restarts
+  /// the clock. No Scramble or Solve.
+  final bool challenge;
+
+  /// Called with the solve time (milliseconds) when a [challenge] is
+  /// solved.
+  final ValueChanged<int>? onTimedSolve;
+
+  /// Shown under a finished guide, e.g. "solve it now" buttons after the
+  /// daily scramble guide.
+  final Widget? guideDoneAction;
+
   @override
   ConsumerState<Solver3DScreen> createState() => _Solver3DScreenState();
 }
 
 class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
   bool _reportedSolved = false;
+
+  /// Challenge clock: when it started, and the time once solved.
+  late DateTime _challengeStart = ref.read(clockProvider)();
+  int? _challengeMillis;
+
+  /// Challenge Reset: back to the starting scramble, clock from zero.
+  void _restartChallenge() {
+    final cube = widget.initialCube;
+    if (cube == null) return;
+    ref.read(cubeSessionProvider(widget.size).notifier).load(cube);
+    setState(() {
+      _challengeStart = ref.read(clockProvider)();
+      _challengeMillis = null;
+      _reportedSolved = false;
+      _turns = 0;
+    });
+  }
 
   /// Turns applied to the cube since the screen opened (undo counts too).
   int _turns = 0;
@@ -221,15 +258,37 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
       },
     );
 
+    // A timed challenge stops its clock once solved.
+    ref.listen(
+      cubeSessionProvider(size).select((s) => s.isIdle && s.cube.isSolved),
+      (previous, next) {
+        if (!widget.challenge || _challengeMillis != null) return;
+        if (previous == false && next) {
+          final millis = ref
+              .read(clockProvider)()
+              .difference(_challengeStart)
+              .inMilliseconds;
+          setState(() => _challengeMillis = millis);
+          widget.onTimedSolve?.call(millis);
+        }
+      },
+    );
+
     return GlassBackground(
       child: Scaffold(
         appBar: AppBar(
           title: Text(widget.title ?? l10n.playgroundTitle(size)),
           actions: [
-            _StatusPill(
-              label: solved ? l10n.solved : l10n.scrambled,
-              positive: solved,
-            ),
+            if (widget.challenge)
+              _ChallengeClock(
+                start: _challengeStart,
+                finishedMillis: _challengeMillis,
+              )
+            else
+              _StatusPill(
+                label: solved ? l10n.solved : l10n.scrambled,
+                positive: solved,
+              ),
             IconButton(
               tooltip: l10n.xray,
               isSelected: session.xray,
@@ -335,7 +394,10 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
                               padding: const EdgeInsetsDirectional.only(
                                 bottom: AppSpace.xs,
                               ),
-                              child: SolveBanner(size: size),
+                              child: SolveBanner(
+                              size: size,
+                              guideDoneAction: widget.guideDoneAction,
+                            ),
                             ),
                           _GuideDock(
                             size: size,
@@ -345,7 +407,9 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
                                 ? () => Navigator.of(context).maybePop()
                                 : controller.clearSolution,
                           ),
-                        ] else
+                        ] else if (widget.challenge)
+                          _ChallengeBar(size: size, onReset: _restartChallenge)
+                        else
                           _ActionBar(size: size, onNotice: _showNotice),
                       ],
                     ),
@@ -559,6 +623,130 @@ class _NoticePill extends StatelessWidget {
       ],
     ),
   );
+}
+
+/// Timed challenge: Undo and Reset (back to the challenge scramble) only.
+class _ChallengeBar extends ConsumerWidget {
+  const _ChallengeBar({required this.size, required this.onReset});
+
+  final int size;
+  final VoidCallback onReset;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final session = ref.watch(cubeSessionProvider(size));
+    final controller = ref.read(cubeSessionProvider(size).notifier);
+    final free = !session.isHandTurning;
+    return GlassCard(
+      key: const ValueKey('challenge-bar'),
+      borderRadius: AppRadius.lg,
+      padding: const EdgeInsetsDirectional.all(AppSpace.sm - 2),
+      child: Row(
+        children: [
+          Expanded(
+            child: _ActionButton(
+              key: const ValueKey('challenge-undo'),
+              icon: Icons.undo_rounded,
+              label: l10n.undo,
+              onTap: free && session.log.isNotEmpty ? controller.undo : null,
+            ),
+          ),
+          const SizedBox(width: AppSpace.xs),
+          Expanded(
+            child: _ActionButton(
+              key: const ValueKey('challenge-reset'),
+              icon: Icons.restart_alt_rounded,
+              label: l10n.reset,
+              onTap: free ? onReset : null,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// The running clock of a timed challenge in the app bar; it freezes on
+/// the final time once solved.
+class _ChallengeClock extends ConsumerStatefulWidget {
+  const _ChallengeClock({required this.start, required this.finishedMillis});
+
+  final DateTime start;
+  final int? finishedMillis;
+
+  @override
+  ConsumerState<_ChallengeClock> createState() => _ChallengeClockState();
+}
+
+class _ChallengeClockState extends ConsumerState<_ChallengeClock>
+    with SingleTickerProviderStateMixin {
+  late final Ticker _ticker = createTicker((_) => setState(() {}));
+
+  @override
+  void initState() {
+    super.initState();
+    _sync();
+  }
+
+  @override
+  void didUpdateWidget(_ChallengeClock oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _sync();
+  }
+
+  void _sync() {
+    final running = widget.finishedMillis == null;
+    if (running && !_ticker.isActive) {
+      _ticker.start();
+    } else if (!running && _ticker.isActive) {
+      _ticker.stop();
+    }
+  }
+
+  @override
+  void dispose() {
+    _ticker.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final finished = widget.finishedMillis;
+    final millis =
+        finished ??
+        ref.read(clockProvider)().difference(widget.start).inMilliseconds;
+    final color = finished == null
+        ? AppColors.textPrimary
+        : AppColors.accentSecondary;
+    return Container(
+      key: const ValueKey('challenge-clock'),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(AppRadius.pill),
+        color: color.withValues(alpha: 0.12),
+        border: Border.all(color: color.withValues(alpha: 0.5)),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        textDirection: TextDirection.ltr,
+        children: [
+          Icon(Icons.timer_outlined, size: 16, color: color),
+          const SizedBox(width: 4),
+          Text(
+            formatTime(millis < 0 ? 0 : millis),
+            key: const ValueKey('challenge-clock-time'),
+            textDirection: TextDirection.ltr,
+            style: TextStyle(
+              color: color,
+              fontWeight: FontWeight.w800,
+              fontFeatures: const [FontFeature.tabularFigures()],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 /// Free play: Scramble / Solve / Undo / Reset.

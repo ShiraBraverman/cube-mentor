@@ -1,4 +1,5 @@
-import 'package:cube_mentor/core/celebration/celebration.dart';
+import 'dart:math';
+
 import 'package:cube_mentor/core/cube/cube_move.dart';
 import 'package:cube_mentor/core/cube/cube_state.dart';
 import 'package:cube_mentor/core/cube/facelets.dart';
@@ -125,6 +126,71 @@ void main() {
       }
     });
 
+    test('checkerboard also works as stripes on even cubes', () {
+      for (final n in [4, 6]) {
+        final cube = pattern('stripes').stateFor(n);
+        final up = _face(cube, 0);
+        // The top face alternates two colors like a checkerboard.
+        for (var r = 0; r < n; r++) {
+          for (var c = 0; c < n; c++) {
+            expect(up[r][c], (r + c).isEven ? up[0][0] : up[0][1]);
+          }
+        }
+      }
+    });
+
+    test("bull's-eye: three concentric rings on every face", () {
+      for (final n in [5, 6]) {
+        final cube = pattern('bullsEye').stateFor(n);
+        for (var face = 0; face < 6; face++) {
+          final rows = _face(cube, face);
+          final outer = rows[0][0];
+          final ring = rows[1][1];
+          final middle = rows[n ~/ 2][n ~/ 2];
+          expect({outer, ring, middle}, hasLength(3), reason: '${n}x$n');
+          for (var r = 0; r < n; r++) {
+            for (var c = 0; c < n; c++) {
+              final depth = [r, c, n - 1 - r, n - 1 - c].reduce(min);
+              final expected = switch (depth) {
+                0 => outer,
+                1 => ring,
+                _ => middle,
+              };
+              expect(rows[r][c], expected, reason: '${n}x$n ($r, $c)');
+            }
+          }
+        }
+      }
+    });
+
+    test('framed center: corners and center block match, edges differ', () {
+      final rows = _face(pattern('framedCenter').stateFor(4), 0);
+      expect(rows, ['WYYW', 'YWWY', 'YWWY', 'WYYW']);
+    });
+
+    test('every size page lists its patterns once, best first', () {
+      for (final size in [2, 3, 4, 5, 6]) {
+        final ids = kPatternOrder[size]!;
+        expect(ids.toSet(), hasLength(ids.length), reason: '$size');
+        expect(
+          ids.toSet(),
+          {
+            for (final p in kPatterns)
+              if (p.supports(size)) p.id,
+          },
+          reason: '$size',
+        );
+        expect(patternsFor(size).map((p) => p.id), ids);
+      }
+      // The library roughly doubled: at least 14 patterns per 3x3-6x6 page.
+      for (final size in [3, 4, 5, 6]) {
+        expect(patternsFor(size).length, greaterThanOrEqualTo(14));
+      }
+      expect(patternsFor(3).first.id, 'checkerboard');
+      expect(patternsFor(5).first.id, 'bullsEye');
+      expect(patternsFor(6).first.id, 'bullsEye');
+    });
+
     test('every pattern parses for its sizes and changes the cube', () {
       for (final p in kPatterns) {
         for (final size in p.moves.keys) {
@@ -155,7 +221,7 @@ void main() {
     );
     await tester.pump();
     expect(find.text('Checkerboard'), findsOneWidget);
-    expect(find.text('Superflip'), findsOneWidget);
+    expect(find.text('Cube in a cube in a cube'), findsOneWidget);
 
     // Opens on the 3x3.
     ChoiceChip chip(int size) =>
@@ -172,7 +238,7 @@ void main() {
     expect(chip(4).selected, isTrue);
     expect(chip(3).selected, isFalse);
     expect(find.text('Checkerboard'), findsNothing);
-    expect(find.text('Dots'), findsOneWidget);
+    expect(find.text('Framed center'), findsOneWidget);
 
     // Back to 3x3 by swipe, then to 4x4 again by chip.
     await tester.fling(
@@ -187,21 +253,25 @@ void main() {
     await _advance(tester, 30);
     expect(chip(4).selected, isTrue);
     expect(find.text('Checkerboard'), findsNothing);
-    expect(find.text('Dots'), findsOneWidget);
+    expect(find.text('Framed center'), findsOneWidget);
 
-    await tester.tap(find.byKey(const ValueKey('pattern-dots')));
+    // The first pattern of a page is the free one.
+    await tester.tap(find.byKey(const ValueKey('pattern-framedCenter')));
     await _advance(tester);
     expect(find.byType(Solver3DScreen), findsOneWidget);
-    expect(find.text('Dots · 4×4'), findsOneWidget);
+    expect(find.text('Framed center · 4×4'), findsOneWidget);
     final container = ProviderScope.containerOf(
       tester.element(find.byType(Solver3DScreen)),
     );
     final session = container.read(cubeSessionProvider(4));
-    expect(session.playback, hasLength(8));
+    expect(session.playback, hasLength(6));
     expect(session.cube.isSolved, isTrue);
     expect(find.text('Make the pattern'), findsOneWidget);
-    expect(find.text('Top row'), findsOneWidget);
-    expect(find.text('Left'), findsOneWidget);
+    // An explicit step counter next to the progress bar, live per move.
+    expect(find.text('Step 1 / 6'), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('playback-next')));
+    await _advance(tester, 16);
+    expect(find.text('Step 2 / 6'), findsOneWidget);
   });
 
   group('daily challenge', () {
@@ -254,6 +324,42 @@ void main() {
       await c.read(dailyProvider.notifier).complete();
       expect(c.read(dailyProvider).streak, 1);
       expect(c.read(dailyProvider).bestStreak, 9);
+    });
+
+    test('daily scrambles are capped to 12-15 moves', () {
+      final long = List.filled(20, 'R').join(' ');
+      for (var seed = 0; seed < 8; seed++) {
+        final moves = capDailyScramble(long, seed).split(' ');
+        expect(moves.length, inInclusiveRange(12, 15));
+        expect(moves.length, 12 + seed % 4);
+      }
+      expect(capDailyScramble("R U F'", 3), "R U F'");
+      expect(isStreakMilestone(5), isTrue);
+      expect(isStreakMilestone(10), isTrue);
+      expect(isStreakMilestone(7), isFalse);
+      expect(isStreakMilestone(0), isFalse);
+    });
+
+    test('timed solves keep a personal best and a log of days', () async {
+      final c = await container(DateTime(2026, 11, 16, 8), {
+        'daily_best_time_ms': 40000,
+        'daily_log': '[{"d":"2026-11-15","t":40000}]',
+      });
+      expect(c.read(dailyProvider).bestMillis, 40000);
+      expect(c.read(dailyProvider).log.single.day, '2026-11-15');
+      await c.read(dailyProvider.notifier).complete(millis: 52000);
+      var state = c.read(dailyProvider);
+      expect(state.bestMillis, 40000);
+      expect(state.log.map((e) => (e.day, e.millis)), [
+        ('2026-11-15', 40000),
+        ('2026-11-16', 52000),
+      ]);
+      await c.read(dailyProvider.notifier).complete(millis: 31000);
+      state = c.read(dailyProvider);
+      expect(state.bestMillis, 31000);
+      expect(state.todayMillis, 31000);
+      expect(state.log.last.millis, 31000);
+      expect(state.log, hasLength(2));
     });
 
     test('the scramble is seeded by the date; the hint is the cross', () async {
@@ -312,6 +418,7 @@ void main() {
       'daily_streak': 2,
     });
     final prefs = await SharedPreferences.getInstance();
+    var now = DateTime(2026, 11, 16, 8);
     tester.view.physicalSize = const Size(1080, 2340);
     tester.view.devicePixelRatio = 2.75;
     addTearDown(tester.view.reset);
@@ -321,7 +428,7 @@ void main() {
           sharedPreferencesProvider.overrideWithValue(prefs),
           scramblerProvider.overrideWithValue(FakeScrambler()),
           cubeSolverProvider.overrideWithValue(FakeCubeSolver()),
-          clockProvider.overrideWithValue(() => DateTime(2026, 11, 16, 8)),
+          clockProvider.overrideWithValue(() => now),
         ],
         child: testApp(const DailyScreen()),
       ),
@@ -335,14 +442,20 @@ void main() {
     final scramble = MoveNotation.parseSequence(FakeScrambler.daily, 3);
     expect(find.byKey(const ValueKey('daily-step-0')), findsNothing);
     expect(find.text('Show text moves'), findsOneWidget);
+    // Two clear steps under the stats card.
+    expect(find.text('Step 1: Scramble your cube'), findsOneWidget);
+    expect(find.text('Step 2: Solve the cube'), findsOneWidget);
     for (final key in [
       'daily-scramble-guide',
       'daily-virtual',
       'daily-timer',
     ]) {
-      final rect = tester.getRect(find.byKey(ValueKey(key)));
-      expect(rect.bottom, lessThan(tester.view.physicalSize.height / 2.75));
+      expect(find.byKey(ValueKey(key)), findsOneWidget);
     }
+    await tester.ensureVisible(
+      find.byKey(const ValueKey('daily-moves-toggle')),
+    );
+    await tester.pump();
     await tester.tap(find.byKey(const ValueKey('daily-moves-toggle')));
     await _advance(tester, 6);
     expect(find.byKey(const ValueKey('daily-step-0')), findsOneWidget);
@@ -350,65 +463,100 @@ void main() {
     expect(find.text('Hide text moves'), findsOneWidget);
 
     // The 3D scramble guide starts from a solved cube and plays today's
-    // scramble step by step with the solver's dock and arrows.
+    // scramble step by step with a "Move 1 / 11" counter.
     await tester.scrollUntilVisible(
       find.byKey(const ValueKey('daily-scramble-guide')),
-      200,
+      -200,
       scrollable: find.byType(Scrollable).first,
     );
     await tester.pump();
     await tester.tap(find.byKey(const ValueKey('daily-scramble-guide')));
     await _advance(tester);
-    final guide = ProviderScope.containerOf(
+    final guideContainer = ProviderScope.containerOf(
       tester.element(find.byType(Solver3DScreen)),
-    ).read(cubeSessionProvider(3));
+    );
+    final guide = guideContainer.read(cubeSessionProvider(3));
     expect(guide.cube.isSolved, isTrue);
     expect(guide.playback, scramble);
     expect(find.text('Scramble guide'), findsOneWidget);
     expect(find.text("Scramble today's cube"), findsOneWidget);
+    expect(find.text('Move 1 / ${scramble.length}'), findsOneWidget);
     expect(find.byKey(const ValueKey('solve-dock')), findsOneWidget);
     // Guide-only playback: Previous / Play / Next / Exit, no free-play bar.
     expect(find.byKey(const ValueKey('guide-dock')), findsOneWidget);
     expect(find.byKey(const ValueKey('action-bar')), findsNothing);
-    await tester.pageBack();
-    await _advance(tester);
+    final guideController = guideContainer.read(
+      cubeSessionProvider(3).notifier,
+    );
+    guideController.stepForward();
+    await _advance(tester, 16);
+    expect(find.text('Move 2 / ${scramble.length}'), findsOneWidget);
+    for (var i = 1; i < scramble.length; i++) {
+      guideController.stepForward();
+      await _advance(tester, 16);
+    }
+    // Scrambled, not "Solved!", with a way straight to solving.
+    expect(find.text('Cube scrambled! Now go solve it'), findsOneWidget);
+    expect(find.text('Solved! Great job.'), findsNothing);
     expect(
-      find.text("Solve today's scramble to keep your streak."),
+      find.text('Move ${scramble.length} / ${scramble.length}'),
       findsOneWidget,
     );
-
-    await tester.scrollUntilVisible(
-      find.byKey(const ValueKey('daily-virtual')),
-      200,
-      scrollable: find.byType(Scrollable).first,
-    );
-    await tester.pump();
-    await tester.tap(find.byKey(const ValueKey('daily-virtual')));
+    expect(find.byKey(const ValueKey('scrambled-timer')), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('scrambled-virtual')));
     await _advance(tester);
+
+    // Solving today's scramble on the 3D cube: a running clock, only Undo
+    // and Reset (no Scramble or Solve).
     expect(find.byType(Solver3DScreen), findsOneWidget);
+    expect(find.text('Scramble guide'), findsNothing);
+    expect(find.byKey(const ValueKey('challenge-bar')), findsOneWidget);
+    expect(find.byKey(const ValueKey('action-bar')), findsNothing);
+    expect(find.byKey(const ValueKey('solve')), findsNothing);
+    expect(find.byKey(const ValueKey('challenge-clock')), findsOneWidget);
     final container = ProviderScope.containerOf(
       tester.element(find.byType(Solver3DScreen)),
     );
-    // Undo the scramble move by move, as a user would.
-    final moves = MoveNotation.parseSequence(FakeScrambler.daily, 3);
     final controller = container.read(cubeSessionProvider(3).notifier);
-    for (final move in moves.reversed) {
+    final start = container.read(cubeSessionProvider(3)).cube;
+    expect(
+      start.toFacelets(),
+      CubeState.solved(3).applyAll(scramble).toFacelets(),
+    );
+    // Reset goes back to today's scramble, not to a solved cube.
+    controller.turnNotation('R');
+    await _advance(tester, 16);
+    await tester.tap(find.byKey(const ValueKey('challenge-reset')));
+    await _advance(tester);
+    expect(
+      container.read(cubeSessionProvider(3)).cube.toFacelets(),
+      start.toFacelets(),
+    );
+
+    // Undo the scramble move by move, as a user would, 42 s later.
+    now = now.add(const Duration(seconds: 42));
+    for (final move in scramble.reversed) {
       controller.turn(move.inverse);
     }
     // 11 animated turns of 320-480 ms each.
     await _advance(tester, 160);
     expect(container.read(cubeSessionProvider(3)).isIdle, isTrue);
     expect(container.read(cubeSessionProvider(3)).cube.isSolved, isTrue);
-    // A celebration card floats in over the page, then slides away.
-    expect(find.byKey(const ValueKey('celebration-toast')), findsOneWidget);
-    expect(find.text('Daily challenge complete!'), findsOneWidget);
-    expect(find.text('Way to go!'), findsOneWidget);
-    await tester.pump(kCelebrationDuration);
-    await _advance(tester, 4);
+    // "Congratulations!" with the solve time.
+    expect(find.byKey(const ValueKey('daily-congrats')), findsOneWidget);
+    expect(find.text('Congratulations!'), findsOneWidget);
+    expect(
+      find.text("You solved today's challenge in 42.00."),
+      findsOneWidget,
+    );
+    expect(find.text('3-day streak'), findsWidgets);
     expect(find.byKey(const ValueKey('celebration-toast')), findsNothing);
+    expect(prefs.getInt('daily_best_time_ms'), 42000);
 
-    await tester.pageBack();
+    // Back to the challenge page, now done, with the new stats.
+    await tester.tap(find.byKey(const ValueKey('daily-congrats-done')));
     await _advance(tester);
+    expect(find.byType(Solver3DScreen), findsNothing);
     await tester.scrollUntilVisible(
       find.byKey(const ValueKey('daily-streak')),
       -200,
@@ -417,6 +565,8 @@ void main() {
     await tester.pump();
     expect(find.text('3-day streak'), findsOneWidget);
     expect(find.text('Done for today! Come back tomorrow.'), findsOneWidget);
+    expect(find.text('Personal best: 42.00'), findsOneWidget);
+    expect(find.byKey(const ValueKey('daily-log')), findsOneWidget);
     expect(prefs.getString('daily_last_day'), '2026-11-16');
   });
 }

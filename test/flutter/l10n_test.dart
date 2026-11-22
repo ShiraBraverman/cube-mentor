@@ -414,7 +414,23 @@ void main() {
         expect(find.byKey(const ValueKey('lesson-part')), findsOneWidget);
         expect(tester.takeException(), isNull, reason: 'lesson $id');
       }
+      // The timer with a recorded solve: stat captions, the +2 / DNF /
+      // Delete captions, and the inspection intro.
+      await prefs.setString(
+        'timer_history_3',
+        '[{"ms":12345,"s":"","at":0,"p":0}]',
+      );
+      await prefs.setBool('timer_inspection', true);
       await show(const TimerScreen(size: 3));
+      expect(find.byKey(const ValueKey('timer-dnf-caption')), findsOneWidget);
+      expect(find.byKey(const ValueKey('timer-stat-ao5-sub')), findsOneWidget);
+      // The 15-second countdown after a tap.
+      await tester.tap(find.byKey(const ValueKey('timer-pad')));
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(find.text('15'), findsWidgets);
+      expect(tester.takeException(), isNull, reason: 'inspection countdown');
+      await prefs.remove('timer_history_3');
+      await prefs.remove('timer_inspection');
       await show(const DailyScreen());
       // The daily scramble's text moves, unfolded.
       await tester.ensureVisible(
@@ -424,35 +440,106 @@ void main() {
       await _advance(tester, 8);
       expect(find.byKey(const ValueKey('daily-step-0')), findsOneWidget);
       expect(tester.takeException(), isNull, reason: 'daily text moves');
-      // After a timed solve: today's best time on the streak card.
+      // After timed solves: today's best time, the personal best, a
+      // 10-day milestone and the log of recent days on the stats card.
       await prefs.setString('daily_last_day', '2026-11-16');
+      await prefs.setInt('daily_streak', 10);
       await prefs.setString('daily_time_day', '2026-11-16');
       await prefs.setInt('daily_time_ms', 44870);
-      await show(const DailyScreen());
+      await prefs.setInt('daily_best_time_ms', 38420);
+      await prefs.setString('daily_log', [
+        for (var d = 7; d <= 16; d++)
+          '{"d":"2026-11-${d.toString().padLeft(2, '0')}","t":${40000 + d}}',
+      ].toString());
+      await show(const DailyScreen(), scroll: false);
       expect(find.byKey(const ValueKey('daily-best-time')), findsOneWidget);
-      for (final key in ['daily_last_day', 'daily_time_day', 'daily_time_ms']) {
+      expect(find.byKey(const ValueKey('daily-personal-best')), findsOneWidget);
+      expect(find.byKey(const ValueKey('daily-milestone')), findsOneWidget);
+      expect(find.byKey(const ValueKey('daily-log')), findsOneWidget);
+      await show(const DailyScreen());
+      for (final key in [
+        'daily_last_day',
+        'daily_streak',
+        'daily_time_day',
+        'daily_time_ms',
+        'daily_best_time_ms',
+        'daily_log',
+      ]) {
         await prefs.remove(key);
       }
+      // The congratulations dialog after a 3D solve.
+      await show(
+        const Scaffold(
+          body: DailyCongratsDialog(millis: 62350, streak: 15, newBest: true),
+        ),
+        scroll: false,
+      );
+      expect(find.byKey(const ValueKey('daily-congrats')), findsOneWidget);
+      // Solving the daily scramble on the 3D cube: clock, Undo and Reset.
+      await show(
+        Solver3DScreen(
+          size: 3,
+          initialCube: CubeState.solved(3)
+              .applyAll(MoveNotation.parseSequence('R U', 3)),
+          challenge: true,
+        ),
+        scroll: false,
+      );
+      expect(find.byKey(const ValueKey('challenge-bar')), findsOneWidget);
+      expect(find.byKey(const ValueKey('challenge-clock')), findsOneWidget);
+      // The end of the scramble guide: scrambled, with the next steps.
+      await show(
+        Solver3DScreen(
+          size: 3,
+          guide: GuideScript(
+            start: CubeState.solved(3),
+            moves: MoveNotation.parseSequence('R', 3),
+            phase: 'dailyScramble',
+            explanation: 'dailyScrambleStep',
+          ),
+          guideDoneAction: Row(
+            children: [
+              Expanded(
+                child: FilledButton(
+                  onPressed: () {},
+                  child: Builder(
+                    builder: (context) => Text(
+                      AppLocalizations.of(context).dailyTimeIt,
+                      maxLines: 2,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        scroll: false,
+      );
+      expect(find.byKey(const ValueKey('guide-counter')), findsOneWidget);
+      await tester.tap(find.byKey(const ValueKey('playback-next')));
+      await _advance(tester, 16);
+      expect(find.byKey(const ValueKey('guide-complete-title')), findsOneWidget);
+      expect(tester.takeException(), isNull, reason: 'scrambled card');
       await show(const PatternsScreen());
-      // A locked 4x4 page: unlock banner, free sample and locked cards,
-      // then the "watch a video" sheet from a locked pattern.
+      // A locked 4x4 page: the one unlock banner, free sample and locked
+      // cards, then the "watch a video" sheet from a locked pattern.
       await show(const PatternsScreen(initialSize: 4), scroll: false);
       expect(
-        find.byKey(const ValueKey('patterns-unlock-banner-4')),
+        find.byKey(const ValueKey('patterns-unlock-banner')),
         findsOneWidget,
       );
       await tester.ensureVisible(
-        find.byKey(const ValueKey('pattern-superflip')),
+        find.byKey(const ValueKey('pattern-cubeInCube')),
       );
       await tester.pump();
-      await tester.tap(find.byKey(const ValueKey('pattern-superflip')));
+      await tester.tap(find.byKey(const ValueKey('pattern-cubeInCube')));
       await _advance(tester, 8);
       expect(
         find.byKey(const ValueKey('patterns-unlock-sheet')),
         findsOneWidget,
       );
       expect(tester.takeException(), isNull, reason: 'patterns unlock sheet');
-      // The re-offer when the 20 minutes run out.
+      // The re-offer when the 15 minutes run out.
       await show(
         const Scaffold(
           body: Align(

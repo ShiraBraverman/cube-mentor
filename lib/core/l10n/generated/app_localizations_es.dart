@@ -889,14 +889,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get timerTapToStop => 'Toca en cualquier sitio para parar';
 
   @override
-  String get timerInspecting =>
-      'Inspección: mantén pulsado y suelta para empezar';
-
-  @override
-  String get timerTapToInspect =>
-      'Toca para iniciar los 15 segundos de inspección';
-
-  @override
   String get timerInspectionToggle => 'Inspección de 15 s';
 
   @override
@@ -2117,4 +2109,138 @@ class AppLocalizationsEs extends AppLocalizations {
   String dailyYourTime(String time) {
     return 'Tu tiempo: $time';
   }
+
+  @override
+  String timerInspectIntro(int seconds) {
+    return 'Tienes $seconds segundos para inspeccionar el cubo. Toca para iniciar la cuenta atrás.';
+  }
+
+  @override
+  String get timerInspectTapReady =>
+      'Toca cuando estés listo para empezar a resolver';
+
+  @override
+  String timerInspectPlus2(int seconds) {
+    return 'La inspección pasó de $seconds s y el reloj arrancó solo: penalización de +2 s';
+  }
+
+  @override
+  String timerAvgOf(int count) {
+    return 'Media de $count';
+  }
+
+  @override
+  String get timerAvgNote => 'Las medias descartan el mejor y el peor tiempo';
+
+  @override
+  String get timerPbSub => 'Mejor tiempo';
+
+  @override
+  String get timerPlus2Caption => 'Penalización de +2 s';
+
+  @override
+  String get timerDnfCaption => 'No terminado (DNF)';
+
+  @override
+  String get timerDeleteCaption => 'Borrar esta resolución';
+
+  @override
+  String get patternBullsEye => 'Diana';
+
+  @override
+  String get patternFramedCenter => 'Centro enmarcado';
+
+  @override
+  String get patternBlockCheckerboard => 'Tablero de bloques';
+
+  @override
+  String get patternCubeInCubeInCube => 'Cubo en un cubo en un cubo';
+
+  @override
+  String get patternUnionJack => 'Union Jack';
+
+  @override
+  String get patternKilt => 'Falda escocesa';
+
+  @override
+  String get patternSixTs => 'Seis T';
+
+  @override
+  String get patternTwinPeaks => 'Picos gemelos';
+
+  @override
+  String get patternSpiral => 'Espiral';
+
+  @override
+  String get patternTetris => 'Tetris';
+
+  @override
+  String get patternSpots => 'Puntos centrales';
+
+  @override
+  String get patternStripes => 'Rayas';
+
+  @override
+  String get patternAnaconda => 'Anaconda';
+
+  @override
+  String get patternZigzag => 'Zigzag';
+
+  @override
+  String get patternFourSpots => 'Cuatro puntos';
+
+  @override
+  String get patternGreenMamba => 'Mamba verde';
+
+  @override
+  String get patternPlusMinus => 'Más y menos';
+
+  @override
+  String guideStepCounter(int current, int total) {
+    return 'Paso $current / $total';
+  }
+
+  @override
+  String guideMoveCounter(int current, int total) {
+    return 'Movimiento $current / $total';
+  }
+
+  @override
+  String get dailyStep1Title => 'Paso 1: Mezcla tu cubo';
+
+  @override
+  String get dailyStep2Title => 'Paso 2: Resuelve el cubo';
+
+  @override
+  String dailyPersonalBest(String time) {
+    return 'Mejor marca: $time';
+  }
+
+  @override
+  String get dailyRecentDays => 'Días recientes';
+
+  @override
+  String dailyMilestone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '¡Racha de $count días! ¡Estás que ardes!',
+      one: '¡Racha de 1 día! ¡Estás que ardes!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get dailyScrambledTitle => '¡Cubo mezclado! Ahora, a resolverlo';
+
+  @override
+  String get dailyCongratsTitle => '¡Felicidades!';
+
+  @override
+  String dailyCongratsBody(String time) {
+    return 'Resolviste el reto de hoy en $time.';
+  }
+
+  @override
+  String get dailyCongratsDone => 'Volver al reto';
 }
