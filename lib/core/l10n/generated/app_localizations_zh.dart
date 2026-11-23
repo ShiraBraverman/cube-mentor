@@ -2091,6 +2091,33 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get doubleTurnBadge => '转两次 · 180°';
+
+  @override
+  String get homeAcademy => '学院';
+
+  @override
+  String get homePatterns => '酷炫图案';
+
+  @override
+  String get homePractice => '计时器与每日挑战';
+
+  @override
+  String get scanChoiceSubtitle => '想怎么开始？';
+
+  @override
+  String get scanChoiceCamera => '用相机扫描';
+
+  @override
+  String get scanChoiceCameraDesc => '把每个面对准相机，即可获得解法。';
+
+  @override
+  String get scanChoice3d => '打开 3D 魔方';
+
+  @override
+  String get scanChoice3dDesc => '转动虚拟魔方，打乱后一步步还原。';
+
+  @override
+  String get academyAllSizes => '全部尺寸';
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -4195,4 +4222,31 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get doubleTurnBadge => '轉兩次 · 180°';
+
+  @override
+  String get homeAcademy => '學院';
+
+  @override
+  String get homePatterns => '酷炫圖案';
+
+  @override
+  String get homePractice => '計時器與每日挑戰';
+
+  @override
+  String get scanChoiceSubtitle => '想怎麼開始？';
+
+  @override
+  String get scanChoiceCamera => '用相機掃描';
+
+  @override
+  String get scanChoiceCameraDesc => '把每一面對準相機，即可取得解法。';
+
+  @override
+  String get scanChoice3d => '開啟 3D 方塊';
+
+  @override
+  String get scanChoice3dDesc => '轉動虛擬方塊，打亂後一步步解開。';
+
+  @override
+  String get academyAllSizes => '全部尺寸';
 }

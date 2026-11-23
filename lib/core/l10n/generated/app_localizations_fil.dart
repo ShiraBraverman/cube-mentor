@@ -2240,4 +2240,33 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get doubleTurnBadge => 'Dobleng ikot · 180°';
+
+  @override
+  String get homeAcademy => 'Akademya';
+
+  @override
+  String get homePatterns => 'Astig na Pattern';
+
+  @override
+  String get homePractice => 'Timer at Araw-araw na Hamon';
+
+  @override
+  String get scanChoiceSubtitle => 'Paano mo gustong magsimula?';
+
+  @override
+  String get scanChoiceCamera => 'I-scan gamit ang camera';
+
+  @override
+  String get scanChoiceCameraDesc =>
+      'Ipakita ang bawat mukha sa camera at kunin ang solusyon.';
+
+  @override
+  String get scanChoice3d => 'Buksan ang 3D cube';
+
+  @override
+  String get scanChoice3dDesc =>
+      'Paikutin ang virtual cube, i-scramble, at lutasin nang hakbang-hakbang.';
+
+  @override
+  String get academyAllSizes => 'Lahat ng laki';
 }

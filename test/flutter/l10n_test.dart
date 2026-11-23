@@ -395,14 +395,14 @@ void main() {
       expect(find.byKey(const ValueKey('carousel-mystery')), findsOneWidget);
       expect(tester.takeException(), isNull, reason: 'coming soon cube');
       await show(const AcademyScreen());
+      await show(const AcademyScreen(initialSize: 2));
       await show(const TrainScreen());
-      // The root shell: the dock and every tab behind it.
+      // The root shell: the home cards and the Scan & Solve choice sheet.
       await show(const RootShell(), scroll: false);
-      for (final tab in ['scan', 'academy', 'train', 'solve']) {
-        await tester.tap(find.byKey(ValueKey('tab-$tab')));
-        await _advance(tester, 6);
-        expect(tester.takeException(), isNull, reason: 'tab $tab');
-      }
+      await tester.tap(find.byKey(const ValueKey('home-scan-solve')));
+      await _advance(tester, 8);
+      expect(find.byKey(const ValueKey('scan-solve-sheet')), findsOneWidget);
+      expect(tester.takeException(), isNull, reason: 'scan & solve sheet');
       // Lessons open on their goal card, then the lesson itself.
       for (final id in ['bigParity', 'twistCorners']) {
         await show(

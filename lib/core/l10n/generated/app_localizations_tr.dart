@@ -2225,4 +2225,32 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get doubleTurnBadge => 'Çift çevirme · 180°';
+
+  @override
+  String get homeAcademy => 'Akademi';
+
+  @override
+  String get homePatterns => 'Havalı Desenler';
+
+  @override
+  String get homePractice => 'Zamanlayıcı ve Günlük Görev';
+
+  @override
+  String get scanChoiceSubtitle => 'Nasıl başlamak istersin?';
+
+  @override
+  String get scanChoiceCamera => 'Kamerayla tara';
+
+  @override
+  String get scanChoiceCameraDesc => 'Her yüzü kameraya göster ve çözümü al.';
+
+  @override
+  String get scanChoice3d => '3D küpü aç';
+
+  @override
+  String get scanChoice3dDesc =>
+      'Sanal bir küpü çevir, karıştır ve adım adım çöz.';
+
+  @override
+  String get academyAllSizes => 'Tüm boyutlar';
 }

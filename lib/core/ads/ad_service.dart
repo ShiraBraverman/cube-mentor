@@ -1,6 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'ad_config.dart';
+
 /// What the consent flow allows right now.
 @immutable
 class AdConsent {
@@ -124,6 +126,8 @@ class AdsController extends Notifier<AdConsent> {
   Future<void> start() => _starting ??= _start();
 
   Future<void> _start() async {
+    // Ad-free testing: no consent form, no SDK start, no ads.
+    if (ref.read(adsTestingBypassProvider)) return;
     try {
       final consent = await ref.read(adServiceProvider).initialize();
       if (ref.mounted) state = consent;

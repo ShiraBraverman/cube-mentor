@@ -275,6 +275,7 @@ void main() {
         overrides: [
           sharedPreferencesProvider.overrideWithValue(prefs),
           adServiceProvider.overrideWithValue(FakeAdService()),
+          adsTestingBypassProvider.overrideWithValue(false),
           clockProvider.overrideWithValue(() => now),
         ],
       );
@@ -343,6 +344,7 @@ void main() {
             cubeSolverProvider.overrideWithValue(FakeCubeSolver()),
             clockProvider.overrideWithValue(() => DateTime(2026, 11, 20, 8)),
             adServiceProvider.overrideWithValue(ads),
+            adsTestingBypassProvider.overrideWithValue(false),
           ],
           child: testApp(const PatternsScreen()),
         ),

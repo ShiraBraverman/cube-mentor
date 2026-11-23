@@ -623,5 +623,14 @@
   "lessonUnlockBody": "Bu dersi önümüzdeki {hours} saat boyunca istediğin kadar açmak için 1 kısa video izle.",
   "bigCubeUnlockTitle": "Büyük küpleri çöz",
   "bigCubeUnlockBody": "Ücretsiz 4×4–6×6 çözüm hakkını kullandın. Önümüzdeki {hours} saat boyunca büyük küpleri çözmek için 1 kısa video izle.",
-  "doubleTurnBadge": "Çift çevirme · 180°"
+  "doubleTurnBadge": "Çift çevirme · 180°",
+  "homeAcademy": "Akademi",
+  "homePatterns": "Havalı Desenler",
+  "homePractice": "Zamanlayıcı ve Günlük Görev",
+  "scanChoiceSubtitle": "Nasıl başlamak istersin?",
+  "scanChoiceCamera": "Kamerayla tara",
+  "scanChoiceCameraDesc": "Her yüzü kameraya göster ve çözümü al.",
+  "scanChoice3d": "3D küpü aç",
+  "scanChoice3dDesc": "Sanal bir küpü çevir, karıştır ve adım adım çöz.",
+  "academyAllSizes": "Tüm boyutlar"
 }

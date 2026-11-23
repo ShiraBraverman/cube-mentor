@@ -27,6 +27,7 @@ class InterstitialPacer extends Notifier<int> {
   /// one. Returns whether one was shown. When no ad is ready the count is
   /// kept, so the next exit tries again.
   Future<bool> maybeShow() async {
+    if (ref.read(adsTestingBypassProvider)) return false;
     if (state < AdConfig.solvesPerInterstitial) return false;
     final ads = ref.read(adServiceProvider);
     if (!ads.supported) return false;

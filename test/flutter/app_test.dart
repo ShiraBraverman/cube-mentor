@@ -55,6 +55,15 @@ Future<void> _advance(WidgetTester tester, [int frames = 12]) async {
   }
 }
 
+/// Home: Scan & Solve, then "Open 3D cube" in the choice sheet.
+Future<void> _openSolver(WidgetTester tester) async {
+  await tester.ensureVisible(find.byKey(const ValueKey('home-scan-solve')));
+  await tester.pump();
+  await tester.tap(find.byKey(const ValueKey('home-scan-solve')));
+  await _advance(tester, 8);
+  await tester.tap(find.byKey(const ValueKey('scan-choice-3d')));
+}
+
 TextDirection _directionOf(WidgetTester tester) =>
     Directionality.of(tester.element(find.byType(Scaffold).first));
 
@@ -85,7 +94,7 @@ void main() {
 
   testWidgets('restores the saved Hebrew locale on launch', (tester) async {
     await _pumpApp(tester, await _prefs({'app_locale': 'he'}));
-    expect(find.text('פתיחת קובייה תלת־ממדית ופותר'), findsOneWidget);
+    expect(find.text('סריקה ופתרון'), findsOneWidget);
     expect(_directionOf(tester), TextDirection.rtl);
   });
 
@@ -95,9 +104,7 @@ void main() {
     await _pumpApp(tester, await _prefs());
     await tester.tap(find.byKey(const ValueKey('size-5')));
     await _advance(tester, 2);
-    await tester.ensureVisible(find.byKey(const ValueKey('open-solver')));
-    await tester.pump();
-    await tester.tap(find.byKey(const ValueKey('open-solver')));
+    await _openSolver(tester);
     await _advance(tester);
 
     expect(find.byType(Solver3DScreen), findsOneWidget);
@@ -199,9 +206,7 @@ void main() {
       ),
     );
     await _pumpApp(tester, await _prefs(), solver: solver);
-    await tester.ensureVisible(find.byKey(const ValueKey('open-solver')));
-    await tester.pump();
-    await tester.tap(find.byKey(const ValueKey('open-solver')));
+    await _openSolver(tester);
     await _advance(tester);
     final container = ProviderScope.containerOf(
       tester.element(find.byType(CubeViewport)),
@@ -385,9 +390,7 @@ void main() {
     );
     final prefs = await _prefs();
     await _pumpApp(tester, prefs, solver: solver);
-    await tester.ensureVisible(find.byKey(const ValueKey('open-solver')));
-    await tester.pump();
-    await tester.tap(find.byKey(const ValueKey('open-solver')));
+    await _openSolver(tester);
     await _advance(tester);
     final container = ProviderScope.containerOf(
       tester.element(find.byType(CubeViewport)),
@@ -423,9 +426,7 @@ void main() {
   testWidgets('a solved cube needs no solution', (tester) async {
     final solver = FakeCubeSolver();
     await _pumpApp(tester, await _prefs(), solver: solver);
-    await tester.ensureVisible(find.byKey(const ValueKey('open-solver')));
-    await tester.pump();
-    await tester.tap(find.byKey(const ValueKey('open-solver')));
+    await _openSolver(tester);
     await _advance(tester);
     await tester.tap(find.byKey(const ValueKey('solve')));
     await _advance(tester, 4);
@@ -448,9 +449,7 @@ void main() {
     await _pumpApp(tester, await _prefs(), solver: solver);
     await tester.tap(find.byKey(const ValueKey('size-2')));
     await _advance(tester, 2);
-    await tester.ensureVisible(find.byKey(const ValueKey('open-solver')));
-    await tester.pump();
-    await tester.tap(find.byKey(const ValueKey('open-solver')));
+    await _openSolver(tester);
     await _advance(tester);
     final container = ProviderScope.containerOf(
       tester.element(find.byType(CubeViewport)),
@@ -487,9 +486,7 @@ void main() {
         ),
       );
       await _pumpApp(tester, await _prefs(), solver: solver);
-      await tester.ensureVisible(find.byKey(const ValueKey('open-solver')));
-      await tester.pump();
-      await tester.tap(find.byKey(const ValueKey('open-solver')));
+      await _openSolver(tester);
       await _advance(tester);
       return ProviderScope.containerOf(
         tester.element(find.byType(CubeViewport)),

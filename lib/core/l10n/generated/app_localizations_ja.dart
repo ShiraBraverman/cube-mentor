@@ -2113,4 +2113,31 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get doubleTurnBadge => '2回回す・180°';
+
+  @override
+  String get homeAcademy => 'アカデミー';
+
+  @override
+  String get homePatterns => 'クールな模様';
+
+  @override
+  String get homePractice => 'タイマー＆デイリー';
+
+  @override
+  String get scanChoiceSubtitle => 'どの方法で始めますか？';
+
+  @override
+  String get scanChoiceCamera => 'カメラでスキャン';
+
+  @override
+  String get scanChoiceCameraDesc => '各面をカメラに映すと解き方がわかります。';
+
+  @override
+  String get scanChoice3d => '3Dキューブを開く';
+
+  @override
+  String get scanChoice3dDesc => 'バーチャルキューブを回し、崩して、一手ずつ解きましょう。';
+
+  @override
+  String get academyAllSizes => 'すべてのサイズ';
 }

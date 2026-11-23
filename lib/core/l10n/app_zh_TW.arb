@@ -623,5 +623,14 @@
   "lessonUnlockBody": "觀看 1 支短片，即可在接下來的 {hours} 小時內隨時開啟本課。",
   "bigCubeUnlockTitle": "解開高階方塊",
   "bigCubeUnlockBody": "你已用完 4×4–6×6 的免費解法次數。觀看 1 支短片，即可在接下來的 {hours} 小時內解開高階方塊。",
-  "doubleTurnBadge": "轉兩次 · 180°"
+  "doubleTurnBadge": "轉兩次 · 180°",
+  "homeAcademy": "學院",
+  "homePatterns": "酷炫圖案",
+  "homePractice": "計時器與每日挑戰",
+  "scanChoiceSubtitle": "想怎麼開始？",
+  "scanChoiceCamera": "用相機掃描",
+  "scanChoiceCameraDesc": "把每一面對準相機，即可取得解法。",
+  "scanChoice3d": "開啟 3D 方塊",
+  "scanChoice3dDesc": "轉動虛擬方塊，打亂後一步步解開。",
+  "academyAllSizes": "全部尺寸"
 }

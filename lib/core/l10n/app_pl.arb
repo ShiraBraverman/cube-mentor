@@ -623,5 +623,14 @@
   "lessonUnlockBody": "{hours, plural, =1{Obejrzyj 1 krótki film, aby przez następną godzinę otwierać tę lekcję, ile razy chcesz.} few{Obejrzyj 1 krótki film, aby przez następne {hours} godziny otwierać tę lekcję, ile razy chcesz.} many{Obejrzyj 1 krótki film, aby przez następne {hours} godzin otwierać tę lekcję, ile razy chcesz.} other{Obejrzyj 1 krótki film, aby przez następne {hours} godziny otwierać tę lekcję, ile razy chcesz.}}",
   "bigCubeUnlockTitle": "Układanie dużych kostek",
   "bigCubeUnlockBody": "{hours, plural, =1{Darmowe ułożenie kostki 4×4–6×6 zostało już wykorzystane. Obejrzyj 1 krótki film, aby układać duże kostki przez następną godzinę.} few{Darmowe ułożenie kostki 4×4–6×6 zostało już wykorzystane. Obejrzyj 1 krótki film, aby układać duże kostki przez następne {hours} godziny.} many{Darmowe ułożenie kostki 4×4–6×6 zostało już wykorzystane. Obejrzyj 1 krótki film, aby układać duże kostki przez następne {hours} godzin.} other{Darmowe ułożenie kostki 4×4–6×6 zostało już wykorzystane. Obejrzyj 1 krótki film, aby układać duże kostki przez następne {hours} godziny.}}",
-  "doubleTurnBadge": "Podwójny obrót · 180°"
+  "doubleTurnBadge": "Podwójny obrót · 180°",
+  "homeAcademy": "Akademia",
+  "homePatterns": "Fajne wzory",
+  "homePractice": "Stoper i wyzwanie dnia",
+  "scanChoiceSubtitle": "Jak chcesz zacząć?",
+  "scanChoiceCamera": "Skanuj aparatem",
+  "scanChoiceCameraDesc": "Pokaż aparatowi każdą ścianę i otrzymaj rozwiązanie.",
+  "scanChoice3d": "Otwórz kostkę 3D",
+  "scanChoice3dDesc": "Obracaj wirtualną kostkę, pomieszaj ją i ułóż krok po kroku.",
+  "academyAllSizes": "Wszystkie rozmiary"
 }

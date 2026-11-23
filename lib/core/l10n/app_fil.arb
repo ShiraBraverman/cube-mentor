@@ -623,5 +623,14 @@
   "lessonUnlockBody": "Manood ng 1 maikling video para mabuksan ang araling ito nang paulit-ulit sa susunod na {hours} oras.",
   "bigCubeUnlockTitle": "Lutasin ang malalaking cube",
   "bigCubeUnlockBody": "Nagamit mo na ang libreng paglutas mo ng 4×4–6×6. Manood ng 1 maikling video para makalutas ng malalaking cube sa susunod na {hours} oras.",
-  "doubleTurnBadge": "Dobleng ikot · 180°"
+  "doubleTurnBadge": "Dobleng ikot · 180°",
+  "homeAcademy": "Akademya",
+  "homePatterns": "Astig na Pattern",
+  "homePractice": "Timer at Araw-araw na Hamon",
+  "scanChoiceSubtitle": "Paano mo gustong magsimula?",
+  "scanChoiceCamera": "I-scan gamit ang camera",
+  "scanChoiceCameraDesc": "Ipakita ang bawat mukha sa camera at kunin ang solusyon.",
+  "scanChoice3d": "Buksan ang 3D cube",
+  "scanChoice3dDesc": "Paikutin ang virtual cube, i-scramble, at lutasin nang hakbang-hakbang.",
+  "academyAllSizes": "Lahat ng laki"
 }

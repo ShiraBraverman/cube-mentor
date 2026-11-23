@@ -2255,4 +2255,32 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get doubleTurnBadge => 'डबल टर्न · 180°';
+
+  @override
+  String get homeAcademy => 'अकादमी';
+
+  @override
+  String get homePatterns => 'शानदार पैटर्न';
+
+  @override
+  String get homePractice => 'टाइमर और डेली चैलेंज';
+
+  @override
+  String get scanChoiceSubtitle => 'आप कैसे शुरू करना चाहेंगे?';
+
+  @override
+  String get scanChoiceCamera => 'कैमरे से स्कैन करें';
+
+  @override
+  String get scanChoiceCameraDesc => 'हर फ़ेस कैमरे को दिखाएँ और हल पाएँ।';
+
+  @override
+  String get scanChoice3d => '3D क्यूब खोलें';
+
+  @override
+  String get scanChoice3dDesc =>
+      'वर्चुअल क्यूब घुमाएँ, स्क्रैम्बल करें और स्टेप-बाय-स्टेप हल करें।';
+
+  @override
+  String get academyAllSizes => 'सभी साइज़';
 }

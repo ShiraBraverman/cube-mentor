@@ -623,5 +623,14 @@
   "lessonUnlockBody": "পরের {hours} ঘণ্টা এই পাঠ যতবার খুশি খুলতে 1টি ছোট ভিডিও দেখুন।",
   "bigCubeUnlockTitle": "বড় কিউব সমাধান করুন",
   "bigCubeUnlockBody": "4×4–6×6-এর বিনামূল্যের সমাধানটি ব্যবহার হয়ে গেছে। পরের {hours} ঘণ্টা বড় কিউব সমাধান করতে 1টি ছোট ভিডিও দেখুন।",
-  "doubleTurnBadge": "ডাবল টার্ন · 180°"
+  "doubleTurnBadge": "ডাবল টার্ন · 180°",
+  "homeAcademy": "অ্যাকাডেমি",
+  "homePatterns": "দারুণ প্যাটার্ন",
+  "homePractice": "টাইমার ও দৈনিক চ্যালেঞ্জ",
+  "scanChoiceSubtitle": "কীভাবে শুরু করতে চান?",
+  "scanChoiceCamera": "ক্যামেরা দিয়ে স্ক্যান",
+  "scanChoiceCameraDesc": "প্রতিটি দিক ক্যামেরায় দেখান আর সমাধান পান।",
+  "scanChoice3d": "3D কিউব খুলুন",
+  "scanChoice3dDesc": "ভার্চুয়াল কিউব ঘোরান, এলোমেলো করুন আর ধাপে ধাপে সমাধান করুন।",
+  "academyAllSizes": "সব সাইজ"
 }

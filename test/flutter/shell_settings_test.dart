@@ -10,7 +10,6 @@ import 'package:cube_mentor/core/theme/sticker_palette.dart';
 import 'package:cube_mentor/core/vision/scan_analyzer.dart';
 import 'package:cube_mentor/features/academy/academy_screen.dart';
 import 'package:cube_mentor/features/daily/daily_screen.dart';
-import 'package:cube_mentor/features/home/home_controller.dart';
 import 'package:cube_mentor/features/home/home_screen.dart';
 import 'package:cube_mentor/features/home/language_sheet.dart';
 import 'package:cube_mentor/features/home/settings_sheet.dart';
@@ -58,7 +57,7 @@ Future<ProviderContainer> _pumpApp(
   );
   await _advance(tester, 2);
   return ProviderScope.containerOf(
-    tester.element(find.byKey(const ValueKey('glass-dock'))),
+    tester.element(find.byKey(const ValueKey('root-shell'))),
   );
 }
 
@@ -69,9 +68,10 @@ Future<void> _advance(WidgetTester tester, [int frames = 10]) async {
   }
 }
 
-Future<void> _openTab(WidgetTester tester, String name) async {
-  await tester.tap(find.byKey(ValueKey('tab-$name')));
-  await _advance(tester, 4);
+/// Taps the home action card [name] and lets its route open.
+Future<void> _openCard(WidgetTester tester, String name) async {
+  await tester.tap(find.byKey(ValueKey('home-$name')));
+  await _advance(tester, 12);
 }
 
 Future<void> _openSettings(WidgetTester tester) async {
@@ -81,37 +81,29 @@ Future<void> _openSettings(WidgetTester tester) async {
 }
 
 void main() {
-  group('4-tab navigation', () {
-    testWidgets('the dock shows Solve, Scan, Academy and Train', (
+  group('home action cards', () {
+    testWidgets('home shows the carousel and the four action cards', (
       tester,
     ) async {
       await _pumpApp(tester, await _prefs());
-      for (final label in ['Solve', 'Scan', 'Academy', 'Train']) {
-        expect(
-          find.descendant(
-            of: find.byKey(const ValueKey('glass-dock')),
-            matching: find.text(label),
-          ),
-          findsOneWidget,
-        );
-      }
-      // Solve is the decluttered hero: carousel plus one call to action.
       expect(find.byKey(const ValueKey('cube-carousel')), findsOneWidget);
-      expect(find.text('Open 3D Cube & Solver'), findsOneWidget);
-      expect(find.byKey(const ValueKey('continue-learning')), findsNothing);
-      expect(find.byKey(const ValueKey('train-daily')), findsNothing);
+      for (final label in [
+        'Scan & Solve',
+        'Academy',
+        'Cool Patterns',
+        'Timer & Daily Challenge',
+      ]) {
+        expect(find.text(label), findsOneWidget);
+      }
+      // No dock and no single call to action any more.
+      expect(find.byKey(const ValueKey('glass-dock')), findsNothing);
+      expect(find.byKey(const ValueKey('open-solver')), findsNothing);
     });
 
-    testWidgets('the Solve tab fits on one screen without scrolling', (
+    testWidgets('home fits on one screen in a balanced 2x2 grid', (
       tester,
     ) async {
       await _pumpApp(tester, await _prefs());
-      final home = find.byKey(const ValueKey('open-solver'));
-      expect(home, findsOneWidget);
-      // The call to action sits fully above the dock.
-      final button = tester.getRect(home);
-      final dock = tester.getRect(find.byKey(const ValueKey('glass-dock')));
-      expect(button.bottom, lessThanOrEqualTo(dock.top));
       expect(
         find.descendant(
           of: find.byType(HomeScreen),
@@ -119,59 +111,93 @@ void main() {
         ),
         findsNothing,
       );
+      final screen = tester.getRect(find.byType(HomeScreen));
+      Rect card(String name) =>
+          tester.getRect(find.byKey(ValueKey('home-$name')));
+      final scan = card('scan-solve');
+      final academy = card('academy');
+      final patterns = card('patterns');
+      final practice = card('practice');
+      expect(practice.bottom, lessThanOrEqualTo(screen.bottom));
+      expect(scan.top, academy.top);
+      expect(patterns.top, practice.top);
+      expect(scan.height, academy.height);
+      expect(scan.width, closeTo(academy.width, 0.5));
+      expect(scan.left, lessThan(academy.left));
+      expect(patterns.top, greaterThan(scan.bottom));
+      // The cards sit below the carousel.
+      final carousel = tester.getRect(
+        find.byKey(const ValueKey('cube-carousel')),
+      );
+      expect(scan.top, greaterThan(carousel.bottom));
     });
 
-    testWidgets('the call to action opens the selected cube', (tester) async {
+    testWidgets('every card shows the selected size', (tester) async {
+      await _pumpApp(tester, await _prefs());
+      for (final name in ['scan-solve', 'academy', 'patterns', 'practice']) {
+        expect(
+          find.descendant(
+            of: find.byKey(ValueKey('home-$name')),
+            matching: find.text('3×3'),
+          ),
+          findsOneWidget,
+        );
+      }
+      await tester.tap(find.byKey(const ValueKey('size-5')));
+      await _advance(tester, 12);
+      expect(
+        find.descendant(
+          of: find.byKey(const ValueKey('home-academy')),
+          matching: find.text('5×5'),
+        ),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets('Scan & Solve offers the camera or the 3D cube for the '
+        'selected size', (tester) async {
       await _pumpApp(tester, await _prefs());
       await tester.tap(find.byKey(const ValueKey('size-4')));
-      await _advance(tester, 2);
-      await tester.tap(find.byKey(const ValueKey('open-solver')));
       await _advance(tester, 12);
+      await _openCard(tester, 'scan-solve');
+      expect(find.byKey(const ValueKey('scan-solve-sheet')), findsOneWidget);
+      expect(find.text('Scan with camera'), findsOneWidget);
+      expect(find.text('Open 3D cube'), findsOneWidget);
+
+      await tester.tap(find.byKey(const ValueKey('scan-choice-3d')));
+      await _advance(tester, 12);
+      expect(find.byKey(const ValueKey('scan-solve-sheet')), findsNothing);
       expect(find.byType(Solver3DScreen), findsOneWidget);
       expect(find.text('4×4 Playground'), findsOneWidget);
+      await tester.pageBack();
+      await _advance(tester, 12);
+
+      await tester.tap(find.byKey(const ValueKey('size-2')));
+      await _advance(tester, 12);
+      await _openCard(tester, 'scan-solve');
+      await tester.tap(find.byKey(const ValueKey('scan-choice-camera')));
+      await _advance(tester, 12);
+      final scanner = tester.widget<ScannerScreen>(find.byType(ScannerScreen));
+      expect(scanner.size, 2);
+      expect(scanner.embedded, isFalse);
     });
 
-    testWidgets('the call to action is off on the "coming soon" cube', (
+    testWidgets('Scan & Solve is off on the "coming soon" cube', (
       tester,
     ) async {
       await _pumpApp(tester, await _prefs());
       await tester.tap(find.byKey(const ValueKey('size-soon')));
       await _advance(tester, 12);
-      final button = tester.widget<ButtonStyleButton>(
-        find.byKey(const ValueKey('open-solver')),
-      );
-      expect(button.onPressed, isNull);
+      await tester.tap(find.byKey(const ValueKey('home-scan-solve')));
+      await _advance(tester, 8);
+      expect(find.byKey(const ValueKey('scan-solve-sheet')), findsNothing);
       await tester.tap(find.byKey(const ValueKey('size-2')));
       await _advance(tester, 12);
-      expect(
-        tester
-            .widget<ButtonStyleButton>(
-              find.byKey(const ValueKey('open-solver')),
-            )
-            .onPressed,
-        isNotNull,
-      );
+      await _openCard(tester, 'scan-solve');
+      expect(find.byKey(const ValueKey('scan-solve-sheet')), findsOneWidget);
     });
 
-    testWidgets('Scan opens the scanner for the selected size and releases '
-        'it when leaving the tab', (tester) async {
-      await _pumpApp(tester, await _prefs());
-      await tester.tap(find.byKey(const ValueKey('size-2')));
-      await _advance(tester, 4);
-      expect(find.byType(ScannerScreen), findsNothing);
-
-      await _openTab(tester, 'scan');
-      final scanner = tester.widget<ScannerScreen>(find.byType(ScannerScreen));
-      expect(scanner.size, 2);
-      expect(scanner.embedded, isTrue);
-
-      // Switching away disposes the scanner (and with it the camera).
-      await _openTab(tester, 'academy');
-      expect(find.byType(ScannerScreen, skipOffstage: false), findsNothing);
-      expect(find.byType(AcademyScreen), findsOneWidget);
-    });
-
-    testWidgets('Academy shows its progress badge and the continue hero', (
+    testWidgets('Academy opens filtered to the selected size and can switch', (
       tester,
     ) async {
       await _pumpApp(
@@ -180,9 +206,10 @@ void main() {
           'academy_completed': ['basics'],
         }),
       );
-      expect(find.byKey(const ValueKey('tab-academy-badge')), findsOneWidget);
-      expect(find.text('1/29'), findsOneWidget);
-      await _openTab(tester, 'academy');
+      await tester.tap(find.byKey(const ValueKey('size-2')));
+      await _advance(tester, 12);
+      await _openCard(tester, 'academy');
+      expect(find.byType(AcademyScreen), findsOneWidget);
       final hero = tester.getRect(
         find.byKey(const ValueKey('continue-learning')),
       );
@@ -191,54 +218,75 @@ void main() {
       );
       expect(hero.top, lessThan(progress.top), reason: 'hero on top');
       expect(find.text('Continue learning'), findsOneWidget);
+      bool selected(String key) =>
+          tester.widget<ChoiceChip>(find.byKey(ValueKey(key))).selected;
+      expect(selected('academy-size-2'), isTrue);
+      // Only the 2x2 lessons are listed.
+      const beginner = 'Beginner 3×3: the 3 crowns';
+      expect(find.text(beginner, skipOffstage: false), findsNothing);
+
+      await tester.tap(find.byKey(const ValueKey('academy-size-all')));
+      await _advance(tester, 4);
+      expect(selected('academy-size-2'), isFalse);
+      expect(selected('academy-size-all'), isTrue);
+      expect(find.text(beginner, skipOffstage: false), findsOneWidget);
     });
 
-    testWidgets('Train holds the daily challenge (with streak), the timer '
-        'and the pattern library', (tester) async {
+    testWidgets('Cool Patterns opens on the selected size', (tester) async {
+      await _pumpApp(tester, await _prefs());
+      await tester.tap(find.byKey(const ValueKey('size-5')));
+      await _advance(tester, 12);
+      await _openCard(tester, 'patterns');
+      final screen = tester.widget<PatternsScreen>(find.byType(PatternsScreen));
+      expect(screen.initialSize, 5);
+      expect(
+        tester
+            .widget<ChoiceChip>(find.byKey(const ValueKey('patterns-size-5')))
+            .selected,
+        isTrue,
+      );
+    });
+
+    testWidgets('Timer & Daily Challenge holds the timer (on the selected '
+        'size) and the daily challenge with its streak', (tester) async {
       await _pumpApp(
         tester,
         await _prefs({'daily_last_day': '2026-11-15', 'daily_streak': 4}),
       );
-      await _openTab(tester, 'train');
+      await tester.tap(find.byKey(const ValueKey('size-4')));
+      await _advance(tester, 12);
+      await _openCard(tester, 'practice');
       expect(find.byType(TrainScreen), findsOneWidget);
       expect(find.text('Daily challenge'), findsOneWidget);
       expect(find.text('Speed timer'), findsOneWidget);
-      expect(find.text('Pattern library'), findsOneWidget);
       expect(find.byKey(const ValueKey('streak-badge')), findsOneWidget);
       expect(find.text('4-day streak'), findsOneWidget);
 
-      Future<void> openAndBack(String key, Type screen) async {
-        await tester.tap(find.byKey(ValueKey(key)));
-        await _advance(tester, 12);
-        expect(find.byType(screen), findsOneWidget);
-        await tester.pageBack();
-        await _advance(tester, 12);
-        expect(find.byType(TrainScreen), findsOneWidget);
-      }
+      await tester.tap(find.byKey(const ValueKey('train-timer')));
+      await _advance(tester, 12);
+      expect(tester.widget<TimerScreen>(find.byType(TimerScreen)).size, 4);
+      await tester.pageBack();
+      await _advance(tester, 12);
+      expect(find.byType(TrainScreen), findsOneWidget);
 
-      await openAndBack('train-daily', DailyScreen);
-      await openAndBack('train-timer', TimerScreen);
-      await openAndBack('train-patterns', PatternsScreen);
+      await tester.tap(find.byKey(const ValueKey('train-daily')));
+      await _advance(tester, 12);
+      expect(find.byType(DailyScreen), findsOneWidget);
     });
 
-    testWidgets('system back from another tab returns to Solve', (
-      tester,
-    ) async {
-      final container = await _pumpApp(tester, await _prefs());
-      await _openTab(tester, 'train');
-      expect(container.read(currentTabProvider), AppTab.train);
-      await tester.binding.handlePopRoute();
-      await _advance(tester, 4);
-      expect(container.read(currentTabProvider), AppTab.solve);
-    });
-
-    testWidgets('in Hebrew the dock runs right to left', (tester) async {
+    testWidgets('in Hebrew the cards read right to left', (tester) async {
       await _pumpApp(tester, await _prefs({'app_locale': 'he'}));
-      expect(find.text('פתרון'), findsOneWidget);
-      expect(find.text('אימון'), findsOneWidget);
-      final solve = tester.getCenter(find.byKey(const ValueKey('tab-solve')));
-      final train = tester.getCenter(find.byKey(const ValueKey('tab-train')));
-      expect(solve.dx, greaterThan(train.dx));
+      expect(find.text('סריקה ופתרון'), findsOneWidget);
+      expect(find.text('האקדמיה'), findsOneWidget);
+      expect(find.text('דוגמאות מגניבות'), findsOneWidget);
+      expect(find.text('טיימר ואימון'), findsOneWidget);
+      final scan = tester.getCenter(
+        find.byKey(const ValueKey('home-scan-solve')),
+      );
+      final academy = tester.getCenter(
+        find.byKey(const ValueKey('home-academy')),
+      );
+      expect(scan.dx, greaterThan(academy.dx));
     });
   });
 
@@ -277,7 +325,7 @@ void main() {
       expect(find.byType(LanguageSheet), findsOneWidget);
       await tester.tap(find.byKey(const ValueKey('lang-he')));
       await _advance(tester, 8);
-      expect(find.text('פתרון'), findsOneWidget);
+      expect(find.text('סריקה ופתרון'), findsOneWidget);
     });
 
     testWidgets('sound & haptics and the default speed persist and apply', (
@@ -441,7 +489,6 @@ void main() {
         'daily_best_streak': 7,
       });
       await _pumpApp(tester, prefs);
-      expect(find.text('2/29'), findsOneWidget);
       await _openSettings(tester);
 
       await tester.ensureVisible(find.byKey(const ValueKey('settings-reset')));
@@ -465,7 +512,6 @@ void main() {
       expect(prefs.getInt('daily_streak'), isNull);
       expect(prefs.getInt('daily_best_streak'), isNull);
       expect(find.text('Progress reset.'), findsOneWidget);
-      expect(find.text('0/29'), findsOneWidget);
     });
   });
 }

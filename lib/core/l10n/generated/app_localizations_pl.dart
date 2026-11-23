@@ -2316,4 +2316,33 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get doubleTurnBadge => 'Podwójny obrót · 180°';
+
+  @override
+  String get homeAcademy => 'Akademia';
+
+  @override
+  String get homePatterns => 'Fajne wzory';
+
+  @override
+  String get homePractice => 'Stoper i wyzwanie dnia';
+
+  @override
+  String get scanChoiceSubtitle => 'Jak chcesz zacząć?';
+
+  @override
+  String get scanChoiceCamera => 'Skanuj aparatem';
+
+  @override
+  String get scanChoiceCameraDesc =>
+      'Pokaż aparatowi każdą ścianę i otrzymaj rozwiązanie.';
+
+  @override
+  String get scanChoice3d => 'Otwórz kostkę 3D';
+
+  @override
+  String get scanChoice3dDesc =>
+      'Obracaj wirtualną kostkę, pomieszaj ją i ułóż krok po kroku.';
+
+  @override
+  String get academyAllSizes => 'Wszystkie rozmiary';
 }

@@ -623,5 +623,14 @@
   "lessonUnlockBody": "{hours, plural, =1{Mira 1 vídeo corto para abrir esta lección tantas veces como quieras durante la próxima hora.} other{Mira 1 vídeo corto para abrir esta lección tantas veces como quieras durante las próximas {hours} horas.}}",
   "bigCubeUnlockTitle": "Resolver cubos grandes",
   "bigCubeUnlockBody": "{hours, plural, =1{Ya usaste tu resolución gratis de 4×4–6×6. Mira 1 vídeo corto para resolver cubos grandes durante la próxima hora.} other{Ya usaste tu resolución gratis de 4×4–6×6. Mira 1 vídeo corto para resolver cubos grandes durante las próximas {hours} horas.}}",
-  "doubleTurnBadge": "Giro doble · 180°"
+  "doubleTurnBadge": "Giro doble · 180°",
+  "homeAcademy": "Academia",
+  "homePatterns": "Patrones geniales",
+  "homePractice": "Cronómetro y reto diario",
+  "scanChoiceSubtitle": "¿Cómo quieres empezar?",
+  "scanChoiceCamera": "Escanear con la cámara",
+  "scanChoiceCameraDesc": "Muestra cada cara a la cámara y obtén la solución.",
+  "scanChoice3d": "Abrir cubo 3D",
+  "scanChoice3dDesc": "Gira un cubo virtual, mézclalo y resuélvelo paso a paso.",
+  "academyAllSizes": "Todos los tamaños"
 }

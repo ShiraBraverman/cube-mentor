@@ -2243,4 +2243,33 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get doubleTurnBadge => 'နှစ်ကြိမ်လှည့် · 180°';
+
+  @override
+  String get homeAcademy => 'အကယ်ဒမီ';
+
+  @override
+  String get homePatterns => 'မိုက်တဲ့ ပုံစံများ';
+
+  @override
+  String get homePractice => 'အချိန်တိုင်းနှင့် နေ့စဉ်';
+
+  @override
+  String get scanChoiceSubtitle => 'ဘယ်လို စတင်မလဲ?';
+
+  @override
+  String get scanChoiceCamera => 'ကင်မရာဖြင့် စကင်ဖတ်';
+
+  @override
+  String get scanChoiceCameraDesc =>
+      'မျက်နှာတိုင်းကို ကင်မရာသို့ပြပြီး အဖြေရယူပါ။';
+
+  @override
+  String get scanChoice3d => '3D ကုဗ ဖွင့်ရန်';
+
+  @override
+  String get scanChoice3dDesc =>
+      'ကုဗကို လှည့်၊ ရောမွှေပြီး တစ်ဆင့်ချင်း ဖြေရှင်းပါ။';
+
+  @override
+  String get academyAllSizes => 'အရွယ်အစား အားလုံး';
 }

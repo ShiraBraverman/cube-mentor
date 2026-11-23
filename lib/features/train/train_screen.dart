@@ -8,20 +8,21 @@ import '../../core/theme/ui_kit.dart';
 import '../../shared/widgets/cube_icons/cube_icons.dart';
 import '../daily/daily_controller.dart';
 import '../daily/daily_screen.dart';
-import '../home/home_controller.dart';
-import '../patterns/patterns_screen.dart';
 import '../timer/timer_screen.dart';
 
-/// The Train tab: daily challenge, speed timer and pattern library as three
-/// roomy cards.
+/// The Timer & Daily Challenge hub opened from the home screen: the speed
+/// timer (on the cube [size] selected at home) and today's challenge as
+/// two roomy cards.
 class TrainScreen extends ConsumerWidget {
-  const TrainScreen({super.key});
+  const TrainScreen({super.key, this.size = 3});
+
+  /// Cube size the speed timer opens on.
+  final int size;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final textTheme = Theme.of(context).textTheme;
-    final size = ref.watch(selectedCubeSizeProvider);
     final daily = ref.watch(dailyProvider);
 
     void open(Widget screen) =>
@@ -30,7 +31,7 @@ class TrainScreen extends ConsumerWidget {
 
     return GlassBackground(
       child: Scaffold(
-        appBar: AppBar(title: Text(l10n.trainTitle)),
+        appBar: AppBar(title: Text(l10n.homePractice)),
         body: SafeArea(
           top: false,
           bottom: false,
@@ -46,6 +47,17 @@ class TrainScreen extends ConsumerWidget {
                 ),
                 const SizedBox(height: AppSpace.lg),
                 _TrainCard(
+                  key: const ValueKey('train-timer'),
+                  icon: const AnimatedTimerCubeIcon(),
+                  title: l10n.modeTimer,
+                  description: l10n.modeTimerDesc,
+                  accent: AppColors.danger,
+                  badge: l10n.cubeSizeLabel(size),
+                  badgeIcon: Icons.view_in_ar_rounded,
+                  onTap: () => open(TimerScreen(size: size)),
+                ),
+                const SizedBox(height: AppSpace.md),
+                _TrainCard(
                   key: const ValueKey('train-daily'),
                   icon: const AnimatedStreakStepIcon(),
                   title: l10n.modeDaily,
@@ -54,26 +66,11 @@ class TrainScreen extends ConsumerWidget {
                   badge: daily.streak > 0
                       ? l10n.streakDays(daily.streak)
                       : null,
-                  done: daily.doneToday,
+                  badgeKey: const ValueKey('streak-badge'),
+                  badgeIcon: daily.doneToday
+                      ? Icons.check_circle_rounded
+                      : Icons.local_fire_department_rounded,
                   onTap: () => open(const DailyScreen()),
-                ),
-                const SizedBox(height: AppSpace.md),
-                _TrainCard(
-                  key: const ValueKey('train-timer'),
-                  icon: const AnimatedTimerCubeIcon(),
-                  title: l10n.modeTimer,
-                  description: l10n.modeTimerDesc,
-                  accent: AppColors.danger,
-                  onTap: () => open(TimerScreen(size: size)),
-                ),
-                const SizedBox(height: AppSpace.md),
-                _TrainCard(
-                  key: const ValueKey('train-patterns'),
-                  icon: const AnimatedPatternCubeIcon(),
-                  title: l10n.modePatterns,
-                  description: l10n.modePatternsDesc,
-                  accent: AppColors.accent,
-                  onTap: () => open(const PatternsScreen()),
                 ),
               ],
             ),
@@ -93,7 +90,8 @@ class _TrainCard extends StatelessWidget {
     required this.accent,
     required this.onTap,
     this.badge,
-    this.done = false,
+    this.badgeKey,
+    this.badgeIcon,
   });
 
   /// Animated mini-cube icon, shown on an accent tile.
@@ -103,11 +101,10 @@ class _TrainCard extends StatelessWidget {
   final Color accent;
   final VoidCallback onTap;
 
-  /// Streak pill shown next to the title.
+  /// Pill under the description (the timer's size, the daily streak).
   final String? badge;
-
-  /// Today's challenge is finished: a check joins the streak.
-  final bool done;
+  final Key? badgeKey;
+  final IconData? badgeIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -135,12 +132,10 @@ class _TrainCard extends StatelessWidget {
                 if (badge != null) ...[
                   const SizedBox(height: AppSpace.sm),
                   AppPill(
-                    key: const ValueKey('streak-badge'),
+                    key: badgeKey,
                     label: badge!,
-                    color: AppColors.accentWarm,
-                    icon: done
-                        ? Icons.check_circle_rounded
-                        : Icons.local_fire_department_rounded,
+                    color: accent,
+                    icon: badgeIcon,
                   ),
                 ],
               ],

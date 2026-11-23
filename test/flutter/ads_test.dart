@@ -57,6 +57,7 @@ ProviderContainer _container(
     overrides: [
       sharedPreferencesProvider.overrideWithValue(prefs),
       adServiceProvider.overrideWithValue(ads),
+      adsTestingBypassProvider.overrideWithValue(false),
       if (clock != null) clockProvider.overrideWithValue(clock),
     ],
   );
@@ -80,13 +81,14 @@ Future<ProviderContainer> _pumpApp(
         scanAnalyzerProvider.overrideWithValue(FakeScanAnalyzer()),
         clockProvider.overrideWithValue(() => DateTime(2026, 11, 20, 8)),
         adServiceProvider.overrideWithValue(ads),
+        adsTestingBypassProvider.overrideWithValue(false),
         ...overrides,
       ],
       child: const CubeMentorApp(),
     ),
   );
   final container = ProviderScope.containerOf(
-    tester.element(find.byKey(const ValueKey('glass-dock'))),
+    tester.element(find.byKey(const ValueKey('root-shell'))),
   );
   await container.read(adsProvider.notifier).start();
   await _advance(tester, 4);
@@ -116,6 +118,74 @@ void main() {
       expect(await ads.loadBanner(360), isNull);
       expect(await ads.showRewarded(), RewardOutcome.unsupported);
       expect(await ads.showInterstitial(), isFalse);
+    });
+  });
+
+  group('ad-free testing switch', () {
+    ProviderContainer bypassed(SharedPreferences prefs, FakeAdService ads) {
+      final c = ProviderContainer(
+        overrides: [
+          sharedPreferencesProvider.overrideWithValue(prefs),
+          adServiceProvider.overrideWithValue(ads),
+          adsTestingBypassProvider.overrideWithValue(true),
+        ],
+      );
+      addTearDown(c.dispose);
+      return c;
+    }
+
+    test('defaults to the kDisableAdsForTesting flag', () {
+      final c = ProviderContainer();
+      addTearDown(c.dispose);
+      expect(c.read(adsTestingBypassProvider), kDisableAdsForTesting);
+    });
+
+    test('opens every rewarded lock without a video', () async {
+      final ads = FakeAdService();
+      final c = bypassed(await _prefs(), ads);
+      final gate = c.read(rewardGateProvider.notifier);
+      for (final feature in RewardFeature.values) {
+        expect(gate.isUnlocked(feature, item: 'oll'), isTrue);
+        expect(gate.timeLeft(feature, item: 'oll'), isNull);
+        expect(
+          await gate.unlock(feature, item: 'oll'),
+          UnlockResult.alreadyUnlocked,
+        );
+      }
+      expect(ads.rewardedShown, 0);
+    });
+
+    test('skips interstitials and the consent flow', () async {
+      final ads = FakeAdService();
+      final c = bypassed(await _prefs(), ads);
+      final pacer = c.read(interstitialPacerProvider.notifier);
+      for (var i = 0; i < AdConfig.solvesPerInterstitial * 2; i++) {
+        await pacer.recordSolve();
+      }
+      expect(await pacer.maybeShow(), isFalse);
+      expect(ads.interstitialsShown, 0);
+      await c.read(adsProvider.notifier).start();
+      expect(ads.initializeCalls, 0);
+    });
+
+    testWidgets('hides the banner', (tester) async {
+      final ads = FakeAdService();
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            adServiceProvider.overrideWithValue(ads),
+            adsProvider.overrideWith(
+              () => PresetAdsController(const AdConsent(canRequestAds: true)),
+            ),
+            adsTestingBypassProvider.overrideWithValue(true),
+          ],
+          child: testApp(const Scaffold(body: AppBannerAd())),
+        ),
+      );
+      await tester.pump();
+      await tester.pump();
+      expect(find.byKey(const ValueKey('fake-banner')), findsNothing);
+      expect(ads.bannersLoaded, 0);
     });
   });
 
@@ -363,27 +433,15 @@ void main() {
   });
 
   group('banner', () {
-    testWidgets('shows between the page and the dock, hidden on Scan', (
-      tester,
-    ) async {
+    testWidgets('shows below the home cards, never over them', (tester) async {
       final ads = FakeAdService();
       await _pumpApp(tester, await _prefs(), ads);
       final banner = find.byKey(const ValueKey('fake-banner'));
       expect(banner, findsOneWidget);
-      final dock = tester.getRect(find.byKey(const ValueKey('glass-dock')));
       final slot = tester.getRect(banner);
       expect(slot.height, 50);
-      // Directly above the dock, never overlapping it.
-      expect(slot.bottom, lessThanOrEqualTo(dock.top));
-
-      await tester.tap(find.byKey(const ValueKey('tab-scan')));
-      await _advance(tester, 4);
-      expect(banner, findsNothing);
-
-      await tester.tap(find.byKey(const ValueKey('tab-solve')));
-      await _advance(tester, 4);
-      expect(banner, findsOneWidget);
-      // Re-shown without loading a new ad.
+      final card = tester.getRect(find.byKey(const ValueKey('home-practice')));
+      expect(card.bottom, lessThanOrEqualTo(slot.top));
       expect(ads.bannersLoaded, 1);
     });
 

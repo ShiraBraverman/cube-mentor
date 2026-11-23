@@ -623,5 +623,14 @@
   "lessonUnlockBody": "Tonton 1 video singkat untuk membuka pelajaran ini sesering yang diinginkan selama {hours} jam ke depan.",
   "bigCubeUnlockTitle": "Selesaikan kubus besar",
   "bigCubeUnlockBody": "Penyelesaian gratis 4×4–6×6 sudah terpakai. Tonton 1 video singkat untuk menyelesaikan kubus besar selama {hours} jam ke depan.",
-  "doubleTurnBadge": "Putaran ganda · 180°"
+  "doubleTurnBadge": "Putaran ganda · 180°",
+  "homeAcademy": "Akademi",
+  "homePatterns": "Pola Keren",
+  "homePractice": "Timer & Tantangan Harian",
+  "scanChoiceSubtitle": "Mau mulai dari mana?",
+  "scanChoiceCamera": "Pindai dengan kamera",
+  "scanChoiceCameraDesc": "Tunjukkan setiap sisi ke kamera dan dapatkan solusinya.",
+  "scanChoice3d": "Buka kubus 3D",
+  "scanChoice3dDesc": "Putar kubus virtual, acak, lalu selesaikan langkah demi langkah.",
+  "academyAllSizes": "Semua ukuran"
 }

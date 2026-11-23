@@ -623,5 +623,14 @@
   "lessonUnlockBody": "Xem 1 video ngắn để mở bài học này bao nhiêu lần tùy thích trong {hours} giờ tới.",
   "bigCubeUnlockTitle": "Giải khối lớn",
   "bigCubeUnlockBody": "Bạn đã dùng lượt giải miễn phí cho 4×4–6×6. Xem 1 video ngắn để giải khối lớn trong {hours} giờ tới.",
-  "doubleTurnBadge": "Xoay hai lần · 180°"
+  "doubleTurnBadge": "Xoay hai lần · 180°",
+  "homeAcademy": "Học viện",
+  "homePatterns": "Hoa văn đẹp mắt",
+  "homePractice": "Hẹn giờ & Thử thách ngày",
+  "scanChoiceSubtitle": "Bạn muốn bắt đầu thế nào?",
+  "scanChoiceCamera": "Quét bằng camera",
+  "scanChoiceCameraDesc": "Đưa từng mặt vào camera và nhận lời giải.",
+  "scanChoice3d": "Mở khối 3D",
+  "scanChoice3dDesc": "Xoay khối ảo, xáo trộn rồi giải từng bước.",
+  "academyAllSizes": "Mọi kích thước"
 }

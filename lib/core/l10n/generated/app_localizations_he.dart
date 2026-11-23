@@ -2258,4 +2258,32 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get doubleTurnBadge => 'סיבוב כפול · 180°';
+
+  @override
+  String get homeAcademy => 'האקדמיה';
+
+  @override
+  String get homePatterns => 'דוגמאות מגניבות';
+
+  @override
+  String get homePractice => 'טיימר ואימון';
+
+  @override
+  String get scanChoiceSubtitle => 'איך תרצו להתחיל?';
+
+  @override
+  String get scanChoiceCamera => 'סריקה במצלמה';
+
+  @override
+  String get scanChoiceCameraDesc => 'הראו למצלמה כל פאה וקבלו את הפתרון.';
+
+  @override
+  String get scanChoice3d => 'פתיחת קובייה בתלת־ממד';
+
+  @override
+  String get scanChoice3dDesc =>
+      'סובבו קובייה וירטואלית, ערבבו אותה ופתרו שלב אחר שלב.';
+
+  @override
+  String get academyAllSizes => 'כל הגדלים';
 }

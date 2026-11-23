@@ -623,5 +623,14 @@
   "lessonUnlockBody": "观看 1 个短视频，即可在接下来的 {hours} 小时内随时打开本课。",
   "bigCubeUnlockTitle": "还原高阶魔方",
   "bigCubeUnlockBody": "你已用完 4×4–6×6 的免费还原次数。观看 1 个短视频，即可在接下来的 {hours} 小时内还原高阶魔方。",
-  "doubleTurnBadge": "转两次 · 180°"
+  "doubleTurnBadge": "转两次 · 180°",
+  "homeAcademy": "学院",
+  "homePatterns": "酷炫图案",
+  "homePractice": "计时器与每日挑战",
+  "scanChoiceSubtitle": "想怎么开始？",
+  "scanChoiceCamera": "用相机扫描",
+  "scanChoiceCameraDesc": "把每个面对准相机，即可获得解法。",
+  "scanChoice3d": "打开 3D 魔方",
+  "scanChoice3dDesc": "转动虚拟魔方，打乱后一步步还原。",
+  "academyAllSizes": "全部尺寸"
 }

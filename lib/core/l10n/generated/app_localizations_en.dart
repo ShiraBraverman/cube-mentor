@@ -2274,4 +2274,33 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get doubleTurnBadge => 'Double turn · 180°';
+
+  @override
+  String get homeAcademy => 'Academy';
+
+  @override
+  String get homePatterns => 'Cool Patterns';
+
+  @override
+  String get homePractice => 'Timer & Daily Challenge';
+
+  @override
+  String get scanChoiceSubtitle => 'How would you like to start?';
+
+  @override
+  String get scanChoiceCamera => 'Scan with camera';
+
+  @override
+  String get scanChoiceCameraDesc =>
+      'Show each face to the camera and get the solution.';
+
+  @override
+  String get scanChoice3d => 'Open 3D cube';
+
+  @override
+  String get scanChoice3dDesc =>
+      'Turn a virtual cube, scramble it and solve it step by step.';
+
+  @override
+  String get academyAllSizes => 'All sizes';
 }

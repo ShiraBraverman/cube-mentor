@@ -623,5 +623,14 @@
   "lessonUnlockBody": "{hours, plural, =1{Sieh dir 1 kurzes Video an, um diese Lektion in der nächsten Stunde so oft zu öffnen, wie du willst.} other{Sieh dir 1 kurzes Video an, um diese Lektion in den nächsten {hours} Stunden so oft zu öffnen, wie du willst.}}",
   "bigCubeUnlockTitle": "Große Würfel lösen",
   "bigCubeUnlockBody": "{hours, plural, =1{Deine kostenlose 4×4–6×6-Lösung ist verbraucht. Sieh dir 1 kurzes Video an, um große Würfel in der nächsten Stunde zu lösen.} other{Deine kostenlose 4×4–6×6-Lösung ist verbraucht. Sieh dir 1 kurzes Video an, um große Würfel in den nächsten {hours} Stunden zu lösen.}}",
-  "doubleTurnBadge": "Doppelte Drehung · 180°"
+  "doubleTurnBadge": "Doppelte Drehung · 180°",
+  "homeAcademy": "Akademie",
+  "homePatterns": "Coole Muster",
+  "homePractice": "Timer & Tages-Challenge",
+  "scanChoiceSubtitle": "Wie möchtest du starten?",
+  "scanChoiceCamera": "Mit der Kamera scannen",
+  "scanChoiceCameraDesc": "Zeig der Kamera jede Seite und erhalte die Lösung.",
+  "scanChoice3d": "3D-Würfel öffnen",
+  "scanChoice3dDesc": "Dreh einen virtuellen Würfel, misch ihn und löse ihn Schritt für Schritt.",
+  "academyAllSizes": "Alle Größen"
 }

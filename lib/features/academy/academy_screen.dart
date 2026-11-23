@@ -57,14 +57,38 @@ Future<void> openLesson(
 }
 
 /// Lessons grouped by track, with overall progress and crowns earned.
-class AcademyScreen extends ConsumerWidget {
-  const AcademyScreen({super.key});
+///
+/// Opens filtered to [initialSize] (the size selected on the home screen);
+/// the size chips switch to another size or back to every lesson.
+class AcademyScreen extends ConsumerStatefulWidget {
+  const AcademyScreen({super.key, this.initialSize});
+
+  /// Cube size whose lessons are shown first; null shows every lesson.
+  final int? initialSize;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<AcademyScreen> createState() => _AcademyScreenState();
+}
+
+class _AcademyScreenState extends ConsumerState<AcademyScreen> {
+  /// Sizes that have lessons, smallest first.
+  static final List<int> _sizes = {
+    for (final lesson in kLessons) lesson.size,
+  }.toList()..sort();
+
+  late int? _size = _sizes.contains(widget.initialSize)
+      ? widget.initialSize
+      : null;
+
+  @override
+  Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final progress = ref.watch(academyProgressProvider);
     final nextId = progress.nextLesson?.id;
+    final lessons = [
+      for (final lesson in kLessons)
+        if (_size == null || lesson.size == _size) lesson,
+    ];
 
     return GlassBackground(
       child: Scaffold(
@@ -78,27 +102,49 @@ class AcademyScreen extends ConsumerWidget {
                 const ContinueLearningCard(),
                 const SizedBox(height: AppSpace.md),
                 _ProgressHero(progress: progress),
-                for (final track in LessonTrack.values) ...[
-                  SectionHeader(title: trackTitle(l10n, track)),
-                  for (final lesson in kLessons.where(
-                    (l) => l.track == track,
-                  )) ...[
-                    // A header opens each crown of the beginner's method.
-                    if (lesson.crown > 0 && lesson.subStep == 1)
-                      _CrownSectionHeader(crown: lesson.crown),
-                    Padding(
-                      padding: const EdgeInsetsDirectional.only(
-                        bottom: AppSpace.sm,
-                      ),
-                      child: _LessonTile(
-                        lesson: lesson,
-                        number: lessonIndex(lesson.id) + 1,
-                        done: progress.isDone(lesson.id),
-                        next: lesson.id == nextId,
-                      ),
+                const SizedBox(height: AppSpace.md),
+                Wrap(
+                  key: const ValueKey('academy-sizes'),
+                  spacing: AppSpace.xs,
+                  runSpacing: AppSpace.xs,
+                  children: [
+                    ChoiceChip(
+                      key: const ValueKey('academy-size-all'),
+                      label: Text(l10n.academyAllSizes),
+                      selected: _size == null,
+                      onSelected: (_) => setState(() => _size = null),
                     ),
+                    for (final size in _sizes)
+                      ChoiceChip(
+                        key: ValueKey('academy-size-$size'),
+                        label: Text(l10n.cubeSizeLabel(size)),
+                        selected: _size == size,
+                        onSelected: (_) => setState(() => _size = size),
+                      ),
                   ],
-                ],
+                ),
+                for (final track in LessonTrack.values)
+                  if (lessons.any((l) => l.track == track)) ...[
+                    SectionHeader(title: trackTitle(l10n, track)),
+                    for (final lesson in lessons.where(
+                      (l) => l.track == track,
+                    )) ...[
+                      // A header opens each crown of the beginner's method.
+                      if (lesson.crown > 0 && lesson.subStep == 1)
+                        _CrownSectionHeader(crown: lesson.crown),
+                      Padding(
+                        padding: const EdgeInsetsDirectional.only(
+                          bottom: AppSpace.sm,
+                        ),
+                        child: _LessonTile(
+                          lesson: lesson,
+                          number: lessonIndex(lesson.id) + 1,
+                          done: progress.isDone(lesson.id),
+                          next: lesson.id == nextId,
+                        ),
+                      ),
+                    ],
+                  ],
               ],
             ),
           ),

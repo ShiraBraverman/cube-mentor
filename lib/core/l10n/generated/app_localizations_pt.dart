@@ -2287,6 +2287,35 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get doubleTurnBadge => 'Rotação dupla · 180°';
+
+  @override
+  String get homeAcademy => 'Academia';
+
+  @override
+  String get homePatterns => 'Padrões fixes';
+
+  @override
+  String get homePractice => 'Cronómetro e desafio diário';
+
+  @override
+  String get scanChoiceSubtitle => 'Como queres começar?';
+
+  @override
+  String get scanChoiceCamera => 'Digitalizar com a câmara';
+
+  @override
+  String get scanChoiceCameraDesc =>
+      'Mostra cada face à câmara e obtém a solução.';
+
+  @override
+  String get scanChoice3d => 'Abrir cubo 3D';
+
+  @override
+  String get scanChoice3dDesc =>
+      'Roda um cubo virtual, baralha-o e resolve-o passo a passo.';
+
+  @override
+  String get academyAllSizes => 'Todos os tamanhos';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -4565,4 +4594,33 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get doubleTurnBadge => 'Giro duplo · 180°';
+
+  @override
+  String get homeAcademy => 'Academia';
+
+  @override
+  String get homePatterns => 'Padrões incríveis';
+
+  @override
+  String get homePractice => 'Cronômetro e desafio diário';
+
+  @override
+  String get scanChoiceSubtitle => 'Como você quer começar?';
+
+  @override
+  String get scanChoiceCamera => 'Escanear com a câmera';
+
+  @override
+  String get scanChoiceCameraDesc =>
+      'Mostre cada face para a câmera e receba a solução.';
+
+  @override
+  String get scanChoice3d => 'Abrir cubo 3D';
+
+  @override
+  String get scanChoice3dDesc =>
+      'Gire um cubo virtual, embaralhe e resolva passo a passo.';
+
+  @override
+  String get academyAllSizes => 'Todos os tamanhos';
 }

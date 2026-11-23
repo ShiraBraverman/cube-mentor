@@ -2296,4 +2296,33 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get doubleTurnBadge => 'Demi-tour · 180°';
+
+  @override
+  String get homeAcademy => 'Académie';
+
+  @override
+  String get homePatterns => 'Motifs sympas';
+
+  @override
+  String get homePractice => 'Chrono et défi du jour';
+
+  @override
+  String get scanChoiceSubtitle => 'Comment veux-tu commencer ?';
+
+  @override
+  String get scanChoiceCamera => 'Scanner avec la caméra';
+
+  @override
+  String get scanChoiceCameraDesc =>
+      'Montre chaque face à la caméra et obtiens la solution.';
+
+  @override
+  String get scanChoice3d => 'Ouvrir le cube 3D';
+
+  @override
+  String get scanChoice3dDesc =>
+      'Tourne un cube virtuel, mélange-le et résous-le étape par étape.';
+
+  @override
+  String get academyAllSizes => 'Toutes les tailles';
 }

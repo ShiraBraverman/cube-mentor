@@ -3879,6 +3879,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Double turn · 180°'**
   String get doubleTurnBadge;
+
+  /// Home action card that opens the Academy on the selected cube size.
+  ///
+  /// In en, this message translates to:
+  /// **'Academy'**
+  String get homeAcademy;
+
+  /// Home action card that opens the Pattern Library on the selected cube size.
+  ///
+  /// In en, this message translates to:
+  /// **'Cool Patterns'**
+  String get homePatterns;
+
+  /// Home action card (and hub title) for the speed timer and the daily challenge.
+  ///
+  /// In en, this message translates to:
+  /// **'Timer & Daily Challenge'**
+  String get homePractice;
+
+  /// Subtitle of the Scan & Solve choice sheet.
+  ///
+  /// In en, this message translates to:
+  /// **'How would you like to start?'**
+  String get scanChoiceSubtitle;
+
+  /// Scan & Solve sheet option: scan the physical cube with the camera.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan with camera'**
+  String get scanChoiceCamera;
+
+  /// Description of the camera scan option.
+  ///
+  /// In en, this message translates to:
+  /// **'Show each face to the camera and get the solution.'**
+  String get scanChoiceCameraDesc;
+
+  /// Scan & Solve sheet option: open the interactive 3D cube.
+  ///
+  /// In en, this message translates to:
+  /// **'Open 3D cube'**
+  String get scanChoice3d;
+
+  /// Description of the 3D cube option.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn a virtual cube, scramble it and solve it step by step.'**
+  String get scanChoice3dDesc;
+
+  /// Academy size filter chip that shows the lessons of every cube size.
+  ///
+  /// In en, this message translates to:
+  /// **'All sizes'**
+  String get academyAllSizes;
 }
 
 class _AppLocalizationsDelegate

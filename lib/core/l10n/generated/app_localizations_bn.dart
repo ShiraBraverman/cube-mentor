@@ -2216,4 +2216,33 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get doubleTurnBadge => 'ডাবল টার্ন · 180°';
+
+  @override
+  String get homeAcademy => 'অ্যাকাডেমি';
+
+  @override
+  String get homePatterns => 'দারুণ প্যাটার্ন';
+
+  @override
+  String get homePractice => 'টাইমার ও দৈনিক চ্যালেঞ্জ';
+
+  @override
+  String get scanChoiceSubtitle => 'কীভাবে শুরু করতে চান?';
+
+  @override
+  String get scanChoiceCamera => 'ক্যামেরা দিয়ে স্ক্যান';
+
+  @override
+  String get scanChoiceCameraDesc =>
+      'প্রতিটি দিক ক্যামেরায় দেখান আর সমাধান পান।';
+
+  @override
+  String get scanChoice3d => '3D কিউব খুলুন';
+
+  @override
+  String get scanChoice3dDesc =>
+      'ভার্চুয়াল কিউব ঘোরান, এলোমেলো করুন আর ধাপে ধাপে সমাধান করুন।';
+
+  @override
+  String get academyAllSizes => 'সব সাইজ';
 }

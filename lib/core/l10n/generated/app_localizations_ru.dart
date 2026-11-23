@@ -2319,4 +2319,33 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get doubleTurnBadge => 'Двойной поворот · 180°';
+
+  @override
+  String get homeAcademy => 'Академия';
+
+  @override
+  String get homePatterns => 'Крутые узоры';
+
+  @override
+  String get homePractice => 'Таймер и задание дня';
+
+  @override
+  String get scanChoiceSubtitle => 'С чего начнём?';
+
+  @override
+  String get scanChoiceCamera => 'Сканировать камерой';
+
+  @override
+  String get scanChoiceCameraDesc =>
+      'Покажите камере каждую грань и получите решение.';
+
+  @override
+  String get scanChoice3d => 'Открыть 3D-кубик';
+
+  @override
+  String get scanChoice3dDesc =>
+      'Вращайте виртуальный кубик, запутайте его и соберите шаг за шагом.';
+
+  @override
+  String get academyAllSizes => 'Все размеры';
 }

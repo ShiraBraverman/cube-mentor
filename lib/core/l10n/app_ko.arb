@@ -623,5 +623,14 @@
   "lessonUnlockBody": "짧은 동영상 1개를 보면 앞으로 {hours}시간 동안 이 강의를 마음껏 열 수 있어요.",
   "bigCubeUnlockTitle": "큰 큐브 풀기",
   "bigCubeUnlockBody": "4×4–6×6 무료 풀이를 이미 사용했어요. 짧은 동영상 1개를 보면 앞으로 {hours}시간 동안 큰 큐브를 풀 수 있어요.",
-  "doubleTurnBadge": "두 번 돌리기 · 180°"
+  "doubleTurnBadge": "두 번 돌리기 · 180°",
+  "homeAcademy": "아카데미",
+  "homePatterns": "멋진 패턴",
+  "homePractice": "타이머 & 오늘의 도전",
+  "scanChoiceSubtitle": "어떻게 시작할까요?",
+  "scanChoiceCamera": "카메라로 스캔",
+  "scanChoiceCameraDesc": "각 면을 카메라에 보여 주면 해법을 알려 드려요.",
+  "scanChoice3d": "3D 큐브 열기",
+  "scanChoice3dDesc": "가상 큐브를 돌리고 섞은 뒤 단계별로 풀어 보세요.",
+  "academyAllSizes": "모든 크기"
 }

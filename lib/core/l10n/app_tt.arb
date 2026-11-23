@@ -623,5 +623,14 @@
   "lessonUnlockBody": "Бу дәресне киләсе {hours} сәгать эчендә теләсә ничә тапкыр ачу өчен 1 кыска видео карагыз.",
   "bigCubeUnlockTitle": "Зур кубларны җыю",
   "bigCubeUnlockBody": "4×4–6×6 өчен бушлай җыю кулланылды. Киләсе {hours} сәгать эчендә зур кубларны җыю өчен 1 кыска видео карагыз.",
-  "doubleTurnBadge": "Ике тапкыр бору · 180°"
+  "doubleTurnBadge": "Ике тапкыр бору · 180°",
+  "homeAcademy": "Академия",
+  "homePatterns": "Шәп үрнәкләр",
+  "homePractice": "Таймер һәм көндәлек бурыч",
+  "scanChoiceSubtitle": "Ничек башлыйсыз?",
+  "scanChoiceCamera": "Камера белән сканерлау",
+  "scanChoiceCameraDesc": "Һәр ягын камерага күрсәтегез һәм чишелешне алыгыз.",
+  "scanChoice3d": "3D кубны ачу",
+  "scanChoice3dDesc": "Виртуаль кубны борыгыз, болгатыгыз һәм адымлап җыегыз.",
+  "academyAllSizes": "Барлык зурлыклар"
 }

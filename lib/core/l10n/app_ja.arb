@@ -623,5 +623,14 @@
   "lessonUnlockBody": "短い動画を1本見ると、これから{hours}時間、このレッスンを何度でも開けます。",
   "bigCubeUnlockTitle": "大型キューブを解く",
   "bigCubeUnlockBody": "4×4–6×6の無料ソルブは使用済みです。短い動画を1本見ると、これから{hours}時間、大型キューブを解けます。",
-  "doubleTurnBadge": "2回回す・180°"
+  "doubleTurnBadge": "2回回す・180°",
+  "homeAcademy": "アカデミー",
+  "homePatterns": "クールな模様",
+  "homePractice": "タイマー＆デイリー",
+  "scanChoiceSubtitle": "どの方法で始めますか？",
+  "scanChoiceCamera": "カメラでスキャン",
+  "scanChoiceCameraDesc": "各面をカメラに映すと解き方がわかります。",
+  "scanChoice3d": "3Dキューブを開く",
+  "scanChoice3dDesc": "バーチャルキューブを回し、崩して、一手ずつ解きましょう。",
+  "academyAllSizes": "すべてのサイズ"
 }

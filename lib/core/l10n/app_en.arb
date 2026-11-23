@@ -1352,5 +1352,41 @@
   "doubleTurnBadge": "Double turn · 180°",
   "@doubleTurnBadge": {
     "description": "Bold pill above the 3D cube when the current guided move is a 180° (double) turn."
+  },
+  "homeAcademy": "Academy",
+  "@homeAcademy": {
+    "description": "Home action card that opens the Academy on the selected cube size."
+  },
+  "homePatterns": "Cool Patterns",
+  "@homePatterns": {
+    "description": "Home action card that opens the Pattern Library on the selected cube size."
+  },
+  "homePractice": "Timer & Daily Challenge",
+  "@homePractice": {
+    "description": "Home action card (and hub title) for the speed timer and the daily challenge."
+  },
+  "scanChoiceSubtitle": "How would you like to start?",
+  "@scanChoiceSubtitle": {
+    "description": "Subtitle of the Scan & Solve choice sheet."
+  },
+  "scanChoiceCamera": "Scan with camera",
+  "@scanChoiceCamera": {
+    "description": "Scan & Solve sheet option: scan the physical cube with the camera."
+  },
+  "scanChoiceCameraDesc": "Show each face to the camera and get the solution.",
+  "@scanChoiceCameraDesc": {
+    "description": "Description of the camera scan option."
+  },
+  "scanChoice3d": "Open 3D cube",
+  "@scanChoice3d": {
+    "description": "Scan & Solve sheet option: open the interactive 3D cube."
+  },
+  "scanChoice3dDesc": "Turn a virtual cube, scramble it and solve it step by step.",
+  "@scanChoice3dDesc": {
+    "description": "Description of the 3D cube option."
+  },
+  "academyAllSizes": "All sizes",
+  "@academyAllSizes": {
+    "description": "Academy size filter chip that shows the lessons of every cube size."
   }
 }

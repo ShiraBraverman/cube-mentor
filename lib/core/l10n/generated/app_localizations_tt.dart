@@ -2216,4 +2216,33 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get doubleTurnBadge => 'Ике тапкыр бору · 180°';
+
+  @override
+  String get homeAcademy => 'Академия';
+
+  @override
+  String get homePatterns => 'Шәп үрнәкләр';
+
+  @override
+  String get homePractice => 'Таймер һәм көндәлек бурыч';
+
+  @override
+  String get scanChoiceSubtitle => 'Ничек башлыйсыз?';
+
+  @override
+  String get scanChoiceCamera => 'Камера белән сканерлау';
+
+  @override
+  String get scanChoiceCameraDesc =>
+      'Һәр ягын камерага күрсәтегез һәм чишелешне алыгыз.';
+
+  @override
+  String get scanChoice3d => '3D кубны ачу';
+
+  @override
+  String get scanChoice3dDesc =>
+      'Виртуаль кубны борыгыз, болгатыгыз һәм адымлап җыегыз.';
+
+  @override
+  String get academyAllSizes => 'Барлык зурлыклар';
 }

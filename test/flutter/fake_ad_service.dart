@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cube_mentor/core/ads/ad_config.dart';
 import 'package:cube_mentor/core/ads/ad_service.dart';
 import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:material_ui/material_ui.dart';
@@ -117,6 +118,7 @@ class PresetAdsController extends AdsController {
 /// the privacy options entry is shown. For layout tests.
 List<Override> adsOnOverrides([FakeAdService? service]) => [
   adServiceProvider.overrideWithValue(service ?? FakeAdService()),
+  adsTestingBypassProvider.overrideWithValue(false),
   adsProvider.overrideWith(
     () => PresetAdsController(
       const AdConsent(canRequestAds: true, privacyOptionsRequired: true),

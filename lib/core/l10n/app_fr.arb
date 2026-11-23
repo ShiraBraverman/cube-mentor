@@ -623,5 +623,14 @@
   "lessonUnlockBody": "{hours, plural, one{Regardez 1 courte vidéo pour ouvrir cette leçon autant de fois que vous voulez pendant l’heure qui vient.} other{Regardez 1 courte vidéo pour ouvrir cette leçon autant de fois que vous voulez pendant les {hours} prochaines heures.}}",
   "bigCubeUnlockTitle": "Résoudre les grands cubes",
   "bigCubeUnlockBody": "{hours, plural, one{Votre résolution gratuite d’un 4×4–6×6 est utilisée. Regardez 1 courte vidéo pour résoudre les grands cubes pendant l’heure qui vient.} other{Votre résolution gratuite d’un 4×4–6×6 est utilisée. Regardez 1 courte vidéo pour résoudre les grands cubes pendant les {hours} prochaines heures.}}",
-  "doubleTurnBadge": "Demi-tour · 180°"
+  "doubleTurnBadge": "Demi-tour · 180°",
+  "homeAcademy": "Académie",
+  "homePatterns": "Motifs sympas",
+  "homePractice": "Chrono et défi du jour",
+  "scanChoiceSubtitle": "Comment veux-tu commencer ?",
+  "scanChoiceCamera": "Scanner avec la caméra",
+  "scanChoiceCameraDesc": "Montre chaque face à la caméra et obtiens la solution.",
+  "scanChoice3d": "Ouvrir le cube 3D",
+  "scanChoice3dDesc": "Tourne un cube virtuel, mélange-le et résous-le étape par étape.",
+  "academyAllSizes": "Toutes les tailles"
 }

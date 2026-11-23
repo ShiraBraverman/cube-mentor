@@ -30,16 +30,3 @@ class ShowingMystery extends Notifier<bool> {
 final showingMysteryProvider = NotifierProvider<ShowingMystery, bool>(
   ShowingMystery.new,
 );
-
-/// The bottom navigation tabs of the root shell.
-enum AppTab { solve, scan, academy, train }
-
-/// The tab shown in the root shell.
-class CurrentTab extends Notifier<AppTab> {
-  @override
-  AppTab build() => AppTab.solve;
-
-  void select(AppTab tab) => state = tab;
-}
-
-final currentTabProvider = NotifierProvider<CurrentTab, AppTab>(CurrentTab.new);

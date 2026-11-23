@@ -2286,4 +2286,33 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get doubleTurnBadge => 'Giro doble · 180°';
+
+  @override
+  String get homeAcademy => 'Academia';
+
+  @override
+  String get homePatterns => 'Patrones geniales';
+
+  @override
+  String get homePractice => 'Cronómetro y reto diario';
+
+  @override
+  String get scanChoiceSubtitle => '¿Cómo quieres empezar?';
+
+  @override
+  String get scanChoiceCamera => 'Escanear con la cámara';
+
+  @override
+  String get scanChoiceCameraDesc =>
+      'Muestra cada cara a la cámara y obtén la solución.';
+
+  @override
+  String get scanChoice3d => 'Abrir cubo 3D';
+
+  @override
+  String get scanChoice3dDesc =>
+      'Gira un cubo virtual, mézclalo y resuélvelo paso a paso.';
+
+  @override
+  String get academyAllSizes => 'Todos los tamaños';
 }

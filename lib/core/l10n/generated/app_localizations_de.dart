@@ -2293,4 +2293,33 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get doubleTurnBadge => 'Doppelte Drehung · 180°';
+
+  @override
+  String get homeAcademy => 'Akademie';
+
+  @override
+  String get homePatterns => 'Coole Muster';
+
+  @override
+  String get homePractice => 'Timer & Tages-Challenge';
+
+  @override
+  String get scanChoiceSubtitle => 'Wie möchtest du starten?';
+
+  @override
+  String get scanChoiceCamera => 'Mit der Kamera scannen';
+
+  @override
+  String get scanChoiceCameraDesc =>
+      'Zeig der Kamera jede Seite und erhalte die Lösung.';
+
+  @override
+  String get scanChoice3d => '3D-Würfel öffnen';
+
+  @override
+  String get scanChoice3dDesc =>
+      'Dreh einen virtuellen Würfel, misch ihn und löse ihn Schritt für Schritt.';
+
+  @override
+  String get academyAllSizes => 'Alle Größen';
 }

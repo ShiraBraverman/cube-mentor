@@ -2117,4 +2117,31 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get doubleTurnBadge => '두 번 돌리기 · 180°';
+
+  @override
+  String get homeAcademy => '아카데미';
+
+  @override
+  String get homePatterns => '멋진 패턴';
+
+  @override
+  String get homePractice => '타이머 & 오늘의 도전';
+
+  @override
+  String get scanChoiceSubtitle => '어떻게 시작할까요?';
+
+  @override
+  String get scanChoiceCamera => '카메라로 스캔';
+
+  @override
+  String get scanChoiceCameraDesc => '각 면을 카메라에 보여 주면 해법을 알려 드려요.';
+
+  @override
+  String get scanChoice3d => '3D 큐브 열기';
+
+  @override
+  String get scanChoice3dDesc => '가상 큐브를 돌리고 섞은 뒤 단계별로 풀어 보세요.';
+
+  @override
+  String get academyAllSizes => '모든 크기';
 }

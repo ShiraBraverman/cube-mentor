@@ -27,7 +27,8 @@ import 'patterns.dart';
 /// own for 24 hours per rewarded video. Tapping a locked pattern still
 /// previews it on a 3D cube in the unlock sheet.
 class PatternsScreen extends ConsumerStatefulWidget {
-  /// Always opens on the 3x3, the size most people own.
+  /// Opens on [initialSize]: the size selected on the home screen, or the
+  /// 3x3 (the size most people own) by default.
   const PatternsScreen({super.key, this.initialSize = 3});
 
   final int initialSize;

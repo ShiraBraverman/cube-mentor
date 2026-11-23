@@ -2220,4 +2220,32 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get doubleTurnBadge => 'Xoay hai lần · 180°';
+
+  @override
+  String get homeAcademy => 'Học viện';
+
+  @override
+  String get homePatterns => 'Hoa văn đẹp mắt';
+
+  @override
+  String get homePractice => 'Hẹn giờ & Thử thách ngày';
+
+  @override
+  String get scanChoiceSubtitle => 'Bạn muốn bắt đầu thế nào?';
+
+  @override
+  String get scanChoiceCamera => 'Quét bằng camera';
+
+  @override
+  String get scanChoiceCameraDesc =>
+      'Đưa từng mặt vào camera và nhận lời giải.';
+
+  @override
+  String get scanChoice3d => 'Mở khối 3D';
+
+  @override
+  String get scanChoice3dDesc => 'Xoay khối ảo, xáo trộn rồi giải từng bước.';
+
+  @override
+  String get academyAllSizes => 'Mọi kích thước';
 }

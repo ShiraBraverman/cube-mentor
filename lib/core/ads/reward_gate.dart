@@ -166,6 +166,7 @@ class AdMobRewardGate extends Notifier<RewardUnlocks> implements RewardGate {
 
   @override
   bool isUnlocked(RewardFeature feature, {String? item}) {
+    if (ref.read(adsTestingBypassProvider)) return true;
     if (!ref.read(adServiceProvider).supported) return true;
     if (state.sessionPasses.contains(_key(feature, item))) return true;
     if (feature == RewardFeature.lesson && state.legacyLessons.contains(item)) {
@@ -181,6 +182,7 @@ class AdMobRewardGate extends Notifier<RewardUnlocks> implements RewardGate {
   /// Time left on the timed unlock of [feature] / [item]; null when none is
   /// running (never watched, expired, a free pass, or no ads here).
   Duration? timeLeft(RewardFeature feature, {String? item}) {
+    if (ref.read(adsTestingBypassProvider)) return null;
     if (!ref.read(adServiceProvider).supported) return null;
     final until = _until(feature, item);
     if (until == null) return null;

@@ -2223,4 +2223,33 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get doubleTurnBadge => 'Putaran ganda · 180°';
+
+  @override
+  String get homeAcademy => 'Akademi';
+
+  @override
+  String get homePatterns => 'Pola Keren';
+
+  @override
+  String get homePractice => 'Timer & Tantangan Harian';
+
+  @override
+  String get scanChoiceSubtitle => 'Mau mulai dari mana?';
+
+  @override
+  String get scanChoiceCamera => 'Pindai dengan kamera';
+
+  @override
+  String get scanChoiceCameraDesc =>
+      'Tunjukkan setiap sisi ke kamera dan dapatkan solusinya.';
+
+  @override
+  String get scanChoice3d => 'Buka kubus 3D';
+
+  @override
+  String get scanChoice3dDesc =>
+      'Putar kubus virtual, acak, lalu selesaikan langkah demi langkah.';
+
+  @override
+  String get academyAllSizes => 'Semua ukuran';
 }

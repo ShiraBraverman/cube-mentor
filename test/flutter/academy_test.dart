@@ -276,9 +276,7 @@ void main() {
       ),
     );
     await tester.pump(const Duration(milliseconds: 100));
-    // The Academy tab carries the progress badge.
-    expect(find.text('0/29'), findsOneWidget);
-    await tester.tap(find.byKey(const ValueKey('tab-academy')));
+    await tester.tap(find.byKey(const ValueKey('home-academy')));
     await _advance(tester, 4);
     // The "Continue learning" hero sits on top of the tracks.
     expect(find.text('Start learning'), findsOneWidget);
@@ -406,7 +404,7 @@ void main() {
       findsOneWidget,
     );
     expect(find.text('Lesson 2 of 29'), findsOneWidget);
-    expect(find.text('1/29'), findsOneWidget);
+    expect(find.text('1 of 29 lessons completed'), findsOneWidget);
   });
 
   testWidgets('the Academy lists every track in Hebrew, right to left', (
@@ -424,10 +422,10 @@ void main() {
       ),
     );
     await tester.pump(const Duration(milliseconds: 100));
-    await tester.tap(find.byKey(const ValueKey('tab-academy')));
+    await tester.tap(find.byKey(const ValueKey('home-academy')));
     await _advance(tester);
-    // The tab label and the page title.
-    expect(find.text('אקדמיה'), findsNWidgets(2));
+    // The page title (the home card reads "האקדמיה").
+    expect(find.text('אקדמיה'), findsOneWidget);
     expect(find.text('0 מתוך 29 שיעורים הושלמו'), findsOneWidget);
     expect(find.text('מתחילים 3×3: שלושת הכתרים'), findsOneWidget);
     // Below the hero cards: scroll to the first crown's lessons.
@@ -442,6 +440,11 @@ void main() {
       Directionality.of(tester.element(find.text('אקדמיה').first)),
       TextDirection.rtl,
     );
+    // Opened on the 3x3 lessons; show every size.
+    await tester.ensureVisible(find.byKey(const ValueKey('academy-size-all')));
+    await tester.pump();
+    await tester.tap(find.byKey(const ValueKey('academy-size-all')));
+    await _advance(tester, 4);
     await tester.scrollUntilVisible(
       find.byKey(const ValueKey('lesson-bigParity')),
       300,

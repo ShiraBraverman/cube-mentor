@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import 'ad_config.dart';
 import 'ad_service.dart';
 
 /// A bottom adaptive banner slot.
@@ -57,6 +58,7 @@ class _AppBannerAdState extends ConsumerState<AppBannerAd> {
 
   @override
   Widget build(BuildContext context) {
+    if (ref.watch(adsTestingBypassProvider)) return const SizedBox.shrink();
     final canRequestAds = ref.watch(adsProvider.select((c) => c.canRequestAds));
     if (!canRequestAds) return const SizedBox.shrink();
     return LayoutBuilder(

@@ -2318,4 +2318,32 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get doubleTurnBadge => 'دوران مزدوج · 180°';
+
+  @override
+  String get homeAcademy => 'الأكاديمية';
+
+  @override
+  String get homePatterns => 'أنماط رائعة';
+
+  @override
+  String get homePractice => 'المؤقت والتحدي اليومي';
+
+  @override
+  String get scanChoiceSubtitle => 'كيف تريد أن تبدأ؟';
+
+  @override
+  String get scanChoiceCamera => 'المسح بالكاميرا';
+
+  @override
+  String get scanChoiceCameraDesc => 'اعرض كل وجه على الكاميرا واحصل على الحل.';
+
+  @override
+  String get scanChoice3d => 'فتح المكعب ثلاثي الأبعاد';
+
+  @override
+  String get scanChoice3dDesc =>
+      'دوّر مكعبًا افتراضيًا، وبعثره، ثم حُلّه خطوة بخطوة.';
+
+  @override
+  String get academyAllSizes => 'كل الأحجام';
 }
