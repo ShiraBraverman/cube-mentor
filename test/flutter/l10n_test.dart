@@ -404,17 +404,45 @@ void main() {
       expect(find.byKey(const ValueKey('scan-solve-sheet')), findsOneWidget);
       expect(tester.takeException(), isNull, reason: 'scan & solve sheet');
       // Lessons open on their goal card, then the lesson itself.
-      for (final id in ['bigParity', 'twistCorners']) {
+      for (final id in ['bigParity', 'twistCorners', 'f2l', 'corners']) {
         await show(
           LessonScreen(lesson: kLessons.firstWhere((l) => l.id == id)),
         );
         expect(find.byKey(const ValueKey('lesson-intro')), findsOneWidget);
+        expect(find.byKey(const ValueKey('lesson-stages')), findsOneWidget);
         await tester.ensureVisible(find.byKey(const ValueKey('intro-start')));
         await tester.tap(find.byKey(const ValueKey('intro-start')));
         await _advance(tester, 4);
         expect(find.byKey(const ValueKey('lesson-part')), findsOneWidget);
+        expect(find.byKey(const ValueKey('lesson-cue')), findsOneWidget);
         expect(tester.takeException(), isNull, reason: 'lesson $id');
+        // Stage 3 (a walkthrough with a bonus case) and stage 4.
+        await tester.tap(find.byKey(const ValueKey('lesson-stage-2')));
+        await _advance(tester, 4);
+        await tester.tap(find.byKey(const ValueKey('lesson-next')));
+        await _advance(tester, 12);
+        expect(find.byKey(const ValueKey('lesson-cue')), findsOneWidget);
+        expect(tester.takeException(), isNull, reason: 'walkthrough $id');
+        await tester.tap(find.byKey(const ValueKey('lesson-stage-3')));
+        await _advance(tester, 4);
+        expect(find.byKey(const ValueKey('lesson-complete')), findsOneWidget);
+        expect(tester.takeException(), isNull, reason: 'complete $id');
       }
+      // Free practice from a finished lesson, with its goal banner.
+      final practice = lookupAppLocalizations(language.locale);
+      await show(
+        Solver3DScreen(
+          size: 3,
+          initialCube: CubeState.solved(3)
+              .applyAll(MoveNotation.parseSequence("R U R' U'", 3)),
+          title: practice.lessonFreePractice,
+          practiceBanner: practice.freePracticeBanner(
+            lessonTitle(practice, 'yellowCorners'),
+          ),
+        ),
+        scroll: false,
+      );
+      expect(find.byKey(const ValueKey('practice-banner')), findsOneWidget);
       // The timer with a recorded solve: stat captions, the +2 / DNF /
       // Delete captions, and the inspection intro.
       await prefs.setString(

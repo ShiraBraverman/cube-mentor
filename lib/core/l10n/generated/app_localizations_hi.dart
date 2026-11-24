@@ -2283,4 +2283,281 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get academyAllSizes => 'सभी साइज़';
+
+  @override
+  String homeAcademyProgress(int done, int total) {
+    return '$total में से $done पाठ पूरे';
+  }
+
+  @override
+  String academySizeProgress(String size, int done, int total) {
+    return '$size • $done / $total पूरे';
+  }
+
+  @override
+  String get lessonStageConcept => 'समझ';
+
+  @override
+  String get lessonStageExamples => 'उदाहरण';
+
+  @override
+  String get lessonStagePractice => 'अभ्यास';
+
+  @override
+  String get lessonStageNext => 'आगे / खुला';
+
+  @override
+  String lessonStageOf(int index, int total, String name) {
+    return 'चरण $index / $total: $name';
+  }
+
+  @override
+  String lessonExampleOf(int index, int total) {
+    return 'उदाहरण $index / $total';
+  }
+
+  @override
+  String lessonWalkthroughOf(int index, int total) {
+    return 'अभ्यास $index / $total';
+  }
+
+  @override
+  String get lessonBonusCase => 'बोनस केस';
+
+  @override
+  String get lessonPracticeIntro =>
+      'असली स्क्रैम्बल: सिर्फ़ पिछले स्टेप हल हैं। एक-एक संकेत के साथ यह पूरा स्टेप पूरा करें।';
+
+  @override
+  String lessonContinueDesc(String lesson) {
+    return 'सीधे $lesson पर जाएँ।';
+  }
+
+  @override
+  String get lessonFreePractice => 'खुला अभ्यास';
+
+  @override
+  String get lessonFreePracticeDesc =>
+      'मिले-जुले 3D क्यूब को खुद हल करें, शुरुआत से इस स्टेप तक।';
+
+  @override
+  String freePracticeBanner(String topic) {
+    return 'खुलकर अभ्यास करें: क्यूब को शुरुआत से $topic तक हल करें!';
+  }
+
+  @override
+  String get pieceColorSeparator => '-';
+
+  @override
+  String cueFaceTurn(String face) {
+    return '$face केंद्र वाली फ़ेस को तीर की दिशा में घुमाएँ। केंद्र अपनी जगह रहता है; सिर्फ़ उसके आसपास के टुकड़े चलते हैं।';
+  }
+
+  @override
+  String cueTrigger(String front) {
+    return 'दाएँ हाथ का ट्रिगर, $front आपकी ओर: दायाँ फ़ेस ऊपर, ऊपरी परत बाएँ, दायाँ फ़ेस नीचे, ऊपरी परत वापस दाएँ।';
+  }
+
+  @override
+  String get cueTriggerBack =>
+      'लगातार छठा ट्रिगर क्यूब को ठीक पहले जैसा कर देता है। छह जादुई संख्या है!';
+
+  @override
+  String cueSliceInner(String face) {
+    return '$face फ़ेस के बगल वाली सिर्फ़ अंदरूनी परत घुमाएँ। फ़ेस खुद नहीं हिलता, इसलिए केंद्र अलग हो जाते हैं।';
+  }
+
+  @override
+  String cueSliceWide(String face) {
+    return 'चौड़ी चाल: $face फ़ेस और उसके बगल की अंदरूनी परत एक मोटी परत की तरह साथ घूमती हैं।';
+  }
+
+  @override
+  String cueTurnCube(String top, String front) {
+    return 'पूरे क्यूब को ऐसे घुमाएँ कि $top केंद्र ऊपर हो और $front केंद्र आपकी ओर हो।';
+  }
+
+  @override
+  String get cueTurnTop =>
+      'अगले एल्गोरिद्म की तैयारी के लिए तीर के अनुसार सिर्फ़ ऊपरी परत घुमाएँ।';
+
+  @override
+  String get cueAlignTop => 'आख़िरी चाल: ऊपरी परत घुमाकर रंग मिला दें। हो गया!';
+
+  @override
+  String cueCrossTop(String piece, String center) {
+    return '$piece एज ऊपरी परत में है। ऊपरी परत घुमाएँ जब तक वह $center केंद्र के ठीक ऊपर न आ जाए, फिर उसे नीचे लाने के लिए वह फ़ेस दो बार घुमाएँ।';
+  }
+
+  @override
+  String cueCrossMiddle(String piece, String center) {
+    return '$piece एज बीच की परत में फँसा है। उसे ऊपर लाएँ, $center केंद्र के ऊपर मिलाएँ, फिर नीचे लाएँ।';
+  }
+
+  @override
+  String cueCrossFlipped(String piece, String center) {
+    return '$piece एज अपनी जगह पर है, पर उल्टा है: उसका सफ़ेद हिस्सा बगल की ओर है। उसे निकालें, फिर $center केंद्र के पास सही ओर से वापस लाएँ।';
+  }
+
+  @override
+  String cueCrossBottom(String piece, String center) {
+    return 'CFOP तरीके में नीचे की परत भी घुमा सकते हैं। $piece एज नीचे लाएँ और नीचे की परत घुमाकर उसे $center केंद्र से मिलाएँ।';
+  }
+
+  @override
+  String cueCornerTop(String piece, String a, String b) {
+    return 'ऊपरी परत घुमाएँ जब तक $piece कोना अपनी जगह के ठीक ऊपर, $a और $b साइड के बीच, न आ जाए। दाएँ हाथ का ट्रिगर दोहराएँ जब तक वह सही घूमकर अंदर न बैठ जाए।';
+  }
+
+  @override
+  String cueCornerTwisted(String piece) {
+    return '$piece कोना अपनी जगह पर है, पर मुड़ा हुआ है। एक ट्रिगर उसे बाहर निकालता है (उसकी जगह पीला कोना आता है); तब तक दोहराएँ जब तक वह सही ढंग से वापस न बैठ जाए।';
+  }
+
+  @override
+  String cueMiddleRight(String piece, String a, String b) {
+    return 'ऊपरी परत घुमाएँ जब तक $piece एज $a केंद्र से न मिल जाए, फिर उसे नीचे दाईं ओर, $a और $b के बीच की जगह में भेजें।';
+  }
+
+  @override
+  String cueMiddleLeft(String piece, String a, String b) {
+    return 'ऊपरी परत घुमाएँ जब तक $piece एज $a केंद्र से न मिल जाए, फिर उसे नीचे बाईं ओर, $a और $b के बीच की जगह में भेजें।';
+  }
+
+  @override
+  String cueMiddleFlipped(String piece, String a, String b) {
+    return '$piece एज अपनी जगह पर है, पर उल्टा है। उसे बाहर धकेलने के लिए वहाँ एक पीला एज डालें, फिर उसे दोबारा $a और $b के बीच डालें।';
+  }
+
+  @override
+  String cueYellowLine(String front) {
+    return 'पीली रेखा: ऊपरी परत घुमाएँ ताकि रेखा बाएँ से दाएँ जाए, $front को अपनी ओर रखें, फिर पीले क्रॉस का एल्गोरिद्म करें।';
+  }
+
+  @override
+  String cueYellowL(String front) {
+    return 'पीला L: ऊपरी परत घुमाएँ ताकि L पीछे-बाईं ओर इशारा करे, $front को अपनी ओर रखें, फिर एल्गोरिद्म करें। यह रेखा बन जाता है।';
+  }
+
+  @override
+  String cueYellowDot(String front) {
+    return 'सिर्फ़ केंद्र पीला है: एक बिंदु। $front को अपनी ओर रखकर एल्गोरिद्म एक बार करें, L बन जाएगा।';
+  }
+
+  @override
+  String cueEdgesMatch(String piece, String center) {
+    return 'ऊपरी परत घुमाएँ जब तक $piece एज $center केंद्र से न मिल जाए।';
+  }
+
+  @override
+  String cueEdgesSwap(String front) {
+    return 'मिले हुए दो एज पीछे और दाईं ओर हैं। $front को अपनी ओर रखकर अदला-बदली करें: सामने और बाएँ वाले एज जगह बदलते हैं।';
+  }
+
+  @override
+  String cueEdgesOpposite(String front) {
+    return 'मिले हुए एज आमने-सामने हैं। $front को अपनी ओर रखकर अदला-बदली एक बार करें; उसके बाद दो पड़ोसी एज मिल जाएँगे।';
+  }
+
+  @override
+  String cueCornersCycle(String piece, String front) {
+    return '$piece कोना पहले से अपनी जगह पर है। उसे आगे-दाईं ओर रखें, $front आपकी ओर, और बाकी तीन कोनों को घुमाकर बदलें।';
+  }
+
+  @override
+  String cueCornersNone(String front) {
+    return 'अभी कोई पीला कोना अपनी जगह पर नहीं है। $front को अपनी ओर रखकर एक बार चक्र करें; उसके बाद एक कोना अपनी जगह पर होगा।';
+  }
+
+  @override
+  String cueTwistCorner(String piece) {
+    return 'आगे-दाईं ओर वाला $piece कोना घुमाएँ: नीचे वाला ट्रिगर दोहराएँ जब तक उसका पीला हिस्सा ऊपर न आ जाए। नीचे की परतें अभी बिखरी दिखेंगी; यह सामान्य है!';
+  }
+
+  @override
+  String cueTwistFour(String piece) {
+    return 'इस बार $piece कोने को चार ट्रिगर चाहिए। जारी रखें: पीला रंग हमेशा दो या चार के बाद ऊपर आता है।';
+  }
+
+  @override
+  String get cueTwistNext =>
+      'अगले मुड़े हुए कोने को आगे-दाईं ओर लाने के लिए सिर्फ़ ऊपरी परत घुमाएँ। अभी पूरा क्यूब न घुमाएँ!';
+
+  @override
+  String cueF2lPair(String piece, String edge, String a, String b) {
+    return 'ऊपर $piece कोने को $edge एज के साथ जोड़ें, फिर जोड़ी को $a और $b के बीच की जगह में डालें।';
+  }
+
+  @override
+  String cueF2lStuck(String piece) {
+    return '$piece कोना गलत एज के साथ अपनी जगह में फँसा है। पहले उसे ऊपर निकालें, फिर जोड़ी बनाकर डालें।';
+  }
+
+  @override
+  String cueOllSune(String front) {
+    return '$front को अपनी ओर रखकर Sune करें, ताकि पीले कोने ऊपर की ओर हो जाएँ।';
+  }
+
+  @override
+  String cueOllSuneAgain(String front) {
+    return 'इस बार एक Sune काफ़ी नहीं था। ऊपरी परत घुमाएँ और $front को अपनी ओर रखकर फिर से Sune करें।';
+  }
+
+  @override
+  String cuePllCorners(String front) {
+    return 'दो कोनों को अदला-बदली करनी है। मिलती हुई जोड़ी (हेडलाइट्स) को बाईं ओर रखें, $front आपकी ओर, और T-perm करें।';
+  }
+
+  @override
+  String cuePllEdges(String piece) {
+    return 'कोने तैयार हैं। $piece एज को पीछे रखें और बाकी तीन एज को U-perm से घुमाकर बदलें।';
+  }
+
+  @override
+  String get cuePllNoEdge =>
+      'अभी कोई ऊपरी एज अपने केंद्र से नहीं मिलता। किसी भी ओर से एक बार U-perm करें; उसके बाद एक एज मिल जाएगा।';
+
+  @override
+  String cueTwoSwapAdjacent(String front) {
+    return 'ऊपर के दो पड़ोसी कोनों को अदला-बदली करनी है। मिलती जोड़ी को बाईं ओर रखें, $front आपकी ओर, और अदला-बदली करें।';
+  }
+
+  @override
+  String cueTwoSwapDiagonal(String front) {
+    return 'बदलने वाले दो कोने तिरछे आमने-सामने हैं। $front को अपनी ओर रखकर तिरछी अदला-बदली करें।';
+  }
+
+  @override
+  String cueCenterCycle(String color) {
+    return 'भटके हुए $color केंद्र टुकड़े को केंद्रों के 3-साइकिल से घर लाएँ: परत, ऊपर, परत, फिर सब वापस।';
+  }
+
+  @override
+  String cueCenterBar(String color) {
+    return '$color केंद्र टुकड़ों की पूरी पट्टी गलत फ़ेस पर है। उसे अंदरूनी परत से उठाएँ, ऊपरी परत घुमाएँ और घर वापस लाएँ।';
+  }
+
+  @override
+  String cueEdgePair(String piece) {
+    return '$piece एज के दोनों टुकड़े जोड़ें: उन्हें सीध में लाएँ, परत घुमाएँ, दाएँ हाथ की चालों से एक बिना जोड़ी वाला एज बदलें और परत वापस घुमाएँ।';
+  }
+
+  @override
+  String cueEdgeLast(String piece) {
+    return 'आख़िरी एज: $piece एज को आख़िरी दो एज वाले एल्गोरिद्म से जोड़ें, जो तैयार सभी एज को बरकरार रखता है।';
+  }
+
+  @override
+  String cueParityOll(String front) {
+    return 'OLL पैरिटी: ऊपर का एक एज उल्टा है, जो 3×3 पर कभी नहीं होता। उसे सामने रखें, $front आपकी ओर, और पैरिटी सुधार करें।';
+  }
+
+  @override
+  String get cueParityPll =>
+      'PLL पैरिटी: ऊपर के दो एज आपस में बदल गए हैं, जो 3×3 पर कभी नहीं होता। उन्हें सामने और पीछे रखें और पैरिटी अदला-बदली करें।';
+
+  @override
+  String cueParityFive(String front) {
+    return 'एज पैरिटी: एक एज के दोनों बाहरी टुकड़े आपस में बदल गए हैं। उस एज को सामने लाएँ, $front आपकी ओर, सुधार करें और वापस घुमाएँ।';
+  }
 }

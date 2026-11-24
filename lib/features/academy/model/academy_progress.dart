@@ -21,6 +21,10 @@ class AcademyProgress {
 
   bool isDone(String lessonId) => completed.contains(lessonId);
 
+  /// Finished lessons taught on a cube of [size].
+  int completedOfSize(int size) =>
+      kLessons.where((l) => l.size == size && completed.contains(l.id)).length;
+
   /// The lesson to continue with: the first unfinished one at or after the
   /// last opened lesson, else the first unfinished one overall. Null once
   /// every lesson is done.
@@ -75,6 +79,9 @@ final academyProgressProvider =
     NotifierProvider<AcademyProgressController, AcademyProgress>(
       AcademyProgressController.new,
     );
+
+/// Number of lessons taught on a cube of [size].
+int lessonsOfSize(int size) => kLessons.where((l) => l.size == size).length;
 
 /// Index of a lesson in [kLessons], or -1.
 int lessonIndex(String id) => kLessons.indexWhere((l) => l.id == id);

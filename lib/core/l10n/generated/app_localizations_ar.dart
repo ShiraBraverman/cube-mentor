@@ -2346,4 +2346,282 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get academyAllSizes => 'كل الأحجام';
+
+  @override
+  String homeAcademyProgress(int done, int total) {
+    return 'اكتمل $done من $total دروس';
+  }
+
+  @override
+  String academySizeProgress(String size, int done, int total) {
+    return '$size • اكتمل $done / $total';
+  }
+
+  @override
+  String get lessonStageConcept => 'الشرح';
+
+  @override
+  String get lessonStageExamples => 'أمثلة';
+
+  @override
+  String get lessonStagePractice => 'تدريب عملي';
+
+  @override
+  String get lessonStageNext => 'التالي / حر';
+
+  @override
+  String lessonStageOf(int index, int total, String name) {
+    return 'المرحلة $index من $total: $name';
+  }
+
+  @override
+  String lessonExampleOf(int index, int total) {
+    return 'المثال $index من $total';
+  }
+
+  @override
+  String lessonWalkthroughOf(int index, int total) {
+    return 'التدريب $index من $total';
+  }
+
+  @override
+  String get lessonBonusCase => 'حالة إضافية';
+
+  @override
+  String get lessonPracticeIntro =>
+      'خلط حقيقي: الخطوات السابقة فقط محلولة. أكمل هذه الخطوة كلها، تعليمة بعد تعليمة.';
+
+  @override
+  String lessonContinueDesc(String lesson) {
+    return 'انتقل مباشرة إلى $lesson.';
+  }
+
+  @override
+  String get lessonFreePractice => 'تدريب حر';
+
+  @override
+  String get lessonFreePracticeDesc =>
+      'حل مكعبًا مخلوطًا ثلاثي الأبعاد بنفسك، من البداية حتى هذه الخطوة.';
+
+  @override
+  String freePracticeBanner(String topic) {
+    return 'تدرّب بحرية: حل المكعب من البداية حتى $topic!';
+  }
+
+  @override
+  String get pieceColorSeparator => '-';
+
+  @override
+  String cueFaceTurn(String face) {
+    return 'أدر وجه المركز $face كما يشير السهم. المركز يبقى في مكانه؛ القطع حوله فقط هي التي تتحرك.';
+  }
+
+  @override
+  String cueTrigger(String front) {
+    return 'حركة اليد اليمنى، والمركز $front مواجه لك: الوجه الأيمن للأعلى، العلوي لليسار، الأيمن للأسفل، العلوي عائدًا لليمين.';
+  }
+
+  @override
+  String get cueTriggerBack =>
+      'الحركة السادسة على التوالي تعيد المكعب تمامًا كما كان. ستة هو الرقم السحري!';
+
+  @override
+  String cueSliceInner(String face) {
+    return 'أدر الشريحة الداخلية المجاورة لوجه المركز $face فقط. الوجه نفسه يبقى ثابتًا، فتنفصل المراكز.';
+  }
+
+  @override
+  String cueSliceWide(String face) {
+    return 'دوران عريض: وجه المركز $face والشريحة المجاورة له يدوران معًا، كطبقة سميكة واحدة.';
+  }
+
+  @override
+  String cueTurnCube(String top, String front) {
+    return 'أدر المكعب كله بحيث يكون المركز $top في الأعلى والمركز $front مواجهًا لك.';
+  }
+
+  @override
+  String get cueTurnTop =>
+      'أدر الطبقة العليا فقط، كما يشير السهم، لتجهيز الخوارزمية التالية.';
+
+  @override
+  String get cueAlignTop =>
+      'الحركة الأخيرة: أدر الطبقة العليا لتصطف ألوانها. انتهيت!';
+
+  @override
+  String cueCrossTop(String piece, String center) {
+    return 'الحافة ذات الألوان $piece في الطبقة العليا. أدر الطبقة العليا حتى تصبح فوق المركز $center مباشرة، ثم أدر ذلك الوجه مرتين لإنزالها.';
+  }
+
+  @override
+  String cueCrossMiddle(String piece, String center) {
+    return 'الحافة ذات الألوان $piece عالقة في الطبقة الوسطى. ارفعها إلى الأعلى، وحاذها فوق المركز $center، ثم أنزلها.';
+  }
+
+  @override
+  String cueCrossFlipped(String piece, String center) {
+    return 'الحافة ذات الألوان $piece في مكانها لكنها مقلوبة: لونها الأبيض متجه إلى الجانب. أخرجها، ثم أعدها بجانب المركز $center بالاتجاه الصحيح.';
+  }
+
+  @override
+  String cueCrossBottom(String piece, String center) {
+    return 'على طريقة ⁦CFOP⁩ يمكن إدارة الأسفل أيضًا. أدخل الحافة ذات الألوان $piece وأدر الأسفل لتصطف مع المركز $center.';
+  }
+
+  @override
+  String cueCornerTop(String piece, String a, String b) {
+    return 'أدر الطبقة العليا حتى تصبح الزاوية ذات الألوان $piece فوق مكانها مباشرة، بين الجانب $a والجانب $b. كرر حركة اليد اليمنى حتى تنزل في مكانها بالاتجاه الصحيح.';
+  }
+
+  @override
+  String cueCornerTwisted(String piece) {
+    return 'الزاوية ذات الألوان $piece في مكانها لكنها ملتوية. حركة واحدة تخرجها (وتدخل زاوية صفراء مكانها)؛ استمر في التكرار حتى تعود بالاتجاه الصحيح.';
+  }
+
+  @override
+  String cueMiddleRight(String piece, String a, String b) {
+    return 'أدر الطبقة العليا حتى تصطف الحافة ذات الألوان $piece مع المركز $a، ثم أنزلها إلى اليمين، في الفراغ بين $a و$b.';
+  }
+
+  @override
+  String cueMiddleLeft(String piece, String a, String b) {
+    return 'أدر الطبقة العليا حتى تصطف الحافة ذات الألوان $piece مع المركز $a، ثم أنزلها إلى اليسار، في الفراغ بين $a و$b.';
+  }
+
+  @override
+  String cueMiddleFlipped(String piece, String a, String b) {
+    return 'الحافة ذات الألوان $piece في مكانها لكنها مقلوبة. أدخل حافة صفراء هناك لتدفعها خارجًا، ثم أدخلها مجددًا بين $a و$b.';
+  }
+
+  @override
+  String cueYellowLine(String front) {
+    return 'خط أصفر: أدر الطبقة العليا ليمتد الخط من اليسار إلى اليمين، وأبقِ المركز $front مواجهًا لك، ثم طبّق خوارزمية الصليب الأصفر.';
+  }
+
+  @override
+  String cueYellowL(String front) {
+    return 'شكل ⁦L⁩ أصفر: أدر الطبقة العليا ليشير شكل ⁦L⁩ إلى الخلف يسارًا، وأبقِ المركز $front مواجهًا لك، ثم طبّق الخوارزمية. سيصبح خطًا.';
+  }
+
+  @override
+  String cueYellowDot(String front) {
+    return 'المركز الأصفر وحده أصفر: نقطة. طبّق الخوارزمية مرة واحدة والمركز $front مواجه لك لتحصل على شكل ⁦L⁩.';
+  }
+
+  @override
+  String cueEdgesMatch(String piece, String center) {
+    return 'أدر الطبقة العليا حتى تطابق الحافة ذات الألوان $piece المركز $center.';
+  }
+
+  @override
+  String cueEdgesSwap(String front) {
+    return 'حافتان متطابقتان في الخلف وعلى اليمين. والمركز $front مواجه لك، طبّق التبديل: تتبادل الحافتان الأمامية واليسرى مكانيهما.';
+  }
+
+  @override
+  String cueEdgesOpposite(String front) {
+    return 'الحافتان المتطابقتان متقابلتان. طبّق التبديل مرة واحدة والمركز $front مواجه لك؛ بعدها تتطابق حافتان متجاورتان.';
+  }
+
+  @override
+  String cueCornersCycle(String piece, String front) {
+    return 'الزاوية ذات الألوان $piece في مكانها بالفعل. أبقها في الأمام يمينًا، والمركز $front مواجه لك، وبدّل الزوايا الثلاث الأخرى دوريًا.';
+  }
+
+  @override
+  String cueCornersNone(String front) {
+    return 'لا توجد زاوية صفراء في مكانها بعد. نفّذ دورة واحدة والمركز $front مواجه لك؛ بعدها تصبح زاوية واحدة في مكانها.';
+  }
+
+  @override
+  String cueTwistCorner(String piece) {
+    return 'أدر الزاوية ذات الألوان $piece الموجودة في الأمام يمينًا: كرر الحركة حتى يتجه لونها الأصفر للأعلى. ستبدو الطبقات السفلى مبعثرة الآن، وهذا طبيعي!';
+  }
+
+  @override
+  String cueTwistFour(String piece) {
+    return 'الزاوية ذات الألوان $piece تحتاج هذه المرة إلى أربع حركات. واصل: الأصفر يصعد دائمًا بعد حركتين أو أربع.';
+  }
+
+  @override
+  String get cueTwistNext =>
+      'أدر الطبقة العليا فقط لتجلب الزاوية الملتوية التالية إلى الأمام يمينًا. لا تدر المكعب كله الآن!';
+
+  @override
+  String cueF2lPair(String piece, String edge, String a, String b) {
+    return 'اجمع الزاوية ذات الألوان $piece مع الحافة ذات الألوان $edge في الأعلى، ثم أدخل الزوج في الفراغ بين $a و$b.';
+  }
+
+  @override
+  String cueF2lStuck(String piece) {
+    return 'الزاوية ذات الألوان $piece عالقة في مكانها مع الحافة الخطأ. أخرجها إلى الأعلى أولًا، ثم كوّن الزوج وأدخله.';
+  }
+
+  @override
+  String cueOllSune(String front) {
+    return 'والمركز $front مواجه لك، طبّق ⁦Sune⁩ لتوجيه الزوايا الصفراء للأعلى.';
+  }
+
+  @override
+  String cueOllSuneAgain(String front) {
+    return 'لم تكفِ ⁦Sune⁩ واحدة هذه المرة. أدر الطبقة العليا وطبّق ⁦Sune⁩ مرة أخرى، والمركز $front مواجه لك.';
+  }
+
+  @override
+  String cuePllCorners(String front) {
+    return 'زاويتان تحتاجان إلى التبادل. أبقِ الزوج المتطابق (المصابيح) على اليسار، والمركز $front مواجه لك، وطبّق ⁦T-perm⁩.';
+  }
+
+  @override
+  String cuePllEdges(String piece) {
+    return 'الزوايا جاهزة. أبقِ الحافة ذات الألوان $piece في الخلف وبدّل الحواف الثلاث الأخرى دوريًا باستخدام ⁦U-perm⁩.';
+  }
+
+  @override
+  String get cuePllNoEdge =>
+      'لا توجد حافة علوية تطابق مركزها بعد. طبّق ⁦U-perm⁩ مرة واحدة من أي جهة؛ بعدها تتطابق حافة واحدة.';
+
+  @override
+  String cueTwoSwapAdjacent(String front) {
+    return 'زاويتان علويتان متجاورتان تحتاجان إلى التبادل. أبقِ الزوج المتطابق على اليسار، واللون $front مواجه لك، وطبّق التبديل.';
+  }
+
+  @override
+  String cueTwoSwapDiagonal(String front) {
+    return 'الزاويتان المطلوب تبديلهما متقابلتان قطريًا. طبّق التبديل القطري واللون $front مواجه لك.';
+  }
+
+  @override
+  String cueCenterCycle(String color) {
+    return 'أعد قطعة المركز $color الشاردة إلى مكانها بدورة المراكز الثلاثية: شريحة، الأعلى، شريحة، ثم أرجع كل شيء.';
+  }
+
+  @override
+  String cueCenterBar(String color) {
+    return 'شريط كامل من قطع المركز $color على الوجه الخطأ. ارفعه بالشريحة، وأدر الطبقة العليا، وأعده إلى مكانه.';
+  }
+
+  @override
+  String cueEdgePair(String piece) {
+    return 'اجمع قطعتي الحافة ذات الألوان $piece: حاذهما، أدر الشريحة، أدخل حافة غير مقترنة بحركات اليد اليمنى، ثم أعد الشريحة.';
+  }
+
+  @override
+  String cueEdgeLast(String piece) {
+    return 'الحواف الأخيرة: اجمع الحافة ذات الألوان $piece بخوارزمية آخر حافتين، التي تحافظ على كل الحواف المكتملة.';
+  }
+
+  @override
+  String cueParityOll(String front) {
+    return 'تكافؤ ⁦OLL⁩: حافة علوية واحدة مقلوبة، وهذا لا يحدث أبدًا في ⁦3×3⁩. أبقها في الأمام، والمركز $front مواجه لك، وطبّق إصلاح التكافؤ.';
+  }
+
+  @override
+  String get cueParityPll =>
+      'تكافؤ ⁦PLL⁩: حافتان علويتان متبادلتان، وهذا لا يحدث أبدًا في ⁦3×3⁩. أبقهما في الأمام والخلف وطبّق تبديل التكافؤ.';
+
+  @override
+  String cueParityFive(String front) {
+    return 'تكافؤ الحافة: القطعتان الخارجيتان لحافة واحدة متبادلتان. أدر تلك الحافة إلى الأمام، والمركز $front مواجه لك، وطبّق الإصلاح ثم أعدها.';
+  }
 }

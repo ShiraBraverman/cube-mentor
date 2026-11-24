@@ -2272,4 +2272,282 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get academyAllSizes => 'အရွယ်အစား အားလုံး';
+
+  @override
+  String homeAcademyProgress(int done, int total) {
+    return 'သင်ခန်းစာ $done / $total ပြီးပြီ';
+  }
+
+  @override
+  String academySizeProgress(String size, int done, int total) {
+    return '$size • $done / $total ပြီး';
+  }
+
+  @override
+  String get lessonStageConcept => 'ရှင်းလင်း';
+
+  @override
+  String get lessonStageExamples => 'ဥပမာ';
+
+  @override
+  String get lessonStagePractice => 'လက်တွေ့';
+
+  @override
+  String get lessonStageNext => 'ရှေ့ / လွတ်လပ်';
+
+  @override
+  String lessonStageOf(int index, int total, String name) {
+    return 'အဆင့် $index / $total: $name';
+  }
+
+  @override
+  String lessonExampleOf(int index, int total) {
+    return 'ဥပမာ $index / $total';
+  }
+
+  @override
+  String lessonWalkthroughOf(int index, int total) {
+    return 'လက်တွေ့ $index / $total';
+  }
+
+  @override
+  String get lessonBonusCase => 'ဘောနပ်စ် အခြေအနေ';
+
+  @override
+  String get lessonPracticeIntro =>
+      'တကယ့် ရောမွှေမှု: ယခင်အဆင့်များသာ ပြီးနေသည်။ ညွှန်ချက်တစ်ခုချင်း လိုက်၍ ဤအဆင့်တစ်ခုလုံး ပြီးအောင်လုပ်ပါ။';
+
+  @override
+  String lessonContinueDesc(String lesson) {
+    return '$lesson သို့ တန်းသွားပါ။';
+  }
+
+  @override
+  String get lessonFreePractice => 'လွတ်လပ်စွာ လေ့ကျင့်';
+
+  @override
+  String get lessonFreePracticeDesc =>
+      'ရောထားသော 3D ကုဗကို အစမှ ဤအဆင့်အထိ ကိုယ်တိုင် ဖြေရှင်းပါ။';
+
+  @override
+  String freePracticeBanner(String topic) {
+    return 'လွတ်လပ်စွာ လေ့ကျင့်ပါ: ကုဗကို အစမှ $topic အထိ ဖြေရှင်းပါ!';
+  }
+
+  @override
+  String get pieceColorSeparator => '-';
+
+  @override
+  String cueFaceTurn(String face) {
+    return '$face အလယ်ရှိသော မျက်နှာကို မြှားအတိုင်း လှည့်ပါ။ အလယ်က နေရာမပြောင်း; ပတ်လည်အပိုင်းများသာ ရွေ့သည်။';
+  }
+
+  @override
+  String cueTrigger(String front) {
+    return 'ညာလက် trigger, $front ကို သင့်ဘက်မူ၍: ညာမျက်နှာ အပေါ်, အပေါ်ကို ဘယ်, ညာမျက်နှာ အောက်, အပေါ်ကို ညာသို့ ပြန်။';
+  }
+
+  @override
+  String get cueTriggerBack =>
+      'ဆက်တိုက် ခြောက်ကြိမ်မြောက် trigger က ကုဗကို မူလအတိုင်း အတိအကျ ပြန်ဖြစ်စေသည်။ ခြောက်က မှော်ဂဏန်း!';
+
+  @override
+  String cueSliceInner(String face) {
+    return '$face မျက်နှာဘေးရှိ အတွင်းအလွှာကိုသာ လှည့်ပါ။ မျက်နှာကိုယ်တိုင် မရွေ့၍ အလယ်များ ကွဲသွားသည်။';
+  }
+
+  @override
+  String cueSliceWide(String face) {
+    return 'ကျယ်လှည့်: $face မျက်နှာနှင့် ဘေးအတွင်းအလွှာ အထူတစ်လွှာကဲ့သို့ အတူလှည့်သည်။';
+  }
+
+  @override
+  String cueTurnCube(String top, String front) {
+    return '$top အလယ် အပေါ်တွင်၊ $front အလယ် သင့်ဘက်မူရန် ကုဗတစ်ခုလုံးကို လှည့်ကိုင်ပါ။';
+  }
+
+  @override
+  String get cueTurnTop =>
+      'နောက် algorithm အတွက် ပြင်ဆင်ရန် မြှားအတိုင်း အပေါ်အလွှာကိုသာ လှည့်ပါ။';
+
+  @override
+  String get cueAlignTop =>
+      'နောက်ဆုံးလှည့်ကွက်: အရောင်များ တန်းစီရန် အပေါ်အလွှာကို လှည့်ပါ။ ပြီးပြီ!';
+
+  @override
+  String cueCrossTop(String piece, String center) {
+    return '$piece အနားသည် အပေါ်အလွှာတွင် ရှိသည်။ $center အလယ်၏ အပေါ်တည့်တည့် ရောက်သည်အထိ အပေါ်ကို လှည့်ပြီး ထိုမျက်နှာကို နှစ်ကြိမ်လှည့်၍ အောက်ချပါ။';
+  }
+
+  @override
+  String cueCrossMiddle(String piece, String center) {
+    return '$piece အနားသည် အလယ်အလွှာတွင် ညပ်နေသည်။ အပေါ်သို့ တင်၊ $center အလယ်အပေါ် တန်းစီ၊ ပြီးမှ အောက်ချပါ။';
+  }
+
+  @override
+  String cueCrossFlipped(String piece, String center) {
+    return '$piece အနားသည် နေရာမှန်တွင် ရှိသော်လည်း ပြောင်းပြန်: အဖြူက ဘေးသို့ မျက်နှာမူနေသည်။ ထုတ်ပြီး $center အလယ်ဘေးသို့ မှန်ကန်စွာ ပြန်ထည့်ပါ။';
+  }
+
+  @override
+  String cueCrossBottom(String piece, String center) {
+    return 'CFOP ပုံစံတွင် အောက်ကိုလည်း လှည့်နိုင်သည်။ $piece အနားကို ချပြီး $center အလယ်နှင့် ကိုက်အောင် အောက်ကို လှည့်ပါ။';
+  }
+
+  @override
+  String cueCornerTop(String piece, String a, String b) {
+    return '$piece ထောင့်သည် $a နှင့် $b ဘက်ကြားရှိ ၎င်းနေရာ၏ အပေါ်တည့်တည့် ရောက်သည်အထိ အပေါ်ကို လှည့်ပါ။ မှန်ကန်စွာ ဝင်သည်အထိ ညာလက် trigger ကို ထပ်လုပ်ပါ။';
+  }
+
+  @override
+  String cueCornerTwisted(String piece) {
+    return '$piece ထောင့်သည် နေရာမှန်တွင် ရှိသော်လည်း လိမ်နေသည်။ trigger တစ်ကြိမ်က ၎င်းကို ထုတ်ပေးသည် (အဝါထောင့်တစ်ခု ဝင်လာသည်); မှန်ကန်စွာ ပြန်ဝင်သည်အထိ ထပ်လုပ်ပါ။';
+  }
+
+  @override
+  String cueMiddleRight(String piece, String a, String b) {
+    return '$piece အနားသည် $a အလယ်နှင့် တန်းသည်အထိ အပေါ်ကို လှည့်ပြီး $a နှင့် $b ကြားနေရာသို့ ညာဘက်အောက် ပို့ပါ။';
+  }
+
+  @override
+  String cueMiddleLeft(String piece, String a, String b) {
+    return '$piece အနားသည် $a အလယ်နှင့် တန်းသည်အထိ အပေါ်ကို လှည့်ပြီး $a နှင့် $b ကြားနေရာသို့ ဘယ်ဘက်အောက် ပို့ပါ။';
+  }
+
+  @override
+  String cueMiddleFlipped(String piece, String a, String b) {
+    return '$piece အနားသည် ၎င်းနေရာတွင် ရှိသော်လည်း ပြောင်းပြန်။ အဝါအနားတစ်ခု ထည့်၍ တွန်းထုတ်ပြီး $a နှင့် $b ကြား ပြန်ထည့်ပါ။';
+  }
+
+  @override
+  String cueYellowLine(String front) {
+    return 'အဝါမျဉ်း: မျဉ်းသည် ဘယ်မှညာ ဖြစ်အောင် အပေါ်ကို လှည့်၊ $front ကို သင့်ဘက်ထားပြီး အဝါကြက်ခြေ algorithm လုပ်ပါ။';
+  }
+
+  @override
+  String cueYellowL(String front) {
+    return 'အဝါ L: L က နောက်-ဘယ်ကို ညွှန်အောင် အပေါ်ကို လှည့်၊ $front ကို သင့်ဘက်ထားပြီး algorithm လုပ်ပါ။ မျဉ်းဖြစ်လာမည်။';
+  }
+
+  @override
+  String cueYellowDot(String front) {
+    return 'အလယ်သာ အဝါ: အစက်တစ်ခု။ $front ကို သင့်ဘက်ထား၍ algorithm တစ်ကြိမ်လုပ်လျှင် L ရမည်။';
+  }
+
+  @override
+  String cueEdgesMatch(String piece, String center) {
+    return '$piece အနားသည် $center အလယ်နှင့် ကိုက်သည်အထိ အပေါ်ကို လှည့်ပါ။';
+  }
+
+  @override
+  String cueEdgesSwap(String front) {
+    return 'ကိုက်ပြီး အနားနှစ်ခု နောက်နှင့် ညာတွင် ရှိသည်။ $front ကို သင့်ဘက်ထား၍ လဲလှယ်ပါ: ရှေ့နှင့် ဘယ်အနား နေရာချင်း လဲသည်။';
+  }
+
+  @override
+  String cueEdgesOpposite(String front) {
+    return 'ကိုက်ပြီး အနားများ မျက်နှာချင်းဆိုင်နေသည်။ $front ကို သင့်ဘက်ထား၍ တစ်ကြိမ်လဲပါ; ပြီးလျှင် ကပ်လျက် နှစ်ခု ကိုက်မည်။';
+  }
+
+  @override
+  String cueCornersCycle(String piece, String front) {
+    return '$piece ထောင့်သည် နေရာမှန်တွင် ရှိပြီ။ ရှေ့-ညာတွင် ထား၊ $front ကို သင့်ဘက်ထားပြီး ကျန်ထောင့်သုံးခုကို လှည့်လဲပါ။';
+  }
+
+  @override
+  String cueCornersNone(String front) {
+    return 'အဝါထောင့် တစ်ခုမှ နေရာမမှန်သေး။ $front ကို သင့်ဘက်ထား၍ တစ်ကြိမ်လှည့်လဲပါ; ပြီးလျှင် ထောင့်တစ်ခု နေရာရမည်။';
+  }
+
+  @override
+  String cueTwistCorner(String piece) {
+    return 'ရှေ့-ညာရှိ $piece ထောင့်ကို လှည့်ပါ: အဝါ အပေါ်မူသည်အထိ အောက် trigger ထပ်လုပ်ပါ။ အောက်အလွှာများ ယခု ရှုပ်နေပုံရသည်; ပုံမှန်ပါ!';
+  }
+
+  @override
+  String cueTwistFour(String piece) {
+    return 'ဤတစ်ကြိမ် $piece ထောင့်အတွက် trigger လေးကြိမ်လိုသည်။ ဆက်လုပ်ပါ: အဝါသည် နှစ် သို့ လေးကြိမ်ပြီးလျှင် အမြဲ တက်လာသည်။';
+  }
+
+  @override
+  String get cueTwistNext =>
+      'နောက်လိမ်နေသော ထောင့်ကို ရှေ့-ညာသို့ ယူရန် အပေါ်အလွှာကိုသာ လှည့်ပါ။ ယခု ကုဗတစ်ခုလုံး မလှည့်ပါနှင့်!';
+
+  @override
+  String cueF2lPair(String piece, String edge, String a, String b) {
+    return 'အပေါ်တွင် $piece ထောင့်ကို $edge အနားနှင့် တွဲပြီး ထိုအတွဲကို $a နှင့် $b ကြားနေရာသို့ ထည့်ပါ။';
+  }
+
+  @override
+  String cueF2lStuck(String piece) {
+    return '$piece ထောင့်သည် မှားသောအနားနှင့် ၎င်းနေရာတွင် ညပ်နေသည်။ အပေါ်သို့ အရင်ထုတ်ပြီး တွဲ၍ ထည့်ပါ။';
+  }
+
+  @override
+  String cueOllSune(String front) {
+    return '$front ကို သင့်ဘက်ထား၍ အဝါထောင့်များ အပေါ်မူစေရန် Sune လုပ်ပါ။';
+  }
+
+  @override
+  String cueOllSuneAgain(String front) {
+    return 'ဤတစ်ကြိမ် Sune တစ်ခု မလုံလောက်ပါ။ အပေါ်ကို လှည့်ပြီး $front ကို သင့်ဘက်ထား၍ Sune ထပ်လုပ်ပါ။';
+  }
+
+  @override
+  String cuePllCorners(String front) {
+    return 'ထောင့်နှစ်ခု လဲရမည်။ ကိုက်သောအတွဲ (headlights) ကို ဘယ်တွင်ထား၊ $front ကို သင့်ဘက်ထားပြီး T-perm လုပ်ပါ။';
+  }
+
+  @override
+  String cuePllEdges(String piece) {
+    return 'ထောင့်များ ပြီးပြီ။ $piece အနားကို နောက်တွင်ထားပြီး ကျန်အနားသုံးခုကို U-perm ဖြင့် လှည့်လဲပါ။';
+  }
+
+  @override
+  String get cuePllNoEdge =>
+      'အပေါ်အနား တစ်ခုမှ ၎င်းအလယ်နှင့် မကိုက်သေး။ မည်သည့်ဘက်မှမဆို U-perm တစ်ကြိမ်လုပ်ပါ; ပြီးလျှင် တစ်ခု ကိုက်မည်။';
+
+  @override
+  String cueTwoSwapAdjacent(String front) {
+    return 'အပေါ်ရှိ ကပ်လျက်ထောင့်နှစ်ခု လဲရမည်။ ကိုက်သောအတွဲကို ဘယ်တွင်ထား၊ $front ကို သင့်ဘက်ထားပြီး လဲလှယ်ပါ။';
+  }
+
+  @override
+  String cueTwoSwapDiagonal(String front) {
+    return 'လဲရမည့် ထောင့်နှစ်ခုသည် ထောင့်ဖြတ်တွင် ရှိသည်။ $front ကို သင့်ဘက်ထား၍ ထောင့်ဖြတ်လဲလှယ်ပါ။';
+  }
+
+  @override
+  String cueCenterCycle(String color) {
+    return 'လမ်းလွဲနေသော $color အလယ်အပိုင်းကို အလယ် 3-cycle ဖြင့် ပြန်ပို့ပါ: အလွှာ, အပေါ်, အလွှာ, ပြီးမှ အားလုံး ပြန်။';
+  }
+
+  @override
+  String cueCenterBar(String color) {
+    return '$color အလယ်အပိုင်း တစ်တန်းလုံး မှားသောမျက်နှာတွင် ရှိသည်။ အတွင်းအလွှာဖြင့် မ၊ အပေါ်ကို လှည့်ပြီး နေရာသို့ ပြန်ပို့ပါ။';
+  }
+
+  @override
+  String cueEdgePair(String piece) {
+    return '$piece အနား၏ အပိုင်းနှစ်ခုကို တွဲပါ: တန်းစီ၊ အလွှာလှည့်၊ ညာလက်လှည့်ကွက်ဖြင့် မတွဲရသေးသော အနားနှင့် လဲ၊ အလွှာကို ပြန်လှည့်ပါ။';
+  }
+
+  @override
+  String cueEdgeLast(String piece) {
+    return 'နောက်ဆုံးအနားများ: $piece အနားကို နောက်ဆုံးအနားနှစ်ခု algorithm ဖြင့် တွဲပါ; ပြီးပြီးသားအနားများ မပျက်ပါ။';
+  }
+
+  @override
+  String cueParityOll(String front) {
+    return 'OLL parity: အပေါ်အနားတစ်ခု ပြောင်းပြန်ဖြစ်နေသည်၊ 3×3 တွင် ဘယ်တော့မှ မဖြစ်ပါ။ ရှေ့တွင်ထား၊ $front ကို သင့်ဘက်ထားပြီး parity ပြင်ပါ။';
+  }
+
+  @override
+  String get cueParityPll =>
+      'PLL parity: အပေါ်အနားနှစ်ခု နေရာလဲနေသည်၊ 3×3 တွင် ဘယ်တော့မှ မဖြစ်ပါ။ ရှေ့နှင့်နောက်တွင်ထားပြီး parity လဲလှယ်ပါ။';
+
+  @override
+  String cueParityFive(String front) {
+    return 'အနား parity: အနားတစ်ခု၏ အပြင်အပိုင်းနှစ်ခု နေရာလဲနေသည်။ ထိုအနားကို ရှေ့သို့လှည့်၊ $front ကို သင့်ဘက်ထား၊ ပြင်ပြီး ပြန်လှည့်ပါ။';
+  }
 }

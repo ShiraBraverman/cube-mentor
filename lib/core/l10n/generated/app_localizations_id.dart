@@ -2252,4 +2252,282 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get academyAllSizes => 'Semua ukuran';
+
+  @override
+  String homeAcademyProgress(int done, int total) {
+    return '$done / $total pelajaran selesai';
+  }
+
+  @override
+  String academySizeProgress(String size, int done, int total) {
+    return '$size • $done / $total selesai';
+  }
+
+  @override
+  String get lessonStageConcept => 'Konsep';
+
+  @override
+  String get lessonStageExamples => 'Contoh';
+
+  @override
+  String get lessonStagePractice => 'Latihan';
+
+  @override
+  String get lessonStageNext => 'Lanjut / bebas';
+
+  @override
+  String lessonStageOf(int index, int total, String name) {
+    return 'Tahap $index dari $total: $name';
+  }
+
+  @override
+  String lessonExampleOf(int index, int total) {
+    return 'Contoh $index dari $total';
+  }
+
+  @override
+  String lessonWalkthroughOf(int index, int total) {
+    return 'Panduan $index dari $total';
+  }
+
+  @override
+  String get lessonBonusCase => 'Kasus bonus';
+
+  @override
+  String get lessonPracticeIntro =>
+      'Acakan sungguhan: hanya langkah sebelumnya yang sudah selesai. Tuntaskan seluruh langkah ini, petunjuk demi petunjuk.';
+
+  @override
+  String lessonContinueDesc(String lesson) {
+    return 'Langsung lanjut ke $lesson.';
+  }
+
+  @override
+  String get lessonFreePractice => 'Latihan bebas';
+
+  @override
+  String get lessonFreePracticeDesc =>
+      'Selesaikan sendiri kubus 3D yang teracak, dari awal sampai langkah ini.';
+
+  @override
+  String freePracticeBanner(String topic) {
+    return 'Berlatihlah bebas: selesaikan kubus dari awal sampai $topic!';
+  }
+
+  @override
+  String get pieceColorSeparator => '-';
+
+  @override
+  String cueFaceTurn(String face) {
+    return 'Putar sisi berpusat $face sesuai arah panah. Pusatnya tetap di tempat; hanya kepingan di sekitarnya yang berpindah.';
+  }
+
+  @override
+  String cueTrigger(String front) {
+    return 'Gerakan tangan kanan, dengan $front menghadapmu: sisi kanan ke atas, atas ke kiri, sisi kanan ke bawah, atas kembali ke kanan.';
+  }
+
+  @override
+  String get cueTriggerBack =>
+      'Gerakan keenam berturut-turut mengembalikan kubus persis seperti semula. Enam adalah angka ajaib!';
+
+  @override
+  String cueSliceInner(String face) {
+    return 'Putar hanya lapisan dalam di sebelah sisi $face. Sisi itu sendiri diam, jadi pusat-pusatnya terpisah.';
+  }
+
+  @override
+  String cueSliceWide(String face) {
+    return 'Putaran lebar: sisi $face dan lapisan dalam di sebelahnya berputar bersama, seperti satu lapisan tebal.';
+  }
+
+  @override
+  String cueTurnCube(String top, String front) {
+    return 'Putar seluruh kubus sampai pusat $top di atas dan pusat $front menghadapmu.';
+  }
+
+  @override
+  String get cueTurnTop =>
+      'Putar hanya lapisan atas, sesuai panah, untuk menyiapkan algoritma berikutnya.';
+
+  @override
+  String get cueAlignTop =>
+      'Gerakan terakhir: putar lapisan atas agar warnanya sejajar. Selesai!';
+
+  @override
+  String cueCrossTop(String piece, String center) {
+    return 'Rusuk $piece ada di lapisan atas. Putar bagian atas sampai rusuk itu tepat di atas pusat $center, lalu putar sisi itu dua kali untuk menurunkannya.';
+  }
+
+  @override
+  String cueCrossMiddle(String piece, String center) {
+    return 'Rusuk $piece tersangkut di lapisan tengah. Naikkan ke atas, sejajarkan di atas pusat $center, lalu turunkan.';
+  }
+
+  @override
+  String cueCrossFlipped(String piece, String center) {
+    return 'Rusuk $piece sudah di tempatnya tetapi terbalik: putihnya menghadap ke samping. Keluarkan, lalu masukkan kembali di samping pusat $center dengan arah yang benar.';
+  }
+
+  @override
+  String cueCrossBottom(String piece, String center) {
+    return 'Gaya CFOP: bagian bawah boleh diputar juga. Turunkan rusuk $piece dan putar bagian bawah agar sejajar dengan pusat $center.';
+  }
+
+  @override
+  String cueCornerTop(String piece, String a, String b) {
+    return 'Putar bagian atas sampai sudut $piece tepat di atas tempatnya, di antara sisi $a dan $b. Ulangi gerakan tangan kanan sampai sudut itu masuk dengan arah yang benar.';
+  }
+
+  @override
+  String cueCornerTwisted(String piece) {
+    return 'Sudut $piece sudah di tempatnya tetapi terpelintir. Satu gerakan mengeluarkannya (sudut kuning masuk menggantikannya); terus ulangi sampai ia masuk kembali dengan benar.';
+  }
+
+  @override
+  String cueMiddleRight(String piece, String a, String b) {
+    return 'Putar bagian atas sampai rusuk $piece sejajar dengan pusat $a, lalu kirim ke bawah ke kanan, ke celah antara $a dan $b.';
+  }
+
+  @override
+  String cueMiddleLeft(String piece, String a, String b) {
+    return 'Putar bagian atas sampai rusuk $piece sejajar dengan pusat $a, lalu kirim ke bawah ke kiri, ke celah antara $a dan $b.';
+  }
+
+  @override
+  String cueMiddleFlipped(String piece, String a, String b) {
+    return 'Rusuk $piece sudah di celahnya tetapi terbalik. Masukkan rusuk kuning ke sana untuk mendorongnya keluar, lalu masukkan lagi di antara $a dan $b.';
+  }
+
+  @override
+  String cueYellowLine(String front) {
+    return 'Garis kuning: putar bagian atas agar garisnya dari kiri ke kanan, tetap hadapkan $front kepadamu, lalu jalankan algoritma silang kuning.';
+  }
+
+  @override
+  String cueYellowL(String front) {
+    return 'Huruf L kuning: putar bagian atas agar L menunjuk ke belakang kiri, tetap hadapkan $front kepadamu, lalu jalankan algoritmanya. Ia menjadi garis.';
+  }
+
+  @override
+  String cueYellowDot(String front) {
+    return 'Hanya pusat yang kuning: sebuah titik. Jalankan algoritma sekali dengan $front menghadapmu untuk mendapatkan L.';
+  }
+
+  @override
+  String cueEdgesMatch(String piece, String center) {
+    return 'Putar bagian atas sampai rusuk $piece cocok dengan pusat $center.';
+  }
+
+  @override
+  String cueEdgesSwap(String front) {
+    return 'Dua rusuk yang cocok ada di belakang dan di kanan. Dengan $front menghadapmu, jalankan penukaran: rusuk depan dan kiri bertukar tempat.';
+  }
+
+  @override
+  String cueEdgesOpposite(String front) {
+    return 'Rusuk yang cocok saling berseberangan. Jalankan penukaran sekali dengan $front menghadapmu; setelah itu dua rusuk bersebelahan cocok.';
+  }
+
+  @override
+  String cueCornersCycle(String piece, String front) {
+    return 'Sudut $piece sudah di tempatnya. Biarkan di depan kanan, dengan $front menghadapmu, lalu putar-gilirkan tiga sudut lainnya.';
+  }
+
+  @override
+  String cueCornersNone(String front) {
+    return 'Belum ada sudut kuning di tempatnya. Lakukan satu putaran giliran dengan $front menghadapmu; setelah itu satu sudut sudah di tempatnya.';
+  }
+
+  @override
+  String cueTwistCorner(String piece) {
+    return 'Putar sudut $piece di depan kanan: ulangi gerakan bawah sampai kuningnya menghadap ke atas. Lapisan bawah tampak berantakan untuk sementara; itu normal!';
+  }
+
+  @override
+  String cueTwistFour(String piece) {
+    return 'Kali ini sudut $piece butuh empat gerakan. Teruskan: kuning selalu naik setelah dua atau empat.';
+  }
+
+  @override
+  String get cueTwistNext =>
+      'Putar hanya lapisan atas untuk membawa sudut terpelintir berikutnya ke depan kanan. Jangan putar seluruh kubus sekarang!';
+
+  @override
+  String cueF2lPair(String piece, String edge, String a, String b) {
+    return 'Pasangkan sudut $piece dengan rusuk $edge di atas, lalu masukkan pasangan itu ke celah antara $a dan $b.';
+  }
+
+  @override
+  String cueF2lStuck(String piece) {
+    return 'Sudut $piece tersangkut di celahnya bersama rusuk yang salah. Keluarkan dulu ke atas, lalu pasangkan dan masukkan.';
+  }
+
+  @override
+  String cueOllSune(String front) {
+    return 'Dengan $front menghadapmu, jalankan Sune untuk memutar sudut kuning ke atas.';
+  }
+
+  @override
+  String cueOllSuneAgain(String front) {
+    return 'Kali ini satu Sune belum cukup. Putar bagian atas dan jalankan Sune lagi, dengan $front menghadapmu.';
+  }
+
+  @override
+  String cuePllCorners(String front) {
+    return 'Dua sudut perlu bertukar. Biarkan pasangan yang cocok (\"lampu depan\") di kiri, $front menghadapmu, lalu jalankan T-perm.';
+  }
+
+  @override
+  String cuePllEdges(String piece) {
+    return 'Sudut-sudutnya sudah beres. Biarkan rusuk $piece di belakang dan putar-gilirkan tiga rusuk lainnya dengan U-perm.';
+  }
+
+  @override
+  String get cuePllNoEdge =>
+      'Belum ada rusuk atas yang cocok dengan pusatnya. Jalankan U-perm sekali dari sisi mana pun; setelah itu satu rusuk cocok.';
+
+  @override
+  String cueTwoSwapAdjacent(String front) {
+    return 'Dua sudut atas yang bersebelahan perlu bertukar. Biarkan pasangan yang cocok di kiri, $front menghadapmu, lalu jalankan penukaran.';
+  }
+
+  @override
+  String cueTwoSwapDiagonal(String front) {
+    return 'Dua sudut yang harus ditukar letaknya diagonal. Jalankan penukaran diagonal dengan $front menghadapmu.';
+  }
+
+  @override
+  String cueCenterCycle(String color) {
+    return 'Kembalikan keping pusat $color yang nyasar dengan siklus-3 pusat: lapisan, atas, lapisan, lalu semuanya kembali.';
+  }
+
+  @override
+  String cueCenterBar(String color) {
+    return 'Satu batang penuh keping pusat $color ada di sisi yang salah. Angkat dengan lapisan dalam, putar bagian atas, lalu kembalikan ke tempatnya.';
+  }
+
+  @override
+  String cueEdgePair(String piece) {
+    return 'Pasangkan dua keping rusuk $piece: sejajarkan, putar lapisan, tukar masuk rusuk yang belum berpasangan dengan gerakan tangan kanan, lalu kembalikan lapisannya.';
+  }
+
+  @override
+  String cueEdgeLast(String piece) {
+    return 'Rusuk terakhir: pasangkan rusuk $piece dengan algoritma dua rusuk terakhir, yang menjaga semua rusuk yang sudah jadi tetap utuh.';
+  }
+
+  @override
+  String cueParityOll(String front) {
+    return 'Paritas OLL: satu rusuk atas terbalik, hal yang tidak pernah terjadi di 3×3. Biarkan di depan, $front menghadapmu, lalu jalankan perbaikan paritas.';
+  }
+
+  @override
+  String get cueParityPll =>
+      'Paritas PLL: dua rusuk atas tertukar, hal yang tidak pernah terjadi di 3×3. Biarkan di depan dan belakang lalu jalankan penukaran paritas.';
+
+  @override
+  String cueParityFive(String front) {
+    return 'Paritas rusuk: dua keping luar dari satu rusuk tertukar. Putar rusuk itu ke depan, $front menghadapmu, perbaiki, lalu putar kembali.';
+  }
 }

@@ -7,6 +7,8 @@ import '../../core/theme/glass.dart';
 import '../../core/theme/ui_kit.dart';
 import '../../shared/widgets/cube_icons/cube_icons.dart';
 import '../academy/academy_screen.dart';
+import '../academy/model/academy_progress.dart';
+import '../academy/model/lesson_catalog.dart';
 import '../patterns/patterns_screen.dart';
 import '../scanner/scanner_screen.dart';
 import '../solver_3d/solver_3d_screen.dart';
@@ -25,6 +27,7 @@ class HomeActionGrid extends ConsumerWidget {
     // The "coming soon" cube has nothing to scan or solve.
     final mystery = ref.watch(showingMysteryProvider);
     final sizeLabel = l10n.cubeSizeLabel(size);
+    final academy = ref.watch(academyProgressProvider);
 
     void open(Widget screen) =>
         Navigator.of(context)
@@ -58,6 +61,10 @@ class HomeActionGrid extends ConsumerWidget {
             key: const ValueKey('home-academy'),
             icon: const AnimatedAcademyCubeIcon(),
             title: l10n.homeAcademy,
+            subtitle: l10n.homeAcademyProgress(
+              academy.completedCount,
+              kLessons.length,
+            ),
             badge: sizeLabel,
             accent: AppColors.gold,
             onTap: () => open(AcademyScreen(initialSize: size)),
@@ -97,10 +104,14 @@ class HomeActionCard extends StatelessWidget {
     required this.badge,
     required this.accent,
     required this.onTap,
+    this.subtitle,
   });
 
   final Widget icon;
   final String title;
+
+  /// A short status line under the title, e.g. the Academy's progress.
+  final String? subtitle;
 
   /// The selected cube size, e.g. "3×3".
   final String badge;
@@ -115,7 +126,7 @@ class HomeActionCard extends StatelessWidget {
     return Semantics(
       button: true,
       enabled: onTap != null,
-      label: '$title, $badge',
+      label: [title, ?subtitle, badge].join(', '),
       excludeSemantics: true,
       child: AnimatedOpacity(
         duration: const Duration(milliseconds: 200),
@@ -157,6 +168,19 @@ class HomeActionCard extends StatelessWidget {
                   fontWeight: FontWeight.w800,
                 ),
               ),
+              if (subtitle case final line?) ...[
+                const SizedBox(height: 2),
+                Text(
+                  line,
+                  key: const ValueKey('home-academy-progress'),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: textTheme.bodySmall?.copyWith(
+                    color: accent,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
             ],
           ),
         ),

@@ -2322,4 +2322,282 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get academyAllSizes => 'Alle Größen';
+
+  @override
+  String homeAcademyProgress(int done, int total) {
+    return '$done / $total Lektionen abgeschlossen';
+  }
+
+  @override
+  String academySizeProgress(String size, int done, int total) {
+    return '$size • $done / $total abgeschlossen';
+  }
+
+  @override
+  String get lessonStageConcept => 'Idee';
+
+  @override
+  String get lessonStageExamples => 'Beispiele';
+
+  @override
+  String get lessonStagePractice => 'Praxis';
+
+  @override
+  String get lessonStageNext => 'Weiter / frei';
+
+  @override
+  String lessonStageOf(int index, int total, String name) {
+    return 'Stufe $index von $total: $name';
+  }
+
+  @override
+  String lessonExampleOf(int index, int total) {
+    return 'Beispiel $index von $total';
+  }
+
+  @override
+  String lessonWalkthroughOf(int index, int total) {
+    return 'Durchgang $index von $total';
+  }
+
+  @override
+  String get lessonBonusCase => 'Bonusfall';
+
+  @override
+  String get lessonPracticeIntro =>
+      'Ein echter Scramble: Nur die früheren Schritte sind gelöst. Löse diesen ganzen Schritt, Hinweis für Hinweis.';
+
+  @override
+  String lessonContinueDesc(String lesson) {
+    return 'Direkt weiter mit $lesson.';
+  }
+
+  @override
+  String get lessonFreePractice => 'Freies Üben';
+
+  @override
+  String get lessonFreePracticeDesc =>
+      'Löse einen verdrehten 3D-Würfel selbst, vom Anfang bis zu diesem Schritt.';
+
+  @override
+  String freePracticeBanner(String topic) {
+    return 'Übe frei: Löse den Würfel vom Anfang bis einschließlich $topic!';
+  }
+
+  @override
+  String get pieceColorSeparator => '-';
+
+  @override
+  String cueFaceTurn(String face) {
+    return 'Drehe die Seite mit der Mitte $face so, wie der Pfeil zeigt. Die Mitte bleibt stehen; nur die Teile um sie herum wandern.';
+  }
+
+  @override
+  String cueTrigger(String front) {
+    return 'Rechte-Hand-Trigger, $front zu dir: rechte Seite hoch, oben nach links, rechte Seite runter, oben zurück nach rechts.';
+  }
+
+  @override
+  String get cueTriggerBack =>
+      'Der sechste Trigger in Folge bringt den Würfel genau in den Ausgangszustand zurück. Sechs ist die magische Zahl!';
+
+  @override
+  String cueSliceInner(String face) {
+    return 'Drehe nur die innere Scheibe neben der Seite $face. Die Seite selbst bleibt stehen, also teilen sich die Mitten.';
+  }
+
+  @override
+  String cueSliceWide(String face) {
+    return 'Eine breite Drehung: die Seite $face und die Scheibe daneben drehen sich zusammen, wie eine dicke Schicht.';
+  }
+
+  @override
+  String cueTurnCube(String top, String front) {
+    return 'Drehe den ganzen Würfel so, dass die Mitte $top oben ist und die Mitte $front zu dir zeigt.';
+  }
+
+  @override
+  String get cueTurnTop =>
+      'Drehe nur die obere Ebene, wie der Pfeil zeigt, um den nächsten Algorithmus vorzubereiten.';
+
+  @override
+  String get cueAlignTop =>
+      'Letzter Zug: Drehe die obere Ebene, bis die Farben passen. Fertig!';
+
+  @override
+  String cueCrossTop(String piece, String center) {
+    return 'Die Kante $piece ist in der oberen Ebene. Drehe oben, bis sie genau über der Mitte $center steht, dann drehe diese Seite zweimal, um sie nach unten zu bringen.';
+  }
+
+  @override
+  String cueCrossMiddle(String piece, String center) {
+    return 'Die Kante $piece steckt in der mittleren Ebene. Hebe sie nach oben, richte sie über der Mitte $center aus und bring sie nach unten.';
+  }
+
+  @override
+  String cueCrossFlipped(String piece, String center) {
+    return 'Die Kante $piece ist an ihrem Platz, aber gekippt: Ihr Weiß zeigt zur Seite. Nimm sie heraus und setze sie richtig herum neben die Mitte $center zurück.';
+  }
+
+  @override
+  String cueCrossBottom(String piece, String center) {
+    return 'Im CFOP-Stil darf auch die Unterseite drehen. Setze die Kante $piece ein und drehe unten, bis sie zur Mitte $center passt.';
+  }
+
+  @override
+  String cueCornerTop(String piece, String a, String b) {
+    return 'Drehe oben, bis die Ecke $piece genau über ihrem Platz steht, zwischen den Seiten $a und $b. Wiederhole den Rechte-Hand-Trigger, bis sie richtig gedreht hineinfällt.';
+  }
+
+  @override
+  String cueCornerTwisted(String piece) {
+    return 'Die Ecke $piece ist an ihrem Platz, aber verdreht. Ein Trigger holt sie heraus (eine gelbe Ecke rückt nach); wiederhole, bis sie richtig zurückfällt.';
+  }
+
+  @override
+  String cueMiddleRight(String piece, String a, String b) {
+    return 'Drehe oben, bis die Kante $piece an der Mitte $a ausgerichtet ist, dann schicke sie nach rechts unten, in den Slot zwischen $a und $b.';
+  }
+
+  @override
+  String cueMiddleLeft(String piece, String a, String b) {
+    return 'Drehe oben, bis die Kante $piece an der Mitte $a ausgerichtet ist, dann schicke sie nach links unten, in den Slot zwischen $a und $b.';
+  }
+
+  @override
+  String cueMiddleFlipped(String piece, String a, String b) {
+    return 'Die Kante $piece ist in ihrem Slot, aber gekippt. Setze dort eine gelbe Kante ein, um sie herauszudrücken, und setze sie dann erneut zwischen $a und $b ein.';
+  }
+
+  @override
+  String cueYellowLine(String front) {
+    return 'Eine gelbe Linie: Drehe oben, bis sie von links nach rechts verläuft, halte $front zu dir und führe den Algorithmus für das gelbe Kreuz aus.';
+  }
+
+  @override
+  String cueYellowL(String front) {
+    return 'Ein gelbes L: Drehe oben, bis das L nach hinten links zeigt, halte $front zu dir und führe den Algorithmus aus. Es wird zur Linie.';
+  }
+
+  @override
+  String cueYellowDot(String front) {
+    return 'Nur die gelbe Mitte ist gelb: ein Punkt. Führe den Algorithmus einmal mit $front zu dir aus, um ein L zu bekommen.';
+  }
+
+  @override
+  String cueEdgesMatch(String piece, String center) {
+    return 'Drehe oben, bis die Kante $piece zur Mitte $center passt.';
+  }
+
+  @override
+  String cueEdgesSwap(String front) {
+    return 'Zwei passende Kanten sind hinten und rechts. Mit $front zu dir führe den Tausch aus: Die vordere und die linke Kante wechseln den Platz.';
+  }
+
+  @override
+  String cueEdgesOpposite(String front) {
+    return 'Die passenden Kanten liegen sich gegenüber. Führe den Tausch einmal mit $front zu dir aus; danach passen zwei benachbarte.';
+  }
+
+  @override
+  String cueCornersCycle(String piece, String front) {
+    return 'Die Ecke $piece ist schon an ihrem Platz. Halte sie vorne rechts, $front zu dir, und tausche die anderen drei Ecken im Kreis.';
+  }
+
+  @override
+  String cueCornersNone(String front) {
+    return 'Noch keine gelbe Ecke ist an ihrem Platz. Tausche einmal im Kreis mit $front zu dir; danach sitzt eine Ecke richtig.';
+  }
+
+  @override
+  String cueTwistCorner(String piece) {
+    return 'Drehe die Ecke $piece vorne rechts: Wiederhole den unteren Trigger, bis ihr Gelb nach oben zeigt. Die unteren Ebenen sehen vorerst durcheinander aus – das ist normal!';
+  }
+
+  @override
+  String cueTwistFour(String piece) {
+    return 'Die Ecke $piece braucht diesmal vier Trigger. Mach weiter: Gelb kommt immer nach zwei oder vier nach oben.';
+  }
+
+  @override
+  String get cueTwistNext =>
+      'Drehe nur die obere Ebene, um die nächste verdrehte Ecke nach vorne rechts zu bringen. Jetzt nicht den ganzen Würfel drehen!';
+
+  @override
+  String cueF2lPair(String piece, String edge, String a, String b) {
+    return 'Verbinde oben die Ecke $piece mit der Kante $edge, dann setze das Paar in den Slot zwischen $a und $b ein.';
+  }
+
+  @override
+  String cueF2lStuck(String piece) {
+    return 'Die Ecke $piece steckt mit der falschen Kante in ihrem Slot. Hole sie zuerst nach oben, dann bilde das Paar und setze es ein.';
+  }
+
+  @override
+  String cueOllSune(String front) {
+    return 'Mit $front zu dir führe Sune aus, um die gelben Ecken nach oben zu drehen.';
+  }
+
+  @override
+  String cueOllSuneAgain(String front) {
+    return 'Ein Sune hat diesmal nicht gereicht. Drehe oben und führe Sune noch einmal aus, $front zu dir.';
+  }
+
+  @override
+  String cuePllCorners(String front) {
+    return 'Zwei Ecken müssen tauschen. Halte das passende Paar („Scheinwerfer“) links, $front zu dir, und führe die T-Perm aus.';
+  }
+
+  @override
+  String cuePllEdges(String piece) {
+    return 'Die Ecken sind fertig. Halte die Kante $piece hinten und tausche die anderen drei Kanten mit der U-Perm im Kreis.';
+  }
+
+  @override
+  String get cuePllNoEdge =>
+      'Noch keine obere Kante passt zu ihrer Mitte. Führe die U-Perm einmal von einer beliebigen Seite aus; danach passt eine.';
+
+  @override
+  String cueTwoSwapAdjacent(String front) {
+    return 'Zwei benachbarte obere Ecken müssen tauschen. Halte das passende Paar links, $front zu dir, und führe den Tausch aus.';
+  }
+
+  @override
+  String cueTwoSwapDiagonal(String front) {
+    return 'Die zwei zu tauschenden Ecken liegen diagonal. Führe den Diagonaltausch mit $front zu dir aus.';
+  }
+
+  @override
+  String cueCenterCycle(String color) {
+    return 'Bring das verirrte Mittelteil $color mit dem Mitten-3-Zyklus nach Hause: Scheibe, oben, Scheibe, dann alles zurück.';
+  }
+
+  @override
+  String cueCenterBar(String color) {
+    return 'Ein ganzer Streifen Mittelteile $color liegt auf der falschen Seite. Hebe ihn mit der Scheibe an, drehe oben und bring ihn nach Hause.';
+  }
+
+  @override
+  String cueEdgePair(String piece) {
+    return 'Verbinde die zwei Kantenteile $piece: richte sie aus, drehe die Scheibe, tausche mit den Rechte-Hand-Zügen eine ungepaarte Kante ein und drehe die Scheibe zurück.';
+  }
+
+  @override
+  String cueEdgeLast(String piece) {
+    return 'Die letzten Kanten: Verbinde die Kante $piece mit dem Algorithmus für die letzten zwei Kanten, der alle fertigen Kanten intakt lässt.';
+  }
+
+  @override
+  String cueParityOll(String front) {
+    return 'OLL-Parität: Eine obere Kante ist gekippt, was auf dem 3×3 nie vorkommt. Halte sie vorne, $front zu dir, und führe die Paritätskorrektur aus.';
+  }
+
+  @override
+  String get cueParityPll =>
+      'PLL-Parität: Zwei obere Kanten sind vertauscht, was auf dem 3×3 nie vorkommt. Halte sie vorne und hinten und führe den Paritätstausch aus.';
+
+  @override
+  String cueParityFive(String front) {
+    return 'Kantenparität: Die zwei äußeren Teile einer Kante sind vertauscht. Drehe diese Kante nach vorne, $front zu dir, korrigiere sie und drehe zurück.';
+  }
 }

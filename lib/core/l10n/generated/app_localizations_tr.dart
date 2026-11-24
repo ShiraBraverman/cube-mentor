@@ -2253,4 +2253,282 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get academyAllSizes => 'Tüm boyutlar';
+
+  @override
+  String homeAcademyProgress(int done, int total) {
+    return '$done / $total ders tamamlandı';
+  }
+
+  @override
+  String academySizeProgress(String size, int done, int total) {
+    return '$size • $done / $total tamamlandı';
+  }
+
+  @override
+  String get lessonStageConcept => 'Kavram';
+
+  @override
+  String get lessonStageExamples => 'Örnekler';
+
+  @override
+  String get lessonStagePractice => 'Uygulama';
+
+  @override
+  String get lessonStageNext => 'Devam / serbest';
+
+  @override
+  String lessonStageOf(int index, int total, String name) {
+    return 'Aşama $index/$total: $name';
+  }
+
+  @override
+  String lessonExampleOf(int index, int total) {
+    return 'Örnek $index/$total';
+  }
+
+  @override
+  String lessonWalkthroughOf(int index, int total) {
+    return 'Uygulama $index/$total';
+  }
+
+  @override
+  String get lessonBonusCase => 'Bonus durum';
+
+  @override
+  String get lessonPracticeIntro =>
+      'Gerçek bir karıştırma: yalnızca önceki adımlar çözülü. Bu adımın tamamını ipucu ipucu bitir.';
+
+  @override
+  String lessonContinueDesc(String lesson) {
+    return 'Doğrudan $lesson dersine geç.';
+  }
+
+  @override
+  String get lessonFreePractice => 'Serbest pratik';
+
+  @override
+  String get lessonFreePracticeDesc =>
+      'Karışık bir 3D küpü baştan bu adıma kadar kendin çöz.';
+
+  @override
+  String freePracticeBanner(String topic) {
+    return 'Serbestçe çalış: küpü baştan $topic adımına kadar çöz!';
+  }
+
+  @override
+  String get pieceColorSeparator => '-';
+
+  @override
+  String cueFaceTurn(String face) {
+    return '$face merkezli yüzü okun gösterdiği yöne çevir. Merkez yerinde kalır; yalnızca çevresindeki parçalar yer değiştirir.';
+  }
+
+  @override
+  String cueTrigger(String front) {
+    return 'Sağ el hamlesi, $front sana dönük: sağ yüz yukarı, üst sola, sağ yüz aşağı, üst yeniden sağa.';
+  }
+
+  @override
+  String get cueTriggerBack =>
+      'Üst üste altıncı hamle küpü tam olarak başladığı hâle getirir. Altı sihirli sayıdır!';
+
+  @override
+  String cueSliceInner(String face) {
+    return 'Yalnızca $face yüzünün yanındaki iç katmanı çevir. Yüzün kendisi yerinde kalır, bu yüzden merkezler ayrılır.';
+  }
+
+  @override
+  String cueSliceWide(String face) {
+    return 'Geniş dönüş: $face yüzü ve yanındaki iç katman, kalın tek bir katman gibi birlikte döner.';
+  }
+
+  @override
+  String cueTurnCube(String top, String front) {
+    return 'Tüm küpü, $top merkez üstte ve $front merkez sana dönük olacak şekilde çevir.';
+  }
+
+  @override
+  String get cueTurnTop =>
+      'Bir sonraki algoritmaya hazırlanmak için okun gösterdiği gibi yalnızca üst katmanı çevir.';
+
+  @override
+  String get cueAlignTop =>
+      'Son hamle: renkleri hizalamak için üst katmanı çevir. Bitti!';
+
+  @override
+  String cueCrossTop(String piece, String center) {
+    return '$piece kenar üst katmanda. Tam $center merkezin üstüne gelene kadar üstü çevir, sonra onu indirmek için o yüzü iki kez çevir.';
+  }
+
+  @override
+  String cueCrossMiddle(String piece, String center) {
+    return '$piece kenar orta katmanda sıkışmış. Onu üste çıkar, $center merkezin üstüne hizala ve indir.';
+  }
+
+  @override
+  String cueCrossFlipped(String piece, String center) {
+    return '$piece kenar yerinde ama ters: beyazı yana bakıyor. Onu çıkar, sonra $center merkezin yanına doğru yönde geri koy.';
+  }
+
+  @override
+  String cueCrossBottom(String piece, String center) {
+    return 'CFOP tarzında alt da dönebilir. $piece kenarı indir ve altı çevirerek $center merkezle hizala.';
+  }
+
+  @override
+  String cueCornerTop(String piece, String a, String b) {
+    return '$piece köşe, $a ve $b yüzleri arasındaki yerinin tam üstüne gelene kadar üstü çevir. Doğru yönde yerine oturana kadar sağ el hamlesini tekrarla.';
+  }
+
+  @override
+  String cueCornerTwisted(String piece) {
+    return '$piece köşe yerinde ama dönmüş. Bir hamle onu dışarı çıkarır (yerine sarı bir köşe girer); doğru şekilde geri oturana kadar tekrarla.';
+  }
+
+  @override
+  String cueMiddleRight(String piece, String a, String b) {
+    return '$piece kenar $a merkezle hizalanana kadar üstü çevir, sonra onu sağ aşağıya, $a ile $b arasındaki yuvaya gönder.';
+  }
+
+  @override
+  String cueMiddleLeft(String piece, String a, String b) {
+    return '$piece kenar $a merkezle hizalanana kadar üstü çevir, sonra onu sol aşağıya, $a ile $b arasındaki yuvaya gönder.';
+  }
+
+  @override
+  String cueMiddleFlipped(String piece, String a, String b) {
+    return '$piece kenar yuvasında ama ters. Onu dışarı itmek için oraya sarı bir kenar sok, sonra onu yeniden $a ile $b arasına yerleştir.';
+  }
+
+  @override
+  String cueYellowLine(String front) {
+    return 'Sarı bir çizgi: üstü çizgi soldan sağa uzanacak şekilde çevir, $front sana dönük kalsın, sonra sarı artı algoritmasını uygula.';
+  }
+
+  @override
+  String cueYellowL(String front) {
+    return 'Sarı bir L: üstü L arka sola bakacak şekilde çevir, $front sana dönük kalsın, sonra algoritmayı uygula. Bir çizgiye dönüşür.';
+  }
+
+  @override
+  String cueYellowDot(String front) {
+    return 'Yalnızca merkez sarı: bir nokta. L elde etmek için $front sana dönükken algoritmayı bir kez uygula.';
+  }
+
+  @override
+  String cueEdgesMatch(String piece, String center) {
+    return '$piece kenar $center merkezle eşleşene kadar üstü çevir.';
+  }
+
+  @override
+  String cueEdgesSwap(String front) {
+    return 'Eşleşen iki kenar arkada ve sağda. $front sana dönükken değiştirme hamlesini yap: öndeki ve soldaki kenar yer değiştirir.';
+  }
+
+  @override
+  String cueEdgesOpposite(String front) {
+    return 'Eşleşen kenarlar karşı karşıya. $front sana dönükken değiştirmeyi bir kez yap; ardından iki komşu kenar eşleşir.';
+  }
+
+  @override
+  String cueCornersCycle(String piece, String front) {
+    return '$piece köşe zaten yerinde. Onu sağ önde tut, $front sana dönük olsun, ve diğer üç köşeyi döngüyle yer değiştir.';
+  }
+
+  @override
+  String cueCornersNone(String front) {
+    return 'Henüz hiçbir sarı köşe yerinde değil. $front sana dönükken bir döngü yap; ardından bir köşe yerine oturur.';
+  }
+
+  @override
+  String cueTwistCorner(String piece) {
+    return 'Sağ öndeki $piece köşeyi çevir: sarısı yukarı bakana kadar alt hamleyi tekrarla. Alt katmanlar şimdilik karışık görünür, bu normal!';
+  }
+
+  @override
+  String cueTwistFour(String piece) {
+    return '$piece köşe bu kez dört hamle istiyor. Devam et: sarı her zaman iki ya da dört hamleden sonra yukarı gelir.';
+  }
+
+  @override
+  String get cueTwistNext =>
+      'Sıradaki dönmüş köşeyi sağ öne getirmek için yalnızca üst katmanı çevir. Şimdi tüm küpü çevirme!';
+
+  @override
+  String cueF2lPair(String piece, String edge, String a, String b) {
+    return 'Üstte $piece köşeyi $edge kenarla eşleştir, sonra çifti $a ile $b arasındaki yuvaya yerleştir.';
+  }
+
+  @override
+  String cueF2lStuck(String piece) {
+    return '$piece köşe yanlış kenarla birlikte yuvasında sıkışmış. Önce onu üste çıkar, sonra eşleştirip yerleştir.';
+  }
+
+  @override
+  String cueOllSune(String front) {
+    return '$front sana dönükken, sarı köşeleri yukarı çevirmek için Sune uygula.';
+  }
+
+  @override
+  String cueOllSuneAgain(String front) {
+    return 'Bu kez tek bir Sune yetmedi. Üstü çevir ve $front sana dönükken Sune\'yi yeniden uygula.';
+  }
+
+  @override
+  String cuePllCorners(String front) {
+    return 'İki köşenin yer değiştirmesi gerekiyor. Eşleşen çifti (farları) solda tut, $front sana dönük olsun, ve T-perm uygula.';
+  }
+
+  @override
+  String cuePllEdges(String piece) {
+    return 'Köşeler tamam. $piece kenarı arkada tut ve diğer üç kenarı U-perm ile döngüyle yer değiştir.';
+  }
+
+  @override
+  String get cuePllNoEdge =>
+      'Henüz hiçbir üst kenar merkeziyle eşleşmiyor. Herhangi bir taraftan bir kez U-perm uygula; ardından biri eşleşir.';
+
+  @override
+  String cueTwoSwapAdjacent(String front) {
+    return 'Üstteki iki komşu köşenin yer değiştirmesi gerekiyor. Eşleşen çifti solda tut, $front sana dönük olsun, ve değiştirme hamlesini yap.';
+  }
+
+  @override
+  String cueTwoSwapDiagonal(String front) {
+    return 'Değiştirilecek iki köşe çaprazda. $front sana dönükken çapraz değiştirmeyi yap.';
+  }
+
+  @override
+  String cueCenterCycle(String color) {
+    return 'Yolunu şaşırmış $color merkez parçasını merkez 3\'lü döngüsüyle yerine getir: katman, üst, katman, sonra her şey geri.';
+  }
+
+  @override
+  String cueCenterBar(String color) {
+    return 'Koca bir $color merkez parçası şeridi yanlış yüzde. Onu iç katmanla kaldır, üstü çevir ve yerine geri getir.';
+  }
+
+  @override
+  String cueEdgePair(String piece) {
+    return '$piece kenarın iki parçasını eşleştir: onları hizala, katmanı çevir, sağ el hamleleriyle eşleşmemiş bir kenarı içeri al ve katmanı geri çevir.';
+  }
+
+  @override
+  String cueEdgeLast(String piece) {
+    return 'Son kenarlar: $piece kenarı son iki kenar algoritmasıyla eşleştir; bu algoritma tamamlanan tüm kenarları korur.';
+  }
+
+  @override
+  String cueParityOll(String front) {
+    return 'OLL paritesi: üstteki bir kenar ters dönmüş, bu 3×3\'te asla olmaz. Onu önde tut, $front sana dönük olsun, ve parite düzeltmesini uygula.';
+  }
+
+  @override
+  String get cueParityPll =>
+      'PLL paritesi: üstteki iki kenar yer değiştirmiş, bu 3×3\'te asla olmaz. Onları önde ve arkada tut ve parite değişimini uygula.';
+
+  @override
+  String cueParityFive(String front) {
+    return 'Kenar paritesi: bir kenarın iki dış parçası yer değiştirmiş. O kenarı öne çevir, $front sana dönük olsun, düzelt ve geri çevir.';
+  }
 }

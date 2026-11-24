@@ -541,6 +541,7 @@ void main() {
       await pumpAcademy(tester, FakeAdService());
       // The first two lessons: a green open padlock, no ad badge.
       for (final id in ['basics', 'cross']) {
+        await reveal(tester, find.byKey(ValueKey('lesson-$id')));
         expect(
           find.byKey(ValueKey('lesson-$id-open'), skipOffstage: false),
           findsOneWidget,

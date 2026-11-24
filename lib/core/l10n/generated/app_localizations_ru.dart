@@ -2348,4 +2348,282 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get academyAllSizes => 'Все размеры';
+
+  @override
+  String homeAcademyProgress(int done, int total) {
+    return 'Пройдено уроков: $done / $total';
+  }
+
+  @override
+  String academySizeProgress(String size, int done, int total) {
+    return '$size • пройдено $done / $total';
+  }
+
+  @override
+  String get lessonStageConcept => 'Суть';
+
+  @override
+  String get lessonStageExamples => 'Примеры';
+
+  @override
+  String get lessonStagePractice => 'Практика';
+
+  @override
+  String get lessonStageNext => 'Дальше / сам';
+
+  @override
+  String lessonStageOf(int index, int total, String name) {
+    return 'Этап $index из $total: $name';
+  }
+
+  @override
+  String lessonExampleOf(int index, int total) {
+    return 'Пример $index из $total';
+  }
+
+  @override
+  String lessonWalkthroughOf(int index, int total) {
+    return 'Разбор $index из $total';
+  }
+
+  @override
+  String get lessonBonusCase => 'Бонусный случай';
+
+  @override
+  String get lessonPracticeIntro =>
+      'Настоящая скрамбла: собраны только предыдущие шаги. Доведите до конца весь этот шаг, подсказка за подсказкой.';
+
+  @override
+  String lessonContinueDesc(String lesson) {
+    return 'Сразу к уроку «$lesson».';
+  }
+
+  @override
+  String get lessonFreePractice => 'Свободная практика';
+
+  @override
+  String get lessonFreePracticeDesc =>
+      'Соберите перемешанный 3D-кубик сами: с самого начала и до этого шага.';
+
+  @override
+  String freePracticeBanner(String topic) {
+    return 'Свободная практика: соберите кубик с начала и до шага «$topic»!';
+  }
+
+  @override
+  String get pieceColorSeparator => '-';
+
+  @override
+  String cueFaceTurn(String face) {
+    return 'Поверните грань с центром «$face», как показывает стрелка. Центр остаётся на месте, двигаются только детали вокруг него.';
+  }
+
+  @override
+  String cueTrigger(String front) {
+    return 'Правый триггер, центр «$front» к вам: правая грань вверх, верх влево, правая грань вниз, верх обратно вправо.';
+  }
+
+  @override
+  String get cueTriggerBack =>
+      'Шестой триггер подряд возвращает кубик точно в исходное состояние. Шесть — волшебное число!';
+
+  @override
+  String cueSliceInner(String face) {
+    return 'Поверните только внутренний слой рядом с гранью «$face». Сама грань стоит на месте, поэтому центры расходятся.';
+  }
+
+  @override
+  String cueSliceWide(String face) {
+    return 'Широкий поворот: грань «$face» и соседний внутренний слой поворачиваются вместе, как один толстый слой.';
+  }
+
+  @override
+  String cueTurnCube(String top, String front) {
+    return 'Поверните весь кубик так, чтобы центр «$top» был сверху, а центр «$front» смотрел на вас.';
+  }
+
+  @override
+  String get cueTurnTop =>
+      'Поверните только верхний слой, как показывает стрелка, чтобы подготовить следующий алгоритм.';
+
+  @override
+  String get cueAlignTop =>
+      'Последний ход: поверните верхний слой, чтобы цвета совпали. Готово!';
+
+  @override
+  String cueCrossTop(String piece, String center) {
+    return 'Ребро «$piece» в верхнем слое. Вращайте верх, пока оно не окажется прямо над центром «$center», затем поверните эту грань дважды, чтобы опустить его.';
+  }
+
+  @override
+  String cueCrossMiddle(String piece, String center) {
+    return 'Ребро «$piece» застряло в среднем слое. Поднимите его наверх, совместите над центром «$center» и опустите вниз.';
+  }
+
+  @override
+  String cueCrossFlipped(String piece, String center) {
+    return 'Ребро «$piece» на своём месте, но перевёрнуто: белый цвет смотрит вбок. Выньте его и верните рядом с центром «$center» правильной стороной.';
+  }
+
+  @override
+  String cueCrossBottom(String piece, String center) {
+    return 'В стиле CFOP низ тоже можно вращать. Опустите ребро «$piece» и поверните низ так, чтобы оно встало к центру «$center».';
+  }
+
+  @override
+  String cueCornerTop(String piece, String a, String b) {
+    return 'Вращайте верх, пока угол «$piece» не окажется прямо над своим местом, между сторонами «$a» и «$b». Повторяйте правый триггер, пока он не встанет правильно.';
+  }
+
+  @override
+  String cueCornerTwisted(String piece) {
+    return 'Угол «$piece» на своём месте, но повёрнут. Один триггер вынимает его (на его место встаёт жёлтый угол); повторяйте, пока он не встанет правильно.';
+  }
+
+  @override
+  String cueMiddleRight(String piece, String a, String b) {
+    return 'Вращайте верх, пока ребро «$piece» не совпадёт с центром «$a», затем отправьте его вниз вправо, в слот между «$a» и «$b».';
+  }
+
+  @override
+  String cueMiddleLeft(String piece, String a, String b) {
+    return 'Вращайте верх, пока ребро «$piece» не совпадёт с центром «$a», затем отправьте его вниз влево, в слот между «$a» и «$b».';
+  }
+
+  @override
+  String cueMiddleFlipped(String piece, String a, String b) {
+    return 'Ребро «$piece» в своём слоте, но перевёрнуто. Вставьте туда жёлтое ребро, чтобы вытолкнуть его, а затем вставьте его снова между «$a» и «$b».';
+  }
+
+  @override
+  String cueYellowLine(String front) {
+    return 'Жёлтая линия: поверните верх так, чтобы она шла слева направо, центр «$front» к вам, и выполните алгоритм жёлтого креста.';
+  }
+
+  @override
+  String cueYellowL(String front) {
+    return 'Жёлтый уголок: поверните верх так, чтобы уголок смотрел назад влево, центр «$front» к вам, и выполните алгоритм. Получится линия.';
+  }
+
+  @override
+  String cueYellowDot(String front) {
+    return 'Жёлтый только центр: это точка. Выполните алгоритм один раз, центр «$front» к вам, — получится уголок.';
+  }
+
+  @override
+  String cueEdgesMatch(String piece, String center) {
+    return 'Вращайте верх, пока ребро «$piece» не совпадёт с центром «$center».';
+  }
+
+  @override
+  String cueEdgesSwap(String front) {
+    return 'Два совпавших ребра сзади и справа. С центром «$front» к вам выполните обмен: переднее и левое рёбра меняются местами.';
+  }
+
+  @override
+  String cueEdgesOpposite(String front) {
+    return 'Совпавшие рёбра стоят друг напротив друга. Выполните обмен один раз, центр «$front» к вам; после этого совпадут два соседних.';
+  }
+
+  @override
+  String cueCornersCycle(String piece, String front) {
+    return 'Угол «$piece» уже на своём месте. Держите его спереди справа, центр «$front» к вам, и переставьте по кругу остальные три угла.';
+  }
+
+  @override
+  String cueCornersNone(String front) {
+    return 'Ни один жёлтый угол ещё не на месте. Выполните перестановку один раз, центр «$front» к вам; после неё один угол встанет на место.';
+  }
+
+  @override
+  String cueTwistCorner(String piece) {
+    return 'Разверните угол «$piece» спереди справа: повторяйте нижний триггер, пока жёлтый не окажется сверху. Нижние слои пока выглядят разобранными — это нормально!';
+  }
+
+  @override
+  String cueTwistFour(String piece) {
+    return 'Углу «$piece» на этот раз нужно четыре триггера. Продолжайте: жёлтый всегда поднимается после двух или четырёх.';
+  }
+
+  @override
+  String get cueTwistNext =>
+      'Поверните только верхний слой, чтобы подвести следующий неправильный угол вперёд вправо. Весь кубик сейчас не вращайте!';
+
+  @override
+  String cueF2lPair(String piece, String edge, String a, String b) {
+    return 'Соедините угол «$piece» с ребром «$edge» наверху, затем вставьте пару в слот между «$a» и «$b».';
+  }
+
+  @override
+  String cueF2lStuck(String piece) {
+    return 'Угол «$piece» застрял в своём слоте с чужим ребром. Сначала выньте его наверх, затем соберите пару и вставьте.';
+  }
+
+  @override
+  String cueOllSune(String front) {
+    return 'С центром «$front» к вам выполните Sune, чтобы развернуть жёлтые углы вверх.';
+  }
+
+  @override
+  String cueOllSuneAgain(String front) {
+    return 'На этот раз одного Sune мало. Поверните верх и выполните Sune ещё раз, центр «$front» к вам.';
+  }
+
+  @override
+  String cuePllCorners(String front) {
+    return 'Два угла нужно поменять местами. Держите совпавшую пару («фары») слева, центр «$front» к вам, и выполните T-perm.';
+  }
+
+  @override
+  String cuePllEdges(String piece) {
+    return 'Углы готовы. Держите ребро «$piece» сзади и переставьте по кругу остальные три ребра с помощью U-perm.';
+  }
+
+  @override
+  String get cuePllNoEdge =>
+      'Ни одно верхнее ребро ещё не совпадает со своим центром. Выполните U-perm один раз с любой стороны; после этого одно совпадёт.';
+
+  @override
+  String cueTwoSwapAdjacent(String front) {
+    return 'Два соседних верхних угла нужно поменять местами. Держите совпавшую пару слева, цвет «$front» к вам, и выполните обмен.';
+  }
+
+  @override
+  String cueTwoSwapDiagonal(String front) {
+    return 'Два угла для обмена стоят по диагонали. Выполните диагональный обмен, цвет «$front» к вам.';
+  }
+
+  @override
+  String cueCenterCycle(String color) {
+    return 'Верните заблудившуюся центральную деталь цвета «$color» на место 3-циклом центров: слой, верх, слой, затем всё обратно.';
+  }
+
+  @override
+  String cueCenterBar(String color) {
+    return 'Целая полоса центров цвета «$color» стоит не на той грани. Поднимите её внутренним слоем, поверните верх и верните её на место.';
+  }
+
+  @override
+  String cueEdgePair(String piece) {
+    return 'Соедините две детали ребра «$piece»: выстройте их, поверните слой, подставьте несобранное ребро правыми ходами и верните слой.';
+  }
+
+  @override
+  String cueEdgeLast(String piece) {
+    return 'Последние рёбра: соедините ребро «$piece» алгоритмом двух последних рёбер — он сохраняет все готовые рёбра.';
+  }
+
+  @override
+  String cueParityOll(String front) {
+    return 'OLL-паритет: одно верхнее ребро перевёрнуто, чего на 3×3 не бывает. Держите его спереди, центр «$front» к вам, и выполните исправление паритета.';
+  }
+
+  @override
+  String get cueParityPll =>
+      'PLL-паритет: два верхних ребра поменялись местами, чего на 3×3 не бывает. Держите их спереди и сзади и выполните обмен паритета.';
+
+  @override
+  String cueParityFive(String front) {
+    return 'Паритет ребра: две внешние детали одного ребра поменялись местами. Поверните это ребро вперёд, центр «$front» к вам, исправьте и поверните обратно.';
+  }
 }

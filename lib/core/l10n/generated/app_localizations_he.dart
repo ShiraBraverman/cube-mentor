@@ -2286,4 +2286,282 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get academyAllSizes => 'כל הגדלים';
+
+  @override
+  String homeAcademyProgress(int done, int total) {
+    return 'הושלמו $done מתוך $total שיעורים';
+  }
+
+  @override
+  String academySizeProgress(String size, int done, int total) {
+    return '$size • $done / $total הושלמו';
+  }
+
+  @override
+  String get lessonStageConcept => 'הסבר';
+
+  @override
+  String get lessonStageExamples => 'דוגמאות';
+
+  @override
+  String get lessonStagePractice => 'תרגול מעשי';
+
+  @override
+  String get lessonStageNext => 'המשך / חופשי';
+
+  @override
+  String lessonStageOf(int index, int total, String name) {
+    return 'שלב $index מתוך $total: $name';
+  }
+
+  @override
+  String lessonExampleOf(int index, int total) {
+    return 'דוגמה $index מתוך $total';
+  }
+
+  @override
+  String lessonWalkthroughOf(int index, int total) {
+    return 'תרגול $index מתוך $total';
+  }
+
+  @override
+  String get lessonBonusCase => 'מקרה בונוס';
+
+  @override
+  String get lessonPracticeIntro =>
+      'ערבוב אמיתי: רק השלבים הקודמים פתורים. השלימו את כל השלב הזה, הנחיה אחר הנחיה.';
+
+  @override
+  String lessonContinueDesc(String lesson) {
+    return 'ממשיכים ישר אל $lesson.';
+  }
+
+  @override
+  String get lessonFreePractice => 'תרגול חופשי';
+
+  @override
+  String get lessonFreePracticeDesc =>
+      'פתרו לבד קובייה מעורבבת בתלת־ממד, מההתחלה ועד השלב הזה.';
+
+  @override
+  String freePracticeBanner(String topic) {
+    return 'תרגלו בחופשיות: פתרו את הקובייה מההתחלה ועד $topic!';
+  }
+
+  @override
+  String get pieceColorSeparator => '־';
+
+  @override
+  String cueFaceTurn(String face) {
+    return 'סובבו את הפאה של המרכז ה$face לפי החץ. המרכז נשאר במקומו; רק החלקים סביבו זזים.';
+  }
+
+  @override
+  String cueTrigger(String front) {
+    return 'תנועת יד ימין, כשה$front מולכם: הפאה הימנית למעלה, העליונה שמאלה, הימנית למטה, העליונה חזרה ימינה.';
+  }
+
+  @override
+  String get cueTriggerBack =>
+      'התנועה השישית ברצף מחזירה את הקובייה בדיוק למצב שבו התחילה. שש זה המספר הקסום!';
+
+  @override
+  String cueSliceInner(String face) {
+    return 'סובבו רק את השכבה הפנימית שליד הפאה של המרכז ה$face. הפאה עצמה לא זזה, ולכן המרכזים נפרדים.';
+  }
+
+  @override
+  String cueSliceWide(String face) {
+    return 'סיבוב רחב: הפאה של המרכז ה$face והשכבה הפנימית שלידה מסתובבות יחד, כמו שכבה עבה אחת.';
+  }
+
+  @override
+  String cueTurnCube(String top, String front) {
+    return 'סובבו את כל הקובייה כך שהמרכז ה$top יהיה למעלה והמרכז ה$front מולכם.';
+  }
+
+  @override
+  String get cueTurnTop =>
+      'סובבו רק את השכבה העליונה, לפי החץ, כדי להכין את האלגוריתם הבא.';
+
+  @override
+  String get cueAlignTop =>
+      'מהלך אחרון: סובבו את השכבה העליונה כדי ליישר את הצבעים. סיימתם!';
+
+  @override
+  String cueCrossTop(String piece, String center) {
+    return 'הצלע בצבעי $piece נמצאת בשכבה העליונה. סובבו את הפאה העליונה עד שהיא בדיוק מעל המרכז ה$center, ואז סובבו את הפאה הזו פעמיים כדי להוריד אותה.';
+  }
+
+  @override
+  String cueCrossMiddle(String piece, String center) {
+    return 'הצלע בצבעי $piece תקועה בשכבה האמצעית. העלו אותה למעלה, יישרו אותה מעל המרכז ה$center, ואז הורידו אותה.';
+  }
+
+  @override
+  String cueCrossFlipped(String piece, String center) {
+    return 'הצלע בצבעי $piece במקום הנכון אבל הפוכה: הלבן שלה פונה הצידה. הוציאו אותה, ואז החזירו אותה ליד המרכז ה$center בכיוון הנכון.';
+  }
+
+  @override
+  String cueCrossBottom(String piece, String center) {
+    return 'בסגנון ⁦CFOP⁩ מותר לסובב גם את התחתית. הכניסו את הצלע בצבעי $piece וסובבו את התחתית כך שתתיישר עם המרכז ה$center.';
+  }
+
+  @override
+  String cueCornerTop(String piece, String a, String b) {
+    return 'סובבו את הפאה העליונה עד שהפינה בצבעי $piece נמצאת בדיוק מעל המקום שלה, בין הצד ה$a לצד ה$b. חזרו על תנועת יד ימין עד שהיא נכנסת, מסובבת נכון.';
+  }
+
+  @override
+  String cueCornerTwisted(String piece) {
+    return 'הפינה בצבעי $piece במקום שלה אבל מסובבת. תנועה אחת מוציאה אותה (פינה צהובה נכנסת במקומה); המשיכו לחזור עד שהיא נכנסת שוב נכון.';
+  }
+
+  @override
+  String cueMiddleRight(String piece, String a, String b) {
+    return 'סובבו את הפאה העליונה עד שהצלע בצבעי $piece מיושרת עם המרכז ה$a, ואז שלחו אותה למטה ימינה, אל המקום שבין ה$a ל$b.';
+  }
+
+  @override
+  String cueMiddleLeft(String piece, String a, String b) {
+    return 'סובבו את הפאה העליונה עד שהצלע בצבעי $piece מיושרת עם המרכז ה$a, ואז שלחו אותה למטה שמאלה, אל המקום שבין ה$a ל$b.';
+  }
+
+  @override
+  String cueMiddleFlipped(String piece, String a, String b) {
+    return 'הצלע בצבעי $piece במקום שלה אבל הפוכה. הכניסו לשם צלע צהובה כדי לדחוף אותה החוצה, ואז הכניסו אותה שוב בין ה$a ל$b.';
+  }
+
+  @override
+  String cueYellowLine(String front) {
+    return 'קו צהוב: סובבו את הפאה העליונה כך שהקו יעבור משמאל לימין, השאירו את ה$front מולכם ובצעו את אלגוריתם האיקס הצהוב.';
+  }
+
+  @override
+  String cueYellowL(String front) {
+    return 'צורת ⁦L⁩ צהובה: סובבו את הפאה העליונה כך שה־⁦L⁩ תצביע אחורה־שמאלה, השאירו את ה$front מולכם ובצעו את האלגוריתם. היא תהפוך לקו.';
+  }
+
+  @override
+  String cueYellowDot(String front) {
+    return 'רק המרכז הצהוב צהוב: נקודה. בצעו את האלגוריתם פעם אחת, כשה$front מולכם, כדי לקבל ⁦L⁩.';
+  }
+
+  @override
+  String cueEdgesMatch(String piece, String center) {
+    return 'סובבו את הפאה העליונה עד שהצלע בצבעי $piece תואמת את המרכז ה$center.';
+  }
+
+  @override
+  String cueEdgesSwap(String front) {
+    return 'שתי צלעות תואמות נמצאות מאחור ומימין. כשה$front מולכם, בצעו את ההחלפה: הצלע הקדמית והשמאלית מתחלפות.';
+  }
+
+  @override
+  String cueEdgesOpposite(String front) {
+    return 'הצלעות התואמות נמצאות זו מול זו. בצעו את ההחלפה פעם אחת כשה$front מולכם; אחר כך שתי צלעות שכנות יתאימו.';
+  }
+
+  @override
+  String cueCornersCycle(String piece, String front) {
+    return 'הפינה בצבעי $piece כבר במקום שלה. השאירו אותה בקדמי־ימני, כשה$front מולכם, והעבירו במחזור את שלוש הפינות האחרות.';
+  }
+
+  @override
+  String cueCornersNone(String front) {
+    return 'אף פינה צהובה עוד לא במקומה. בצעו מחזור אחד כשה$front מולכם; אחריו פינה אחת תהיה בבית.';
+  }
+
+  @override
+  String cueTwistCorner(String piece) {
+    return 'סובבו את הפינה בצבעי $piece שבקדמי־ימני: חזרו על התנועה עד שהצהוב שלה פונה למעלה. השכבות התחתונות נראות מבולגנות בינתיים, וזה תקין!';
+  }
+
+  @override
+  String cueTwistFour(String piece) {
+    return 'הפינה בצבעי $piece צריכה הפעם ארבע חזרות. המשיכו: הצהוב תמיד עולה אחרי שתיים או ארבע.';
+  }
+
+  @override
+  String get cueTwistNext =>
+      'סובבו רק את השכבה העליונה כדי להביא את הפינה המסובבת הבאה לקדמי־ימני. לא לסובב עכשיו את כל הקובייה!';
+
+  @override
+  String cueF2lPair(String piece, String edge, String a, String b) {
+    return 'חברו את הפינה בצבעי $piece עם הצלע בצבעי $edge למעלה, ואז הכניסו את הזוג למקום שבין ה$a ל$b.';
+  }
+
+  @override
+  String cueF2lStuck(String piece) {
+    return 'הפינה בצבעי $piece תקועה במקום שלה עם הצלע הלא נכונה. קודם הוציאו אותה למעלה, ואז חברו אותה לזוג והכניסו.';
+  }
+
+  @override
+  String cueOllSune(String front) {
+    return 'כשה$front מולכם, בצעו ⁦Sune⁩ כדי להפוך את הפינות הצהובות כלפי מעלה.';
+  }
+
+  @override
+  String cueOllSuneAgain(String front) {
+    return 'הפעם ⁦Sune⁩ אחד לא הספיק. סובבו את הפאה העליונה ובצעו ⁦Sune⁩ שוב, כשה$front מולכם.';
+  }
+
+  @override
+  String cuePllCorners(String front) {
+    return 'שתי פינות צריכות להתחלף. השאירו את הזוג התואם (״פנסים״) משמאל, כשה$front מולכם, ובצעו ⁦T-perm⁩.';
+  }
+
+  @override
+  String cuePllEdges(String piece) {
+    return 'הפינות מוכנות. השאירו את הצלע בצבעי $piece מאחור והעבירו במחזור את שלוש הצלעות האחרות עם ⁦U-perm⁩.';
+  }
+
+  @override
+  String get cuePllNoEdge =>
+      'אף צלע עליונה עוד לא תואמת את המרכז שלה. בצעו ⁦U-perm⁩ פעם אחת מכל צד שתבחרו; אחריו צלע אחת תתאים.';
+
+  @override
+  String cueTwoSwapAdjacent(String front) {
+    return 'שתי פינות עליונות שכנות צריכות להתחלף. השאירו את הזוג התואם משמאל, כשה$front מולכם, ובצעו את ההחלפה.';
+  }
+
+  @override
+  String cueTwoSwapDiagonal(String front) {
+    return 'שתי הפינות שצריך להחליף נמצאות באלכסון. בצעו את ההחלפה האלכסונית כשה$front מולכם.';
+  }
+
+  @override
+  String cueCenterCycle(String color) {
+    return 'החזירו הביתה את חלק המרכז ה$color שנדד, בעזרת מחזור מרכזים: שכבה פנימית, למעלה, שכבה פנימית, ואז הכול חזרה.';
+  }
+
+  @override
+  String cueCenterBar(String color) {
+    return 'פס שלם של חלקי מרכז בצבע $color נמצא על הפאה הלא נכונה. הרימו אותו עם השכבה הפנימית, סובבו את הפאה העליונה והחזירו אותו הביתה.';
+  }
+
+  @override
+  String cueEdgePair(String piece) {
+    return 'הצמידו את שני חלקי הצלע בצבעי $piece: יישרו אותם, סובבו שכבה פנימית, הכניסו צלע לא מוצמדת בתנועות יד ימין והחזירו את השכבה.';
+  }
+
+  @override
+  String cueEdgeLast(String piece) {
+    return 'הצלעות האחרונות: הצמידו את הצלע בצבעי $piece באלגוריתם שתי הצלעות האחרונות, ששומר על כל הצלעות הגמורות.';
+  }
+
+  @override
+  String cueParityOll(String front) {
+    return 'פריטי ⁦OLL⁩: צלע עליונה אחת הפוכה, דבר שלא קורה אף פעם ב־⁦3×3⁩. השאירו אותה מקדימה, כשה$front מולכם, ובצעו את תיקון הפריטי.';
+  }
+
+  @override
+  String get cueParityPll =>
+      'פריטי ⁦PLL⁩: שתי צלעות עליונות התחלפו, דבר שלא קורה אף פעם ב־⁦3×3⁩. השאירו אותן מקדימה ומאחור ובצעו את החלפת הפריטי.';
+
+  @override
+  String cueParityFive(String front) {
+    return 'פריטי צלע: שני החלקים החיצוניים של צלע אחת התחלפו. סובבו את הצלע הזו לחזית, כשה$front מולכם, בצעו את התיקון וסובבו חזרה.';
+  }
 }

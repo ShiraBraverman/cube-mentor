@@ -114,10 +114,17 @@ class _AcademyScreenState extends ConsumerState<AcademyScreen> {
                       selected: _size == null,
                       onSelected: (_) => setState(() => _size = null),
                     ),
+                    // Each size with its own count: "3×3 • 2 / 8 completed".
                     for (final size in _sizes)
                       ChoiceChip(
                         key: ValueKey('academy-size-$size'),
-                        label: Text(l10n.cubeSizeLabel(size)),
+                        label: Text(
+                          l10n.academySizeProgress(
+                            l10n.cubeSizeLabel(size),
+                            progress.completedOfSize(size),
+                            lessonsOfSize(size),
+                          ),
+                        ),
                         selected: _size == size,
                         onSelected: (_) => setState(() => _size = size),
                       ),

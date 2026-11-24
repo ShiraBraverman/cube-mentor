@@ -45,6 +45,7 @@ class Solver3DScreen extends ConsumerStatefulWidget {
     this.challenge = false,
     this.onTimedSolve,
     this.guideDoneAction,
+    this.practiceBanner,
   });
 
   final int size;
@@ -79,6 +80,10 @@ class Solver3DScreen extends ConsumerStatefulWidget {
   /// Shown under a finished guide, e.g. "solve it now" buttons after the
   /// daily scramble guide.
   final Widget? guideDoneAction;
+
+  /// The goal of a free-practice session opened from a finished lesson
+  /// ("solve the cube up through ..."), shown above the cube.
+  final String? practiceBanner;
 
   @override
   ConsumerState<Solver3DScreen> createState() => _Solver3DScreenState();
@@ -348,6 +353,8 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
             top: false,
             child: Column(
               children: [
+                if (widget.practiceBanner case final banner?)
+                  _PracticeBanner(message: banner),
                 Expanded(
                   child: Stack(
                     children: [
@@ -623,6 +630,53 @@ class _StepButton extends StatelessWidget {
       ),
     );
   }
+}
+
+/// The free-practice goal above the cube (never over it).
+class _PracticeBanner extends StatelessWidget {
+  const _PracticeBanner({required this.message});
+
+  final String message;
+
+  @override
+  Widget build(BuildContext context) => Padding(
+    padding: const EdgeInsetsDirectional.fromSTEB(
+      AppSpace.md,
+      AppSpace.xs,
+      AppSpace.md,
+      0,
+    ),
+    child: GlassCard(
+      key: const ValueKey('practice-banner'),
+      selected: true,
+      accent: AppColors.accentSecondary,
+      padding: const EdgeInsetsDirectional.fromSTEB(
+        AppSpace.sm,
+        AppSpace.xs,
+        AppSpace.sm,
+        AppSpace.xs,
+      ),
+      child: Row(
+        children: [
+          const Icon(
+            Icons.flag_rounded,
+            size: 20,
+            color: AppColors.accentSecondary,
+          ),
+          const SizedBox(width: AppSpace.xs),
+          Expanded(
+            child: Text(
+              message,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: AppColors.textPrimary,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
 }
 
 /// Floating pill under the app bar for short, non-blocking notices.

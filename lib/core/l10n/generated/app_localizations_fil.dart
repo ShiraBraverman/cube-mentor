@@ -2269,4 +2269,282 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get academyAllSizes => 'Lahat ng laki';
+
+  @override
+  String homeAcademyProgress(int done, int total) {
+    return '$done / $total aralin ang natapos';
+  }
+
+  @override
+  String academySizeProgress(String size, int done, int total) {
+    return '$size • $done / $total natapos';
+  }
+
+  @override
+  String get lessonStageConcept => 'Konsepto';
+
+  @override
+  String get lessonStageExamples => 'Halimbawa';
+
+  @override
+  String get lessonStagePractice => 'Praktis';
+
+  @override
+  String get lessonStageNext => 'Susunod / malaya';
+
+  @override
+  String lessonStageOf(int index, int total, String name) {
+    return 'Yugto $index ng $total: $name';
+  }
+
+  @override
+  String lessonExampleOf(int index, int total) {
+    return 'Halimbawa $index ng $total';
+  }
+
+  @override
+  String lessonWalkthroughOf(int index, int total) {
+    return 'Gabay $index ng $total';
+  }
+
+  @override
+  String get lessonBonusCase => 'Bonus na kaso';
+
+  @override
+  String get lessonPracticeIntro =>
+      'Tunay na scramble: ang mga naunang hakbang lang ang buo. Tapusin ang buong hakbang na ito, isa-isang paalala.';
+
+  @override
+  String lessonContinueDesc(String lesson) {
+    return 'Dumiretso sa $lesson.';
+  }
+
+  @override
+  String get lessonFreePractice => 'Malayang praktis';
+
+  @override
+  String get lessonFreePracticeDesc =>
+      'Lutasin nang mag-isa ang isang naka-scramble na 3D cube, mula sa simula hanggang sa hakbang na ito.';
+
+  @override
+  String freePracticeBanner(String topic) {
+    return 'Malayang magpraktis: lutasin ang cube mula sa simula hanggang $topic!';
+  }
+
+  @override
+  String get pieceColorSeparator => '-';
+
+  @override
+  String cueFaceTurn(String face) {
+    return 'Paikutin ang mukha na may $face na center ayon sa arrow. Nananatili ang center; ang mga piraso lang sa paligid nito ang gumagalaw.';
+  }
+
+  @override
+  String cueTrigger(String front) {
+    return 'Right-hand trigger, nakaharap sa iyo ang $front: kanang mukha pataas, itaas pakaliwa, kanang mukha pababa, itaas pabalik sa kanan.';
+  }
+
+  @override
+  String get cueTriggerBack =>
+      'Ang ikaanim na sunod-sunod na trigger ay nagbabalik sa cube sa dati nitong ayos. Anim ang mahiwagang numero!';
+
+  @override
+  String cueSliceInner(String face) {
+    return 'Paikutin lang ang panloob na slice sa tabi ng mukhang $face. Hindi gumagalaw ang mukha mismo, kaya naghihiwalay ang mga center.';
+  }
+
+  @override
+  String cueSliceWide(String face) {
+    return 'Isang wide turn: sabay na umiikot ang mukhang $face at ang slice sa tabi nito, parang isang makapal na layer.';
+  }
+
+  @override
+  String cueTurnCube(String top, String front) {
+    return 'Paikutin ang buong cube para nasa itaas ang $top na center at nakaharap sa iyo ang $front na center.';
+  }
+
+  @override
+  String get cueTurnTop =>
+      'Paikutin lang ang itaas na layer, ayon sa arrow, para ihanda ang susunod na algorithm.';
+
+  @override
+  String get cueAlignTop =>
+      'Huling galaw: paikutin ang itaas na layer para magkahanay ang mga kulay. Tapos na!';
+
+  @override
+  String cueCrossTop(String piece, String center) {
+    return 'Nasa itaas na layer ang edge na $piece. Paikutin ang itaas hanggang nasa mismong ibabaw ito ng $center na center, saka paikutin nang dalawang beses ang mukhang iyon para maibaba.';
+  }
+
+  @override
+  String cueCrossMiddle(String piece, String center) {
+    return 'Naipit sa gitnang layer ang edge na $piece. Iangat ito sa itaas, ihanay sa ibabaw ng $center na center, saka ibaba.';
+  }
+
+  @override
+  String cueCrossFlipped(String piece, String center) {
+    return 'Nasa puwesto na ang edge na $piece pero baligtad: nakaharap sa gilid ang puti nito. Ilabas ito, saka ibalik sa tabi ng $center na center sa tamang ayos.';
+  }
+
+  @override
+  String cueCrossBottom(String piece, String center) {
+    return 'Sa istilong CFOP, puwede ring paikutin ang ibaba. Ibaba ang edge na $piece at paikutin ang ibaba para pumantay ito sa $center na center.';
+  }
+
+  @override
+  String cueCornerTop(String piece, String a, String b) {
+    return 'Paikutin ang itaas hanggang nasa mismong ibabaw ng puwesto nito ang kanto na $piece, sa pagitan ng mga gilid na $a at $b. Ulitin ang right-hand trigger hanggang pumasok ito nang tama ang ikot.';
+  }
+
+  @override
+  String cueCornerTwisted(String piece) {
+    return 'Nasa puwesto na ang kanto na $piece pero nakapihit. Inilalabas ito ng isang trigger (isang dilaw na kanto ang papalit); ulitin hanggang bumalik ito nang tama.';
+  }
+
+  @override
+  String cueMiddleRight(String piece, String a, String b) {
+    return 'Paikutin ang itaas hanggang pumantay ang edge na $piece sa $a na center, saka ipadala ito pababa sa kanan, sa puwang sa pagitan ng $a at $b.';
+  }
+
+  @override
+  String cueMiddleLeft(String piece, String a, String b) {
+    return 'Paikutin ang itaas hanggang pumantay ang edge na $piece sa $a na center, saka ipadala ito pababa sa kaliwa, sa puwang sa pagitan ng $a at $b.';
+  }
+
+  @override
+  String cueMiddleFlipped(String piece, String a, String b) {
+    return 'Nasa puwesto na ang edge na $piece pero baligtad. Magpasok doon ng dilaw na edge para itulak ito palabas, saka ipasok ulit sa pagitan ng $a at $b.';
+  }
+
+  @override
+  String cueYellowLine(String front) {
+    return 'Dilaw na linya: paikutin ang itaas para pahiga ito mula kaliwa pakanan, panatilihing nakaharap sa iyo ang $front, saka gawin ang algorithm ng dilaw na krus.';
+  }
+
+  @override
+  String cueYellowL(String front) {
+    return 'Dilaw na L: paikutin ang itaas para tumuro ang L sa likod-kaliwa, panatilihing nakaharap sa iyo ang $front, saka gawin ang algorithm. Magiging linya ito.';
+  }
+
+  @override
+  String cueYellowDot(String front) {
+    return 'Ang center lang ang dilaw: isang tuldok. Gawin ang algorithm nang isang beses, nakaharap sa iyo ang $front, para magkaroon ng L.';
+  }
+
+  @override
+  String cueEdgesMatch(String piece, String center) {
+    return 'Paikutin ang itaas hanggang tumugma ang edge na $piece sa $center na center.';
+  }
+
+  @override
+  String cueEdgesSwap(String front) {
+    return 'Nasa likod at kanan ang dalawang tumutugmang edge. Nakaharap sa iyo ang $front, gawin ang palitan: magpapalit ng puwesto ang edge sa harap at sa kaliwa.';
+  }
+
+  @override
+  String cueEdgesOpposite(String front) {
+    return 'Magkatapat ang mga tumutugmang edge. Gawin ang palitan nang isang beses, nakaharap sa iyo ang $front; pagkatapos, dalawang magkatabi ang tutugma.';
+  }
+
+  @override
+  String cueCornersCycle(String piece, String front) {
+    return 'Nasa puwesto na ang kanto na $piece. Panatilihin ito sa harap-kanan, nakaharap sa iyo ang $front, at paikutin ang puwesto ng tatlo pang kanto.';
+  }
+
+  @override
+  String cueCornersNone(String front) {
+    return 'Wala pang dilaw na kanto sa puwesto nito. Gumawa ng isang ikot, nakaharap sa iyo ang $front; pagkatapos, may isang kanto nang nasa puwesto.';
+  }
+
+  @override
+  String cueTwistCorner(String piece) {
+    return 'Pihitin ang kanto na $piece sa harap-kanan: ulitin ang pababang trigger hanggang nakaharap paitaas ang dilaw nito. Mukhang gulo muna ang ibabang mga layer; normal iyan!';
+  }
+
+  @override
+  String cueTwistFour(String piece) {
+    return 'Apat na trigger ang kailangan ng kanto na $piece ngayon. Ituloy: laging umaakyat ang dilaw pagkatapos ng dalawa o apat.';
+  }
+
+  @override
+  String get cueTwistNext =>
+      'Paikutin lang ang itaas na layer para dalhin ang susunod na nakapihit na kanto sa harap-kanan. Huwag paikutin ang buong cube ngayon!';
+
+  @override
+  String cueF2lPair(String piece, String edge, String a, String b) {
+    return 'Ipares ang kanto na $piece sa edge na $edge sa itaas, saka ipasok ang pares sa puwang sa pagitan ng $a at $b.';
+  }
+
+  @override
+  String cueF2lStuck(String piece) {
+    return 'Naipit ang kanto na $piece sa puwesto nito kasama ang maling edge. Ilabas muna ito sa itaas, saka ipares at ipasok.';
+  }
+
+  @override
+  String cueOllSune(String front) {
+    return 'Nakaharap sa iyo ang $front, gawin ang Sune para maiharap paitaas ang mga dilaw na kanto.';
+  }
+
+  @override
+  String cueOllSuneAgain(String front) {
+    return 'Hindi sapat ang isang Sune ngayon. Paikutin ang itaas at gawin ulit ang Sune, nakaharap sa iyo ang $front.';
+  }
+
+  @override
+  String cuePllCorners(String front) {
+    return 'Kailangang magpalit ang dalawang kanto. Panatilihin sa kaliwa ang magkatugmang pares (headlights), nakaharap sa iyo ang $front, at gawin ang T-perm.';
+  }
+
+  @override
+  String cuePllEdges(String piece) {
+    return 'Tapos na ang mga kanto. Panatilihin sa likod ang edge na $piece at paikutin ang puwesto ng tatlo pang edge gamit ang U-perm.';
+  }
+
+  @override
+  String get cuePllNoEdge =>
+      'Wala pang itaas na edge na tugma sa center nito. Gawin ang U-perm nang isang beses mula sa kahit anong gilid; pagkatapos, may isang tutugma.';
+
+  @override
+  String cueTwoSwapAdjacent(String front) {
+    return 'Kailangang magpalit ang dalawang magkatabing kanto sa itaas. Panatilihin sa kaliwa ang magkatugmang pares, nakaharap sa iyo ang $front, at gawin ang palitan.';
+  }
+
+  @override
+  String cueTwoSwapDiagonal(String front) {
+    return 'Pahilis ang dalawang kantong papalitan. Gawin ang pahilis na palitan, nakaharap sa iyo ang $front.';
+  }
+
+  @override
+  String cueCenterCycle(String color) {
+    return 'Iuwi ang naligaw na pirasong $color ng center gamit ang center 3-cycle: slice, itaas, slice, saka ibalik lahat.';
+  }
+
+  @override
+  String cueCenterBar(String color) {
+    return 'Isang buong bar ng mga pirasong $color ng center ang nasa maling mukha. Iangat ito gamit ang slice, paikutin ang itaas, at ibalik sa puwesto.';
+  }
+
+  @override
+  String cueEdgePair(String piece) {
+    return 'Ipares ang dalawang piraso ng edge na $piece: ihanay sila, paikutin ang slice, ipalit ang hindi pa nakapares na edge gamit ang right-hand moves, saka ibalik ang slice.';
+  }
+
+  @override
+  String cueEdgeLast(String piece) {
+    return 'Ang mga huling edge: ipares ang edge na $piece gamit ang algorithm ng huling dalawang edge, na hindi gumagalaw sa mga tapos nang edge.';
+  }
+
+  @override
+  String cueParityOll(String front) {
+    return 'OLL parity: baligtad ang isang edge sa itaas, na hindi nangyayari sa 3×3. Panatilihin ito sa harap, nakaharap sa iyo ang $front, at gawin ang parity fix.';
+  }
+
+  @override
+  String get cueParityPll =>
+      'PLL parity: nagpalit ang dalawang edge sa itaas, na hindi nangyayari sa 3×3. Panatilihin sila sa harap at likod at gawin ang parity swap.';
+
+  @override
+  String cueParityFive(String front) {
+    return 'Edge parity: nagpalit ang dalawang panlabas na piraso ng isang edge. Iharap ang edge na iyon, nakaharap sa iyo ang $front, ayusin ito, saka ibalik.';
+  }
 }

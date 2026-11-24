@@ -2316,6 +2316,284 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get academyAllSizes => 'Todos os tamanhos';
+
+  @override
+  String homeAcademyProgress(int done, int total) {
+    return '$done / $total lições concluídas';
+  }
+
+  @override
+  String academySizeProgress(String size, int done, int total) {
+    return '$size • $done / $total concluídas';
+  }
+
+  @override
+  String get lessonStageConcept => 'Conceito';
+
+  @override
+  String get lessonStageExamples => 'Exemplos';
+
+  @override
+  String get lessonStagePractice => 'Prática';
+
+  @override
+  String get lessonStageNext => 'Seguir / livre';
+
+  @override
+  String lessonStageOf(int index, int total, String name) {
+    return 'Etapa $index de $total: $name';
+  }
+
+  @override
+  String lessonExampleOf(int index, int total) {
+    return 'Exemplo $index de $total';
+  }
+
+  @override
+  String lessonWalkthroughOf(int index, int total) {
+    return 'Percurso $index de $total';
+  }
+
+  @override
+  String get lessonBonusCase => 'Caso bónus';
+
+  @override
+  String get lessonPracticeIntro =>
+      'Uma baralhação real: só os passos anteriores estão resolvidos. Termine todo este passo, indicação a indicação.';
+
+  @override
+  String lessonContinueDesc(String lesson) {
+    return 'Siga diretamente para $lesson.';
+  }
+
+  @override
+  String get lessonFreePractice => 'Prática livre';
+
+  @override
+  String get lessonFreePracticeDesc =>
+      'Resolva sozinho um cubo 3D baralhado, do início até este passo.';
+
+  @override
+  String freePracticeBanner(String topic) {
+    return 'Pratique à vontade: resolva o cubo do início até $topic!';
+  }
+
+  @override
+  String get pieceColorSeparator => '-';
+
+  @override
+  String cueFaceTurn(String face) {
+    return 'Rode a face do centro $face como a seta indica. O centro fica no lugar; só as peças à volta viajam.';
+  }
+
+  @override
+  String cueTrigger(String front) {
+    return 'Gatilho da mão direita, com o $front virado para si: face direita para cima, topo para a esquerda, face direita para baixo, topo de volta para a direita.';
+  }
+
+  @override
+  String get cueTriggerBack =>
+      'O sexto gatilho seguido devolve o cubo exatamente ao estado inicial. Seis é o número mágico!';
+
+  @override
+  String cueSliceInner(String face) {
+    return 'Rode só a camada interior junto à face $face. A face em si não se mexe, por isso os centros separam-se.';
+  }
+
+  @override
+  String cueSliceWide(String face) {
+    return 'Um movimento largo: a face $face e a camada interior ao lado rodam juntas, como uma única camada grossa.';
+  }
+
+  @override
+  String cueTurnCube(String top, String front) {
+    return 'Rode o cubo todo para o centro $top ficar em cima e o centro $front virado para si.';
+  }
+
+  @override
+  String get cueTurnTop =>
+      'Rode só a camada de cima, como a seta indica, para preparar o algoritmo seguinte.';
+
+  @override
+  String get cueAlignTop =>
+      'Último movimento: rode a camada de cima para alinhar as cores. Feito!';
+
+  @override
+  String cueCrossTop(String piece, String center) {
+    return 'A aresta $piece está na camada de cima. Rode o topo até ficar mesmo por cima do centro $center e depois rode essa face duas vezes para a descer.';
+  }
+
+  @override
+  String cueCrossMiddle(String piece, String center) {
+    return 'A aresta $piece está presa na camada do meio. Suba-a, alinhe-a por cima do centro $center e desça-a.';
+  }
+
+  @override
+  String cueCrossFlipped(String piece, String center) {
+    return 'A aresta $piece está no lugar mas virada ao contrário: o branco olha para o lado. Tire-a e volte a colocá-la junto ao centro $center do lado certo.';
+  }
+
+  @override
+  String cueCrossBottom(String piece, String center) {
+    return 'Ao estilo CFOP, a base também pode rodar. Desça a aresta $piece e rode a base para a alinhar com o centro $center.';
+  }
+
+  @override
+  String cueCornerTop(String piece, String a, String b) {
+    return 'Rode o topo até o canto $piece ficar mesmo por cima do seu lugar, entre os lados $a e $b. Repita o gatilho da mão direita até ele entrar bem orientado.';
+  }
+
+  @override
+  String cueCornerTwisted(String piece) {
+    return 'O canto $piece está no seu lugar mas rodado. Um gatilho tira-o (um canto amarelo ocupa o lugar); continue a repetir até ele voltar a entrar bem.';
+  }
+
+  @override
+  String cueMiddleRight(String piece, String a, String b) {
+    return 'Rode o topo até a aresta $piece ficar alinhada com o centro $a e depois mande-a para baixo à direita, para o lugar entre $a e $b.';
+  }
+
+  @override
+  String cueMiddleLeft(String piece, String a, String b) {
+    return 'Rode o topo até a aresta $piece ficar alinhada com o centro $a e depois mande-a para baixo à esquerda, para o lugar entre $a e $b.';
+  }
+
+  @override
+  String cueMiddleFlipped(String piece, String a, String b) {
+    return 'A aresta $piece está no seu lugar mas virada. Insira lá uma aresta amarela para a empurrar para fora e depois insira-a de novo entre $a e $b.';
+  }
+
+  @override
+  String cueYellowLine(String front) {
+    return 'Uma linha amarela: rode o topo para ela ir da esquerda para a direita, mantenha o $front virado para si e faça o algoritmo da cruz amarela.';
+  }
+
+  @override
+  String cueYellowL(String front) {
+    return 'Um L amarelo: rode o topo para o L apontar para trás à esquerda, mantenha o $front virado para si e faça o algoritmo. Passa a ser uma linha.';
+  }
+
+  @override
+  String cueYellowDot(String front) {
+    return 'Só o centro é amarelo: um ponto. Faça o algoritmo uma vez, com o $front virado para si, para obter um L.';
+  }
+
+  @override
+  String cueEdgesMatch(String piece, String center) {
+    return 'Rode o topo até a aresta $piece coincidir com o centro $center.';
+  }
+
+  @override
+  String cueEdgesSwap(String front) {
+    return 'Duas arestas certas estão atrás e à direita. Com o $front virado para si, faça a troca: as arestas da frente e da esquerda trocam de lugar.';
+  }
+
+  @override
+  String cueEdgesOpposite(String front) {
+    return 'As arestas certas estão uma em frente à outra. Faça a troca uma vez com o $front virado para si; depois duas vizinhas ficam certas.';
+  }
+
+  @override
+  String cueCornersCycle(String piece, String front) {
+    return 'O canto $piece já está no seu lugar. Mantenha-o à frente à direita, com o $front virado para si, e faça o ciclo dos outros três cantos.';
+  }
+
+  @override
+  String cueCornersNone(String front) {
+    return 'Nenhum canto amarelo está ainda no lugar. Faça um ciclo com o $front virado para si; depois um canto fica no lugar.';
+  }
+
+  @override
+  String cueTwistCorner(String piece) {
+    return 'Oriente o canto $piece à frente à direita: repita o gatilho de baixo até o amarelo ficar para cima. As camadas de baixo parecem baralhadas por agora; é normal!';
+  }
+
+  @override
+  String cueTwistFour(String piece) {
+    return 'Desta vez o canto $piece precisa de quatro gatilhos. Continue: o amarelo sobe sempre após dois ou quatro.';
+  }
+
+  @override
+  String get cueTwistNext =>
+      'Rode só a camada de cima para trazer o próximo canto mal orientado para a frente à direita. Não rode agora o cubo todo!';
+
+  @override
+  String cueF2lPair(String piece, String edge, String a, String b) {
+    return 'Junte o canto $piece à aresta $edge em cima e depois insira o par no lugar entre $a e $b.';
+  }
+
+  @override
+  String cueF2lStuck(String piece) {
+    return 'O canto $piece está preso no seu lugar com a aresta errada. Tire-o primeiro para cima, depois forme o par e insira-o.';
+  }
+
+  @override
+  String cueOllSune(String front) {
+    return 'Com o $front virado para si, faça o Sune para virar os cantos amarelos para cima.';
+  }
+
+  @override
+  String cueOllSuneAgain(String front) {
+    return 'Desta vez um Sune não chegou. Rode o topo e faça o Sune outra vez, com o $front virado para si.';
+  }
+
+  @override
+  String cuePllCorners(String front) {
+    return 'Dois cantos têm de trocar. Mantenha o par igual (os «faróis») à esquerda, com o $front virado para si, e faça a T-perm.';
+  }
+
+  @override
+  String cuePllEdges(String piece) {
+    return 'Os cantos estão feitos. Mantenha a aresta $piece atrás e faça o ciclo das outras três arestas com a U-perm.';
+  }
+
+  @override
+  String get cuePllNoEdge =>
+      'Nenhuma aresta de cima coincide ainda com o seu centro. Faça a U-perm uma vez de qualquer lado; depois uma coincide.';
+
+  @override
+  String cueTwoSwapAdjacent(String front) {
+    return 'Dois cantos vizinhos de cima têm de trocar. Mantenha o par igual à esquerda, com o $front virado para si, e faça a troca.';
+  }
+
+  @override
+  String cueTwoSwapDiagonal(String front) {
+    return 'Os dois cantos a trocar estão na diagonal. Faça a troca diagonal com o $front virado para si.';
+  }
+
+  @override
+  String cueCenterCycle(String color) {
+    return 'Leve para casa a peça de centro $color perdida com o 3-ciclo de centros: camada, topo, camada e depois tudo de volta.';
+  }
+
+  @override
+  String cueCenterBar(String color) {
+    return 'Uma barra inteira de peças de centro $color está na face errada. Levante-a com a camada, rode o topo e devolva-a ao lugar.';
+  }
+
+  @override
+  String cueEdgePair(String piece) {
+    return 'Junte as duas peças de aresta $piece: alinhe-as, rode a camada, troque uma aresta por emparelhar com os movimentos da mão direita e volte a camada.';
+  }
+
+  @override
+  String cueEdgeLast(String piece) {
+    return 'As últimas arestas: emparelhe a aresta $piece com o algoritmo das duas últimas arestas, que mantém intactas todas as arestas prontas.';
+  }
+
+  @override
+  String cueParityOll(String front) {
+    return 'Paridade OLL: uma aresta de cima está virada, o que nunca acontece num 3×3. Mantenha-a à frente, com o $front virado para si, e faça a correção de paridade.';
+  }
+
+  @override
+  String get cueParityPll =>
+      'Paridade PLL: duas arestas de cima estão trocadas, o que nunca acontece num 3×3. Mantenha-as à frente e atrás e faça a troca de paridade.';
+
+  @override
+  String cueParityFive(String front) {
+    return 'Paridade de aresta: as duas peças exteriores de uma aresta estão trocadas. Rode essa aresta para a frente, com o $front virado para si, corrija-a e rode de volta.';
+  }
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -4623,4 +4901,282 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get academyAllSizes => 'Todos os tamanhos';
+
+  @override
+  String homeAcademyProgress(int done, int total) {
+    return '$done / $total aulas concluídas';
+  }
+
+  @override
+  String academySizeProgress(String size, int done, int total) {
+    return '$size • $done / $total concluídas';
+  }
+
+  @override
+  String get lessonStageConcept => 'Conceito';
+
+  @override
+  String get lessonStageExamples => 'Exemplos';
+
+  @override
+  String get lessonStagePractice => 'Prática';
+
+  @override
+  String get lessonStageNext => 'Seguir / livre';
+
+  @override
+  String lessonStageOf(int index, int total, String name) {
+    return 'Etapa $index de $total: $name';
+  }
+
+  @override
+  String lessonExampleOf(int index, int total) {
+    return 'Exemplo $index de $total';
+  }
+
+  @override
+  String lessonWalkthroughOf(int index, int total) {
+    return 'Passo a passo $index de $total';
+  }
+
+  @override
+  String get lessonBonusCase => 'Caso bônus';
+
+  @override
+  String get lessonPracticeIntro =>
+      'Um embaralhamento de verdade: só as etapas anteriores estão resolvidas. Termine esta etapa inteira, dica por dica.';
+
+  @override
+  String lessonContinueDesc(String lesson) {
+    return 'Siga direto para $lesson.';
+  }
+
+  @override
+  String get lessonFreePractice => 'Prática livre';
+
+  @override
+  String get lessonFreePracticeDesc =>
+      'Resolva sozinho um cubo 3D embaralhado, do começo até esta etapa.';
+
+  @override
+  String freePracticeBanner(String topic) {
+    return 'Pratique à vontade: resolva o cubo do começo até $topic!';
+  }
+
+  @override
+  String get pieceColorSeparator => '-';
+
+  @override
+  String cueFaceTurn(String face) {
+    return 'Gire a face do centro $face como a seta mostra. O centro fica parado; só as peças em volta dele se movem.';
+  }
+
+  @override
+  String cueTrigger(String front) {
+    return 'Gatilho da mão direita, com o $front virado para você: face direita para cima, topo para a esquerda, face direita para baixo, topo de volta para a direita.';
+  }
+
+  @override
+  String get cueTriggerBack =>
+      'O sexto gatilho seguido devolve o cubo exatamente como estava. Seis é o número mágico!';
+
+  @override
+  String cueSliceInner(String face) {
+    return 'Gire só a camada interna ao lado da face $face. A face em si fica parada, então os centros se separam.';
+  }
+
+  @override
+  String cueSliceWide(String face) {
+    return 'Um giro duplo: a face $face e a camada interna ao lado giram juntas, como uma camada grossa só.';
+  }
+
+  @override
+  String cueTurnCube(String top, String front) {
+    return 'Gire o cubo inteiro para o centro $top ficar em cima e o centro $front virado para você.';
+  }
+
+  @override
+  String get cueTurnTop =>
+      'Gire só a camada de cima, como a seta mostra, para preparar o próximo algoritmo.';
+
+  @override
+  String get cueAlignTop =>
+      'Último movimento: gire a camada de cima para alinhar as cores. Pronto!';
+
+  @override
+  String cueCrossTop(String piece, String center) {
+    return 'O meio $piece está na camada de cima. Gire o topo até ele ficar bem em cima do centro $center e depois gire essa face duas vezes para descê-lo.';
+  }
+
+  @override
+  String cueCrossMiddle(String piece, String center) {
+    return 'O meio $piece está preso na camada do meio. Suba-o, alinhe-o em cima do centro $center e desça-o.';
+  }
+
+  @override
+  String cueCrossFlipped(String piece, String center) {
+    return 'O meio $piece está no lugar, mas invertido: o branco dele aponta para o lado. Tire-o e coloque-o de volta ao lado do centro $center do jeito certo.';
+  }
+
+  @override
+  String cueCrossBottom(String piece, String center) {
+    return 'No estilo CFOP, a base também pode girar. Desça o meio $piece e gire a base para alinhá-lo com o centro $center.';
+  }
+
+  @override
+  String cueCornerTop(String piece, String a, String b) {
+    return 'Gire o topo até a quina $piece ficar bem em cima do lugar dela, entre os lados $a e $b. Repita o gatilho da mão direita até ela entrar na posição certa.';
+  }
+
+  @override
+  String cueCornerTwisted(String piece) {
+    return 'A quina $piece está no lugar dela, mas torcida. Um gatilho tira ela de lá (uma quina amarela entra no lugar); continue repetindo até ela voltar certa.';
+  }
+
+  @override
+  String cueMiddleRight(String piece, String a, String b) {
+    return 'Gire o topo até o meio $piece ficar alinhado com o centro $a e depois mande-o para baixo à direita, no espaço entre $a e $b.';
+  }
+
+  @override
+  String cueMiddleLeft(String piece, String a, String b) {
+    return 'Gire o topo até o meio $piece ficar alinhado com o centro $a e depois mande-o para baixo à esquerda, no espaço entre $a e $b.';
+  }
+
+  @override
+  String cueMiddleFlipped(String piece, String a, String b) {
+    return 'O meio $piece está no lugar, mas invertido. Coloque um meio amarelo ali para empurrá-lo para fora e depois insira-o de novo entre $a e $b.';
+  }
+
+  @override
+  String cueYellowLine(String front) {
+    return 'Uma linha amarela: gire o topo para ela ir da esquerda para a direita, mantenha o $front virado para você e faça o algoritmo da cruz amarela.';
+  }
+
+  @override
+  String cueYellowL(String front) {
+    return 'Um L amarelo: gire o topo para o L apontar para trás à esquerda, mantenha o $front virado para você e faça o algoritmo. Ele vira uma linha.';
+  }
+
+  @override
+  String cueYellowDot(String front) {
+    return 'Só o centro é amarelo: um ponto. Faça o algoritmo uma vez, com o $front virado para você, para formar um L.';
+  }
+
+  @override
+  String cueEdgesMatch(String piece, String center) {
+    return 'Gire o topo até o meio $piece combinar com o centro $center.';
+  }
+
+  @override
+  String cueEdgesSwap(String front) {
+    return 'Dois meios certos estão atrás e à direita. Com o $front virado para você, faça a troca: os meios da frente e da esquerda trocam de lugar.';
+  }
+
+  @override
+  String cueEdgesOpposite(String front) {
+    return 'Os meios certos estão um de frente para o outro. Faça a troca uma vez com o $front virado para você; depois dois vizinhos combinam.';
+  }
+
+  @override
+  String cueCornersCycle(String piece, String front) {
+    return 'A quina $piece já está no lugar dela. Mantenha-a na frente à direita, com o $front virado para você, e faça o ciclo das outras três quinas.';
+  }
+
+  @override
+  String cueCornersNone(String front) {
+    return 'Nenhuma quina amarela está no lugar ainda. Faça um ciclo com o $front virado para você; depois uma quina fica no lugar.';
+  }
+
+  @override
+  String cueTwistCorner(String piece) {
+    return 'Oriente a quina $piece da frente à direita: repita o gatilho de baixo até o amarelo dela ficar para cima. As camadas de baixo parecem bagunçadas por enquanto; é normal!';
+  }
+
+  @override
+  String cueTwistFour(String piece) {
+    return 'Desta vez a quina $piece precisa de quatro gatilhos. Continue: o amarelo sempre sobe depois de dois ou quatro.';
+  }
+
+  @override
+  String get cueTwistNext =>
+      'Gire só a camada de cima para trazer a próxima quina torcida para a frente à direita. Não gire o cubo inteiro agora!';
+
+  @override
+  String cueF2lPair(String piece, String edge, String a, String b) {
+    return 'Junte a quina $piece com o meio $edge em cima e depois insira o par no espaço entre $a e $b.';
+  }
+
+  @override
+  String cueF2lStuck(String piece) {
+    return 'A quina $piece está presa no lugar dela com o meio errado. Tire-a para cima primeiro, depois forme o par e insira.';
+  }
+
+  @override
+  String cueOllSune(String front) {
+    return 'Com o $front virado para você, faça o Sune para virar as quinas amarelas para cima.';
+  }
+
+  @override
+  String cueOllSuneAgain(String front) {
+    return 'Desta vez um Sune não bastou. Gire o topo e faça o Sune de novo, com o $front virado para você.';
+  }
+
+  @override
+  String cuePllCorners(String front) {
+    return 'Duas quinas precisam trocar. Deixe o par igual (os \"faróis\") à esquerda, com o $front virado para você, e faça a T-perm.';
+  }
+
+  @override
+  String cuePllEdges(String piece) {
+    return 'As quinas estão prontas. Deixe o meio $piece atrás e faça o ciclo dos outros três meios com a U-perm.';
+  }
+
+  @override
+  String get cuePllNoEdge =>
+      'Nenhum meio de cima combina com o centro ainda. Faça a U-perm uma vez de qualquer lado; depois um combina.';
+
+  @override
+  String cueTwoSwapAdjacent(String front) {
+    return 'Duas quinas vizinhas de cima precisam trocar. Deixe o par igual à esquerda, com o $front virado para você, e faça a troca.';
+  }
+
+  @override
+  String cueTwoSwapDiagonal(String front) {
+    return 'As duas quinas a trocar estão na diagonal. Faça a troca diagonal com o $front virado para você.';
+  }
+
+  @override
+  String cueCenterCycle(String color) {
+    return 'Leve para casa a peça de centro $color perdida com o 3-ciclo de centros: camada, topo, camada e depois tudo de volta.';
+  }
+
+  @override
+  String cueCenterBar(String color) {
+    return 'Uma barra inteira de peças de centro $color está na face errada. Levante-a com a camada, gire o topo e leve-a de volta para casa.';
+  }
+
+  @override
+  String cueEdgePair(String piece) {
+    return 'Junte as duas peças do meio $piece: alinhe-as, gire a camada, troque um meio não pareado com os movimentos da mão direita e volte a camada.';
+  }
+
+  @override
+  String cueEdgeLast(String piece) {
+    return 'Os últimos meios: pareie o meio $piece com o algoritmo dos dois últimos meios, que mantém todos os meios prontos intactos.';
+  }
+
+  @override
+  String cueParityOll(String front) {
+    return 'Paridade OLL: um meio de cima está invertido, o que nunca acontece num 3×3. Deixe-o na frente, com o $front virado para você, e faça a correção de paridade.';
+  }
+
+  @override
+  String get cueParityPll =>
+      'Paridade PLL: dois meios de cima estão trocados, o que nunca acontece num 3×3. Deixe-os na frente e atrás e faça a troca de paridade.';
+
+  @override
+  String cueParityFive(String front) {
+    return 'Paridade de meio: as duas peças externas de um meio estão trocadas. Gire esse meio para a frente, com o $front virado para você, corrija e gire de volta.';
+  }
 }

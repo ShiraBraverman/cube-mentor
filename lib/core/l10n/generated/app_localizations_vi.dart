@@ -2248,4 +2248,282 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get academyAllSizes => 'Mọi kích thước';
+
+  @override
+  String homeAcademyProgress(int done, int total) {
+    return 'Đã xong $done / $total bài học';
+  }
+
+  @override
+  String academySizeProgress(String size, int done, int total) {
+    return '$size • đã xong $done / $total';
+  }
+
+  @override
+  String get lessonStageConcept => 'Khái niệm';
+
+  @override
+  String get lessonStageExamples => 'Ví dụ';
+
+  @override
+  String get lessonStagePractice => 'Thực hành';
+
+  @override
+  String get lessonStageNext => 'Tiếp / tự do';
+
+  @override
+  String lessonStageOf(int index, int total, String name) {
+    return 'Giai đoạn $index/$total: $name';
+  }
+
+  @override
+  String lessonExampleOf(int index, int total) {
+    return 'Ví dụ $index/$total';
+  }
+
+  @override
+  String lessonWalkthroughOf(int index, int total) {
+    return 'Thực hành $index/$total';
+  }
+
+  @override
+  String get lessonBonusCase => 'Tình huống thêm';
+
+  @override
+  String get lessonPracticeIntro =>
+      'Một khối xáo trộn thật: chỉ các bước trước đã xong. Hoàn thành trọn bước này theo từng gợi ý.';
+
+  @override
+  String lessonContinueDesc(String lesson) {
+    return 'Đi thẳng tới $lesson.';
+  }
+
+  @override
+  String get lessonFreePractice => 'Luyện tập tự do';
+
+  @override
+  String get lessonFreePracticeDesc =>
+      'Tự giải một khối 3D đã xáo trộn, từ đầu cho tới bước này.';
+
+  @override
+  String freePracticeBanner(String topic) {
+    return 'Luyện tập tự do: giải khối từ đầu cho tới $topic!';
+  }
+
+  @override
+  String get pieceColorSeparator => '-';
+
+  @override
+  String cueFaceTurn(String face) {
+    return 'Xoay mặt có tâm $face theo hướng mũi tên. Tâm đứng yên; chỉ các viên xung quanh di chuyển.';
+  }
+
+  @override
+  String cueTrigger(String front) {
+    return 'Động tác tay phải, $front hướng về bạn: mặt phải lên, tầng trên sang trái, mặt phải xuống, tầng trên trở lại bên phải.';
+  }
+
+  @override
+  String get cueTriggerBack =>
+      'Lần thứ sáu liên tiếp đưa khối về đúng như lúc đầu. Sáu là con số kỳ diệu!';
+
+  @override
+  String cueSliceInner(String face) {
+    return 'Chỉ xoay lớp bên trong cạnh mặt $face. Bản thân mặt đó đứng yên, nên các tâm bị tách ra.';
+  }
+
+  @override
+  String cueSliceWide(String face) {
+    return 'Xoay rộng: mặt $face và lớp bên trong cạnh nó xoay cùng nhau, như một lớp dày.';
+  }
+
+  @override
+  String cueTurnCube(String top, String front) {
+    return 'Xoay cả khối để tâm $top ở trên và tâm $front hướng về bạn.';
+  }
+
+  @override
+  String get cueTurnTop =>
+      'Chỉ xoay tầng trên theo mũi tên để chuẩn bị cho công thức tiếp theo.';
+
+  @override
+  String get cueAlignTop =>
+      'Bước cuối: xoay tầng trên cho các màu thẳng hàng. Xong!';
+
+  @override
+  String cueCrossTop(String piece, String center) {
+    return 'Cạnh $piece đang ở tầng trên. Xoay tầng trên đến khi nó nằm ngay trên tâm $center, rồi xoay mặt đó hai lần để đưa nó xuống.';
+  }
+
+  @override
+  String cueCrossMiddle(String piece, String center) {
+    return 'Cạnh $piece bị kẹt ở tầng giữa. Đưa nó lên trên, căn ngay trên tâm $center, rồi đưa xuống.';
+  }
+
+  @override
+  String cueCrossFlipped(String piece, String center) {
+    return 'Cạnh $piece đã đúng chỗ nhưng bị lật: màu trắng quay sang bên. Lấy nó ra, rồi đặt lại cạnh tâm $center đúng chiều.';
+  }
+
+  @override
+  String cueCrossBottom(String piece, String center) {
+    return 'Kiểu CFOP: tầng dưới cũng được xoay. Đưa cạnh $piece xuống và xoay tầng dưới cho khớp với tâm $center.';
+  }
+
+  @override
+  String cueCornerTop(String piece, String a, String b) {
+    return 'Xoay tầng trên đến khi góc $piece nằm ngay trên chỗ của nó, giữa hai mặt $a và $b. Lặp lại động tác tay phải đến khi nó vào đúng chiều.';
+  }
+
+  @override
+  String cueCornerTwisted(String piece) {
+    return 'Góc $piece đã ở đúng chỗ nhưng bị xoắn. Một lần động tác sẽ lấy nó ra (một góc vàng vào thay); tiếp tục lặp lại đến khi nó vào lại đúng chiều.';
+  }
+
+  @override
+  String cueMiddleRight(String piece, String a, String b) {
+    return 'Xoay tầng trên đến khi cạnh $piece khớp với tâm $a, rồi đưa nó xuống bên phải, vào khe giữa $a và $b.';
+  }
+
+  @override
+  String cueMiddleLeft(String piece, String a, String b) {
+    return 'Xoay tầng trên đến khi cạnh $piece khớp với tâm $a, rồi đưa nó xuống bên trái, vào khe giữa $a và $b.';
+  }
+
+  @override
+  String cueMiddleFlipped(String piece, String a, String b) {
+    return 'Cạnh $piece đã ở trong khe nhưng bị lật. Đưa một cạnh vàng vào đó để đẩy nó ra, rồi đưa nó vào lại giữa $a và $b.';
+  }
+
+  @override
+  String cueYellowLine(String front) {
+    return 'Một đường vàng: xoay tầng trên để đường nằm ngang từ trái sang phải, giữ $front hướng về bạn, rồi làm công thức chữ thập vàng.';
+  }
+
+  @override
+  String cueYellowL(String front) {
+    return 'Một chữ L vàng: xoay tầng trên để chữ L chỉ về phía sau bên trái, giữ $front hướng về bạn, rồi làm công thức. Nó sẽ thành một đường.';
+  }
+
+  @override
+  String cueYellowDot(String front) {
+    return 'Chỉ có tâm màu vàng: một chấm. Làm công thức một lần với $front hướng về bạn để có chữ L.';
+  }
+
+  @override
+  String cueEdgesMatch(String piece, String center) {
+    return 'Xoay tầng trên đến khi cạnh $piece khớp với tâm $center.';
+  }
+
+  @override
+  String cueEdgesSwap(String front) {
+    return 'Hai cạnh đã khớp nằm ở phía sau và bên phải. Với $front hướng về bạn, làm phép đổi: cạnh trước và cạnh trái đổi chỗ cho nhau.';
+  }
+
+  @override
+  String cueEdgesOpposite(String front) {
+    return 'Các cạnh đã khớp nằm đối diện nhau. Làm phép đổi một lần với $front hướng về bạn; sau đó hai cạnh kề nhau sẽ khớp.';
+  }
+
+  @override
+  String cueCornersCycle(String piece, String front) {
+    return 'Góc $piece đã ở đúng chỗ. Giữ nó ở phía trước bên phải, $front hướng về bạn, rồi xoay vòng ba góc còn lại.';
+  }
+
+  @override
+  String cueCornersNone(String front) {
+    return 'Chưa có góc vàng nào đúng chỗ. Xoay vòng một lần với $front hướng về bạn; sau đó sẽ có một góc về đúng chỗ.';
+  }
+
+  @override
+  String cueTwistCorner(String piece) {
+    return 'Xoắn góc $piece ở phía trước bên phải: lặp lại động tác dưới đến khi màu vàng của nó hướng lên. Các tầng dưới tạm thời trông lộn xộn, điều đó là bình thường!';
+  }
+
+  @override
+  String cueTwistFour(String piece) {
+    return 'Lần này góc $piece cần bốn lần động tác. Cứ tiếp tục: màu vàng luôn lên sau hai hoặc bốn lần.';
+  }
+
+  @override
+  String get cueTwistNext =>
+      'Chỉ xoay tầng trên để đưa góc bị xoắn tiếp theo ra phía trước bên phải. Đừng xoay cả khối lúc này!';
+
+  @override
+  String cueF2lPair(String piece, String edge, String a, String b) {
+    return 'Ghép góc $piece với cạnh $edge ở tầng trên, rồi đưa cặp đó vào khe giữa $a và $b.';
+  }
+
+  @override
+  String cueF2lStuck(String piece) {
+    return 'Góc $piece bị kẹt trong khe cùng một cạnh sai. Trước hết đưa nó lên trên, rồi ghép cặp và đưa vào.';
+  }
+
+  @override
+  String cueOllSune(String front) {
+    return 'Với $front hướng về bạn, làm Sune để lật các góc vàng hướng lên.';
+  }
+
+  @override
+  String cueOllSuneAgain(String front) {
+    return 'Lần này một Sune chưa đủ. Xoay tầng trên và làm Sune thêm lần nữa, $front hướng về bạn.';
+  }
+
+  @override
+  String cuePllCorners(String front) {
+    return 'Hai góc cần đổi chỗ. Giữ cặp giống nhau (đèn pha) ở bên trái, $front hướng về bạn, rồi làm T-perm.';
+  }
+
+  @override
+  String cuePllEdges(String piece) {
+    return 'Các góc đã xong. Giữ cạnh $piece ở phía sau và xoay vòng ba cạnh còn lại bằng U-perm.';
+  }
+
+  @override
+  String get cuePllNoEdge =>
+      'Chưa có cạnh tầng trên nào khớp với tâm. Làm U-perm một lần từ phía nào cũng được; sau đó sẽ có một cạnh khớp.';
+
+  @override
+  String cueTwoSwapAdjacent(String front) {
+    return 'Hai góc kề nhau ở tầng trên cần đổi chỗ. Giữ cặp giống nhau ở bên trái, $front hướng về bạn, rồi làm phép đổi.';
+  }
+
+  @override
+  String cueTwoSwapDiagonal(String front) {
+    return 'Hai góc cần đổi nằm chéo nhau. Làm phép đổi chéo với $front hướng về bạn.';
+  }
+
+  @override
+  String cueCenterCycle(String color) {
+    return 'Đưa viên tâm $color bị lạc về chỗ bằng hoán vị vòng 3 viên tâm: lớp trong, tầng trên, lớp trong, rồi trả lại tất cả.';
+  }
+
+  @override
+  String cueCenterBar(String color) {
+    return 'Cả một thanh viên tâm $color đang ở sai mặt. Nhấc nó lên bằng lớp trong, xoay tầng trên, rồi đưa nó về chỗ.';
+  }
+
+  @override
+  String cueEdgePair(String piece) {
+    return 'Ghép hai viên của cạnh $piece: căn chúng thẳng hàng, xoay lớp trong, đổi vào một cạnh chưa ghép bằng động tác tay phải, rồi xoay lớp trả lại.';
+  }
+
+  @override
+  String cueEdgeLast(String piece) {
+    return 'Các cạnh cuối: ghép cạnh $piece bằng công thức hai cạnh cuối, công thức giữ nguyên mọi cạnh đã xong.';
+  }
+
+  @override
+  String cueParityOll(String front) {
+    return 'Parity OLL: một cạnh tầng trên bị lật, điều không bao giờ xảy ra trên 3×3. Giữ nó ở phía trước, $front hướng về bạn, rồi làm công thức sửa parity.';
+  }
+
+  @override
+  String get cueParityPll =>
+      'Parity PLL: hai cạnh tầng trên bị đổi chỗ, điều không bao giờ xảy ra trên 3×3. Giữ chúng ở phía trước và phía sau rồi làm phép đổi parity.';
+
+  @override
+  String cueParityFive(String front) {
+    return 'Parity cạnh: hai viên ngoài của một cạnh bị đổi chỗ. Xoay cạnh đó ra phía trước, $front hướng về bạn, sửa lại rồi xoay về.';
+  }
 }

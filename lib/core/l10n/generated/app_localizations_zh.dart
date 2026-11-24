@@ -2118,6 +2118,277 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get academyAllSizes => '全部尺寸';
+
+  @override
+  String homeAcademyProgress(int done, int total) {
+    return '已完成 $done / $total 课';
+  }
+
+  @override
+  String academySizeProgress(String size, int done, int total) {
+    return '$size • 已完成 $done / $total';
+  }
+
+  @override
+  String get lessonStageConcept => '讲解';
+
+  @override
+  String get lessonStageExamples => '示例';
+
+  @override
+  String get lessonStagePractice => '实战';
+
+  @override
+  String get lessonStageNext => '继续 / 自由';
+
+  @override
+  String lessonStageOf(int index, int total, String name) {
+    return '第 $index 阶段，共 $total 阶段：$name';
+  }
+
+  @override
+  String lessonExampleOf(int index, int total) {
+    return '示例 $index/$total';
+  }
+
+  @override
+  String lessonWalkthroughOf(int index, int total) {
+    return '实战 $index/$total';
+  }
+
+  @override
+  String get lessonBonusCase => '额外情况';
+
+  @override
+  String get lessonPracticeIntro => '真实打乱：只有前面的步骤已完成。跟着提示一条条来，把这一整步完成。';
+
+  @override
+  String lessonContinueDesc(String lesson) {
+    return '直接进入「$lesson」。';
+  }
+
+  @override
+  String get lessonFreePractice => '自由练习';
+
+  @override
+  String get lessonFreePracticeDesc => '自己还原一个打乱的 3D 魔方，从头一直到这一步。';
+
+  @override
+  String freePracticeBanner(String topic) {
+    return '自由练习：从头开始，把魔方还原到「$topic」！';
+  }
+
+  @override
+  String get pieceColorSeparator => '·';
+
+  @override
+  String cueFaceTurn(String face) {
+    return '按箭头方向转动$face色中心所在的面。中心不动，只有它周围的块在移动。';
+  }
+
+  @override
+  String cueTrigger(String front) {
+    return '右手公式，$front色朝向你：右面向上，顶层向左，右面向下，顶层向右回来。';
+  }
+
+  @override
+  String get cueTriggerBack => '连续做第六次，魔方就会完全回到原来的样子。六就是神奇数字！';
+
+  @override
+  String cueSliceInner(String face) {
+    return '只转动紧挨$face色面的内层。这个面本身不动，所以中心会被分开。';
+  }
+
+  @override
+  String cueSliceWide(String face) {
+    return '宽层转动：$face色面和旁边的内层一起转，就像一层厚厚的层。';
+  }
+
+  @override
+  String cueTurnCube(String top, String front) {
+    return '整体转动魔方，让$top色中心朝上、$front色中心朝向你。';
+  }
+
+  @override
+  String get cueTurnTop => '按箭头只转动顶层，为下一个公式做准备。';
+
+  @override
+  String get cueAlignTop => '最后一步：转动顶层把颜色对齐。完成！';
+
+  @override
+  String cueCrossTop(String piece, String center) {
+    return '$piece棱块在顶层。转动顶层，直到它正好在$center色中心上方，然后把这一面转两次，让它落下去。';
+  }
+
+  @override
+  String cueCrossMiddle(String piece, String center) {
+    return '$piece棱块卡在中层。把它提到顶层，对准$center色中心上方，再把它放下去。';
+  }
+
+  @override
+  String cueCrossFlipped(String piece, String center) {
+    return '$piece棱块位置对了，但方向反了：白色朝向侧面。先把它取出来，再以正确方向放回$center色中心旁边。';
+  }
+
+  @override
+  String cueCrossBottom(String piece, String center) {
+    return 'CFOP 里也可以转底层。把$piece棱块放下去，再转动底层让它对准$center色中心。';
+  }
+
+  @override
+  String cueCornerTop(String piece, String a, String b) {
+    return '转动顶层，让$piece角块正好在它的位置上方，也就是$a色和$b色两面之间。重复右手公式，直到它以正确方向落进去。';
+  }
+
+  @override
+  String cueCornerTwisted(String piece) {
+    return '$piece角块在自己的位置上，但方向转错了。做一次公式就会把它取出（一个黄色角块会换进去）；继续重复，直到它正确地回到原位。';
+  }
+
+  @override
+  String cueMiddleRight(String piece, String a, String b) {
+    return '转动顶层，直到$piece棱块对准$a色中心，然后把它送到右下方，$a色和$b色之间的槽位。';
+  }
+
+  @override
+  String cueMiddleLeft(String piece, String a, String b) {
+    return '转动顶层，直到$piece棱块对准$a色中心，然后把它送到左下方，$a色和$b色之间的槽位。';
+  }
+
+  @override
+  String cueMiddleFlipped(String piece, String a, String b) {
+    return '$piece棱块在槽位里，但方向反了。先把一个黄色棱块插进去把它顶出来，再把它重新插入$a色和$b色之间。';
+  }
+
+  @override
+  String cueYellowLine(String front) {
+    return '黄色一字：转动顶层让它左右横放，保持$front色朝向你，然后做黄色十字公式。';
+  }
+
+  @override
+  String cueYellowL(String front) {
+    return '黄色 L 形：转动顶层让 L 指向左后方，保持$front色朝向你，然后做公式。它会变成一字。';
+  }
+
+  @override
+  String cueYellowDot(String front) {
+    return '只有中心是黄色：一个点。保持$front色朝向你，做一次公式，就会得到 L 形。';
+  }
+
+  @override
+  String cueEdgesMatch(String piece, String center) {
+    return '转动顶层，直到$piece棱块和$center色中心对上。';
+  }
+
+  @override
+  String cueEdgesSwap(String front) {
+    return '两个对好的棱块在后面和右边。保持$front色朝向你，做交换公式：前面和左边的棱块互换位置。';
+  }
+
+  @override
+  String cueEdgesOpposite(String front) {
+    return '对好的棱块彼此相对。保持$front色朝向你做一次交换；之后会有两个相邻的棱块对好。';
+  }
+
+  @override
+  String cueCornersCycle(String piece, String front) {
+    return '$piece角块已经在自己的位置上。把它放在右前方，保持$front色朝向你，轮换另外三个角块。';
+  }
+
+  @override
+  String cueCornersNone(String front) {
+    return '还没有黄色角块在自己的位置上。保持$front色朝向你轮换一次；之后就会有一个角块归位。';
+  }
+
+  @override
+  String cueTwistCorner(String piece) {
+    return '调整右前方的$piece角块：重复下层公式，直到它的黄色朝上。下面几层暂时看起来是乱的，这很正常！';
+  }
+
+  @override
+  String cueTwistFour(String piece) {
+    return '这次$piece角块需要做四次。继续：黄色总会在两次或四次后朝上。';
+  }
+
+  @override
+  String get cueTwistNext => '只转动顶层，把下一个方向不对的角块转到右前方。现在不要整体转动魔方！';
+
+  @override
+  String cueF2lPair(String piece, String edge, String a, String b) {
+    return '在顶层把$piece角块和$edge棱块配成一对，然后把这一对插入$a色和$b色之间的槽位。';
+  }
+
+  @override
+  String cueF2lStuck(String piece) {
+    return '$piece角块和错误的棱块一起卡在槽位里。先把它取到顶层，再配对插入。';
+  }
+
+  @override
+  String cueOllSune(String front) {
+    return '保持$front色朝向你，做 Sune，让黄色角块朝上。';
+  }
+
+  @override
+  String cueOllSuneAgain(String front) {
+    return '这次一个 Sune 不够。转动顶层，保持$front色朝向你，再做一次 Sune。';
+  }
+
+  @override
+  String cuePllCorners(String front) {
+    return '有两个角块需要交换。把颜色相同的一对（车灯）放在左边，保持$front色朝向你，做 T-perm。';
+  }
+
+  @override
+  String cuePllEdges(String piece) {
+    return '角块已完成。把$piece棱块放在后面，用 U-perm 轮换另外三个棱块。';
+  }
+
+  @override
+  String get cuePllNoEdge => '顶层还没有棱块和中心对上。从任意一面做一次 U-perm；之后就会有一个对上。';
+
+  @override
+  String cueTwoSwapAdjacent(String front) {
+    return '顶层两个相邻的角块需要交换。把颜色相同的一对放在左边，保持$front色朝向你，做交换公式。';
+  }
+
+  @override
+  String cueTwoSwapDiagonal(String front) {
+    return '需要交换的两个角块位于对角。保持$front色朝向你，做对角交换。';
+  }
+
+  @override
+  String cueCenterCycle(String color) {
+    return '用中心三循环把走散的$color色中心块送回家：内层、顶层、内层，然后全部还原。';
+  }
+
+  @override
+  String cueCenterBar(String color) {
+    return '一整条$color色中心块在错误的面上。用内层把它抬上去，转动顶层，再把它送回原位。';
+  }
+
+  @override
+  String cueEdgePair(String piece) {
+    return '把$piece棱的两个小块配对：先对齐，转动内层，用右手动作换入一个未配对的棱，再把内层转回来。';
+  }
+
+  @override
+  String cueEdgeLast(String piece) {
+    return '最后的棱：用最后两棱公式配好$piece棱，已完成的棱都不会被打乱。';
+  }
+
+  @override
+  String cueParityOll(String front) {
+    return 'OLL 特殊情况：顶层有一个棱块翻转了，这在三阶上从不会发生。把它放在前面，保持$front色朝向你，做特殊情况修正公式。';
+  }
+
+  @override
+  String get cueParityPll =>
+      'PLL 特殊情况：顶层两个棱块互换了，这在三阶上从不会发生。把它们放在前面和后面，做特殊情况交换公式。';
+
+  @override
+  String cueParityFive(String front) {
+    return '棱的特殊情况：一条棱外侧的两个小块互换了。把这条棱转到前面，保持$front色朝向你，修正后再转回去。';
+  }
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -4249,4 +4520,275 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get academyAllSizes => '全部尺寸';
+
+  @override
+  String homeAcademyProgress(int done, int total) {
+    return '已完成 $done / $total 課';
+  }
+
+  @override
+  String academySizeProgress(String size, int done, int total) {
+    return '$size • 已完成 $done / $total';
+  }
+
+  @override
+  String get lessonStageConcept => '講解';
+
+  @override
+  String get lessonStageExamples => '範例';
+
+  @override
+  String get lessonStagePractice => '實戰';
+
+  @override
+  String get lessonStageNext => '繼續 / 自由';
+
+  @override
+  String lessonStageOf(int index, int total, String name) {
+    return '第 $index 階段，共 $total 階段：$name';
+  }
+
+  @override
+  String lessonExampleOf(int index, int total) {
+    return '範例 $index/$total';
+  }
+
+  @override
+  String lessonWalkthroughOf(int index, int total) {
+    return '實戰 $index/$total';
+  }
+
+  @override
+  String get lessonBonusCase => '額外狀況';
+
+  @override
+  String get lessonPracticeIntro => '真實打亂：只有前面的步驟已完成。跟著提示一條一條來，把這一整步完成。';
+
+  @override
+  String lessonContinueDesc(String lesson) {
+    return '直接進入「$lesson」。';
+  }
+
+  @override
+  String get lessonFreePractice => '自由練習';
+
+  @override
+  String get lessonFreePracticeDesc => '自己還原一顆打亂的 3D 方塊，從頭一直到這一步。';
+
+  @override
+  String freePracticeBanner(String topic) {
+    return '自由練習：從頭開始，把方塊還原到「$topic」！';
+  }
+
+  @override
+  String get pieceColorSeparator => '·';
+
+  @override
+  String cueFaceTurn(String face) {
+    return '照箭頭方向轉動$face色中心所在的面。中心不動，只有它周圍的方塊在移動。';
+  }
+
+  @override
+  String cueTrigger(String front) {
+    return '右手公式，$front色朝向你：右面往上，頂層往左，右面往下，頂層往右轉回來。';
+  }
+
+  @override
+  String get cueTriggerBack => '連續做到第六次，方塊就會完全回到原本的樣子。六就是神奇數字！';
+
+  @override
+  String cueSliceInner(String face) {
+    return '只轉動緊鄰$face色面的內層。這一面本身不動，所以中心會被拆開。';
+  }
+
+  @override
+  String cueSliceWide(String face) {
+    return '寬層轉動：$face色面和旁邊的內層一起轉，就像一層厚厚的層。';
+  }
+
+  @override
+  String cueTurnCube(String top, String front) {
+    return '整顆方塊轉向，讓$top色中心朝上、$front色中心朝向你。';
+  }
+
+  @override
+  String get cueTurnTop => '照箭頭只轉動頂層，為下一個公式做準備。';
+
+  @override
+  String get cueAlignTop => '最後一步：轉動頂層把顏色對齊。完成！';
+
+  @override
+  String cueCrossTop(String piece, String center) {
+    return '$piece邊塊在頂層。轉動頂層，直到它剛好在$center色中心上方，再把那一面轉兩次放下去。';
+  }
+
+  @override
+  String cueCrossMiddle(String piece, String center) {
+    return '$piece邊塊卡在中層。把它拿到頂層，對準$center色中心上方，再放下去。';
+  }
+
+  @override
+  String cueCrossFlipped(String piece, String center) {
+    return '$piece邊塊位置對了，但方向相反：白色朝向側面。先把它拿出來，再以正確方向放回$center色中心旁邊。';
+  }
+
+  @override
+  String cueCrossBottom(String piece, String center) {
+    return 'CFOP 也可以轉底層。把$piece邊塊放下去，再轉動底層讓它對準$center色中心。';
+  }
+
+  @override
+  String cueCornerTop(String piece, String a, String b) {
+    return '轉動頂層，讓$piece角塊剛好在它的位置上方，也就是$a色和$b色兩面之間。重複右手公式，直到它以正確方向落進去。';
+  }
+
+  @override
+  String cueCornerTwisted(String piece) {
+    return '$piece角塊在自己的位置上，但方向轉錯了。做一次公式就會把它拿出來（一個黃色角塊會換進去）；繼續重複，直到它正確地回到原位。';
+  }
+
+  @override
+  String cueMiddleRight(String piece, String a, String b) {
+    return '轉動頂層，直到$piece邊塊對準$a色中心，再把它送到右下方，$a色和$b色之間的位置。';
+  }
+
+  @override
+  String cueMiddleLeft(String piece, String a, String b) {
+    return '轉動頂層，直到$piece邊塊對準$a色中心，再把它送到左下方，$a色和$b色之間的位置。';
+  }
+
+  @override
+  String cueMiddleFlipped(String piece, String a, String b) {
+    return '$piece邊塊在位置上，但方向相反。先插入一個黃色邊塊把它頂出來，再把它重新插入$a色和$b色之間。';
+  }
+
+  @override
+  String cueYellowLine(String front) {
+    return '黃色一字：轉動頂層讓它左右橫放，保持$front色朝向你，然後做黃色十字公式。';
+  }
+
+  @override
+  String cueYellowL(String front) {
+    return '黃色 L 形：轉動頂層讓 L 指向左後方，保持$front色朝向你，然後做公式。它會變成一字。';
+  }
+
+  @override
+  String cueYellowDot(String front) {
+    return '只有中心是黃色：一個點。保持$front色朝向你，做一次公式，就會得到 L 形。';
+  }
+
+  @override
+  String cueEdgesMatch(String piece, String center) {
+    return '轉動頂層，直到$piece邊塊和$center色中心對上。';
+  }
+
+  @override
+  String cueEdgesSwap(String front) {
+    return '兩個對好的邊塊在後面和右邊。保持$front色朝向你，做交換公式：前面和左邊的邊塊互換位置。';
+  }
+
+  @override
+  String cueEdgesOpposite(String front) {
+    return '對好的邊塊彼此相對。保持$front色朝向你做一次交換；之後會有兩個相鄰的邊塊對好。';
+  }
+
+  @override
+  String cueCornersCycle(String piece, String front) {
+    return '$piece角塊已經在自己的位置上。把它放在右前方，保持$front色朝向你，輪換另外三個角塊。';
+  }
+
+  @override
+  String cueCornersNone(String front) {
+    return '還沒有黃色角塊在自己的位置上。保持$front色朝向你輪換一次；之後就會有一個角塊歸位。';
+  }
+
+  @override
+  String cueTwistCorner(String piece) {
+    return '調整右前方的$piece角塊：重複下層公式，直到它的黃色朝上。下面幾層暫時看起來是亂的，這很正常！';
+  }
+
+  @override
+  String cueTwistFour(String piece) {
+    return '這次$piece角塊需要做四次。繼續：黃色總會在兩次或四次後朝上。';
+  }
+
+  @override
+  String get cueTwistNext => '只轉動頂層，把下一個方向不對的角塊轉到右前方。現在不要整顆轉向！';
+
+  @override
+  String cueF2lPair(String piece, String edge, String a, String b) {
+    return '在頂層把$piece角塊和$edge邊塊配成一對，再把這一對插入$a色和$b色之間的位置。';
+  }
+
+  @override
+  String cueF2lStuck(String piece) {
+    return '$piece角塊和錯的邊塊一起卡在位置裡。先把它拿到頂層，再配對插入。';
+  }
+
+  @override
+  String cueOllSune(String front) {
+    return '保持$front色朝向你，做 Sune，讓黃色角塊朝上。';
+  }
+
+  @override
+  String cueOllSuneAgain(String front) {
+    return '這次一個 Sune 不夠。轉動頂層，保持$front色朝向你，再做一次 Sune。';
+  }
+
+  @override
+  String cuePllCorners(String front) {
+    return '有兩個角塊需要交換。把顏色相同的一對（車燈）放在左邊，保持$front色朝向你，做 T-perm。';
+  }
+
+  @override
+  String cuePllEdges(String piece) {
+    return '角塊已完成。把$piece邊塊放在後面，用 U-perm 輪換另外三個邊塊。';
+  }
+
+  @override
+  String get cuePllNoEdge => '頂層還沒有邊塊和中心對上。從任一面做一次 U-perm；之後就會有一個對上。';
+
+  @override
+  String cueTwoSwapAdjacent(String front) {
+    return '頂層兩個相鄰的角塊需要交換。把顏色相同的一對放在左邊，保持$front色朝向你，做交換公式。';
+  }
+
+  @override
+  String cueTwoSwapDiagonal(String front) {
+    return '需要交換的兩個角塊位在對角。保持$front色朝向你，做對角交換。';
+  }
+
+  @override
+  String cueCenterCycle(String color) {
+    return '用中心三循環把走散的$color色中心塊送回家：內層、頂層、內層，然後全部還原。';
+  }
+
+  @override
+  String cueCenterBar(String color) {
+    return '一整條$color色中心塊在錯的面上。用內層把它抬上去，轉動頂層，再把它送回原位。';
+  }
+
+  @override
+  String cueEdgePair(String piece) {
+    return '把$piece邊的兩個小塊配對：先對齊，轉動內層，用右手動作換入一個未配對的邊，再把內層轉回來。';
+  }
+
+  @override
+  String cueEdgeLast(String piece) {
+    return '最後的邊：用最後兩邊公式配好$piece邊，已完成的邊都不會被打亂。';
+  }
+
+  @override
+  String cueParityOll(String front) {
+    return 'OLL 特殊狀況：頂層有一個邊塊翻轉了，這在三階上從不會發生。把它放在前面，保持$front色朝向你，做特殊狀況修正公式。';
+  }
+
+  @override
+  String get cueParityPll =>
+      'PLL 特殊狀況：頂層兩個邊塊互換了，這在三階上從不會發生。把它們放在前面和後面，做特殊狀況交換公式。';
+
+  @override
+  String cueParityFive(String front) {
+    return '邊的特殊狀況：一條邊外側的兩個小塊互換了。把這條邊轉到前面，保持$front色朝向你，修正後再轉回去。';
+  }
 }

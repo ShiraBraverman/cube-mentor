@@ -2245,4 +2245,282 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get academyAllSizes => 'Барлык зурлыклар';
+
+  @override
+  String homeAcademyProgress(int done, int total) {
+    return '$done / $total дәрес үтелде';
+  }
+
+  @override
+  String academySizeProgress(String size, int done, int total) {
+    return '$size • $done / $total үтелде';
+  }
+
+  @override
+  String get lessonStageConcept => 'Аңлатма';
+
+  @override
+  String get lessonStageExamples => 'Мисаллар';
+
+  @override
+  String get lessonStagePractice => 'Күнегү';
+
+  @override
+  String get lessonStageNext => 'Алга / ирекле';
+
+  @override
+  String lessonStageOf(int index, int total, String name) {
+    return '$total баскычтан $index нчесе: $name';
+  }
+
+  @override
+  String lessonExampleOf(int index, int total) {
+    return 'Мисал $index/$total';
+  }
+
+  @override
+  String lessonWalkthroughOf(int index, int total) {
+    return 'Күнегү $index/$total';
+  }
+
+  @override
+  String get lessonBonusCase => 'Бонус очрак';
+
+  @override
+  String get lessonPracticeIntro =>
+      'Чын болгату: алдагы адымнар гына җыелган. Бу адымны күрсәтмә артыннан күрсәтмә белән ахырынача җыегыз.';
+
+  @override
+  String lessonContinueDesc(String lesson) {
+    return 'Турыдан-туры «$lesson» дәресенә күчегез.';
+  }
+
+  @override
+  String get lessonFreePractice => 'Ирекле күнегү';
+
+  @override
+  String get lessonFreePracticeDesc =>
+      'Болгатылган 3D кубны башыннан бу адымга кадәр үзегез җыегыз.';
+
+  @override
+  String freePracticeBanner(String topic) {
+    return 'Ирекле күнегү: кубны башыннан «$topic» адымына кадәр җыегыз!';
+  }
+
+  @override
+  String get pieceColorSeparator => '-';
+
+  @override
+  String cueFaceTurn(String face) {
+    return '$face үзәкле якны ук күрсәткәнчә борыгыз. Үзәк урынында кала; аның тирәсендәге кисәкләр генә күчә.';
+  }
+
+  @override
+  String cueTrigger(String front) {
+    return 'Уң кул хәрәкәте, $front сезгә карап: уң як өскә, өс сулга, уң як аска, өс кире уңга.';
+  }
+
+  @override
+  String get cueTriggerBack =>
+      'Рәттән алтынчы хәрәкәт кубны нәкъ элекке хәленә кайтара. Алты — тылсымлы сан!';
+
+  @override
+  String cueSliceInner(String face) {
+    return '$face ягы янындагы эчке катламны гына борыгыз. Як үзе кузгалмый, шуңа үзәкләр аерыла.';
+  }
+
+  @override
+  String cueSliceWide(String face) {
+    return 'Киң борылыш: $face ягы һәм аның янындагы эчке катлам бер калын катлам кебек бергә борыла.';
+  }
+
+  @override
+  String cueTurnCube(String top, String front) {
+    return 'Бөтен кубны $top үзәк өстә, $front үзәк сезгә караган итеп борыгыз.';
+  }
+
+  @override
+  String get cueTurnTop =>
+      'Киләсе алгоритмга әзерләнү өчен ук күрсәткәнчә өске катламны гына борыгыз.';
+
+  @override
+  String get cueAlignTop =>
+      'Соңгы хәрәкәт: төсләр тигезләнсен өчен өске катламны борыгыз. Әзер!';
+
+  @override
+  String cueCrossTop(String piece, String center) {
+    return '$piece кыры өске катламда. Ул $center үзәкнең нәкъ өстенә килгәнче өсне борыгыз, аннары аны төшерү өчен шул якны ике тапкыр борыгыз.';
+  }
+
+  @override
+  String cueCrossMiddle(String piece, String center) {
+    return '$piece кыры урта катламда кысылып калган. Аны өскә күтәрегез, $center үзәк өстенә тигезләгез һәм төшерегез.';
+  }
+
+  @override
+  String cueCrossFlipped(String piece, String center) {
+    return '$piece кыры урынында, ләкин әйләнгән: агы янга карый. Аны чыгарыгыз, аннары $center үзәк янына дөрес ягы белән кайтарыгыз.';
+  }
+
+  @override
+  String cueCrossBottom(String piece, String center) {
+    return 'CFOP рәвешендә астны да борырга ярый. $piece кырын төшерегез һәм аны $center үзәк белән тигезләр өчен астны борыгыз.';
+  }
+
+  @override
+  String cueCornerTop(String piece, String a, String b) {
+    return '$piece почмагы $a һәм $b яклар арасындагы үз урынының нәкъ өстенә килгәнче өсне борыгыз. Ул дөрес борылып кергәнче уң кул хәрәкәтен кабатлагыз.';
+  }
+
+  @override
+  String cueCornerTwisted(String piece) {
+    return '$piece почмагы урынында, ләкин борылган. Бер хәрәкәт аны чыгара (урынына сары почмак керә); ул дөрес кайтканчы кабатлагыз.';
+  }
+
+  @override
+  String cueMiddleRight(String piece, String a, String b) {
+    return '$piece кыры $a үзәк белән тигезләнгәнче өсне борыгыз, аннары аны уңга аска, $a белән $b арасындагы урынга җибәрегез.';
+  }
+
+  @override
+  String cueMiddleLeft(String piece, String a, String b) {
+    return '$piece кыры $a үзәк белән тигезләнгәнче өсне борыгыз, аннары аны сулга аска, $a белән $b арасындагы урынга җибәрегез.';
+  }
+
+  @override
+  String cueMiddleFlipped(String piece, String a, String b) {
+    return '$piece кыры урынында, ләкин әйләнгән. Аны этеп чыгару өчен анда сары кыр кертегез, аннары аны яңадан $a белән $b арасына кертегез.';
+  }
+
+  @override
+  String cueYellowLine(String front) {
+    return 'Сары сызык: сызык сулдан уңга сузылсын өчен өсне борыгыз, $front сезгә карап торсын, аннары сары хач алгоритмын эшләгез.';
+  }
+
+  @override
+  String cueYellowL(String front) {
+    return 'Сары L: L арткы сулга күрсәтсен өчен өсне борыгыз, $front сезгә карап торсын, аннары алгоритмны эшләгез. Ул сызыкка әйләнә.';
+  }
+
+  @override
+  String cueYellowDot(String front) {
+    return 'Үзәк кенә сары: нокта. $front сезгә карап торганда алгоритмны бер тапкыр эшләгез — L килеп чыга.';
+  }
+
+  @override
+  String cueEdgesMatch(String piece, String center) {
+    return '$piece кыры $center үзәк белән туры килгәнче өсне борыгыз.';
+  }
+
+  @override
+  String cueEdgesSwap(String front) {
+    return 'Туры килгән ике кыр артта һәм уңда. $front сезгә карап торганда алмаштыруны эшләгез: алгы һәм сул кырлар урын алмаша.';
+  }
+
+  @override
+  String cueEdgesOpposite(String front) {
+    return 'Туры килгән кырлар бер-берсенә каршы. $front сезгә карап торганда алмаштыруны бер тапкыр эшләгез; аннары күрше икесе туры килә.';
+  }
+
+  @override
+  String cueCornersCycle(String piece, String front) {
+    return '$piece почмагы инде урынында. Аны алгы уңда тотыгыз, $front сезгә карап торсын, калган өч почмакны әйләндереп алмаштырыгыз.';
+  }
+
+  @override
+  String cueCornersNone(String front) {
+    return 'Бер сары почмак та әле урынында түгел. $front сезгә карап торганда бер тапкыр әйләндерегез; аннары бер почмак урынына утыра.';
+  }
+
+  @override
+  String cueTwistCorner(String piece) {
+    return 'Алгы уңдагы $piece почмагын борыгыз: сарысы өскә карагынчы аскы хәрәкәтне кабатлагыз. Аскы катламнар хәзергә бутак күренә — бу гадәти!';
+  }
+
+  @override
+  String cueTwistFour(String piece) {
+    return 'Бу юлы $piece почмагына дүрт хәрәкәт кирәк. Дәвам итегез: сары һәрвакыт ике яки дүрттән соң өскә чыга.';
+  }
+
+  @override
+  String get cueTwistNext =>
+      'Киләсе борылган почмакны алгы уңга китерү өчен өске катламны гына борыгыз. Хәзер бөтен кубны бормагыз!';
+
+  @override
+  String cueF2lPair(String piece, String edge, String a, String b) {
+    return 'Өстә $piece почмагын $edge кыры белән парлагыз, аннары парны $a белән $b арасындагы урынга кертегез.';
+  }
+
+  @override
+  String cueF2lStuck(String piece) {
+    return '$piece почмагы ялгыш кыр белән үз урынында кысылып калган. Башта аны өскә чыгарыгыз, аннары парлап кертегез.';
+  }
+
+  @override
+  String cueOllSune(String front) {
+    return '$front сезгә карап торганда, сары почмакларны өскә бору өчен Sune эшләгез.';
+  }
+
+  @override
+  String cueOllSuneAgain(String front) {
+    return 'Бу юлы бер Sune җитмәде. Өсне борыгыз һәм $front сезгә карап торганда Sune ны тагын эшләгез.';
+  }
+
+  @override
+  String cuePllCorners(String front) {
+    return 'Ике почмак урын алмашырга тиеш. Туры килгән парны (фараларны) сулда тотыгыз, $front сезгә карап торсын, һәм T-perm эшләгез.';
+  }
+
+  @override
+  String cuePllEdges(String piece) {
+    return 'Почмаклар әзер. $piece кырын артта тотыгыз һәм калган өч кырны U-perm белән әйләндереп алмаштырыгыз.';
+  }
+
+  @override
+  String get cuePllNoEdge =>
+      'Өске кырларның берсе дә әле үз үзәгенә туры килми. Теләсә кайсы яктан U-perm ны бер тапкыр эшләгез; аннары берсе туры килә.';
+
+  @override
+  String cueTwoSwapAdjacent(String front) {
+    return 'Өстәге ике күрше почмак урын алмашырга тиеш. Туры килгән парны сулда тотыгыз, $front сезгә карап торсын, һәм алмаштыруны эшләгез.';
+  }
+
+  @override
+  String cueTwoSwapDiagonal(String front) {
+    return 'Алмаштырасы ике почмак диагональдә. $front сезгә карап торганда диагональ алмаштыруны эшләгез.';
+  }
+
+  @override
+  String cueCenterCycle(String color) {
+    return 'Адашкан $color үзәк кисәген үзәкләрнең 3-циклы белән кайтарыгыз: катлам, өс, катлам, аннары барысы да кире.';
+  }
+
+  @override
+  String cueCenterBar(String color) {
+    return '$color үзәк кисәкләренең бер тулы полосасы ялгыш якта. Аны эчке катлам белән күтәрегез, өсне борыгыз һәм урынына кайтарыгыз.';
+  }
+
+  @override
+  String cueEdgePair(String piece) {
+    return '$piece кырының ике кисәген парлагыз: тигезләгез, катламны борыгыз, уң кул хәрәкәтләре белән парсыз кырны алмаштырыгыз һәм катламны кире борыгыз.';
+  }
+
+  @override
+  String cueEdgeLast(String piece) {
+    return 'Соңгы кырлар: $piece кырын соңгы ике кыр алгоритмы белән парлагыз — ул әзер кырларның берсен дә бозмый.';
+  }
+
+  @override
+  String cueParityOll(String front) {
+    return 'OLL паритеты: бер өске кыр әйләнгән, 3×3 та бу беркайчан да булмый. Аны алда тотыгыз, $front сезгә карап торсын, һәм паритетны төзәтегез.';
+  }
+
+  @override
+  String get cueParityPll =>
+      'PLL паритеты: ике өске кыр урын алмашкан, 3×3 та бу беркайчан да булмый. Аларны алда һәм артта тотыгыз һәм паритет алмаштыруын эшләгез.';
+
+  @override
+  String cueParityFive(String front) {
+    return 'Кыр паритеты: бер кырның ике тышкы кисәге урын алмашкан. Шул кырны алга борыгыз, $front сезгә карап торсын, төзәтегез һәм кире борыгыз.';
+  }
 }

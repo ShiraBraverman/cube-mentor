@@ -7,6 +7,8 @@ import 'package:cube_mentor/core/l10n/generated/app_localizations.dart';
 import 'package:cube_mentor/core/l10n/move_words.dart';
 import 'package:cube_mentor/core/settings/preferences.dart';
 import 'package:cube_mentor/core/solver/cube_solver.dart';
+import 'package:cube_mentor/core/theme/ui_kit.dart';
+import 'package:cube_mentor/features/academy/lesson_screen.dart';
 import 'package:cube_mentor/features/academy/model/academy_progress.dart';
 import 'package:cube_mentor/features/academy/model/lesson.dart';
 import 'package:cube_mentor/features/academy/model/lesson_catalog.dart';
@@ -299,32 +301,42 @@ void main() {
     expect(find.textContaining('Learn to read the cube'), findsOneWidget);
     expect(find.textContaining('Centers never move'), findsOneWidget);
     expect(find.text('Part 1 of 3'), findsNothing);
-    expect(find.byKey(const ValueKey('lesson-intro-open')), findsNothing);
+    // Four stage pills replace the old progress bar.
+    expect(find.byKey(const ValueKey('lesson-stages')), findsOneWidget);
+    expect(find.text('Concept'), findsOneWidget);
+    expect(find.text('Examples'), findsOneWidget);
+    expect(find.text('Practice'), findsOneWidget);
+    expect(find.text('Next / free'), findsOneWidget);
+    expect(find.byType(GlowProgressBar), findsNothing);
     await tester.tap(find.byKey(const ValueKey('intro-start')));
     await _advance(tester);
     expect(find.byKey(const ValueKey('lesson-intro')), findsNothing);
-    expect(find.text('Part 1 of 3'), findsOneWidget);
 
-    // The flag in the header reopens it mid-lesson.
-    await tester.tap(find.byKey(const ValueKey('lesson-intro-open')));
-    await _advance(tester);
-    expect(find.byKey(const ValueKey('lesson-intro')), findsOneWidget);
-    await tester.tap(find.byKey(const ValueKey('intro-start')));
-    await _advance(tester);
-    expect(find.text('Part 1 of 3'), findsOneWidget);
+    // Stage 1 goes on with the explanations.
+    expect(find.text('Part 1 of 1'), findsOneWidget);
     expect(find.text('Three kinds of pieces'), findsOneWidget);
     expect(
       find.textContaining('the white center on top and the green center'),
       findsOneWidget,
     );
+    // The first pill reopens the goal card.
+    await tester.tap(find.byKey(const ValueKey('lesson-stage-0')));
+    await _advance(tester);
+    expect(find.byKey(const ValueKey('lesson-intro')), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('intro-start')));
+    await _advance(tester);
 
-    // Part 2 demonstrates R R' U U' F F' with plain-language subtitles.
+    // Stage 2: example 1 demonstrates R R' U U' F F' with plain-language
+    // subtitles and a color-specific callout.
     await tester.tap(find.byKey(const ValueKey('lesson-next')));
     await _advance(tester, 4);
+    expect(find.text('Example 1 of 2'), findsOneWidget);
     expect(find.text('Six face letters'), findsOneWidget);
     expect(find.text('Right side'), findsOneWidget);
     expect(find.text('Up'), findsOneWidget);
     expect(find.byKey(const ValueKey('move-arrow-up')), findsOneWidget);
+    expect(find.textContaining('Turn the red face'), findsOneWidget);
+    expect(find.text("R R' U U' F F'"), findsOneWidget);
     final container = ProviderScope.containerOf(
       tester.element(find.byType(Scaffold).last),
     );
@@ -333,65 +345,90 @@ void main() {
     // No auto-play in lessons: the learner steps one move at a time.
     expect(find.byKey(const ValueKey('lesson-show')), findsNothing);
     expect(find.byTooltip('Play'), findsNothing);
-    // One Previous / Next pair: no separate move stepper.
-    expect(find.byKey(const ValueKey('lesson-next-move')), findsNothing);
-    expect(find.byKey(const ValueKey('lesson-back')), findsNothing);
     CubeSession session() => container.read(cubeSessionProvider(3));
     await tester.tap(find.byKey(const ValueKey('lesson-next')));
     await _advance(tester, 12);
     expect(session().playbackIndex, 1, reason: 'Next plays the next move');
     expect(session().isPlaying, isFalse, reason: 'one move, then it waits');
-    expect(find.text('Six face letters'), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey('lesson-prev')));
     await _advance(tester, 12);
     expect(session().playbackIndex, 0);
     expect(session().cube.isSolved, isTrue);
-    for (var i = 0; i < 5; i++) {
-      await tester.tap(find.byKey(const ValueKey('lesson-next')));
-      await _advance(tester, 12);
-    }
-    expect(find.text('Six face letters'), findsOneWidget);
-    await tester.tap(find.byKey(const ValueKey('lesson-next')));
-    await _advance(tester, 12);
-    expect(session().isComplete, isTrue);
-    expect(find.text('Nice! Tap Next to continue.'), findsOneWidget);
-    expect(find.text('Six face letters'), findsOneWidget);
-
-    // The demo is done: the same Next opens the last part.
-    await tester.tap(find.byKey(const ValueKey('lesson-next')));
-    await _advance(tester, 4);
-    expect(find.text('Six face letters'), findsNothing);
-    expect(find.text('Part 3 of 3'), findsOneWidget);
-    // Its two demo moves come first, then Next turns into Finish lesson.
-    expect(find.text('Finish lesson'), findsNothing);
-    for (var i = 0; i < 2; i++) {
-      await tester.tap(find.byKey(const ValueKey('lesson-next')));
-      await _advance(tester, 12);
-    }
-    expect(find.text('Finish lesson'), findsOneWidget);
-    // Previous at the first move of a part goes back to the previous part.
-    for (var i = 0; i < 3; i++) {
-      await tester.tap(find.byKey(const ValueKey('lesson-prev')));
-      await _advance(tester, 12);
-    }
-    expect(find.text('Six face letters'), findsOneWidget);
-    expect(session().playbackIndex, 0);
     for (var i = 0; i < 6; i++) {
       await tester.tap(find.byKey(const ValueKey('lesson-next')));
       await _advance(tester, 12);
     }
+    expect(session().isComplete, isTrue);
+    expect(find.text('Nice! Tap Next to continue.'), findsOneWidget);
+
+    // The demo is done: the same Next opens the second example.
     await tester.tap(find.byKey(const ValueKey('lesson-next')));
     await _advance(tester, 4);
-    expect(find.text('Part 3 of 3'), findsOneWidget);
-    for (var i = 0; i < 2; i++) {
+    expect(find.text('Example 2 of 2'), findsOneWidget);
+    // Previous at its first move goes back to the previous example.
+    await tester.tap(find.byKey(const ValueKey('lesson-prev')));
+    await _advance(tester, 4);
+    expect(find.text('Example 1 of 2'), findsOneWidget);
+
+    // Stage 3 by its pill: a walkthrough with a callout per stretch.
+    await tester.tap(find.byKey(const ValueKey('lesson-stage-2')));
+    await _advance(tester, 4);
+    expect(find.text('Walkthrough 1 of 2'), findsOneWidget);
+    expect(find.byKey(const ValueKey('lesson-practice-intro')), findsOneWidget);
+    expect(find.textContaining('Turn the red face'), findsOneWidget);
+    expect(session().playback, hasLength(4));
+    expect(session().cube.isSolved, isFalse);
+    await tester.tap(find.byKey(const ValueKey('lesson-next')));
+    await _advance(tester, 12);
+    expect(find.textContaining('Turn the white face'), findsOneWidget);
+    for (var i = 0; i < 3; i++) {
       await tester.tap(find.byKey(const ValueKey('lesson-next')));
       await _advance(tester, 12);
     }
+    expect(session().cube.isSolved, isTrue);
     await tester.tap(find.byKey(const ValueKey('lesson-next')));
     await _advance(tester, 4);
+    expect(find.text('Walkthrough 2 of 2'), findsOneWidget);
+    // Its last stretch is a labeled bonus case.
+    for (var i = 0; i < 20; i++) {
+      await tester.tap(find.byKey(const ValueKey('lesson-next')));
+      await _advance(tester, 12);
+    }
+    expect(find.byKey(const ValueKey('lesson-bonus')), findsOneWidget);
+    expect(find.text('Bonus case'), findsOneWidget);
+    for (var i = 0; i < 4; i++) {
+      await tester.tap(find.byKey(const ValueKey('lesson-next')));
+      await _advance(tester, 12);
+    }
+    expect(find.text('Finish lesson'), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('lesson-next')));
+    await _advance(tester, 4);
+
+    // Stage 4: complete, with the next lesson or free practice.
     expect(find.text('Lesson complete!'), findsOneWidget);
     expect(prefs.getStringList('academy_completed'), ['basics']);
+    expect(find.byKey(const ValueKey('lesson-next-lesson')), findsOneWidget);
+    expect(find.text('Go straight on to 1.1 White cross.'), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('lesson-free-practice')));
+    await _advance(tester, 8);
+    expect(find.byKey(const ValueKey('practice-banner')), findsOneWidget);
+    expect(
+      find.text(
+        'Practice freely: solve the cube from the start up through Meet '
+        'the cube!',
+      ),
+      findsOneWidget,
+    );
+    expect(session().cube.isSolved, isFalse);
+    Navigator.of(tester.element(find.byKey(const ValueKey('practice-banner'))))
+        .pop();
+    await _advance(tester, 20);
+    expect(find.text('Lesson complete!'), findsOneWidget);
 
+    await tester.ensureVisible(
+      find.byKey(const ValueKey('lesson-back-academy')),
+    );
+    await tester.pump();
     await tester.tap(find.byKey(const ValueKey('lesson-back-academy')));
     await _advance(tester);
     expect(find.text('Continue learning'), findsOneWidget);
@@ -405,6 +442,55 @@ void main() {
     );
     expect(find.text('Lesson 2 of 29'), findsOneWidget);
     expect(find.text('1 of 29 lessons completed'), findsOneWidget);
+    // Every size chip counts its own lessons.
+    expect(find.text('3×3 • 1 / 12 completed'), findsOneWidget);
+    expect(find.text('2×2 • 0 / 3 completed'), findsOneWidget);
+
+    // Home shows the overall count on the Academy card.
+    Navigator.of(
+      tester.element(find.byKey(const ValueKey('continue-learning'))),
+    ).pop();
+    await _advance(tester);
+    expect(find.text('1 / 29 lessons completed'), findsOneWidget);
+  });
+
+  testWidgets('the stage pills jump straight to the lesson complete stage', (
+    tester,
+  ) async {
+    SharedPreferences.setMockInitialValues({});
+    final prefs = await SharedPreferences.getInstance();
+    tester.view.physicalSize = const Size(1080, 2340);
+    tester.view.devicePixelRatio = 2.75;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          sharedPreferencesProvider.overrideWithValue(prefs),
+          cubeSolverProvider.overrideWithValue(FakeCubeSolver()),
+        ],
+        child: MaterialApp(
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          home: LessonScreen(
+            lesson: kLessons.firstWhere((l) => l.id == 'corners'),
+          ),
+        ),
+      ),
+    );
+    await _advance(tester, 4);
+    await tester.tap(find.byKey(const ValueKey('lesson-stage-1')));
+    await _advance(tester, 4);
+    // Example callouts name the exact piece and centers.
+    expect(find.textContaining('white-green-orange corner'), findsOneWidget);
+    expect(
+      find.textContaining('between the green and orange sides'),
+      findsOneWidget,
+    );
+    await tester.tap(find.byKey(const ValueKey('lesson-stage-3')));
+    await _advance(tester, 4);
+    expect(find.text('Lesson complete!'), findsOneWidget);
+    expect(prefs.getStringList('academy_completed'), ['corners']);
+    expect(find.textContaining('Go straight on to 2.1'), findsOneWidget);
   });
 
   testWidgets('the Academy lists every track in Hebrew, right to left', (

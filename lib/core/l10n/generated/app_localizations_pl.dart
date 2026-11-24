@@ -2345,4 +2345,282 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get academyAllSizes => 'Wszystkie rozmiary';
+
+  @override
+  String homeAcademyProgress(int done, int total) {
+    return 'Ukończone lekcje: $done / $total';
+  }
+
+  @override
+  String academySizeProgress(String size, int done, int total) {
+    return '$size • ukończono $done / $total';
+  }
+
+  @override
+  String get lessonStageConcept => 'Idea';
+
+  @override
+  String get lessonStageExamples => 'Przykłady';
+
+  @override
+  String get lessonStagePractice => 'Praktyka';
+
+  @override
+  String get lessonStageNext => 'Dalej / sam';
+
+  @override
+  String lessonStageOf(int index, int total, String name) {
+    return 'Etap $index z $total: $name';
+  }
+
+  @override
+  String lessonExampleOf(int index, int total) {
+    return 'Przykład $index z $total';
+  }
+
+  @override
+  String lessonWalkthroughOf(int index, int total) {
+    return 'Ćwiczenie $index z $total';
+  }
+
+  @override
+  String get lessonBonusCase => 'Przypadek bonusowy';
+
+  @override
+  String get lessonPracticeIntro =>
+      'Prawdziwe pomieszanie: ułożone są tylko wcześniejsze kroki. Dokończ cały ten krok, wskazówka po wskazówce.';
+
+  @override
+  String lessonContinueDesc(String lesson) {
+    return 'Przejdź od razu do: $lesson.';
+  }
+
+  @override
+  String get lessonFreePractice => 'Swobodny trening';
+
+  @override
+  String get lessonFreePracticeDesc =>
+      'Ułóż samodzielnie pomieszaną kostkę 3D, od początku aż do tego kroku.';
+
+  @override
+  String freePracticeBanner(String topic) {
+    return 'Ćwicz swobodnie: ułóż kostkę od początku aż do kroku $topic!';
+  }
+
+  @override
+  String get pieceColorSeparator => '-';
+
+  @override
+  String cueFaceTurn(String face) {
+    return 'Obróć ścianę ze środkiem w kolorze: $face, tak jak pokazuje strzałka. Środek zostaje na miejscu, ruszają się tylko elementy wokół niego.';
+  }
+
+  @override
+  String cueTrigger(String front) {
+    return 'Ruch prawej ręki, kolor $front przodem do ciebie: prawa ściana w górę, góra w lewo, prawa ściana w dół, góra z powrotem w prawo.';
+  }
+
+  @override
+  String get cueTriggerBack =>
+      'Szósty ruch z rzędu przywraca kostkę dokładnie do stanu wyjściowego. Sześć to magiczna liczba!';
+
+  @override
+  String cueSliceInner(String face) {
+    return 'Obróć tylko wewnętrzną warstwę obok ściany w kolorze: $face. Sama ściana stoi w miejscu, więc środki się rozdzielają.';
+  }
+
+  @override
+  String cueSliceWide(String face) {
+    return 'Szeroki obrót: ściana w kolorze $face i sąsiednia warstwa wewnętrzna obracają się razem, jak jedna gruba warstwa.';
+  }
+
+  @override
+  String cueTurnCube(String top, String front) {
+    return 'Obróć całą kostkę tak, aby środek w kolorze $top był na górze, a środek w kolorze $front przodem do ciebie.';
+  }
+
+  @override
+  String get cueTurnTop =>
+      'Obróć tylko górną warstwę, jak pokazuje strzałka, aby przygotować następny algorytm.';
+
+  @override
+  String get cueAlignTop =>
+      'Ostatni ruch: obróć górną warstwę, aby wyrównać kolory. Gotowe!';
+
+  @override
+  String cueCrossTop(String piece, String center) {
+    return 'Krawędź w kolorach $piece jest w górnej warstwie. Obracaj górę, aż znajdzie się tuż nad środkiem w kolorze $center, potem obróć tę ścianę dwa razy, aby ją opuścić.';
+  }
+
+  @override
+  String cueCrossMiddle(String piece, String center) {
+    return 'Krawędź w kolorach $piece utknęła w środkowej warstwie. Podnieś ją na górę, ustaw nad środkiem w kolorze $center i opuść.';
+  }
+
+  @override
+  String cueCrossFlipped(String piece, String center) {
+    return 'Krawędź w kolorach $piece jest na swoim miejscu, ale odwrócona: biały patrzy w bok. Wyjmij ją i włóż z powrotem obok środka w kolorze $center właściwą stroną.';
+  }
+
+  @override
+  String cueCrossBottom(String piece, String center) {
+    return 'W stylu CFOP można obracać też dół. Wstaw krawędź w kolorach $piece i obróć dół, aby zgrała się ze środkiem w kolorze $center.';
+  }
+
+  @override
+  String cueCornerTop(String piece, String a, String b) {
+    return 'Obracaj górę, aż róg w kolorach $piece będzie tuż nad swoim miejscem, między stronami w kolorach $a i $b. Powtarzaj ruch prawej ręki, aż wskoczy, prawidłowo obrócony.';
+  }
+
+  @override
+  String cueCornerTwisted(String piece) {
+    return 'Róg w kolorach $piece jest na swoim miejscu, ale skręcony. Jeden ruch go wyjmuje (na jego miejsce wchodzi żółty róg); powtarzaj, aż wróci prawidłowo.';
+  }
+
+  @override
+  String cueMiddleRight(String piece, String a, String b) {
+    return 'Obracaj górę, aż krawędź w kolorach $piece zgra się ze środkiem w kolorze $a, potem wyślij ją w dół w prawo, do slotu między $a a $b.';
+  }
+
+  @override
+  String cueMiddleLeft(String piece, String a, String b) {
+    return 'Obracaj górę, aż krawędź w kolorach $piece zgra się ze środkiem w kolorze $a, potem wyślij ją w dół w lewo, do slotu między $a a $b.';
+  }
+
+  @override
+  String cueMiddleFlipped(String piece, String a, String b) {
+    return 'Krawędź w kolorach $piece jest w swoim slocie, ale odwrócona. Wstaw tam żółtą krawędź, aby ją wypchnąć, a potem wstaw ją ponownie między $a a $b.';
+  }
+
+  @override
+  String cueYellowLine(String front) {
+    return 'Żółta linia: obróć górę tak, aby biegła od lewej do prawej, trzymaj kolor $front przodem do siebie i wykonaj algorytm żółtego krzyża.';
+  }
+
+  @override
+  String cueYellowL(String front) {
+    return 'Żółte L: obróć górę tak, aby L wskazywało do tyłu w lewo, trzymaj kolor $front przodem do siebie i wykonaj algorytm. Powstanie linia.';
+  }
+
+  @override
+  String cueYellowDot(String front) {
+    return 'Żółty jest tylko środek: kropka. Wykonaj algorytm raz, z kolorem $front przodem do siebie, aby dostać L.';
+  }
+
+  @override
+  String cueEdgesMatch(String piece, String center) {
+    return 'Obracaj górę, aż krawędź w kolorach $piece zgra się ze środkiem w kolorze $center.';
+  }
+
+  @override
+  String cueEdgesSwap(String front) {
+    return 'Dwie pasujące krawędzie są z tyłu i po prawej. Z kolorem $front przodem do siebie wykonaj zamianę: przednia i lewa krawędź zamieniają się miejscami.';
+  }
+
+  @override
+  String cueEdgesOpposite(String front) {
+    return 'Pasujące krawędzie są naprzeciw siebie. Wykonaj zamianę raz, z kolorem $front przodem do siebie; potem będą pasować dwie sąsiednie.';
+  }
+
+  @override
+  String cueCornersCycle(String piece, String front) {
+    return 'Róg w kolorach $piece jest już na swoim miejscu. Trzymaj go z przodu po prawej, kolor $front przodem do siebie, i przestaw cyklicznie pozostałe trzy rogi.';
+  }
+
+  @override
+  String cueCornersNone(String front) {
+    return 'Żaden żółty róg nie jest jeszcze na miejscu. Wykonaj cykl raz, z kolorem $front przodem do siebie; potem jeden róg będzie na miejscu.';
+  }
+
+  @override
+  String cueTwistCorner(String piece) {
+    return 'Skręć róg w kolorach $piece z przodu po prawej: powtarzaj dolny ruch, aż jego żółty będzie na górze. Dolne warstwy na razie wyglądają na pomieszane — to normalne!';
+  }
+
+  @override
+  String cueTwistFour(String piece) {
+    return 'Róg w kolorach $piece potrzebuje tym razem czterech ruchów. Kontynuuj: żółty zawsze wychodzi na górę po dwóch lub czterech.';
+  }
+
+  @override
+  String get cueTwistNext =>
+      'Obróć tylko górną warstwę, aby przenieść następny skręcony róg na przód po prawej. Nie obracaj teraz całej kostki!';
+
+  @override
+  String cueF2lPair(String piece, String edge, String a, String b) {
+    return 'Połącz róg w kolorach $piece z krawędzią w kolorach $edge na górze, potem wstaw parę do slotu między $a a $b.';
+  }
+
+  @override
+  String cueF2lStuck(String piece) {
+    return 'Róg w kolorach $piece utknął w swoim slocie z niewłaściwą krawędzią. Najpierw wyjmij go na górę, potem połącz w parę i wstaw.';
+  }
+
+  @override
+  String cueOllSune(String front) {
+    return 'Z kolorem $front przodem do siebie wykonaj Sune, aby obrócić żółte rogi do góry.';
+  }
+
+  @override
+  String cueOllSuneAgain(String front) {
+    return 'Tym razem jedno Sune nie wystarczyło. Obróć górę i wykonaj Sune jeszcze raz, z kolorem $front przodem do siebie.';
+  }
+
+  @override
+  String cuePllCorners(String front) {
+    return 'Dwa rogi trzeba zamienić. Trzymaj pasującą parę („reflektory”) po lewej, kolor $front przodem do siebie, i wykonaj T-perm.';
+  }
+
+  @override
+  String cuePllEdges(String piece) {
+    return 'Rogi są gotowe. Trzymaj krawędź w kolorach $piece z tyłu i przestaw cyklicznie pozostałe trzy krawędzie za pomocą U-perm.';
+  }
+
+  @override
+  String get cuePllNoEdge =>
+      'Żadna górna krawędź nie pasuje jeszcze do swojego środka. Wykonaj U-perm raz z dowolnej strony; potem jedna będzie pasować.';
+
+  @override
+  String cueTwoSwapAdjacent(String front) {
+    return 'Dwa sąsiednie górne rogi trzeba zamienić. Trzymaj pasującą parę po lewej, kolor $front przodem do siebie, i wykonaj zamianę.';
+  }
+
+  @override
+  String cueTwoSwapDiagonal(String front) {
+    return 'Dwa rogi do zamiany są po przekątnej. Wykonaj zamianę po przekątnej z kolorem $front przodem do siebie.';
+  }
+
+  @override
+  String cueCenterCycle(String color) {
+    return 'Przenieś zabłąkany element środka w kolorze $color na miejsce 3-cyklem środków: warstwa, góra, warstwa, a potem wszystko z powrotem.';
+  }
+
+  @override
+  String cueCenterBar(String color) {
+    return 'Cały pasek elementów środka w kolorze $color jest na złej ścianie. Podnieś go wewnętrzną warstwą, obróć górę i odstaw go na miejsce.';
+  }
+
+  @override
+  String cueEdgePair(String piece) {
+    return 'Połącz dwa elementy krawędzi w kolorach $piece: ustaw je w linii, obróć warstwę, wstaw niepołączoną krawędź ruchami prawej ręki i cofnij warstwę.';
+  }
+
+  @override
+  String cueEdgeLast(String piece) {
+    return 'Ostatnie krawędzie: połącz krawędź w kolorach $piece algorytmem dwóch ostatnich krawędzi, który zachowuje wszystkie gotowe krawędzie.';
+  }
+
+  @override
+  String cueParityOll(String front) {
+    return 'Parzystość OLL: jedna górna krawędź jest odwrócona, co na 3×3 nigdy się nie zdarza. Trzymaj ją z przodu, kolor $front przodem do siebie, i wykonaj poprawkę parzystości.';
+  }
+
+  @override
+  String get cueParityPll =>
+      'Parzystość PLL: dwie górne krawędzie są zamienione, co na 3×3 nigdy się nie zdarza. Trzymaj je z przodu i z tyłu i wykonaj zamianę parzystości.';
+
+  @override
+  String cueParityFive(String front) {
+    return 'Parzystość krawędzi: dwa zewnętrzne elementy jednej krawędzi są zamienione. Obróć tę krawędź do przodu, kolor $front przodem do siebie, popraw i obróć z powrotem.';
+  }
 }

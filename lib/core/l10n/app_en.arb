@@ -1388,5 +1388,455 @@
   "academyAllSizes": "All sizes",
   "@academyAllSizes": {
     "description": "Academy size filter chip that shows the lessons of every cube size."
+  },
+  "homeAcademyProgress": "{done} / {total} lessons completed",
+  "@homeAcademyProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "academySizeProgress": "{size} • {done} / {total} completed",
+  "@academySizeProgress": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      },
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "lessonStageConcept": "Concept",
+  "lessonStageExamples": "Examples",
+  "lessonStagePractice": "Practice",
+  "lessonStageNext": "Next / free",
+  "lessonStageOf": "Stage {index} of {total}: {name}",
+  "@lessonStageOf": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "lessonExampleOf": "Example {index} of {total}",
+  "@lessonExampleOf": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "lessonWalkthroughOf": "Walkthrough {index} of {total}",
+  "@lessonWalkthroughOf": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "lessonBonusCase": "Bonus case",
+  "lessonPracticeIntro": "A real scramble: only the earlier steps are solved. Finish this whole step, one callout at a time.",
+  "lessonContinueDesc": "Go straight on to {lesson}.",
+  "@lessonContinueDesc": {
+    "placeholders": {
+      "lesson": {
+        "type": "String"
+      }
+    }
+  },
+  "lessonFreePractice": "Free practice",
+  "lessonFreePracticeDesc": "Solve a scrambled 3D cube on your own, from the start through this step.",
+  "freePracticeBanner": "Practice freely: solve the cube from the start up through {topic}!",
+  "@freePracticeBanner": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  },
+  "pieceColorSeparator": "-",
+  "cueFaceTurn": "Turn the {face} face the way the arrow shows. Its center stays put; only the pieces around it travel.",
+  "@cueFaceTurn": {
+    "placeholders": {
+      "face": {
+        "type": "String"
+      }
+    }
+  },
+  "cueTrigger": "Right-hand trigger, {front} facing you: right face up, top to the left, right face down, top back to the right.",
+  "@cueTrigger": {
+    "placeholders": {
+      "front": {
+        "type": "String"
+      }
+    }
+  },
+  "cueTriggerBack": "The sixth trigger in a row brings the cube back exactly as it was. Six is the magic number!",
+  "cueSliceInner": "Turn only the inner slice next to the {face} face. The {face} face itself stays still, so the centers split apart.",
+  "@cueSliceInner": {
+    "placeholders": {
+      "face": {
+        "type": "String"
+      }
+    }
+  },
+  "cueSliceWide": "A wide turn: the {face} face and the slice next to it turn together, like one thick layer.",
+  "@cueSliceWide": {
+    "placeholders": {
+      "face": {
+        "type": "String"
+      }
+    }
+  },
+  "cueTurnCube": "Turn the whole cube so the {top} center is on top and the {front} center faces you.",
+  "@cueTurnCube": {
+    "placeholders": {
+      "top": {
+        "type": "String"
+      },
+      "front": {
+        "type": "String"
+      }
+    }
+  },
+  "cueTurnTop": "Turn only the top layer, as the arrow shows, to set up the next algorithm.",
+  "cueAlignTop": "Last move: turn the top layer to line up its colors. Done!",
+  "cueCrossTop": "The {piece} edge is in the top layer. Turn the top until it sits right above the {center} center, then turn that face twice to bring it down.",
+  "@cueCrossTop": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      },
+      "center": {
+        "type": "String"
+      }
+    }
+  },
+  "cueCrossMiddle": "The {piece} edge is stuck in the middle layer. Lift it to the top, line it up above the {center} center, then bring it down.",
+  "@cueCrossMiddle": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      },
+      "center": {
+        "type": "String"
+      }
+    }
+  },
+  "cueCrossFlipped": "The {piece} edge is in its spot but flipped: its white faces sideways. Take it out, then bring it back next to the {center} center the right way round.",
+  "@cueCrossFlipped": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      },
+      "center": {
+        "type": "String"
+      }
+    }
+  },
+  "cueCrossBottom": "CFOP style: the bottom may turn too. Drop the {piece} edge in and turn the bottom so it lines up with the {center} center.",
+  "@cueCrossBottom": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      },
+      "center": {
+        "type": "String"
+      }
+    }
+  },
+  "cueCornerTop": "Turn the top so the {piece} corner sits right above its slot, between the {a} and {b} sides. Repeat the right-hand trigger until it drops in, correctly turned.",
+  "@cueCornerTop": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      },
+      "a": {
+        "type": "String"
+      },
+      "b": {
+        "type": "String"
+      }
+    }
+  },
+  "cueCornerTwisted": "The {piece} corner is in its slot but twisted. One trigger pops it out (a yellow corner takes its place); keep repeating until it drops back in correctly.",
+  "@cueCornerTwisted": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "cueMiddleRight": "Turn the top until the {piece} edge lines up with the {a} center, then send it down to the right, into the slot between {a} and {b}.",
+  "@cueMiddleRight": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      },
+      "a": {
+        "type": "String"
+      },
+      "b": {
+        "type": "String"
+      }
+    }
+  },
+  "cueMiddleLeft": "Turn the top until the {piece} edge lines up with the {a} center, then send it down to the left, into the slot between {a} and {b}.",
+  "@cueMiddleLeft": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      },
+      "a": {
+        "type": "String"
+      },
+      "b": {
+        "type": "String"
+      }
+    }
+  },
+  "cueMiddleFlipped": "The {piece} edge is in its slot but flipped. Insert a yellow edge there to push it out, then insert it again between {a} and {b}.",
+  "@cueMiddleFlipped": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      },
+      "a": {
+        "type": "String"
+      },
+      "b": {
+        "type": "String"
+      }
+    }
+  },
+  "cueYellowLine": "A yellow line: turn the top so it runs from left to right, keep {front} facing you, then apply the yellow-cross algorithm.",
+  "@cueYellowLine": {
+    "placeholders": {
+      "front": {
+        "type": "String"
+      }
+    }
+  },
+  "cueYellowL": "A yellow L: turn the top so the L points to the back left, keep {front} facing you, then apply the algorithm. It becomes a line.",
+  "@cueYellowL": {
+    "placeholders": {
+      "front": {
+        "type": "String"
+      }
+    }
+  },
+  "cueYellowDot": "Only the yellow center is yellow: a dot. Apply the algorithm once with {front} facing you to get an L.",
+  "@cueYellowDot": {
+    "placeholders": {
+      "front": {
+        "type": "String"
+      }
+    }
+  },
+  "cueEdgesMatch": "Turn the top until the {piece} edge matches the {center} center.",
+  "@cueEdgesMatch": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      },
+      "center": {
+        "type": "String"
+      }
+    }
+  },
+  "cueEdgesSwap": "Two matched edges sit at the back and on the right. With {front} facing you, apply the swap: the front and left edges trade places.",
+  "@cueEdgesSwap": {
+    "placeholders": {
+      "front": {
+        "type": "String"
+      }
+    }
+  },
+  "cueEdgesOpposite": "The matched edges sit opposite each other. Apply the swap once with {front} facing you; afterwards two neighbors match.",
+  "@cueEdgesOpposite": {
+    "placeholders": {
+      "front": {
+        "type": "String"
+      }
+    }
+  },
+  "cueCornersCycle": "The {piece} corner is already in its spot. Keep it at the front right, {front} facing you, and cycle the other three corners.",
+  "@cueCornersCycle": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      },
+      "front": {
+        "type": "String"
+      }
+    }
+  },
+  "cueCornersNone": "No yellow corner is in its spot yet. Cycle once with {front} facing you; afterwards one corner is home.",
+  "@cueCornersNone": {
+    "placeholders": {
+      "front": {
+        "type": "String"
+      }
+    }
+  },
+  "cueTwistCorner": "Twist the {piece} corner at the front right: repeat the down-trigger until its yellow faces up. The lower layers look messy for now; that's normal!",
+  "@cueTwistCorner": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "cueTwistFour": "The {piece} corner needs four triggers this time. Keep going: yellow always comes up after two or four.",
+  "@cueTwistFour": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "cueTwistNext": "Turn only the top layer to bring the next twisted corner to the front right. Don't turn the whole cube now!",
+  "cueF2lPair": "Pair the {piece} corner with the {edge} edge on top, then insert the pair into the slot between {a} and {b}.",
+  "@cueF2lPair": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      },
+      "edge": {
+        "type": "String"
+      },
+      "a": {
+        "type": "String"
+      },
+      "b": {
+        "type": "String"
+      }
+    }
+  },
+  "cueF2lStuck": "The {piece} corner is stuck in its slot with the wrong edge. Take it out to the top first, then pair it up and insert it.",
+  "@cueF2lStuck": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "cueOllSune": "With {front} facing you, apply Sune to turn the yellow corners up.",
+  "@cueOllSune": {
+    "placeholders": {
+      "front": {
+        "type": "String"
+      }
+    }
+  },
+  "cueOllSuneAgain": "One Sune was not enough this time. Turn the top and apply Sune again, {front} facing you.",
+  "@cueOllSuneAgain": {
+    "placeholders": {
+      "front": {
+        "type": "String"
+      }
+    }
+  },
+  "cuePllCorners": "Two corners need to swap. Keep the matching pair (headlights) on the left, {front} facing you, and apply the T-perm.",
+  "@cuePllCorners": {
+    "placeholders": {
+      "front": {
+        "type": "String"
+      }
+    }
+  },
+  "cuePllEdges": "The corners are done. Keep the {piece} edge at the back and cycle the other three edges with the U-perm.",
+  "@cuePllEdges": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "cuePllNoEdge": "No top edge matches its center yet. Apply the U-perm once from any side; afterwards one edge does.",
+  "cueTwoSwapAdjacent": "Two neighboring top corners need to swap. Keep the matching pair on the left, {front} facing you, and apply the swap.",
+  "@cueTwoSwapAdjacent": {
+    "placeholders": {
+      "front": {
+        "type": "String"
+      }
+    }
+  },
+  "cueTwoSwapDiagonal": "The two corners to swap sit diagonally. Apply the diagonal swap with {front} facing you.",
+  "@cueTwoSwapDiagonal": {
+    "placeholders": {
+      "front": {
+        "type": "String"
+      }
+    }
+  },
+  "cueCenterCycle": "Bring the stray {color} center piece home with the center 3-cycle: slice, top, slice, then everything back.",
+  "@cueCenterCycle": {
+    "placeholders": {
+      "color": {
+        "type": "String"
+      }
+    }
+  },
+  "cueCenterBar": "A whole bar of {color} center pieces sits on the wrong face. Lift it with the slice, turn the top, and bring it back home.",
+  "@cueCenterBar": {
+    "placeholders": {
+      "color": {
+        "type": "String"
+      }
+    }
+  },
+  "cueEdgePair": "Pair both {piece} edge pieces: line them up, slice, swap in an unpaired edge with the right-hand moves, then slice back.",
+  "@cueEdgePair": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "cueEdgeLast": "The last edges: pair the {piece} edge with the last-two-edges algorithm, which keeps every finished edge intact.",
+  "@cueEdgeLast": {
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "cueParityOll": "OLL parity: one top edge is flipped, which never happens on a 3×3. Keep it at the front, {front} facing you, and apply the parity fix.",
+  "@cueParityOll": {
+    "placeholders": {
+      "front": {
+        "type": "String"
+      }
+    }
+  },
+  "cueParityPll": "PLL parity: two top edges are swapped, which never happens on a 3×3. Keep them at the front and back and apply the parity swap.",
+  "cueParityFive": "Edge parity: the two outer pieces of one edge are swapped. Turn that edge to the front, {front} facing you, apply the fix, and turn back.",
+  "@cueParityFive": {
+    "placeholders": {
+      "front": {
+        "type": "String"
+      }
+    }
   }
 }

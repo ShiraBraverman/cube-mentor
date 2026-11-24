@@ -63,6 +63,10 @@ const Map<String, LessonGoal> _goals = {
     target: _allEdges,
     done: {PieceGroup.centers, ..._corners},
   ),
+  'cfopIntro': LessonGoal(
+    target: {PieceGroup.whiteEdges},
+    done: {PieceGroup.centers},
+  ),
   'cross': LessonGoal(
     target: {PieceGroup.whiteEdges},
     done: {PieceGroup.centers},
@@ -165,7 +169,7 @@ class GoalPreviewData {
     );
     final moves = [
       for (final step in lesson.steps)
-        if (step.setup == first.setup) ...step.demoMoves(size),
+        if (step.setup == first.setup && !step.extra) ...step.demoMoves(size),
     ];
     var goal = CubeState.solved(size);
     if (first.setup.isNotEmpty) {

@@ -555,11 +555,8 @@ class _LastSolveActions extends ConsumerWidget {
     final index = state.history.length - 1;
     final penalty = state.history[index].penalty;
     Penalty toggle(Penalty p) => penalty == p ? Penalty.none : p;
-    final caption = Theme.of(context).textTheme.labelSmall?.copyWith(
-      fontSize: 10,
-      height: 1.2,
-      color: AppColors.textTertiary,
-    );
+    final caption = Theme.of(context).textTheme.labelSmall
+        ?.copyWith(fontSize: 10, height: 1.2, color: AppColors.textTertiary);
     // Each button with a tiny caption saying what it does.
     Widget labeled(String key, Widget button, String text) => SizedBox(
       width: 108,

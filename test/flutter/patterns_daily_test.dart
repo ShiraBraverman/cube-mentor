@@ -172,14 +172,10 @@ void main() {
       for (final size in [2, 3, 4, 5, 6]) {
         final ids = kPatternOrder[size]!;
         expect(ids.toSet(), hasLength(ids.length), reason: '$size');
-        expect(
-          ids.toSet(),
-          {
-            for (final p in kPatterns)
-              if (p.supports(size)) p.id,
-          },
-          reason: '$size',
-        );
+        expect(ids.toSet(), {
+          for (final p in kPatterns)
+            if (p.supports(size)) p.id,
+        }, reason: '$size');
         expect(patternsFor(size).map((p) => p.id), ids);
       }
       // The library roughly doubled: at least 14 patterns per 3x3-6x6 page.
@@ -545,10 +541,7 @@ void main() {
     // "Congratulations!" with the solve time.
     expect(find.byKey(const ValueKey('daily-congrats')), findsOneWidget);
     expect(find.text('Congratulations!'), findsOneWidget);
-    expect(
-      find.text("You solved today's challenge in 42.00."),
-      findsOneWidget,
-    );
+    expect(find.text("You solved today's challenge in 42.00."), findsOneWidget);
     expect(find.text('3-day streak'), findsWidgets);
     expect(find.byKey(const ValueKey('celebration-toast')), findsNothing);
     expect(prefs.getInt('daily_best_time_ms'), 42000);

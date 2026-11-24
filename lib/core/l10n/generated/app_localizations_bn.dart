@@ -2245,4 +2245,282 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get academyAllSizes => 'সব সাইজ';
+
+  @override
+  String homeAcademyProgress(int done, int total) {
+    return '$totalটির মধ্যে $doneটি পাঠ শেষ';
+  }
+
+  @override
+  String academySizeProgress(String size, int done, int total) {
+    return '$size • $done / $total শেষ';
+  }
+
+  @override
+  String get lessonStageConcept => 'ধারণা';
+
+  @override
+  String get lessonStageExamples => 'উদাহরণ';
+
+  @override
+  String get lessonStagePractice => 'অনুশীলন';
+
+  @override
+  String get lessonStageNext => 'পরের / মুক্ত';
+
+  @override
+  String lessonStageOf(int index, int total, String name) {
+    return 'ধাপ $index / $total: $name';
+  }
+
+  @override
+  String lessonExampleOf(int index, int total) {
+    return 'উদাহরণ $index / $total';
+  }
+
+  @override
+  String lessonWalkthroughOf(int index, int total) {
+    return 'অনুশীলন $index / $total';
+  }
+
+  @override
+  String get lessonBonusCase => 'বোনাস কেস';
+
+  @override
+  String get lessonPracticeIntro =>
+      'আসল স্ক্র্যাম্বল: শুধু আগের ধাপগুলো মেলানো। একটি একটি নির্দেশনা ধরে পুরো এই ধাপটি শেষ করুন।';
+
+  @override
+  String lessonContinueDesc(String lesson) {
+    return 'সরাসরি $lesson-এ চলুন।';
+  }
+
+  @override
+  String get lessonFreePractice => 'মুক্ত অনুশীলন';
+
+  @override
+  String get lessonFreePracticeDesc =>
+      'এলোমেলো একটি 3D কিউব নিজে মেলান, শুরু থেকে এই ধাপ পর্যন্ত।';
+
+  @override
+  String freePracticeBanner(String topic) {
+    return 'মুক্তভাবে অনুশীলন করুন: শুরু থেকে $topic পর্যন্ত কিউবটি মেলান!';
+  }
+
+  @override
+  String get pieceColorSeparator => '-';
+
+  @override
+  String cueFaceTurn(String face) {
+    return '$face কেন্দ্রের দিকটি তীরের দিকে ঘোরান। কেন্দ্র জায়গায় থাকে; শুধু তার চারপাশের টুকরোগুলো সরে।';
+  }
+
+  @override
+  String cueTrigger(String front) {
+    return 'ডান হাতের ট্রিগার, $front আপনার দিকে: ডান দিক উপরে, উপরের স্তর বাঁয়ে, ডান দিক নিচে, উপরের স্তর আবার ডানে।';
+  }
+
+  @override
+  String get cueTriggerBack =>
+      'পরপর ষষ্ঠ ট্রিগার কিউবকে ঠিক আগের অবস্থায় ফিরিয়ে আনে। ছয়ই জাদুর সংখ্যা!';
+
+  @override
+  String cueSliceInner(String face) {
+    return '$face দিকের পাশের শুধু ভেতরের স্তরটি ঘোরান। দিকটি নিজে স্থির থাকে, তাই কেন্দ্রগুলো আলাদা হয়ে যায়।';
+  }
+
+  @override
+  String cueSliceWide(String face) {
+    return 'চওড়া ঘোরানো: $face দিক আর তার পাশের ভেতরের স্তর একসঙ্গে ঘোরে, একটি মোটা স্তরের মতো।';
+  }
+
+  @override
+  String cueTurnCube(String top, String front) {
+    return 'পুরো কিউবটি এমনভাবে ঘোরান যাতে $top কেন্দ্র উপরে আর $front কেন্দ্র আপনার দিকে থাকে।';
+  }
+
+  @override
+  String get cueTurnTop =>
+      'পরের অ্যালগরিদমের প্রস্তুতির জন্য তীর অনুযায়ী শুধু উপরের স্তর ঘোরান।';
+
+  @override
+  String get cueAlignTop =>
+      'শেষ চাল: উপরের স্তর ঘুরিয়ে রংগুলো মিলিয়ে দিন। হয়ে গেছে!';
+
+  @override
+  String cueCrossTop(String piece, String center) {
+    return '$piece কিনারা উপরের স্তরে আছে। উপরের স্তর ঘোরান যতক্ষণ না সেটি $center কেন্দ্রের ঠিক উপরে আসে, তারপর নামাতে সেই দিকটি দুবার ঘোরান।';
+  }
+
+  @override
+  String cueCrossMiddle(String piece, String center) {
+    return '$piece কিনারা মাঝের স্তরে আটকে আছে। সেটিকে উপরে তুলুন, $center কেন্দ্রের উপরে মেলান, তারপর নামান।';
+  }
+
+  @override
+  String cueCrossFlipped(String piece, String center) {
+    return '$piece কিনারা জায়গামতো আছে কিন্তু উল্টো: তার সাদা অংশ পাশে তাকিয়ে আছে। সেটি বের করুন, তারপর $center কেন্দ্রের পাশে সঠিকভাবে ফিরিয়ে দিন।';
+  }
+
+  @override
+  String cueCrossBottom(String piece, String center) {
+    return 'CFOP ধরনে নিচের স্তরও ঘোরানো যায়। $piece কিনারা নামান আর নিচের স্তর ঘুরিয়ে সেটিকে $center কেন্দ্রের সাথে মেলান।';
+  }
+
+  @override
+  String cueCornerTop(String piece, String a, String b) {
+    return 'উপরের স্তর ঘোরান যতক্ষণ না $piece কোণ তার জায়গার ঠিক উপরে, $a আর $b দিকের মাঝে আসে। সঠিকভাবে ঢুকে যাওয়া পর্যন্ত ডান হাতের ট্রিগার বারবার করুন।';
+  }
+
+  @override
+  String cueCornerTwisted(String piece) {
+    return '$piece কোণ জায়গামতো আছে কিন্তু মোচড়ানো। একটি ট্রিগার সেটিকে বের করে দেয় (তার জায়গায় একটি হলুদ কোণ ঢোকে); সঠিকভাবে ফিরে না আসা পর্যন্ত বারবার করুন।';
+  }
+
+  @override
+  String cueMiddleRight(String piece, String a, String b) {
+    return 'উপরের স্তর ঘোরান যতক্ষণ না $piece কিনারা $a কেন্দ্রের সাথে মেলে, তারপর সেটিকে নিচে ডানে, $a আর $b-এর মাঝের খাঁজে পাঠান।';
+  }
+
+  @override
+  String cueMiddleLeft(String piece, String a, String b) {
+    return 'উপরের স্তর ঘোরান যতক্ষণ না $piece কিনারা $a কেন্দ্রের সাথে মেলে, তারপর সেটিকে নিচে বাঁয়ে, $a আর $b-এর মাঝের খাঁজে পাঠান।';
+  }
+
+  @override
+  String cueMiddleFlipped(String piece, String a, String b) {
+    return '$piece কিনারা তার খাঁজে আছে কিন্তু উল্টো। সেটিকে ঠেলে বের করতে সেখানে একটি হলুদ কিনারা ঢোকান, তারপর আবার $a আর $b-এর মাঝে ঢোকান।';
+  }
+
+  @override
+  String cueYellowLine(String front) {
+    return 'হলুদ রেখা: উপরের স্তর ঘোরান যাতে রেখাটি বাঁ থেকে ডানে যায়, $front আপনার দিকে রাখুন, তারপর হলুদ ক্রসের অ্যালগরিদম করুন।';
+  }
+
+  @override
+  String cueYellowL(String front) {
+    return 'হলুদ L: উপরের স্তর ঘোরান যাতে L পেছনে-বাঁয়ে নির্দেশ করে, $front আপনার দিকে রাখুন, তারপর অ্যালগরিদম করুন। এটি রেখা হয়ে যাবে।';
+  }
+
+  @override
+  String cueYellowDot(String front) {
+    return 'শুধু কেন্দ্রটি হলুদ: একটি বিন্দু। $front আপনার দিকে রেখে অ্যালগরিদম একবার করুন, L পাবেন।';
+  }
+
+  @override
+  String cueEdgesMatch(String piece, String center) {
+    return 'উপরের স্তর ঘোরান যতক্ষণ না $piece কিনারা $center কেন্দ্রের সাথে মেলে।';
+  }
+
+  @override
+  String cueEdgesSwap(String front) {
+    return 'মেলানো দুটি কিনারা পেছনে আর ডানে আছে। $front আপনার দিকে রেখে অদলবদল করুন: সামনের আর বাঁয়ের কিনারা জায়গা বদলায়।';
+  }
+
+  @override
+  String cueEdgesOpposite(String front) {
+    return 'মেলানো কিনারাগুলো মুখোমুখি। $front আপনার দিকে রেখে একবার অদলবদল করুন; তারপর পাশাপাশি দুটি মিলবে।';
+  }
+
+  @override
+  String cueCornersCycle(String piece, String front) {
+    return '$piece কোণ আগেই জায়গামতো আছে। সেটিকে সামনে-ডানে রাখুন, $front আপনার দিকে, আর বাকি তিনটি কোণ চক্রাকারে বদলান।';
+  }
+
+  @override
+  String cueCornersNone(String front) {
+    return 'এখনও কোনো হলুদ কোণ জায়গামতো নেই। $front আপনার দিকে রেখে একবার চক্র করুন; তারপর একটি কোণ জায়গামতো আসবে।';
+  }
+
+  @override
+  String cueTwistCorner(String piece) {
+    return 'সামনে-ডানের $piece কোণ ঘোরান: হলুদ উপরে না আসা পর্যন্ত নিচের ট্রিগার বারবার করুন। নিচের স্তরগুলো আপাতত এলোমেলো দেখাবে; এটা স্বাভাবিক!';
+  }
+
+  @override
+  String cueTwistFour(String piece) {
+    return 'এবার $piece কোণের চারটি ট্রিগার লাগবে। চালিয়ে যান: হলুদ সবসময় দুই বা চারটির পর উপরে আসে।';
+  }
+
+  @override
+  String get cueTwistNext =>
+      'পরের মোচড়ানো কোণটি সামনে-ডানে আনতে শুধু উপরের স্তর ঘোরান। এখন পুরো কিউব ঘোরাবেন না!';
+
+  @override
+  String cueF2lPair(String piece, String edge, String a, String b) {
+    return 'উপরে $piece কোণকে $edge কিনারার সাথে জোড়া বানান, তারপর জোড়াটি $a আর $b-এর মাঝের খাঁজে ঢোকান।';
+  }
+
+  @override
+  String cueF2lStuck(String piece) {
+    return '$piece কোণ ভুল কিনারার সাথে তার খাঁজে আটকে আছে। আগে সেটিকে উপরে বের করুন, তারপর জোড়া বানিয়ে ঢোকান।';
+  }
+
+  @override
+  String cueOllSune(String front) {
+    return '$front আপনার দিকে রেখে Sune করুন, যাতে হলুদ কোণগুলো উপরের দিকে ঘোরে।';
+  }
+
+  @override
+  String cueOllSuneAgain(String front) {
+    return 'এবার একটি Sune যথেষ্ট হয়নি। উপরের স্তর ঘোরান আর $front আপনার দিকে রেখে আবার Sune করুন।';
+  }
+
+  @override
+  String cuePllCorners(String front) {
+    return 'দুটি কোণের জায়গা বদলাতে হবে। মিলে যাওয়া জোড়া (হেডলাইট) বাঁয়ে রাখুন, $front আপনার দিকে, আর T-perm করুন।';
+  }
+
+  @override
+  String cuePllEdges(String piece) {
+    return 'কোণগুলো তৈরি। $piece কিনারা পেছনে রাখুন আর বাকি তিনটি কিনারা U-perm দিয়ে চক্রাকারে বদলান।';
+  }
+
+  @override
+  String get cuePllNoEdge =>
+      'এখনও উপরের কোনো কিনারা তার কেন্দ্রের সাথে মেলেনি। যেকোনো দিক থেকে একবার U-perm করুন; তারপর একটি মিলবে।';
+
+  @override
+  String cueTwoSwapAdjacent(String front) {
+    return 'উপরের পাশাপাশি দুটি কোণের জায়গা বদলাতে হবে। মিলে যাওয়া জোড়া বাঁয়ে রাখুন, $front আপনার দিকে, আর অদলবদল করুন।';
+  }
+
+  @override
+  String cueTwoSwapDiagonal(String front) {
+    return 'বদলানোর দুটি কোণ কোনাকুনি আছে। $front আপনার দিকে রেখে কোনাকুনি অদলবদল করুন।';
+  }
+
+  @override
+  String cueCenterCycle(String color) {
+    return 'পথ হারানো $color কেন্দ্রের টুকরোটিকে কেন্দ্রের 3-সাইকেল দিয়ে ঘরে ফেরান: স্তর, উপর, স্তর, তারপর সব আগের মতো।';
+  }
+
+  @override
+  String cueCenterBar(String color) {
+    return '$color কেন্দ্রের টুকরোর একটি পুরো দণ্ড ভুল দিকে আছে। ভেতরের স্তর দিয়ে সেটি তুলুন, উপরের স্তর ঘোরান, আর ঘরে ফিরিয়ে দিন।';
+  }
+
+  @override
+  String cueEdgePair(String piece) {
+    return '$piece কিনারার দুটি টুকরো জোড়া লাগান: সারিতে আনুন, স্তর ঘোরান, ডান হাতের চালে একটি জোড়াহীন কিনারা বদলে নিন, তারপর স্তর ফিরিয়ে দিন।';
+  }
+
+  @override
+  String cueEdgeLast(String piece) {
+    return 'শেষ কিনারাগুলো: শেষ দুই কিনারার অ্যালগরিদম দিয়ে $piece কিনারা জোড়া লাগান, যা সব তৈরি কিনারা অক্ষত রাখে।';
+  }
+
+  @override
+  String cueParityOll(String front) {
+    return 'OLL প্যারিটি: উপরের একটি কিনারা উল্টে আছে, যা 3×3-এ কখনও হয় না। সেটি সামনে রাখুন, $front আপনার দিকে, আর প্যারিটি সংশোধন করুন।';
+  }
+
+  @override
+  String get cueParityPll =>
+      'PLL প্যারিটি: উপরের দুটি কিনারার জায়গা বদলে গেছে, যা 3×3-এ কখনও হয় না। সেগুলো সামনে আর পেছনে রাখুন এবং প্যারিটি অদলবদল করুন।';
+
+  @override
+  String cueParityFive(String front) {
+    return 'কিনারা প্যারিটি: একটি কিনারার বাইরের দুটি টুকরোর জায়গা বদলে গেছে। সেই কিনারা সামনে আনুন, $front আপনার দিকে, ঠিক করুন আর ফিরিয়ে দিন।';
+  }
 }

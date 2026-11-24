@@ -2303,4 +2303,282 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get academyAllSizes => 'All sizes';
+
+  @override
+  String homeAcademyProgress(int done, int total) {
+    return '$done / $total lessons completed';
+  }
+
+  @override
+  String academySizeProgress(String size, int done, int total) {
+    return '$size • $done / $total completed';
+  }
+
+  @override
+  String get lessonStageConcept => 'Concept';
+
+  @override
+  String get lessonStageExamples => 'Examples';
+
+  @override
+  String get lessonStagePractice => 'Practice';
+
+  @override
+  String get lessonStageNext => 'Next / free';
+
+  @override
+  String lessonStageOf(int index, int total, String name) {
+    return 'Stage $index of $total: $name';
+  }
+
+  @override
+  String lessonExampleOf(int index, int total) {
+    return 'Example $index of $total';
+  }
+
+  @override
+  String lessonWalkthroughOf(int index, int total) {
+    return 'Walkthrough $index of $total';
+  }
+
+  @override
+  String get lessonBonusCase => 'Bonus case';
+
+  @override
+  String get lessonPracticeIntro =>
+      'A real scramble: only the earlier steps are solved. Finish this whole step, one callout at a time.';
+
+  @override
+  String lessonContinueDesc(String lesson) {
+    return 'Go straight on to $lesson.';
+  }
+
+  @override
+  String get lessonFreePractice => 'Free practice';
+
+  @override
+  String get lessonFreePracticeDesc =>
+      'Solve a scrambled 3D cube on your own, from the start through this step.';
+
+  @override
+  String freePracticeBanner(String topic) {
+    return 'Practice freely: solve the cube from the start up through $topic!';
+  }
+
+  @override
+  String get pieceColorSeparator => '-';
+
+  @override
+  String cueFaceTurn(String face) {
+    return 'Turn the $face face the way the arrow shows. Its center stays put; only the pieces around it travel.';
+  }
+
+  @override
+  String cueTrigger(String front) {
+    return 'Right-hand trigger, $front facing you: right face up, top to the left, right face down, top back to the right.';
+  }
+
+  @override
+  String get cueTriggerBack =>
+      'The sixth trigger in a row brings the cube back exactly as it was. Six is the magic number!';
+
+  @override
+  String cueSliceInner(String face) {
+    return 'Turn only the inner slice next to the $face face. The $face face itself stays still, so the centers split apart.';
+  }
+
+  @override
+  String cueSliceWide(String face) {
+    return 'A wide turn: the $face face and the slice next to it turn together, like one thick layer.';
+  }
+
+  @override
+  String cueTurnCube(String top, String front) {
+    return 'Turn the whole cube so the $top center is on top and the $front center faces you.';
+  }
+
+  @override
+  String get cueTurnTop =>
+      'Turn only the top layer, as the arrow shows, to set up the next algorithm.';
+
+  @override
+  String get cueAlignTop =>
+      'Last move: turn the top layer to line up its colors. Done!';
+
+  @override
+  String cueCrossTop(String piece, String center) {
+    return 'The $piece edge is in the top layer. Turn the top until it sits right above the $center center, then turn that face twice to bring it down.';
+  }
+
+  @override
+  String cueCrossMiddle(String piece, String center) {
+    return 'The $piece edge is stuck in the middle layer. Lift it to the top, line it up above the $center center, then bring it down.';
+  }
+
+  @override
+  String cueCrossFlipped(String piece, String center) {
+    return 'The $piece edge is in its spot but flipped: its white faces sideways. Take it out, then bring it back next to the $center center the right way round.';
+  }
+
+  @override
+  String cueCrossBottom(String piece, String center) {
+    return 'CFOP style: the bottom may turn too. Drop the $piece edge in and turn the bottom so it lines up with the $center center.';
+  }
+
+  @override
+  String cueCornerTop(String piece, String a, String b) {
+    return 'Turn the top so the $piece corner sits right above its slot, between the $a and $b sides. Repeat the right-hand trigger until it drops in, correctly turned.';
+  }
+
+  @override
+  String cueCornerTwisted(String piece) {
+    return 'The $piece corner is in its slot but twisted. One trigger pops it out (a yellow corner takes its place); keep repeating until it drops back in correctly.';
+  }
+
+  @override
+  String cueMiddleRight(String piece, String a, String b) {
+    return 'Turn the top until the $piece edge lines up with the $a center, then send it down to the right, into the slot between $a and $b.';
+  }
+
+  @override
+  String cueMiddleLeft(String piece, String a, String b) {
+    return 'Turn the top until the $piece edge lines up with the $a center, then send it down to the left, into the slot between $a and $b.';
+  }
+
+  @override
+  String cueMiddleFlipped(String piece, String a, String b) {
+    return 'The $piece edge is in its slot but flipped. Insert a yellow edge there to push it out, then insert it again between $a and $b.';
+  }
+
+  @override
+  String cueYellowLine(String front) {
+    return 'A yellow line: turn the top so it runs from left to right, keep $front facing you, then apply the yellow-cross algorithm.';
+  }
+
+  @override
+  String cueYellowL(String front) {
+    return 'A yellow L: turn the top so the L points to the back left, keep $front facing you, then apply the algorithm. It becomes a line.';
+  }
+
+  @override
+  String cueYellowDot(String front) {
+    return 'Only the yellow center is yellow: a dot. Apply the algorithm once with $front facing you to get an L.';
+  }
+
+  @override
+  String cueEdgesMatch(String piece, String center) {
+    return 'Turn the top until the $piece edge matches the $center center.';
+  }
+
+  @override
+  String cueEdgesSwap(String front) {
+    return 'Two matched edges sit at the back and on the right. With $front facing you, apply the swap: the front and left edges trade places.';
+  }
+
+  @override
+  String cueEdgesOpposite(String front) {
+    return 'The matched edges sit opposite each other. Apply the swap once with $front facing you; afterwards two neighbors match.';
+  }
+
+  @override
+  String cueCornersCycle(String piece, String front) {
+    return 'The $piece corner is already in its spot. Keep it at the front right, $front facing you, and cycle the other three corners.';
+  }
+
+  @override
+  String cueCornersNone(String front) {
+    return 'No yellow corner is in its spot yet. Cycle once with $front facing you; afterwards one corner is home.';
+  }
+
+  @override
+  String cueTwistCorner(String piece) {
+    return 'Twist the $piece corner at the front right: repeat the down-trigger until its yellow faces up. The lower layers look messy for now; that\'s normal!';
+  }
+
+  @override
+  String cueTwistFour(String piece) {
+    return 'The $piece corner needs four triggers this time. Keep going: yellow always comes up after two or four.';
+  }
+
+  @override
+  String get cueTwistNext =>
+      'Turn only the top layer to bring the next twisted corner to the front right. Don\'t turn the whole cube now!';
+
+  @override
+  String cueF2lPair(String piece, String edge, String a, String b) {
+    return 'Pair the $piece corner with the $edge edge on top, then insert the pair into the slot between $a and $b.';
+  }
+
+  @override
+  String cueF2lStuck(String piece) {
+    return 'The $piece corner is stuck in its slot with the wrong edge. Take it out to the top first, then pair it up and insert it.';
+  }
+
+  @override
+  String cueOllSune(String front) {
+    return 'With $front facing you, apply Sune to turn the yellow corners up.';
+  }
+
+  @override
+  String cueOllSuneAgain(String front) {
+    return 'One Sune was not enough this time. Turn the top and apply Sune again, $front facing you.';
+  }
+
+  @override
+  String cuePllCorners(String front) {
+    return 'Two corners need to swap. Keep the matching pair (headlights) on the left, $front facing you, and apply the T-perm.';
+  }
+
+  @override
+  String cuePllEdges(String piece) {
+    return 'The corners are done. Keep the $piece edge at the back and cycle the other three edges with the U-perm.';
+  }
+
+  @override
+  String get cuePllNoEdge =>
+      'No top edge matches its center yet. Apply the U-perm once from any side; afterwards one edge does.';
+
+  @override
+  String cueTwoSwapAdjacent(String front) {
+    return 'Two neighboring top corners need to swap. Keep the matching pair on the left, $front facing you, and apply the swap.';
+  }
+
+  @override
+  String cueTwoSwapDiagonal(String front) {
+    return 'The two corners to swap sit diagonally. Apply the diagonal swap with $front facing you.';
+  }
+
+  @override
+  String cueCenterCycle(String color) {
+    return 'Bring the stray $color center piece home with the center 3-cycle: slice, top, slice, then everything back.';
+  }
+
+  @override
+  String cueCenterBar(String color) {
+    return 'A whole bar of $color center pieces sits on the wrong face. Lift it with the slice, turn the top, and bring it back home.';
+  }
+
+  @override
+  String cueEdgePair(String piece) {
+    return 'Pair both $piece edge pieces: line them up, slice, swap in an unpaired edge with the right-hand moves, then slice back.';
+  }
+
+  @override
+  String cueEdgeLast(String piece) {
+    return 'The last edges: pair the $piece edge with the last-two-edges algorithm, which keeps every finished edge intact.';
+  }
+
+  @override
+  String cueParityOll(String front) {
+    return 'OLL parity: one top edge is flipped, which never happens on a 3×3. Keep it at the front, $front facing you, and apply the parity fix.';
+  }
+
+  @override
+  String get cueParityPll =>
+      'PLL parity: two top edges are swapped, which never happens on a 3×3. Keep them at the front and back and apply the parity swap.';
+
+  @override
+  String cueParityFive(String front) {
+    return 'Edge parity: the two outer pieces of one edge are swapped. Turn that edge to the front, $front facing you, apply the fix, and turn back.';
+  }
 }

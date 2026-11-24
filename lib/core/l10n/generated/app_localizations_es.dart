@@ -2315,4 +2315,282 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get academyAllSizes => 'Todos los tamaños';
+
+  @override
+  String homeAcademyProgress(int done, int total) {
+    return '$done / $total lecciones completadas';
+  }
+
+  @override
+  String academySizeProgress(String size, int done, int total) {
+    return '$size • $done / $total completadas';
+  }
+
+  @override
+  String get lessonStageConcept => 'Concepto';
+
+  @override
+  String get lessonStageExamples => 'Ejemplos';
+
+  @override
+  String get lessonStagePractice => 'Práctica';
+
+  @override
+  String get lessonStageNext => 'Seguir / libre';
+
+  @override
+  String lessonStageOf(int index, int total, String name) {
+    return 'Etapa $index de $total: $name';
+  }
+
+  @override
+  String lessonExampleOf(int index, int total) {
+    return 'Ejemplo $index de $total';
+  }
+
+  @override
+  String lessonWalkthroughOf(int index, int total) {
+    return 'Recorrido $index de $total';
+  }
+
+  @override
+  String get lessonBonusCase => 'Caso extra';
+
+  @override
+  String get lessonPracticeIntro =>
+      'Una mezcla real: solo los pasos anteriores están resueltos. Termina todo este paso, indicación por indicación.';
+
+  @override
+  String lessonContinueDesc(String lesson) {
+    return 'Sigue directamente con $lesson.';
+  }
+
+  @override
+  String get lessonFreePractice => 'Práctica libre';
+
+  @override
+  String get lessonFreePracticeDesc =>
+      'Resuelve tú solo un cubo 3D mezclado, desde el principio hasta este paso.';
+
+  @override
+  String freePracticeBanner(String topic) {
+    return 'Practica libremente: ¡resuelve el cubo desde el principio hasta $topic!';
+  }
+
+  @override
+  String get pieceColorSeparator => '-';
+
+  @override
+  String cueFaceTurn(String face) {
+    return 'Gira la cara del centro $face como indica la flecha. El centro se queda quieto; solo viajan las piezas de alrededor.';
+  }
+
+  @override
+  String cueTrigger(String front) {
+    return 'Gatillo de mano derecha, con el $front hacia ti: cara derecha arriba, arriba a la izquierda, cara derecha abajo, arriba de vuelta a la derecha.';
+  }
+
+  @override
+  String get cueTriggerBack =>
+      'El sexto gatillo seguido devuelve el cubo exactamente a como estaba. ¡Seis es el número mágico!';
+
+  @override
+  String cueSliceInner(String face) {
+    return 'Gira solo la capa interior junto a la cara $face. La cara en sí no se mueve, así que los centros se separan.';
+  }
+
+  @override
+  String cueSliceWide(String face) {
+    return 'Un giro doble: la cara $face y la capa interior de al lado giran juntas, como una sola capa gruesa.';
+  }
+
+  @override
+  String cueTurnCube(String top, String front) {
+    return 'Gira todo el cubo para que el centro $top quede arriba y el centro $front mire hacia ti.';
+  }
+
+  @override
+  String get cueTurnTop =>
+      'Gira solo la capa superior, como indica la flecha, para preparar el siguiente algoritmo.';
+
+  @override
+  String get cueAlignTop =>
+      'Último movimiento: gira la capa superior para alinear sus colores. ¡Listo!';
+
+  @override
+  String cueCrossTop(String piece, String center) {
+    return 'La arista $piece está en la capa superior. Gira arriba hasta que quede justo encima del centro $center y luego gira esa cara dos veces para bajarla.';
+  }
+
+  @override
+  String cueCrossMiddle(String piece, String center) {
+    return 'La arista $piece está atascada en la capa del medio. Súbela, alinéala sobre el centro $center y bájala.';
+  }
+
+  @override
+  String cueCrossFlipped(String piece, String center) {
+    return 'La arista $piece está en su sitio pero al revés: su blanco mira hacia un lado. Sácala y vuelve a colocarla junto al centro $center del lado correcto.';
+  }
+
+  @override
+  String cueCrossBottom(String piece, String center) {
+    return 'Al estilo CFOP, la base también puede girar. Baja la arista $piece y gira la base para alinearla con el centro $center.';
+  }
+
+  @override
+  String cueCornerTop(String piece, String a, String b) {
+    return 'Gira arriba hasta que la esquina $piece quede justo encima de su hueco, entre los lados $a y $b. Repite el gatillo de mano derecha hasta que entre bien orientada.';
+  }
+
+  @override
+  String cueCornerTwisted(String piece) {
+    return 'La esquina $piece está en su hueco pero girada. Un gatillo la saca (una esquina amarilla ocupa su lugar); sigue repitiendo hasta que vuelva a entrar bien.';
+  }
+
+  @override
+  String cueMiddleRight(String piece, String a, String b) {
+    return 'Gira arriba hasta alinear la arista $piece con el centro $a y luego bájala a la derecha, al hueco entre $a y $b.';
+  }
+
+  @override
+  String cueMiddleLeft(String piece, String a, String b) {
+    return 'Gira arriba hasta alinear la arista $piece con el centro $a y luego bájala a la izquierda, al hueco entre $a y $b.';
+  }
+
+  @override
+  String cueMiddleFlipped(String piece, String a, String b) {
+    return 'La arista $piece está en su hueco pero al revés. Mete ahí una arista amarilla para sacarla y luego insértala otra vez entre $a y $b.';
+  }
+
+  @override
+  String cueYellowLine(String front) {
+    return 'Una línea amarilla: gira arriba para que vaya de izquierda a derecha, mantén el $front hacia ti y haz el algoritmo de la cruz amarilla.';
+  }
+
+  @override
+  String cueYellowL(String front) {
+    return 'Una L amarilla: gira arriba para que la L apunte atrás a la izquierda, mantén el $front hacia ti y haz el algoritmo. Se convierte en una línea.';
+  }
+
+  @override
+  String cueYellowDot(String front) {
+    return 'Solo el centro es amarillo: un punto. Haz el algoritmo una vez, con el $front hacia ti, para obtener una L.';
+  }
+
+  @override
+  String cueEdgesMatch(String piece, String center) {
+    return 'Gira arriba hasta que la arista $piece coincida con el centro $center.';
+  }
+
+  @override
+  String cueEdgesSwap(String front) {
+    return 'Dos aristas que coinciden están atrás y a la derecha. Con el $front hacia ti, haz el intercambio: las aristas delantera e izquierda cambian de sitio.';
+  }
+
+  @override
+  String cueEdgesOpposite(String front) {
+    return 'Las aristas que coinciden están una frente a la otra. Haz el intercambio una vez con el $front hacia ti; después coincidirán dos vecinas.';
+  }
+
+  @override
+  String cueCornersCycle(String piece, String front) {
+    return 'La esquina $piece ya está en su sitio. Mantenla delante a la derecha, con el $front hacia ti, y cicla las otras tres esquinas.';
+  }
+
+  @override
+  String cueCornersNone(String front) {
+    return 'Ninguna esquina amarilla está aún en su sitio. Haz un ciclo con el $front hacia ti; después una esquina estará en su lugar.';
+  }
+
+  @override
+  String cueTwistCorner(String piece) {
+    return 'Orienta la esquina $piece de delante a la derecha: repite el gatillo de abajo hasta que su amarillo mire arriba. Las capas de abajo parecen desordenadas por ahora; ¡es normal!';
+  }
+
+  @override
+  String cueTwistFour(String piece) {
+    return 'Esta vez la esquina $piece necesita cuatro gatillos. Sigue: el amarillo siempre sube tras dos o cuatro.';
+  }
+
+  @override
+  String get cueTwistNext =>
+      'Gira solo la capa superior para llevar la siguiente esquina mal orientada delante a la derecha. ¡No gires ahora todo el cubo!';
+
+  @override
+  String cueF2lPair(String piece, String edge, String a, String b) {
+    return 'Empareja la esquina $piece con la arista $edge arriba y luego inserta la pareja en el hueco entre $a y $b.';
+  }
+
+  @override
+  String cueF2lStuck(String piece) {
+    return 'La esquina $piece está atascada en su hueco con la arista equivocada. Sácala primero arriba, luego empareja e inserta.';
+  }
+
+  @override
+  String cueOllSune(String front) {
+    return 'Con el $front hacia ti, haz Sune para girar las esquinas amarillas hacia arriba.';
+  }
+
+  @override
+  String cueOllSuneAgain(String front) {
+    return 'Esta vez un Sune no bastó. Gira arriba y haz Sune otra vez, con el $front hacia ti.';
+  }
+
+  @override
+  String cuePllCorners(String front) {
+    return 'Dos esquinas deben intercambiarse. Deja la pareja igual (los «faros») a la izquierda, con el $front hacia ti, y haz la T-perm.';
+  }
+
+  @override
+  String cuePllEdges(String piece) {
+    return 'Las esquinas están listas. Deja la arista $piece atrás y cicla las otras tres aristas con la U-perm.';
+  }
+
+  @override
+  String get cuePllNoEdge =>
+      'Ninguna arista de arriba coincide aún con su centro. Haz la U-perm una vez desde cualquier lado; después una coincidirá.';
+
+  @override
+  String cueTwoSwapAdjacent(String front) {
+    return 'Dos esquinas vecinas de arriba deben intercambiarse. Deja la pareja igual a la izquierda, con el $front hacia ti, y haz el intercambio.';
+  }
+
+  @override
+  String cueTwoSwapDiagonal(String front) {
+    return 'Las dos esquinas a intercambiar están en diagonal. Haz el intercambio diagonal con el $front hacia ti.';
+  }
+
+  @override
+  String cueCenterCycle(String color) {
+    return 'Lleva a su sitio la pieza de centro $color perdida con el 3-ciclo de centros: capa, arriba, capa y luego todo de vuelta.';
+  }
+
+  @override
+  String cueCenterBar(String color) {
+    return 'Una barra entera de piezas de centro $color está en la cara equivocada. Levántala con la capa, gira arriba y devuélvela a su sitio.';
+  }
+
+  @override
+  String cueEdgePair(String piece) {
+    return 'Empareja las dos piezas de arista $piece: alinéalas, gira la capa, cambia una arista sin emparejar con los movimientos de mano derecha y devuelve la capa.';
+  }
+
+  @override
+  String cueEdgeLast(String piece) {
+    return 'Las últimas aristas: empareja la arista $piece con el algoritmo de las dos últimas aristas, que mantiene intactas todas las aristas terminadas.';
+  }
+
+  @override
+  String cueParityOll(String front) {
+    return 'Paridad OLL: una arista de arriba está volteada, algo que nunca pasa en un 3×3. Déjala delante, con el $front hacia ti, y haz la corrección de paridad.';
+  }
+
+  @override
+  String get cueParityPll =>
+      'Paridad PLL: dos aristas de arriba están intercambiadas, algo que nunca pasa en un 3×3. Déjalas delante y detrás y haz el intercambio de paridad.';
+
+  @override
+  String cueParityFive(String front) {
+    return 'Paridad de arista: las dos piezas exteriores de una arista están intercambiadas. Gira esa arista al frente, con el $front hacia ti, corrígela y vuelve a girar.';
+  }
 }

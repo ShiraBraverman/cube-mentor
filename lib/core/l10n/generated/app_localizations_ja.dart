@@ -2140,4 +2140,278 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get academyAllSizes => 'すべてのサイズ';
+
+  @override
+  String homeAcademyProgress(int done, int total) {
+    return '$done / $total レッスン完了';
+  }
+
+  @override
+  String academySizeProgress(String size, int done, int total) {
+    return '$size • $done / $total 完了';
+  }
+
+  @override
+  String get lessonStageConcept => '解説';
+
+  @override
+  String get lessonStageExamples => '例';
+
+  @override
+  String get lessonStagePractice => '実践';
+
+  @override
+  String get lessonStageNext => '次へ / 自由';
+
+  @override
+  String lessonStageOf(int index, int total, String name) {
+    return 'ステージ $index/$total：$name';
+  }
+
+  @override
+  String lessonExampleOf(int index, int total) {
+    return '例 $index/$total';
+  }
+
+  @override
+  String lessonWalkthroughOf(int index, int total) {
+    return '実践 $index/$total';
+  }
+
+  @override
+  String get lessonBonusCase => 'ボーナスケース';
+
+  @override
+  String get lessonPracticeIntro =>
+      '本物のスクランブルです。完成しているのは前のステップだけ。ヒントに沿って、このステップを最後までそろえましょう。';
+
+  @override
+  String lessonContinueDesc(String lesson) {
+    return 'そのまま「$lesson」へ進みます。';
+  }
+
+  @override
+  String get lessonFreePractice => '自由練習';
+
+  @override
+  String get lessonFreePracticeDesc => '崩れた3Dキューブを、最初からこのステップまで自分でそろえます。';
+
+  @override
+  String freePracticeBanner(String topic) {
+    return '自由に練習：最初から「$topic」までキューブをそろえよう！';
+  }
+
+  @override
+  String get pieceColorSeparator => '・';
+
+  @override
+  String cueFaceTurn(String face) {
+    return '$faceのセンターの面を矢印の向きに回します。センターは動かず、まわりのパーツだけが移動します。';
+  }
+
+  @override
+  String cueTrigger(String front) {
+    return '右手の手順、$frontを手前に：右面を上へ、上面を左へ、右面を下へ、上面を右へ戻します。';
+  }
+
+  @override
+  String get cueTriggerBack => '6回続けると、キューブはぴったり元の状態に戻ります。6は魔法の数！';
+
+  @override
+  String cueSliceInner(String face) {
+    return '$faceの面のとなりの内側の層だけを回します。面そのものは動かないので、センターが分かれます。';
+  }
+
+  @override
+  String cueSliceWide(String face) {
+    return 'ワイドムーブ：$faceの面ととなりの内側の層が、1枚の厚い層のように一緒に回ります。';
+  }
+
+  @override
+  String cueTurnCube(String top, String front) {
+    return '$topのセンターが上、$frontのセンターが手前になるよう、キューブ全体を持ち替えます。';
+  }
+
+  @override
+  String get cueTurnTop => '次の手順の準備として、矢印のとおり上の層だけを回します。';
+
+  @override
+  String get cueAlignTop => '最後の一手：上の層を回して色をそろえます。完成！';
+
+  @override
+  String cueCrossTop(String piece, String center) {
+    return '$pieceのエッジは上の層にあります。$centerのセンターの真上に来るまで上を回し、その面を2回回して下ろします。';
+  }
+
+  @override
+  String cueCrossMiddle(String piece, String center) {
+    return '$pieceのエッジが中段にはまっています。上に出して$centerのセンターの上にそろえ、下ろします。';
+  }
+
+  @override
+  String cueCrossFlipped(String piece, String center) {
+    return '$pieceのエッジは位置は合っていますが向きが逆で、白が横を向いています。一度取り出し、$centerのセンターの横に正しい向きで戻します。';
+  }
+
+  @override
+  String cueCrossBottom(String piece, String center) {
+    return 'CFOPでは下の面も回してかまいません。$pieceのエッジを下ろし、下を回して$centerのセンターにそろえます。';
+  }
+
+  @override
+  String cueCornerTop(String piece, String a, String b) {
+    return '$pieceのコーナーが、$aと$bの面の間にある自分の場所の真上に来るまで上を回します。正しい向きで入るまで右手の手順をくり返します。';
+  }
+
+  @override
+  String cueCornerTwisted(String piece) {
+    return '$pieceのコーナーは自分の場所にありますが、ねじれています。1回で取り出され（黄色のコーナーが代わりに入ります）、正しく入るまでくり返します。';
+  }
+
+  @override
+  String cueMiddleRight(String piece, String a, String b) {
+    return '$pieceのエッジが$aのセンターとそろうまで上を回し、右下の$aと$bの間へ入れます。';
+  }
+
+  @override
+  String cueMiddleLeft(String piece, String a, String b) {
+    return '$pieceのエッジが$aのセンターとそろうまで上を回し、左下の$aと$bの間へ入れます。';
+  }
+
+  @override
+  String cueMiddleFlipped(String piece, String a, String b) {
+    return '$pieceのエッジは自分の場所にありますが向きが逆です。黄色のエッジを入れて押し出してから、$aと$bの間にもう一度入れます。';
+  }
+
+  @override
+  String cueYellowLine(String front) {
+    return '黄色の一直線：線が左右に伸びるよう上を回し、$frontを手前にしたまま黄色十字の手順を回します。';
+  }
+
+  @override
+  String cueYellowL(String front) {
+    return '黄色のL字：L字が左奥を向くよう上を回し、$frontを手前にしたまま手順を回します。一直線に変わります。';
+  }
+
+  @override
+  String cueYellowDot(String front) {
+    return '黄色はセンターだけ：点の形です。$frontを手前にして手順を1回回すとL字になります。';
+  }
+
+  @override
+  String cueEdgesMatch(String piece, String center) {
+    return '$pieceのエッジが$centerのセンターとそろうまで上を回します。';
+  }
+
+  @override
+  String cueEdgesSwap(String front) {
+    return 'そろった2つのエッジが奥と右にあります。$frontを手前にして入れ替えの手順を回すと、手前と左のエッジが入れ替わります。';
+  }
+
+  @override
+  String cueEdgesOpposite(String front) {
+    return 'そろったエッジが向かい合っています。$frontを手前にして入れ替えを1回回すと、となり合う2つがそろいます。';
+  }
+
+  @override
+  String cueCornersCycle(String piece, String front) {
+    return '$pieceのコーナーはもう自分の場所にあります。右手前に置いたまま、$frontを手前にして残り3つのコーナーを入れ替えます。';
+  }
+
+  @override
+  String cueCornersNone(String front) {
+    return 'まだ黄色のコーナーがどれも自分の場所にありません。$frontを手前にして1回入れ替えると、1つが正しい場所に入ります。';
+  }
+
+  @override
+  String cueTwistCorner(String piece) {
+    return '右手前の$pieceのコーナーを回します：黄色が上を向くまで下の手順をくり返します。下の段は今くずれて見えますが、それで大丈夫！';
+  }
+
+  @override
+  String cueTwistFour(String piece) {
+    return '今回は$pieceのコーナーに4回必要です。続けましょう。黄色は必ず2回か4回で上を向きます。';
+  }
+
+  @override
+  String get cueTwistNext =>
+      '上の層だけを回して、次のねじれたコーナーを右手前へ持ってきます。今はキューブ全体を持ち替えないで！';
+
+  @override
+  String cueF2lPair(String piece, String edge, String a, String b) {
+    return '上で$pieceのコーナーと$edgeのエッジをペアにし、$aと$bの間のスロットに入れます。';
+  }
+
+  @override
+  String cueF2lStuck(String piece) {
+    return '$pieceのコーナーが違うエッジと一緒にスロットにはまっています。まず上に出してから、ペアを作って入れます。';
+  }
+
+  @override
+  String cueOllSune(String front) {
+    return '$frontを手前にしてSuneを回し、黄色のコーナーを上に向けます。';
+  }
+
+  @override
+  String cueOllSuneAgain(String front) {
+    return '今回はSune 1回では足りません。上を回して、$frontを手前にもう一度Suneを回します。';
+  }
+
+  @override
+  String cuePllCorners(String front) {
+    return '2つのコーナーを入れ替えます。そろったペア（ヘッドライト）を左に、$frontを手前にしてT-permを回します。';
+  }
+
+  @override
+  String cuePllEdges(String piece) {
+    return 'コーナーは完成です。$pieceのエッジを奥に置いたまま、残り3つのエッジをU-permで入れ替えます。';
+  }
+
+  @override
+  String get cuePllNoEdge =>
+      '上のエッジはまだどれもセンターとそろっていません。どの向きからでもU-permを1回回すと、1つがそろいます。';
+
+  @override
+  String cueTwoSwapAdjacent(String front) {
+    return '上のとなり合う2つのコーナーを入れ替えます。そろったペアを左に、$frontを手前にして入れ替えの手順を回します。';
+  }
+
+  @override
+  String cueTwoSwapDiagonal(String front) {
+    return '入れ替える2つのコーナーは対角にあります。$frontを手前にして対角入れ替えを回します。';
+  }
+
+  @override
+  String cueCenterCycle(String color) {
+    return 'はぐれた$colorのセンターパーツを、センターの3-サイクルで戻します：内側の層、上、内側の層、そしてすべて元へ。';
+  }
+
+  @override
+  String cueCenterBar(String color) {
+    return '$colorのセンターパーツが1列まるごと違う面にあります。内側の層で持ち上げ、上を回して、元の面へ戻します。';
+  }
+
+  @override
+  String cueEdgePair(String piece) {
+    return '$pieceのエッジの2つのパーツをペアにします：並べて内側の層を回し、右手の手順でペアでないエッジと入れ替え、層を戻します。';
+  }
+
+  @override
+  String cueEdgeLast(String piece) {
+    return '最後のエッジ：$pieceのエッジを最後の2エッジの手順でペアにします。完成したエッジはくずれません。';
+  }
+
+  @override
+  String cueParityOll(String front) {
+    return 'OLLパリティ：上のエッジが1つ裏返っています。3×3では起きない状態です。それを手前に置き、$frontを手前にしてパリティの手順を回します。';
+  }
+
+  @override
+  String get cueParityPll =>
+      'PLLパリティ：上のエッジ2つが入れ替わっています。3×3では起きない状態です。手前と奥に置いてパリティ交換を回します。';
+
+  @override
+  String cueParityFive(String front) {
+    return 'エッジパリティ：1つのエッジの外側の2パーツが入れ替わっています。そのエッジを手前に回し、$frontを手前にして直してから戻します。';
+  }
 }

@@ -3933,6 +3933,366 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'All sizes'**
   String get academyAllSizes;
+
+  /// No description provided for @homeAcademyProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'{done} / {total} lessons completed'**
+  String homeAcademyProgress(int done, int total);
+
+  /// No description provided for @academySizeProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'{size} • {done} / {total} completed'**
+  String academySizeProgress(String size, int done, int total);
+
+  /// No description provided for @lessonStageConcept.
+  ///
+  /// In en, this message translates to:
+  /// **'Concept'**
+  String get lessonStageConcept;
+
+  /// No description provided for @lessonStageExamples.
+  ///
+  /// In en, this message translates to:
+  /// **'Examples'**
+  String get lessonStageExamples;
+
+  /// No description provided for @lessonStagePractice.
+  ///
+  /// In en, this message translates to:
+  /// **'Practice'**
+  String get lessonStagePractice;
+
+  /// No description provided for @lessonStageNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next / free'**
+  String get lessonStageNext;
+
+  /// No description provided for @lessonStageOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Stage {index} of {total}: {name}'**
+  String lessonStageOf(int index, int total, String name);
+
+  /// No description provided for @lessonExampleOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Example {index} of {total}'**
+  String lessonExampleOf(int index, int total);
+
+  /// No description provided for @lessonWalkthroughOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Walkthrough {index} of {total}'**
+  String lessonWalkthroughOf(int index, int total);
+
+  /// No description provided for @lessonBonusCase.
+  ///
+  /// In en, this message translates to:
+  /// **'Bonus case'**
+  String get lessonBonusCase;
+
+  /// No description provided for @lessonPracticeIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'A real scramble: only the earlier steps are solved. Finish this whole step, one callout at a time.'**
+  String get lessonPracticeIntro;
+
+  /// No description provided for @lessonContinueDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Go straight on to {lesson}.'**
+  String lessonContinueDesc(String lesson);
+
+  /// No description provided for @lessonFreePractice.
+  ///
+  /// In en, this message translates to:
+  /// **'Free practice'**
+  String get lessonFreePractice;
+
+  /// No description provided for @lessonFreePracticeDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve a scrambled 3D cube on your own, from the start through this step.'**
+  String get lessonFreePracticeDesc;
+
+  /// No description provided for @freePracticeBanner.
+  ///
+  /// In en, this message translates to:
+  /// **'Practice freely: solve the cube from the start up through {topic}!'**
+  String freePracticeBanner(String topic);
+
+  /// No description provided for @pieceColorSeparator.
+  ///
+  /// In en, this message translates to:
+  /// **'-'**
+  String get pieceColorSeparator;
+
+  /// No description provided for @cueFaceTurn.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the {face} face the way the arrow shows. Its center stays put; only the pieces around it travel.'**
+  String cueFaceTurn(String face);
+
+  /// No description provided for @cueTrigger.
+  ///
+  /// In en, this message translates to:
+  /// **'Right-hand trigger, {front} facing you: right face up, top to the left, right face down, top back to the right.'**
+  String cueTrigger(String front);
+
+  /// No description provided for @cueTriggerBack.
+  ///
+  /// In en, this message translates to:
+  /// **'The sixth trigger in a row brings the cube back exactly as it was. Six is the magic number!'**
+  String get cueTriggerBack;
+
+  /// No description provided for @cueSliceInner.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn only the inner slice next to the {face} face. The {face} face itself stays still, so the centers split apart.'**
+  String cueSliceInner(String face);
+
+  /// No description provided for @cueSliceWide.
+  ///
+  /// In en, this message translates to:
+  /// **'A wide turn: the {face} face and the slice next to it turn together, like one thick layer.'**
+  String cueSliceWide(String face);
+
+  /// No description provided for @cueTurnCube.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the whole cube so the {top} center is on top and the {front} center faces you.'**
+  String cueTurnCube(String top, String front);
+
+  /// No description provided for @cueTurnTop.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn only the top layer, as the arrow shows, to set up the next algorithm.'**
+  String get cueTurnTop;
+
+  /// No description provided for @cueAlignTop.
+  ///
+  /// In en, this message translates to:
+  /// **'Last move: turn the top layer to line up its colors. Done!'**
+  String get cueAlignTop;
+
+  /// No description provided for @cueCrossTop.
+  ///
+  /// In en, this message translates to:
+  /// **'The {piece} edge is in the top layer. Turn the top until it sits right above the {center} center, then turn that face twice to bring it down.'**
+  String cueCrossTop(String piece, String center);
+
+  /// No description provided for @cueCrossMiddle.
+  ///
+  /// In en, this message translates to:
+  /// **'The {piece} edge is stuck in the middle layer. Lift it to the top, line it up above the {center} center, then bring it down.'**
+  String cueCrossMiddle(String piece, String center);
+
+  /// No description provided for @cueCrossFlipped.
+  ///
+  /// In en, this message translates to:
+  /// **'The {piece} edge is in its spot but flipped: its white faces sideways. Take it out, then bring it back next to the {center} center the right way round.'**
+  String cueCrossFlipped(String piece, String center);
+
+  /// No description provided for @cueCrossBottom.
+  ///
+  /// In en, this message translates to:
+  /// **'CFOP style: the bottom may turn too. Drop the {piece} edge in and turn the bottom so it lines up with the {center} center.'**
+  String cueCrossBottom(String piece, String center);
+
+  /// No description provided for @cueCornerTop.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the top so the {piece} corner sits right above its slot, between the {a} and {b} sides. Repeat the right-hand trigger until it drops in, correctly turned.'**
+  String cueCornerTop(String piece, String a, String b);
+
+  /// No description provided for @cueCornerTwisted.
+  ///
+  /// In en, this message translates to:
+  /// **'The {piece} corner is in its slot but twisted. One trigger pops it out (a yellow corner takes its place); keep repeating until it drops back in correctly.'**
+  String cueCornerTwisted(String piece);
+
+  /// No description provided for @cueMiddleRight.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the top until the {piece} edge lines up with the {a} center, then send it down to the right, into the slot between {a} and {b}.'**
+  String cueMiddleRight(String piece, String a, String b);
+
+  /// No description provided for @cueMiddleLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the top until the {piece} edge lines up with the {a} center, then send it down to the left, into the slot between {a} and {b}.'**
+  String cueMiddleLeft(String piece, String a, String b);
+
+  /// No description provided for @cueMiddleFlipped.
+  ///
+  /// In en, this message translates to:
+  /// **'The {piece} edge is in its slot but flipped. Insert a yellow edge there to push it out, then insert it again between {a} and {b}.'**
+  String cueMiddleFlipped(String piece, String a, String b);
+
+  /// No description provided for @cueYellowLine.
+  ///
+  /// In en, this message translates to:
+  /// **'A yellow line: turn the top so it runs from left to right, keep {front} facing you, then apply the yellow-cross algorithm.'**
+  String cueYellowLine(String front);
+
+  /// No description provided for @cueYellowL.
+  ///
+  /// In en, this message translates to:
+  /// **'A yellow L: turn the top so the L points to the back left, keep {front} facing you, then apply the algorithm. It becomes a line.'**
+  String cueYellowL(String front);
+
+  /// No description provided for @cueYellowDot.
+  ///
+  /// In en, this message translates to:
+  /// **'Only the yellow center is yellow: a dot. Apply the algorithm once with {front} facing you to get an L.'**
+  String cueYellowDot(String front);
+
+  /// No description provided for @cueEdgesMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the top until the {piece} edge matches the {center} center.'**
+  String cueEdgesMatch(String piece, String center);
+
+  /// No description provided for @cueEdgesSwap.
+  ///
+  /// In en, this message translates to:
+  /// **'Two matched edges sit at the back and on the right. With {front} facing you, apply the swap: the front and left edges trade places.'**
+  String cueEdgesSwap(String front);
+
+  /// No description provided for @cueEdgesOpposite.
+  ///
+  /// In en, this message translates to:
+  /// **'The matched edges sit opposite each other. Apply the swap once with {front} facing you; afterwards two neighbors match.'**
+  String cueEdgesOpposite(String front);
+
+  /// No description provided for @cueCornersCycle.
+  ///
+  /// In en, this message translates to:
+  /// **'The {piece} corner is already in its spot. Keep it at the front right, {front} facing you, and cycle the other three corners.'**
+  String cueCornersCycle(String piece, String front);
+
+  /// No description provided for @cueCornersNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No yellow corner is in its spot yet. Cycle once with {front} facing you; afterwards one corner is home.'**
+  String cueCornersNone(String front);
+
+  /// No description provided for @cueTwistCorner.
+  ///
+  /// In en, this message translates to:
+  /// **'Twist the {piece} corner at the front right: repeat the down-trigger until its yellow faces up. The lower layers look messy for now; that\'s normal!'**
+  String cueTwistCorner(String piece);
+
+  /// No description provided for @cueTwistFour.
+  ///
+  /// In en, this message translates to:
+  /// **'The {piece} corner needs four triggers this time. Keep going: yellow always comes up after two or four.'**
+  String cueTwistFour(String piece);
+
+  /// No description provided for @cueTwistNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn only the top layer to bring the next twisted corner to the front right. Don\'t turn the whole cube now!'**
+  String get cueTwistNext;
+
+  /// No description provided for @cueF2lPair.
+  ///
+  /// In en, this message translates to:
+  /// **'Pair the {piece} corner with the {edge} edge on top, then insert the pair into the slot between {a} and {b}.'**
+  String cueF2lPair(String piece, String edge, String a, String b);
+
+  /// No description provided for @cueF2lStuck.
+  ///
+  /// In en, this message translates to:
+  /// **'The {piece} corner is stuck in its slot with the wrong edge. Take it out to the top first, then pair it up and insert it.'**
+  String cueF2lStuck(String piece);
+
+  /// No description provided for @cueOllSune.
+  ///
+  /// In en, this message translates to:
+  /// **'With {front} facing you, apply Sune to turn the yellow corners up.'**
+  String cueOllSune(String front);
+
+  /// No description provided for @cueOllSuneAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'One Sune was not enough this time. Turn the top and apply Sune again, {front} facing you.'**
+  String cueOllSuneAgain(String front);
+
+  /// No description provided for @cuePllCorners.
+  ///
+  /// In en, this message translates to:
+  /// **'Two corners need to swap. Keep the matching pair (headlights) on the left, {front} facing you, and apply the T-perm.'**
+  String cuePllCorners(String front);
+
+  /// No description provided for @cuePllEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'The corners are done. Keep the {piece} edge at the back and cycle the other three edges with the U-perm.'**
+  String cuePllEdges(String piece);
+
+  /// No description provided for @cuePllNoEdge.
+  ///
+  /// In en, this message translates to:
+  /// **'No top edge matches its center yet. Apply the U-perm once from any side; afterwards one edge does.'**
+  String get cuePllNoEdge;
+
+  /// No description provided for @cueTwoSwapAdjacent.
+  ///
+  /// In en, this message translates to:
+  /// **'Two neighboring top corners need to swap. Keep the matching pair on the left, {front} facing you, and apply the swap.'**
+  String cueTwoSwapAdjacent(String front);
+
+  /// No description provided for @cueTwoSwapDiagonal.
+  ///
+  /// In en, this message translates to:
+  /// **'The two corners to swap sit diagonally. Apply the diagonal swap with {front} facing you.'**
+  String cueTwoSwapDiagonal(String front);
+
+  /// No description provided for @cueCenterCycle.
+  ///
+  /// In en, this message translates to:
+  /// **'Bring the stray {color} center piece home with the center 3-cycle: slice, top, slice, then everything back.'**
+  String cueCenterCycle(String color);
+
+  /// No description provided for @cueCenterBar.
+  ///
+  /// In en, this message translates to:
+  /// **'A whole bar of {color} center pieces sits on the wrong face. Lift it with the slice, turn the top, and bring it back home.'**
+  String cueCenterBar(String color);
+
+  /// No description provided for @cueEdgePair.
+  ///
+  /// In en, this message translates to:
+  /// **'Pair both {piece} edge pieces: line them up, slice, swap in an unpaired edge with the right-hand moves, then slice back.'**
+  String cueEdgePair(String piece);
+
+  /// No description provided for @cueEdgeLast.
+  ///
+  /// In en, this message translates to:
+  /// **'The last edges: pair the {piece} edge with the last-two-edges algorithm, which keeps every finished edge intact.'**
+  String cueEdgeLast(String piece);
+
+  /// No description provided for @cueParityOll.
+  ///
+  /// In en, this message translates to:
+  /// **'OLL parity: one top edge is flipped, which never happens on a 3×3. Keep it at the front, {front} facing you, and apply the parity fix.'**
+  String cueParityOll(String front);
+
+  /// No description provided for @cueParityPll.
+  ///
+  /// In en, this message translates to:
+  /// **'PLL parity: two top edges are swapped, which never happens on a 3×3. Keep them at the front and back and apply the parity swap.'**
+  String get cueParityPll;
+
+  /// No description provided for @cueParityFive.
+  ///
+  /// In en, this message translates to:
+  /// **'Edge parity: the two outer pieces of one edge are swapped. Turn that edge to the front, {front} facing you, apply the fix, and turn back.'**
+  String cueParityFive(String front);
 }
 
 class _AppLocalizationsDelegate

@@ -2325,4 +2325,282 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get academyAllSizes => 'Toutes les tailles';
+
+  @override
+  String homeAcademyProgress(int done, int total) {
+    return '$done / $total leçons terminées';
+  }
+
+  @override
+  String academySizeProgress(String size, int done, int total) {
+    return '$size • $done / $total terminées';
+  }
+
+  @override
+  String get lessonStageConcept => 'Concept';
+
+  @override
+  String get lessonStageExamples => 'Exemples';
+
+  @override
+  String get lessonStagePractice => 'Pratique';
+
+  @override
+  String get lessonStageNext => 'Suite / libre';
+
+  @override
+  String lessonStageOf(int index, int total, String name) {
+    return 'Étape $index sur $total : $name';
+  }
+
+  @override
+  String lessonExampleOf(int index, int total) {
+    return 'Exemple $index sur $total';
+  }
+
+  @override
+  String lessonWalkthroughOf(int index, int total) {
+    return 'Parcours $index sur $total';
+  }
+
+  @override
+  String get lessonBonusCase => 'Cas bonus';
+
+  @override
+  String get lessonPracticeIntro =>
+      'Un vrai mélange : seules les étapes précédentes sont résolues. Terminez toute cette étape, consigne après consigne.';
+
+  @override
+  String lessonContinueDesc(String lesson) {
+    return 'Passez directement à $lesson.';
+  }
+
+  @override
+  String get lessonFreePractice => 'Entraînement libre';
+
+  @override
+  String get lessonFreePracticeDesc =>
+      'Résolvez vous-même un cube 3D mélangé, du début jusqu\'à cette étape.';
+
+  @override
+  String freePracticeBanner(String topic) {
+    return 'Entraînez-vous librement : résolvez le cube du début jusqu\'à $topic !';
+  }
+
+  @override
+  String get pieceColorSeparator => '-';
+
+  @override
+  String cueFaceTurn(String face) {
+    return 'Tournez la face du centre $face dans le sens de la flèche. Le centre ne bouge pas ; seules les pièces autour voyagent.';
+  }
+
+  @override
+  String cueTrigger(String front) {
+    return 'Gâchette main droite, $front face à vous : face droite vers le haut, haut vers la gauche, face droite vers le bas, haut de retour vers la droite.';
+  }
+
+  @override
+  String get cueTriggerBack =>
+      'La sixième gâchette d\'affilée ramène le cube exactement à son état de départ. Six est le chiffre magique !';
+
+  @override
+  String cueSliceInner(String face) {
+    return 'Tournez seulement la tranche intérieure à côté de la face $face. La face elle-même ne bouge pas, donc les centres se séparent.';
+  }
+
+  @override
+  String cueSliceWide(String face) {
+    return 'Un mouvement large : la face $face et la tranche voisine tournent ensemble, comme une seule couche épaisse.';
+  }
+
+  @override
+  String cueTurnCube(String top, String front) {
+    return 'Tournez tout le cube pour que le centre $top soit en haut et le centre $front face à vous.';
+  }
+
+  @override
+  String get cueTurnTop =>
+      'Tournez seulement la couche du haut, comme l\'indique la flèche, pour préparer l\'algorithme suivant.';
+
+  @override
+  String get cueAlignTop =>
+      'Dernier mouvement : tournez la couche du haut pour aligner ses couleurs. Terminé !';
+
+  @override
+  String cueCrossTop(String piece, String center) {
+    return 'L\'arête $piece est dans la couche du haut. Tournez le haut jusqu\'à ce qu\'elle soit juste au-dessus du centre $center, puis tournez cette face deux fois pour la descendre.';
+  }
+
+  @override
+  String cueCrossMiddle(String piece, String center) {
+    return 'L\'arête $piece est coincée dans la couche du milieu. Remontez-la, alignez-la au-dessus du centre $center, puis descendez-la.';
+  }
+
+  @override
+  String cueCrossFlipped(String piece, String center) {
+    return 'L\'arête $piece est à sa place mais retournée : son blanc regarde sur le côté. Sortez-la, puis remettez-la à côté du centre $center dans le bon sens.';
+  }
+
+  @override
+  String cueCrossBottom(String piece, String center) {
+    return 'Façon CFOP : le bas peut tourner aussi. Placez l\'arête $piece et tournez le bas pour l\'aligner avec le centre $center.';
+  }
+
+  @override
+  String cueCornerTop(String piece, String a, String b) {
+    return 'Tournez le haut pour que le coin $piece soit juste au-dessus de son emplacement, entre les côtés $a et $b. Répétez la gâchette main droite jusqu\'à ce qu\'il tombe en place, bien orienté.';
+  }
+
+  @override
+  String cueCornerTwisted(String piece) {
+    return 'Le coin $piece est à sa place mais tourné. Une gâchette le fait sortir (un coin jaune prend sa place) ; répétez jusqu\'à ce qu\'il revienne correctement.';
+  }
+
+  @override
+  String cueMiddleRight(String piece, String a, String b) {
+    return 'Tournez le haut jusqu\'à aligner l\'arête $piece avec le centre $a, puis envoyez-la en bas à droite, dans l\'emplacement entre $a et $b.';
+  }
+
+  @override
+  String cueMiddleLeft(String piece, String a, String b) {
+    return 'Tournez le haut jusqu\'à aligner l\'arête $piece avec le centre $a, puis envoyez-la en bas à gauche, dans l\'emplacement entre $a et $b.';
+  }
+
+  @override
+  String cueMiddleFlipped(String piece, String a, String b) {
+    return 'L\'arête $piece est dans son emplacement mais retournée. Insérez-y une arête jaune pour la chasser, puis réinsérez-la entre $a et $b.';
+  }
+
+  @override
+  String cueYellowLine(String front) {
+    return 'Une ligne jaune : tournez le haut pour qu\'elle aille de gauche à droite, gardez $front face à vous, puis faites l\'algorithme de la croix jaune.';
+  }
+
+  @override
+  String cueYellowL(String front) {
+    return 'Un L jaune : tournez le haut pour que le L pointe vers l\'arrière gauche, gardez $front face à vous, puis faites l\'algorithme. Il devient une ligne.';
+  }
+
+  @override
+  String cueYellowDot(String front) {
+    return 'Seul le centre est jaune : un point. Faites l\'algorithme une fois, $front face à vous, pour obtenir un L.';
+  }
+
+  @override
+  String cueEdgesMatch(String piece, String center) {
+    return 'Tournez le haut jusqu\'à ce que l\'arête $piece corresponde au centre $center.';
+  }
+
+  @override
+  String cueEdgesSwap(String front) {
+    return 'Deux arêtes correctes sont à l\'arrière et à droite. $front face à vous, faites l\'échange : les arêtes avant et gauche permutent.';
+  }
+
+  @override
+  String cueEdgesOpposite(String front) {
+    return 'Les arêtes correctes sont face à face. Faites l\'échange une fois, $front face à vous ; ensuite deux voisines correspondent.';
+  }
+
+  @override
+  String cueCornersCycle(String piece, String front) {
+    return 'Le coin $piece est déjà à sa place. Gardez-le en avant à droite, $front face à vous, et permutez les trois autres coins.';
+  }
+
+  @override
+  String cueCornersNone(String front) {
+    return 'Aucun coin jaune n\'est encore à sa place. Faites un cycle, $front face à vous ; ensuite un coin est bien placé.';
+  }
+
+  @override
+  String cueTwistCorner(String piece) {
+    return 'Orientez le coin $piece en avant à droite : répétez la gâchette du bas jusqu\'à ce que son jaune soit en haut. Les couches du bas semblent mélangées pour l\'instant, c\'est normal !';
+  }
+
+  @override
+  String cueTwistFour(String piece) {
+    return 'Le coin $piece a besoin de quatre gâchettes cette fois. Continuez : le jaune remonte toujours après deux ou quatre.';
+  }
+
+  @override
+  String get cueTwistNext =>
+      'Tournez seulement la couche du haut pour amener le coin mal orienté suivant en avant à droite. Ne tournez pas tout le cube maintenant !';
+
+  @override
+  String cueF2lPair(String piece, String edge, String a, String b) {
+    return 'Associez le coin $piece à l\'arête $edge en haut, puis insérez la paire dans l\'emplacement entre $a et $b.';
+  }
+
+  @override
+  String cueF2lStuck(String piece) {
+    return 'Le coin $piece est coincé dans son emplacement avec la mauvaise arête. Sortez-le d\'abord en haut, puis formez la paire et insérez-la.';
+  }
+
+  @override
+  String cueOllSune(String front) {
+    return '$front face à vous, faites le Sune pour orienter les coins jaunes vers le haut.';
+  }
+
+  @override
+  String cueOllSuneAgain(String front) {
+    return 'Un seul Sune ne suffisait pas cette fois. Tournez le haut et refaites le Sune, $front face à vous.';
+  }
+
+  @override
+  String cuePllCorners(String front) {
+    return 'Deux coins doivent permuter. Gardez la paire assortie (les « phares ») à gauche, $front face à vous, et faites la T-perm.';
+  }
+
+  @override
+  String cuePllEdges(String piece) {
+    return 'Les coins sont faits. Gardez l\'arête $piece à l\'arrière et permutez les trois autres arêtes avec la U-perm.';
+  }
+
+  @override
+  String get cuePllNoEdge =>
+      'Aucune arête du haut ne correspond encore à son centre. Faites la U-perm une fois depuis n\'importe quel côté ; ensuite une arête correspond.';
+
+  @override
+  String cueTwoSwapAdjacent(String front) {
+    return 'Deux coins voisins du haut doivent permuter. Gardez la paire assortie à gauche, $front face à vous, et faites l\'échange.';
+  }
+
+  @override
+  String cueTwoSwapDiagonal(String front) {
+    return 'Les deux coins à échanger sont en diagonale. Faites l\'échange diagonal, $front face à vous.';
+  }
+
+  @override
+  String cueCenterCycle(String color) {
+    return 'Ramenez la pièce de centre $color égarée avec le 3-cycle de centres : tranche, haut, tranche, puis tout en arrière.';
+  }
+
+  @override
+  String cueCenterBar(String color) {
+    return 'Toute une barre de pièces de centre $color est sur la mauvaise face. Soulevez-la avec la tranche, tournez le haut et ramenez-la chez elle.';
+  }
+
+  @override
+  String cueEdgePair(String piece) {
+    return 'Associez les deux pièces d\'arête $piece : alignez-les, tournez la tranche, échangez une arête non appariée avec les mouvements main droite, puis remettez la tranche.';
+  }
+
+  @override
+  String cueEdgeLast(String piece) {
+    return 'Les dernières arêtes : appariez l\'arête $piece avec l\'algorithme des deux dernières arêtes, qui garde intactes toutes les arêtes finies.';
+  }
+
+  @override
+  String cueParityOll(String front) {
+    return 'Parité OLL : une arête du haut est retournée, ce qui n\'arrive jamais sur un 3×3. Gardez-la devant, $front face à vous, et faites la correction de parité.';
+  }
+
+  @override
+  String get cueParityPll =>
+      'Parité PLL : deux arêtes du haut sont échangées, ce qui n\'arrive jamais sur un 3×3. Gardez-les devant et derrière et faites l\'échange de parité.';
+
+  @override
+  String cueParityFive(String front) {
+    return 'Parité d\'arête : les deux pièces extérieures d\'une arête sont échangées. Tournez cette arête vers l\'avant, $front face à vous, corrigez-la et revenez.';
+  }
 }
