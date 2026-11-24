@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CubeMentor Screen Map</title>
 <meta name="description" content="Interactive UX screen map and user-flow board for every CubeMentor screen, rendered from the real Flutter widgets.">
+<meta name="theme-color" content="#07090f">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CubeMentor Screen Map">
+<meta property="og:description" content="Every CubeMentor screen and how each button connects them: scan &amp; solve, academy, patterns, timer and daily challenge.">
+<meta property="og:url" content="https://shirabraverman.github.io/cube-mentor/">
+<meta property="og:image" content="https://shirabraverman.github.io/cube-mentor/screens/01_home.png">
+<meta name="twitter:card" content="summary_large_image">
 <style>
   :root {
     --bg: #07090f;
@@ -215,9 +222,27 @@
   #inspector .navs button { flex: 1; padding: 10px; border-radius: 10px; border: 1px solid var(--line); background: transparent; cursor: pointer; font-weight: 600; }
   #inspector .navs button:hover { background: rgba(255,255,255,0.05); }
 
+  #menu { display: none; }
+  #toast {
+    position: fixed; left: 50%; bottom: 84px; transform: translate(-50%, 20px); z-index: 60; opacity: 0; pointer-events: none;
+    padding: 10px 16px; border-radius: 999px; background: #eef1f8; color: #0a0d16; font-size: 13.5px; font-weight: 700;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: opacity .25s, transform .25s;
+  }
+  #toast.show { opacity: 1; transform: translate(-50%, 0); }
+
   @media (max-width: 900px) {
-    #sidebar { width: auto; right: 16px; bottom: auto; max-height: 46vh; }
+    /* The sidebar becomes a drawer opened from the toolbar. */
+    #sidebar { top: 10px; left: 10px; bottom: 76px; width: min(320px, calc(100vw - 20px)); transform: translateX(calc(-100% - 20px)); opacity: 0; pointer-events: none; }
+    body.drawer #sidebar { transform: none; opacity: 1; pointer-events: auto; }
+    #menu { display: inline-flex; }
+    #toolbar { left: 10px; right: 10px; bottom: 10px; justify-content: space-between; }
+    #toolbar button { padding: 0 8px; }
+    #zoomval { display: none; }
+    #presentbar { top: 10px; max-width: calc(100vw - 20px); gap: 8px; padding: 6px 6px 6px 12px; }
+    #presentbar .t { font-size: 13px; }
+    #presentbar .dots { display: none; }
     #hint { display: none; }
+    .edge-label span { font-size: 13px; }
     #inspector { flex-direction: column; gap: 16px; overflow-y: auto; justify-content: flex-start; }
     #inspector .big { height: auto; width: min(86vw, 360px); }
     #inspector aside { width: 100%; max-height: none; }
@@ -283,9 +308,12 @@
   <span id="zoomval">100%</span>
   <button id="zoomin" aria-label="Zoom in">+</button>
   <span class="sep"></span>
+  <button id="menu" aria-label="Flows and screens">&#9776; Flows</button>
   <button id="fit">Fit</button>
+  <button id="share" aria-label="Share or copy link">&#128279; Share</button>
   <button id="present" class="primary">&#9654; Present</button>
 </div>
+<div id="toast" role="status" aria-live="polite"></div>
 
 <div id="hint">Drag to pan · <kbd>Ctrl</kbd>/pinch or wheel to zoom · click a phone to inspect · <kbd>P</kbd> present · <kbd>F</kbd> fit</div>
 
@@ -721,6 +749,7 @@
     document.getElementById('pres-sw').style.background = f === 'all' ? '#eef1f8' : colorOf(f);
     document.querySelectorAll('#pres-dots button').forEach((d, i) => d.classList.toggle('on', i === idx));
     if (fit) fitTo(SCREENS.filter(s => inFlow(s, f)), true);
+    syncHash();
   }
 
   // ------------------------------------------------------------------
@@ -815,6 +844,8 @@
   });
   function setPresent(on) {
     document.body.classList.toggle('present', on);
+    document.body.classList.remove('drawer');
+    syncHash();
     setTimeout(() => fitTo(SCREENS.filter(s => inFlow(s, currentFlow)), true), 30);
   }
   const step = d => setFlow(PRES[(PRES.indexOf(currentFlow) + d + PRES.length) % PRES.length], true);
@@ -852,8 +883,9 @@
     if (!out.children.length) out.textContent = '—';
     if (!inn.children.length) inn.textContent = 'App launch';
     insp.classList.add('open');
+    syncHash();
   }
-  const closeInspector = () => { insp.classList.remove('open'); inspected = null; };
+  const closeInspector = () => { insp.classList.remove('open'); inspected = null; syncHash(); };
   document.getElementById('insp-close').onclick = closeInspector;
   insp.addEventListener('click', e => { if (e.target === insp) closeInspector(); });
   const shift = d => openInspector(SCREENS[(byId[inspected].index + d + SCREENS.length) % SCREENS.length].id);
@@ -880,8 +912,71 @@
   });
   addEventListener('resize', () => fitTo(SCREENS.filter(s => inFlow(s, currentFlow)), false));
 
-  setFlow('all', false);
-  fitTo(SCREENS, false);
+  // ------------------------------------------------------------------
+  // Deep links (#flow=academy, #screen=timer, &present) and sharing
+  // ------------------------------------------------------------------
+  let restoring = true;
+  function linkHash() {
+    const parts = [];
+    if (currentFlow !== 'all') parts.push('flow=' + currentFlow);
+    if (inspected) parts.push('screen=' + inspected);
+    if (document.body.classList.contains('present')) parts.push('present');
+    return parts.length ? '#' + parts.join('&') : '';
+  }
+  function syncHash() {
+    if (restoring) return;
+    history.replaceState(null, '', location.pathname + location.search + linkHash());
+  }
+  const toast = document.getElementById('toast');
+  let toastTimer;
+  function showToast(text) {
+    toast.textContent = text;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+  }
+  async function copyText(text) {
+    try { await navigator.clipboard.writeText(text); return true; } catch (_) {}
+    const ta = Object.assign(document.createElement('textarea'), { value: text });
+    ta.style.cssText = 'position:fixed;opacity:0';
+    document.body.appendChild(ta); ta.select();
+    let ok = false;
+    try { ok = document.execCommand('copy'); } catch (_) {}
+    ta.remove();
+    return ok;
+  }
+  async function share() {
+    const url = location.origin + location.pathname + location.search + linkHash();
+    const title = 'CubeMentor Screen Map' + (inspected ? ' · ' + byId[inspected].title
+      : currentFlow !== 'all' ? ' · ' + FLOWS[currentFlow].name : '');
+    // Phones get the native share sheet; desktops copy the link.
+    if (navigator.share && matchMedia('(pointer: coarse)').matches) {
+      try { await navigator.share({ title, url }); return; } catch (e) { if (e.name === 'AbortError') return; }
+    }
+    showToast(await copyText(url) ? 'Link copied to clipboard' : url);
+  }
+  document.getElementById('share').onclick = share;
+  document.getElementById('menu').onclick = () => document.body.classList.toggle('drawer');
+  // On phones, picking a flow or screen closes the drawer.
+  document.getElementById('sidebar').addEventListener('click', e => {
+    if (e.target.closest('button') && innerWidth <= 900) document.body.classList.remove('drawer');
+  });
+  vp.addEventListener('pointerdown', () => document.body.classList.remove('drawer'));
+
+  function restore() {
+    restoring = true;
+    const params = new Map(location.hash.slice(1).split('&').filter(Boolean)
+      .map(p => { const [k, v = ''] = p.split('='); return [decodeURIComponent(k), decodeURIComponent(v)]; }));
+    const flow = FLOWS[params.get('flow')] ? params.get('flow') : 'all';
+    document.body.classList.toggle('present', params.has('present'));
+    setFlow(flow, false);
+    fitTo(SCREENS.filter(s => inFlow(s, flow)), false);
+    const screen = params.get('screen');
+    if (byId[screen]) openInspector(screen); else if (inspected) closeInspector();
+    restoring = false;
+  }
+  addEventListener('hashchange', restore);
+  restore();
   // Exposed for automated checks.
   window.__screenMap = { SCREENS, EDGES, broken: () => SCREENS.filter(s => s.broken).map(s => s.img) };
 })();

@@ -1,0 +1,46 @@
+name: Deploy UX board
+
+# Publishes docs/ (the UX screen map and its screenshots) to GitHub Pages:
+# https://shirabraverman.github.io/cube-mentor/
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - ".github/workflows/deploy_ux_board.yml"
+      - "tool/update_ux_board.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time; a newer push replaces a queued one, but a
+# deployment already running is allowed to finish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check board links
+        run: python3 tool/update_ux_board.py --check
+
+      # Needs Settings -> Pages -> Source: "GitHub Actions" (set once).
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
