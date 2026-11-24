@@ -1,0 +1,890 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CubeMentor Screen Map</title>
+<meta name="description" content="Interactive UX screen map and user-flow board for every CubeMentor screen, rendered from the real Flutter widgets.">
+<style>
+  :root {
+    --bg: #07090f;
+    --bg-grid: rgba(255,255,255,0.035);
+    --panel: rgba(16,20,31,0.88);
+    --panel-solid: #10141f;
+    --line: rgba(255,255,255,0.08);
+    --line-strong: rgba(255,255,255,0.16);
+    --text: #eef1f8;
+    --text-2: #a3abc0;
+    --text-3: #6b7489;
+    --scan: #6e8bff;
+    --academy: #ffd15c;
+    --patterns: #3ee6b0;
+    --train: #ff5d6c;
+    --global: #b7bfd3;
+    --radius: 14px;
+    --mono: ui-monospace, "Cascadia Code", "SF Mono", Consolas, monospace;
+    --sans: "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--bg); color: var(--text); font-family: var(--sans); }
+  button { font: inherit; color: inherit; }
+
+  /* ---------- canvas ---------- */
+  #viewport {
+    position: fixed; inset: 0; overflow: hidden; cursor: grab; touch-action: none;
+    background:
+      radial-gradient(1200px 800px at 20% 10%, rgba(110,139,255,0.08), transparent 60%),
+      radial-gradient(900px 700px at 85% 80%, rgba(62,230,176,0.05), transparent 60%),
+      var(--bg);
+  }
+  #viewport.dragging { cursor: grabbing; }
+  #world { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform; }
+  #world.animate { transition: transform 600ms cubic-bezier(.2,.8,.2,1); }
+  #gridbg {
+    position: absolute; left: -4000px; top: -4000px; width: 12000px; height: 12000px; pointer-events: none;
+    background-image:
+      linear-gradient(var(--bg-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  svg#edges { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
+
+  .lane-label {
+    position: absolute; font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
+    font-weight: 700; color: var(--text-3); white-space: nowrap; display: flex; align-items: center; gap: 10px;
+    transition: opacity .3s;
+  }
+  .lane-label i { width: 28px; height: 3px; border-radius: 2px; background: currentColor; display: inline-block; }
+  .lane-band {
+    position: absolute; border-radius: 28px; border: 1px dashed var(--line); pointer-events: none;
+    transition: opacity .3s;
+  }
+
+  /* ---------- screen cards ---------- */
+  .screen {
+    position: absolute; width: 250px; transition: opacity .3s, filter .3s;
+  }
+  .screen .head { height: 50px; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 4px 8px; }
+  .screen .num { font: 600 11px/1 var(--mono); color: var(--text-3); margin-bottom: 4px; display: flex; gap: 8px; align-items: center; }
+  .screen .num b { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .screen h3 { margin: 0; font-size: 16px; line-height: 1.2; font-weight: 700; letter-spacing: -.01em; }
+  .phone {
+    position: relative; width: 250px; padding: 10px; border-radius: 38px; cursor: zoom-in;
+    background: linear-gradient(160deg, #2a2f3d, #12151d 40%, #1d212c);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.10) inset, 0 0 0 1px #000, 0 30px 60px -20px rgba(0,0,0,0.8), 0 10px 25px rgba(0,0,0,0.45);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .phone:hover { transform: translateY(-3px); box-shadow: 0 0 0 1px rgba(255,255,255,0.16) inset, 0 0 0 2px var(--accent, var(--scan)), 0 30px 60px -20px rgba(0,0,0,0.8); }
+  .phone .glass { position: relative; border-radius: 29px; overflow: hidden; background: #000; aspect-ratio: 360 / 780; }
+  .phone img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .phone .cam { position: absolute; top: 8px; left: 50%; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; background: #05060a; box-shadow: 0 0 0 2px #1b1f29; z-index: 2; }
+  .phone .broken { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; color: var(--train); font: 600 12px var(--mono); padding: 20px; background: #1a0d10; }
+  .hotspot {
+    position: absolute; width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: 50%; z-index: 3;
+    background: var(--c); box-shadow: 0 0 0 3px rgba(0,0,0,0.55), 0 0 14px var(--c); pointer-events: none;
+    transition: opacity .3s;
+  }
+  .hotspot::after {
+    content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid var(--c);
+    animation: ping 2.2s ease-out infinite; opacity: 0;
+  }
+  @keyframes ping { 0% { transform: scale(.5); opacity: .9; } 100% { transform: scale(1.7); opacity: 0; } }
+  .screen .route { margin: 12px 4px 0; font: 500 11px/1.45 var(--mono); color: var(--text-2); word-break: break-word; }
+  .screen ul.notes { margin: 8px 0 0; padding: 0 4px 0 18px; font-size: 12.5px; line-height: 1.45; color: var(--text-2); }
+  .screen ul.notes li { margin: 3px 0; }
+  .screen.dim { opacity: .13; filter: saturate(.3); }
+  .screen.focus .phone { box-shadow: 0 0 0 2px var(--accent), 0 0 40px -6px var(--accent), 0 30px 60px -20px rgba(0,0,0,0.8); }
+
+  /* edges */
+  .edge path.line { fill: none; stroke-width: 2.4; stroke-linecap: round; transition: opacity .3s; }
+  .edge path.halo { fill: none; stroke: var(--bg); stroke-width: 7; opacity: .7; }
+  .edge.dim { opacity: .07; }
+  .edge.dashed path.line { stroke-dasharray: 7 6; }
+  .edge-label { position: absolute; transform: translate(-50%, -50%); pointer-events: none; transition: opacity .3s; z-index: 5; }
+  .edge-label span {
+    display: inline-block; white-space: nowrap; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px;
+    background: #0c0f17; border: 1.5px solid var(--c); color: var(--text); box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+  }
+  .edge-label span em { font-style: normal; color: var(--c); margin-right: 4px; }
+  .edge-label.dim { opacity: .06; }
+
+  /* ---------- sidebar ---------- */
+  #sidebar {
+    position: fixed; top: 16px; left: 16px; bottom: 16px; width: 300px; z-index: 20;
+    background: var(--panel); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--line); border-radius: 20px; display: flex; flex-direction: column; overflow: hidden;
+    transition: transform .4s cubic-bezier(.2,.8,.2,1), opacity .3s;
+  }
+  body.present #sidebar { transform: translateX(-340px); opacity: 0; pointer-events: none; }
+  #sidebar header { padding: 20px 20px 14px; border-bottom: 1px solid var(--line); }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .logo { width: 38px; height: 38px; border-radius: 11px; display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; padding: 5px; background: #161b28; box-shadow: 0 0 0 1px var(--line-strong) inset; }
+  .logo i { border-radius: 2px; }
+  .brand h1 { margin: 0; font-size: 17px; letter-spacing: -.01em; }
+  .brand p { margin: 2px 0 0; font-size: 12px; color: var(--text-3); }
+  #sidebar .scroll { overflow-y: auto; overflow-x: hidden; padding: 14px 14px 18px; flex: 1; }
+  #sidebar h2 { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-3); margin: 10px 6px 8px; font-weight: 700; }
+  .flow-btn {
+    width: 100%; display: flex; align-items: center; gap: 10px; text-align: left; padding: 10px 12px; margin: 2px 0;
+    border: 1px solid transparent; background: transparent; border-radius: 12px; cursor: pointer; font-size: 14px; font-weight: 600;
+  }
+  .flow-btn:hover { background: rgba(255,255,255,0.04); }
+  .flow-btn.active { background: rgba(255,255,255,0.06); border-color: var(--line-strong); }
+  .flow-btn .sw { width: 12px; height: 12px; border-radius: 4px; flex: none; }
+  .flow-btn .count { margin-left: auto; font: 600 11px var(--mono); color: var(--text-3); }
+  .screen-list { list-style: none; margin: 0; padding: 0; }
+  .screen-list li button {
+    width: 100%; display: flex; gap: 10px; align-items: center; text-align: left; padding: 6px 10px; border: 0; background: none;
+    border-radius: 9px; cursor: pointer; font-size: 13px; color: var(--text-2);
+  }
+  .screen-list li button:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+  .screen-list li button code { font: 600 10.5px var(--mono); color: var(--text-3); width: 20px; }
+  .screen-list li button b { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+  .screen-list li.dim button { opacity: .35; }
+  .legend { margin: 4px 6px 0; font-size: 12px; color: var(--text-2); line-height: 1.6; }
+  .legend div { display: flex; align-items: center; gap: 8px; }
+  .legend svg { flex: none; }
+  .meta { margin: 14px 6px 0; font-size: 11.5px; color: var(--text-3); line-height: 1.55; }
+  .meta code { font-family: var(--mono); color: var(--text-2); }
+
+  /* ---------- toolbar ---------- */
+  #toolbar {
+    position: fixed; right: 16px; bottom: 16px; z-index: 20; display: flex; gap: 6px; padding: 6px;
+    background: var(--panel); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--line); border-radius: 14px; align-items: center;
+  }
+  #toolbar button {
+    height: 36px; min-width: 36px; padding: 0 10px; border-radius: 9px; border: 0; background: transparent; cursor: pointer; font-size: 13px; font-weight: 600;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  #toolbar button:hover { background: rgba(255,255,255,0.07); }
+  #toolbar button.primary { background: var(--scan); color: #0a0d16; }
+  #toolbar button.primary:hover { filter: brightness(1.1); background: var(--scan); }
+  #zoomval { font: 600 12px var(--mono); color: var(--text-2); width: 48px; text-align: center; }
+  .sep { width: 1px; height: 22px; background: var(--line); margin: 0 2px; }
+
+  /* presentation overlay */
+  #presentbar {
+    position: fixed; left: 50%; top: 18px; transform: translate(-50%, -120%); z-index: 20; opacity: 0;
+    display: flex; align-items: center; gap: 14px; padding: 10px 12px 10px 20px;
+    background: var(--panel); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--line); border-radius: 999px; transition: transform .4s cubic-bezier(.2,.8,.2,1), opacity .3s;
+  }
+  body.present #presentbar { transform: translate(-50%, 0); opacity: 1; }
+  #presentbar .t { font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+  #presentbar .t .sw { width: 12px; height: 12px; border-radius: 4px; }
+  #presentbar .dots { display: flex; gap: 6px; }
+  #presentbar .dots button { width: 9px; height: 9px; padding: 0; border-radius: 50%; border: 0; background: var(--line-strong); cursor: pointer; }
+  #presentbar .dots button.on { background: var(--text); width: 22px; border-radius: 5px; }
+  #presentbar .nav { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); background: transparent; cursor: pointer; font-size: 15px; }
+  #presentbar .nav:hover { background: rgba(255,255,255,0.07); }
+  body.present .screen .route, body.present .screen ul.notes { opacity: 0; }
+
+  #hint {
+    position: fixed; left: 332px; bottom: 22px; z-index: 19; font-size: 12px; color: var(--text-3);
+    transition: opacity .3s;
+  }
+  body.present #hint { opacity: 0; }
+  kbd { font: 600 10.5px var(--mono); padding: 2px 6px; border-radius: 5px; border: 1px solid var(--line-strong); color: var(--text-2); }
+
+  /* ---------- inspector ---------- */
+  #inspector {
+    position: fixed; inset: 0; z-index: 40; display: none; background: rgba(3,4,8,0.82);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    align-items: center; justify-content: center; gap: 40px; padding: 28px;
+  }
+  #inspector.open { display: flex; animation: fade .25s ease; }
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+  #inspector .big { height: min(92vh, 1560px); aspect-ratio: 360/780; border-radius: 44px; padding: 12px; background: linear-gradient(160deg, #2a2f3d, #12151d 40%, #1d212c); box-shadow: 0 0 0 1px rgba(255,255,255,0.12) inset, 0 40px 80px rgba(0,0,0,0.7); flex: none; }
+  #inspector .big img { width: 100%; height: 100%; border-radius: 33px; display: block; object-fit: cover; }
+  #inspector aside { width: 380px; max-height: 92vh; overflow-y: auto; }
+  #inspector .tag { display: inline-flex; align-items: center; gap: 8px; font: 700 11px var(--mono); letter-spacing: .08em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--c); color: var(--c); }
+  #inspector h2 { font-size: 30px; line-height: 1.15; margin: 14px 0 6px; letter-spacing: -.02em; }
+  #inspector .route { font: 500 12.5px/1.55 var(--mono); color: var(--text-2); }
+  #inspector h4 { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-3); margin: 22px 0 8px; }
+  #inspector ul { margin: 0; padding-left: 18px; color: var(--text-2); font-size: 14px; line-height: 1.55; }
+  #inspector .links button {
+    display: flex; width: 100%; text-align: left; gap: 10px; align-items: baseline; padding: 9px 12px; margin: 4px 0; border-radius: 10px;
+    border: 1px solid var(--line); background: rgba(255,255,255,0.02); cursor: pointer; font-size: 13.5px;
+  }
+  #inspector .links button:hover { border-color: var(--line-strong); background: rgba(255,255,255,0.05); }
+  #inspector .links button span { color: var(--text-3); font-size: 12px; }
+  #inspector .links button b { width: 8px; height: 8px; border-radius: 50%; flex: none; transform: translateY(-1px); }
+  #inspector .close { position: fixed; top: 18px; right: 18px; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line-strong); background: var(--panel-solid); cursor: pointer; font-size: 18px; }
+  #inspector .navs { display: flex; gap: 8px; margin-top: 22px; }
+  #inspector .navs button { flex: 1; padding: 10px; border-radius: 10px; border: 1px solid var(--line); background: transparent; cursor: pointer; font-weight: 600; }
+  #inspector .navs button:hover { background: rgba(255,255,255,0.05); }
+
+  @media (max-width: 900px) {
+    #sidebar { width: auto; right: 16px; bottom: auto; max-height: 46vh; }
+    #hint { display: none; }
+    #inspector { flex-direction: column; gap: 16px; overflow-y: auto; justify-content: flex-start; }
+    #inspector .big { height: auto; width: min(86vw, 360px); }
+    #inspector aside { width: 100%; max-height: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #world.animate { transition: none; }
+    .hotspot::after { animation: none; }
+  }
+</style>
+</head>
+<body>
+<div id="viewport">
+  <div id="world">
+    <div id="gridbg"></div>
+    <svg id="edges"></svg>
+  </div>
+</div>
+
+<nav id="sidebar" aria-label="Flows and screens">
+  <header>
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <i style="background:#2ecc71"></i><i style="background:#e74c3c"></i><i style="background:#f1f1f1"></i>
+        <i style="background:#3d6cf0"></i><i style="background:#2ecc71"></i><i style="background:#f6c90e"></i>
+        <i style="background:#ff8a1f"></i><i style="background:#f1f1f1"></i><i style="background:#2ecc71"></i>
+      </div>
+      <div>
+        <h1>CubeMentor Screen Map</h1>
+        <p>UX flows · every screen as built today</p>
+      </div>
+    </div>
+  </header>
+  <div class="scroll">
+    <h2>Flows</h2>
+    <div id="flows"></div>
+    <h2>Screens</h2>
+    <ul class="screen-list" id="screenlist"></ul>
+    <h2>Legend</h2>
+    <div class="legend">
+      <div><svg width="34" height="10"><line x1="2" y1="5" x2="32" y2="5" stroke="#a3abc0" stroke-width="2.4"/></svg> Tap / navigation (push)</div>
+      <div><svg width="34" height="10"><line x1="2" y1="5" x2="32" y2="5" stroke="#a3abc0" stroke-width="2.4" stroke-dasharray="6 5"/></svg> Sheet, unlock or automatic step</div>
+      <div><svg width="34" height="16"><circle cx="17" cy="8" r="6" fill="#6e8bff"/></svg> Trigger hotspot on the screen</div>
+    </div>
+    <p class="meta">
+      Screenshots rendered from the real Flutter widgets at 360&times;780&nbsp;dp (Galaxy&nbsp;A16 class) by
+      <code>test/screenshots/ux_screen_map_test.dart</code>. Regenerate with
+      <code>flutter test test/screenshots/ux_screen_map_test.dart --update-goldens</code>.
+      The camera preview is simulated (no camera in tests); the grid overlay on top of it is the app's own.
+    </p>
+  </div>
+</nav>
+
+<div id="presentbar" role="toolbar" aria-label="Presentation">
+  <button class="nav" id="prev" aria-label="Previous flow">&larr;</button>
+  <div class="t"><span class="sw" id="pres-sw"></span><span id="pres-title">All flows</span></div>
+  <div class="dots" id="pres-dots"></div>
+  <button class="nav" id="next" aria-label="Next flow">&rarr;</button>
+  <button class="nav" id="exitpres" aria-label="Exit presentation">&times;</button>
+</div>
+
+<div id="toolbar">
+  <button id="zoomout" aria-label="Zoom out">&minus;</button>
+  <span id="zoomval">100%</span>
+  <button id="zoomin" aria-label="Zoom in">+</button>
+  <span class="sep"></span>
+  <button id="fit">Fit</button>
+  <button id="present" class="primary">&#9654; Present</button>
+</div>
+
+<div id="hint">Drag to pan · <kbd>Ctrl</kbd>/pinch or wheel to zoom · click a phone to inspect · <kbd>P</kbd> present · <kbd>F</kbd> fit</div>
+
+<div id="inspector" role="dialog" aria-modal="true" aria-label="Screen details">
+  <button class="close" id="insp-close" aria-label="Close">&times;</button>
+  <div class="big"><img id="insp-img" alt=""></div>
+  <aside>
+    <span class="tag" id="insp-tag"></span>
+    <h2 id="insp-title"></h2>
+    <div class="route" id="insp-route"></div>
+    <h4>UX notes</h4>
+    <ul id="insp-notes"></ul>
+    <h4>Leads to</h4>
+    <div class="links" id="insp-out"></div>
+    <h4>Reached from</h4>
+    <div class="links" id="insp-in"></div>
+    <div class="navs"><button id="insp-prev">&larr; Previous screen</button><button id="insp-next">Next screen &rarr;</button></div>
+  </aside>
+</div>
+
+<script>
+(() => {
+  // ------------------------------------------------------------------
+  // Data
+  // ------------------------------------------------------------------
+  const FLOWS = {
+    all:      { name: 'All flows',            color: '#eef1f8' },
+    scan:     { name: 'Scan & Solve flow',    color: '#6e8bff' },
+    academy:  { name: 'Academy flow',         color: '#ffd15c' },
+    patterns: { name: 'Patterns flow',        color: '#3ee6b0' },
+    train:    { name: 'Timer & Daily flow',   color: '#ff5d6c' },
+    global:   { name: 'Settings & language',  color: '#b7bfd3' },
+  };
+  const FLOW_ORDER = ['all', 'scan', 'academy', 'patterns', 'train', 'global'];
+
+  // Layout grid (world px).
+  const COL = c => 60 + c * 370;
+  const ROW = r => 80 + r * 860;
+  const LANES = [
+    { flow: 'scan', row: 0, label: 'Scan & Solve' },
+    { flow: 'scan', row: 1, label: 'Scan & Solve · branches' },
+    { flow: 'academy', row: 2, label: 'Academy' },
+    { flow: 'patterns', row: 3, label: 'Pattern library' },
+    { flow: 'train', row: 4, label: 'Timer & Daily Challenge' },
+    { flow: 'train', row: 5, label: 'Daily Challenge' },
+  ];
+
+  const S = (id, file, flow, c, r, title, route, notes) =>
+    ({ id, img: 'screens/' + file + '.png', flow, x: COL(c), y: ROW(r), title, route, notes });
+
+  const SCREENS = [
+    S('home', '01_home', 'all', 0, 2, 'Home',
+      'RootShell › HomeScreen\nlib/features/home/home_screen.dart',
+      ['3D cube carousel (2×2 – 6×6 + “coming soon”) sets the size every card opens on.',
+       'Four action cards in a 2×2 grid, each with the selected size badge.',
+       'Header: language chip and settings gear. Adaptive banner docked below, never over content.']),
+    S('settings', '03_settings', 'global', 0, 1, 'Settings sheet',
+      'showSettingsSheet › SettingsSheet\nlib/features/home/settings_sheet.dart',
+      ['Name for celebrations, language, Western / Japanese color scheme.',
+       'Sound & haptics, default animation speed, feedback, privacy options, reset progress.']),
+    S('language', '04_language', 'global', 0, 0, 'Language picker',
+      'LanguageSheet\nlib/features/home/language_sheet.dart',
+      ['22 locales listed by native name with a search field.',
+       'Picking one re-renders the app; Hebrew and Arabic flip to RTL.']),
+
+    S('sheet', '02_scan_solve_sheet', 'scan', 1, 0, 'Scan & Solve choice sheet',
+      'showScanSolveSheet › ScanSolveSheet\nlib/features/home/home_actions.dart',
+      ['Two big choices for the selected size: scan the real cube or open a virtual 3D cube.',
+       'Never gated by ads (scanning and 3×3 solving are always free).']),
+    S('camera', '05_scanner_camera', 'scan', 2, 0, 'Camera scanner (full screen)',
+      'ScannerScreen › CameraScanView\nlib/features/scanner/scanner_screen.dart',
+      ['Full-bleed camera with an N×N grid; each cell shows its live color guess.',
+       'Header: back, face progress, torch. Footer: manual entry and the shutter.',
+       'Turn guide (mini cube) tells how to rotate between the 6 faces. Preview simulated here.']),
+    S('manual', '06_scanner_manual', 'scan', 2, 1, 'Manual color entry',
+      'ScannerScreen (manual)\nlib/features/scanner/scanner_screen.dart',
+      ['Cube net to paint by tapping; long-press opens the color palette.',
+       'Live validator card (“All stickers look right.”) before solving.',
+       'Default when the device has no camera.']),
+    S('review', '07_scanner_review', 'scan', 3, 0, 'Scan review & fix',
+      'ScannerScreen (review)\nlib/features/scanner/scanner_screen.dart',
+      ['All 6 scanned faces as a net; tap any sticker to correct it.',
+       'Rescan a single face from the chips.',
+       '“Learn step by step” (guided 3 crowns) or “Fast solve” (Kociemba).']),
+    S('goal', '08_solver_goal', 'scan', 4, 0, 'Solver · sub-step goal card',
+      'Solver3DScreen (autoSolve) › LessonIntroCard\nlib/features/solver_3d/solver_3d_screen.dart',
+      ['Each new sub-step (1.1 … 3.4) opens with its goal: start vs goal 3D preview.',
+       '“What’s the goal?” and “How do we do it?” in plain language.',
+       'Can be switched off with “Don’t show automatically again”.']),
+    S('step', '09_solver_step_x2', 'scan', 5, 0, '3D solver · step-by-step guide',
+      'Solver3DScreen (guided)\nlib/features/solver_3d/solver_3d_screen.dart',
+      ['Glowing arrow on the layer to turn; ×2 “Double turn · 180°” pill above the cube.',
+       'Move card: notation, crown tracker, stage “Crown 1 • Stage 1 of 7”.',
+       'Guided (3 crowns) / Fast (optimal) toggle and Previous · Play · Next playback.']),
+    S('playground', '10_playground', 'scan', 3, 1, '3D free playground',
+      'Solver3DScreen (playground)\nlib/features/solver_3d/solver_3d_screen.dart',
+      ['Drag a row to turn it, drag the background to orbit.',
+       'Dock: Scramble · Solve · Undo · Reset; X-ray and notation pad in the app bar.',
+       '4×4–6×6 solving: first one free, then a 24 h rewarded unlock.']),
+
+    S('academy', '11_academy', 'academy', 1, 2, 'Academy overview',
+      'AcademyScreen(initialSize)\nlib/features/academy/academy_screen.dart',
+      ['“Continue learning” card jumps to the next lesson.',
+       'Progress card with crowns earned; size chips filter the tracks.',
+       'Beginner track = one lesson per LBL sub-step. First two lessons open, then padlocks.']),
+    S('unlock', '15_lesson_unlock', 'academy', 2, 2, 'Lesson unlock sheet',
+      'RewardUnlockSheet\nlib/core/ads/reward_prompt.dart',
+      ['Locked lessons show a closed padlock and “Watch ad”.',
+       'One short rewarded video opens that lesson for 24 hours.']),
+    S('lgoal', '12_lesson_goal', 'academy', 3, 2, 'Lesson · goal',
+      'LessonScreen › LessonIntroCard\nlib/features/academy/lesson_screen.dart',
+      ['Stage 1 of the lesson: what the finished step looks like (start / goal preview).',
+       'Bullet plan for how the step is done.']),
+    S('lpart', '13_lesson_part', 'academy', 4, 2, 'Lesson · guided parts',
+      'LessonScreen (parts)\nlib/features/academy/lesson_screen.dart',
+      ['Stages 2–3: each part pairs an explanation with a live 3D demo.',
+       'Hold prompt (which color on top / in front) and the move to make.',
+       'One Previous / Next pair: Next plays the demo move, then the next part.']),
+    S('ldone', '14_lesson_complete', 'academy', 5, 2, 'Lesson · complete',
+      'LessonScreen (completed)\nlib/features/academy/lesson_screen.dart',
+      ['Stage 4: personal celebration card with the user’s name.',
+       '“Next lesson” replaces this lesson; “Back to the Academy” pops.']),
+
+    S('patterns', '16_patterns', 'patterns', 1, 3, 'Pattern library',
+      'PatternsScreen(initialSize)\nlib/features/patterns/patterns_screen.dart',
+      ['Size chips with pattern counts (2×2 – 6×6).',
+       'First pattern per size is open (green open padlock), the rest locked.']),
+    S('punlock', '18_pattern_unlock', 'patterns', 2, 3, 'Pattern preview & unlock',
+      'RewardUnlockSheet (pattern preview)\nlib/features/patterns/patterns_screen.dart',
+      ['Locked patterns still preview in 3D.',
+       '“Watch Video” unlocks the pattern and its guide for 24 hours.']),
+    S('pplayer', '17_pattern_player', 'patterns', 3, 3, '3D pattern player',
+      'Solver3DScreen (guide: pattern)\nlib/features/solver_3d/solver_3d_screen.dart',
+      ['Step-by-step guide to build the pattern on your own cube.',
+       '×2 pill for half turns, “Step 2 / 3” counter, playback controls.']),
+
+    S('train', '19_train_hub', 'train', 1, 4, 'Timer & Daily Challenge hub',
+      'TrainScreen(size)\nlib/features/train/train_screen.dart',
+      ['Two roomy cards: Speed timer (with the selected size) and Daily challenge (with the streak).']),
+    S('timer', '20_timer', 'train', 2, 4, 'Speed timer',
+      'TimerScreen(size)\nlib/features/timer/timer_screen.dart',
+      ['Size chips, WCA-style scramble, big time display.',
+       'Stats row: Best, ao5, ao12, ao100 with “Avg of 5 / 12 / 100” captions and the note that averages drop the best and worst times.',
+       '+2 / DNF / Delete for the last solve; history sheet in the app bar.']),
+    S('inspect', '21_timer_inspection', 'train', 3, 4, 'Timer · 15 s inspection',
+      'TimerScreen (inspection)\nlib/features/timer/timer_screen.dart',
+      ['Optional WCA inspection: 15 s countdown, then “Tap when ready to start solving”.',
+       'Toggle via the stopwatch “15” chip; over 15 s adds a +2 penalty.']),
+    S('daily', '22_daily', 'train', 2, 5, 'Daily challenge (2 steps)',
+      'DailyScreen\nlib/features/daily/daily_screen.dart',
+      ['Streak card: today’s date-seeded scramble (rolls over 00:00 UTC), best streak.',
+       'Step 1: scramble your cube (3D scramble guide or text moves).',
+       'Step 2: solve it — time it on your own cube (Speed timer, fixed scramble) or “Solve on the 3D cube” (3D solver with a challenge clock, Undo and Reset).',
+       '“3D scramble guide” plays the scramble move by move on the 3D cube. Hint card below.',
+       'Fully on device: no leaderboard, no accounts.']),
+  ];
+
+  // hs: hotspot on the source screen in fractions of the screenshot.
+  const E = (from, to, label, flow, hs, opts = {}) => ({ from, to, label, flow, hs, ...opts });
+  const EDGES = [
+    E('home', 'sheet',    "Tap ‘Scan & Solve’",          'scan',     [0.22, 0.70]),
+    E('home', 'academy',  "Tap ‘Academy’",               'academy',  [0.70, 0.70]),
+    E('home', 'patterns', "Tap ‘Cool Patterns’",         'patterns', [0.22, 0.86]),
+    E('home', 'train',    "Tap ‘Timer & Daily Challenge’", 'train',  [0.70, 0.86]),
+    E('home', 'settings', 'Tap ⚙ settings',              'global',   [0.88, 0.05], { dashed: true }),
+    E('home', 'language', 'Tap 文A language chip',        'global',   [0.70, 0.05], { dashed: true, side: 'left', via: 'left' }),
+    E('settings', 'language', "‘Language’ row",          'global',   [0.50, 0.38], { dashed: true }),
+
+    E('sheet', 'camera',     "‘Scan with camera’",        'scan', [0.50, 0.74]),
+    E('sheet', 'playground', "‘Open 3D cube’",            'scan', [0.50, 0.88]),
+    E('camera', 'review',    'Shutter × 6 faces',         'scan', [0.50, 0.94]),
+    E('camera', 'manual',    '✎ Manual entry',            'scan', [0.11, 0.94]),
+    E('review', 'goal',      "‘Learn step by step’",       'scan', [0.50, 0.87]),
+    E('manual', 'goal',      "‘Learn step by step’",       'scan', [0.50, 0.87]),
+    E('goal', 'step',        "‘Got it, start step by step’", 'scan', [0.50, 0.87]),
+    E('playground', 'goal',  "Tap ‘Solve’ (guided)",       'scan', [0.39, 0.87]),
+
+    E('academy', 'lgoal',    "Tap an open lesson",         'academy', [0.50, 0.82]),
+    E('academy', 'unlock',   'Tap a locked lesson',        'academy', [0.62, 0.97], { dashed: true }),
+    E('unlock', 'lgoal',     '24h Rewarded Unlock',        'academy', [0.50, 0.86], { dashed: true }),
+    E('lgoal', 'lpart',      "Stage 1 → ‘Got it, start step by step’", 'academy', [0.50, 0.92]),
+    E('lpart', 'ldone',      "Stages 2–3 → ‘Next’ through every part", 'academy', [0.83, 0.95]),
+    E('ldone', 'lgoal',      "Stage 4 → ‘Next lesson’",    'academy', [0.50, 0.58], { back: true }),
+    E('ldone', 'academy',    "‘Back to the Academy’",      'academy', [0.50, 0.67], { back: true }),
+
+    E('patterns', 'pplayer', 'Tap an open pattern',        'patterns', [0.27, 0.52]),
+    E('patterns', 'punlock', 'Tap a locked pattern',       'patterns', [0.75, 0.52], { dashed: true }),
+    E('punlock', 'pplayer',  '24h Rewarded Unlock',        'patterns', [0.50, 0.86], { dashed: true }),
+
+    E('train', 'timer',      "Tap ‘Speed timer’",          'train', [0.50, 0.27]),
+    E('train', 'daily',      "Tap ‘Daily challenge’",      'train', [0.50, 0.52]),
+    E('timer', 'inspect',    'Tap pad → 15 s inspection',  'train', [0.50, 0.42], { dashed: true }),
+    E('daily', 'timer',      "Step 2 → ‘Time it on your cube’", 'train', [0.50, 0.73]),
+  ];
+
+  // ------------------------------------------------------------------
+  // Build
+  // ------------------------------------------------------------------
+  const PHONE_W = 250, HEAD_H = 50, PHONE_PAD = 10;
+  const SCREEN_W = PHONE_W - 2 * PHONE_PAD, SCREEN_H = SCREEN_W * 780 / 360;
+  const byId = Object.fromEntries(SCREENS.map(s => [s.id, s]));
+  const world = document.getElementById('world');
+  const svg = document.getElementById('edges');
+  const NS = 'http://www.w3.org/2000/svg';
+  const colorOf = f => FLOWS[f].color;
+  const flowTag = s => s.flow === 'all' ? 'Start screen' : FLOWS[s.flow].name.replace(' flow', '');
+  const accentOf = s => s.flow === 'all' ? '#6e8bff' : colorOf(s.flow);
+
+  // Lane bands and labels.
+  const laneEls = [];
+  const maxCol = r => Math.max(...SCREENS.filter(s => s.y === ROW(r)).map(s => s.x));
+  LANES.forEach(l => {
+    const band = document.createElement('div');
+    band.className = 'lane-band';
+    const left = COL(1) - 30, top = ROW(l.row) - 46;
+    band.style.cssText = `left:${left}px;top:${top}px;width:${maxCol(l.row) + PHONE_W + 30 - left}px;height:${HEAD_H + SCREEN_H + 2 * PHONE_PAD + 240}px;border-color:${colorOf(l.flow)}22`;
+    world.appendChild(band);
+    const lab = document.createElement('div');
+    lab.className = 'lane-label';
+    lab.style.cssText = `left:${left + 20}px;top:${top - 26}px;color:${colorOf(l.flow)}`;
+    lab.innerHTML = `<i></i>${l.label}`;
+    world.appendChild(lab);
+    laneEls.push({ flow: l.flow, els: [band, lab] });
+  });
+  {
+    const lab = document.createElement('div');
+    lab.className = 'lane-label';
+    lab.style.cssText = `left:${COL(0) + 4}px;top:${ROW(0) - 72}px;color:${colorOf('global')}`;
+    lab.innerHTML = '<i></i>Start & global';
+    world.appendChild(lab);
+    laneEls.push({ flow: 'global', els: [lab] });
+  }
+
+  // Screens.
+  const screenEls = {};
+  SCREENS.forEach((s, i) => {
+    s.index = i;
+    const el = document.createElement('section');
+    el.className = 'screen';
+    el.style.left = s.x + 'px';
+    el.style.top = s.y + 'px';
+    el.style.setProperty('--accent', accentOf(s));
+    const [widget, file] = s.route.split('\n');
+    el.innerHTML = `
+      <div class="head">
+        <div class="num"><b style="background:${accentOf(s)}"></b>${String(i + 1).padStart(2, '0')} · ${flowTag(s)}</div>
+        <h3>${s.title}</h3>
+      </div>
+      <div class="phone" tabindex="0" role="button" aria-label="Inspect ${s.title}">
+        <div class="glass"><span class="cam"></span><img loading="eager" alt="${s.title} screenshot" src="${s.img}"></div>
+      </div>
+      <div class="route">${widget}<br>${file}</div>
+      <ul class="notes">${s.notes.map(n => `<li>${n}</li>`).join('')}</ul>`;
+    const img = el.querySelector('img');
+    img.addEventListener('error', () => {
+      img.replaceWith(Object.assign(document.createElement('div'), { className: 'broken', textContent: 'Missing ' + s.img }));
+      s.broken = true;
+    });
+    const phone = el.querySelector('.phone');
+    phone.addEventListener('click', e => { if (!moved) openInspector(s.id); });
+    phone.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openInspector(s.id); } });
+    world.appendChild(el);
+    screenEls[s.id] = el;
+  });
+
+  // Edge geometry: from the hotspot on the source screen to the nearest
+  // side of the target phone.
+  const screenRect = s => ({ x: s.x + PHONE_PAD, y: s.y + HEAD_H + PHONE_PAD, w: SCREEN_W, h: SCREEN_H });
+  const phoneRect = s => ({ x: s.x, y: s.y + HEAD_H, w: PHONE_W, h: SCREEN_H + 2 * PHONE_PAD });
+
+  // Spread several arrows arriving on the same side of one phone.
+  const arrivals = {};
+  const geo = EDGES.map(e => {
+    const a = byId[e.from], b = byId[e.to];
+    const sr = screenRect(a);
+    const p0 = { x: sr.x + e.hs[0] * sr.w, y: sr.y + e.hs[1] * sr.h };
+    const tr = phoneRect(b);
+    const dx = (tr.x + tr.w / 2) - (sr.x + sr.w / 2);
+    const dy = (tr.y + tr.h / 2) - (sr.y + sr.h / 2);
+    let side = e.side;
+    if (!side) {
+      if (Math.abs(dx) < 60) side = dy > 0 ? 'top' : 'bottom';
+      else side = dx > 0 ? 'left' : 'right';
+    }
+    const key = e.to + side;
+    (arrivals[key] ||= []).push(e);
+    return { e, a, b, p0, tr, side, dx, dy };
+  });
+
+  const paths = [];
+  geo.forEach(g => {
+    const list = arrivals[g.e.to + g.side];
+    const k = list.indexOf(g.e), n = list.length;
+    const spread = (k - (n - 1) / 2);
+    const { tr, side, p0 } = g;
+    let p1, c0, c1;
+    const out = 12;
+    if (side === 'left' || side === 'right') {
+      const y = tr.y + tr.h * 0.42 + spread * 46;
+      const x = side === 'left' ? tr.x - out : tr.x + tr.w + out;
+      p1 = { x, y };
+      const sgn = side === 'left' ? 1 : -1;
+      const pull = Math.max(120, Math.abs(p1.x - p0.x) * 0.45);
+      // Leave the source sideways toward the target.
+      c0 = { x: p0.x + sgn * pull, y: p0.y + (g.e.back ? 260 : 0) };
+      c1 = { x: p1.x - sgn * pull, y: p1.y + (g.e.back ? 260 : 0) };
+      if (g.e.via === 'left') {
+        // Loop around the outside of the column instead of crossing it.
+        const x = Math.min(p0.x, p1.x) - 300;
+        c0 = { x, y: p0.y };
+        c1 = { x, y: p1.y };
+      }
+    } else {
+      const x = tr.x + tr.w / 2 + spread * 60;
+      const y = side === 'top' ? tr.y - out : tr.y + tr.h + out;
+      p1 = { x, y };
+      const sgn = side === 'top' ? 1 : -1;
+      const pull = Math.max(140, Math.abs(p1.y - p0.y) * 0.4);
+      c0 = { x: p0.x + (g.dx === 0 ? 0 : Math.sign(g.dx) * 60), y: p0.y + sgn * pull };
+      c1 = { x: p1.x, y: p1.y - sgn * pull };
+    }
+    const d = `M${p0.x},${p0.y} C${c0.x},${c0.y} ${c1.x},${c1.y} ${p1.x},${p1.y}`;
+    paths.push({ ...g, d, p0, p1, c0, c1 });
+  });
+
+  // Arrow markers per flow.
+  const defs = document.createElementNS(NS, 'defs');
+  Object.entries(FLOWS).forEach(([k, f]) => {
+    const m = document.createElementNS(NS, 'marker');
+    m.setAttribute('id', 'arrow-' + k);
+    m.setAttribute('viewBox', '0 0 10 10');
+    m.setAttribute('refX', '7'); m.setAttribute('refY', '5');
+    m.setAttribute('markerWidth', '7'); m.setAttribute('markerHeight', '7');
+    m.setAttribute('orient', 'auto-start-reverse');
+    const p = document.createElementNS(NS, 'path');
+    p.setAttribute('d', 'M0,0 L10,5 L0,10 z');
+    p.setAttribute('fill', f.color);
+    m.appendChild(p); defs.appendChild(m);
+  });
+  svg.appendChild(defs);
+
+  const edgeEls = [];
+  const bez = (p, t) => {
+    const { p0, c0, c1, p1 } = p, u = 1 - t;
+    return {
+      x: u*u*u*p0.x + 3*u*u*t*c0.x + 3*u*t*t*c1.x + t*t*t*p1.x,
+      y: u*u*u*p0.y + 3*u*u*t*c0.y + 3*u*t*t*c1.y + t*t*t*p1.y,
+    };
+  };
+  paths.forEach(p => {
+    const g = document.createElementNS(NS, 'g');
+    g.setAttribute('class', 'edge' + (p.e.dashed ? ' dashed' : ''));
+    const halo = document.createElementNS(NS, 'path');
+    halo.setAttribute('class', 'halo'); halo.setAttribute('d', p.d);
+    const line = document.createElementNS(NS, 'path');
+    line.setAttribute('class', 'line'); line.setAttribute('d', p.d);
+    line.setAttribute('stroke', colorOf(p.e.flow));
+    line.setAttribute('marker-end', `url(#arrow-${p.e.flow})`);
+    g.append(halo, line);
+    svg.appendChild(g);
+
+    // Hotspot dot on the source screen.
+    const hs = document.createElement('span');
+    hs.className = 'hotspot';
+    hs.style.cssText = `left:${p.e.hs[0] * 100}%;top:${p.e.hs[1] * 100}%;--c:${colorOf(p.e.flow)}`;
+    screenEls[p.e.from].querySelector('.glass').appendChild(hs);
+
+    // Label at the curve's middle, nudged off the phones.
+    const mid = bez(p, 0.5);
+    const lab = document.createElement('div');
+    lab.className = 'edge-label';
+    lab.style.cssText = `left:${mid.x}px;top:${mid.y}px;--c:${colorOf(p.e.flow)}`;
+    lab.innerHTML = `<span>${p.e.label}</span>`;
+    world.appendChild(lab);
+    edgeEls.push({ e: p.e, g, hs, lab });
+  });
+
+  // World bounds.
+  const bounds = list => {
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    list.forEach(s => {
+      x0 = Math.min(x0, s.x); y0 = Math.min(y0, s.y - 70);
+      x1 = Math.max(x1, s.x + PHONE_W); y1 = Math.max(y1, s.y + HEAD_H + SCREEN_H + 2 * PHONE_PAD + 200);
+    });
+    return { x0, y0, x1, y1 };
+  };
+  const all = bounds(SCREENS);
+  svg.setAttribute('width', all.x1 + 400);
+  svg.setAttribute('height', all.y1 + 400);
+
+  // ------------------------------------------------------------------
+  // Sidebar
+  // ------------------------------------------------------------------
+  const flowsEl = document.getElementById('flows');
+  const inFlow = (s, f) => f === 'all' || s.flow === f || s.flow === 'all' ||
+    EDGES.some(e => e.flow === f && (e.from === s.id || e.to === s.id));
+  FLOW_ORDER.forEach(f => {
+    const b = document.createElement('button');
+    b.className = 'flow-btn';
+    b.dataset.flow = f;
+    const n = SCREENS.filter(s => inFlow(s, f)).length;
+    b.innerHTML = `<span class="sw" style="background:${f === 'all' ? 'conic-gradient(#6e8bff 0 25%, #ffd15c 0 50%, #3ee6b0 0 75%, #ff5d6c 0)' : colorOf(f)}"></span>${FLOWS[f].name}<span class="count">${n}</span>`;
+    b.addEventListener('click', () => setFlow(f, true));
+    flowsEl.appendChild(b);
+  });
+  const listEl = document.getElementById('screenlist');
+  SCREENS.forEach((s, i) => {
+    const li = document.createElement('li');
+    li.dataset.id = s.id;
+    li.innerHTML = `<button><code>${String(i + 1).padStart(2, '0')}</code><b style="background:${accentOf(s)}"></b>${s.title}</button>`;
+    li.querySelector('button').addEventListener('click', () => focusScreen(s.id));
+    listEl.appendChild(li);
+  });
+
+  let currentFlow = 'all';
+  function setFlow(f, fit) {
+    currentFlow = f;
+    flowsEl.querySelectorAll('.flow-btn').forEach(b => b.classList.toggle('active', b.dataset.flow === f));
+    SCREENS.forEach(s => {
+      const on = inFlow(s, f);
+      screenEls[s.id].classList.toggle('dim', !on);
+      listEl.querySelector(`[data-id="${s.id}"]`).classList.toggle('dim', !on);
+    });
+    edgeEls.forEach(({ e, g, hs, lab }) => {
+      const on = f === 'all' || e.flow === f;
+      g.classList.toggle('dim', !on);
+      lab.classList.toggle('dim', !on);
+      hs.style.opacity = on ? 1 : 0;
+    });
+    laneEls.forEach(l => l.els.forEach(el => el.style.opacity = (f === 'all' || l.flow === f) ? 1 : 0.15));
+    const idx = PRES.indexOf(f);
+    document.getElementById('pres-title').textContent = FLOWS[f].name;
+    document.getElementById('pres-sw').style.background = f === 'all' ? '#eef1f8' : colorOf(f);
+    document.querySelectorAll('#pres-dots button').forEach((d, i) => d.classList.toggle('on', i === idx));
+    if (fit) fitTo(SCREENS.filter(s => inFlow(s, f)), true);
+  }
+
+  // ------------------------------------------------------------------
+  // Pan & zoom
+  // ------------------------------------------------------------------
+  const vp = document.getElementById('viewport');
+  let tx = 0, ty = 0, k = 1;
+  const MIN = 0.08, MAX = 2.5;
+  function apply(animate) {
+    world.classList.toggle('animate', !!animate);
+    world.style.transform = `translate(${tx}px, ${ty}px) scale(${k})`;
+    document.getElementById('zoomval').textContent = Math.round(k * 100) + '%';
+  }
+  function zoomAt(cx, cy, factor, animate) {
+    const nk = Math.min(MAX, Math.max(MIN, k * factor));
+    tx = cx - (cx - tx) * (nk / k);
+    ty = cy - (cy - ty) * (nk / k);
+    k = nk; apply(animate);
+  }
+  function fitTo(list, animate) {
+    const b = bounds(list);
+    const present = document.body.classList.contains('present');
+    const narrow = innerWidth < 900;
+    const left = present || narrow ? 30 : 340, top = present ? 80 : 30;
+    const W = innerWidth - left - 30, H = innerHeight - top - 80;
+    k = Math.min(MAX, Math.max(MIN, Math.min(W / (b.x1 - b.x0), H / (b.y1 - b.y0))));
+    tx = left + (W - (b.x1 - b.x0) * k) / 2 - b.x0 * k;
+    ty = top + (H - (b.y1 - b.y0) * k) / 2 - b.y0 * k;
+    apply(animate);
+  }
+  function focusScreen(id) {
+    const s = byId[id];
+    Object.values(screenEls).forEach(el => el.classList.remove('focus'));
+    screenEls[id].classList.add('focus');
+    setTimeout(() => screenEls[id].classList.remove('focus'), 1800);
+    fitTo([s, ...EDGES.filter(e => e.from === id).map(e => byId[e.to])], true);
+  }
+
+  let moved = false, drag = null;
+  const pointers = new Map();
+  vp.addEventListener('pointerdown', e => {
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pointers.size === 1) { drag = { x: e.clientX, y: e.clientY, tx, ty }; moved = false; }
+    vp.setPointerCapture(e.pointerId);
+  });
+  vp.addEventListener('pointermove', e => {
+    if (!pointers.has(e.pointerId)) return;
+    const prev = pointers.get(e.pointerId);
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pointers.size === 2) {
+      const [a, b] = [...pointers.values()];
+      const other = [...pointers.entries()].find(([id]) => id !== e.pointerId)[1];
+      const d0 = Math.hypot(prev.x - other.x, prev.y - other.y);
+      const d1 = Math.hypot(a.x - b.x, a.y - b.y);
+      if (d0 > 0) zoomAt((a.x + b.x) / 2, (a.y + b.y) / 2, d1 / d0);
+      moved = true; return;
+    }
+    if (!drag) return;
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    if (Math.abs(dx) + Math.abs(dy) > 4) { moved = true; vp.classList.add('dragging'); }
+    tx = drag.tx + dx; ty = drag.ty + dy; apply(false);
+  });
+  const end = e => {
+    pointers.delete(e.pointerId);
+    if (pointers.size === 0) { drag = null; vp.classList.remove('dragging'); }
+  };
+  vp.addEventListener('pointerup', end);
+  vp.addEventListener('pointercancel', end);
+  vp.addEventListener('wheel', e => {
+    e.preventDefault();
+    if (e.ctrlKey || e.metaKey || Math.abs(e.deltaY) > 40 && e.deltaX === 0) {
+      zoomAt(e.clientX, e.clientY, Math.exp(-e.deltaY * (e.ctrlKey ? 0.01 : 0.0015)));
+    } else {
+      tx -= e.deltaX; ty -= e.deltaY; apply(false);
+    }
+  }, { passive: false });
+  const center = () => [innerWidth / 2, innerHeight / 2];
+  document.getElementById('zoomin').onclick = () => zoomAt(...center(), 1.25, true);
+  document.getElementById('zoomout').onclick = () => zoomAt(...center(), 0.8, true);
+  document.getElementById('fit').onclick = () => fitTo(SCREENS.filter(s => inFlow(s, currentFlow)), true);
+
+  // ------------------------------------------------------------------
+  // Presentation mode
+  // ------------------------------------------------------------------
+  const PRES = ['all', 'scan', 'academy', 'patterns', 'train', 'global'];
+  const dots = document.getElementById('pres-dots');
+  PRES.forEach((f, i) => {
+    const d = document.createElement('button');
+    d.setAttribute('aria-label', FLOWS[f].name);
+    d.onclick = () => setFlow(f, true);
+    dots.appendChild(d);
+  });
+  function setPresent(on) {
+    document.body.classList.toggle('present', on);
+    setTimeout(() => fitTo(SCREENS.filter(s => inFlow(s, currentFlow)), true), 30);
+  }
+  const step = d => setFlow(PRES[(PRES.indexOf(currentFlow) + d + PRES.length) % PRES.length], true);
+  document.getElementById('present').onclick = () => setPresent(true);
+  document.getElementById('exitpres').onclick = () => setPresent(false);
+  document.getElementById('prev').onclick = () => step(-1);
+  document.getElementById('next').onclick = () => step(1);
+
+  // ------------------------------------------------------------------
+  // Inspector
+  // ------------------------------------------------------------------
+  const insp = document.getElementById('inspector');
+  let inspected = null;
+  function link(s, label, flow) {
+    const b = document.createElement('button');
+    b.innerHTML = `<b style="background:${colorOf(flow)}"></b><div>${s.title}<br><span>${label}</span></div>`;
+    b.onclick = () => openInspector(s.id);
+    return b;
+  }
+  function openInspector(id) {
+    const s = byId[id];
+    inspected = id;
+    const [widget, file] = s.route.split('\n');
+    document.getElementById('insp-img').src = s.img;
+    document.getElementById('insp-img').alt = s.title + ' screenshot';
+    const tag = document.getElementById('insp-tag');
+    tag.style.setProperty('--c', accentOf(s));
+    tag.textContent = `${String(s.index + 1).padStart(2, '0')} · ${flowTag(s)}`;
+    document.getElementById('insp-title').textContent = s.title;
+    document.getElementById('insp-route').innerHTML = `${widget}<br>${file}`;
+    document.getElementById('insp-notes').innerHTML = s.notes.map(n => `<li>${n}</li>`).join('');
+    const out = document.getElementById('insp-out'), inn = document.getElementById('insp-in');
+    out.replaceChildren(...EDGES.filter(e => e.from === id).map(e => link(byId[e.to], e.label, e.flow)));
+    inn.replaceChildren(...EDGES.filter(e => e.to === id).map(e => link(byId[e.from], e.label, e.flow)));
+    if (!out.children.length) out.textContent = '—';
+    if (!inn.children.length) inn.textContent = 'App launch';
+    insp.classList.add('open');
+  }
+  const closeInspector = () => { insp.classList.remove('open'); inspected = null; };
+  document.getElementById('insp-close').onclick = closeInspector;
+  insp.addEventListener('click', e => { if (e.target === insp) closeInspector(); });
+  const shift = d => openInspector(SCREENS[(byId[inspected].index + d + SCREENS.length) % SCREENS.length].id);
+  document.getElementById('insp-prev').onclick = () => shift(-1);
+  document.getElementById('insp-next').onclick = () => shift(1);
+
+  // Keyboard.
+  addEventListener('keydown', e => {
+    if (e.target.closest && e.target.closest('input, textarea')) return;
+    if (inspected) {
+      if (e.key === 'Escape') closeInspector();
+      else if (e.key === 'ArrowRight') shift(1);
+      else if (e.key === 'ArrowLeft') shift(-1);
+      return;
+    }
+    const present = document.body.classList.contains('present');
+    if (e.key === 'p' || e.key === 'P') setPresent(!present);
+    else if (e.key === 'Escape' && present) setPresent(false);
+    else if (e.key === 'f' || e.key === 'F') fitTo(SCREENS.filter(s => inFlow(s, currentFlow)), true);
+    else if (present && (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown')) { e.preventDefault(); step(1); }
+    else if (present && (e.key === 'ArrowLeft' || e.key === 'PageUp')) step(-1);
+    else if (e.key === '+' || e.key === '=') zoomAt(...center(), 1.25, true);
+    else if (e.key === '-') zoomAt(...center(), 0.8, true);
+  });
+  addEventListener('resize', () => fitTo(SCREENS.filter(s => inFlow(s, currentFlow)), false));
+
+  setFlow('all', false);
+  fitTo(SCREENS, false);
+  // Exposed for automated checks.
+  window.__screenMap = { SCREENS, EDGES, broken: () => SCREENS.filter(s => s.broken).map(s => s.img) };
+})();
+</script>
+</body>
+</html>
