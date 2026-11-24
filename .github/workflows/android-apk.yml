@@ -3,6 +3,13 @@ name: Android APK
 on:
   push:
     branches: [main]
+    # Pushes that only touch the UX board (deployed to GitHub Pages by
+    # deploy_ux_board.yml) do not change the app: no APK build.
+    paths-ignore:
+      - "docs/**"
+      - "test/screenshots/**"
+      - "tool/update_ux_board.py"
+      - ".github/workflows/deploy_ux_board.yml"
   workflow_dispatch:
 
 permissions:
