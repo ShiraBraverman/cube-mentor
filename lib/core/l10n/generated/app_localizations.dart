@@ -3766,6 +3766,12 @@ abstract class AppLocalizations {
   /// **'Move {current} / {total}'**
   String guideMoveCounter(int current, int total);
 
+  /// Live counter on the Fast Solve card: which move of the solution is on screen, out of all its moves.
+  ///
+  /// In en, this message translates to:
+  /// **'Move {current} / {total}'**
+  String fastMoveCounter(int current, int total);
+
   /// Daily challenge: title of the scramble step card.
   ///
   /// In en, this message translates to:

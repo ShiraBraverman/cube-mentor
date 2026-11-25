@@ -605,6 +605,7 @@
   "patternPlusMinus": "プラスマイナス",
   "guideStepCounter": "ステップ {current} / {total}",
   "guideMoveCounter": "手順 {current} / {total}",
+  "fastMoveCounter": "{current} / {total} 手目",
   "dailyStep1Title": "ステップ1：キューブを崩す",
   "dailyStep2Title": "ステップ2：キューブを解く",
   "dailyPersonalBest": "自己ベスト：{time}",

@@ -2146,6 +2146,11 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String fastMoveCounter(int current, int total) {
+    return 'Hamle $current / $total';
+  }
+
+  @override
   String get dailyStep1Title => 'Adım 1: Küpünü karıştır';
 
   @override

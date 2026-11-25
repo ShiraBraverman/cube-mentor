@@ -605,6 +605,7 @@
   "patternPlusMinus": "플러스 마이너스",
   "guideStepCounter": "단계 {current} / {total}",
   "guideMoveCounter": "동작 {current} / {total}",
+  "fastMoveCounter": "동작 {current} / {total}",
   "dailyStep1Title": "1단계: 큐브 섞기",
   "dailyStep2Title": "2단계: 큐브 풀기",
   "dailyPersonalBest": "개인 최고 기록: {time}",

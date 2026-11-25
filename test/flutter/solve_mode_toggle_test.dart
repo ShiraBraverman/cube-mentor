@@ -114,6 +114,8 @@ void main() {
   ) async {
     final calls = await _solve(tester, 3, savedMode: 'fast');
     expect(calls, [SolveMethod.fast]);
-    expect(find.byKey(const ValueKey('solve-mode')), findsOneWidget);
+    // Fast Solve stays uncluttered: no Guided / Fast switch on its card.
+    expect(find.byKey(const ValueKey('solve-mode')), findsNothing);
+    expect(find.byKey(const ValueKey('fast-move-live')), findsOneWidget);
   });
 }

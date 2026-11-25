@@ -1,6 +1,8 @@
 import 'dart:math' as math;
 import 'dart:ui';
 
+import 'package:flutter/painting.dart' show TextPainter, TextSpan, TextStyle;
+
 import 'package:vector_math/vector_math_64.dart' show Vector3;
 
 import '../../../core/cube/cube_move.dart';
@@ -92,6 +94,77 @@ abstract final class MoveArrow {
         ..color = AppColors.accent
         ..maskFilter = MaskFilter.blur(BlurStyle.normal, 2.5 * unit),
     );
+
+    if (move.isHalfTurn) _paintDoubleLabel(canvas, size, frame, points, unit);
+  }
+
+  /// A "×2" pill on the outside of the arrow's middle, so a half turn reads
+  /// as one straight on the cube.
+  static void _paintDoubleLabel(
+    Canvas canvas,
+    Size size,
+    CubeFrame frame,
+    List<Offset> points,
+    double unit,
+  ) {
+    final mid = points[points.length ~/ 2];
+    final view = CubeProjection.viewMatrix(frame.orbit);
+    final center = CubeProjection.project(
+      view.transformed(Vector3.zero()),
+      size,
+      CubeProjection.focalLength(size),
+    );
+    var out = mid - center;
+    out = out.distance > 0 ? out / out.distance : const Offset(0, -1);
+
+    final text = TextPainter(
+      text: TextSpan(
+        text: '×2',
+        style: TextStyle(
+          color: AppColors.onAccent,
+          fontFamily: 'Roboto',
+          fontSize: 17 * unit,
+          height: 1.1,
+          fontWeight: FontWeight.w900,
+        ),
+      ),
+      // Notation: always left to right.
+      textDirection: TextDirection.ltr,
+    )..layout();
+    final pill = Size(text.width + 14 * unit, text.height + 6 * unit);
+    // Clear of the arrow's stroke, then kept inside the canvas.
+    final reach = 14 * unit + pill.longestSide / 2;
+    var c = mid + out * reach;
+    c = Offset(
+      c.dx.clamp(
+        pill.width / 2,
+        math.max(pill.width / 2, size.width - pill.width / 2),
+      ),
+      c.dy.clamp(
+        pill.height / 2,
+        math.max(pill.height / 2, size.height - pill.height / 2),
+      ),
+    );
+    final rect = RRect.fromRectAndRadius(
+      Rect.fromCenter(center: c, width: pill.width, height: pill.height),
+      Radius.circular(pill.height / 2),
+    );
+    canvas.drawRRect(
+      rect.inflate(2 * unit),
+      Paint()
+        ..color = AppColors.gold.withValues(alpha: 0.55)
+        ..maskFilter = MaskFilter.blur(BlurStyle.normal, 6 * unit),
+    );
+    canvas.drawRRect(rect, Paint()..color = AppColors.gold);
+    canvas.drawRRect(
+      rect,
+      Paint()
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 1.5 * unit
+        ..color = const Color(0xFFFFFFFF).withValues(alpha: 0.9),
+    );
+    text.paint(canvas, c - Offset(text.width / 2, text.height / 2));
+    text.dispose();
   }
 
   /// Screen points of the arrow, tail first.

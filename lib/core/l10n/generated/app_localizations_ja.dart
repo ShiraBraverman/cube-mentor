@@ -2035,6 +2035,11 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String fastMoveCounter(int current, int total) {
+    return '$current / $total 手目';
+  }
+
+  @override
   String get dailyStep1Title => 'ステップ1：キューブを崩す';
 
   @override

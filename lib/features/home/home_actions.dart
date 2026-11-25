@@ -33,7 +33,10 @@ class HomeActionGrid extends ConsumerWidget {
         Navigator.of(context)
             .push(MaterialPageRoute<void>(builder: (_) => screen));
 
-    Widget row(Widget a, Widget b) => IntrinsicHeight(
+    // Equal flex rows inside one IntrinsicHeight: both rows take the
+    // height of the tallest card, so all four cards are the same size
+    // whatever the length of the titles in the current language.
+    Widget row(Widget a, Widget b) => Expanded(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -44,52 +47,55 @@ class HomeActionGrid extends ConsumerWidget {
       ),
     );
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        row(
-          HomeActionCard(
-            key: const ValueKey('home-scan-solve'),
-            icon: AnimatedScannerCubeIcon(animate: !mystery),
-            title: l10n.modeScanSolve,
-            badge: sizeLabel,
-            accent: AppColors.accent,
-            onTap: mystery ? null : () => showScanSolveSheet(context, size),
-          ),
-          HomeActionCard(
-            key: const ValueKey('home-academy'),
-            icon: const AnimatedAcademyCubeIcon(),
-            title: l10n.homeAcademy,
-            subtitle: l10n.homeAcademyProgress(
-              academy.completedCount,
-              kLessons.length,
+    return IntrinsicHeight(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          row(
+            HomeActionCard(
+              key: const ValueKey('home-scan-solve'),
+              icon: AnimatedScannerCubeIcon(animate: !mystery),
+              title: l10n.modeScanSolve,
+              badge: sizeLabel,
+              accent: AppColors.accent,
+              // The hero action: accent border, tint and glow draw the eye.
+              primary: true,
+              onTap: mystery ? null : () => showScanSolveSheet(context, size),
             ),
-            badge: sizeLabel,
-            accent: AppColors.gold,
-            onTap: () => open(AcademyScreen(initialSize: size)),
+            HomeActionCard(
+              key: const ValueKey('home-academy'),
+              icon: const AnimatedAcademyCubeIcon(),
+              title: l10n.homeAcademy,
+              subtitle: l10n.homeAcademyProgress(
+                academy.completedCount,
+                kLessons.length,
+              ),
+              badge: sizeLabel,
+              accent: AppColors.gold,
+              onTap: () => open(AcademyScreen(initialSize: size)),
+            ),
           ),
-        ),
-        const SizedBox(height: AppSpace.sm),
-        row(
-          HomeActionCard(
-            key: const ValueKey('home-patterns'),
-            icon: const AnimatedPatternCubeIcon(),
-            title: l10n.homePatterns,
-            badge: sizeLabel,
-            accent: AppColors.accentSecondary,
-            onTap: () => open(PatternsScreen(initialSize: size)),
+          const SizedBox(height: AppSpace.sm),
+          row(
+            HomeActionCard(
+              key: const ValueKey('home-patterns'),
+              icon: const AnimatedPatternCubeIcon(),
+              title: l10n.homePatterns,
+              badge: sizeLabel,
+              accent: AppColors.accentSecondary,
+              onTap: () => open(PatternsScreen(initialSize: size)),
+            ),
+            HomeActionCard(
+              key: const ValueKey('home-practice'),
+              icon: const AnimatedTimerCubeIcon(),
+              title: l10n.homePractice,
+              badge: sizeLabel,
+              accent: AppColors.danger,
+              onTap: () => open(TrainScreen(size: size)),
+            ),
           ),
-          HomeActionCard(
-            key: const ValueKey('home-practice'),
-            icon: const AnimatedTimerCubeIcon(),
-            title: l10n.homePractice,
-            badge: sizeLabel,
-            accent: AppColors.danger,
-            onTap: () => open(TrainScreen(size: size)),
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
@@ -105,6 +111,7 @@ class HomeActionCard extends StatelessWidget {
     required this.accent,
     required this.onTap,
     this.subtitle,
+    this.primary = false,
   });
 
   final Widget icon;
@@ -120,6 +127,9 @@ class HomeActionCard extends StatelessWidget {
   /// Null disables the card (dimmed).
   final VoidCallback? onTap;
 
+  /// Highlights the card as the screen's main action.
+  final bool primary;
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -133,6 +143,8 @@ class HomeActionCard extends StatelessWidget {
         opacity: onTap == null ? 0.45 : 1,
         child: GlassCard(
           onTap: onTap,
+          selected: primary,
+          accent: accent,
           borderRadius: AppRadius.lg,
           padding: const EdgeInsetsDirectional.fromSTEB(
             AppSpace.sm,

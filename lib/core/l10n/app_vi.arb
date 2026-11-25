@@ -605,6 +605,7 @@
   "patternPlusMinus": "Cộng trừ",
   "guideStepCounter": "Bước {current} / {total}",
   "guideMoveCounter": "Nước {current} / {total}",
+  "fastMoveCounter": "Nước {current} / {total}",
   "dailyStep1Title": "Bước 1: Xáo trộn khối của bạn",
   "dailyStep2Title": "Bước 2: Giải khối",
   "dailyPersonalBest": "Kỷ lục cá nhân: {time}",

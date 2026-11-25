@@ -2161,6 +2161,11 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
+  String fastMoveCounter(int current, int total) {
+    return 'Galaw $current / $total';
+  }
+
+  @override
   String get dailyStep1Title => 'Hakbang 1: I-scramble ang cube mo';
 
   @override

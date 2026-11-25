@@ -350,10 +350,17 @@ void main() {
     expect(container.read(cubeSessionProvider(3)).solvedWith, SolveMethod.fast);
     final prefs = container.read(sharedPreferencesProvider);
     expect(prefs.getString('solve_method'), 'fast');
-    // Fast solutions headline their move count against the 3x3 bound.
-    final moves = container.read(cubeSessionProvider(3)).playback.length;
+    // Fast solutions show a live "Move X / Y" counter and nothing else:
+    // no stage title, explanation or method switch.
+    final fastSession = container.read(cubeSessionProvider(3));
+    final moves = fastSession.playback.length;
     expect(find.byKey(const ValueKey('fast-move-count')), findsOneWidget);
-    expect(find.text('$moves / 20 moves'), findsOneWidget);
+    expect(
+      find.text('Move ${fastSession.currentStepIndex + 1} / $moves'),
+      findsOneWidget,
+    );
+    expect(find.byKey(const ValueKey('solve-explanation')), findsNothing);
+    expect(find.byKey(const ValueKey('solve-mode')), findsNothing);
   });
 
   testWidgets("the goal sheet's switch stops it opening by itself", (

@@ -605,6 +605,7 @@
   "patternPlusMinus": "פלוס מינוס",
   "guideStepCounter": "שלב {current} / {total}",
   "guideMoveCounter": "מהלך {current} / {total}",
+  "fastMoveCounter": "מהלך {current} מתוך {total}",
   "dailyStep1Title": "שלב 1: ערבבו את הקובייה",
   "dailyStep2Title": "שלב 2: פתרו את הקובייה",
   "dailyPersonalBest": "שיא אישי: {time}",

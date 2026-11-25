@@ -2178,6 +2178,11 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
+  String fastMoveCounter(int current, int total) {
+    return 'Ход $current / $total';
+  }
+
+  @override
   String get dailyStep1Title => 'Шаг 1: запутайте кубик';
 
   @override

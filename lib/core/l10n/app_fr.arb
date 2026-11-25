@@ -605,6 +605,7 @@
   "patternPlusMinus": "Plus moins",
   "guideStepCounter": "Étape {current} / {total}",
   "guideMoveCounter": "Mouvement {current} / {total}",
+  "fastMoveCounter": "Mouvement {current} / {total}",
   "dailyStep1Title": "Étape 1 : mélangez votre cube",
   "dailyStep2Title": "Étape 2 : résolvez le cube",
   "dailyPersonalBest": "Record personnel : {time}",

@@ -605,6 +605,7 @@
   "patternPlusMinus": "Плюс-минус",
   "guideStepCounter": "Шаг {current} / {total}",
   "guideMoveCounter": "Ход {current} / {total}",
+  "fastMoveCounter": "Ход {current} / {total}",
   "dailyStep1Title": "Шаг 1: запутайте кубик",
   "dailyStep2Title": "Шаг 2: соберите кубик",
   "dailyPersonalBest": "Личный рекорд: {time}",

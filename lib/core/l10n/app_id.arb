@@ -605,6 +605,7 @@
   "patternPlusMinus": "Plus minus",
   "guideStepCounter": "Langkah {current} / {total}",
   "guideMoveCounter": "Gerakan {current} / {total}",
+  "fastMoveCounter": "Gerakan {current} / {total}",
   "dailyStep1Title": "Langkah 1: Acak kubusmu",
   "dailyStep2Title": "Langkah 2: Pecahkan kubusnya",
   "dailyPersonalBest": "Rekor pribadi: {time}",

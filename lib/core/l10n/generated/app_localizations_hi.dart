@@ -2143,6 +2143,11 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
+  String fastMoveCounter(int current, int total) {
+    return 'चाल $current / $total';
+  }
+
+  @override
   String get dailyStep1Title => 'चरण 1: अपना क्यूब मिलाएँ';
 
   @override

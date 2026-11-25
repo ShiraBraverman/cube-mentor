@@ -605,6 +605,7 @@
   "patternPlusMinus": "Artı eksi",
   "guideStepCounter": "Adım {current} / {total}",
   "guideMoveCounter": "Hamle {current} / {total}",
+  "fastMoveCounter": "Hamle {current} / {total}",
   "dailyStep1Title": "Adım 1: Küpünü karıştır",
   "dailyStep2Title": "Adım 2: Küpü çöz",
   "dailyPersonalBest": "Kişisel rekor: {time}",

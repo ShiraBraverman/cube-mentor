@@ -605,6 +605,7 @@
   "patternPlusMinus": "প্লাস মাইনাস",
   "guideStepCounter": "ধাপ {current} / {total}",
   "guideMoveCounter": "চাল {current} / {total}",
+  "fastMoveCounter": "চাল {current} / {total}",
   "dailyStep1Title": "ধাপ 1: আপনার কিউব এলোমেলো করুন",
   "dailyStep2Title": "ধাপ 2: কিউবটি সমাধান করুন",
   "dailyPersonalBest": "ব্যক্তিগত সেরা: {time}",

@@ -605,6 +605,7 @@
   "patternPlusMinus": "Plus minus",
   "guideStepCounter": "Schritt {current} / {total}",
   "guideMoveCounter": "Zug {current} / {total}",
+  "fastMoveCounter": "Zug {current} / {total}",
   "dailyStep1Title": "Schritt 1: Würfel verdrehen",
   "dailyStep2Title": "Schritt 2: Würfel lösen",
   "dailyPersonalBest": "Persönliche Bestzeit: {time}",

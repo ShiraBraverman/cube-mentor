@@ -1224,7 +1224,21 @@
         "example": "15"
       }
     }
+  },  "fastMoveCounter": "Move {current} / {total}",
+  "@fastMoveCounter": {
+    "description": "Live counter on the Fast Solve card: which move of the solution is on screen, out of all its moves.",
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "example": "3"
+      },
+      "total": {
+        "type": "int",
+        "example": "17"
+      }
+    }
   },
+
   "dailyStep1Title": "Step 1: Scramble your cube",
   "@dailyStep1Title": {
     "description": "Daily challenge: title of the scramble step card."

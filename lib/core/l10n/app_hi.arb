@@ -605,6 +605,7 @@
   "patternPlusMinus": "प्लस माइनस",
   "guideStepCounter": "चरण {current} / {total}",
   "guideMoveCounter": "चाल {current} / {total}",
+  "fastMoveCounter": "चाल {current} / {total}",
   "dailyStep1Title": "चरण 1: अपना क्यूब मिलाएँ",
   "dailyStep2Title": "चरण 2: क्यूब हल करें",
   "dailyPersonalBest": "पर्सनल बेस्ट: {time}",

@@ -605,6 +605,7 @@
   "patternPlusMinus": "加減號",
   "guideStepCounter": "第 {current} / {total} 步",
   "guideMoveCounter": "轉動 {current} / {total}",
+  "fastMoveCounter": "轉動 {current} / {total}",
   "dailyStep1Title": "第 1 步：打亂你的方塊",
   "dailyStep2Title": "第 2 步：解開方塊",
   "dailyPersonalBest": "個人最佳：{time}",

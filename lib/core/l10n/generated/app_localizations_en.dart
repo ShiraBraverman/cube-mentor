@@ -2157,6 +2157,11 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String fastMoveCounter(int current, int total) {
+    return 'Move $current / $total';
+  }
+
+  @override
   String get dailyStep1Title => 'Step 1: Scramble your cube';
 
   @override

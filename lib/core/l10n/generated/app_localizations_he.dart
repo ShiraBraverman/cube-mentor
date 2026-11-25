@@ -2136,6 +2136,11 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
+  String fastMoveCounter(int current, int total) {
+    return 'מהלך $current מתוך $total';
+  }
+
+  @override
   String get dailyStep1Title => 'שלב 1: ערבבו את הקובייה';
 
   @override

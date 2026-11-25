@@ -2137,6 +2137,11 @@ class AppLocalizationsBn extends AppLocalizations {
   }
 
   @override
+  String fastMoveCounter(int current, int total) {
+    return 'চাল $current / $total';
+  }
+
+  @override
   String get dailyStep1Title => 'ধাপ 1: আপনার কিউব এলোমেলো করুন';
 
   @override

@@ -605,6 +605,7 @@
   "patternPlusMinus": "زائد وناقص",
   "guideStepCounter": "الخطوة {current} / {total}",
   "guideMoveCounter": "الحركة {current} / {total}",
+  "fastMoveCounter": "الحركة {current} من {total}",
   "dailyStep1Title": "الخطوة 1: اخلط مكعبك",
   "dailyStep2Title": "الخطوة 2: حل المكعب",
   "dailyPersonalBest": "أفضل رقم شخصي: {time}",

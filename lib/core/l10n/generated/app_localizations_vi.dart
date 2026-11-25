@@ -2142,6 +2142,11 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
+  String fastMoveCounter(int current, int total) {
+    return 'Nước $current / $total';
+  }
+
+  @override
   String get dailyStep1Title => 'Bước 1: Xáo trộn khối của bạn';
 
   @override

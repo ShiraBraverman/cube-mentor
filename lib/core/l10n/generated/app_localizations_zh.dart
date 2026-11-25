@@ -2013,6 +2013,11 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String fastMoveCounter(int current, int total) {
+    return '转动 $current / $total';
+  }
+
+  @override
   String get dailyStep1Title => '第 1 步：打乱你的魔方';
 
   @override
@@ -4411,6 +4416,11 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String guideMoveCounter(int current, int total) {
+    return '轉動 $current / $total';
+  }
+
+  @override
+  String fastMoveCounter(int current, int total) {
     return '轉動 $current / $total';
   }
 

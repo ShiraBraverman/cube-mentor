@@ -2169,6 +2169,11 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
+  String fastMoveCounter(int current, int total) {
+    return 'Movimento $current / $total';
+  }
+
+  @override
   String get dailyStep1Title => 'Passo 1: Baralha o cubo';
 
   @override
@@ -4750,6 +4755,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String guideMoveCounter(int current, int total) {
+    return 'Movimento $current / $total';
+  }
+
+  @override
+  String fastMoveCounter(int current, int total) {
     return 'Movimento $current / $total';
   }
 

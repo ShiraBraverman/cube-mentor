@@ -605,6 +605,7 @@
   "patternPlusMinus": "Plus minus",
   "guideStepCounter": "Krok {current} / {total}",
   "guideMoveCounter": "Ruch {current} / {total}",
+  "fastMoveCounter": "Ruch {current} / {total}",
   "dailyStep1Title": "Krok 1: Pomieszaj kostkę",
   "dailyStep2Title": "Krok 2: Ułóż kostkę",
   "dailyPersonalBest": "Rekord osobisty: {time}",

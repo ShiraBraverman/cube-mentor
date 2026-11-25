@@ -605,6 +605,7 @@
   "patternPlusMinus": "အပေါင်း အနုတ်",
   "guideStepCounter": "အဆင့် {current} / {total}",
   "guideMoveCounter": "လှည့်ကွက် {current} / {total}",
+  "fastMoveCounter": "လှည့်ကွက် {current} / {total}",
   "dailyStep1Title": "အဆင့် 1- သင့်ကုဗကို ရောမွှေပါ",
   "dailyStep2Title": "အဆင့် 2- ကုဗကို ဖြေရှင်းပါ",
   "dailyPersonalBest": "ကိုယ်ပိုင် အကောင်းဆုံး: {time}",

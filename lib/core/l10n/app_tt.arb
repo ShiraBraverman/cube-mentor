@@ -605,6 +605,7 @@
   "patternPlusMinus": "Плюс-минус",
   "guideStepCounter": "Адым {current} / {total}",
   "guideMoveCounter": "Хәрәкәт {current} / {total}",
+  "fastMoveCounter": "Хәрәкәт {current} / {total}",
   "dailyStep1Title": "1 нче адым: кубыгызны бутагыз",
   "dailyStep2Title": "2 нче адым: кубны җыегыз",
   "dailyPersonalBest": "Шәхси рекорд: {time}",

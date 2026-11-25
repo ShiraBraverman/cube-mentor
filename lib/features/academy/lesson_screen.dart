@@ -421,7 +421,10 @@ class LessonStageBar extends StatelessWidget {
                             width: selected ? 1.5 : 1,
                           ),
                         ),
-                        child: Row(
+                        // Number above the name: the full pill width is
+                        // left for the word, so it never breaks mid-word
+                        // on a 360 dp phone.
+                        child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
@@ -452,7 +455,7 @@ class LessonStageBar extends StatelessWidget {
                                       ),
                                     ),
                             ),
-                            const SizedBox(width: 4),
+                            const SizedBox(height: 3),
                             Flexible(
                               child: Text(
                                 name,

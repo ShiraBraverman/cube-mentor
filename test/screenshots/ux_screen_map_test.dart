@@ -61,7 +61,8 @@ const _shotKey = ValueKey('ux-shot');
 const _out = 'docs/screens';
 
 Future<void> _loadFonts() async {
-  final root = Platform.environment['FLUTTER_ROOT'] ??
+  final root =
+      Platform.environment['FLUTTER_ROOT'] ??
       File(Platform.resolvedExecutable).parent.parent.parent.parent.parent.path;
   final fonts = '$root/bin/cache/artifacts/material_fonts';
   Future<void> load(String family, List<String> files) async {
@@ -88,7 +89,9 @@ Future<void> _loadFonts() async {
     ('FallbackUnicode', 'ARIALUNI.TTF'),
     ('FallbackMyanmar', 'mmrtext.ttf'),
   ]) {
-    final font = File('${Platform.environment['WINDIR'] ?? r'C:\Windows'}/Fonts/$file');
+    final font = File(
+      '${Platform.environment['WINDIR'] ?? r'C:\Windows'}/Fonts/$file',
+    );
     if (font.existsSync()) {
       final loader = FontLoader(family)
         ..addFont(Future.value(ByteData.sublistView(font.readAsBytesSync())));
@@ -166,6 +169,51 @@ final _guidedSolver = FakeCubeSolver(
   ),
 );
 
+/// A Fast (Kociemba) 3x3 solution of 17 moves that opens on a half turn,
+/// so the shot shows the live "Move 1 / 17" counter and the ×2 label on
+/// the 3D arrow. Guided requests still get the 3 crowns plan.
+class _FastOrGuidedSolver extends FakeCubeSolver {
+  _FastOrGuidedSolver() : super(plan: _guidedSolver.plan);
+
+  static const _moves = [
+    'R2',
+    "U'",
+    'F',
+    'L2',
+    'D',
+    "B'",
+    'R',
+    'U2',
+    "F'",
+    'D2',
+    'L',
+    "U'",
+    'R2',
+    'F2',
+    'U',
+    'B2',
+    "D'",
+  ];
+
+  @override
+  Future<SolvePlan> solve(CubeState cube, SolveMethod method) async {
+    if (method != SolveMethod.fast) return super.solve(cube, method);
+    calls.add(method);
+    return SolvePlan(
+      method: 'kociemba',
+      steps: [
+        for (final move in _moves)
+          SolveStep(
+            cubeState: '',
+            phaseName: 'kociembaPhase2',
+            moveNotation: move,
+            explanationKey: 'kociembaPhase2Explain',
+          ),
+      ],
+    );
+  }
+}
+
 Future<void> _advance(WidgetTester tester, [int frames = 12]) async {
   for (var i = 0; i < frames; i++) {
     await tester.pump(const Duration(milliseconds: 50));
@@ -175,7 +223,11 @@ Future<void> _advance(WidgetTester tester, [int frames = 12]) async {
 late SharedPreferences _prefs;
 
 /// Pumps [screen] in a fresh app on a 360 x 780 dp phone.
-Future<void> _show(WidgetTester tester, Widget screen) async {
+Future<void> _show(
+  WidgetTester tester,
+  Widget screen, {
+  CubeSolver? solver,
+}) async {
   tester.view.physicalSize = const Size(720, 1560);
   tester.view.devicePixelRatio = 2;
   addTearDown(tester.view.reset);
@@ -187,7 +239,7 @@ Future<void> _show(WidgetTester tester, Widget screen) async {
         overrides: [
           sharedPreferencesProvider.overrideWithValue(_prefs),
           scramblerProvider.overrideWithValue(FakeScrambler()),
-          cubeSolverProvider.overrideWithValue(_guidedSolver),
+          cubeSolverProvider.overrideWithValue(solver ?? _guidedSolver),
           clockProvider.overrideWithValue(() => DateTime.utc(2026, 11, 24, 9)),
           scanAnalyzerProvider.overrideWithValue(FakeScanAnalyzer()),
           ...adsOnOverrides(_ShotAdService()),
@@ -332,6 +384,33 @@ void main() {
       await _tap(t, 'intro-start', 20);
     }
   });
+  // The post-scan primary button: the clean Fast Solve card.
+  shot('23_solver_fast', (t) async {
+    await _show(
+      t,
+      Solver3DScreen(
+        size: 3,
+        initialCube: scrambled,
+        autoSolve: SolveMethod.fast,
+      ),
+      solver: _FastOrGuidedSolver(),
+    );
+    await _advance(t, 20);
+  });
+  // 4x4-6x6 solving after the free first solve: a 24 h rewarded unlock.
+  shot('24_bigcube_unlock', (t) async {
+    await _prefs.setBool('reward.bigCubeFreeUsed', true);
+    await _show(
+      t,
+      Solver3DScreen(
+        size: 4,
+        initialCube: CubeState.solved(4)
+            .applyAll(MoveNotation.parseSequence("R U Rw' F2 2U", 4)),
+      ),
+      solver: FakeCubeSolver(plan: _guidedSolver.plan, bigCubes: true),
+    );
+    await _tap(t, 'solve', 16);
+  });
   shot('10_playground', (t) async {
     await _show(
       t,
@@ -357,6 +436,19 @@ void main() {
     await _tap(t, 'intro-start');
     for (var i = 0; i < 80; i++) {
       if (find.byKey(const ValueKey('lesson-complete')).evaluate().isNotEmpty) {
+        break;
+      }
+      await _tap(t, 'lesson-next', 14);
+    }
+    await _advance(t, 20);
+  });
+  // Stage 3: walkthroughs of the whole step, ending on a bonus case.
+  shot('25_lesson_walkthrough', (t) async {
+    await _show(t, LessonScreen(lesson: lesson));
+    await _tap(t, 'intro-start');
+    await _tap(t, 'lesson-stage-2', 20);
+    for (var i = 0; i < 80; i++) {
+      if (find.byKey(const ValueKey('lesson-bonus')).evaluate().isNotEmpty) {
         break;
       }
       await _tap(t, 'lesson-next', 14);
@@ -411,10 +503,7 @@ void main() {
     final times = [13420, 15880, 12910, 14230, 16050, 13770, 12480];
     await _prefs.setString(
       'timer_history_3',
-      '[${[
-        for (var i = 0; i < times.length; i++)
-          '{"ms":${times[i]},"s":"R U F2","at":${1763900000000 + i * 60000},"p":0}',
-      ].join(',')}]',
+      '[${[for (var i = 0; i < times.length; i++) '{"ms":${times[i]},"s":"R U F2","at":${1763900000000 + i * 60000},"p":0}'].join(',')}]',
     );
     await _prefs.setBool('timer_inspection', true);
   }
@@ -566,7 +655,8 @@ class _CameraPainter extends CustomPainter {
     canvas.translate(-g.center.dx, -g.center.dy);
     final body = g.inflate(10);
     canvas.drawShadow(
-      Path()..addRRect(RRect.fromRectAndRadius(body, const Radius.circular(18))),
+      Path()
+        ..addRRect(RRect.fromRectAndRadius(body, const Radius.circular(18))),
       Colors.black,
       18,
       false,

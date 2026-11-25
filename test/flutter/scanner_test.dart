@@ -377,9 +377,13 @@ void main() {
         tester.element(find.byType(Solver3DScreen)),
       );
       expect(viewport.read(cubeSessionProvider(3)).cube.toFacelets(), truth);
-      // Straight into the stage-by-stage guided solve.
-      expect(solver.calls, [SolveMethod.layerByLayer]);
+      // The primary button is the Fast Solve.
+      expect(solver.calls, [SolveMethod.fast]);
       expect(viewport.read(cubeSessionProvider(3)).hasPlayback, isTrue);
+      // Clean Fast card: a live move counter, no stage text or switch.
+      expect(find.text('Move 1 / 1'), findsOneWidget);
+      expect(find.byKey(const ValueKey('solve-explanation')), findsNothing);
+      expect(find.byKey(const ValueKey('solve-mode')), findsNothing);
     });
 
     testWidgets('rescan a face from the review, then go back', (tester) async {

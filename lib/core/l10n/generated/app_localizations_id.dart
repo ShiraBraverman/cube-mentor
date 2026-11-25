@@ -2145,6 +2145,11 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
+  String fastMoveCounter(int current, int total) {
+    return 'Gerakan $current / $total';
+  }
+
+  @override
   String get dailyStep1Title => 'Langkah 1: Acak kubusmu';
 
   @override

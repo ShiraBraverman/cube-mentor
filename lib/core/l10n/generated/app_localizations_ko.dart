@@ -2039,6 +2039,11 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
+  String fastMoveCounter(int current, int total) {
+    return '동작 $current / $total';
+  }
+
+  @override
   String get dailyStep1Title => '1단계: 큐브 섞기';
 
   @override

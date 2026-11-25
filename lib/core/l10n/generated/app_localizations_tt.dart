@@ -2138,6 +2138,11 @@ class AppLocalizationsTt extends AppLocalizations {
   }
 
   @override
+  String fastMoveCounter(int current, int total) {
+    return 'Хәрәкәт $current / $total';
+  }
+
+  @override
   String get dailyStep1Title => '1 нче адым: кубыгызны бутагыз';
 
   @override

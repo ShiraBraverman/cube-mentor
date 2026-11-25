@@ -605,6 +605,7 @@
   "patternPlusMinus": "Más y menos",
   "guideStepCounter": "Paso {current} / {total}",
   "guideMoveCounter": "Movimiento {current} / {total}",
+  "fastMoveCounter": "Movimiento {current} / {total}",
   "dailyStep1Title": "Paso 1: Mezcla tu cubo",
   "dailyStep2Title": "Paso 2: Resuelve el cubo",
   "dailyPersonalBest": "Mejor marca: {time}",

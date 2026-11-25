@@ -674,39 +674,41 @@ class _ReviewBody extends ConsumerWidget {
           ),
         ],
         const SizedBox(height: 14),
-        // Straight into the stage-by-stage guided solve (fast stays one
-        // tap away, here or in the solver's Guided / Fast switch).
+        // Fast Solve is the primary action; the guided, stage-by-stage
+        // solve is the quieter outlined choice under it.
         FilledButton.icon(
           key: const ValueKey('scan-solve'),
           onPressed: cube == null
               ? null
               : () => onOpen(
                   cube,
-                  canLearn
-                      ? SolveMethod.layerByLayer
-                      : (canFast ? SolveMethod.fast : null),
+                  canFast
+                      ? SolveMethod.fast
+                      : (canLearn ? SolveMethod.layerByLayer : null),
                 ),
           icon: Icon(
-            canLearn || canFast
-                ? Icons.auto_awesome_motion_rounded
-                : Icons.view_in_ar,
+            canFast
+                ? Icons.bolt_rounded
+                : (canLearn
+                      ? Icons.auto_awesome_motion_rounded
+                      : Icons.view_in_ar),
           ),
           label: Text(
-            canLearn
-                ? l10n.solveLearn
-                : (canFast ? l10n.solve : l10n.scanOpen3d),
+            canFast
+                ? l10n.solveFast
+                : (canLearn ? l10n.solveLearn : l10n.scanOpen3d),
             textAlign: TextAlign.center,
           ),
         ),
         if (canLearn && canFast) ...[
-          const SizedBox(height: 6),
-          TextButton.icon(
-            key: const ValueKey('scan-fast'),
+          const SizedBox(height: AppSpace.xs),
+          OutlinedButton.icon(
+            key: const ValueKey('scan-learn'),
             onPressed: cube == null
                 ? null
-                : () => onOpen(cube, SolveMethod.fast),
-            icon: const Icon(Icons.bolt_rounded, size: 18),
-            label: Text(l10n.solveFast),
+                : () => onOpen(cube, SolveMethod.layerByLayer),
+            icon: const Icon(Icons.auto_awesome_motion_rounded, size: 18),
+            label: Text(l10n.solveLearn, textAlign: TextAlign.center),
           ),
         ],
       ],

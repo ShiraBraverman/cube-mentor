@@ -177,7 +177,7 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
             ),
           ),
         ),
-        if (!_expanded)
+        if (!_expanded && !fast)
           // Folded: a small ring of this stage's progress.
           Padding(
             padding: const EdgeInsetsDirectional.only(start: 6),
@@ -206,17 +206,18 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
             ),
             icon: const Icon(Icons.flag_circle_outlined, size: 20),
           ),
-        IconButton(
-          key: const ValueKey('solve-collapse'),
-          tooltip: _expanded ? l10n.solveCollapse : l10n.solveExpand,
-          visualDensity: VisualDensity.compact,
-          onPressed: () => setState(() => _expanded = !_expanded),
-          icon: Icon(
-            _expanded
-                ? Icons.keyboard_arrow_down_rounded
-                : Icons.keyboard_arrow_up_rounded,
+        if (!fast)
+          IconButton(
+            key: const ValueKey('solve-collapse'),
+            tooltip: _expanded ? l10n.solveCollapse : l10n.solveExpand,
+            visualDensity: VisualDensity.compact,
+            onPressed: () => setState(() => _expanded = !_expanded),
+            icon: Icon(
+              _expanded
+                  ? Icons.keyboard_arrow_down_rounded
+                  : Icons.keyboard_arrow_up_rounded,
+            ),
           ),
-        ),
       ],
     );
 
@@ -308,6 +309,9 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             if (fast)
+              // Fast Solve stays bare: the live "Move 3 / 17" counter, the
+              // move to make and, mid double turn, the hand hint. No stage
+              // title, explanation or Guided / Fast switch.
               Padding(
                 padding: const EdgeInsetsDirectional.only(
                   top: 2,
@@ -315,14 +319,19 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
                 ),
                 child: Align(
                   alignment: AlignmentDirectional.centerStart,
-                  child: FastMoveBadge(
-                    size: size,
-                    moves: session.playback.length,
-                  ),
+                  child: FastMoveCounter(current: index + 1, total: total),
                 ),
               ),
             header,
-            if (_expanded)
+            if (fast && session.stepHint != null)
+              Padding(
+                padding: const EdgeInsetsDirectional.only(
+                  top: AppSpace.xxs,
+                  end: AppSpace.xs,
+                ),
+                child: StepHintText(hint: session.stepHint!),
+              ),
+            if (_expanded && !fast)
               // Long explanations scroll inside the dock, never over the cube.
               ConstrainedBox(
                 constraints: BoxConstraints(
@@ -333,8 +342,8 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
                   child: details,
                 ),
               ),
-            // Guided / Fast: solver results on the 2x2 and 3x3 only.
-            if (_expanded && kFastSolveSizes.contains(size))
+            // Guided solves can still switch to Fast (2x2 and 3x3 only).
+            if (_expanded && !fast && kFastSolveSizes.contains(size))
               Padding(
                 padding: const EdgeInsetsDirectional.only(
                   top: AppSpace.xs,
@@ -385,6 +394,58 @@ class GuideCounterPill extends StatelessWidget {
           fontWeight: FontWeight.w800,
           fontFeatures: const [FontFeature.tabularFigures()],
         ),
+      ),
+    );
+  }
+}
+
+/// Live position in a Fast solution, "Move 3 / 17", updated on every
+/// move so the user always knows how far along the solution they are.
+class FastMoveCounter extends StatelessWidget {
+  const FastMoveCounter({
+    super.key,
+    required this.current,
+    required this.total,
+  });
+
+  final int current;
+  final int total;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    return Container(
+      key: const ValueKey('fast-move-count'),
+      padding: const EdgeInsetsDirectional.fromSTEB(8, 4, 12, 4),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(AppRadius.pill),
+        gradient: LinearGradient(
+          colors: [
+            AppColors.gold.withValues(alpha: 0.28),
+            AppColors.accentWarm.withValues(alpha: 0.16),
+          ],
+        ),
+        border: Border.all(color: AppColors.gold.withValues(alpha: 0.6)),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Icon(Icons.bolt_rounded, size: 18, color: AppColors.gold),
+          const SizedBox(width: 4),
+          Flexible(
+            child: Text(
+              l10n.fastMoveCounter(current, total),
+              key: const ValueKey('fast-move-live'),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                color: AppColors.gold,
+                fontWeight: FontWeight.w800,
+                fontFeatures: const [FontFeature.tabularFigures()],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

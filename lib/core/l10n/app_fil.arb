@@ -605,6 +605,7 @@
   "patternPlusMinus": "Plus minus",
   "guideStepCounter": "Hakbang {current} / {total}",
   "guideMoveCounter": "Galaw {current} / {total}",
+  "fastMoveCounter": "Galaw {current} / {total}",
   "dailyStep1Title": "Hakbang 1: I-scramble ang cube mo",
   "dailyStep2Title": "Hakbang 2: I-solve ang cube",
   "dailyPersonalBest": "Personal best: {time}",
