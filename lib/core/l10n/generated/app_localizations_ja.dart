@@ -153,7 +153,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get solveLearn => '一歩ずつ学ぶ';
 
   @override
-  String get solveModeGuided => 'ガイド付き（3クラウン）';
+  String get solveModeGuided => 'ガイド付き（3段）';
 
   @override
   String get solveModeFast => '高速（最適）';
@@ -261,13 +261,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get phaseLblYellowCornersOrient => '黄コーナーの向きをそろえる';
 
   @override
-  String get crownFirst => '第1クラウン';
+  String get crownFirst => '1段目';
 
   @override
-  String get crownSecond => '第2クラウン';
+  String get crownSecond => '2段目';
 
   @override
-  String get crownThird => '第3クラウン';
+  String get crownThird => '3段目';
 
   @override
   String get crownFirstGoal => '白い面と1段目';
@@ -285,7 +285,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get subStepGoal12 => '4つの白いコーナーを正しい場所に入れて、白い面と1段目全体を完成させます。';
 
   @override
-  String get subStepGoal21 => '第1クラウンを崩さずに、中段の4つのエッジを入れます。';
+  String get subStepGoal21 => '1段目をくずさずに、中段の4つのエッジを入れます。';
 
   @override
   String get subStepGoal31 => '最終段に黄色の十字を作ります。';
@@ -632,7 +632,7 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => '3×3初心者：3つのクラウン';
+  String get trackBeginner => '初心者向け3×3：1段ずつそろえる';
 
   @override
   String get trackCfop => 'CFOP入門';
@@ -932,77 +932,77 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get stepCrossGoalBody =>
-      '黄色を上にして持ちます。4つの白いエッジが下の白センターを囲み、それぞれの側面の色が隣のセンターと一致した状態を目指します。';
+      '黄色を上、緑を手前に持ちます。まず4つの白いエッジを、白を上にして黄色いセンターのまわりに花びらのように集めます。これがデイジーです。それから花びらを1つずつ白いセンターへ下ろし、横の色をとなりのセンターに合わせます。';
 
   @override
   String get stepCrossTop => '上にあるエッジ';
 
   @override
   String get stepCrossTopBody =>
-      '上面にある白いエッジを探します。側面の色が同じ色のセンターの上に来るまで上の層を回し、その面を2回回して下ろします。';
+      '白を上に向けた上の段の白いエッジは、デイジーの花びらです。上の段を回して横の色を同じ色のセンターの真上に合わせ、その面を2回（180°）まわして白いセンターへ下ろします。';
 
   @override
   String get stepCrossMiddle => '中段にあるエッジ';
 
   @override
   String get stepCrossMiddleBody =>
-      '中段にあるエッジは、まず上に出します。その側面を上に回し、上の層をずらしてから側面を戻せば、クロスは崩れません。そのあと上から入れます。';
+      '中段に引っかかったエッジは、まず上に出します。その側面を上げ、上の段をよけて、側面を戻せば、入れたピースは動きません。これで上の花びらになったので、合わせてその面を2回まわします。';
 
   @override
   String get stepCornersInsert => '入る場所の真上へ';
 
   @override
   String get stepCornersInsertBody =>
-      '白いコーナーが、その色の入る場所（右手前）の真上に来るまで上の層を回します。R U R\' U\'で下に入ります。';
+      '上の段を回して、白いコーナーを横の色と同じ2つのセンターの間、入る場所の真上に合わせます。ここでは上を1回とR U\' R\'で十分です。Uでコーナーを真上に運び、R U\' R\'で白を下にして入れます。';
 
   @override
   String get stepCornersRepeat => '手順をくり返す';
 
   @override
   String get stepCornersRepeatBody =>
-      '白の向きが違うときは、同じ場所でR U R\' U\'をくり返します。どのコーナーも最大5回で完成します。';
+      '場所を右手前にして、白が下を向くまでR U R\' U\'をくり返します。白が右向きなら1回、上向きなら3回、手前向きなら5回です。途中で上がくずれて見えても、自然に元に戻ります。';
 
   @override
   String get stepMiddleRight => '右に入れる';
 
   @override
   String get stepMiddleRightBody =>
-      '上のエッジを前面のセンターにそろえます。上側の色が右のセンターと同じなら、U R U\' R\' U\' F\' U Fで入れます。';
+      '黄色を含まない上のエッジを探します。上の段を回して、前の色を目の前のセンターに合わせます。上の色が右のセンターと同じなら右へ：U R U\' R\' U\' F\' U F。';
 
   @override
   String get stepMiddleLeft => '左に入れる';
 
   @override
   String get stepMiddleLeftBody =>
-      '上側の色が左のセンターと同じなら、左右反転の手順U\' L\' U L U F U\' F\'を使います。';
+      '上の色が左のセンターと同じなら、鏡の手順を使います：U\' L\' U L U F U\' F\'。白い段は毎回きれいに戻ります。';
 
   @override
   String get stepYellowCross => 'ひとつの手順';
 
   @override
   String get stepYellowCrossBody =>
-      'F R U R\' U\' F\'で、黄色の点はL字に、L字は一直線に、一直線は十字に変わります。L字は左奥に、一直線は横向きにして持ちます。';
+      '上の黄色いエッジだけを見ます。L字は左奥、線は左右に向けて持ち、F R U R\' U\' F\'をします。線は1回、L字は2回、点は最大3回です。';
 
   @override
   String get stepYellowEdges => 'エッジをそろえる';
 
   @override
   String get stepYellowEdgesBody =>
-      '2つのエッジがセンターとそろうまで上の層を回します。1つが奥、1つが右にある状態で、R U R\' U R U2 R\' Uを使うと残り2つが入れ替わります。';
+      '上の段を回して、2つのエッジを横のセンターに合わせます。1つが奥、1つが右にあれば、R U R\' U R U2 R\' Uで手前と左のエッジが入れ替わります。';
 
   @override
   String get stepPlaceCorners => '位置をそろえる';
 
   @override
   String get stepPlaceCornersBody =>
-      'すでに正しい位置にあるコーナーを右手前に持ちます。U R U\' L\' U R\' U\' Lで残りの3つが動きます。4つそろうまでくり返します。';
+      'コーナーの色がまわりの3つのセンターと合えば、ねじれていても正しい位置です。そのコーナーを右手前に持てば、U R U\' L\' U R\' U\' Lで残り3つが回ります。4つともそろうまでくり返します。';
 
   @override
   String get stepTwistCorners => '向きをそろえる';
 
   @override
   String get stepTwistCornersBody =>
-      '未完成のコーナーを右手前にしてR\' D\' R Dを黄色が上を向くまでくり返し、次のコーナーは上の層だけを回して持ってきます。下の層は最後まで崩れて見えますが、そのまま続けてください。';
+      'そろっていないコーナーを右手前にして、黄色が上を向くまでR\' D\' R Dを2回ずつくり返し、次のコーナーへは上の段だけを回します。最後のコーナーまで下はくずれて見えますが、続けてください。';
 
   @override
   String get lessonCfopIntro => 'CFOPとは？';
@@ -1091,14 +1091,14 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get stepTwoIntroBody =>
-      '2×2はエッジとセンターのない3×3です。好きな色を選んで下面にそろえ、隣り合うコーナーの側面の色を合わせます。';
+      '2×2はコーナー8つだけで、エッジもセンターもありません。となりの横の色がそろうように白い段を下に作り、あとは1つのルートで仕上げます。Suneで上を黄色にして、T-permかY-permです。';
 
   @override
   String get stepTwoCorner => 'コーナーを入れる';
 
   @override
   String get stepTwoCornerBody =>
-      '3×3の白コーナーと同じです。コーナーを入る場所の上に運び、はまるまでR U R\' U\'をくり返します。';
+      '3×3の白いコーナーと同じです。コーナーを右手前の空いた場所の真上に運んで入れます。ここではU R U\' R\'、または白が下を向くまでR U R\' U\'をくり返します。横の色をとなりと見比べましょう。';
 
   @override
   String get lessonTwoOll => '上面の向きをそろえる';
@@ -1111,7 +1111,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get stepTwoSuneBody =>
-      'スーンは2×2でも上面を黄色にします。Ortega法では短い7つのケースを覚えますが、その多くはスーンとその反転で対応できます。';
+      '上を向いた黄色のステッカーを数えます。黄色が上を向いた唯一のコーナーを左手前にしてSune（R U R\' U R U2 R\'）をします。数え直して持ち直し、Suneは最大3回。間は上の段だけを回します。';
 
   @override
   String get lessonTwoPbl => '上下の層の位置をそろえる';
@@ -1123,13 +1123,15 @@ class AppLocalizationsJa extends AppLocalizations {
   String get stepTwoAdjacent => '隣同士の入れ替え';
 
   @override
-  String get stepTwoAdjacentBody => '上の隣り合う2つのコーナーを入れ替えるときは、それを右側にしてTパームを使います。';
+  String get stepTwoAdjacentBody =>
+      'ヘッドライトとは、1つの側面に並ぶ同じ色の上のステッカー2枚です。上の段を回してヘッドライトを左にすると、入れ替える2つのコーナーが右に来るので、T-permをします。';
 
   @override
   String get stepTwoDiagonal => '対角の入れ替え';
 
   @override
-  String get stepTwoDiagonalBody => '対角の位置にある2つのコーナーはYパームで入れ替えます。';
+  String get stepTwoDiagonalBody =>
+      'どの側面にもヘッドライトがなければ、対角の2つのコーナーを入れ替えます。どこからでもY-permをして、上の段を回して全体を合わせます。';
 
   @override
   String get lessonBigIntro => '大型キューブのパーツ';
@@ -1142,7 +1144,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get stepBigPiecesBody =>
-      '4×4では各面に動く4つのセンターパーツがあり、各エッジは2つのウイングでできています。リダクションでそれらをまとめ、3×3と同じように扱えるようにします。';
+      '4×4では各面に動くセンターピースが4つあり、エッジはそれぞれウイング2つでできています。固定のセンターがないので、コーナーで色の並びを確かめます：白の反対は黄色、青の反対は緑、赤の反対はオレンジ。';
 
   @override
   String get stepBigSlices => 'ワイド回転と内側の回転';
@@ -1162,7 +1164,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get stepBigCenterCycleBody =>
-      'このコミュテーターはセンターパーツをちょうど3つだけ動かし、ほかには触れません。だから完成したセンターは崩れません。';
+      'このコミュテーターはセンターピースをちょうど3つだけ動かし、ほかは動かしません。完成したセンターはそのままです。はぐれたピースがバーに入らないときに使います。';
 
   @override
   String get lessonBigEdges => 'エッジのペアリング';
@@ -1175,7 +1177,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get stepBigEdgePairBody =>
-      'Uw\'で同じ色のウイング2つを並べ、R U R\' F R\' F\' Rでペアになっていないエッジと入れ替え、Uwでセンターを元に戻します。';
+      'Uw\'で同じ色のウイング2つを並べ、R U R\' F R\' F\' Rでペアになっていないエッジと入れ替え、Uwでセンターを戻します。開いた層は必ず閉じます。';
 
   @override
   String get lessonBigParity => 'パリティ';
@@ -1188,20 +1190,26 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get stepBigOllParityBody =>
-      'エッジが1つだけ反転した状態は3×3ではありえません。偶数キューブでは、この手順で上面手前のエッジを元に戻します。上の層の残りが崩れることがありますが、3×3の最後のステップでどのみち直ります。';
+      'エッジ1つだけの反転は3×3では起こりません。OLLパリティで、まちがいではありません。上の段の前に置いて長い手順をします。上の左右のエッジとコーナー2つも入れ替わりますが、3×3の最後のステップで直ります。';
 
   @override
   String get stepBigPllParity => 'PLLパリティ';
 
   @override
   String get stepBigPllParityBody =>
-      '最後の最後でエッジ2つが入れ替わっている？2R2 U2 2R2 Uw2 2R2 Uw2で上面の手前と奥のエッジを入れ替えます。';
+      '最後の最後でエッジ2つが入れ替わっていて、3×3の手順が合わない？それがPLLパリティです。上の段の前と奥に置き、2R2 U2 2R2 Uw2 2R2 2U2で入れ替えます。';
 
   @override
   String get introGoalHeading => '目標は？';
 
   @override
   String get introHowHeading => 'どうやるの？';
+
+  @override
+  String get introHoldHeading => '持ち方';
+
+  @override
+  String get introWhyHeading => 'なぜうまくいくのか';
 
   @override
   String get introStart => 'わかった、1手ずつ始める';
@@ -1225,10 +1233,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get introGoalBasics => 'キューブの読み方を覚えましょう。パーツ、6つの面、そして回転記号の動きです。';
 
   @override
-  String get introGoalCross => '白いエッジが隣のセンターの色ともそろった白クロスを作ります。';
+  String get introGoalCross => '下の面に白クロスを作り、白いエッジがそれぞれ横のセンターの色ともそろうようにします。';
 
   @override
-  String get introGoalCorners => '白いコーナー4つを入れて、第1の王冠（白い層全体）を完成させます。';
+  String get introGoalCorners => '4つの白いコーナーを入れて1段目全体を完成させます。白い面と、そろった横の色が目印です。';
 
   @override
   String get introGoalMiddle => '中段のエッジ4つを入れて、下の2層を完成させます。';
@@ -1264,7 +1272,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String get introGoalTwoOll => '2×2の上面をすべて黄色にします。';
 
   @override
-  String get introGoalTwoPbl => '最後のコーナーを入れ替えて2×2を完成させます。';
+  String get introGoalTwoPbl =>
+      'T-permかY-permを1回使って最後のコーナーを戻し、上の段を合わせて2×2を完成させます。';
 
   @override
   String get introGoalBigIntro => '4×4を知りましょう：センター、エッジのペア、コーナー、そしてそれらを回す記号です。';
@@ -1277,83 +1286,216 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get introGoalBigParity =>
-      '3×3では起きない4×4の2つのケースを直します：エッジ1つの反転か、エッジ2つの入れ替わり。';
+      '3×3では起こらない4×4の2つのケースを直します。エッジ1つが反転（OLLパリティ）か、エッジ2つが入れ替わり（PLLパリティ）です。';
 
   @override
   String get introHowBasics =>
       'センターは動かないので、各面の色を決めています。\n各記号は1つの面を時計回りに90°回します。\nアポストロフィ（\'）は逆回り、2は2回まわします。';
 
   @override
+  String get introHoldBasics => '持ち方は自由です。センターは動かないので、色を見ればどの面かいつでもわかります。';
+
+  @override
+  String get introWhyBasics => 'どの手順もこの文字の並びなので、読めることが最初のスキルです。';
+
+  @override
   String get introHowCross =>
-      '黄色を上にして持ち、白クロスは下に作ります。\n白いエッジを見つけ、横の色を同じ色のセンターに合わせます。\nその面を2回まわして、エッジを定位置に下ろします。';
+      '白いエッジを白を上に向けて上の段に集め、黄色いセンターを囲みます。これがデイジーです。\n上の段を回して、花びらの横の色を同じ色のセンターの上に合わせます。\nその面を2回まわして下ろし、4つとも同じようにします。';
+
+  @override
+  String get introHoldCross =>
+      'このステップの間、黄色いセンターを上、白いセンターを下にします。花びらを合わせるときは、キューブではなく上の段を回します。';
+
+  @override
+  String get introWhyCross =>
+      '白が上を向いていれば、前の面を2回まわすだけでエッジが白いセンターの上に、白を下にして横の色もそろった状態で入ります。';
 
   @override
   String get introHowCorners =>
-      '白いコーナーを空いている場所の上に運びます。\n正しい向きで入るまでR U R\' U\'をくり返します。\n残り3つのコーナーも同じようにします。';
+      '上の段を回して、白いコーナーを右手前の空いた場所の真上に持ってきます。\nR U R\' U\'をくり返します。白が右向きなら1回、上向きなら3回、手前向きなら5回です。\n残り3つのコーナーも同じようにします。';
+
+  @override
+  String get introHoldCorners => '白を下、黄色を上。コーナーは右手前、入る場所の真上です。';
+
+  @override
+  String get introWhyCorners =>
+      'R U R\' U\'は場所を持ち上げて戻す手順です。回すたびにコーナーが少しねじれ、白が下を向けば完成。クロスはくずれません。';
 
   @override
   String get introHowMiddle =>
-      '黄色を含まない上のエッジを探し、前の色をセンターに合わせます。\n8手の短い手順で右か左に送ります。\n白い層は毎回元どおりに戻ります。';
+      '黄色を含まない上の段のエッジを探し、前の色を下のセンターに合わせます。\n上の色で行き先がわかります：右か左か。\n8手の手順で入れれば、白い段は毎回元に戻ります。';
+
+  @override
+  String get introHoldMiddle => '白を下、黄色を上。エッジは前面にあり、前の色が下のセンターと同じです。';
+
+  @override
+  String get introWhyMiddle =>
+      '手順で場所をどけてエッジを差し込み、白い段を戻します。黄色を含むエッジは上の段のもので、中段には入りません。';
 
   @override
   String get introHowYellowCross =>
-      '上面を見ます：点、L字、または線。\n図のように持ってF R U R\' U\' F\'を回します。\n黄色いクロスができるまでくり返します。';
+      '上の黄色いエッジだけを見ます：点、L字、線のどれかです。\nL字は左奥、線は左右に向けて持ち、F R U R\' U\' F\'をします。\n線は1回、L字は2回、点は最大3回です。';
+
+  @override
+  String get introHoldYellowCross => '白を下、黄色を上。L字は左奥、線は左右に。点はどの向きでもかまいません。';
+
+  @override
+  String get introWhyYellowCross =>
+      'F R U R\' U\' F\'は、下の2段にふれずに上のエッジを2つずつ反転させます。';
 
   @override
   String get introHowYellowEdges =>
-      '2つのエッジがセンターとそろうまで上段を回します。\nその2つを奥と右に置いてR U R\' U R U2 R\' Uを回します。\n4つともそろうまでくり返します。';
+      '上の段を回して、2つのエッジを横のセンターに合わせます。\nその2つを奥と右に持ち、R U R\' U R U2 R\' Uをします。\nそろったエッジが向かい合っていたら、まずどこからでも1回します。';
+
+  @override
+  String get introHoldYellowEdges => '黄色を上。そろったエッジの1つを奥に、もう1つを右に。';
+
+  @override
+  String get introWhyYellowEdges => 'この手順は上のピースだけを動かすので、下の2段はいつも元に戻ります。';
 
   @override
   String get introHowYellowCorners =>
-      '3色がまわりの3面と一致すれば、コーナーは正しい位置です。\n位置の合ったコーナーを右手前に置きます。\nU R U\' L\' U R\' U\' Lで残り3つが入れ替わり、全部そろうまで続けます。';
+      'コーナーの色がまわりの3つのセンターと合えば、ねじれていても正しい位置です。\n正しい位置のコーナーを右手前に置きます。\nU R U\' L\' U R\' U\' Lで残り3つが回ります。全部そろうまでくり返します。';
+
+  @override
+  String get introHoldYellowCorners =>
+      '黄色を上。すでに正しい位置にあるコーナーを右手前に。なければどれでもかまいません。';
+
+  @override
+  String get introWhyYellowCorners =>
+      '3つのコーナーを回し、右手前のコーナーはそのままにするので、くり返すたびにそろうコーナーが増えます。';
 
   @override
   String get introHowTwistCorners =>
-      '未完成のコーナーを右手前に持ちます。\n黄色が上を向くまでR\' D\' R Dをくり返します。\n次のコーナーへは上段だけ回します。下段は最後に自然に戻ります。';
+      'まだそろっていないコーナーを右手前に持ちます。\n黄色が上を向くまでR\' D\' R Dを2回ずつくり返します。\n次のコーナーへは上の段だけを回します。下は最後のコーナーで元に戻ります。';
+
+  @override
+  String get introHoldTwistCorners =>
+      '黄色を上、回すコーナーを右手前に。コーナーの間は上の段だけを回し、キューブ全体は回しません。';
+
+  @override
+  String get introWhyTwistCorners =>
+      'R\' D\' R Dはコーナーをねじり下をくずしますが、全部のコーナーを回し終えると下は元に戻ります。途中でやめるとくずれたままです。';
 
   @override
   String get introHowCfopIntro =>
       'クロス：インスペクション中に4つのエッジを計画します。\nF2L：コーナーとエッジをペアで入れます。\nOLLで上面を黄色にし、PLLでパーツを元の位置に戻します。';
 
   @override
+  String get introHoldCfopIntro => 'スピードキューバーはクロスを下に作り、回しながら次のピースを先に見ます。';
+
+  @override
+  String get introWhyCfopIntro =>
+      'コーナーとエッジを一緒に解けば手数が大きく減り、ケースを見分ければ試行錯誤がいらなくなります。';
+
+  @override
   String get introHowF2l =>
       '上段でコーナーと対応するエッジを見つけます。\nスロットの上でペアにします。\n3〜4手でペアを入れます。';
+
+  @override
+  String get introHoldF2l => 'クロスを下に。ペアを入れる場所は右手前、鏡のケースなら左手前です。';
+
+  @override
+  String get introWhyF2l => 'ペアにしたコーナーとエッジが一緒に入るので、1つずつではなく2段が同時に進みます。';
 
   @override
   String get introHowOll =>
       'まずF R U R\' U\' F\'で黄色いクロス。\n次にSuneなどでコーナーの向きをそろえます。\n見えている黄色の形でケースを見分けます。';
 
   @override
+  String get introHoldOll => '黄色を上。Suneでは、黄色が上を向いた唯一のコーナーを左手前に置きます。';
+
+  @override
+  String get introWhyOll => '最後の段を「向き」と「位置」に分けることで、覚える手順が少なくてすみます。';
+
+  @override
   String get introHowPll =>
       '上面はすでに全部黄色です。\nT-permはコーナーを交換し、U-permは3つのエッジを回します。\n側面の色を見て手順を選びます。';
 
   @override
+  String get introHoldPll => '黄色を上。T-perm：ヘッドライトを左に。U-perm：完成した側面を奥に。';
+
+  @override
+  String get introWhyPll => '上が全部黄色になれば、あとはピースの位置だけ。数回の入れ替えでキューブが完成します。';
+
+  @override
   String get introHowTwoFirst =>
-      '2×2はコーナーだけ。エッジのない3×3のようなものです。\n白いコーナーをそれぞれ定位置の上に運びます。\n入るまでR U R\' U\'をくり返します。';
+      '白を下にした白いコーナーを1つ、基準に選びます。\n次のコーナーを右手前の場所の真上に持ってきます。\n横の色がそろって入るまでR U R\' U\'をくり返します。';
+
+  @override
+  String get introHoldTwoFirst => '白を下。空いた場所を右手前に、そのコーナーを上の段の真上に。';
+
+  @override
+  String get introWhyTwoFirst =>
+      '2×2にはセンターがありません。最初に置いたコーナーがとなりの色を決めるので、白だけでなく横の色も大切です。';
 
   @override
   String get introHowTwoOll =>
-      '白い層は下のままにします。\nSune（R U R\' U R U2 R\'）で上のコーナーをひねります。\n正しい角度から、上面が全部黄色になるまでくり返します。';
+      '黄色が上を向いたコーナーを数えます。\n1つなら左手前に置いて、Sune（R U R\' U R U2 R\'）をします。\nもう一度数えてくり返します。Suneは最大3回です。';
+
+  @override
+  String get introHoldTwoOll => '白を下、黄色を上。毎回Suneの前に、黄色が上のコーナーを左手前に。';
+
+  @override
+  String get introWhyTwoOll => 'Suneは白い段をくずさずに上のコーナーをねじります。数え直すと次の持ち方がわかります。';
 
   @override
   String get introHowTwoPbl =>
-      '2つのコーナーがすでにそろっている面を探します。\n隣どうしの交換：T-perm風の手順を1つ。\n対角の交換：少し長い手順を1つ。';
+      'ヘッドライトを探します：1つの側面に並ぶ同じ色の上のステッカー2枚です。\n1つの側面にあれば左に置いてT-permをします。\nなければどこからでもY-permをして、上の段を合わせます。';
+
+  @override
+  String get introHoldTwoPbl =>
+      '白を下、黄色を上。T-perm：ヘッドライトを左に。Y-perm：どの面を手前にしてもかまいません。';
+
+  @override
+  String get introWhyTwoPbl =>
+      '上が黄色なら、残るのはコーナーの位置だけ。T-permはとなり合う2つ、Y-permは対角の2つを入れ替えます。';
 
   @override
   String get introHowBigIntro =>
       '固定されたセンターはなく、4つのセンターパーツで面の色が決まります。\nRwのようなワイド回転は2層を同時に回します。\n2Rのような内側の回転は内側の1層だけを回します。';
 
   @override
+  String get introHoldBigIntro =>
+      '最初は自由に。4×4には固定のセンターがないので、どの色をどこにするかは自分で決めます。';
+
+  @override
+  String get introWhyBigIntro =>
+      'リダクションでセンターとエッジのピースをまとめ、大きなキューブを3×3のように解けるようにします。';
+
+  @override
   String get introHowBigCenters =>
-      'まず向かい合う2つのセンターを作ります。\n内側の層を使えば、完成したセンターを崩さずにパーツを入れ替えられます。\n残り4つのセンターも同じように仕上げます。';
+      'まずコーナーで色の並びを確かめます。\n向かい合う2つのセンターを作り、残り4つを作ります。\n内側の層でセンターを動かし、開いた層は必ず戻します。';
+
+  @override
+  String get introHoldBigCenters => '作っている面を前に。完成したセンターは左右に置いて邪魔にならないようにします。';
+
+  @override
+  String get introWhyBigCenters =>
+      '層を回すとセンターが動き、戻すと完成したセンターも戻るので、ねらったピースだけが変わります。';
 
   @override
   String get introHowBigEdges =>
-      '同じ色のエッジパーツを2つ見つけます。\n内側の層でそれらを横に並べます。\nペアを退避させて、センターを元に戻します。';
+      '同じ2色のウイングを2つ探します。\n前面に並べてUw\'でくっつけます。\nペアになっていないエッジと入れ替え、Uwでセンターを戻します。';
+
+  @override
+  String get introHoldBigEdges => 'ペアにするエッジは前の層に。完成したエッジは上下の段に置いておきます。';
+
+  @override
+  String get introWhyBigEdges =>
+      'Uw\'でセンターをよけて2つのウイングを出会わせ、Uwでセンターを戻すので、作業がむだになりません。';
 
   @override
   String get introHowBigParity =>
-      '行き詰まるまで4×4を3×3のように解きます。\nエッジ1つの反転：長いOLLパリティ手順。\nエッジ2つの入れ替わり：2R2 U2 2R2 Uw2 2R2 Uw2。';
+      '行き詰まるまで4×4を3×3のように解きます。\nエッジ1つが反転：長いOLLパリティの手順。\nエッジ2つが入れ替わり：2R2 U2 2R2 Uw2 2R2 2U2。';
+
+  @override
+  String get introHoldBigParity =>
+      '最後の段を上に。OLLパリティ：反転したエッジを前に。PLLパリティ：入れ替わったエッジを前と奥に。';
+
+  @override
+  String get introWhyBigParity =>
+      'ウイングは3×3にはない状態になることがあります。この手順は内側の層を回して、ちょうどそれを元に戻します。';
 
   @override
   String get dirFaceR => '右側';
@@ -1464,13 +1606,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get stageParity => 'パリティを解消';
 
   @override
-  String get stageCrown1 => '第1の王冠（白）';
+  String get stageCrown1 => '1段目（白）';
 
   @override
-  String get stageCrown2 => '第2の王冠';
+  String get stageCrown2 => '2段目';
 
   @override
-  String get stageCrown3 => '第3の王冠（黄）';
+  String get stageCrown3 => '3段目（黄色）';
 
   @override
   String get stageOrient => 'パーツの向きをそろえる';
@@ -1512,6 +1654,12 @@ class AppLocalizationsJa extends AppLocalizations {
       '各面のいちばん真ん中のパーツは動きません。\nエッジは中央パーツと2つのウイングでできています。\n内側の層を回すと、外側を崩さずにパーツを動かせます。';
 
   @override
+  String get introHoldFiveIntro => '持ち方は自由です。5×5では各面の真ん中が動かないので、それが面の色を示します。';
+
+  @override
+  String get introWhyFiveIntro => '動かないセンターが配色を決めるので、センターの順番をまちがえることはありません。';
+
+  @override
   String get lessonFiveCenters => '5×5のセンター';
 
   @override
@@ -1522,7 +1670,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get introHowFiveCenters =>
-      '真ん中のパーツから始めます。色はそれで決まります。\n3つ並びのバーを作り、内側の層で差し込みます。\n最後の2面はまとめて仕上げます。';
+      '動かない真ん中のピースから始めます。色はこれで決まります。\n3つ並びのバーを作り、内側の層で差し込みます。\nバーを入れる手が、完成したセンターも元に戻します。';
+
+  @override
+  String get introHoldFiveCenters => '作っているセンターを前か上に。完成したセンターは下、左、右に置きます。';
+
+  @override
+  String get introWhyFiveCenters => '層を入れる、上を回す、層を戻す。バーを入れる層が、完成したセンターも戻します。';
 
   @override
   String get lessonFiveEdges => '5×5のエッジ';
@@ -1535,20 +1689,33 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get introHowFiveEdges =>
-      '手前で2つのウイングを中央エッジに合わせます。\n内側の層を回し、未完成のエッジを入れ替えて戻します。\n完成したエッジを崩さずに最後のエッジをそろえます。';
+      '前面で各ウイングを真ん中のエッジに合わせます。\n内側の層を回し、未完成のエッジと入れ替え、戻します。\n最後のエッジは：層、反転、層。';
+
+  @override
+  String get introHoldFiveEdges => '作っているエッジを前に。完成したエッジは上下の段にしまっておきます。';
+
+  @override
+  String get introWhyFiveEdges => '内側の層を開いて閉じるとウイングがつながり、センターとしまったエッジは元に戻ります。';
 
   @override
   String get lessonFiveSolve => '5×5を3×3として解く';
 
   @override
-  String get lessonFiveSolveDesc => '3つの王冠で仕上げます。';
+  String get lessonFiveSolveDesc => '3×3と同じように1段ずつ仕上げます。';
 
   @override
-  String get introGoalFiveSolve => 'リダクションした5×5を3×3のように、王冠ごとに解きます。';
+  String get introGoalFiveSolve => 'リダクションした5×5を3×3と同じように、外側の回転だけで1段ずつ解きます。';
 
   @override
   String get introHowFiveSolve =>
-      'ここからは外側の回転だけ。\n第1の王冠、第2の王冠、そして黄色の王冠。\n固定センターが各面の色を示します。';
+      'ここからは外側の回転だけです。そうしないとペアにしたエッジが分かれます。\n白クロスとコーナー、中段、そして黄色の段。\n動かない真ん中のピースが各面の色を示します。';
+
+  @override
+  String get introHoldFiveSolve => '1段目の色を下に、3×3とまったく同じです。入れるコーナーは右手前に。';
+
+  @override
+  String get introWhyFiveSolve =>
+      '内側を回すとセンターとエッジがまた分かれます。外側の回転なら、各ブロックを3×3の1ピースとして動かせます。';
 
   @override
   String get lessonFiveParity => '5×5のエッジパリティ';
@@ -1557,11 +1724,19 @@ class AppLocalizationsJa extends AppLocalizations {
   String get lessonFiveParityDesc => 'ウイングが入れ替わったエッジを直します。';
 
   @override
-  String get introGoalFiveParity => '2つのウイングが入れ替わった1本のエッジを直し、仕上げます。';
+  String get introGoalFiveParity =>
+      '外側のウイング2つが入れ替わったエッジ1つを直します。5×5にあるパリティはこれだけです。';
 
   @override
   String get introHowFiveParity =>
-      'どうしてもそろわないエッジとして現れます。\n内側の層を使う長い手順を1回だけ行います。\nほかはすべて元の位置に戻ります。';
+      '反転して見える最後のエッジとして現れます。\n内側の層を使う長い手順を1回します。\n5×5にPLLパリティはありません。';
+
+  @override
+  String get introHoldFiveParity => '最後の段を上に、ウイングが入れ替わったエッジを上の段の前に。';
+
+  @override
+  String get introWhyFiveParity =>
+      '5×5で入れ替わるのは1つのエッジの外側のウイング2つだけなので、手順は1つで足ります。';
 
   @override
   String get lessonSixIntro => '6×6を知ろう';
@@ -1577,6 +1752,12 @@ class AppLocalizationsJa extends AppLocalizations {
       '固定センターはありません。作りながら色を決めます。\nエッジには外側と内側のウイングがあります。\nワイド回転は最大3層を動かせます。';
 
   @override
+  String get introHoldSixIntro => '最初は自由に。4×4と同じく、6×6にも固定のセンターはありません。';
+
+  @override
+  String get introWhySixIntro => '4×4と5×5が解ければ、6×6はブロックが大きいだけの同じリダクションです。';
+
+  @override
   String get lessonSixCenters => '6×6のセンター';
 
   @override
@@ -1587,7 +1768,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get introHowSixCenters =>
-      'まず向かい合う2面のセンターを作ります。\n4つ並びのバーを作ってつなげます。\n「層・上・戻す」の技で1つずつ動かします。';
+      'まずコーナーで色の並びを確かめます。固定のセンターはありません。\n4つ並びのバーを作って合わせます。\n最後の2つのセンターは1つずつ動かします：層、上、戻す。';
+
+  @override
+  String get introHoldSixCenters => '作っている面を前に。完成したセンターは左、右、下に置きます。';
+
+  @override
+  String get introWhySixCenters => 'バーは内側の層でつながり、層は毎回戻すので、完成したセンターはくずれません。';
 
   @override
   String get lessonSixEdges => '6×6のエッジ';
@@ -1600,20 +1787,33 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get introHowSixEdges =>
-      '手前で外側と内側のウイングを並べます。\n深いワイド層でエッジを出し入れします。\n完成したエッジは崩れません。';
+      '1つのエッジの外側と内側のウイングを前面にそろえます。\n深いワイド層でエッジを出し入れします。\nピースを取り出すために完成したエッジをくずさないこと。';
+
+  @override
+  String get introHoldSixEdges => '作っているエッジを前に。完成したエッジは上下に置いておきます。';
+
+  @override
+  String get introWhySixEdges => '深いワイド回転でセンターをよけてウイングを出会わせ、そのあと戻します。';
 
   @override
   String get lessonSixSolve => '6×6を3×3として解く';
 
   @override
-  String get lessonSixSolveDesc => '3つの王冠で仕上げます。';
+  String get lessonSixSolveDesc => '3×3と同じように1段ずつ仕上げます。';
 
   @override
-  String get introGoalSixSolve => 'リダクションした6×6を3×3のように、王冠ごとに解きます。';
+  String get introGoalSixSolve => 'リダクションした6×6を3×3と同じように、外側の回転だけで1段ずつ解きます。';
 
   @override
   String get introHowSixSolve =>
-      'ここからは外側の回転だけ。\n作ったセンターが各面の色を示します。\n第1の王冠、第2の王冠、そして黄色の王冠。';
+      'ここからは外側の回転だけです。内側の層を回すとセンターやエッジがくずれます。\n作ったセンターが各面の色を示します。\n白クロスとコーナー、中段、そして黄色の段。';
+
+  @override
+  String get introHoldSixSolve => '1段目の色を下に、3×3とまったく同じです。入れるコーナーは右手前に。';
+
+  @override
+  String get introWhySixSolve =>
+      '外側の回転なら、4×4のセンターもエッジも1ピースとして動きます。3×3とまったく同じです。';
 
   @override
   String get lessonSixParity => '6×6のパリティ';
@@ -1627,14 +1827,21 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get introHowSixParity =>
-      '行き詰まるまで3×3のように解きます。\nエッジ1本の反転：長いパリティ手順。\nエッジ2本の入れ替わり：2回転を使う短い手順。';
+      '行き詰まるまで3×3のように解きます。\nエッジ1つが反転：3Rwを使う長い手順。\nエッジ2つが入れ替わり：内側の2回転を使う短い手順。';
+
+  @override
+  String get introHoldSixParity => '最後の段を上に。反転したエッジを前に。2つ入れ替わっていれば前と奥に。';
+
+  @override
+  String get introWhySixParity =>
+      '4×4と同じく、6×6もエッジ1つの反転か2つの入れ替わりで終わることがあります。内側の層の手順でそれだけを直せます。';
 
   @override
   String get stepFivePieces => '5×5のパーツ';
 
   @override
   String get stepFivePiecesBody =>
-      '各面の真ん中のパーツは動かないので、3×3と同じく面の色を示します。そのまわりにセンターパーツが8つ。エッジは中央パーツと2つのウイングでできていて、コーナーは3×3と同じです。';
+      '各面の真ん中のピースは動かないので、配色をまちがえることはありません。そのまわりにセンターピースが8つあり、コーナーセンターとエッジセンターが入れ替わることはありません。エッジは真ん中のピースとウイング2つです。';
 
   @override
   String get stepFiveSlices => '3種類の回転';
@@ -1648,7 +1855,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get stepFiveCenterBarBody =>
-      '同じ色のセンターパーツを3つ並べ、内側の層を回して同じ色の真ん中の隣へ動かします。バー3本でセンターが完成します。';
+      '同じ色のセンターピースを3つ並べ、内側の層で差し込み、上を回して層を戻します。バーを入れる手が、完成したセンターも戻します。バー3本でセンター1つです。';
 
   @override
   String get stepFiveCenterSwap => '崩さずに入れ替える';
@@ -1662,35 +1869,35 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get stepFiveEdgePairBody =>
-      '手前で2つのウイングを中央エッジの横にそろえ、内側の層を下げ、上から未完成のエッジを入れて、内側の層を戻します。';
+      '前面でウイングを真ん中のエッジのとなりに並べ、内側の層を下げ、短いトリガーで未完成のエッジと入れ替えて、内側の層を戻します。';
 
   @override
   String get stepFiveEdgeLast => '最後のエッジ';
 
   @override
   String get stepFiveEdgeLastBody =>
-      '残りのエッジが少なくなったら、ワイド回転、短いトリガー、ワイド回転の戻しで、完成したエッジを崩さずにそろえます。';
+      '入れ替えに使える空きエッジがなくなったら、層、反転、層です。ワイド回転、短いトリガー、ワイド回転の戻しで、完成したエッジをくずさずに最後のエッジをペアにします。';
 
   @override
   String get stepFiveAsThree => 'これで3×3';
 
   @override
   String get stepFiveAsThreeBody =>
-      'センターとエッジがそろえば、5×5は大きな3×3と同じです。外側の回転だけで3つの王冠を進めます：白クロスとコーナー、中段、そして黄色の層。';
+      'センターとエッジができれば、5×5は大きな3×3です。外側の回転だけで1段ずつ進めます：白クロスとコーナー、中段、黄色の段。5×5にPLLパリティはありません。';
 
   @override
   String get stepFiveEdgeParity => '最後のエッジのウイングを戻す';
 
   @override
   String get stepFiveEdgeParityBody =>
-      '最後のエッジの2つのウイングが入れ替わっていることがあります。内側の層を使う長い手順で戻すと、ほかはすべて元の位置に戻ります。あとは3×3として仕上げます。';
+      '最後のエッジの外側のウイング2つが入れ替わって、反転して見えることがあります。5×5にある唯一のパリティです。上の段の前に置き、内側の層の手順を1回します。ほかはすべて元に戻ります。';
 
   @override
   String get stepSixPieces => '6×6のパーツ';
 
   @override
   String get stepSixPiecesBody =>
-      '4×4と同じく、6×6には固定センターがありません。16個のセンターパーツで面の色ができます。エッジは4パーツ：外側のウイング2つと内側のウイング2つです。';
+      '4×4と同じく6×6にも固定のセンターはなく、16個のセンターピースで各面の色ができます。まずコーナーで色の並びを確かめましょう。エッジにはウイングが4つ、外側2つと内側2つです。';
 
   @override
   String get stepSixSlices => '深い層を回す';
@@ -1704,49 +1911,49 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get stepSixCenterBarBody =>
-      '同じ色のセンターパーツを4つ並べ、内側の層を回して横に並べていき、面を1色にします。';
+      '同じ色のセンターピースを4つ並べ、内側の層で横に並べていきます。層は毎回戻し、面が1色の4×4ブロックになるまで続けます。';
 
   @override
   String get stepSixCenterSwap => '1つずつ動かす';
 
   @override
   String get stepSixCenterSwapBody =>
-      '3層目を回し、上面を回し、戻して、元に戻す。センターパーツが1つ動き、完成したセンターは戻ります。';
+      '3層目を回し、上を回し、戻し、上を戻す。センターピースが1つ動き、完成したセンターは戻ります。バーが入らない最後の2つのセンターで使います。';
 
   @override
   String get stepSixEdgePair => '4パーツで1本のエッジ';
 
   @override
   String get stepSixEdgePairBody =>
-      '深いワイド層で1本のエッジの4パーツを手前に集め、未完成のエッジを入れて、ワイド層を戻します。';
+      '深いワイド層で1つのエッジのウイング4つを前面に集め、短いトリガーで未完成のエッジと入れ替えて、ワイド層を戻します。';
 
   @override
   String get stepSixEdgeLast => '最後のエッジ';
 
   @override
   String get stepSixEdgeLastBody =>
-      '深いワイド回転とその戻しの間に短いトリガーを入れて、完成したエッジを崩さずに最後のエッジをそろえます。';
+      '深いワイド回転とその戻しの間に短いトリガーを入れて最後のエッジをペアにします。完成したエッジはそのままです。ピースを取り出すために完成したエッジをくずさないこと。';
 
   @override
   String get stepSixAsThree => 'これで3×3';
 
   @override
   String get stepSixAsThreeBody =>
-      '4×4のセンターとそろったエッジができたら、外側の回転と3つの王冠で6×6を3×3のように解きます。';
+      '4×4のセンターとペアのエッジができたら、外側の回転だけで6×6を3×3のように1段ずつ解きます。最後にエッジ1つの反転や2つの入れ替わりがあれば、それはパリティでまちがいではありません。';
 
   @override
   String get stepSixOllParity => 'エッジ1本の反転';
 
   @override
   String get stepSixOllParityBody =>
-      '最後の層を解いているときにエッジが1本だけ反転して見えたら、それはパリティです。上の層の手前に置いて長い手順を行えば、第1・第2の王冠は崩れずに戻ります。';
+      '最後の段でエッジが1つだけ反転して見えたらパリティです。上の段の前に置いて長い手順をします。ウイング4つすべてを反転させ、上の左右のエッジも入れ替えますが、下の2段にはふれません。';
 
   @override
   String get stepSixPllParity => 'エッジ2本の入れ替わり';
 
   @override
   String get stepSixPllParityBody =>
-      '最後の最後で2本のエッジが入れ替わって見えたら、上の層の手前と奥に置き、内側の層の2回転を使う短い手順を行います。';
+      '最後の最後でエッジ2つが入れ替わって見えたら、上の段の前と奥に置き、内側の2回転を使う短い手順をします。2つのエッジのウイング4つがすべて入れ替わります。';
 
   @override
   String get stageTwoFirstLayer => '下の層を作る';
@@ -2250,7 +2457,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String cueCrossFlipped(String piece, String center) {
-    return '$pieceのエッジは位置は合っていますが向きが逆で、白が横を向いています。一度取り出し、$centerのセンターの横に正しい向きで戻します。';
+    return '$pieceのエッジは位置は合っていますが反転しています（白が横向き）。いったん外して白を上にして上の段に出し、$centerのセンターの横へ下ろします。';
   }
 
   @override
@@ -2265,7 +2472,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String cueCornerTwisted(String piece) {
-    return '$pieceのコーナーは自分の場所にありますが、ねじれています。1回で取り出され（黄色のコーナーが代わりに入ります）、正しく入るまでくり返します。';
+    return '$pieceのコーナーは位置は合っていますがねじれています。1回のトリガーで外に出し（代わりに黄色いコーナーが入ります）、白が下を向いて戻るまで同じ場所でくり返します。キューブを回して追いかけないこと。';
   }
 
   @override
@@ -2280,7 +2487,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String cueMiddleFlipped(String piece, String a, String b) {
-    return '$pieceのエッジは自分の場所にありますが向きが逆です。黄色のエッジを入れて押し出してから、$aと$bの間にもう一度入れます。';
+    return '$pieceのエッジは位置は合っていますが反転しています。そこに黄色いエッジを入れて上に押し出し、$aと$bの間に入れ直します。';
   }
 
   @override
@@ -2295,7 +2502,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String cueYellowDot(String front) {
-    return '黄色はセンターだけ：点の形です。$frontを手前にして手順を1回回すとL字になります。';
+    return '黄色はセンターだけ：点です。$frontを手前にして手順を1回するとL字になります。点は3回かかることもあるので、続けましょう。';
   }
 
   @override
@@ -2325,7 +2532,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String cueTwistCorner(String piece) {
-    return '右手前の$pieceのコーナーを回します：黄色が上を向くまで下の手順をくり返します。下の段は今くずれて見えますが、それで大丈夫！';
+    return '右手前の$pieceのコーナーを回します。黄色が上を向くまで下のトリガーを2回ずつくり返します。下の段は今くずれて見えますが、最後のコーナーで元に戻ります！';
   }
 
   @override
@@ -2403,16 +2610,16 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String cueParityOll(String front) {
-    return 'OLLパリティ：上のエッジが1つ裏返っています。3×3では起きない状態です。それを手前に置き、$frontを手前にしてパリティの手順を回します。';
+    return 'OLLパリティ：上のエッジが1つ反転しています。3×3では起こりません。$frontを手前にしてそのエッジを前に置き、通常のOLLの前にパリティの手順をします。';
   }
 
   @override
   String get cueParityPll =>
-      'PLLパリティ：上のエッジ2つが入れ替わっています。3×3では起きない状態です。手前と奥に置いてパリティ交換を回します。';
+      'PLLパリティ：上のエッジが2つ入れ替わっています。3×3では起こりません。前と奥に置いてパリティの入れ替えをし、上の段を合わせます。';
 
   @override
   String cueParityFive(String front) {
-    return 'エッジパリティ：1つのエッジの外側の2パーツが入れ替わっています。そのエッジを手前に回し、$frontを手前にして直してから戻します。';
+    return 'エッジパリティ：1つのエッジの外側のウイング2つが入れ替わっています。5×5の唯一のパリティです。$frontを手前にしてそのエッジを前に置き、手順を1回します。';
   }
 
   @override
@@ -2443,7 +2650,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get onboardingLearnBody =>
-      'アカデミーで3クラウン法を身につけたら、3Dプレイグラウンドで自由に回して、崩して、解いてみましょう。';
+      'アカデミーで段ごとにそろえる解法をマスターしたら、3Dプレイグラウンドで自由に回して、崩して、解いてみましょう。';
 
   @override
   String get scanChoiceManualDesc => '各面の色をステッカーごとにタップで入力します。';
@@ -2458,8 +2665,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get scanLightingHint => '面をグリッドの中央に合わせ、明るく均一な光で反射を避けてください。';
 
   @override
-  String get crownExplain =>
-      'クラウンとはキューブの横一層のことです。第1クラウンは下の白い層、第2クラウンは真ん中の層、第3クラウンは上の黄色い層です。';
+  String get crownExplain => '段とはキューブの横一層のことです。1段目は下の白い段、2段目は中段、3段目は上の黄色い段です。';
 
   @override
   String get lessonObjectiveHeading => '学習の目標';
@@ -2483,7 +2689,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get solveChoiceFastDesc => 'いちばん短い解法を1手ずつ。';
 
   @override
-  String get solveChoiceGuidedDesc => '3クラウン法を一歩ずつ学びます。';
+  String get solveChoiceGuidedDesc => '段ごとにそろえる解法を一歩ずつ学びます。';
 
   @override
   String get guidedSolvedTitle => '完成！';

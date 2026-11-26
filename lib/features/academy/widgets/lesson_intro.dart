@@ -356,6 +356,17 @@ class _LessonIntroCardState extends State<LessonIntroCard> {
                       ),
                       const SizedBox(height: 14),
                       _Heading(
+                        icon: Icons.pan_tool_alt_rounded,
+                        text: l10n.introHoldHeading,
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        introHoldText(l10n, id),
+                        key: const ValueKey('intro-hold'),
+                        style: textTheme.bodyMedium,
+                      ),
+                      const SizedBox(height: 14),
+                      _Heading(
                         icon: Icons.lightbulb_rounded,
                         text: l10n.introHowHeading,
                       ),
@@ -383,6 +394,17 @@ class _LessonIntroCardState extends State<LessonIntroCard> {
                             ],
                           ),
                         ),
+                      const SizedBox(height: 14),
+                      _Heading(
+                        icon: Icons.psychology_alt_rounded,
+                        text: l10n.introWhyHeading,
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        introWhyText(l10n, id),
+                        key: const ValueKey('intro-why'),
+                        style: textTheme.bodyMedium,
+                      ),
                     ],
                   ),
                 ),

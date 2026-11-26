@@ -159,7 +159,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get solveLearn => 'Matuto nang hakbang-hakbang';
 
   @override
-  String get solveModeGuided => 'May gabay (3 korona)';
+  String get solveModeGuided => 'May gabay (3 layer)';
 
   @override
   String get solveModeFast => 'Mabilis (optimal)';
@@ -256,7 +256,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get phaseLblCross => 'Puting cross';
 
   @override
-  String get phaseLblCorners => 'Mga kanto ng unang korona';
+  String get phaseLblCorners => 'Mga kanto ng unang layer';
 
   @override
   String get phaseLblMiddle => 'Mga edge ng gitnang layer';
@@ -275,13 +275,13 @@ class AppLocalizationsFil extends AppLocalizations {
   String get phaseLblYellowCornersOrient => 'Pihitin ang mga dilaw na kanto';
 
   @override
-  String get crownFirst => 'Unang korona';
+  String get crownFirst => 'Unang layer';
 
   @override
-  String get crownSecond => 'Ikalawang korona';
+  String get crownSecond => 'Ikalawang layer';
 
   @override
-  String get crownThird => 'Ikatlong korona';
+  String get crownThird => 'Ikatlong layer';
 
   @override
   String get crownFirstGoal => 'Puting mukha at unang layer';
@@ -298,11 +298,11 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get subStepGoal12 =>
-      'Ipasok ang 4 na puting kanto sa kanilang puwesto para makumpleto ang puting mukha at ang buong unang singsing.';
+      'Ipasok ang 4 na puting kanto sa tamang puwesto para matapos ang puting mukha at ang buong unang layer.';
 
   @override
   String get subStepGoal21 =>
-      'Ipasok ang 4 na edge ng gitnang layer nang hindi sinisira ang unang korona.';
+      'Ipasok ang 4 na edge ng gitnang layer nang hindi sinisira ang unang layer.';
 
   @override
   String get subStepGoal31 => 'Bumuo ng dilaw na cross sa huling layer.';
@@ -683,7 +683,7 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => '3×3 pambaguhan: ang 3 korona';
+  String get trackBeginner => 'Baguhang 3×3: layer by layer';
 
   @override
   String get trackCfop => 'Panimula sa CFOP';
@@ -1001,77 +1001,77 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get stepCrossGoalBody =>
-      'Hawakan nang dilaw sa itaas. Nakapalibot sa puting center sa ibaba ang apat na puting edge, at tugma ang kulay sa gilid ng bawat isa sa katabing center.';
+      'Hawakan ang dilaw sa itaas at ang berde na nakaharap sa iyo. Una, ipunin ang apat na puting edge sa paligid ng dilaw na center, puti pataas, parang talulot: iyan ang daisy. Saka bababa ang bawat talulot sa puting center, tugma ang gilid na kulay sa katabing center.';
 
   @override
   String get stepCrossTop => 'Edge sa itaas';
 
   @override
   String get stepCrossTopBody =>
-      'Maghanap ng puting edge sa itaas. Paikutin ang itaas hanggang mapunta ang kulay sa gilid nito sa ibabaw ng katugmang center, saka paikutin nang dalawang beses ang mukhang iyon para maibaba ito.';
+      'Ang puting edge sa itaas na nakataas ang puti ay isang talulot ng daisy. Ikutin ang itaas hanggang mismong nasa ibabaw ng kakulay na center ang gilid na kulay nito, saka ikutin nang dalawang beses (180°) ang mukhang iyon para ibaba ito sa puting center.';
 
   @override
   String get stepCrossMiddle => 'Edge sa gitna';
 
   @override
   String get stepCrossMiddleBody =>
-      'Ang edge na naipit sa gitnang layer ay iangat muna: iikot pataas ang gilid nito, iusog ang itaas, at ibalik ang gilid para buo pa rin ang cross. Saka ito ilagay mula sa itaas.';
+      'Ang edge na naipit sa gitnang layer ay iaakyat muna: itaas ang gilid nito, ilayo ang itaas, ibalik ang gilid, para hindi magalaw ang mga nakalagay na. Talulot na ito sa itaas: ihanay at ikutin nang dalawang beses ang mukha.';
 
   @override
   String get stepCornersInsert => 'Sa ibabaw ng puwesto nito';
 
   @override
   String get stepCornersInsertBody =>
-      'Paikutin ang itaas hanggang mapunta ang isang puting kanto sa ibabaw ng puwesto ng mga kulay nito, sa harap-kanan. Ibababa ito ng R U R\' U\'.';
+      'Ikutin ang itaas hanggang mismong nasa ibabaw ng puwesto nito ang puting kanto, sa pagitan ng dalawang center na katugma ng gilid na kulay. Dito, sapat ang isang ikot sa itaas at R U\' R\': dinadala ng U ang kanto sa ibabaw ng puwesto at ipinapasok ito ng R U\' R\' na puti pababa.';
 
   @override
   String get stepCornersRepeat => 'Ulitin ang trigger';
 
   @override
   String get stepCornersRepeatBody =>
-      'Kung mali ang harap ng puti, ulit-ulitin lang ang R U R\' U\' sa parehong puwesto. Lulutas ang bawat kanto sa hindi hihigit sa limang ulit.';
+      'Hawakan ang puwesto sa harap-kanan at ulitin ang R U R\' U\' hanggang pababa ang puti: isang beses kung pakanan ang puti, tatlo kung pataas, lima kung nakaharap sa iyo. Mukhang magulo ang itaas habang ginagawa; kusa itong aayos.';
 
   @override
   String get stepMiddleRight => 'Edge pakanan';
 
   @override
   String get stepMiddleRightBody =>
-      'Ihanay ang isang edge sa itaas sa center nito sa harap. Kung tugma ang kulay nito sa itaas sa kanang center, ipasok ito gamit ang U R U\' R\' U\' F\' U F.';
+      'Maghanap ng edge sa itaas na walang dilaw. Ikutin ang itaas hanggang tumugma ang harap na kulay nito sa center sa harap mo. Kung tugma ang itaas na kulay nito sa kanang center, ipadala ito pakanan: U R U\' R\' U\' F\' U F.';
 
   @override
   String get stepMiddleLeft => 'Edge pakaliwa';
 
   @override
   String get stepMiddleLeftBody =>
-      'Kung sa kaliwang center naman tugma ang kulay nito sa itaas, gamitin ang mirror: U\' L\' U L U F U\' F\'.';
+      'Kung sa kaliwang center naman tugma ang itaas na kulay nito, gamitin ang salamin: U\' L\' U L U F U\' F\'. Laging bumabalik nang buo ang puting layer.';
 
   @override
   String get stepYellowCross => 'Isang algorithm';
 
   @override
   String get stepYellowCrossBody =>
-      'Ginagawa ng F R U R\' U\' F\' na L ang dilaw na tuldok, linya ang L, at cross ang linya. Hawakan ang L sa likod-kaliwa at ang linya nang pahalang.';
+      'Tingnan lang ang mga dilaw na edge sa itaas. Hawakan ang L sa likod-kaliwa at ang linya mula kaliwa pakanan, saka gawin ang F R U R\' U\' F\'. Isang beses sa linya, dalawa sa L, hanggang tatlo sa tuldok.';
 
   @override
   String get stepYellowEdges => 'Itugma ang mga edge';
 
   @override
   String get stepYellowEdgesBody =>
-      'Paikutin ang itaas hanggang tumugma ang dalawang edge sa kanilang center. Kapag nasa likod ang isa at nasa kanan ang isa, pagpapalitin ng R U R\' U R U2 R\' U ang dalawa pa.';
+      'Ikutin ang itaas hanggang tumugma ang dalawang edge sa kanilang center. Kapag isa sa likod at isa sa kanan, pinagpapalit ng R U R\' U R U2 R\' U ang edge sa harap at sa kaliwa.';
 
   @override
   String get stepPlaceCorners => 'Ilagay ang mga ito';
 
   @override
   String get stepPlaceCornersBody =>
-      'Hawakan sa harap-kanan ang kantong nasa tamang puwesto na. Ililipat ng U R U\' L\' U R\' U\' L ang tatlo pa; ulitin hanggang nasa puwesto na ang apat.';
+      'Nasa puwesto ang kanto kapag tugma ang kulay nito sa tatlong center sa paligid, kahit nakapilipit. Hawakan ang ganoong kanto sa harap-kanan: pinaiikot ng U R U\' L\' U R\' U\' L ang tatlo pa. Ulitin hanggang nasa puwesto ang apat.';
 
   @override
   String get stepTwistCorners => 'Pihitin ang mga ito';
 
   @override
   String get stepTwistCornersBody =>
-      'Kapag nasa harap-kanan ang kantong hindi pa lutas, ulitin ang R\' D\' R D hanggang nasa itaas ang dilaw, saka paikutin lang ang itaas para dalhin ang susunod. Mukhang sira ang ibaba hanggang sa pinakadulo: tuloy lang.';
+      'Habang nasa harap-kanan ang kantong hindi pa ayos, ulitin ang R\' D\' R D nang pares-pares hanggang nasa itaas ang dilaw, saka itaas lang ang ikutin para dalhin ang susunod. Mukhang sira ang ibaba hanggang sa huling kanto: tuloy lang.';
 
   @override
   String get lessonCfopIntro => 'Ano ang CFOP?';
@@ -1165,14 +1165,14 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get stepTwoIntroBody =>
-      'Ang 2×2 ay 3×3 na walang edge at center. Pumili ng kulay, buuin ang mukhang iyon sa ibaba, at itugma ang mga kulay sa gilid ng magkakatabing kanto.';
+      'Walong kanto lang ang 2×2: walang edge, walang center. Buuin ang puting layer sa ibaba nang tugma ang kulay ng magkakatabi, saka tapusin sa iisang ruta: Sune para sa dilaw na itaas, saka T-perm o Y-perm.';
 
   @override
   String get stepTwoCorner => 'Ipasok ang mga kanto';
 
   @override
   String get stepTwoCornerBody =>
-      'Katulad ng mga puting kanto sa 3×3: dalhin ang kanto sa ibabaw ng puwesto nito at gamitin ang R U R\' U\' hanggang pumasok ito.';
+      'Gaya ng mga puting kanto sa 3×3: dalhin ang kanto sa ibabaw ng bakanteng puwesto sa harap-kanan at ipasok, dito gamit ang U R U\' R\' o pag-uulit ng R U R\' U\' hanggang pababa ang puti. Itugma ang gilid na kulay nito sa katabi.';
 
   @override
   String get lessonTwoOll => 'Ayusin ang itaas';
@@ -1185,7 +1185,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get stepTwoSuneBody =>
-      'Ginagawa ring dilaw ng Sune ang itaas ng 2×2. Pitong maiikling kaso ang pinag-aaralan sa Ortega; sakop ng Sune at ng mirror nito ang karamihan.';
+      'Bilangin ang mga dilaw na sticker na nakataas. Hawakan sa harap-kaliwa ang nag-iisang kantong nakataas ang dilaw at gawin ang Sune (R U R\' U R U2 R\'). Bilangin at hawakan ulit; hanggang tatlong Sune. Sa pagitan, itaas lang ang ikutin.';
 
   @override
   String get lessonTwoPbl => 'I-permute ang dalawang layer';
@@ -1198,14 +1198,14 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get stepTwoAdjacentBody =>
-      'Kapag kailangang magpalit ang dalawang magkatabing kanto sa itaas, hawakan sila sa kanan at gamitin ang T-perm.';
+      'Ang headlights ay dalawang magkaparehong sticker sa itaas sa iisang gilid. Ikutin ang itaas hanggang nasa kaliwa ang headlights, kaya nasa kanan ang dalawang kantong magpapalit, saka gawin ang T-perm.';
 
   @override
   String get stepTwoDiagonal => 'Pahilis na palitan';
 
   @override
   String get stepTwoDiagonalBody =>
-      'Nagpapalit gamit ang Y-perm ang dalawang kantong magkatapat.';
+      'Kapag walang headlights sa kahit anong gilid, dalawang pahilis na kanto ang dapat magpalit: gawin ang Y-perm mula sa kahit anong gilid, saka ikutin ang itaas para ihanay lahat.';
 
   @override
   String get lessonBigIntro => 'Mga piraso ng malalaking cube';
@@ -1218,7 +1218,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get stepBigPiecesBody =>
-      'Sa 4×4, may apat na gumagalaw na center piece ang bawat mukha, at gawa sa dalawang wing ang bawat edge. Pinagsasama-sama sila ng reduction para kumilos ang cube na parang 3×3.';
+      'Sa 4×4, may apat na gumagalaw na center piece ang bawat mukha, at dalawang wing ang bawat edge. Walang nakapirming center, kaya suriin ang ayos ng kulay sa isang kanto: puti katapat ng dilaw, asul ng berde, pula ng kahel.';
 
   @override
   String get stepBigSlices => 'Wide at inner turn';
@@ -1238,7 +1238,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get stepBigCenterCycleBody =>
-      'Eksaktong tatlong center piece ang ginagalaw ng commutator na ito at wala nang iba, kaya nananatiling tapos ang mga tapos nang center.';
+      'Eksaktong tatlong center piece ang inililipat ng commutator na ito at iniiwan ang lahat ng iba, kaya nananatiling tapos ang tapos na center. Gamitin ito kapag ayaw sumama sa bar ng isang ligaw na piyesa.';
 
   @override
   String get lessonBigEdges => 'Ipares ang mga edge';
@@ -1252,7 +1252,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get stepBigEdgePairBody =>
-      'Inihahanay ng Uw\' ang dalawang magkatugmang wing, ipinapasok ng R U R\' F R\' F\' R ang edge na hindi pa nakapares, at ibinabalik ng Uw ang mga center.';
+      'Inihahanay ng Uw\' ang dalawang magkatugmang wing, ipinapasok ng R U R\' F R\' F\' R ang edge na hindi pa nakapares, at ibinabalik ng Uw ang mga center. Laging isara ang slice na binuksan mo.';
 
   @override
   String get lessonBigParity => 'Parity';
@@ -1265,20 +1265,26 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get stepBigOllParityBody =>
-      'Imposible sa 3×3 ang iisang baligtad na edge. Sa even na cube, babaligtarin pabalik ng algorithm na ito ang edge sa itaas-harap. Maaaring magulo nito ang natitirang bahagi ng itaas na layer, na aayusin din naman ng mga huling hakbang ng 3×3.';
+      'Hindi nangyayari sa 3×3 ang iisang baligtad na edge: OLL parity ito, hindi pagkakamali. Ilagay ito sa harap ng itaas na layer at gawin ang mahabang algorithm. Pinagpapalit din nito ang kaliwa at kanang edge sa itaas at dalawang kanto; aayusin iyon ng huling mga hakbang ng 3×3.';
 
   @override
   String get stepBigPllParity => 'PLL parity';
 
   @override
   String get stepBigPllParityBody =>
-      'Dalawang edge na nagkapalit sa pinakadulo? Pinagpapalit ng 2R2 U2 2R2 Uw2 2R2 Uw2 ang edge sa itaas-harap at itaas-likod.';
+      'Dalawang edge na nagpalit sa pinakahuli at walang 3×3 algorithm na bagay? PLL parity iyan. Hawakan ang mga ito sa harap at likod ng itaas na layer: pinagpapalit sila ng 2R2 U2 2R2 Uw2 2R2 2U2.';
 
   @override
   String get introGoalHeading => 'Ano ang layunin?';
 
   @override
   String get introHowHeading => 'Paano ito gagawin?';
+
+  @override
+  String get introHoldHeading => 'Paano hawakan';
+
+  @override
+  String get introWhyHeading => 'Bakit ito gumagana';
 
   @override
   String get introStart => 'Gets ko, simulan nang paisa-isa';
@@ -1304,11 +1310,11 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get introGoalCross =>
-      'Bumuo ng puting cross kung saan tugma rin ang bawat puting edge sa kulay ng center na katabi nito.';
+      'Gumawa ng puting cross sa ibaba kung saan tugma rin ang bawat puting edge sa center sa tabi nito.';
 
   @override
   String get introGoalCorners =>
-      'Punan ang apat na puting kanto para buo na ang unang korona, ang buong puting layer.';
+      'Ilagay ang apat na puting kanto para matapos ang buong unang layer: puting mukha at tugmang kulay sa gilid.';
 
   @override
   String get introGoalMiddle =>
@@ -1354,7 +1360,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get introGoalTwoPbl =>
-      'Ipagpalit ang huling mga kanto sa puwesto nila para malutas ang 2×2.';
+      'Iuwi ang huling mga kanto gamit ang isang T-perm o Y-perm, saka ihanay ang itaas para ma-solve ang 2×2.';
 
   @override
   String get introGoalBigIntro =>
@@ -1370,83 +1376,235 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get introGoalBigParity =>
-      'Ayusin ang dalawang kaso ng 4×4 na wala sa 3×3: isang baligtad na edge o dalawang nagpalit na edge.';
+      'Ayusin ang dalawang kaso ng 4×4 na hindi kailanman nangyayari sa 3×3: isang baligtad na edge (OLL parity) o dalawang nagpalit na edge (PLL parity).';
 
   @override
   String get introHowBasics =>
       'Hindi gumagalaw ang mga center, kaya sila ang nagsasabi ng kulay ng bawat mukha.\nAng bawat letra ay umiikot ng isang mukha nang quarter turn pakanan.\nAng apostrophe (\') ay pabalik; ang 2 ay dalawang beses.';
 
   @override
+  String get introHoldBasics =>
+      'Kahit paano: hindi gumagalaw ang mga center, kaya laging sinasabi ng kulay kung aling mukha ang alin.';
+
+  @override
+  String get introWhyBasics =>
+      'Ang bawat algorithm ay hanay lang ng mga letrang ito, kaya ang pagbasa sa mga ito ang unang kasanayan.';
+
+  @override
   String get introHowCross =>
-      'Hawakan nang dilaw sa itaas: sa ibaba binubuo ang puting cross.\nMaghanap ng puting edge at ihanay ang kulay sa gilid nito sa tamang center.\nIikot nang dalawang beses ang mukhang iyon para ibaba ang edge sa puwesto.';
+      'Iakyat ang bawat puting edge, puti pataas, sa paligid ng dilaw na center: iyan ang daisy.\nIkutin ang itaas hanggang nasa ibabaw ng katugmang center ang gilid na kulay ng isang talulot.\nIkutin nang dalawang beses ang mukhang iyon para ibaba ito; ulitin sa apat.';
+
+  @override
+  String get introHoldCross =>
+      'Dilaw na center sa itaas at puting center sa ibaba sa buong hakbang. Ikutin ang itaas, hindi ang cube, para ihanay ang talulot.';
+
+  @override
+  String get introWhyCross =>
+      'Kapag nakataas ang puti, dalawang ikot ng harap na mukha ang naglalapag ng edge sa puting center, puti pababa at tugma na ang gilid.';
 
   @override
   String get introHowCorners =>
-      'Dalhin ang isang puting kanto sa itaas ng bakanteng puwesto nito.\nUlitin ang R U R\' U\' hanggang pumasok ito nang tama ang harap.\nGanoon din sa tatlo pang kanto.';
+      'Ikutin ang itaas hanggang nasa ibabaw ng bakanteng puwesto nito ang puting kanto, sa harap-kanan.\nUlitin ang R U R\' U\': isang beses kung pakanan ang puti, tatlo kung pataas, lima kung nakaharap sa iyo.\nGanoon din sa tatlo pang kanto.';
+
+  @override
+  String get introHoldCorners =>
+      'Puti sa ibaba, dilaw sa itaas. Ang kanto ay nasa harap-kanan, mismong nasa ibabaw ng puwesto nito.';
+
+  @override
+  String get introWhyCorners =>
+      'Inaangat at ibinabalik ng R U R\' U\' ang slot: bawat ikot ay bahagyang pumipilipit sa kanto hanggang pababa ang puti, at hindi nasisira ang cross.';
 
   @override
   String get introHowMiddle =>
-      'Maghanap ng edge sa itaas na walang dilaw at itugma ang harap na kulay nito sa center.\nIpadala ito pakanan o pakaliwa gamit ang maikling algorithm na may 8 galaw.\nBumabalik nang buo ang puting layer sa bawat beses.';
+      'Maghanap ng edge sa itaas na walang dilaw at itugma ang harap na kulay nito sa center sa ilalim.\nAng kulay nito sa itaas ang nagsasabi kung saan ito pupunta: kanan o kaliwa.\nIpasok gamit ang 8-galaw na algorithm; laging bumabalik nang buo ang puting layer.';
+
+  @override
+  String get introHoldMiddle =>
+      'Puti sa ibaba, dilaw sa itaas. Ang edge ay nasa harap, tugma ang harap na kulay nito sa center sa ilalim.';
+
+  @override
+  String get introWhyMiddle =>
+      'Inilalayo ng algorithm ang slot, ipinapasok ang edge at ibinabalik ang puting layer. Ang edge na may dilaw ay pang-itaas, hindi kailanman pang-gitna.';
 
   @override
   String get introHowYellowCross =>
-      'Tingnan ang itaas: tuldok, hugis-L, o linya.\nHawakan gaya ng nasa larawan at gawin ang F R U R\' U\' F\'.\nUlitin hanggang lumabas ang dilaw na cross.';
+      'Tingnan lang ang mga dilaw na edge sa itaas: tuldok, L o linya.\nHawakan ang L sa likod-kaliwa at ang linya mula kaliwa pakanan, saka gawin ang F R U R\' U\' F\'.\nIsang beses sa linya, dalawa sa L, hanggang tatlo sa tuldok.';
+
+  @override
+  String get introHoldYellowCross =>
+      'Puti sa ibaba, dilaw sa itaas. Ang L sa likod-kaliwa, ang linya mula kaliwa pakanan; ang tuldok, kahit paano.';
+
+  @override
+  String get introWhyYellowCross =>
+      'Binabaligtad ng F R U R\' U\' F\' ang dalawang edge sa itaas bawat beses nang hindi ginagalaw ang unang dalawang layer.';
 
   @override
   String get introHowYellowEdges =>
-      'Iikot ang itaas hanggang tumugma ang dalawang edge sa center nila.\nIlagay sila sa likod at kanan, saka gawin ang R U R\' U R U2 R\' U.\nUlitin hanggang tumugma ang apat.';
+      'Ikutin ang itaas hanggang tumugma ang dalawang edge sa kanilang center.\nHawakan ang mga ito sa likod at sa kanan, saka gawin ang R U R\' U R U2 R\' U.\nKung magkatapat ang mga tugmang edge, gawin muna ito nang isang beses mula sa kahit anong gilid.';
+
+  @override
+  String get introHoldYellowEdges =>
+      'Dilaw sa itaas. Isang tugmang edge sa likod at ang isa sa kanan.';
+
+  @override
+  String get introWhyYellowEdges =>
+      'Itaas na piyesa lang ang ginagalaw ng algorithm na ito, kaya laging bumabalik ang unang dalawang layer.';
 
   @override
   String get introHowYellowCorners =>
-      'Nasa puwesto ang kanto kapag tugma ang mga kulay nito sa tatlong mukhang nakapaligid.\nIlagay sa harap-kanan ang isang kantong nasa puwesto na.\nPinapaikot ng U R U\' L\' U R\' U\' L ang tatlo pa hanggang magkasya lahat.';
+      'Nasa puwesto ang kanto kapag tugma ang kulay nito sa tatlong center sa paligid, kahit nakapilipit pa.\nPanatilihin sa harap-kanan ang kantong nasa puwesto na.\nPinaiikot ng U R U\' L\' U R\' U\' L ang tatlo pa; ulitin hanggang magkasya lahat.';
+
+  @override
+  String get introHoldYellowCorners =>
+      'Dilaw sa itaas. Isang kantong nasa puwesto na sa harap-kanan; kung wala, kahit anong kanto.';
+
+  @override
+  String get introWhyYellowCorners =>
+      'Pinaiikot nito ang tatlong kanto at iniiwan ang nasa harap-kanan, kaya bawat ulit ay nag-uuwi ng mas maraming kanto.';
 
   @override
   String get introHowTwistCorners =>
-      'Hawakan sa harap-kanan ang isang kantong hindi pa tapos.\nUlitin ang R\' D\' R D hanggang nakaharap sa itaas ang dilaw nito.\nItaas lang ang iikot para sa susunod; kusang aayos ang ibaba sa dulo.';
+      'Hawakan sa harap-kanan ang kantong hindi pa ayos.\nUlitin ang R\' D\' R D nang pares-pares hanggang pataas ang dilaw nito.\nItaas lang ang ikutin para sa susunod; babalik ang ibaba sa huling kanto.';
+
+  @override
+  String get introHoldTwistCorners =>
+      'Dilaw sa itaas, ang kantong pipilipitin sa harap-kanan. Sa pagitan ng mga kanto, itaas lang ang ikutin, hindi kailanman ang buong cube.';
+
+  @override
+  String get introWhyTwistCorners =>
+      'Pinipilipit ng R\' D\' R D ang kanto at ginugulo ang ibaba, pero bumabalik ang ibaba kapag napilipit na ang lahat ng kanto. Kapag tumigil sa gitna, sira ito.';
 
   @override
   String get introHowCfopIntro =>
       'Cross: apat na edge na pinaplano habang nag-i-inspect.\nF2L: magkasamang pumapasok ang bawat kanto at ang edge nito.\nPinadidilaw ng OLL ang itaas, saka ibinabalik ng PLL ang mga piraso.';
 
   @override
+  String get introHoldCfopIntro =>
+      'Ginagawa ng mga speedcuber ang cross sa ibaba para makita na nila ang susunod na piyesa habang umiikot.';
+
+  @override
+  String get introWhyCfopIntro =>
+      'Ang pag-solve ng kanto kasama ang edge nito ay nakakatipid ng maraming galaw, at ang pagkilala sa kaso ay pumapalit sa hula-hula.';
+
+  @override
   String get introHowF2l =>
       'Maghanap ng kanto at ng katugmang edge nito sa itaas na layer.\nPagpares-parisin sila sa itaas ng slot nila.\nIpasok ang pares sa tatlo o apat na galaw.';
+
+  @override
+  String get introHoldF2l =>
+      'Cross sa ibaba. Ang slot ng pares sa harap-kanan, o sa harap-kaliwa para sa salamin.';
+
+  @override
+  String get introWhyF2l =>
+      'Sabay na pumapasok ang nakapares na kanto at edge, kaya dalawang layer ang lumalaki nang sabay sa halip na isa-isang piyesa.';
 
   @override
   String get introHowOll =>
       'Una ang dilaw na cross gamit ang F R U R\' U\' F\'.\nSaka i-orient ang mga kanto, halimbawa gamit ang Sune.\nKilalanin ang kaso mula sa dilaw na nakikita mo.';
 
   @override
+  String get introHoldOll =>
+      'Dilaw sa itaas. Sa Sune, ang nag-iisang kantong nakataas ang dilaw ay nasa harap-kaliwa.';
+
+  @override
+  String get introWhyOll =>
+      'Ang paghahati sa huling layer sa orientation muna, saka permutation, ay nagpapanatiling kaunti ang algorithm.';
+
+  @override
   String get introHowPll =>
       'Dilaw na lahat ang itaas.\nNagpapalit ng kanto ang T-perm; nagpapaikot ng tatlong edge ang U-perm.\nBasahin ang mga kulay sa gilid para pumili ng algorithm.';
 
   @override
+  String get introHoldPll =>
+      'Dilaw sa itaas. T-perm: headlights sa kaliwa. U-perm: ang tapos na gilid sa likod.';
+
+  @override
+  String get introWhyPll =>
+      'Kapag dilaw na ang buong itaas, puwesto na lang ng piyesa ang mali, at ilang palitan lang ay tapos na ang cube.';
+
+  @override
   String get introHowTwoFirst =>
-      'Puro kanto lang ang 2×2, parang 3×3 na walang edge.\nDalhin ang bawat puting kanto sa itaas ng puwesto nito.\nUlitin ang R U R\' U\' hanggang pumasok ito.';
+      'Pumili ng puting kanto bilang angkla, puti pababa.\nDalhin ang bawat susunod na kanto sa ibabaw ng puwesto nito sa harap-kanan.\nUlitin ang R U R\' U\' hanggang pumasok itong tugma ang kulay sa gilid.';
+
+  @override
+  String get introHoldTwoFirst =>
+      'Puti sa ibaba. Ang bakanteng puwesto sa harap-kanan, at ang kanto nito ay mismong nasa ibabaw sa itaas na layer.';
+
+  @override
+  String get introWhyTwoFirst =>
+      'Walang center ang 2×2: ang unang kantong inilagay ang nagtatakda ng kulay ng mga katabi, kaya mahalaga ang kulay sa gilid, hindi lang ang puti.';
 
   @override
   String get introHowTwoOll =>
-      'Panatilihin sa ibaba ang puting layer.\nPinipihit ng Sune (R U R\' U R U2 R\') ang mga kanto sa itaas.\nUlitin mula sa tamang anggulo hanggang dilaw na lahat ang itaas.';
+      'Bilangin ang mga kantong nakataas ang dilaw.\nKung isa, ilagay ito sa harap-kaliwa at gawin ang Sune: R U R\' U R U2 R\'.\nBilangin ulit at ulitin; hanggang tatlong Sune lang.';
+
+  @override
+  String get introHoldTwoOll =>
+      'Puti sa ibaba, dilaw sa itaas. Bago ang bawat Sune, ang kantong nakataas ang dilaw ay nasa harap-kaliwa.';
+
+  @override
+  String get introWhyTwoOll =>
+      'Pinipilipit ng Sune ang mga kanto sa itaas nang hindi sinisira ang puting layer; ang muling pagbilang ang nagsasabi kung paano hahawakan sa susunod.';
 
   @override
   String get introHowTwoPbl =>
-      'Maghanap ng gilid na may dalawang kantong tugma na.\nMagkatabing palitan: isang algorithm na parang T-perm.\nPahilis na palitan: isang mas mahabang algorithm.';
+      'Hanapin ang headlights: dalawang magkaparehong sticker sa itaas sa iisang gilid.\nMay headlights sa isang gilid: ilagay sa kaliwa at gawin ang T-perm.\nWalang headlights: gawin ang Y-perm mula sa kahit anong gilid, saka ihanay ang itaas.';
+
+  @override
+  String get introHoldTwoPbl =>
+      'Puti sa ibaba, dilaw sa itaas. T-perm: headlights sa kaliwa. Y-perm: kahit anong gilid na nakaharap sa iyo.';
+
+  @override
+  String get introWhyTwoPbl =>
+      'Kapag dilaw na ang itaas, puwesto na lang ng kanto ang mali: nagpapalit ng dalawang magkatabi ang T-perm, at ng dalawang pahilis ang Y-perm.';
 
   @override
   String get introHowBigIntro =>
       'Walang nakapirming center: apat na center piece ang bumubuo sa kulay ng mukha.\nAng mga wide na galaw tulad ng Rw ay umiikot ng dalawang layer nang sabay.\nAng mga inner na galaw tulad ng 2R ay umiikot ng isang inner slice lang.';
 
   @override
+  String get introHoldBigIntro =>
+      'Sa simula, kahit paano: walang nakapirming center sa 4×4, kaya ikaw ang pipili kung saan ang bawat kulay.';
+
+  @override
+  String get introWhyBigIntro =>
+      'Pinagsasama ng reduction ang mga center at edge piece para ma-solve ang malaking cube na parang 3×3.';
+
+  @override
   String get introHowBigCenters =>
-      'Buuin muna ang dalawang magkatapat na center.\nNagpapalit ng center piece ang mga inner slice nang hindi sinisira ang tapos na.\nTapusin ang huling apat na center sa parehong paraan.';
+      'Suriin muna ang ayos ng kulay sa isang kanto.\nBuuin ang dalawang magkatapat na center, saka ang apat pa.\nAng inner slice ang naglilipat ng center pieces; laging ibalik ang slice na binuksan mo.';
+
+  @override
+  String get introHoldBigCenters =>
+      'Ang mukhang binubuo mo ay nasa harap; ang tapos na center ay nasa kaliwa at kanan, malayo sa daan.';
+
+  @override
+  String get introWhyBigCenters =>
+      'Naglilipat ng center ang slice, at ibinabalik ng pagbawi nito ang tapos na, kaya ang piyesang target mo lang ang nagbabago.';
 
   @override
   String get introHowBigEdges =>
-      'Maghanap ng dalawang edge piece na pareho ang kulay.\nIhanay sila nang magkatabi gamit ang inner slice.\nItabi ang pares at ibalik ang mga center.';
+      'Hanapin ang dalawang wing na may parehong dalawang kulay.\nIhanay sa harap at pagsamahin gamit ang Uw\'.\nMagpasok ng edge na hindi pa nakapares, saka ibinabalik ng Uw ang mga center.';
+
+  @override
+  String get introHoldBigEdges =>
+      'Ang edge na pinapares mo ay nasa harap na layer; nakaparada sa itaas at ibaba ang tapos na edge.';
+
+  @override
+  String get introWhyBigEdges =>
+      'Inilalayo ng Uw\' ang mga center para magtagpo ang dalawang wing; ibinabalik sila ng Uw kaya buo pa rin ang trabaho mo.';
 
   @override
   String get introHowBigParity =>
-      'Lutasin ang 4×4 na parang 3×3 hanggang maipit.\nIsang baligtad na edge: ang mahabang OLL parity algorithm.\nDalawang nagpalit na edge: 2R2 U2 2R2 Uw2 2R2 Uw2.';
+      'I-solve ang 4×4 na parang 3×3 hanggang maipit.\nIsang baligtad na edge: ang mahabang OLL parity algorithm.\nDalawang nagpalit na edge: 2R2 U2 2R2 Uw2 2R2 2U2.';
+
+  @override
+  String get introHoldBigParity =>
+      'Huling layer sa itaas. OLL parity: ang baligtad na edge sa harap. PLL parity: ang nagpalit na edge sa harap at likod.';
+
+  @override
+  String get introWhyBigParity =>
+      'Puwedeng mapunta ang mga wing sa estadong hindi kayang abutin ng 3×3; iniikot ng mga algorithm na ito ang inner layer para bawiin mismo iyon.';
 
   @override
   String get dirFaceR => 'Kanang bahagi';
@@ -1558,13 +1716,13 @@ class AppLocalizationsFil extends AppLocalizations {
   String get stageParity => 'Ayusin ang parity';
 
   @override
-  String get stageCrown1 => 'Unang korona (puti)';
+  String get stageCrown1 => 'Unang layer (puti)';
 
   @override
-  String get stageCrown2 => 'Ikalawang korona';
+  String get stageCrown2 => 'Ikalawang layer';
 
   @override
-  String get stageCrown3 => 'Ikatlong korona (dilaw)';
+  String get stageCrown3 => 'Ikatlong layer (dilaw)';
 
   @override
   String get stageOrient => 'I-orient ang mga piraso';
@@ -1608,6 +1766,14 @@ class AppLocalizationsFil extends AppLocalizations {
       'Hindi kailanman gumagalaw ang pinakagitnang piraso ng bawat mukha.\nAng bawat edge ay isang gitnang piraso na may dalawang wing.\nGinagalaw ng inner slice ang mga piraso nang hindi ginagalaw ang labas.';
 
   @override
+  String get introHoldFiveIntro =>
+      'Kahit paano: sa 5×5 hindi kailanman gumagalaw ang gitna ng bawat mukha, kaya ito ang nagpapakita ng kulay.';
+
+  @override
+  String get introWhyFiveIntro =>
+      'Ang nakapirming center ang nagtatakda ng color scheme, kaya hindi mabubuo ang mga center sa maling ayos.';
+
+  @override
   String get lessonFiveCenters => 'Mga center ng 5×5';
 
   @override
@@ -1620,7 +1786,15 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get introHowFiveCenters =>
-      'Magsimula sa gitnang piraso: ito ang nagsasabi ng kulay.\nGumawa ng mga bar na tigtatlo at ipasok gamit ang inner slice.\nSabay na tapusin ang huling dalawang center.';
+      'Magsimula sa nakapirming gitnang piyesa: ito ang nagtatakda ng kulay.\nGumawa ng tig-tatlong bar at ipasok gamit ang inner slice.\nAng galaw na nagpapasok ng bar ang nagbabalik din sa tapos na center.';
+
+  @override
+  String get introHoldFiveCenters =>
+      'Ang center na binubuo mo ay nasa harap o itaas; ang tapos ay nasa ibaba, kaliwa o kanan.';
+
+  @override
+  String get introWhyFiveCenters =>
+      'Slice papasok, ikot sa itaas, slice pabalik: ang slice na nagpapasok ng bar ang nagbabalik din sa tapos na center.';
 
   @override
   String get lessonFiveEdges => 'Mga edge ng 5×5';
@@ -1635,21 +1809,37 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get introHowFiveEdges =>
-      'Itugma ang dalawang wing sa gitnang edge nila sa harap.\nIikot ang inner layer, ipalit ang hindi pa tapos na edge, at ibalik.\nIpares ang huling mga edge nang hindi sinisira ang tapos na.';
+      'Itugma sa harap ang bawat wing sa gitnang edge nito.\nIkutin ang inner layer, magpasok ng hindi pa ayos na edge, ibalik.\nSa huling mga edge: slice, baligtad, slice.';
+
+  @override
+  String get introHoldFiveEdges =>
+      'Ang edge na binubuo mo ay nasa harap; nakatago sa itaas at ibabang layer ang tapos na edge.';
+
+  @override
+  String get introWhyFiveEdges =>
+      'Ang pagbukas at pagsara ng inner slice ang nagdudugtong ng mga wing, habang bumabalik ang mga center at nakatagong edge.';
 
   @override
   String get lessonFiveSolve => 'Lutasin ang 5×5 na parang 3×3';
 
   @override
-  String get lessonFiveSolveDesc => 'Tapusin gamit ang tatlong korona.';
+  String get lessonFiveSolveDesc => 'Tapusin nang layer by layer, gaya ng 3×3.';
 
   @override
   String get introGoalFiveSolve =>
-      'Lutasin ang na-reduce na 5×5 na parang 3×3, korona por korona.';
+      'I-solve ang na-reduce na 5×5 na parang 3×3, layer by layer, gamit lang ang panlabas na ikot.';
 
   @override
   String get introHowFiveSolve =>
-      'Mula ngayon, panlabas na ikot lang.\nUnang korona, ikalawa, saka ang dilaw na korona.\nIpinapakita ng nakapirming gitna ang kulay ng bawat mukha.';
+      'Panlabas na ikot na lang mula ngayon, kung hindi ay maghihiwalay ang mga nakapares na edge.\nPuting cross at mga kanto, gitnang layer, saka dilaw na layer.\nAng mga nakapirming center ang nagpapakita ng kulay ng bawat mukha.';
+
+  @override
+  String get introHoldFiveSolve =>
+      'Ang kulay ng unang layer sa ibaba, gaya mismo sa 3×3; ang kantong ipapasok sa harap-kanan.';
+
+  @override
+  String get introWhyFiveSolve =>
+      'Paghihiwalayin ulit ng inner turn ang mga center at edge; ang panlabas na ikot ay tinatrato ang bawat bloke bilang isang piyesa ng 3×3.';
 
   @override
   String get lessonFiveParity => 'Edge parity ng 5×5';
@@ -1660,11 +1850,19 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get introGoalFiveParity =>
-      'Ayusin ang iisang edge na nagpalit ang dalawang wing, saka tapusin.';
+      'Ayusin ang nag-iisang edge na nagpalit ang dalawang panlabas na wing: ang tanging parity ng 5×5.';
 
   @override
   String get introHowFiveParity =>
-      'Lumalabas ito bilang edge na ayaw mapares.\nGawin nang isang beses ang mahabang ayos ng inner slice.\nBumabalik sa puwesto ang lahat ng iba pa.';
+      'Lumalabas ito bilang huling edge na mukhang baligtad.\nGawin nang isang beses ang mahabang ayos gamit ang inner slice.\nWalang PLL parity sa 5×5.';
+
+  @override
+  String get introHoldFiveParity =>
+      'Huling layer sa itaas, ang edge na nagpalit ang wing sa harap ng itaas na layer.';
+
+  @override
+  String get introWhyFiveParity =>
+      'Sa 5×5, ang dalawang panlabas na wing lang ng isang edge ang puwedeng magpalit, kaya sapat ang isang algorithm.';
 
   @override
   String get lessonSixIntro => 'Kilalanin ang 6×6';
@@ -1682,6 +1880,14 @@ class AppLocalizationsFil extends AppLocalizations {
       'Walang nakapirming center: ikaw ang pipili ng kulay habang bumubuo.\nMay panlabas at panloob na wing ang bawat edge.\nKayang galawin ng wide turn ang hanggang tatlong layer.';
 
   @override
+  String get introHoldSixIntro =>
+      'Sa simula, kahit paano: gaya ng 4×4, walang nakapirming center ang 6×6.';
+
+  @override
+  String get introWhySixIntro =>
+      'Kung kaya mo ang 4×4 at 5×5, ang 6×6 ay parehong reduction na may mas malalaking bloke.';
+
+  @override
   String get lessonSixCenters => 'Mga center ng 6×6';
 
   @override
@@ -1694,7 +1900,15 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get introHowSixCenters =>
-      'Buuin muna ang dalawang magkatapat na center.\nGumawa ng mga bar na tig-aapat at pagdugtungin.\nIlipat ang isang piraso gamit ang trick na slice, itaas, bawi.';
+      'Suriin muna ang ayos ng kulay sa isang kanto: walang nakapirming center.\nGumawa ng tig-apat na bar at pagdugtungin.\nSa huling dalawang center, isa-isang ilipat ang piyesa: slice, itaas, bawiin.';
+
+  @override
+  String get introHoldSixCenters =>
+      'Ang mukhang binubuo mo ay nasa harap; ang tapos na center ay nasa kaliwa, kanan o ibaba.';
+
+  @override
+  String get introWhySixCenters =>
+      'Nagdudugtong ang mga bar gamit ang inner slice, at binabawi ang bawat slice, kaya buo pa rin ang tapos na center.';
 
   @override
   String get lessonSixEdges => 'Mga edge ng 6×6';
@@ -1708,21 +1922,37 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get introHowSixEdges =>
-      'Ihanay sa harap ang panlabas at panloob na wing.\nAng malalim na wide layer ang nagpapasok at naglalabas ng edge.\nHindi kailanman nasisira ang tapos na edge.';
+      'Ihanay sa harap ang panlabas at panloob na wing ng isang edge.\nAng malalim na wide layer ang nagpapasok at naglalabas ng edge.\nHuwag kailanman sirain ang tapos na edge para mapalaya ang isang piyesa.';
+
+  @override
+  String get introHoldSixEdges =>
+      'Ang edge na binubuo mo ay nasa harap; nakaparada sa itaas at ibaba ang tapos na edge.';
+
+  @override
+  String get introWhySixEdges =>
+      'Inilalayo ng malalim na wide turn ang mga center para magtagpo ang mga wing, saka ibinabalik sila.';
 
   @override
   String get lessonSixSolve => 'Lutasin ang 6×6 na parang 3×3';
 
   @override
-  String get lessonSixSolveDesc => 'Tapusin gamit ang tatlong korona.';
+  String get lessonSixSolveDesc => 'Tapusin nang layer by layer, gaya ng 3×3.';
 
   @override
   String get introGoalSixSolve =>
-      'Lutasin ang na-reduce na 6×6 na parang 3×3, korona por korona.';
+      'I-solve ang na-reduce na 6×6 na parang 3×3, layer by layer, gamit lang ang panlabas na ikot.';
 
   @override
   String get introHowSixSolve =>
-      'Mula ngayon, panlabas na ikot lang.\nIpinapakita ng mga center na binuo mo ang kulay ng bawat mukha.\nUnang korona, ikalawa, saka ang dilaw na korona.';
+      'Panlabas na ikot na lang mula ngayon: masisira ng slice ang center o edge.\nAng mga center na binuo mo ang nagpapakita ng kulay ng bawat mukha.\nPuting cross at mga kanto, gitnang layer, saka dilaw na layer.';
+
+  @override
+  String get introHoldSixSolve =>
+      'Ang kulay ng unang layer sa ibaba, gaya mismo sa 3×3; ang kantong ipapasok sa harap-kanan.';
+
+  @override
+  String get introWhySixSolve =>
+      'Ginagalaw ng panlabas na ikot ang bawat 4×4 center at bawat edge bilang isang piyesa, gaya mismo ng 3×3.';
 
   @override
   String get lessonSixParity => 'Parity ng 6×6';
@@ -1737,14 +1967,22 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get introHowSixParity =>
-      'Lutasin na parang 3×3 hanggang maipit.\nIsang baligtad na edge: ang mahabang parity fix.\nDalawang nagpalit na edge: ang maikling ayos na may dobleng ikot.';
+      'I-solve na parang 3×3 hanggang maipit.\nIsang baligtad na edge: ang mahabang ayos gamit ang 3Rw.\nDalawang nagpalit na edge: ang maikling ayos na may dobleng inner turn.';
+
+  @override
+  String get introHoldSixParity =>
+      'Huling layer sa itaas. Ang baligtad na edge sa harap; kung dalawang nagpalit, sa harap at likod.';
+
+  @override
+  String get introWhySixParity =>
+      'Gaya ng 4×4, puwedeng matapos ang 6×6 na may isang baligtad o dalawang nagpalit na edge; inaayos ito ng mga inner-layer algorithm at iniiwan ang iba.';
 
   @override
   String get stepFivePieces => 'Ang mga piraso ng 5×5';
 
   @override
   String get stepFivePiecesBody =>
-      'Hindi gumagalaw ang pinakagitnang piraso ng bawat mukha, kaya ito pa rin ang nagsasabi ng kulay, gaya sa 3×3. Sa paligid nito may walo pang center piece; may gitnang piraso at dalawang wing ang bawat edge, at ang mga kanto ay gaya ng sa 3×3.';
+      'Hindi kailanman gumagalaw ang gitnang piyesa ng bawat mukha, kaya hindi puwedeng magkamali ang color scheme. Sa paligid nito ay walong center piece: hindi nagpapalit ng uri ang corner center at edge center. Ang bawat edge ay gitnang piyesa na may dalawang wing.';
 
   @override
   String get stepFiveSlices => 'Tatlong uri ng ikot';
@@ -1758,7 +1996,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get stepFiveCenterBarBody =>
-      'Gumawa ng hanay ng tatlong magkaparehong center piece, saka i-slide ito sa tabi ng katugmang gitna gamit ang inner slice. Tatlong bar ang bumubuo ng tapos na center.';
+      'Gumawa ng hanay ng tatlong magkatugmang center piece, ipasok gamit ang inner slice, ikutin ang itaas at ibalik ang slice: ang galaw na nagpapasok ng bar ang nagbabalik din sa tapos na center. Tatlong bar ang isang center.';
 
   @override
   String get stepFiveCenterSwap => 'Magpalit nang hindi sinisira';
@@ -1772,35 +2010,35 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get stepFiveEdgePairBody =>
-      'Ihanay ang dalawang wing sa tabi ng gitnang edge nila sa harap, ibaba ang inner layer, ipasok mula sa itaas ang hindi pa tapos na edge, saka ibalik ang inner layer.';
+      'Ihanay sa harap ang isang wing sa tabi ng katugmang gitnang edge nito, ibaba ang inner layer, magpasok ng hindi pa ayos na edge gamit ang maikling trigger, saka ibalik ang inner layer.';
 
   @override
   String get stepFiveEdgeLast => 'Ang huling mga edge';
 
   @override
   String get stepFiveEdgeLastBody =>
-      'Kapag kaunti na lang ang edge, isang wide turn, maikling trigger at ang wide turn pabalik ang magpapares sa kanila nang hindi sinisira ang tapos na.';
+      'Kapag wala nang bakanteng edge na maipapasok, gamitin ang slice, baligtad, slice: isang wide turn, maikling trigger at ang wide turn pabalik ang nagpapares sa huling mga edge nang hindi sinisira ang tapos na.';
 
   @override
   String get stepFiveAsThree => 'Ngayon ay 3×3 na ito';
 
   @override
   String get stepFiveAsThreeBody =>
-      'Kapag tapos ang mga center at edge, parang malaking 3×3 na ang 5×5. Panlabas na ikot lang ang gamitin at sundan ang tatlong korona: puting cross at kanto, gitnang layer, saka dilaw na layer.';
+      'Kapag tapos na ang mga center at edge, kumikilos ang 5×5 na parang malaking 3×3. Panlabas na ikot lang at layer by layer: puting cross at mga kanto, gitnang layer, saka dilaw na layer. Walang PLL parity ang 5×5.';
 
   @override
   String get stepFiveEdgeParity => 'Ipalit ang mga wing ng huling edge';
 
   @override
   String get stepFiveEdgeParityBody =>
-      'Minsan nagpalit ang dalawang wing ng huling edge. Ibinabalik sila ng mahabang algorithm ng inner slice at bumabalik ang lahat ng iba sa puwesto. Saka tapusin na parang 3×3.';
+      'Minsan nagpalit ang dalawang panlabas na wing ng huling edge kaya mukha itong baligtad: ang tanging parity ng 5×5. Ilagay ito sa harap ng itaas na layer at gawin nang isang beses ang inner-slice algorithm; babalik sa puwesto ang lahat ng iba.';
 
   @override
   String get stepSixPieces => 'Ang mga piraso ng 6×6';
 
   @override
   String get stepSixPiecesBody =>
-      'Gaya ng 4×4, walang nakapirming center ang 6×6: labing-anim na center piece ang bumubuo sa kulay ng bawat mukha. Apat na piraso ang bawat edge: dalawang panlabas na wing at dalawang panloob.';
+      'Gaya ng 4×4, walang nakapirming center ang 6×6: labing-anim na center piece ang bumubuo sa kulay ng bawat mukha, kaya suriin muna ang ayos ng kulay sa isang kanto. Apat na wing ang bawat edge: dalawang panlabas at dalawang panloob.';
 
   @override
   String get stepSixSlices => 'Pag-ikot ng mas malalalim na layer';
@@ -1814,49 +2052,49 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get stepSixCenterBarBody =>
-      'Gumawa ng mga hanay ng apat na magkaparehong center piece at i-slide sila nang magkatabi gamit ang inner slice hanggang iisang kulay ang mukha.';
+      'Gumawa ng mga hanay ng apat na magkatugmang center piece at pagtabihin gamit ang inner slice, binabawi ang bawat slice, hanggang maging iisang kulay na 4×4 na bloke ang mukha.';
 
   @override
   String get stepSixCenterSwap => 'Isang piraso bawat beses';
 
   @override
   String get stepSixCenterSwapBody =>
-      'Iikot ang ikatlong layer, iikot ang itaas, bawiin, ibalik: lumilipat ang isang center piece at bumabalik ang tapos na center.';
+      'Ikutin ang ikatlong layer, ikutin ang itaas, bawiin, ibalik: isang center piece ang lumilipat at bumabalik ang tapos na center. Gamitin ito sa huling dalawang center, kapag walang bar na kasya.';
 
   @override
   String get stepSixEdgePair => 'Apat na piraso, isang edge';
 
   @override
   String get stepSixEdgePairBody =>
-      'Tipunin sa harap ang apat na piraso ng isang edge gamit ang malalim na wide layer, ipasok ang hindi pa tapos na edge, at ibalik ang wide layer.';
+      'Ipunin sa harap ang apat na wing ng isang edge gamit ang malalim na wide layer, magpasok ng hindi pa ayos na edge gamit ang maikling trigger, saka ibalik ang wide layer.';
 
   @override
   String get stepSixEdgeLast => 'Ang huling mga edge';
 
   @override
   String get stepSixEdgeLastBody =>
-      'Ipares ang huling mga edge gamit ang maikling trigger sa pagitan ng malalim na wide turn at ng pagbawi nito, para manatiling magkapares ang tapos na edge.';
+      'Ipares ang huling mga edge gamit ang maikling trigger sa pagitan ng malalim na wide turn at ng pagbawi nito, para manatiling nakapares ang tapos na edge. Huwag kailanman sirain ang tapos na edge para mapalaya ang isang piyesa.';
 
   @override
   String get stepSixAsThree => 'Ngayon ay 3×3 na ito';
 
   @override
   String get stepSixAsThreeBody =>
-      'Gamit ang 4×4 na center at magkapares na edge, lutasin ang 6×6 na parang 3×3 gamit ang panlabas na ikot at tatlong korona.';
+      'Kapag may 4×4 center at nakapares na edge na, i-solve ang 6×6 na parang 3×3, layer by layer, gamit lang ang panlabas na ikot. Ang isang baligtad o dalawang nagpalit na edge sa dulo ay parity, hindi pagkakamali.';
 
   @override
   String get stepSixOllParity => 'Isang baligtad na edge';
 
   @override
   String get stepSixOllParityBody =>
-      'Kung isang edge lang ang mukhang baligtad habang nilulutas ang huling layer, parity iyon. Ilagay ito sa harap ng itaas na layer at gawin ang mahabang ayos: babalik nang buo ang unang dalawang korona.';
+      'Ang iisang edge na mukhang baligtad sa huling layer ay parity. Ilagay ito sa harap ng itaas na layer at gawin ang mahabang ayos: binabaligtad nito ang apat na wing, pinagpapalit din ang kaliwa at kanang edge sa itaas, at hindi ginagalaw ang unang dalawang layer.';
 
   @override
   String get stepSixPllParity => 'Dalawang nagpalit na edge';
 
   @override
   String get stepSixPllParityBody =>
-      'Kung dalawang edge ang mukhang nagpalit sa pinakadulo, ilagay sila sa harap at likod ng itaas na layer at gawin ang maikling ayos ng panloob na dobleng ikot.';
+      'Kung mukhang nagpalit ang dalawang edge sa pinakahuli, hawakan ang mga ito sa harap at likod ng itaas na layer at gawin ang maikling ayos na may dobleng inner turn: nagpapalit ng puwesto ang apat na wing ng dalawang edge.';
 
   @override
   String get stageTwoFirstLayer => 'Buuin ang ibabang layer';
@@ -2383,7 +2621,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String cueCrossFlipped(String piece, String center) {
-    return 'Nasa puwesto na ang edge na $piece pero baligtad: nakaharap sa gilid ang puti nito. Ilabas ito, saka ibalik sa tabi ng $center na center sa tamang ayos.';
+    return 'Nasa puwesto na ang $piece na edge pero baligtad: patagilid ang puti nito. Ilabas ito at iakyat na puti pataas, saka ibaba sa tabi ng $center na center.';
   }
 
   @override
@@ -2398,7 +2636,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String cueCornerTwisted(String piece) {
-    return 'Nasa puwesto na ang kanto na $piece pero nakapihit. Inilalabas ito ng isang trigger (isang dilaw na kanto ang papalit); ulitin hanggang bumalik ito nang tama.';
+    return 'Nasa slot na ang $piece na kanto pero nakapilipit. Inilalabas ito ng isang trigger (isang dilaw na kanto ang papalit); ulitin lang sa parehong slot hanggang bumalik ito na puti pababa. Huwag iikot ang cube para habulin ito.';
   }
 
   @override
@@ -2413,7 +2651,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String cueMiddleFlipped(String piece, String a, String b) {
-    return 'Nasa puwesto na ang edge na $piece pero baligtad. Magpasok doon ng dilaw na edge para itulak ito palabas, saka ipasok ulit sa pagitan ng $a at $b.';
+    return 'Nasa slot na ang $piece na edge pero baligtad. Magpasok doon ng dilaw na edge para itulak ito pataas, saka ipasok itong muli sa pagitan ng $a at $b.';
   }
 
   @override
@@ -2428,7 +2666,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String cueYellowDot(String front) {
-    return 'Ang center lang ang dilaw: isang tuldok. Gawin ang algorithm nang isang beses, nakaharap sa iyo ang $front, para magkaroon ng L.';
+    return 'Center lang ang dilaw: tuldok. Gawin nang isang beses ang algorithm na nakaharap sa iyo ang $front para makakuha ng L. Puwedeng tumagal nang tatlong ikot ang tuldok, kaya tuloy lang.';
   }
 
   @override
@@ -2458,7 +2696,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String cueTwistCorner(String piece) {
-    return 'Pihitin ang kanto na $piece sa harap-kanan: ulitin ang pababang trigger hanggang nakaharap paitaas ang dilaw nito. Mukhang gulo muna ang ibabang mga layer; normal iyan!';
+    return 'Pilipitin ang $piece na kanto sa harap-kanan: ulitin ang down-trigger nang pares-pares hanggang pataas ang dilaw nito. Mukhang magulo muna ang ibabang layer; babalik sila sa huling kanto!';
   }
 
   @override
@@ -2536,16 +2774,16 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String cueParityOll(String front) {
-    return 'OLL parity: baligtad ang isang edge sa itaas, na hindi nangyayari sa 3×3. Panatilihin ito sa harap, nakaharap sa iyo ang $front, at gawin ang parity fix.';
+    return 'OLL parity: baligtad ang isang edge sa itaas, na hindi nangyayari sa 3×3. Ilagay ito sa harap, nakaharap sa iyo ang $front, at gawin ang parity fix bago ang kahit anong karaniwang OLL.';
   }
 
   @override
   String get cueParityPll =>
-      'PLL parity: nagpalit ang dalawang edge sa itaas, na hindi nangyayari sa 3×3. Panatilihin sila sa harap at likod at gawin ang parity swap.';
+      'PLL parity: nagpalit ang dalawang edge sa itaas, na hindi nangyayari sa 3×3. Ilagay ang mga ito sa harap at likod, gawin ang parity swap, saka ihanay ang itaas.';
 
   @override
   String cueParityFive(String front) {
-    return 'Edge parity: nagpalit ang dalawang panlabas na piraso ng isang edge. Iharap ang edge na iyon, nakaharap sa iyo ang $front, ayusin ito, saka ibalik.';
+    return 'Edge parity: nagpalit ang dalawang panlabas na wing ng isang edge, ang tanging parity ng 5×5. Ilagay ang edge na iyon sa harap, nakaharap sa iyo ang $front, at gawin ang ayos nang isang beses.';
   }
 
   @override
@@ -2577,7 +2815,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get onboardingLearnBody =>
-      'Masterin ang paraang 3 korona sa Akademya, saka malayang pumihit, maghalo at lumutas sa 3D Playground.';
+      'Masterin ang layer-by-layer na paraan sa Academy, saka mag-ikot, mag-scramble at mag-solve nang malaya sa 3D Playground.';
 
   @override
   String get scanChoiceManualDesc =>
@@ -2595,7 +2833,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get crownExplain =>
-      'Ang korona ay isang pahalang na layer ng cube: ang unang korona ay ang puting layer sa ibaba, ang ikalawa ay ang gitnang layer at ang ikatlo ay ang dilaw na layer sa itaas.';
+      'Ang layer ay isang pahalang na hiwa ng cube: ang unang layer ay ang puting layer sa ibaba, ang ikalawa ay ang gitnang layer at ang ikatlo ay ang dilaw na layer sa itaas.';
 
   @override
   String get lessonObjectiveHeading => 'Layunin ng pag-aaral';
@@ -2620,7 +2858,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get solveChoiceGuidedDesc =>
-      'Pag-aralan ang paraang 3 korona nang hakbang-hakbang.';
+      'Aralin ang layer-by-layer na paraan nang paisa-isang hakbang.';
 
   @override
   String get guidedSolvedTitle => 'Nalutas!';

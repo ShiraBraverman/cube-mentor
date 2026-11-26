@@ -158,7 +158,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get solveLearn => 'Learn step by step';
 
   @override
-  String get solveModeGuided => 'Guided (3 crowns)';
+  String get solveModeGuided => 'Guided (3 layers)';
 
   @override
   String get solveModeFast => 'Fast (optimal)';
@@ -255,7 +255,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get phaseLblCross => 'White cross';
 
   @override
-  String get phaseLblCorners => 'First crown corners';
+  String get phaseLblCorners => 'First layer corners';
 
   @override
   String get phaseLblMiddle => 'Middle layer edges';
@@ -273,13 +273,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get phaseLblYellowCornersOrient => 'Orient the yellow corners';
 
   @override
-  String get crownFirst => 'First crown';
+  String get crownFirst => 'First layer';
 
   @override
-  String get crownSecond => 'Second crown';
+  String get crownSecond => 'Second layer';
 
   @override
-  String get crownThird => 'Third crown';
+  String get crownThird => 'Third layer';
 
   @override
   String get crownFirstGoal => 'White face and first layer';
@@ -296,11 +296,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get subStepGoal12 =>
-      'Insert the 4 white corners into their matching slots to finish the white face and the whole first ring.';
+      'Insert the 4 white corners into their matching slots to finish the white face and the whole first layer.';
 
   @override
   String get subStepGoal21 =>
-      'Insert the 4 middle-layer edges without disturbing the first crown.';
+      'Insert the 4 middle-layer edges without disturbing the first layer.';
 
   @override
   String get subStepGoal31 => 'Form a yellow cross on the last layer.';
@@ -677,7 +677,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => 'Beginner 3×3: the 3 crowns';
+  String get trackBeginner => 'Beginner 3×3: layer by layer';
 
   @override
   String get trackCfop => 'Intro to CFOP';
@@ -989,77 +989,77 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get stepCrossGoalBody =>
-      'Hold yellow on top. The four white edges go around the white center on the bottom, each side color matching the center next to it.';
+      'Hold yellow on top and green facing you. First gather the four white edges around the yellow center, white facing up, like petals: that\'s the daisy. Then each petal goes down to the white center, its side color matching the center beside it.';
 
   @override
   String get stepCrossTop => 'Edge on top';
 
   @override
   String get stepCrossTopBody =>
-      'Find a white edge on top. Turn the top until its side color sits above the matching center, then turn that face twice to drop it in.';
+      'A white edge on top with white facing up is a daisy petal. Turn the top until its side color sits right above the center of the same color, then turn that face twice (180°) to drop it onto the white center.';
 
   @override
   String get stepCrossMiddle => 'Edge in the middle';
 
   @override
   String get stepCrossMiddleBody =>
-      'An edge stuck in the middle layer goes up first: turn its side up, move the top out of the way and turn the side back, so the cross stays intact. Then place it from the top.';
+      'An edge stuck in the middle layer goes up first: turn its side up, move the top out of the way and turn the side back, so placed pieces stay put. Now it\'s a petal on top: line it up and turn that face twice.';
 
   @override
   String get stepCornersInsert => 'Above its spot';
 
   @override
   String get stepCornersInsertBody =>
-      'Turn the top until a white corner sits above the spot where its colors belong, at the front right. R U R\' U\' then drops it in.';
+      'Turn the top until the white corner sits right above its slot, between the two centers that match its side colors. Here one top turn and R U\' R\' are enough: U brings the corner over its slot and R U\' R\' tucks it in, white facing down.';
 
   @override
   String get stepCornersRepeat => 'Repeat the trigger';
 
   @override
   String get stepCornersRepeatBody =>
-      'If white faces the wrong way, keep repeating R U R\' U\' over the same spot. Every corner is solved after at most five repeats.';
+      'Hold the slot at the front right and repeat R U R\' U\' until white faces down: once if white faces right, three times if it faces up, five times if it faces you. The top looks messy meanwhile; it sorts itself out.';
 
   @override
   String get stepMiddleRight => 'Edge to the right';
 
   @override
   String get stepMiddleRightBody =>
-      'Line up a top edge with its center on the front. If its top color matches the right center, insert it with U R U\' R\' U\' F\' U F.';
+      'Find a top edge with no yellow on it. Turn the top until its front color matches the center facing you. If its top color matches the right center, send it right: U R U\' R\' U\' F\' U F.';
 
   @override
   String get stepMiddleLeft => 'Edge to the left';
 
   @override
   String get stepMiddleLeftBody =>
-      'If its top color matches the left center instead, use the mirror: U\' L\' U L U F U\' F\'.';
+      'If its top color matches the left center instead, use the mirror: U\' L\' U L U F U\' F\'. The white layer comes back whole every time.';
 
   @override
   String get stepYellowCross => 'One algorithm';
 
   @override
   String get stepYellowCrossBody =>
-      'F R U R\' U\' F\' turns a yellow dot into an L, an L into a line and a line into the cross. Hold the L at the back left and the line sideways.';
+      'Look only at the yellow edges on top. Hold an L at the back left and a line from left to right, then do F R U R\' U\' F\'. A line needs it once, an L twice, a dot up to three times.';
 
   @override
   String get stepYellowEdges => 'Match the edges';
 
   @override
   String get stepYellowEdgesBody =>
-      'Turn the top until two edges match their centers. With one at the back and one on the right, R U R\' U R U2 R\' U swaps the other two.';
+      'Turn the top until two edges match their side centers. With one at the back and one on the right, R U R\' U R U2 R\' U swaps the front and left edges.';
 
   @override
   String get stepPlaceCorners => 'Place them';
 
   @override
   String get stepPlaceCornersBody =>
-      'Hold a corner that is already in its spot at the front right. U R U\' L\' U R\' U\' L moves the other three around; repeat until all four are home.';
+      'A corner is home when its colors match the three centers around it, even if it\'s twisted. Hold a home corner at the front right: U R U\' L\' U R\' U\' L moves the other three around. Repeat until all four are home.';
 
   @override
   String get stepTwistCorners => 'Twist them';
 
   @override
   String get stepTwistCornersBody =>
-      'With an unsolved corner at the front right, repeat R\' D\' R D until yellow is on top, then turn only the top to bring the next one. The bottom looks broken until the very end: keep going.';
+      'With an unsolved corner at the front right, repeat R\' D\' R D in pairs until yellow is on top, then turn only the top to bring the next one. The bottom looks broken until the very last corner: keep going.';
 
   @override
   String get lessonCfopIntro => 'What is CFOP?';
@@ -1152,14 +1152,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get stepTwoIntroBody =>
-      'A 2×2 is a 3×3 without edges and centers. Pick a color, build that face on the bottom, and make the side colors of neighbouring corners match.';
+      'A 2×2 is only eight corners: no edges, no centers. Build the white layer on the bottom so neighbouring side colors match, then finish on one route: Sune for a yellow top, then the T-perm or Y-perm.';
 
   @override
   String get stepTwoCorner => 'Insert corners';
 
   @override
   String get stepTwoCornerBody =>
-      'Exactly like the 3×3 white corners: bring a corner above its spot and use R U R\' U\' until it fits.';
+      'Like the 3×3 white corners: bring a corner above its empty slot at the front right and tuck it in, with U R U\' R\' here or by repeating R U R\' U\' until white faces down. Check its side colors against its neighbour.';
 
   @override
   String get lessonTwoOll => 'Orient the top';
@@ -1172,7 +1172,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get stepTwoSuneBody =>
-      'Sune turns the top yellow on a 2×2 too. Ortega solvers learn seven short cases; Sune and its mirror cover most of them.';
+      'Count the yellow stickers facing up. Hold the one yellow-up corner at the front left and do Sune (R U R\' U R U2 R\'). Count again and re-hold; it takes three Sunes at most. Turn only the top between them.';
 
   @override
   String get lessonTwoPbl => 'Permute both layers';
@@ -1185,14 +1185,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get stepTwoAdjacentBody =>
-      'When two neighbouring top corners must swap, hold them on the right and use the T-perm.';
+      'Headlights are two matching top stickers on one side. Turn the top until the headlights are on the left, so the two corners to swap are on the right, then do the T-perm.';
 
   @override
   String get stepTwoDiagonal => 'Diagonal swap';
 
   @override
   String get stepTwoDiagonalBody =>
-      'Two corners in opposite spots swap with the Y-perm.';
+      'No headlights anywhere means two diagonal corners must swap: do the Y-perm from any side, then turn the top to line everything up.';
 
   @override
   String get lessonBigIntro => 'Big cube pieces';
@@ -1205,7 +1205,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get stepBigPiecesBody =>
-      'On a 4×4 each face has four center pieces that move around, and every edge is made of two wings. Reduction groups them so the cube behaves like a 3×3.';
+      'On a 4×4 each face has four center pieces that move around, and every edge is two wings. No center is fixed, so check the color order on a corner: white opposite yellow, blue opposite green, red opposite orange.';
 
   @override
   String get stepBigSlices => 'Wide and inner turns';
@@ -1225,7 +1225,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get stepBigCenterCycleBody =>
-      'This commutator moves exactly three center pieces and leaves everything else alone, so finished centers stay finished.';
+      'This commutator moves exactly three center pieces and leaves everything else alone, so finished centers stay finished. Use it when one stray piece won\'t join a bar.';
 
   @override
   String get lessonBigEdges => 'Pair the edges';
@@ -1238,7 +1238,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get stepBigEdgePairBody =>
-      'Uw\' lines two matching wings up, R U R\' F R\' F\' R swaps in an unpaired edge, and Uw puts the centers back.';
+      'Uw\' lines up two matching wings, R U R\' F R\' F\' R swaps in an unpaired edge, and Uw brings the centers back. Always close a slice you opened.';
 
   @override
   String get lessonBigParity => 'Parity';
@@ -1251,20 +1251,26 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get stepBigOllParityBody =>
-      'A single flipped edge can\'t happen on a 3×3. On even cubes this algorithm flips the top-front edge back. It may shuffle the rest of the top layer, which the last 3×3 steps fix anyway.';
+      'A single flipped edge can\'t happen on a 3×3: it\'s OLL parity, not a mistake. Keep it at the front of the top layer and play the long algorithm. It also swaps the left and right top edges and two corners; the last 3×3 steps fix those.';
 
   @override
   String get stepBigPllParity => 'PLL parity';
 
   @override
   String get stepBigPllParityBody =>
-      'Two swapped edges at the very end? 2R2 U2 2R2 Uw2 2R2 Uw2 swaps the front and back top edges.';
+      'Two swapped edges at the very end, and no 3×3 algorithm fits? That\'s PLL parity. Hold them at the front and back of the top layer: 2R2 U2 2R2 Uw2 2R2 2U2 swaps them.';
 
   @override
   String get introGoalHeading => 'What\'s the goal?';
 
   @override
   String get introHowHeading => 'How do we do it?';
+
+  @override
+  String get introHoldHeading => 'How to hold it';
+
+  @override
+  String get introWhyHeading => 'Why it works';
 
   @override
   String get introStart => 'Got it, start step by step';
@@ -1290,11 +1296,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get introGoalCross =>
-      'Make a white plus sign where every white edge also matches the center color beside it.';
+      'Make a white plus sign on the bottom where every white edge also matches the center color beside it.';
 
   @override
   String get introGoalCorners =>
-      'Fill in the four white corners so the first crown, the whole white layer, is complete.';
+      'Fill in the four white corners so the whole first layer is done: a white face with matching side colors.';
 
   @override
   String get introGoalMiddle =>
@@ -1340,7 +1346,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get introGoalTwoPbl =>
-      'Swap the last corners into place to solve the 2×2.';
+      'Put the last corners home with one T-perm or Y-perm, then line up the top to solve the 2×2.';
 
   @override
   String get introGoalBigIntro =>
@@ -1356,83 +1362,235 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get introGoalBigParity =>
-      'Fix the two 4×4 cases a 3×3 never has: one flipped edge or two swapped edges.';
+      'Fix the two 4×4 cases a 3×3 never has: one flipped edge (OLL parity) or two swapped edges (PLL parity).';
 
   @override
   String get introHowBasics =>
       'Centers never move, so they tell you each face\'s color.\nEach letter turns one face a quarter turn clockwise.\nAn apostrophe (\') turns it back; a 2 turns it twice.';
 
   @override
+  String get introHoldBasics =>
+      'Any way you like: the centers stay in place, so the colors always tell you which face is which.';
+
+  @override
+  String get introWhyBasics =>
+      'Every algorithm is just these letters in a row, so reading them is the first skill.';
+
+  @override
   String get introHowCross =>
-      'Hold yellow on top: the white cross is built on the bottom.\nFind a white edge and line its side color up with the matching center.\nTurn that face twice to drop the edge into place.';
+      'Bring each white edge to the top, white facing up, around the yellow center: that\'s the daisy.\nTurn the top until a petal\'s side color sits above its matching center.\nTurn that face twice to drop it down; repeat for all four.';
+
+  @override
+  String get introHoldCross =>
+      'Yellow center on top, white center on the bottom, for the whole step. Turn the top layer, not the cube, to line up a petal.';
+
+  @override
+  String get introWhyCross =>
+      'With white facing up on top, two turns of the front face land the edge on the white center, white facing down, already matching its side.';
 
   @override
   String get introHowCorners =>
-      'Bring a white corner above its empty spot.\nRepeat R U R\' U\' until it drops in the right way round.\nDo the same for the other three corners.';
+      'Turn the top until a white corner sits above its empty slot, and hold that slot at the front right.\nRepeat R U R\' U\': once if white faces right, three times if it faces up, five if it faces you.\nDo the same for the other three corners.';
+
+  @override
+  String get introHoldCorners =>
+      'White on the bottom, yellow on top. The corner sits at the front right, directly above its slot.';
+
+  @override
+  String get introWhyCorners =>
+      'R U R\' U\' lifts the slot and puts it back: each round twists the corner a little until white faces down, and the cross is never broken.';
 
   @override
   String get introHowMiddle =>
-      'Find a top edge without yellow and match its front color to a center.\nSend it right or left with a short 8-move algorithm.\nThe white layer comes back intact every time.';
+      'Find a top edge with no yellow on it and match its front color to the center below.\nIts top color says where it goes: right or left.\nSend it with the 8-move insert; the white layer comes back every time.';
+
+  @override
+  String get introHoldMiddle =>
+      'White on the bottom, yellow on top. The edge sits on the front, its front color matching the center below it.';
+
+  @override
+  String get introWhyMiddle =>
+      'The insert lifts the slot out of the way, slides the edge in and brings the white layer back. An edge with yellow belongs on top, never in the middle.';
 
   @override
   String get introHowYellowCross =>
-      'Look at the top: a dot, an L or a line.\nHold it as shown and do F R U R\' U\' F\'.\nRepeat until the yellow cross appears.';
+      'Look only at the yellow edges on top: a dot, an L or a line.\nHold the L at the back left, the line from left to right, and do F R U R\' U\' F\'.\nA line needs it once, an L twice, a dot up to three times.';
+
+  @override
+  String get introHoldYellowCross =>
+      'White on the bottom, yellow on top. An L at the back left, a line from left to right; a dot any way.';
+
+  @override
+  String get introWhyYellowCross =>
+      'F R U R\' U\' F\' flips two top edges up at a time without touching the first two layers.';
 
   @override
   String get introHowYellowEdges =>
-      'Turn the top until two edges match their centers.\nHold them at the back and right, then do R U R\' U R U2 R\' U.\nRepeat until all four edges match.';
+      'Turn the top until two edges match their side centers.\nHold them at the back and on the right, then do R U R\' U R U2 R\' U.\nIf the matched edges are opposite, do it once from any side first.';
+
+  @override
+  String get introHoldYellowEdges =>
+      'Yellow on top. One matched edge at the back and the other on the right.';
+
+  @override
+  String get introWhyYellowEdges =>
+      'This algorithm only moves top pieces, so the first two layers always come back.';
 
   @override
   String get introHowYellowCorners =>
-      'A corner is in its spot when its colors match the three faces around it.\nKeep a placed corner at the front right.\nU R U\' L\' U R\' U\' L cycles the other three until they all fit.';
+      'A corner is home when its colors match the three centers around it, even if twisted.\nKeep a home corner at the front right.\nU R U\' L\' U R\' U\' L cycles the other three; repeat until all four fit.';
+
+  @override
+  String get introHoldYellowCorners =>
+      'Yellow on top. A corner that is already home at the front right; if none is, any corner.';
+
+  @override
+  String get introWhyYellowCorners =>
+      'It moves three corners in a circle and leaves the one at the front right in place, so every repeat brings more corners home.';
 
   @override
   String get introHowTwistCorners =>
-      'Hold an unsolved corner at the front right.\nRepeat R\' D\' R D until its yellow faces up.\nTurn only the top for the next one; the bottom fixes itself at the end.';
+      'Hold an unsolved corner at the front right.\nRepeat R\' D\' R D in pairs until its yellow faces up.\nTurn only the top for the next one; the bottom comes back with the last corner.';
+
+  @override
+  String get introHoldTwistCorners =>
+      'Yellow on top, the corner to twist at the front right. Between corners turn only the top, never the whole cube.';
+
+  @override
+  String get introWhyTwistCorners =>
+      'R\' D\' R D twists the corner and scrambles the bottom, but the bottom returns once every corner is twisted. Stopping halfway leaves it broken.';
 
   @override
   String get introHowCfopIntro =>
       'Cross: four edges, planned during inspection.\nF2L: each corner goes in together with its edge.\nOLL makes the top yellow, then PLL moves the pieces home.';
 
   @override
+  String get introHoldCfopIntro =>
+      'Speedcubers build the cross on the bottom, so they can look ahead at the next pieces while they turn.';
+
+  @override
+  String get introWhyCfopIntro =>
+      'Solving a corner and its edge together saves many moves, and recognizing cases replaces trial and error.';
+
+  @override
   String get introHowF2l =>
       'Find a corner and its matching edge in the top layer.\nPair them up above their slot.\nDrop the pair in with three or four moves.';
+
+  @override
+  String get introHoldF2l =>
+      'Cross on the bottom. The pair\'s slot at the front right, or the front left for the mirror.';
+
+  @override
+  String get introWhyF2l =>
+      'A paired corner and edge drop in together, so two layers grow at once instead of one piece at a time.';
 
   @override
   String get introHowOll =>
       'First the yellow cross with F R U R\' U\' F\'.\nThen orient the corners, for example with Sune.\nRecognize the case by the yellow you see.';
 
   @override
+  String get introHoldOll =>
+      'Yellow on top. For Sune, the one corner with yellow facing up goes at the front left.';
+
+  @override
+  String get introWhyOll =>
+      'Splitting the last layer into orient first, then permute keeps the number of algorithms small.';
+
+  @override
   String get introHowPll =>
       'The top is already all yellow.\nThe T-perm swaps corners; the U-perm cycles three edges.\nRead the side colors to choose the algorithm.';
 
   @override
+  String get introHoldPll =>
+      'Yellow on top. T-perm: headlights on the left. U-perm: the finished side at the back.';
+
+  @override
+  String get introWhyPll =>
+      'Once the top is all yellow, only the pieces\' places are wrong, and a few swaps finish the cube.';
+
+  @override
   String get introHowTwoFirst =>
-      'A 2×2 is only corners, like a 3×3 without edges.\nBring each white corner above its spot.\nRepeat R U R\' U\' until it drops in.';
+      'Pick a white corner as your anchor, white facing down.\nBring each next corner above its slot at the front right.\nRepeat R U R\' U\' until it drops in with matching side colors.';
+
+  @override
+  String get introHoldTwoFirst =>
+      'White on the bottom. The empty slot at the front right, its corner right above it on the top layer.';
+
+  @override
+  String get introWhyTwoFirst =>
+      'A 2×2 has no centers: the first corner you place sets the colors of its neighbours, so side colors matter, not only white.';
 
   @override
   String get introHowTwoOll =>
-      'Keep the white layer at the bottom.\nSune (R U R\' U R U2 R\') twists the top corners.\nRepeat from the right angle until the top is all yellow.';
+      'Count the corners with yellow facing up.\nWith one up, hold it at the front left and do Sune: R U R\' U R U2 R\'.\nCount again and repeat; three Sunes at most.';
+
+  @override
+  String get introHoldTwoOll =>
+      'White on the bottom, yellow on top. The corner with yellow up at the front left before each Sune.';
+
+  @override
+  String get introWhyTwoOll =>
+      'Sune twists the top corners without breaking the white layer; recounting each time tells you how to hold it next.';
 
   @override
   String get introHowTwoPbl =>
-      'Look for a side where two corners already match.\nAdjacent swap: one T-perm style algorithm.\nDiagonal swap: one longer algorithm.';
+      'Look for headlights: two matching top stickers on one side.\nHeadlights on one side: hold them on the left and do the T-perm.\nNo headlights: do the Y-perm from any side, then line up the top.';
+
+  @override
+  String get introHoldTwoPbl =>
+      'White on the bottom, yellow on top. T-perm: headlights on the left. Y-perm: any side facing you.';
+
+  @override
+  String get introWhyTwoPbl =>
+      'With the top yellow, only the corners\' places are wrong: the T-perm swaps two neighbours, the Y-perm two diagonals.';
 
   @override
   String get introHowBigIntro =>
       'No center is fixed: four center pieces make up each face color.\nWide moves like Rw turn two layers at once.\nInner moves like 2R turn just one inner slice.';
 
   @override
+  String get introHoldBigIntro =>
+      'Any way you like at first: on a 4×4 no center is fixed, so you choose where each color goes.';
+
+  @override
+  String get introWhyBigIntro =>
+      'Reduction groups centers and edge pieces so the big cube can be solved like a 3×3.';
+
+  @override
   String get introHowBigCenters =>
-      'Build two opposite centers first.\nInner slices swap center pieces without breaking finished ones.\nFinish the last four centers the same way.';
+      'Check the color order from a corner first.\nBuild two opposite centers, then the other four.\nInner slices move center pieces; always undo a slice you opened.';
+
+  @override
+  String get introHoldBigCenters =>
+      'The face you are building in front, finished centers out of the way on the left and right.';
+
+  @override
+  String get introWhyBigCenters =>
+      'A slice moves centers, and undoing it restores the finished ones, so only the piece you aimed for changes.';
 
   @override
   String get introHowBigEdges =>
-      'Find two edge pieces with the same colors.\nLine them up side by side with an inner slice.\nPut the pair away and bring the centers back.';
+      'Find the two wings with the same two colors.\nLine them up on the front and join them with Uw\'.\nSwap in an unpaired edge, then Uw brings the centers back.';
+
+  @override
+  String get introHoldBigEdges =>
+      'The edge you are pairing in the front layers; finished edges parked in the top and bottom layers.';
+
+  @override
+  String get introWhyBigEdges =>
+      'Uw\' moves the centers aside so two wings can meet; Uw puts the centers back, keeping your work.';
 
   @override
   String get introHowBigParity =>
-      'Solve the 4×4 like a 3×3 until it gets stuck.\nOne flipped edge: the long OLL parity algorithm.\nTwo swapped edges: 2R2 U2 2R2 Uw2 2R2 Uw2.';
+      'Solve the 4×4 like a 3×3 until it gets stuck.\nOne flipped edge: the long OLL parity algorithm.\nTwo swapped edges: 2R2 U2 2R2 Uw2 2R2 2U2.';
+
+  @override
+  String get introHoldBigParity =>
+      'The last layer on top. OLL parity: the flipped edge at the front. PLL parity: the swapped edges at the front and back.';
+
+  @override
+  String get introWhyBigParity =>
+      'Edge wings can end up in states a 3×3 can\'t reach; these algorithms turn inner layers to undo exactly that.';
 
   @override
   String get dirFaceR => 'Right side';
@@ -1543,13 +1701,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get stageParity => 'Parity resolution';
 
   @override
-  String get stageCrown1 => 'First crown (white)';
+  String get stageCrown1 => 'First layer (white)';
 
   @override
-  String get stageCrown2 => 'Second crown';
+  String get stageCrown2 => 'Second layer';
 
   @override
-  String get stageCrown3 => 'Third crown (yellow)';
+  String get stageCrown3 => 'Third layer (yellow)';
 
   @override
   String get stageOrient => 'Orient the pieces';
@@ -1593,6 +1751,14 @@ class AppLocalizationsEn extends AppLocalizations {
       'The very middle of each face never moves.\nEach edge is a middle piece with two wings.\nInner slices move pieces without touching the outside.';
 
   @override
+  String get introHoldFiveIntro =>
+      'Any way you like: on a 5×5 the very middle of each face never moves, so it shows that face\'s color.';
+
+  @override
+  String get introWhyFiveIntro =>
+      'Fixed middles set the color scheme, so the centers can\'t be built in the wrong order.';
+
+  @override
   String get lessonFiveCenters => '5×5 centers';
 
   @override
@@ -1604,7 +1770,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get introHowFiveCenters =>
-      'Start from the middle piece: it tells the color.\nBuild bars of three and slide them in with an inner slice.\nFinish the last two centers together.';
+      'Start from the fixed middle piece: it sets the color.\nBuild bars of three and slide them in with an inner slice.\nThe move that brings a bar in also restores the finished center.';
+
+  @override
+  String get introHoldFiveCenters =>
+      'The center you are building in front or on top; finished centers on the bottom, left or right, out of the way.';
+
+  @override
+  String get introWhyFiveCenters =>
+      'Slice in, turn the top, slice back: the slice that brings the bar in also restores the finished centers.';
 
   @override
   String get lessonFiveEdges => '5×5 edges';
@@ -1618,21 +1792,37 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get introHowFiveEdges =>
-      'Match two wings to their middle edge on the front.\nTurn the inner layer, swap in an unsolved edge, turn it back.\nPair the last edges without breaking finished ones.';
+      'Match each wing to its middle edge on the front.\nTurn the inner layer, swap in an unsolved edge, turn it back.\nFor the last edges, use slice, flip, slice.';
+
+  @override
+  String get introHoldFiveEdges =>
+      'The edge you are building at the front; finished edges stored in the top and bottom layers.';
+
+  @override
+  String get introWhyFiveEdges =>
+      'Opening and closing the inner slice joins wings while centers and stored edges come back.';
 
   @override
   String get lessonFiveSolve => 'Solve the 5×5 as a 3×3';
 
   @override
-  String get lessonFiveSolveDesc => 'Finish with the three crowns.';
+  String get lessonFiveSolveDesc => 'Finish layer by layer, like a 3×3.';
 
   @override
   String get introGoalFiveSolve =>
-      'Solve the reduced 5×5 like a 3×3, crown by crown.';
+      'Solve the reduced 5×5 like a 3×3, layer by layer, with outer turns only.';
 
   @override
   String get introHowFiveSolve =>
-      'Only outer turns from now on.\nFirst crown, second crown, then the yellow crown.\nThe fixed middles show each face color.';
+      'Only outer turns from now on, or paired edges split apart.\nWhite cross and corners, the middle layer, then the yellow layer.\nThe fixed middles show each face\'s color.';
+
+  @override
+  String get introHoldFiveSolve =>
+      'The first layer\'s color on the bottom, exactly as on a 3×3; the corner to insert at the front right.';
+
+  @override
+  String get introWhyFiveSolve =>
+      'Inner turns would split centers and edges again; outer turns treat each block as one 3×3 piece.';
 
   @override
   String get lessonFiveParity => '5×5 edge parity';
@@ -1642,11 +1832,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get introGoalFiveParity =>
-      'Fix the one edge whose two wings are swapped, then finish.';
+      'Fix the one edge whose two outer wings are swapped: the only parity a 5×5 has.';
 
   @override
   String get introHowFiveParity =>
-      'It shows up as an edge that will not pair.\nPlay the long inner-slice fix once.\nEverything else returns to its place.';
+      'It shows up as one last edge that looks flipped.\nPlay the long inner-slice fix once.\nThere is no PLL parity on a 5×5.';
+
+  @override
+  String get introHoldFiveParity =>
+      'The last layer on top, the edge with swapped wings at the front of the top layer.';
+
+  @override
+  String get introWhyFiveParity =>
+      'Only the two outer wings of one edge can swap on a 5×5, so a single algorithm covers it.';
 
   @override
   String get lessonSixIntro => 'Meet the 6×6';
@@ -1664,6 +1862,14 @@ class AppLocalizationsEn extends AppLocalizations {
       'No center is fixed: you choose the colors as you build.\nEach edge has outer and inner wings.\nWide turns can move up to three layers.';
 
   @override
+  String get introHoldSixIntro =>
+      'Any way you like at first: like a 4×4, a 6×6 has no fixed center.';
+
+  @override
+  String get introWhySixIntro =>
+      'If you can solve a 4×4 and a 5×5, the 6×6 is the same reduction with bigger blocks.';
+
+  @override
   String get lessonSixCenters => '6×6 centers';
 
   @override
@@ -1675,7 +1881,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get introHowSixCenters =>
-      'Build two opposite centers first.\nMake bars of four and slide them together.\nMove single pieces with a slice, top, undo trick.';
+      'Check the color order from a corner first: no center is fixed.\nBuild bars of four and slide them together.\nFor the last two centers, move single pieces with slice, top, undo.';
+
+  @override
+  String get introHoldSixCenters =>
+      'The face you are building in front, finished centers on the left, right or bottom.';
+
+  @override
+  String get introWhySixCenters =>
+      'Bars join with inner slices, and every slice is undone, so finished centers stay whole.';
 
   @override
   String get lessonSixEdges => '6×6 edges';
@@ -1689,21 +1903,37 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get introHowSixEdges =>
-      'Line up the outer and inner wings on the front.\nThe deep wide layer brings an edge in and out.\nFinished edges are never broken.';
+      'Line up the outer and inner wings of one edge on the front.\nThe deep wide layer brings an edge in and out.\nNever break a finished edge to free a piece.';
+
+  @override
+  String get introHoldSixEdges =>
+      'The edge you are building at the front; finished edges parked in the top and bottom layers.';
+
+  @override
+  String get introWhySixEdges =>
+      'The deep wide turn moves centers aside so wings can meet, then brings them back.';
 
   @override
   String get lessonSixSolve => 'Solve the 6×6 as a 3×3';
 
   @override
-  String get lessonSixSolveDesc => 'Finish with the three crowns.';
+  String get lessonSixSolveDesc => 'Finish layer by layer, like a 3×3.';
 
   @override
   String get introGoalSixSolve =>
-      'Solve the reduced 6×6 like a 3×3, crown by crown.';
+      'Solve the reduced 6×6 like a 3×3, layer by layer, with outer turns only.';
 
   @override
   String get introHowSixSolve =>
-      'Only outer turns from now on.\nThe centers you built show each face color.\nFirst crown, second crown, then the yellow crown.';
+      'Only outer turns from now on: a slice would split a center or an edge.\nThe centers you built show each face\'s color.\nWhite cross and corners, the middle layer, then the yellow layer.';
+
+  @override
+  String get introHoldSixSolve =>
+      'The first layer\'s color on the bottom, exactly as on a 3×3; the corner to insert at the front right.';
+
+  @override
+  String get introWhySixSolve =>
+      'Outer turns move each 4×4 center and each edge as one piece, just like on a 3×3.';
 
   @override
   String get lessonSixParity => '6×6 parity';
@@ -1717,14 +1947,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get introHowSixParity =>
-      'Solve like a 3×3 until it gets stuck.\nOne flipped edge: the long parity fix.\nTwo swapped edges: the short double-turn fix.';
+      'Solve like a 3×3 until it gets stuck.\nOne flipped edge: the long parity fix with 3Rw.\nTwo swapped edges: the short fix of inner double turns.';
+
+  @override
+  String get introHoldSixParity =>
+      'The last layer on top. The flipped edge at the front; for two swapped edges, the front and back.';
+
+  @override
+  String get introWhySixParity =>
+      'Like a 4×4, a 6×6 can end with one flipped or two swapped edges; inner-layer algorithms fix them and leave the rest alone.';
 
   @override
   String get stepFivePieces => 'The pieces of a 5×5';
 
   @override
   String get stepFivePiecesBody =>
-      'The very middle piece of each face never moves, so it still tells the face\'s color, like on a 3×3. Around it sit eight more center pieces; each edge has a middle piece and two wings, and the corners work like a 3×3\'s.';
+      'The very middle piece of each face never moves, so the color scheme can\'t come out wrong. Around it sit eight center pieces: corner centers and edge centers never swap types. Each edge is a middle piece with two wings.';
 
   @override
   String get stepFiveSlices => 'Three kinds of turns';
@@ -1738,7 +1976,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get stepFiveCenterBarBody =>
-      'Build a row of three matching center pieces, then slide it next to the matching middle with an inner slice turn. Three bars make a finished center.';
+      'Build a row of three matching center pieces, slide it in with an inner slice, turn the top and slide back: the move that brings the bar in also restores the finished center. Three bars make a center.';
 
   @override
   String get stepFiveCenterSwap => 'Swap without breaking';
@@ -1752,35 +1990,35 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get stepFiveEdgePairBody =>
-      'Line up two wings beside their matching middle edge on the front, turn the inner layer down, bring in an unsolved edge from the top, then turn the inner layer back.';
+      'Line up a wing beside its matching middle edge on the front, turn the inner layer down, swap in an unsolved edge with a short trigger, then turn the inner layer back.';
 
   @override
   String get stepFiveEdgeLast => 'The last edges';
 
   @override
   String get stepFiveEdgeLastBody =>
-      'With only a few edges left, a wide turn, a short trigger and the wide turn back pair them without breaking finished edges.';
+      'With no free edge left to swap in, use slice, flip, slice: a wide turn, a short trigger and the wide turn back pair the last edges without breaking finished ones.';
 
   @override
   String get stepFiveAsThree => 'Now it is a 3×3';
 
   @override
   String get stepFiveAsThreeBody =>
-      'With centers and edges done, the 5×5 behaves like a big 3×3. Use only outer turns and follow the three crowns: white cross and corners, the middle layer, then the yellow layer.';
+      'With centers and edges done, the 5×5 behaves like a big 3×3. Use only outer turns and go layer by layer: white cross and corners, the middle layer, then the yellow layer. A 5×5 has no PLL parity.';
 
   @override
   String get stepFiveEdgeParity => 'Swap the last edge\'s wings';
 
   @override
   String get stepFiveEdgeParityBody =>
-      'Sometimes the last edge has its two wings swapped. A longer inner-slice algorithm swaps them back while everything else returns to its place. Then finish as a 3×3.';
+      'Sometimes the last edge has its two outer wings swapped, so it looks flipped: the 5×5\'s only parity. Hold it at the front of the top layer and play the inner-slice algorithm once; everything else returns to its place.';
 
   @override
   String get stepSixPieces => 'The pieces of a 6×6';
 
   @override
   String get stepSixPiecesBody =>
-      'Like a 4×4, a 6×6 has no fixed center: sixteen center pieces make up each face color. Each edge has four pieces: two outer wings and two inner wings.';
+      'Like a 4×4, a 6×6 has no fixed center: sixteen center pieces make up each face color, so check the color order on a corner first. Each edge has four wings: two outer and two inner.';
 
   @override
   String get stepSixSlices => 'Turning deeper layers';
@@ -1794,49 +2032,49 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get stepSixCenterBarBody =>
-      'Build rows of four matching center pieces and slide them next to each other with inner slice turns until the face is one solid color.';
+      'Build rows of four matching center pieces and slide them next to each other with inner slice turns, undoing each slice, until the face is one solid 4×4 block.';
 
   @override
   String get stepSixCenterSwap => 'Move one piece at a time';
 
   @override
   String get stepSixCenterSwapBody =>
-      'Turn the third layer, turn the top, undo, turn back: one center piece moves while finished centers come back.';
+      'Turn the third layer, turn the top, undo, turn back: one center piece moves while finished centers come back. Use it for the last two centers, when no bar fits.';
 
   @override
   String get stepSixEdgePair => 'Four pieces, one edge';
 
   @override
   String get stepSixEdgePairBody =>
-      'Collect the four pieces of an edge on the front with the deep wide layer, then bring in an unsolved edge and turn the wide layer back.';
+      'Collect the four wings of an edge on the front with the deep wide layer, swap in an unsolved edge with a short trigger, then turn the wide layer back.';
 
   @override
   String get stepSixEdgeLast => 'The last edges';
 
   @override
   String get stepSixEdgeLastBody =>
-      'Pair the final edges with a short trigger between a deep wide turn and its undo, so finished edges stay paired.';
+      'Pair the final edges with a short trigger between a deep wide turn and its undo, so finished edges stay paired. Never break a finished edge to free a piece.';
 
   @override
   String get stepSixAsThree => 'Now it is a 3×3';
 
   @override
   String get stepSixAsThreeBody =>
-      'With 4×4 centers and paired edges, solve the 6×6 like a 3×3 with outer turns and the three crowns.';
+      'With 4×4 centers and paired edges, solve the 6×6 like a 3×3, layer by layer, with outer turns only. One flipped or two swapped edges at the end is parity, not a mistake.';
 
   @override
   String get stepSixOllParity => 'One flipped edge';
 
   @override
   String get stepSixOllParityBody =>
-      'If a single edge seems flipped while you solve the last layer, it is parity. Hold it at the front of the top layer and play the long fix: the first two crowns come back untouched.';
+      'A single edge that looks flipped in the last layer is parity. Hold it at the front of the top layer and play the long fix: it flips all four wings, also swaps the left and right top edges, and leaves the first two layers untouched.';
 
   @override
   String get stepSixPllParity => 'Two swapped edges';
 
   @override
   String get stepSixPllParityBody =>
-      'If two edges look swapped at the very end, hold them at the front and back of the top layer and play the short fix of inner double turns.';
+      'If two edges look swapped at the very end, hold them at the front and back of the top layer and play the short fix of inner double turns: all four wings of both edges trade places.';
 
   @override
   String get stageTwoFirstLayer => 'Build the bottom layer';
@@ -2417,7 +2655,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String cueCrossFlipped(String piece, String center) {
-    return 'The $piece edge is in its spot but flipped: its white faces sideways. Take it out, then bring it back next to the $center center the right way round.';
+    return 'The $piece edge is in its spot but flipped: its white faces sideways. Take it out and lift it to the top, white facing up, then bring it down next to the $center center.';
   }
 
   @override
@@ -2432,7 +2670,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String cueCornerTwisted(String piece) {
-    return 'The $piece corner is in its slot but twisted. One trigger pops it out (a yellow corner takes its place); keep repeating until it drops back in correctly.';
+    return 'The $piece corner is in its slot but twisted. One trigger pops it out (a yellow corner takes its place); keep repeating over the same slot until it drops back in with white down. Don\'t turn the cube to chase it.';
   }
 
   @override
@@ -2447,7 +2685,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String cueMiddleFlipped(String piece, String a, String b) {
-    return 'The $piece edge is in its slot but flipped. Insert a yellow edge there to push it out, then insert it again between $a and $b.';
+    return 'The $piece edge is in its slot but flipped. Insert a yellow edge there to push it out to the top, then insert it again between $a and $b.';
   }
 
   @override
@@ -2462,7 +2700,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String cueYellowDot(String front) {
-    return 'Only the yellow center is yellow: a dot. Apply the algorithm once with $front facing you to get an L.';
+    return 'Only the yellow center is yellow: a dot. Apply the algorithm once with $front facing you to get an L. A dot can take three rounds, so keep going.';
   }
 
   @override
@@ -2492,7 +2730,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String cueTwistCorner(String piece) {
-    return 'Twist the $piece corner at the front right: repeat the down-trigger until its yellow faces up. The lower layers look messy for now; that\'s normal!';
+    return 'Twist the $piece corner at the front right: repeat the down-trigger in pairs until its yellow faces up. The lower layers look messy for now; they come back with the last corner!';
   }
 
   @override
@@ -2570,16 +2808,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String cueParityOll(String front) {
-    return 'OLL parity: one top edge is flipped, which never happens on a 3×3. Keep it at the front, $front facing you, and apply the parity fix.';
+    return 'OLL parity: one top edge is flipped, which never happens on a 3×3. Keep it at the front, $front facing you, and apply the parity fix before any normal OLL.';
   }
 
   @override
   String get cueParityPll =>
-      'PLL parity: two top edges are swapped, which never happens on a 3×3. Keep them at the front and back and apply the parity swap.';
+      'PLL parity: two top edges are swapped, which never happens on a 3×3. Keep them at the front and back, apply the parity swap, then line up the top.';
 
   @override
   String cueParityFive(String front) {
-    return 'Edge parity: the two outer pieces of one edge are swapped. Turn that edge to the front, $front facing you, apply the fix, and turn back.';
+    return 'Edge parity: the two outer wings of one edge are swapped, the only parity a 5×5 has. Keep that edge at the front, $front facing you, and apply the fix once.';
   }
 
   @override
@@ -2610,7 +2848,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get onboardingLearnBody =>
-      'Master the 3-crown method in the Academy, then twist, scramble and solve freely in the 3D Playground.';
+      'Master the layer-by-layer method in the Academy, then twist, scramble and solve freely in the 3D Playground.';
 
   @override
   String get scanChoiceManualDesc =>
@@ -2628,7 +2866,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get crownExplain =>
-      'A crown is one horizontal layer of the cube: the first crown is the white layer at the bottom, the second is the middle layer and the third is the yellow layer on top.';
+      'A layer is one horizontal slice of the cube: the first layer is the white layer at the bottom, the second is the middle layer and the third is the yellow layer on top.';
 
   @override
   String get lessonObjectiveHeading => 'Learning objective';
@@ -2654,7 +2892,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get solveChoiceGuidedDesc =>
-      'Learn the 3-crown method one step at a time.';
+      'Learn the layer-by-layer method one step at a time.';
 
   @override
   String get guidedSolvedTitle => 'Solved!';

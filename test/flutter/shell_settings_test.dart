@@ -222,7 +222,7 @@ void main() {
           tester.widget<ChoiceChip>(find.byKey(ValueKey(key))).selected;
       expect(selected('academy-size-2'), isTrue);
       // Only the 2x2 lessons are listed.
-      const beginner = 'Beginner 3×3: the 3 crowns';
+      const beginner = 'Beginner 3×3: layer by layer';
       expect(find.text(beginner, skipOffstage: false), findsNothing);
 
       await tester.tap(find.byKey(const ValueKey('academy-size-all')));

@@ -54,17 +54,20 @@ void main() {
     });
   });
 
-  testWidgets('every lesson has a goal and two or three how-to bullets', (
-    tester,
-  ) async {
-    await tester.pumpWidget(testApp(const SizedBox()));
-    final l10n = AppLocalizations.of(tester.element(find.byType(SizedBox)));
-    for (final lesson in kLessons) {
-      expect(introGoalText(l10n, lesson.id), isNotEmpty, reason: lesson.id);
-      final bullets = introHowText(l10n, lesson.id).split('\n');
-      expect(bullets.length, inInclusiveRange(2, 3), reason: lesson.id);
-    }
-  });
+  testWidgets(
+    'every lesson has a goal, a hold, two or three how-to bullets and a why',
+    (tester) async {
+      await tester.pumpWidget(testApp(const SizedBox()));
+      final l10n = AppLocalizations.of(tester.element(find.byType(SizedBox)));
+      for (final lesson in kLessons) {
+        expect(introGoalText(l10n, lesson.id), isNotEmpty, reason: lesson.id);
+        final bullets = introHowText(l10n, lesson.id).split('\n');
+        expect(bullets.length, inInclusiveRange(2, 3), reason: lesson.id);
+        expect(introHoldText(l10n, lesson.id), isNotEmpty, reason: lesson.id);
+        expect(introWhyText(l10n, lesson.id), isNotEmpty, reason: lesson.id);
+      }
+    },
+  );
 
   testWidgets('the preview loops start -> goal and can be held on either', (
     tester,

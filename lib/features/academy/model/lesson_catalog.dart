@@ -1,5 +1,5 @@
 // Lesson catalogue (texts live in the ARB files so every lesson is fully
-// localized). The beginner track follows the 3-crown / 7-sub-step
+// localized). The beginner track follows the 3-layer / 7-sub-step
 // syllabus, one lesson per sub-step, matching the guided solver.
 //
 // Every lesson has four stages: the concept (goal card and explanations),
@@ -1031,6 +1031,74 @@ String introHowText(AppLocalizations l10n, String id) => switch (id) {
   'sixEdges' => l10n.introHowSixEdges,
   'sixSolve' => l10n.introHowSixSolve,
   'sixParity' => l10n.introHowSixParity,
+  _ => '',
+};
+
+/// How to hold the cube for a lesson, in one or two sentences.
+String introHoldText(AppLocalizations l10n, String id) => switch (id) {
+  'basics' => l10n.introHoldBasics,
+  'cross' => l10n.introHoldCross,
+  'corners' => l10n.introHoldCorners,
+  'middle' => l10n.introHoldMiddle,
+  'yellowCross' => l10n.introHoldYellowCross,
+  'yellowEdges' => l10n.introHoldYellowEdges,
+  'yellowCorners' => l10n.introHoldYellowCorners,
+  'twistCorners' => l10n.introHoldTwistCorners,
+  'cfopIntro' => l10n.introHoldCfopIntro,
+  'f2l' => l10n.introHoldF2l,
+  'oll' => l10n.introHoldOll,
+  'pll' => l10n.introHoldPll,
+  'twoFirst' => l10n.introHoldTwoFirst,
+  'twoOll' => l10n.introHoldTwoOll,
+  'twoPbl' => l10n.introHoldTwoPbl,
+  'bigIntro' => l10n.introHoldBigIntro,
+  'bigCenters' => l10n.introHoldBigCenters,
+  'bigEdges' => l10n.introHoldBigEdges,
+  'bigParity' => l10n.introHoldBigParity,
+  'fiveIntro' => l10n.introHoldFiveIntro,
+  'fiveCenters' => l10n.introHoldFiveCenters,
+  'fiveEdges' => l10n.introHoldFiveEdges,
+  'fiveSolve' => l10n.introHoldFiveSolve,
+  'fiveParity' => l10n.introHoldFiveParity,
+  'sixIntro' => l10n.introHoldSixIntro,
+  'sixCenters' => l10n.introHoldSixCenters,
+  'sixEdges' => l10n.introHoldSixEdges,
+  'sixSolve' => l10n.introHoldSixSolve,
+  'sixParity' => l10n.introHoldSixParity,
+  _ => '',
+};
+
+/// Why a lesson's method works, in one or two sentences.
+String introWhyText(AppLocalizations l10n, String id) => switch (id) {
+  'basics' => l10n.introWhyBasics,
+  'cross' => l10n.introWhyCross,
+  'corners' => l10n.introWhyCorners,
+  'middle' => l10n.introWhyMiddle,
+  'yellowCross' => l10n.introWhyYellowCross,
+  'yellowEdges' => l10n.introWhyYellowEdges,
+  'yellowCorners' => l10n.introWhyYellowCorners,
+  'twistCorners' => l10n.introWhyTwistCorners,
+  'cfopIntro' => l10n.introWhyCfopIntro,
+  'f2l' => l10n.introWhyF2l,
+  'oll' => l10n.introWhyOll,
+  'pll' => l10n.introWhyPll,
+  'twoFirst' => l10n.introWhyTwoFirst,
+  'twoOll' => l10n.introWhyTwoOll,
+  'twoPbl' => l10n.introWhyTwoPbl,
+  'bigIntro' => l10n.introWhyBigIntro,
+  'bigCenters' => l10n.introWhyBigCenters,
+  'bigEdges' => l10n.introWhyBigEdges,
+  'bigParity' => l10n.introWhyBigParity,
+  'fiveIntro' => l10n.introWhyFiveIntro,
+  'fiveCenters' => l10n.introWhyFiveCenters,
+  'fiveEdges' => l10n.introWhyFiveEdges,
+  'fiveSolve' => l10n.introWhyFiveSolve,
+  'fiveParity' => l10n.introWhyFiveParity,
+  'sixIntro' => l10n.introWhySixIntro,
+  'sixCenters' => l10n.introWhySixCenters,
+  'sixEdges' => l10n.introWhySixEdges,
+  'sixSolve' => l10n.introWhySixSolve,
+  'sixParity' => l10n.introWhySixParity,
   _ => '',
 };
 

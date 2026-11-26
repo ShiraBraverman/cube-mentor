@@ -153,7 +153,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get solveLearn => '단계별로 배우기';
 
   @override
-  String get solveModeGuided => '가이드 (3 크라운)';
+  String get solveModeGuided => '가이드 (3개 층)';
 
   @override
   String get solveModeFast => '빠르게 (최적)';
@@ -243,7 +243,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get phaseLblCross => '흰색 십자';
 
   @override
-  String get phaseLblCorners => '첫 번째 크라운의 코너';
+  String get phaseLblCorners => '1층 코너';
 
   @override
   String get phaseLblMiddle => '가운데 층 엣지';
@@ -261,13 +261,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get phaseLblYellowCornersOrient => '노란색 코너 방향 맞추기';
 
   @override
-  String get crownFirst => '첫 번째 크라운';
+  String get crownFirst => '1층';
 
   @override
-  String get crownSecond => '두 번째 크라운';
+  String get crownSecond => '2층';
 
   @override
-  String get crownThird => '세 번째 크라운';
+  String get crownThird => '3층';
 
   @override
   String get crownFirstGoal => '흰색 면과 첫 번째 층';
@@ -282,10 +282,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get subStepGoal11 => '흰색 엣지가 옆 센터 색과도 맞는 흰색 십자를 만드세요.';
 
   @override
-  String get subStepGoal12 => '흰색 코너 4개를 제자리에 넣어 흰색 면과 첫 번째 층 전체를 완성하세요.';
+  String get subStepGoal12 => '흰색 코너 4개를 제자리에 넣어 흰색 면과 1층 전체를 완성합니다.';
 
   @override
-  String get subStepGoal21 => '첫 번째 크라운을 흐트러뜨리지 않고 가운데 층 엣지 4개를 넣으세요.';
+  String get subStepGoal21 => '1층을 흐트러뜨리지 않고 가운데 층 엣지 4개를 넣습니다.';
 
   @override
   String get subStepGoal31 => '마지막 층에 노란색 십자를 만드세요.';
@@ -632,7 +632,7 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => '3×3 초보자: 3개의 크라운';
+  String get trackBeginner => '초보자 3×3: 층별 맞추기';
 
   @override
   String get trackCfop => 'CFOP 입문';
@@ -933,77 +933,77 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get stepCrossGoalBody =>
-      '노란색을 위로 잡으세요. 흰색 엣지 네 개가 아래쪽 흰색 센터를 둘러싸고, 각 옆면 색이 옆 센터와 맞아야 합니다.';
+      '노란색을 위, 초록색을 앞으로 잡으세요. 먼저 흰색 엣지 네 개를 흰색이 위로 가게 노란 센터 둘레에 꽃잎처럼 모아요: 이게 데이지예요. 그다음 꽃잎을 하나씩 흰색 센터로 내리고, 옆면 색을 옆 센터에 맞춰요.';
 
   @override
   String get stepCrossTop => '위에 있는 엣지';
 
   @override
   String get stepCrossTopBody =>
-      '윗면에서 흰색 엣지를 찾으세요. 옆면 색이 같은 색 센터 위에 올 때까지 윗층을 돌린 뒤, 그 면을 두 번 돌려 내리세요.';
+      '흰색이 위를 보는 윗층 흰색 엣지는 데이지의 꽃잎이에요. 윗층을 돌려 옆면 색을 같은 색 센터 바로 위에 맞춘 다음, 그 면을 두 번(180°) 돌려 흰색 센터로 내려요.';
 
   @override
   String get stepCrossMiddle => '가운데에 있는 엣지';
 
   @override
   String get stepCrossMiddleBody =>
-      '가운데 층에 낀 엣지는 먼저 위로 올립니다. 그 옆면을 위로 돌리고, 윗층을 비켜 놓은 뒤 옆면을 되돌리면 십자가 그대로 유지됩니다. 그다음 위에서 넣으세요.';
+      '가운데 층에 걸린 엣지는 먼저 위로 올려요: 옆면을 올리고, 윗층을 비키고, 옆면을 되돌리면 넣어 둔 조각은 그대로예요. 이제 윗층의 꽃잎이니 맞춘 뒤 그 면을 두 번 돌려요.';
 
   @override
   String get stepCornersInsert => '자리 바로 위로';
 
   @override
   String get stepCornersInsertBody =>
-      '흰색 코너가 그 색이 들어갈 자리(오른쪽 앞) 바로 위에 올 때까지 윗층을 돌리세요. R U R\' U\'로 넣을 수 있습니다.';
+      '윗층을 돌려 흰색 코너를 옆면 색과 같은 두 센터 사이, 제자리 바로 위에 맞춰요. 여기서는 위 한 번과 R U\' R\'면 돼요: U로 코너를 자리 위로 옮기고, R U\' R\'로 흰색이 아래로 가게 넣어요.';
 
   @override
   String get stepCornersRepeat => '트리거 반복';
 
   @override
   String get stepCornersRepeatBody =>
-      '흰색이 다른 방향을 보고 있다면 같은 자리에서 R U R\' U\'를 계속 반복하세요. 어떤 코너든 최대 다섯 번이면 맞춰집니다.';
+      '자리를 오른쪽 앞에 두고 흰색이 아래를 볼 때까지 R U R\' U\'를 반복해요: 흰색이 오른쪽이면 1번, 위면 3번, 나를 보면 5번. 그동안 윗면이 흐트러져 보여도 저절로 정리돼요.';
 
   @override
   String get stepMiddleRight => '오른쪽으로 넣기';
 
   @override
   String get stepMiddleRightBody =>
-      '윗층 엣지를 앞면 센터에 맞추세요. 윗면 색이 오른쪽 센터와 같으면 U R U\' R\' U\' F\' U F로 넣으세요.';
+      '노란색이 없는 윗층 엣지를 찾으세요. 윗층을 돌려 앞면 색을 눈앞의 센터에 맞춰요. 윗면 색이 오른쪽 센터와 같으면 오른쪽으로: U R U\' R\' U\' F\' U F.';
 
   @override
   String get stepMiddleLeft => '왼쪽으로 넣기';
 
   @override
   String get stepMiddleLeftBody =>
-      '윗면 색이 왼쪽 센터와 같으면 대칭 공식 U\' L\' U L U F U\' F\'를 쓰세요.';
+      '윗면 색이 왼쪽 센터와 같으면 대칭 공식을 써요: U\' L\' U L U F U\' F\'. 흰색 층은 매번 그대로 돌아와요.';
 
   @override
   String get stepYellowCross => '하나의 공식';
 
   @override
   String get stepYellowCrossBody =>
-      'F R U R\' U\' F\'는 노란 점을 ㄱ자로, ㄱ자를 일자로, 일자를 십자로 바꿉니다. ㄱ자는 왼쪽 뒤에, 일자는 가로로 두고 잡으세요.';
+      '윗면의 노란 엣지만 보세요. ㄱ자는 왼쪽 뒤, 선은 가로로 두고 F R U R\' U\' F\'를 해요. 선은 1번, ㄱ자는 2번, 점은 최대 3번이에요.';
 
   @override
   String get stepYellowEdges => '엣지 맞추기';
 
   @override
   String get stepYellowEdgesBody =>
-      '엣지 두 개가 센터와 맞을 때까지 윗층을 돌리세요. 하나는 뒤, 하나는 오른쪽에 두고 R U R\' U R U2 R\' U를 하면 나머지 두 개가 바뀝니다.';
+      '윗층을 돌려 엣지 두 개를 센터에 맞춰요. 하나는 뒤, 하나는 오른쪽에 있으면 R U R\' U R U2 R\' U가 앞과 왼쪽 엣지를 바꿔요.';
 
   @override
   String get stepPlaceCorners => '위치 맞추기';
 
   @override
   String get stepPlaceCornersBody =>
-      '이미 제자리에 있는 코너를 오른쪽 앞에 두세요. U R U\' L\' U R\' U\' L은 나머지 세 개를 옮깁니다. 네 개가 모두 제자리에 올 때까지 반복하세요.';
+      '코너 색이 둘레의 세 센터와 맞으면, 꼬여 있어도 제자리예요. 그런 코너를 오른쪽 앞에 두면 U R U\' L\' U R\' U\' L이 나머지 셋을 돌려요. 네 개가 모두 제자리일 때까지 반복해요.';
 
   @override
   String get stepTwistCorners => '방향 맞추기';
 
   @override
   String get stepTwistCornersBody =>
-      '맞지 않은 코너를 오른쪽 앞에 두고 노란색이 위로 올 때까지 R\' D\' R D를 반복한 뒤, 윗층만 돌려 다음 코너를 가져오세요. 아랫층은 마지막까지 흐트러져 보이지만 계속하세요.';
+      '안 맞은 코너를 오른쪽 앞에 두고 노란색이 위로 올 때까지 R\' D\' R D를 두 번씩 반복한 뒤, 다음 코너는 윗층만 돌려 가져와요. 마지막 코너까지 아래가 깨져 보여도 계속하세요.';
 
   @override
   String get lessonCfopIntro => 'CFOP란?';
@@ -1094,14 +1094,14 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get stepTwoIntroBody =>
-      '2×2는 엣지와 센터가 없는 3×3입니다. 한 가지 색을 골라 아랫면에 맞추고, 이웃한 코너들의 옆면 색을 맞추세요.';
+      '2×2는 코너 여덟 개뿐이에요: 엣지도 센터도 없어요. 이웃 옆면 색이 맞게 흰색 층을 아래에 만들고, 한 가지 방법으로 마무리해요: Sune으로 윗면을 노랗게, 그다음 T-perm이나 Y-perm.';
 
   @override
   String get stepTwoCorner => '코너 넣기';
 
   @override
   String get stepTwoCornerBody =>
-      '3×3의 흰색 코너와 똑같습니다. 코너를 자리 위로 가져가 들어갈 때까지 R U R\' U\'를 하세요.';
+      '3×3 흰색 코너와 같아요: 코너를 오른쪽 앞 빈자리 위로 가져와 넣어요. 여기선 U R U\' R\', 또는 흰색이 아래를 볼 때까지 R U R\' U\' 반복. 옆면 색을 이웃과 비교해 보세요.';
 
   @override
   String get lessonTwoOll => '윗면 방향 맞추기';
@@ -1114,7 +1114,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get stepTwoSuneBody =>
-      '수네는 2×2에서도 윗면을 노란색으로 만듭니다. Ortega에서는 짧은 일곱 가지 경우를 배우는데, 대부분 수네와 그 대칭으로 해결됩니다.';
+      '위를 보는 노란 스티커를 세요. 노란색이 위인 유일한 코너를 왼쪽 앞에 두고 Sune(R U R\' U R U2 R\')을 해요. 다시 세고 다시 잡아요. Sune은 최대 3번, 사이에는 윗층만 돌려요.';
 
   @override
   String get lessonTwoPbl => '두 층 위치 맞추기';
@@ -1127,13 +1127,14 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get stepTwoAdjacentBody =>
-      '윗면의 이웃한 두 코너를 바꿔야 하면 오른쪽에 두고 T-퍼뮤테이션을 쓰세요.';
+      '헤드라이트는 한 옆면 위쪽의 같은 색 스티커 두 개예요. 윗층을 돌려 헤드라이트를 왼쪽에 두면 바꿀 코너 두 개가 오른쪽에 와요. 그다음 T-perm을 해요.';
 
   @override
   String get stepTwoDiagonal => '대각선 교환';
 
   @override
-  String get stepTwoDiagonalBody => '서로 마주 보는 위치의 두 코너는 Y-퍼뮤테이션으로 바꿉니다.';
+  String get stepTwoDiagonalBody =>
+      '어느 면에도 헤드라이트가 없으면 대각선 코너 두 개를 바꿔야 해요: 아무 방향에서나 Y-perm을 하고, 윗층을 돌려 전체를 맞춰요.';
 
   @override
   String get lessonBigIntro => '큰 큐브의 조각';
@@ -1146,7 +1147,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get stepBigPiecesBody =>
-      '4×4는 면마다 움직이는 센터 조각이 네 개 있고, 엣지 하나는 윙 두 개로 이루어집니다. 리덕션은 이 조각들을 묶어 큐브가 3×3처럼 동작하게 합니다.';
+      '4×4는 면마다 움직이는 센터 조각이 네 개 있고, 엣지는 윙 두 개로 되어 있어요. 고정 센터가 없으니 코너로 색 순서를 확인하세요: 흰색 맞은편은 노란색, 파란색은 초록색, 빨간색은 주황색.';
 
   @override
   String get stepBigSlices => '와이드 회전과 안쪽 회전';
@@ -1166,7 +1167,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get stepBigCenterCycleBody =>
-      '이 커뮤테이터는 센터 조각을 정확히 세 개만 움직이고 나머지는 건드리지 않으므로, 완성된 센터는 그대로 유지됩니다.';
+      '이 커뮤테이터는 센터 조각을 정확히 세 개만 옮기고 나머지는 그대로 둬요. 완성된 센터는 그대로예요. 떠돌이 조각 하나가 막대에 안 붙을 때 써요.';
 
   @override
   String get lessonBigEdges => '엣지 짝 맞추기';
@@ -1179,7 +1180,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get stepBigEdgePairBody =>
-      'Uw\'로 같은 윙 두 개를 나란히 놓고, R U R\' F R\' F\' R로 짝이 없는 엣지를 바꿔 넣은 뒤, Uw로 센터를 되돌립니다.';
+      'Uw\'로 같은 윙 두 개를 나란히 놓고, R U R\' F R\' F\' R로 짝 없는 엣지를 바꿔 넣은 뒤, Uw로 센터를 되돌려요. 연 층은 꼭 닫으세요.';
 
   @override
   String get lessonBigParity => '패리티';
@@ -1192,20 +1193,26 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get stepBigOllParityBody =>
-      '엣지 하나만 뒤집힌 상태는 3×3에서는 불가능합니다. 짝수 큐브에서는 이 공식으로 윗면 앞쪽 엣지를 다시 뒤집습니다. 윗층의 나머지가 섞일 수 있지만, 3×3의 마지막 단계에서 어차피 맞춰집니다.';
+      '엣지 하나만 뒤집히는 건 3×3에서 불가능해요: 실수가 아니라 OLL 패리티예요. 윗층 앞에 두고 긴 공식을 해요. 위의 왼쪽·오른쪽 엣지와 코너 두 개도 바뀌지만, 3×3 마지막 단계에서 고쳐져요.';
 
   @override
   String get stepBigPllParity => 'PLL 패리티';
 
   @override
   String get stepBigPllParityBody =>
-      '마지막에 엣지 두 개가 바뀌어 있나요? 2R2 U2 2R2 Uw2 2R2 Uw2로 윗면 앞쪽과 뒤쪽 엣지를 바꿉니다.';
+      '맨 마지막에 엣지 두 개가 바뀌었는데 맞는 3×3 공식이 없나요? 그게 PLL 패리티예요. 윗층 앞과 뒤에 두고 2R2 U2 2R2 Uw2 2R2 2U2로 바꿔요.';
 
   @override
   String get introGoalHeading => '목표가 뭐예요?';
 
   @override
   String get introHowHeading => '어떻게 하나요?';
+
+  @override
+  String get introHoldHeading => '잡는 법';
+
+  @override
+  String get introWhyHeading => '왜 되는 걸까';
 
   @override
   String get introStart => '알겠어요, 한 단계씩 시작';
@@ -1229,10 +1236,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get introGoalBasics => '큐브 읽는 법을 배워요: 조각, 여섯 면, 그리고 회전 기호가 면을 돌리는 방식.';
 
   @override
-  String get introGoalCross => '흰색 엣지가 옆 센터 색과도 맞는 흰색 십자를 만들어요.';
+  String get introGoalCross => '아래에 흰색 십자를 만들고, 흰색 엣지마다 옆 센터 색도 맞춰요.';
 
   @override
-  String get introGoalCorners => '흰색 코너 네 개를 채워 첫 번째 왕관, 즉 흰색 층 전체를 완성해요.';
+  String get introGoalCorners => '흰색 코너 4개를 넣어 1층 전체를 완성해요: 흰색 면과 맞춰진 옆면 색.';
 
   @override
   String get introGoalMiddle => '가운데 층 엣지 네 개를 넣어 아래 두 층을 완성해요.';
@@ -1268,7 +1275,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get introGoalTwoOll => '2×2의 윗면 전체를 노랗게 만들어요.';
 
   @override
-  String get introGoalTwoPbl => '마지막 코너를 맞바꿔 2×2를 완성해요.';
+  String get introGoalTwoPbl =>
+      'T-perm이나 Y-perm 한 번으로 마지막 코너를 제자리로 보내고, 윗층을 맞춰 2×2를 완성해요.';
 
   @override
   String get introGoalBigIntro => '4×4를 알아봐요: 센터, 엣지 쌍, 코너, 그리고 이들을 돌리는 기호.';
@@ -1281,83 +1289,218 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get introGoalBigParity =>
-      '3×3에는 없는 4×4의 두 경우를 고쳐요: 뒤집힌 엣지 하나, 또는 바뀐 엣지 두 개.';
+      '3×3에서는 절대 없는 4×4의 두 경우를 고쳐요: 뒤집힌 엣지 하나(OLL 패리티) 또는 자리가 바뀐 엣지 둘(PLL 패리티).';
 
   @override
   String get introHowBasics =>
       '센터는 절대 움직이지 않아서 각 면의 색을 알려 줘요.\n각 기호는 한 면을 시계 방향으로 90° 돌려요.\n아포스트로피(\')는 반대로, 2는 두 번 돌려요.';
 
   @override
+  String get introHoldBasics =>
+      '아무렇게나 잡아도 돼요: 센터는 움직이지 않아서 색만 보면 어느 면인지 알 수 있어요.';
+
+  @override
+  String get introWhyBasics => '모든 공식은 이 글자들의 나열이라서, 읽을 줄 아는 게 첫 번째 기술이에요.';
+
+  @override
   String get introHowCross =>
-      '노란색을 위로 잡으면 흰색 십자는 아래에 만들어져요.\n흰색 엣지를 찾아 옆면 색을 같은 색 센터에 맞춰요.\n그 면을 두 번 돌려 엣지를 제자리로 내려요.';
+      '흰색 엣지를 흰색이 위로 가게 윗층으로 올려 노란 센터를 둘러싸요: 이게 데이지예요.\n윗층을 돌려 꽃잎의 옆면 색을 같은 색 센터 위에 맞춰요.\n그 면을 두 번 돌려 내리고, 네 개 모두 똑같이 해요.';
+
+  @override
+  String get introHoldCross =>
+      '이 단계 내내 노란 센터는 위, 흰색 센터는 아래예요. 꽃잎을 맞출 때는 큐브가 아니라 윗층을 돌려요.';
+
+  @override
+  String get introWhyCross =>
+      '흰색이 위를 보면 앞면을 두 번 돌리는 것만으로 엣지가 흰색 센터 위에, 흰색은 아래로, 옆면 색도 맞은 채로 내려가요.';
 
   @override
   String get introHowCorners =>
-      '흰색 코너를 빈자리 위로 가져와요.\n올바른 방향으로 들어갈 때까지 R U R\' U\'를 반복해요.\n나머지 코너 세 개도 똑같이 해요.';
+      '윗층을 돌려 흰색 코너를 오른쪽 앞 빈자리 바로 위로 가져와요.\nR U R\' U\'를 반복해요: 흰색이 오른쪽이면 1번, 위면 3번, 나를 보면 5번.\n나머지 코너 세 개도 똑같이 해요.';
+
+  @override
+  String get introHoldCorners => '흰색 아래, 노란색 위. 코너는 오른쪽 앞, 제자리 바로 위에 있어요.';
+
+  @override
+  String get introWhyCorners =>
+      'R U R\' U\'는 자리를 들었다가 다시 놓아요. 돌릴 때마다 코너가 조금씩 꼬이다가 흰색이 아래를 보면 끝이고, 십자는 깨지지 않아요.';
 
   @override
   String get introHowMiddle =>
-      '노란색이 없는 윗층 엣지를 찾아 앞면 색을 센터에 맞춰요.\n8수짜리 짧은 공식으로 오른쪽이나 왼쪽으로 보내요.\n흰색 층은 매번 그대로 돌아와요.';
+      '노란색이 없는 윗층 엣지를 찾아 앞면 색을 아래 센터에 맞춰요.\n윗면 색이 갈 방향을 알려 줘요: 오른쪽 또는 왼쪽.\n8수 공식으로 넣으면 흰색 층은 매번 그대로 돌아와요.';
+
+  @override
+  String get introHoldMiddle => '흰색 아래, 노란색 위. 엣지는 앞면에 있고, 앞면 색이 아래 센터와 같아요.';
+
+  @override
+  String get introWhyMiddle =>
+      '공식이 자리를 비켜 엣지를 넣고 흰색 층을 되돌려요. 노란색이 있는 엣지는 윗층 조각이라 가운데에 들어가지 않아요.';
 
   @override
   String get introHowYellowCross =>
-      '윗면을 보세요: 점, L자, 또는 직선.\n그림처럼 잡고 F R U R\' U\' F\'를 해요.\n노란 십자가 나올 때까지 반복해요.';
+      '윗면의 노란 엣지만 봐요: 점, ㄱ자, 선.\nㄱ자는 왼쪽 뒤, 선은 가로로 두고 F R U R\' U\' F\'를 해요.\n선은 1번, ㄱ자는 2번, 점은 최대 3번이에요.';
+
+  @override
+  String get introHoldYellowCross =>
+      '흰색 아래, 노란색 위. ㄱ자는 왼쪽 뒤, 선은 가로로, 점은 아무 방향이나요.';
+
+  @override
+  String get introWhyYellowCross =>
+      'F R U R\' U\' F\'는 아래 두 층을 건드리지 않고 위 엣지를 두 개씩 뒤집어요.';
 
   @override
   String get introHowYellowEdges =>
-      '엣지 두 개가 센터와 맞을 때까지 윗층을 돌려요.\n두 엣지를 뒤쪽과 오른쪽에 두고 R U R\' U R U2 R\' U를 해요.\n네 개가 모두 맞을 때까지 반복해요.';
+      '윗층을 돌려 엣지 두 개를 옆면 센터에 맞춰요.\n그 둘을 뒤와 오른쪽에 두고 R U R\' U R U2 R\' U를 해요.\n맞은 엣지가 서로 마주 보면 먼저 아무 방향에서나 한 번 해요.';
+
+  @override
+  String get introHoldYellowEdges => '노란색 위. 맞은 엣지 하나는 뒤에, 다른 하나는 오른쪽에.';
+
+  @override
+  String get introWhyYellowEdges => '이 공식은 윗층 조각만 움직여서 아래 두 층은 늘 돌아와요.';
 
   @override
   String get introHowYellowCorners =>
-      '코너 색이 주변 세 면과 맞으면 제자리에 있는 거예요.\n제자리에 있는 코너를 오른쪽 앞에 둬요.\nU R U\' L\' U R\' U\' L로 나머지 세 개를 돌려 모두 맞춰요.';
+      '코너 색이 둘레의 세 센터와 맞으면, 꼬여 있어도 제자리예요.\n제자리 코너를 오른쪽 앞에 둬요.\nU R U\' L\' U R\' U\' L이 나머지 셋을 돌려요. 모두 맞을 때까지 반복해요.';
+
+  @override
+  String get introHoldYellowCorners =>
+      '노란색 위. 이미 제자리인 코너를 오른쪽 앞에. 없으면 아무 코너나요.';
+
+  @override
+  String get introWhyYellowCorners =>
+      '코너 세 개를 돌리고 오른쪽 앞 코너는 그대로 둬서, 반복할수록 제자리 코너가 늘어나요.';
 
   @override
   String get introHowTwistCorners =>
-      '안 맞춘 코너를 오른쪽 앞에 잡아요.\n노란색이 위를 볼 때까지 R\' D\' R D를 반복해요.\n다음 코너로는 윗층만 돌려요. 아래층은 마지막에 저절로 맞춰져요.';
+      '아직 안 맞은 코너를 오른쪽 앞에 잡아요.\n노란색이 위를 볼 때까지 R\' D\' R D를 두 번씩 반복해요.\n다음 코너는 윗층만 돌려 가져와요. 아래는 마지막 코너에서 돌아와요.';
+
+  @override
+  String get introHoldTwistCorners =>
+      '노란색 위, 돌릴 코너는 오른쪽 앞. 코너 사이에는 윗층만 돌리고, 큐브 전체는 절대 돌리지 마세요.';
+
+  @override
+  String get introWhyTwistCorners =>
+      'R\' D\' R D는 코너를 꼬고 아래를 흩뜨리지만, 모든 코너를 다 돌리면 아래가 돌아와요. 중간에 멈추면 흩어진 채로 남아요.';
 
   @override
   String get introHowCfopIntro =>
       '십자: 인스펙션 동안 엣지 네 개를 계획해요.\nF2L: 각 코너가 엣지와 함께 들어가요.\nOLL로 윗면을 노랗게 하고 PLL로 조각을 제자리로 보내요.';
 
   @override
+  String get introHoldCfopIntro => '스피드큐버는 십자를 아래에 만들어서, 돌리는 동안 다음 조각을 미리 봐요.';
+
+  @override
+  String get introWhyCfopIntro =>
+      '코너와 엣지를 함께 맞추면 수가 크게 줄고, 경우를 알아보면 시행착오가 필요 없어요.';
+
+  @override
   String get introHowF2l =>
       '윗층에서 코너와 짝이 되는 엣지를 찾아요.\n슬롯 위에서 둘을 짝지어요.\n서너 수로 짝을 넣어요.';
+
+  @override
+  String get introHoldF2l => '십자는 아래. 페어가 들어갈 자리는 오른쪽 앞, 대칭이면 왼쪽 앞이에요.';
+
+  @override
+  String get introWhyF2l => '짝지은 코너와 엣지가 함께 들어가서, 한 조각씩이 아니라 두 층이 동시에 완성돼요.';
 
   @override
   String get introHowOll =>
       '먼저 F R U R\' U\' F\'로 노란 십자.\n그다음 Sune 같은 공식으로 코너 방향을 맞춰요.\n보이는 노란 모양으로 케이스를 알아봐요.';
 
   @override
+  String get introHoldOll => '노란색 위. Sune에서는 노란색이 위인 유일한 코너를 왼쪽 앞에 둬요.';
+
+  @override
+  String get introWhyOll => '마지막 층을 방향 맞추기와 위치 맞추기로 나누면 외울 공식이 적어요.';
+
+  @override
   String get introHowPll =>
       '윗면은 이미 전부 노란색이에요.\nT-perm은 코너를 바꾸고 U-perm은 엣지 세 개를 돌려요.\n옆면 색을 보고 공식을 골라요.';
 
   @override
+  String get introHoldPll => '노란색 위. T-perm: 헤드라이트는 왼쪽. U-perm: 완성된 면은 뒤쪽.';
+
+  @override
+  String get introWhyPll => '윗면이 다 노란색이면 조각의 위치만 남아서, 몇 번 바꾸면 큐브가 완성돼요.';
+
+  @override
   String get introHowTwoFirst =>
-      '2×2는 코너만 있어요. 엣지 없는 3×3과 같아요.\n흰색 코너를 각자 자리 위로 가져와요.\n들어갈 때까지 R U R\' U\'를 반복해요.';
+      '흰색이 아래인 흰색 코너 하나를 기준으로 정해요.\n다음 코너를 오른쪽 앞 제자리 위로 가져와요.\n옆면 색이 맞게 들어갈 때까지 R U R\' U\'를 반복해요.';
+
+  @override
+  String get introHoldTwoFirst => '흰색 아래. 빈자리는 오른쪽 앞, 그 코너는 윗층 바로 위에.';
+
+  @override
+  String get introWhyTwoFirst =>
+      '2×2에는 센터가 없어요. 처음 놓은 코너가 이웃의 색을 정하니까, 흰색뿐 아니라 옆면 색도 중요해요.';
 
   @override
   String get introHowTwoOll =>
-      '흰색 층은 아래에 둬요.\nSune(R U R\' U R U2 R\')이 윗 코너를 비틀어요.\n알맞은 방향에서 윗면이 모두 노래질 때까지 반복해요.';
+      '노란색이 위를 보는 코너를 세요.\n하나면 왼쪽 앞에 두고 Sune을 해요: R U R\' U R U2 R\'.\n다시 세고 반복해요. Sune은 최대 3번이에요.';
+
+  @override
+  String get introHoldTwoOll => '흰색 아래, 노란색 위. Sune 전마다 노란색이 위인 코너를 왼쪽 앞에.';
+
+  @override
+  String get introWhyTwoOll =>
+      'Sune은 흰색 층을 깨지 않고 위 코너를 꼬아요. 다시 세면 다음에 어떻게 잡을지 알 수 있어요.';
 
   @override
   String get introHowTwoPbl =>
-      '코너 두 개가 이미 맞는 면을 찾아요.\n이웃 교환: T-perm 같은 공식 하나.\n대각선 교환: 조금 더 긴 공식 하나.';
+      '헤드라이트를 찾아요: 한 옆면 위쪽에 같은 색 스티커 두 개.\n한쪽에 있으면 왼쪽에 두고 T-perm을 해요.\n없으면 아무 방향에서나 Y-perm을 하고 윗층을 맞춰요.';
+
+  @override
+  String get introHoldTwoPbl =>
+      '흰색 아래, 노란색 위. T-perm: 헤드라이트는 왼쪽. Y-perm: 아무 면이나 앞으로.';
+
+  @override
+  String get introWhyTwoPbl =>
+      '윗면이 노란색이면 코너 위치만 남아요: T-perm은 이웃 둘, Y-perm은 대각선 둘을 바꿔요.';
 
   @override
   String get introHowBigIntro =>
       '고정된 센터가 없어요. 센터 조각 네 개가 면의 색을 만들어요.\nRw 같은 와이드 회전은 두 층을 한 번에 돌려요.\n2R 같은 안쪽 회전은 안쪽 한 층만 돌려요.';
 
   @override
+  String get introHoldBigIntro =>
+      '처음엔 아무렇게나: 4×4에는 고정 센터가 없어서 각 색의 자리를 직접 정해요.';
+
+  @override
+  String get introWhyBigIntro => '리덕션은 센터와 엣지 조각을 묶어서 큰 큐브를 3×3처럼 맞추게 해 줘요.';
+
+  @override
   String get introHowBigCenters =>
-      '먼저 마주 보는 센터 두 개를 만들어요.\n안쪽 층으로 완성된 센터를 깨지 않고 센터 조각을 바꿔요.\n나머지 센터 네 개도 같은 방법으로 끝내요.';
+      '먼저 코너로 색 순서를 확인해요.\n마주 보는 센터 두 개를 만들고, 나머지 네 개를 만들어요.\n안쪽 층이 센터 조각을 옮겨요. 연 층은 꼭 되돌려요.';
+
+  @override
+  String get introHoldBigCenters => '만드는 면은 앞에, 완성된 센터는 방해되지 않게 왼쪽과 오른쪽에.';
+
+  @override
+  String get introWhyBigCenters =>
+      '층을 돌리면 센터가 움직이고, 되돌리면 완성된 센터가 돌아와서 노린 조각만 바뀌어요.';
 
   @override
   String get introHowBigEdges =>
-      '같은 색의 엣지 조각 두 개를 찾아요.\n안쪽 층으로 둘을 나란히 맞춰요.\n짝을 옆으로 치우고 센터를 되돌려요.';
+      '같은 두 색을 가진 윙 두 개를 찾아요.\n앞면에 나란히 놓고 Uw\'로 붙여요.\n짝 없는 엣지를 넣고 Uw로 센터를 되돌려요.';
+
+  @override
+  String get introHoldBigEdges => '짝짓는 엣지는 앞쪽 층에, 완성된 엣지는 위아래 층에 세워 둬요.';
+
+  @override
+  String get introWhyBigEdges =>
+      'Uw\'가 센터를 비켜 두 윙을 만나게 하고, Uw가 센터를 되돌려서 해 둔 작업이 그대로예요.';
 
   @override
   String get introHowBigParity =>
-      '막힐 때까지 4×4를 3×3처럼 맞춰요.\n뒤집힌 엣지 하나: 긴 OLL 패리티 공식.\n바뀐 엣지 두 개: 2R2 U2 2R2 Uw2 2R2 Uw2.';
+      '막힐 때까지 4×4를 3×3처럼 맞춰요.\n엣지 하나가 뒤집힘: 긴 OLL 패리티 공식.\n엣지 둘이 바뀜: 2R2 U2 2R2 Uw2 2R2 2U2.';
+
+  @override
+  String get introHoldBigParity =>
+      '마지막 층이 위. OLL 패리티: 뒤집힌 엣지를 앞에. PLL 패리티: 바뀐 엣지를 앞과 뒤에.';
+
+  @override
+  String get introWhyBigParity =>
+      '윙은 3×3에는 없는 상태가 될 수 있어요. 이 공식들은 안쪽 층을 돌려 바로 그것만 되돌려요.';
 
   @override
   String get dirFaceR => '오른쪽 면';
@@ -1468,13 +1611,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get stageParity => '패리티 해결';
 
   @override
-  String get stageCrown1 => '첫 번째 왕관(흰색)';
+  String get stageCrown1 => '1층 (흰색)';
 
   @override
-  String get stageCrown2 => '두 번째 왕관';
+  String get stageCrown2 => '2층';
 
   @override
-  String get stageCrown3 => '세 번째 왕관(노란색)';
+  String get stageCrown3 => '3층 (노란색)';
 
   @override
   String get stageOrient => '조각 방향 맞추기';
@@ -1516,6 +1659,13 @@ class AppLocalizationsKo extends AppLocalizations {
       '각 면의 정가운데 조각은 절대 움직이지 않아요.\n엣지는 가운데 조각과 윙 두 개로 이뤄져요.\n안쪽 층은 바깥을 건드리지 않고 조각을 움직여요.';
 
   @override
+  String get introHoldFiveIntro =>
+      '아무렇게나 잡아도 돼요: 5×5는 각 면의 한가운데가 움직이지 않아서 그 면의 색을 보여 줘요.';
+
+  @override
+  String get introWhyFiveIntro => '고정된 센터가 배색을 정해서, 센터를 잘못된 순서로 만들 수가 없어요.';
+
+  @override
   String get lessonFiveCenters => '5×5 센터';
 
   @override
@@ -1526,7 +1676,14 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get introHowFiveCenters =>
-      '가운데 조각부터 시작하세요. 그 색이 기준이에요.\n세 칸 바를 만들고 안쪽 층으로 밀어 넣으세요.\n마지막 두 센터는 함께 마무리하세요.';
+      '움직이지 않는 가운데 조각부터 시작해요: 색을 정해 줘요.\n세 개짜리 막대를 만들어 안쪽 층으로 밀어 넣어요.\n막대를 넣는 수가 완성된 센터도 되돌려 줘요.';
+
+  @override
+  String get introHoldFiveCenters => '만드는 센터는 앞이나 위에, 완성된 센터는 아래, 왼쪽, 오른쪽에.';
+
+  @override
+  String get introWhyFiveCenters =>
+      '층 넣기, 위 돌리기, 층 되돌리기: 막대를 넣는 층이 완성된 센터도 되돌려요.';
 
   @override
   String get lessonFiveEdges => '5×5 엣지';
@@ -1539,20 +1696,33 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get introHowFiveEdges =>
-      '앞에서 윙 두 개를 가운데 엣지에 맞추세요.\n안쪽 층을 돌리고 안 맞춘 엣지로 바꾼 뒤 되돌리세요.\n완성된 엣지를 깨지 않고 마지막 엣지를 짝지으세요.';
+      '앞면에서 각 윙을 가운데 엣지에 맞춰요.\n안쪽 층을 돌리고, 안 맞은 엣지를 넣고, 되돌려요.\n마지막 엣지는: 층, 뒤집기, 층.';
+
+  @override
+  String get introHoldFiveEdges => '만드는 엣지는 앞에, 완성된 엣지는 위아래 층에 보관해요.';
+
+  @override
+  String get introWhyFiveEdges => '안쪽 층을 열고 닫으면 윙이 붙고, 센터와 보관한 엣지는 돌아와요.';
 
   @override
   String get lessonFiveSolve => '5×5를 3×3처럼 맞추기';
 
   @override
-  String get lessonFiveSolveDesc => '세 왕관으로 마무리해요.';
+  String get lessonFiveSolveDesc => '3×3처럼 한 층씩 마무리해요.';
 
   @override
-  String get introGoalFiveSolve => '줄인 5×5를 3×3처럼 왕관 하나씩 맞춰요.';
+  String get introGoalFiveSolve => '리덕션한 5×5를 3×3처럼, 바깥 회전만으로 한 층씩 맞춰요.';
 
   @override
   String get introHowFiveSolve =>
-      '이제부터는 바깥쪽 회전만 써요.\n첫 번째 왕관, 두 번째 왕관, 그다음 노란 왕관.\n고정 센터가 각 면의 색을 알려 줘요.';
+      '이제부터 바깥 회전만 써요. 아니면 짝지은 엣지가 갈라져요.\n흰색 십자와 코너, 가운데 층, 그다음 노란 층.\n움직이지 않는 가운데 조각이 각 면의 색을 보여 줘요.';
+
+  @override
+  String get introHoldFiveSolve => '1층 색이 아래, 3×3과 똑같아요. 넣을 코너는 오른쪽 앞에.';
+
+  @override
+  String get introWhyFiveSolve =>
+      '안쪽을 돌리면 센터와 엣지가 다시 갈라져요. 바깥 회전은 각 블록을 3×3의 한 조각처럼 움직여요.';
 
   @override
   String get lessonFiveParity => '5×5 엣지 패리티';
@@ -1561,11 +1731,19 @@ class AppLocalizationsKo extends AppLocalizations {
   String get lessonFiveParityDesc => '윙이 바뀐 엣지를 고쳐요.';
 
   @override
-  String get introGoalFiveParity => '두 윙이 서로 바뀐 엣지 하나를 고치고 마무리해요.';
+  String get introGoalFiveParity =>
+      '바깥 윙 두 개가 바뀐 엣지 하나를 고쳐요: 5×5에 있는 유일한 패리티예요.';
 
   @override
   String get introHowFiveParity =>
-      '도저히 짝이 맞지 않는 엣지로 나타나요.\n안쪽 층을 쓰는 긴 공식을 한 번 하세요.\n나머지는 모두 제자리로 돌아와요.';
+      '뒤집혀 보이는 마지막 엣지 하나로 나타나요.\n안쪽 층을 쓰는 긴 공식을 한 번 해요.\n5×5에는 PLL 패리티가 없어요.';
+
+  @override
+  String get introHoldFiveParity => '마지막 층이 위, 윙이 바뀐 엣지는 윗층 앞에.';
+
+  @override
+  String get introWhyFiveParity =>
+      '5×5에서는 한 엣지의 바깥 윙 두 개만 바뀔 수 있어서 공식 하나면 충분해요.';
 
   @override
   String get lessonSixIntro => '6×6 알아보기';
@@ -1581,6 +1759,12 @@ class AppLocalizationsKo extends AppLocalizations {
       '고정 센터가 없어요. 만들면서 색을 정해요.\n엣지마다 바깥쪽 윙과 안쪽 윙이 있어요.\n와이드 회전은 세 층까지 움직일 수 있어요.';
 
   @override
+  String get introHoldSixIntro => '처음엔 아무렇게나: 4×4처럼 6×6에도 고정 센터가 없어요.';
+
+  @override
+  String get introWhySixIntro => '4×4와 5×5를 맞출 수 있다면, 6×6은 블록만 더 큰 같은 리덕션이에요.';
+
+  @override
   String get lessonSixCenters => '6×6 센터';
 
   @override
@@ -1591,7 +1775,14 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get introHowSixCenters =>
-      '먼저 마주 보는 센터 두 개를 만드세요.\n네 칸 바를 만들어 이어 붙이세요.\n층·위·되돌리기 기술로 조각을 하나씩 옮기세요.';
+      '먼저 코너로 색 순서를 확인해요: 고정된 센터가 없어요.\n네 개짜리 막대를 만들어 합쳐요.\n마지막 두 센터는 한 조각씩 옮겨요: 층, 위, 되돌리기.';
+
+  @override
+  String get introHoldSixCenters => '만드는 면은 앞에, 완성된 센터는 왼쪽, 오른쪽, 아래에.';
+
+  @override
+  String get introWhySixCenters =>
+      '막대는 안쪽 층으로 붙고 층은 매번 되돌리니까, 완성된 센터가 깨지지 않아요.';
 
   @override
   String get lessonSixEdges => '6×6 엣지';
@@ -1604,20 +1795,32 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get introHowSixEdges =>
-      '앞에서 바깥쪽과 안쪽 윙을 나란히 맞추세요.\n깊은 와이드 층이 엣지를 넣고 빼요.\n완성된 엣지는 절대 깨지지 않아요.';
+      '한 엣지의 바깥 윙과 안쪽 윙을 앞면에 나란히 놓아요.\n깊은 와이드 층이 엣지를 넣고 빼요.\n조각을 빼려고 완성된 엣지를 절대 깨지 마세요.';
+
+  @override
+  String get introHoldSixEdges => '만드는 엣지는 앞에, 완성된 엣지는 위아래에 세워 둬요.';
+
+  @override
+  String get introWhySixEdges => '깊은 와이드 회전이 센터를 비켜 윙을 만나게 한 뒤 되돌려요.';
 
   @override
   String get lessonSixSolve => '6×6를 3×3처럼 맞추기';
 
   @override
-  String get lessonSixSolveDesc => '세 왕관으로 마무리해요.';
+  String get lessonSixSolveDesc => '3×3처럼 한 층씩 마무리해요.';
 
   @override
-  String get introGoalSixSolve => '줄인 6×6를 3×3처럼 왕관 하나씩 맞춰요.';
+  String get introGoalSixSolve => '리덕션한 6×6을 3×3처럼, 바깥 회전만으로 한 층씩 맞춰요.';
 
   @override
   String get introHowSixSolve =>
-      '이제부터는 바깥쪽 회전만 써요.\n만든 센터가 각 면의 색을 알려 줘요.\n첫 번째 왕관, 두 번째 왕관, 그다음 노란 왕관.';
+      '이제부터 바깥 회전만 써요: 안쪽 층을 돌리면 센터나 엣지가 깨져요.\n만든 센터가 각 면의 색을 보여 줘요.\n흰색 십자와 코너, 가운데 층, 그다음 노란 층.';
+
+  @override
+  String get introHoldSixSolve => '1층 색이 아래, 3×3과 똑같아요. 넣을 코너는 오른쪽 앞에.';
+
+  @override
+  String get introWhySixSolve => '바깥 회전은 4×4 센터와 엣지를 한 조각처럼 움직여요. 3×3과 똑같아요.';
 
   @override
   String get lessonSixParity => '6×6 패리티';
@@ -1631,14 +1834,21 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get introHowSixParity =>
-      '막힐 때까지 3×3처럼 맞추세요.\n뒤집힌 엣지 하나: 긴 패리티 공식.\n바뀐 엣지 두 개: 두 번 돌리기를 쓰는 짧은 공식.';
+      '막힐 때까지 3×3처럼 맞춰요.\n엣지 하나가 뒤집힘: 3Rw를 쓰는 긴 공식.\n엣지 둘이 바뀜: 안쪽 두 번 회전을 쓰는 짧은 공식.';
+
+  @override
+  String get introHoldSixParity => '마지막 층이 위. 뒤집힌 엣지는 앞에, 바뀐 엣지 둘은 앞과 뒤에.';
+
+  @override
+  String get introWhySixParity =>
+      '4×4처럼 6×6도 뒤집힌 엣지 하나나 바뀐 엣지 둘로 끝날 수 있어요. 안쪽 층 공식이 그것만 고치고 나머지는 그대로 둬요.';
 
   @override
   String get stepFivePieces => '5×5의 조각';
 
   @override
   String get stepFivePiecesBody =>
-      '각 면의 정가운데 조각은 움직이지 않아서 3×3처럼 면의 색을 알려 줘요. 그 주위에 센터 조각이 8개 더 있고, 엣지마다 가운데 조각과 윙 두 개가 있으며, 코너는 3×3과 같아요.';
+      '각 면의 한가운데 조각은 움직이지 않아서 배색이 틀릴 수 없어요. 그 둘레에 센터 조각 여덟 개가 있고, 코너 센터와 엣지 센터는 서로 바뀌지 않아요. 엣지는 가운데 조각과 윙 두 개예요.';
 
   @override
   String get stepFiveSlices => '세 가지 회전';
@@ -1652,7 +1862,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get stepFiveCenterBarBody =>
-      '같은 색 센터 조각 세 개로 줄을 만들고, 안쪽 층 회전으로 같은 색 가운데 조각 옆으로 옮겨요. 바 세 개면 센터가 완성돼요.';
+      '같은 색 센터 조각 세 개로 줄을 만들어 안쪽 층으로 넣고, 위를 돌린 뒤 층을 되돌려요: 막대를 넣는 수가 완성된 센터도 되돌려요. 막대 세 개가 센터 하나예요.';
 
   @override
   String get stepFiveCenterSwap => '깨지 않고 바꾸기';
@@ -1666,35 +1876,35 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get stepFiveEdgePairBody =>
-      '앞에서 윙 두 개를 가운데 엣지 옆에 맞추고, 안쪽 층을 내리고, 위에서 안 맞춘 엣지를 가져온 뒤 안쪽 층을 되돌려요.';
+      '앞면에서 윙을 가운데 엣지 옆에 나란히 놓고, 안쪽 층을 내리고, 짧은 트리거로 안 맞은 엣지를 넣은 뒤 안쪽 층을 되돌려요.';
 
   @override
   String get stepFiveEdgeLast => '마지막 엣지';
 
   @override
   String get stepFiveEdgeLastBody =>
-      '엣지가 몇 개 안 남으면 와이드 회전, 짧은 트리거, 와이드 회전 되돌리기로 완성된 엣지를 깨지 않고 짝지어요.';
+      '바꿔 넣을 빈 엣지가 없으면 층, 뒤집기, 층: 와이드 회전, 짧은 트리거, 와이드 회전 되돌리기로 완성된 엣지를 깨지 않고 마지막 엣지를 짝지어요.';
 
   @override
   String get stepFiveAsThree => '이제 3×3이에요';
 
   @override
   String get stepFiveAsThreeBody =>
-      '센터와 엣지를 마치면 5×5는 큰 3×3처럼 움직여요. 바깥쪽 회전만 써서 세 왕관을 따라가세요: 흰 십자와 코너, 가운데 층, 그다음 노란 층.';
+      '센터와 엣지가 끝나면 5×5는 큰 3×3처럼 움직여요. 바깥 회전만으로 한 층씩: 흰색 십자와 코너, 가운데 층, 그다음 노란 층. 5×5에는 PLL 패리티가 없어요.';
 
   @override
   String get stepFiveEdgeParity => '마지막 엣지의 윙 바꾸기';
 
   @override
   String get stepFiveEdgeParityBody =>
-      '가끔 마지막 엣지의 두 윙이 서로 바뀌어 있어요. 안쪽 층을 쓰는 긴 공식이 되돌려 주고, 나머지는 모두 제자리로 와요. 그다음 3×3처럼 마무리하세요.';
+      '가끔 마지막 엣지의 바깥 윙 두 개가 바뀌어 뒤집혀 보여요: 5×5의 유일한 패리티예요. 윗층 앞에 두고 안쪽 층 공식을 한 번 해요. 나머지는 모두 제자리로 돌아와요.';
 
   @override
   String get stepSixPieces => '6×6의 조각';
 
   @override
   String get stepSixPiecesBody =>
-      '4×4처럼 6×6도 고정 센터가 없어요. 센터 조각 16개가 면의 색을 만들어요. 엣지마다 조각이 네 개: 바깥쪽 윙 두 개와 안쪽 윙 두 개예요.';
+      '4×4처럼 6×6에도 고정 센터가 없어요: 센터 조각 16개가 각 면의 색을 이뤄요. 먼저 코너로 색 순서를 확인하세요. 엣지마다 윙이 네 개, 바깥 둘과 안쪽 둘이에요.';
 
   @override
   String get stepSixSlices => '더 깊은 층 돌리기';
@@ -1708,49 +1918,49 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get stepSixCenterBarBody =>
-      '같은 색 센터 조각 네 개로 줄을 만들고 안쪽 층 회전으로 나란히 붙여서 면을 한 가지 색으로 만들어요.';
+      '같은 색 센터 조각 네 개로 줄을 만들고 안쪽 층 회전으로 나란히 붙여요. 층은 매번 되돌리고, 면이 한 색의 4×4 블록이 될 때까지 계속해요.';
 
   @override
   String get stepSixCenterSwap => '하나씩 옮기기';
 
   @override
   String get stepSixCenterSwapBody =>
-      '세 번째 층을 돌리고, 위를 돌리고, 되돌리고, 다시 돌려요. 센터 조각 하나가 옮겨지고 완성된 센터는 돌아와요.';
+      '3번째 층, 위, 되돌리기, 위 되돌리기: 센터 조각 하나가 옮겨지고 완성된 센터는 돌아와요. 막대가 안 들어가는 마지막 두 센터에서 써요.';
 
   @override
   String get stepSixEdgePair => '조각 넷, 엣지 하나';
 
   @override
   String get stepSixEdgePairBody =>
-      '깊은 와이드 층으로 엣지 하나의 조각 네 개를 앞에 모으고, 안 맞춘 엣지를 가져온 뒤 와이드 층을 되돌려요.';
+      '깊은 와이드 층으로 한 엣지의 윙 네 개를 앞면에 모으고, 짧은 트리거로 안 맞은 엣지를 넣은 뒤 와이드 층을 되돌려요.';
 
   @override
   String get stepSixEdgeLast => '마지막 엣지';
 
   @override
   String get stepSixEdgeLastBody =>
-      '깊은 와이드 회전과 그 되돌리기 사이에 짧은 트리거를 넣어 마지막 엣지를 짝지어요. 완성된 엣지는 그대로예요.';
+      '깊은 와이드 회전과 그 되돌리기 사이에 짧은 트리거를 넣어 마지막 엣지를 짝지어요. 완성된 엣지는 그대로예요. 조각을 빼려고 완성된 엣지를 절대 깨지 마세요.';
 
   @override
   String get stepSixAsThree => '이제 3×3이에요';
 
   @override
   String get stepSixAsThreeBody =>
-      '4×4 센터와 짝지은 엣지가 있으면 바깥쪽 회전과 세 왕관으로 6×6를 3×3처럼 맞춰요.';
+      '4×4 센터와 짝지은 엣지가 있으면 6×6을 3×3처럼, 바깥 회전만으로 한 층씩 맞춰요. 끝에 엣지 하나가 뒤집히거나 둘이 바뀌어 있으면 실수가 아니라 패리티예요.';
 
   @override
   String get stepSixOllParity => '뒤집힌 엣지 하나';
 
   @override
   String get stepSixOllParityBody =>
-      '마지막 층을 맞추다가 엣지 하나만 뒤집힌 것 같다면 패리티예요. 윗층 앞에 두고 긴 공식을 하면 첫째·둘째 왕관은 그대로 돌아와요.';
+      '마지막 층에서 엣지 하나만 뒤집혀 보이면 패리티예요. 윗층 앞에 두고 긴 공식을 해요: 윙 네 개를 모두 뒤집고 위의 왼쪽·오른쪽 엣지도 바꾸지만, 아래 두 층은 건드리지 않아요.';
 
   @override
   String get stepSixPllParity => '바뀐 엣지 두 개';
 
   @override
   String get stepSixPllParityBody =>
-      '맨 마지막에 엣지 두 개가 바뀐 것 같다면 윗층 앞과 뒤에 두고 안쪽 층 두 번 돌리기를 쓰는 짧은 공식을 하세요.';
+      '맨 마지막에 엣지 두 개가 바뀐 것 같으면 윗층 앞과 뒤에 두고 안쪽 두 번 회전으로 된 짧은 공식을 해요: 두 엣지의 윙 네 개가 모두 자리를 바꿔요.';
 
   @override
   String get stageTwoFirstLayer => '아래층 만들기';
@@ -2255,7 +2465,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String cueCrossFlipped(String piece, String center) {
-    return '$piece 엣지가 제자리에 있지만 뒤집혀서 흰색이 옆을 보고 있어요. 꺼낸 뒤 $center 센터 옆에 올바른 방향으로 다시 넣으세요.';
+    return '$piece 엣지가 제자리지만 뒤집혀 있어요: 흰색이 옆을 봐요. 꺼내서 흰색이 위로 가게 윗층으로 올린 뒤, $center 센터 옆으로 내려요.';
   }
 
   @override
@@ -2270,7 +2480,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String cueCornerTwisted(String piece) {
-    return '$piece 코너가 제자리에 있지만 돌아가 있어요. 트리거 한 번이면 빠져나와요(노란 코너가 대신 들어가요). 제대로 들어갈 때까지 반복하세요.';
+    return '$piece 코너가 제자리지만 꼬여 있어요. 트리거 한 번으로 빼고(그 자리에 노란 코너가 들어가요), 흰색이 아래로 다시 들어갈 때까지 같은 자리에서 반복해요. 쫓아가려고 큐브를 돌리지 마세요.';
   }
 
   @override
@@ -2285,7 +2495,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String cueMiddleFlipped(String piece, String a, String b) {
-    return '$piece 엣지가 제자리에 있지만 뒤집혀 있어요. 노란 엣지를 넣어 밀어낸 뒤, $a와 $b 사이에 다시 넣으세요.';
+    return '$piece 엣지가 제자리지만 뒤집혀 있어요. 그 자리에 노란 엣지를 넣어 위로 밀어낸 뒤, $a과 $b 사이에 다시 넣어요.';
   }
 
   @override
@@ -2300,7 +2510,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String cueYellowDot(String front) {
-    return '노란색은 센터뿐: 점 모양이에요. $front 색을 앞에 두고 공식을 한 번 하면 L자가 돼요.';
+    return '노란 건 센터뿐: 점이에요. $front 색을 앞으로 두고 공식을 한 번 하면 ㄱ자가 돼요. 점은 세 번 걸릴 수도 있으니 계속하세요.';
   }
 
   @override
@@ -2330,7 +2540,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String cueTwistCorner(String piece) {
-    return '오른쪽 앞의 $piece 코너를 돌리세요: 노란색이 위를 볼 때까지 아래 트리거를 반복해요. 아래층이 잠시 흐트러져 보여도 정상이에요!';
+    return '오른쪽 앞 $piece 코너를 돌려요: 노란색이 위를 볼 때까지 아래 트리거를 두 번씩 반복해요. 아래층이 지금은 흐트러져 보여도 마지막 코너에서 돌아와요!';
   }
 
   @override
@@ -2408,16 +2618,16 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String cueParityOll(String front) {
-    return 'OLL 패리티: 윗층 엣지 하나가 뒤집혀 있어요. 3×3에서는 절대 생기지 않는 상황이에요. 그 엣지를 앞에 두고 $front 색을 앞에 둔 채 패리티 공식을 하세요.';
+    return 'OLL 패리티: 위 엣지 하나가 뒤집혀 있어요. 3×3에서는 절대 없는 일이에요. $front 색을 앞으로 두고 그 엣지를 앞에 놓은 뒤, 일반 OLL 전에 패리티 공식을 해요.';
   }
 
   @override
   String get cueParityPll =>
-      'PLL 패리티: 윗층 엣지 두 개가 서로 바뀌었어요. 3×3에서는 절대 생기지 않는 상황이에요. 앞과 뒤에 두고 패리티 교환을 하세요.';
+      'PLL 패리티: 위 엣지 두 개가 바뀌어 있어요. 3×3에서는 절대 없는 일이에요. 앞과 뒤에 두고 패리티 교환을 한 뒤 윗층을 맞춰요.';
 
   @override
   String cueParityFive(String front) {
-    return '엣지 패리티: 엣지 하나의 바깥 두 조각이 서로 바뀌었어요. 그 엣지를 앞으로 돌리고, $front 색을 앞에 두고 고친 뒤 되돌리세요.';
+    return '엣지 패리티: 한 엣지의 바깥 윙 두 개가 바뀌어 있어요. 5×5의 유일한 패리티예요. $front 색을 앞으로 두고 그 엣지를 앞에 놓은 뒤 공식을 한 번 해요.';
   }
 
   @override
@@ -2448,7 +2658,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get onboardingLearnBody =>
-      '아카데미에서 3크라운 방법을 익힌 뒤, 3D 놀이터에서 마음껏 돌리고 섞고 풀어 보세요.';
+      '아카데미에서 층별 맞추기를 익힌 다음, 3D 놀이터에서 마음껏 돌리고 섞고 맞춰 보세요.';
 
   @override
   String get scanChoiceManualDesc => '각 면의 색을 스티커 하나씩 입력하세요.';
@@ -2464,7 +2674,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get crownExplain =>
-      '크라운은 큐브의 가로 한 층이에요. 첫 번째 크라운은 아래의 흰색 층, 두 번째는 가운데 층, 세 번째는 위의 노란색 층이에요.';
+      '층은 큐브의 가로 한 줄이에요. 1층은 아래의 흰색 층, 2층은 가운데 층, 3층은 위의 노란색 층이에요.';
 
   @override
   String get lessonObjectiveHeading => '학습 목표';
@@ -2488,7 +2698,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get solveChoiceFastDesc => '가장 짧은 풀이를 한 수씩.';
 
   @override
-  String get solveChoiceGuidedDesc => '3크라운 방법을 한 단계씩 배워요.';
+  String get solveChoiceGuidedDesc => '층별 맞추기를 한 단계씩 배워요.';
 
   @override
   String get guidedSolvedTitle => '완성!';

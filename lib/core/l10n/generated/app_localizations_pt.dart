@@ -158,7 +158,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get solveLearn => 'Aprender passo a passo';
 
   @override
-  String get solveModeGuided => 'Guiado (3 coroas)';
+  String get solveModeGuided => 'Guiado (3 camadas)';
 
   @override
   String get solveModeFast => 'Rápido (ótimo)';
@@ -255,7 +255,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get phaseLblCross => 'Cruz branca';
 
   @override
-  String get phaseLblCorners => 'Cantos da primeira coroa';
+  String get phaseLblCorners => 'Cantos da primeira camada';
 
   @override
   String get phaseLblMiddle => 'Arestas da camada do meio';
@@ -273,13 +273,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get phaseLblYellowCornersOrient => 'Orientar os cantos amarelos';
 
   @override
-  String get crownFirst => 'Primeira coroa';
+  String get crownFirst => 'Primeira camada';
 
   @override
-  String get crownSecond => 'Segunda coroa';
+  String get crownSecond => 'Segunda camada';
 
   @override
-  String get crownThird => 'Terceira coroa';
+  String get crownThird => 'Terceira camada';
 
   @override
   String get crownFirstGoal => 'Face branca e primeira camada';
@@ -296,11 +296,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get subStepGoal12 =>
-      'Encaixe os 4 cantos brancos nos seus lugares para completar a face branca e todo o primeiro anel.';
+      'Encaixe os 4 cantos brancos nos seus lugares para terminar a face branca e toda a primeira camada.';
 
   @override
   String get subStepGoal21 =>
-      'Encaixe as 4 arestas da camada do meio sem desfazer a primeira coroa.';
+      'Encaixe as 4 arestas da camada do meio sem desfazer a primeira camada.';
 
   @override
   String get subStepGoal31 => 'Forme uma cruz amarela na última camada.';
@@ -683,7 +683,7 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => '3×3 iniciante: as 3 coroas';
+  String get trackBeginner => '3×3 iniciante: camada a camada';
 
   @override
   String get trackCfop => 'Introdução ao CFOP';
@@ -998,77 +998,77 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get stepCrossGoalBody =>
-      'Segure o amarelo em cima. As quatro arestas brancas ficam à volta do centro branco em baixo, cada cor lateral a condizer com o centro ao lado.';
+      'Segure o amarelo em cima e o verde virado para si. Primeiro junte as quatro arestas brancas à volta do centro amarelo, com o branco para cima, como pétalas: é a margarida. Depois cada pétala desce para o centro branco, com a cor lateral igual ao centro ao lado.';
 
   @override
   String get stepCrossTop => 'Aresta em cima';
 
   @override
   String get stepCrossTopBody =>
-      'Encontre uma aresta branca em cima. Rode a camada de cima até a sua cor lateral ficar sobre o centro correspondente e rode essa face duas vezes para a descer.';
+      'Uma aresta branca em cima com o branco para cima é uma pétala da margarida. Rode o topo até a cor lateral ficar mesmo por cima do centro da mesma cor e rode essa face duas vezes (180°) para a descer até ao centro branco.';
 
   @override
   String get stepCrossMiddle => 'Aresta no meio';
 
   @override
   String get stepCrossMiddleBody =>
-      'Uma aresta presa na camada do meio sobe primeiro: rode a sua lateral para cima, afaste a camada de cima e volte a rodar a lateral, para a cruz se manter. Depois coloque-a a partir de cima.';
+      'Uma aresta presa na camada do meio sobe primeiro: suba o lado dela, afaste o topo e desça o lado, para as peças colocadas não saírem. Agora é uma pétala em cima: alinhe-a e rode essa face duas vezes.';
 
   @override
   String get stepCornersInsert => 'Por cima do seu lugar';
 
   @override
   String get stepCornersInsertBody =>
-      'Rode a camada de cima até um canto branco ficar por cima do lugar das suas cores, à frente à direita. R U R\' U\' encaixa-o.';
+      'Rode o topo até o canto branco ficar mesmo por cima do seu lugar, entre os dois centros das suas cores laterais. Aqui basta um giro do topo e R U\' R\': U põe o canto sobre o lugar e R U\' R\' encaixa-o com o branco para baixo.';
 
   @override
   String get stepCornersRepeat => 'Repita o gatilho';
 
   @override
   String get stepCornersRepeatBody =>
-      'Se o branco estiver virado para o lado errado, continue a repetir R U R\' U\' sobre o mesmo lugar. Cada canto fica resolvido com cinco repetições, no máximo.';
+      'Deixe o lugar à frente à direita e repita R U R\' U\' até o branco ficar para baixo: uma vez se olha para a direita, três se olha para cima, cinco se olha para si. Entretanto o topo parece baralhado; arruma-se sozinho.';
 
   @override
   String get stepMiddleRight => 'Aresta para a direita';
 
   @override
   String get stepMiddleRightBody =>
-      'Alinhe uma aresta de cima com o seu centro na frente. Se a cor de cima condisser com o centro da direita, insira-a com U R U\' R\' U\' F\' U F.';
+      'Procure uma aresta de cima sem amarelo. Rode o topo até a cor da frente combinar com o centro à sua frente. Se a cor de cima combinar com o centro da direita, envie-a para a direita: U R U\' R\' U\' F\' U F.';
 
   @override
   String get stepMiddleLeft => 'Aresta para a esquerda';
 
   @override
   String get stepMiddleLeftBody =>
-      'Se a cor de cima condisser com o centro da esquerda, use o espelho: U\' L\' U L U F U\' F\'.';
+      'Se a cor de cima combinar com o centro da esquerda, use o espelho: U\' L\' U L U F U\' F\'. A camada branca volta inteira de cada vez.';
 
   @override
   String get stepYellowCross => 'Um só algoritmo';
 
   @override
   String get stepYellowCrossBody =>
-      'F R U R\' U\' F\' transforma um ponto amarelo num L, um L numa linha e uma linha na cruz. Segure o L atrás à esquerda e a linha na horizontal.';
+      'Olhe só para as arestas amarelas em cima. Ponha o L atrás à esquerda e a linha da esquerda para a direita e faça F R U R\' U\' F\'. A linha precisa de uma vez, o L de duas, o ponto de até três.';
 
   @override
   String get stepYellowEdges => 'Alinhe as arestas';
 
   @override
   String get stepYellowEdgesBody =>
-      'Rode a camada de cima até duas arestas condizerem com os seus centros. Com uma atrás e outra à direita, R U R\' U R U2 R\' U troca as outras duas.';
+      'Rode o topo até duas arestas combinarem com os seus centros. Com uma atrás e outra à direita, R U R\' U R U2 R\' U troca a da frente com a da esquerda.';
 
   @override
   String get stepPlaceCorners => 'Posicione-os';
 
   @override
   String get stepPlaceCornersBody =>
-      'Segure à frente à direita um canto que já esteja no lugar. U R U\' L\' U R\' U\' L move os outros três; repita até os quatro estarem no lugar.';
+      'Um canto está em casa quando as suas cores combinam com os três centros à volta, mesmo rodado. Ponha um assim à frente à direita: U R U\' L\' U R\' U\' L move os outros três. Repita até estarem os quatro.';
 
   @override
   String get stepTwistCorners => 'Oriente-os';
 
   @override
   String get stepTwistCornersBody =>
-      'Com um canto por resolver à frente à direita, repita R\' D\' R D até o amarelo ficar em cima e rode só a camada de cima para trazer o seguinte. A camada de baixo parece desfeita até ao fim: continue.';
+      'Com um canto por resolver à frente à direita, repita R\' D\' R D aos pares até o amarelo ficar em cima; depois rode só o topo para trazer o seguinte. A parte de baixo parece desfeita até ao último canto: continue.';
 
   @override
   String get lessonCfopIntro => 'O que é o CFOP?';
@@ -1161,14 +1161,14 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get stepTwoIntroBody =>
-      'Um 2×2 é um 3×3 sem arestas nem centros. Escolha uma cor, forme essa face em baixo e faça condizer as cores laterais dos cantos vizinhos.';
+      'Um 2×2 são só oito cantos: sem arestas nem centros. Faça a camada branca em baixo com as cores laterais dos vizinhos iguais e termine por um só caminho: Sune para o topo amarelo e depois a T-perm ou a Y-perm.';
 
   @override
   String get stepTwoCorner => 'Insira os cantos';
 
   @override
   String get stepTwoCornerBody =>
-      'Tal como os cantos brancos do 3×3: leve um canto para cima do seu lugar e use R U R\' U\' até encaixar.';
+      'Como os cantos brancos do 3×3: leve um canto para cima do lugar vazio à frente à direita e encaixe-o, aqui com U R U\' R\' ou repetindo R U R\' U\' até o branco ficar para baixo. Compare as cores laterais com o vizinho.';
 
   @override
   String get lessonTwoOll => 'Oriente o topo';
@@ -1181,7 +1181,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get stepTwoSuneBody =>
-      'O Sune também põe o topo amarelo num 2×2. Quem usa o Ortega aprende sete casos curtos; o Sune e o seu espelho cobrem a maioria.';
+      'Conte os autocolantes amarelos virados para cima. Ponha o único canto com amarelo para cima à frente à esquerda e faça Sune (R U R\' U R U2 R\'). Conte e segure de novo; no máximo três Sunes. Entre eles rode só o topo.';
 
   @override
   String get lessonTwoPbl => 'Permute as duas camadas';
@@ -1194,14 +1194,14 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get stepTwoAdjacentBody =>
-      'Quando dois cantos vizinhos de cima têm de trocar, segure-os à direita e use a T-perm.';
+      'Faróis são dois autocolantes iguais em cima no mesmo lado. Rode o topo até os faróis ficarem à esquerda, assim os dois cantos a trocar ficam à direita, e faça a T-perm.';
 
   @override
   String get stepTwoDiagonal => 'Troca diagonal';
 
   @override
   String get stepTwoDiagonalBody =>
-      'Dois cantos em posições opostas trocam com a Y-perm.';
+      'Sem faróis em lado nenhum, dois cantos em diagonal têm de trocar: faça a Y-perm de qualquer lado e rode o topo para alinhar tudo.';
 
   @override
   String get lessonBigIntro => 'Peças dos cubos grandes';
@@ -1215,7 +1215,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get stepBigPiecesBody =>
-      'Num 4×4, cada face tem quatro peças de centro que se movem, e cada aresta é feita de duas meias-arestas. A redução agrupa-as para o cubo se comportar como um 3×3.';
+      'No 4×4 cada face tem quatro peças de centro que se movem e cada aresta são duas asas. Nenhum centro é fixo, por isso confirme a ordem das cores num canto: branco oposto ao amarelo, azul ao verde, vermelho ao laranja.';
 
   @override
   String get stepBigSlices => 'Rotações duplas e interiores';
@@ -1235,7 +1235,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get stepBigCenterCycleBody =>
-      'Este comutador move exatamente três peças de centro e deixa tudo o resto igual, por isso os centros feitos continuam feitos.';
+      'Este comutador move exatamente três peças de centro e deixa tudo o resto, por isso os centros acabados continuam acabados. Use-o quando uma peça solta não se junta a uma barra.';
 
   @override
   String get lessonBigEdges => 'Emparelhar as arestas';
@@ -1249,7 +1249,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get stepBigEdgePairBody =>
-      'Uw\' alinha duas meias-arestas iguais, R U R\' F R\' F\' R troca uma aresta por emparelhar e Uw repõe os centros.';
+      'Uw\' alinha duas asas iguais, R U R\' F R\' F\' R troca por uma aresta por emparelhar e Uw repõe os centros. Feche sempre a camada que abriu.';
 
   @override
   String get lessonBigParity => 'Paridade';
@@ -1262,20 +1262,26 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get stepBigOllParityBody =>
-      'Uma única aresta virada é impossível num 3×3. Nos cubos pares, este algoritmo volta a virar a aresta de cima da frente. Pode baralhar o resto da camada de cima, o que os últimos passos do 3×3 corrigem de qualquer forma.';
+      'Uma única aresta virada não acontece num 3×3: é paridade de OLL, não um erro. Deixe-a à frente da camada de cima e faça o algoritmo longo. Ele também troca as arestas da esquerda e da direita em cima e dois cantos; os últimos passos do 3×3 corrigem isso.';
 
   @override
   String get stepBigPllParity => 'Paridade de PLL';
 
   @override
   String get stepBigPllParityBody =>
-      'Duas arestas trocadas mesmo no fim? 2R2 U2 2R2 Uw2 2R2 Uw2 troca as arestas de cima da frente e de trás.';
+      'Duas arestas trocadas mesmo no fim e nenhum algoritmo de 3×3 serve? É paridade de PLL. Ponha-as à frente e atrás na camada de cima: 2R2 U2 2R2 Uw2 2R2 2U2 troca-as.';
 
   @override
   String get introGoalHeading => 'Qual é o objetivo?';
 
   @override
   String get introHowHeading => 'Como se faz?';
+
+  @override
+  String get introHoldHeading => 'Como segurar';
+
+  @override
+  String get introWhyHeading => 'Porque funciona';
 
   @override
   String get introStart => 'Percebi, começar passo a passo';
@@ -1301,11 +1307,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get introGoalCross =>
-      'Forme uma cruz branca em que cada aresta branca também combine com o centro ao lado.';
+      'Faça uma cruz branca em baixo em que cada aresta branca também combine com o centro ao lado.';
 
   @override
   String get introGoalCorners =>
-      'Complete os quatro cantos brancos: a primeira coroa, toda a camada branca, fica pronta.';
+      'Coloque os quatro cantos brancos para completar toda a primeira camada: face branca e cores laterais a condizer.';
 
   @override
   String get introGoalMiddle =>
@@ -1351,7 +1357,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get introGoalTwoPbl =>
-      'Troque os últimos cantos para o lugar e resolva o 2×2.';
+      'Leve os últimos cantos para casa com uma T-perm ou uma Y-perm e alinhe a camada de cima para resolver o 2×2.';
 
   @override
   String get introGoalBigIntro =>
@@ -1367,83 +1373,235 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get introGoalBigParity =>
-      'Corrija os dois casos do 4×4 que um 3×3 nunca tem: uma aresta virada ou duas arestas trocadas.';
+      'Corrija os dois casos do 4×4 que um 3×3 nunca tem: uma aresta virada (paridade de OLL) ou duas arestas trocadas (paridade de PLL).';
 
   @override
   String get introHowBasics =>
       'Os centros nunca se mexem: indicam a cor de cada face.\nCada letra roda uma face um quarto de volta no sentido horário.\nUm apóstrofo (\') roda para trás; um 2 roda duas vezes.';
 
   @override
+  String get introHoldBasics =>
+      'Como quiser: os centros não se movem, por isso as cores dizem sempre qual face é qual.';
+
+  @override
+  String get introWhyBasics =>
+      'Cada algoritmo é só uma fila destas letras, por isso lê-las é a primeira competência.';
+
+  @override
   String get introHowCross =>
-      'Segure o amarelo em cima: a cruz branca é feita em baixo.\nEncontre uma aresta branca e alinhe a cor lateral com o centro certo.\nRode essa face duas vezes para a descer para o lugar.';
+      'Leve cada aresta branca para cima, com o branco para cima, à volta do centro amarelo: é a margarida.\nRode o topo até a cor lateral de uma pétala ficar sobre o centro dessa cor.\nRode essa face duas vezes para a descer; repita com as quatro.';
+
+  @override
+  String get introHoldCross =>
+      'Centro amarelo em cima e branco em baixo durante todo o passo. Rode o topo, não o cubo, para alinhar uma pétala.';
+
+  @override
+  String get introWhyCross =>
+      'Com o branco virado para cima, duas rotações da face da frente põem a aresta no centro branco, com o branco para baixo e o lado já a condizer.';
 
   @override
   String get introHowCorners =>
-      'Leve um canto branco para cima do seu espaço vazio.\nRepita R U R\' U\' até ele entrar na posição certa.\nFaça o mesmo com os outros três cantos.';
+      'Rode o topo até um canto branco ficar sobre o seu espaço vazio, à frente à direita.\nRepita R U R\' U\': uma vez se o branco olha para a direita, três se olha para cima, cinco se olha para si.\nFaça o mesmo com os outros três cantos.';
+
+  @override
+  String get introHoldCorners =>
+      'Branco em baixo, amarelo em cima. O canto à frente à direita, mesmo por cima do seu lugar.';
+
+  @override
+  String get introWhyCorners =>
+      'R U R\' U\' levanta o lugar e repõe-no: cada volta roda um pouco o canto até o branco ficar para baixo, e a cruz nunca se desfaz.';
 
   @override
   String get introHowMiddle =>
-      'Encontre uma aresta de cima sem amarelo e alinhe a cor da frente com um centro.\nMande-a para a direita ou para a esquerda com um algoritmo curto de 8 movimentos.\nA camada branca volta intacta todas as vezes.';
+      'Procure uma aresta de cima sem amarelo e combine a cor da frente com o centro por baixo.\nA cor de cima diz para onde vai: direita ou esquerda.\nEncaixe-a com o algoritmo de 8 movimentos; a camada branca volta inteira.';
+
+  @override
+  String get introHoldMiddle =>
+      'Branco em baixo, amarelo em cima. A aresta à frente, com a cor da frente igual ao centro por baixo.';
+
+  @override
+  String get introWhyMiddle =>
+      'O algoritmo afasta o lugar, encaixa a aresta e repõe a camada branca. Uma aresta com amarelo pertence ao topo, nunca ao meio.';
 
   @override
   String get introHowYellowCross =>
-      'Olhe para o topo: um ponto, um L ou uma linha.\nSegure como na imagem e faça F R U R\' U\' F\'.\nRepita até a cruz amarela aparecer.';
+      'Olhe só para as arestas amarelas em cima: um ponto, um L ou uma linha.\nPonha o L atrás à esquerda e a linha da esquerda para a direita, e faça F R U R\' U\' F\'.\nA linha precisa de uma vez, o L de duas, o ponto de até três.';
+
+  @override
+  String get introHoldYellowCross =>
+      'Branco em baixo, amarelo em cima. O L atrás à esquerda, a linha da esquerda para a direita; o ponto, de qualquer forma.';
+
+  @override
+  String get introWhyYellowCross =>
+      'F R U R\' U\' F\' vira duas arestas de cima de cada vez sem tocar nas duas primeiras camadas.';
 
   @override
   String get introHowYellowEdges =>
-      'Rode o topo até duas arestas combinarem com os centros.\nColoque-as atrás e à direita e faça R U R\' U R U2 R\' U.\nRepita até as quatro combinarem.';
+      'Rode o topo até duas arestas combinarem com os seus centros.\nPonha-as atrás e à direita e faça R U R\' U R U2 R\' U.\nSe as arestas certas estiverem opostas, faça-o primeiro uma vez de qualquer lado.';
+
+  @override
+  String get introHoldYellowEdges =>
+      'Amarelo em cima. Uma aresta certa atrás e a outra à direita.';
+
+  @override
+  String get introWhyYellowEdges =>
+      'Este algoritmo só move peças de cima, por isso as duas primeiras camadas voltam sempre.';
 
   @override
   String get introHowYellowCorners =>
-      'Um canto está no lugar quando as cores combinam com as três faces à volta.\nMantenha um canto já colocado à frente, à direita.\nU R U\' L\' U R\' U\' L troca os outros três até todos encaixarem.';
+      'Um canto está em casa quando as suas cores combinam com os três centros à volta, mesmo rodado.\nMantenha um canto em casa à frente à direita.\nU R U\' L\' U R\' U\' L roda os outros três; repita até encaixarem todos.';
+
+  @override
+  String get introHoldYellowCorners =>
+      'Amarelo em cima. Um canto já em casa à frente à direita; se não houver, qualquer canto.';
+
+  @override
+  String get introWhyYellowCorners =>
+      'Roda três cantos em círculo e deixa quieto o da frente à direita, por isso cada repetição põe mais cantos em casa.';
 
   @override
   String get introHowTwistCorners =>
-      'Segure um canto por resolver à frente, à direita.\nRepita R\' D\' R D até o amarelo ficar virado para cima.\nRode só o topo para o canto seguinte; a camada de baixo arruma-se sozinha no fim.';
+      'Segure um canto por resolver à frente à direita.\nRepita R\' D\' R D aos pares até o amarelo dele ficar para cima.\nRode só o topo para o seguinte; a parte de baixo volta com o último canto.';
+
+  @override
+  String get introHoldTwistCorners =>
+      'Amarelo em cima, o canto a rodar à frente à direita. Entre cantos rode só o topo, nunca o cubo inteiro.';
+
+  @override
+  String get introWhyTwistCorners =>
+      'R\' D\' R D roda o canto e baralha a parte de baixo, mas esta volta quando todos os cantos estão rodados. Parar a meio deixa-a desfeita.';
 
   @override
   String get introHowCfopIntro =>
       'Cruz: quatro arestas planeadas durante a inspeção.\nF2L: cada canto entra junto com a sua aresta.\nA OLL põe o topo amarelo e a PLL leva as peças para o lugar.';
 
   @override
+  String get introHoldCfopIntro =>
+      'Os speedcubers fazem a cruz em baixo para verem as peças seguintes enquanto rodam.';
+
+  @override
+  String get introWhyCfopIntro =>
+      'Resolver um canto com a sua aresta poupa muitos movimentos, e reconhecer casos substitui a tentativa e erro.';
+
+  @override
   String get introHowF2l =>
       'Encontre um canto e a aresta dele na camada de cima.\nJunte-os em par por cima do seu espaço.\nEncaixe o par com três ou quatro movimentos.';
+
+  @override
+  String get introHoldF2l =>
+      'Cruz em baixo. O lugar do par à frente à direita, ou à frente à esquerda no espelho.';
+
+  @override
+  String get introWhyF2l =>
+      'Um canto e a sua aresta emparelhados entram juntos, por isso duas camadas crescem ao mesmo tempo em vez de peça a peça.';
 
   @override
   String get introHowOll =>
       'Primeiro a cruz amarela com F R U R\' U\' F\'.\nDepois oriente os cantos, por exemplo com o Sune.\nReconheça o caso pelo amarelo que vê.';
 
   @override
+  String get introHoldOll =>
+      'Amarelo em cima. No Sune, o único canto com amarelo para cima fica à frente à esquerda.';
+
+  @override
+  String get introWhyOll =>
+      'Dividir a última camada em orientar e depois permutar mantém poucos algoritmos.';
+
+  @override
   String get introHowPll =>
       'O topo já está todo amarelo.\nA T-perm troca cantos; a U-perm move três arestas.\nLeia as cores laterais para escolher o algoritmo.';
 
   @override
+  String get introHoldPll =>
+      'Amarelo em cima. T-perm: faróis à esquerda. U-perm: o lado acabado atrás.';
+
+  @override
+  String get introWhyPll =>
+      'Com o topo todo amarelo, só os lugares das peças estão errados, e poucas trocas acabam o cubo.';
+
+  @override
   String get introHowTwoFirst =>
-      'Um 2×2 só tem cantos, como um 3×3 sem arestas.\nLeve cada canto branco para cima do seu lugar.\nRepita R U R\' U\' até ele entrar.';
+      'Escolha um canto branco como âncora, com o branco para baixo.\nLeve cada canto seguinte para cima do seu lugar, à frente à direita.\nRepita R U R\' U\' até ele entrar com as cores laterais a condizer.';
+
+  @override
+  String get introHoldTwoFirst =>
+      'Branco em baixo. O lugar vazio à frente à direita, com o seu canto mesmo por cima, na camada de cima.';
+
+  @override
+  String get introWhyTwoFirst =>
+      'O 2×2 não tem centros: o primeiro canto que coloca define as cores dos vizinhos, por isso as cores laterais contam, não só o branco.';
 
   @override
   String get introHowTwoOll =>
-      'Mantenha a camada branca em baixo.\nO Sune (R U R\' U R U2 R\') roda os cantos de cima.\nRepita a partir do ângulo certo até o topo ficar todo amarelo.';
+      'Conte os cantos com o amarelo para cima.\nCom um, ponha-o à frente à esquerda e faça Sune: R U R\' U R U2 R\'.\nConte de novo e repita; no máximo três Sunes.';
+
+  @override
+  String get introHoldTwoOll =>
+      'Branco em baixo, amarelo em cima. Antes de cada Sune, o canto com amarelo para cima à frente à esquerda.';
+
+  @override
+  String get introWhyTwoOll =>
+      'O Sune roda os cantos de cima sem desfazer a camada branca; contar de novo diz como segurar a seguir.';
 
   @override
   String get introHowTwoPbl =>
-      'Procure um lado onde dois cantos já combinam.\nTroca adjacente: um algoritmo no estilo T-perm.\nTroca diagonal: um algoritmo um pouco mais longo.';
+      'Procure faróis: dois autocolantes iguais em cima no mesmo lado.\nFaróis num lado: ponha-os à esquerda e faça a T-perm.\nSem faróis: faça a Y-perm de qualquer lado e alinhe o topo.';
+
+  @override
+  String get introHoldTwoPbl =>
+      'Branco em baixo, amarelo em cima. T-perm: faróis à esquerda. Y-perm: qualquer lado virado para si.';
+
+  @override
+  String get introWhyTwoPbl =>
+      'Com o topo amarelo, só os lugares dos cantos estão errados: a T-perm troca dois vizinhos, a Y-perm dois na diagonal.';
 
   @override
   String get introHowBigIntro =>
       'Nenhum centro é fixo: quatro peças de centro formam a cor de cada face.\nRotações duplas como Rw rodam duas camadas de uma vez.\nRotações interiores como 2R rodam só uma camada interior.';
 
   @override
+  String get introHoldBigIntro =>
+      'Ao início, como quiser: no 4×4 nenhum centro é fixo, por isso escolhe onde vai cada cor.';
+
+  @override
+  String get introWhyBigIntro =>
+      'A redução agrupa centros e peças de aresta para o cubo grande se resolver como um 3×3.';
+
+  @override
   String get introHowBigCenters =>
-      'Monte primeiro dois centros opostos.\nAs camadas interiores trocam peças de centro sem desfazer os centros prontos.\nTermine os últimos quatro centros da mesma forma.';
+      'Primeiro confirme a ordem das cores num canto.\nConstrua dois centros opostos e depois os outros quatro.\nAs camadas interiores movem peças de centro; desfaça sempre a camada que abriu.';
+
+  @override
+  String get introHoldBigCenters =>
+      'A face que está a construir à frente; os centros acabados à esquerda e à direita, fora do caminho.';
+
+  @override
+  String get introWhyBigCenters =>
+      'Uma camada interior move centros e desfazê-la repõe os acabados, por isso só muda a peça que quer.';
 
   @override
   String get introHowBigEdges =>
-      'Encontre duas peças de aresta com as mesmas cores.\nAlinhe-as lado a lado com uma camada interior.\nTire o par do caminho e devolva os centros ao lugar.';
+      'Procure as duas asas com as mesmas duas cores.\nAlinhe-as à frente e junte-as com Uw\'.\nTroque por uma aresta por emparelhar e Uw repõe os centros.';
+
+  @override
+  String get introHoldBigEdges =>
+      'A aresta que está a emparelhar nas camadas da frente; as acabadas arrumadas em cima e em baixo.';
+
+  @override
+  String get introWhyBigEdges =>
+      'Uw\' afasta os centros para duas asas se juntarem; Uw repõe-nos e o seu trabalho fica intacto.';
 
   @override
   String get introHowBigParity =>
-      'Resolva o 4×4 como um 3×3 até ficar preso.\nUma aresta virada: o algoritmo longo de paridade OLL.\nDuas arestas trocadas: 2R2 U2 2R2 Uw2 2R2 Uw2.';
+      'Resolva o 4×4 como um 3×3 até encravar.\nUma aresta virada: o algoritmo longo de paridade de OLL.\nDuas arestas trocadas: 2R2 U2 2R2 Uw2 2R2 2U2.';
+
+  @override
+  String get introHoldBigParity =>
+      'A última camada em cima. Paridade de OLL: a aresta virada à frente. Paridade de PLL: as arestas trocadas à frente e atrás.';
+
+  @override
+  String get introWhyBigParity =>
+      'As asas podem chegar a estados que um 3×3 não alcança; estes algoritmos rodam camadas interiores para desfazer exatamente isso.';
 
   @override
   String get dirFaceR => 'Lado direito';
@@ -1554,13 +1712,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get stageParity => 'Resolver a paridade';
 
   @override
-  String get stageCrown1 => 'Primeira coroa (branca)';
+  String get stageCrown1 => 'Primeira camada (branca)';
 
   @override
-  String get stageCrown2 => 'Segunda coroa';
+  String get stageCrown2 => 'Segunda camada';
 
   @override
-  String get stageCrown3 => 'Terceira coroa (amarela)';
+  String get stageCrown3 => 'Terceira camada (amarela)';
 
   @override
   String get stageOrient => 'Orientar as peças';
@@ -1604,6 +1762,14 @@ class AppLocalizationsPt extends AppLocalizations {
       'A peça do meio de cada face nunca se mexe.\nCada aresta é uma peça do meio com duas asas.\nAs camadas interiores mexem peças sem tocar no exterior.';
 
   @override
+  String get introHoldFiveIntro =>
+      'Como quiser: no 5×5 o meio de cada face nunca se move, por isso mostra a sua cor.';
+
+  @override
+  String get introWhyFiveIntro =>
+      'Os centros fixos definem o esquema de cores, por isso os centros não podem ficar na ordem errada.';
+
+  @override
   String get lessonFiveCenters => 'Centros do 5×5';
 
   @override
@@ -1615,7 +1781,15 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get introHowFiveCenters =>
-      'Comece pela peça do meio: ela indica a cor.\nFaça barras de três e deslize-as com uma camada interior.\nTermine juntos os dois últimos centros.';
+      'Comece pela peça central fixa: ela define a cor.\nFaça barras de três e encaixe-as com uma camada interior.\nO movimento que mete a barra também repõe o centro acabado.';
+
+  @override
+  String get introHoldFiveCenters =>
+      'O centro que está a construir à frente ou em cima; os acabados em baixo, à esquerda ou à direita.';
+
+  @override
+  String get introWhyFiveCenters =>
+      'Camada para dentro, topo, camada para fora: a camada que mete a barra também repõe os centros acabados.';
 
   @override
   String get lessonFiveEdges => 'Arestas do 5×5';
@@ -1629,21 +1803,37 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get introHowFiveEdges =>
-      'Alinhe duas asas com a aresta do meio à frente.\nRode a camada interior, troque uma aresta por resolver e volte.\nEmparelhe as últimas arestas sem desfazer as prontas.';
+      'Junte cada asa à sua aresta do meio, à frente.\nRode a camada interior, troque por uma aresta por resolver e volte a rodá-la.\nNas últimas arestas: camada, virar, camada.';
+
+  @override
+  String get introHoldFiveEdges =>
+      'A aresta que está a construir à frente; as acabadas guardadas nas camadas de cima e de baixo.';
+
+  @override
+  String get introWhyFiveEdges =>
+      'Abrir e fechar a camada interior junta asas enquanto centros e arestas guardadas voltam.';
 
   @override
   String get lessonFiveSolve => 'Resolva o 5×5 como um 3×3';
 
   @override
-  String get lessonFiveSolveDesc => 'Termine com as três coroas.';
+  String get lessonFiveSolveDesc => 'Termine camada a camada, como um 3×3.';
 
   @override
   String get introGoalFiveSolve =>
-      'Resolva o 5×5 reduzido como um 3×3, coroa a coroa.';
+      'Resolva o 5×5 reduzido como um 3×3, camada a camada, só com rotações exteriores.';
 
   @override
   String get introHowFiveSolve =>
-      'A partir de agora, só rotações exteriores.\nPrimeira coroa, segunda coroa e depois a amarela.\nOs centros fixos mostram a cor de cada face.';
+      'A partir de agora só rotações exteriores, ou as arestas emparelhadas separam-se.\nCruz e cantos brancos, a camada do meio e depois a amarela.\nOs centros fixos mostram a cor de cada face.';
+
+  @override
+  String get introHoldFiveSolve =>
+      'A cor da primeira camada em baixo, tal como no 3×3; o canto a encaixar à frente à direita.';
+
+  @override
+  String get introWhyFiveSolve =>
+      'Rotações interiores voltariam a separar centros e arestas; as exteriores tratam cada bloco como uma peça de 3×3.';
 
   @override
   String get lessonFiveParity => 'Paridade de arestas do 5×5';
@@ -1653,11 +1843,19 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get introGoalFiveParity =>
-      'Corrija a única aresta com as duas asas trocadas e termine.';
+      'Corrija a única aresta com as duas asas exteriores trocadas: a única paridade do 5×5.';
 
   @override
   String get introHowFiveParity =>
-      'Aparece como uma aresta que não emparelha.\nFaça uma vez a correção longa de camadas interiores.\nTodo o resto volta ao lugar.';
+      'Aparece como uma última aresta que parece virada.\nFaça uma vez a correção longa com camadas interiores.\nNo 5×5 não há paridade de PLL.';
+
+  @override
+  String get introHoldFiveParity =>
+      'A última camada em cima e a aresta com as asas trocadas à frente da camada de cima.';
+
+  @override
+  String get introWhyFiveParity =>
+      'No 5×5 só as duas asas exteriores de uma aresta se podem trocar, por isso basta um algoritmo.';
 
   @override
   String get lessonSixIntro => 'Conheça o 6×6';
@@ -1675,6 +1873,14 @@ class AppLocalizationsPt extends AppLocalizations {
       'Nenhum centro é fixo: você escolhe as cores ao montar.\nCada aresta tem asas exteriores e interiores.\nAs rotações duplas podem mexer até três camadas.';
 
   @override
+  String get introHoldSixIntro =>
+      'Ao início, como quiser: tal como o 4×4, o 6×6 não tem centros fixos.';
+
+  @override
+  String get introWhySixIntro =>
+      'Se resolve um 4×4 e um 5×5, o 6×6 é a mesma redução com blocos maiores.';
+
+  @override
   String get lessonSixCenters => 'Centros do 6×6';
 
   @override
@@ -1686,7 +1892,15 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get introHowSixCenters =>
-      'Monte primeiro dois centros opostos.\nFaça barras de quatro e junte-as.\nMova peças soltas com o truque camada, topo, desfazer.';
+      'Primeiro confirme a ordem das cores num canto: nenhum centro é fixo.\nFaça barras de quatro e junte-as.\nNos dois últimos centros mova peças soltas: camada, topo, desfazer.';
+
+  @override
+  String get introHoldSixCenters =>
+      'A face que está a construir à frente; os centros acabados à esquerda, à direita ou em baixo.';
+
+  @override
+  String get introWhySixCenters =>
+      'As barras juntam-se com camadas interiores e cada camada é desfeita, por isso os centros acabados ficam inteiros.';
 
   @override
   String get lessonSixEdges => 'Arestas do 6×6';
@@ -1700,21 +1914,37 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get introHowSixEdges =>
-      'Alinhe à frente as asas exteriores e interiores.\nA camada dupla profunda leva uma aresta para dentro e para fora.\nAs arestas prontas nunca se desfazem.';
+      'Alinhe à frente as asas exteriores e interiores de uma aresta.\nA camada larga funda mete e tira uma aresta.\nNunca desfaça uma aresta acabada para libertar uma peça.';
+
+  @override
+  String get introHoldSixEdges =>
+      'A aresta que está a construir à frente; as acabadas arrumadas em cima e em baixo.';
+
+  @override
+  String get introWhySixEdges =>
+      'A rotação larga funda afasta os centros para as asas se juntarem e depois repõe-nos.';
 
   @override
   String get lessonSixSolve => 'Resolva o 6×6 como um 3×3';
 
   @override
-  String get lessonSixSolveDesc => 'Termine com as três coroas.';
+  String get lessonSixSolveDesc => 'Termine camada a camada, como um 3×3.';
 
   @override
   String get introGoalSixSolve =>
-      'Resolva o 6×6 reduzido como um 3×3, coroa a coroa.';
+      'Resolva o 6×6 reduzido como um 3×3, camada a camada, só com rotações exteriores.';
 
   @override
   String get introHowSixSolve =>
-      'A partir de agora, só rotações exteriores.\nOs centros que montou mostram a cor de cada face.\nPrimeira coroa, segunda coroa e depois a amarela.';
+      'A partir de agora só rotações exteriores: uma camada interior partiria um centro ou uma aresta.\nOs centros que construiu mostram a cor de cada face.\nCruz e cantos brancos, a camada do meio e depois a amarela.';
+
+  @override
+  String get introHoldSixSolve =>
+      'A cor da primeira camada em baixo, tal como no 3×3; o canto a encaixar à frente à direita.';
+
+  @override
+  String get introWhySixSolve =>
+      'As rotações exteriores movem cada centro 4×4 e cada aresta como uma só peça, tal como no 3×3.';
 
   @override
   String get lessonSixParity => 'Paridade do 6×6';
@@ -1728,14 +1958,22 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get introHowSixParity =>
-      'Resolva como um 3×3 até travar.\nUma aresta virada: a correção longa de paridade.\nDuas arestas trocadas: a correção curta de giros duplos.';
+      'Resolva como um 3×3 até encravar.\nUma aresta virada: a correção longa com 3Rw.\nDuas arestas trocadas: a correção curta de rotações interiores duplas.';
+
+  @override
+  String get introHoldSixParity =>
+      'A última camada em cima. A aresta virada à frente; se forem duas trocadas, à frente e atrás.';
+
+  @override
+  String get introWhySixParity =>
+      'Tal como o 4×4, o 6×6 pode acabar com uma aresta virada ou duas trocadas; os algoritmos de camadas interiores corrigem-nas e deixam o resto.';
 
   @override
   String get stepFivePieces => 'As peças do 5×5';
 
   @override
   String get stepFivePiecesBody =>
-      'A peça do meio de cada face nunca se mexe, por isso continua a indicar a cor, como num 3×3. À volta há mais oito peças de centro; cada aresta tem uma peça do meio e duas asas, e os cantos funcionam como num 3×3.';
+      'A peça do meio de cada face nunca se move, por isso o esquema de cores não pode sair errado. À volta há oito peças de centro: centros de canto e de aresta nunca trocam de tipo. Cada aresta é uma peça do meio com duas asas.';
 
   @override
   String get stepFiveSlices => 'Três tipos de rotações';
@@ -1749,7 +1987,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get stepFiveCenterBarBody =>
-      'Faça uma fila de três peças de centro iguais e deslize-a para junto do centro da mesma cor com uma rotação de camada interior. Três barras formam um centro pronto.';
+      'Faça uma fila de três peças de centro iguais, meta-a com uma camada interior, rode o topo e desfaça a camada: o movimento que mete a barra também repõe o centro acabado. Três barras fazem um centro.';
 
   @override
   String get stepFiveCenterSwap => 'Trocar sem desfazer';
@@ -1763,35 +2001,35 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get stepFiveEdgePairBody =>
-      'Alinhe duas asas junto à aresta do meio à frente, desça a camada interior, traga de cima uma aresta por resolver e volte a camada interior.';
+      'Alinhe uma asa ao lado da sua aresta do meio, à frente, desça a camada interior, troque por uma aresta por resolver com um gatilho curto e volte a subir a camada interior.';
 
   @override
   String get stepFiveEdgeLast => 'As últimas arestas';
 
   @override
   String get stepFiveEdgeLastBody =>
-      'Com poucas arestas, uma rotação dupla, um gatilho curto e a rotação dupla de volta emparelham-nas sem desfazer as prontas.';
+      'Sem nenhuma aresta livre para trocar, use camada, virar, camada: uma rotação larga, um gatilho curto e a rotação larga de volta emparelham as últimas arestas sem desfazer as acabadas.';
 
   @override
   String get stepFiveAsThree => 'Agora é um 3×3';
 
   @override
   String get stepFiveAsThreeBody =>
-      'Com centros e arestas prontos, o 5×5 comporta-se como um 3×3 grande. Use só rotações exteriores e siga as três coroas: cruz e cantos brancos, camada do meio e camada amarela.';
+      'Com centros e arestas prontos, o 5×5 porta-se como um 3×3 grande. Use só rotações exteriores e avance camada a camada: cruz e cantos brancos, a camada do meio e depois a amarela. O 5×5 não tem paridade de PLL.';
 
   @override
   String get stepFiveEdgeParity => 'Trocar as asas da última aresta';
 
   @override
   String get stepFiveEdgeParityBody =>
-      'Às vezes a última aresta tem as duas asas trocadas. Um algoritmo longo de camadas interiores destroca-as e todo o resto volta ao lugar. Depois termine como um 3×3.';
+      'Às vezes a última aresta tem as duas asas exteriores trocadas e parece virada: é a única paridade do 5×5. Ponha-a à frente da camada de cima e faça uma vez o algoritmo de camadas interiores; tudo o resto volta ao lugar.';
 
   @override
   String get stepSixPieces => 'As peças do 6×6';
 
   @override
   String get stepSixPiecesBody =>
-      'Como o 4×4, o 6×6 não tem centro fixo: dezasseis peças de centro formam a cor de cada face. Cada aresta tem quatro peças: duas asas exteriores e duas interiores.';
+      'Tal como o 4×4, o 6×6 não tem centros fixos: dezasseis peças de centro formam a cor de cada face, por isso confirme primeiro a ordem das cores num canto. Cada aresta tem quatro asas: duas exteriores e duas interiores.';
 
   @override
   String get stepSixSlices => 'Rodar camadas mais fundas';
@@ -1805,49 +2043,49 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get stepSixCenterBarBody =>
-      'Faça filas de quatro peças de centro iguais e deslize-as lado a lado com rotações de camada interior até a face ficar de uma só cor.';
+      'Faça filas de quatro peças de centro iguais e junte-as com rotações de camadas interiores, desfazendo cada camada, até a face ser um bloco 4×4 de uma só cor.';
 
   @override
   String get stepSixCenterSwap => 'Uma peça de cada vez';
 
   @override
   String get stepSixCenterSwapBody =>
-      'Rode a terceira camada, rode o topo, desfaça e volte: uma peça de centro muda e os centros prontos regressam.';
+      'Rode a terceira camada, rode o topo, desfaça e volte: uma peça de centro move-se e os centros acabados voltam. Use isto nos dois últimos centros, quando nenhuma barra encaixa.';
 
   @override
   String get stepSixEdgePair => 'Quatro peças, uma aresta';
 
   @override
   String get stepSixEdgePairBody =>
-      'Junte à frente as quatro peças de uma aresta com a camada dupla profunda, traga uma aresta por resolver e volte a camada dupla.';
+      'Junte as quatro asas de uma aresta à frente com a camada larga funda, troque por uma aresta por resolver com um gatilho curto e volte a rodar a camada larga.';
 
   @override
   String get stepSixEdgeLast => 'As últimas arestas';
 
   @override
   String get stepSixEdgeLastBody =>
-      'Emparelhe as arestas finais com um gatilho curto entre uma rotação dupla profunda e o seu desfazer, para as arestas prontas continuarem unidas.';
+      'Emparelhe as últimas arestas com um gatilho curto entre uma rotação larga funda e o seu desfazer, assim as acabadas continuam juntas. Nunca desfaça uma aresta acabada para libertar uma peça.';
 
   @override
   String get stepSixAsThree => 'Agora é um 3×3';
 
   @override
   String get stepSixAsThreeBody =>
-      'Com centros 4×4 e arestas emparelhadas, resolva o 6×6 como um 3×3 com rotações exteriores e as três coroas.';
+      'Com centros 4×4 e arestas emparelhadas, resolva o 6×6 como um 3×3, camada a camada, só com rotações exteriores. Uma aresta virada ou duas trocadas no fim é paridade, não um erro.';
 
   @override
   String get stepSixOllParity => 'Uma aresta virada';
 
   @override
   String get stepSixOllParityBody =>
-      'Se uma só aresta parecer virada ao resolver a última camada, é paridade. Ponha-a à frente na camada de cima e faça a correção longa: as duas primeiras coroas voltam intactas.';
+      'Uma única aresta que parece virada na última camada é paridade. Ponha-a à frente da camada de cima e faça a correção longa: vira as quatro asas, troca também as arestas da esquerda e da direita em cima e não toca nas duas primeiras camadas.';
 
   @override
   String get stepSixPllParity => 'Duas arestas trocadas';
 
   @override
   String get stepSixPllParityBody =>
-      'Se duas arestas parecerem trocadas no fim, ponha-as à frente e atrás na camada de cima e faça a correção curta de rotações duplas interiores.';
+      'Se duas arestas parecerem trocadas mesmo no fim, ponha-as à frente e atrás na camada de cima e faça a correção curta de rotações interiores duplas: as quatro asas das duas arestas trocam de lugar.';
 
   @override
   String get stageTwoFirstLayer => 'Monte a camada de baixo';
@@ -2430,7 +2668,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String cueCrossFlipped(String piece, String center) {
-    return 'A aresta $piece está no lugar mas virada ao contrário: o branco olha para o lado. Tire-a e volte a colocá-la junto ao centro $center do lado certo.';
+    return 'A aresta $piece está no lugar mas virada: o branco olha para o lado. Tire-a e suba-a com o branco para cima; depois desça-a junto ao centro $center.';
   }
 
   @override
@@ -2445,7 +2683,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String cueCornerTwisted(String piece) {
-    return 'O canto $piece está no seu lugar mas rodado. Um gatilho tira-o (um canto amarelo ocupa o lugar); continue a repetir até ele voltar a entrar bem.';
+    return 'O canto $piece está no lugar mas rodado. Um gatilho tira-o (entra um canto amarelo no lugar dele); continue a repetir sobre o mesmo lugar até ele voltar com o branco para baixo. Não rode o cubo para o perseguir.';
   }
 
   @override
@@ -2460,7 +2698,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String cueMiddleFlipped(String piece, String a, String b) {
-    return 'A aresta $piece está no seu lugar mas virada. Insira lá uma aresta amarela para a empurrar para fora e depois insira-a de novo entre $a e $b.';
+    return 'A aresta $piece está no lugar mas virada. Encaixe ali uma aresta amarela para a empurrar para cima e depois encaixe-a de novo entre $a e $b.';
   }
 
   @override
@@ -2475,7 +2713,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String cueYellowDot(String front) {
-    return 'Só o centro é amarelo: um ponto. Faça o algoritmo uma vez, com o $front virado para si, para obter um L.';
+    return 'Só o centro é amarelo: um ponto. Aplique o algoritmo uma vez com o $front virado para si para obter um L. Um ponto pode levar três voltas, por isso continue.';
   }
 
   @override
@@ -2505,7 +2743,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String cueTwistCorner(String piece) {
-    return 'Oriente o canto $piece à frente à direita: repita o gatilho de baixo até o amarelo ficar para cima. As camadas de baixo parecem baralhadas por agora; é normal!';
+    return 'Rode o canto $piece à frente à direita: repita o gatilho de baixo aos pares até o amarelo dele ficar para cima. As camadas de baixo parecem baralhadas; voltam com o último canto!';
   }
 
   @override
@@ -2583,16 +2821,16 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String cueParityOll(String front) {
-    return 'Paridade OLL: uma aresta de cima está virada, o que nunca acontece num 3×3. Mantenha-a à frente, com o $front virado para si, e faça a correção de paridade.';
+    return 'Paridade de OLL: uma aresta de cima está virada, o que nunca acontece num 3×3. Deixe-a à frente, com o $front virado para si, e aplique a correção de paridade antes de qualquer OLL normal.';
   }
 
   @override
   String get cueParityPll =>
-      'Paridade PLL: duas arestas de cima estão trocadas, o que nunca acontece num 3×3. Mantenha-as à frente e atrás e faça a troca de paridade.';
+      'Paridade de PLL: duas arestas de cima estão trocadas, o que nunca acontece num 3×3. Deixe-as à frente e atrás, aplique a troca de paridade e alinhe o topo.';
 
   @override
   String cueParityFive(String front) {
-    return 'Paridade de aresta: as duas peças exteriores de uma aresta estão trocadas. Rode essa aresta para a frente, com o $front virado para si, corrija-a e rode de volta.';
+    return 'Paridade de arestas: as duas asas exteriores de uma aresta estão trocadas, a única paridade do 5×5. Deixe essa aresta à frente, com o $front virado para si, e aplique a correção uma vez.';
   }
 
   @override
@@ -2623,7 +2861,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get onboardingLearnBody =>
-      'Domina o método das 3 coroas na Academia e depois roda, baralha e resolve à vontade na Área 3D.';
+      'Domine o método por camadas na Academia e depois rode, baralhe e resolva à vontade no Playground 3D.';
 
   @override
   String get scanChoiceManualDesc =>
@@ -2641,7 +2879,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get crownExplain =>
-      'Uma coroa é uma camada horizontal do cubo: a primeira coroa é a camada branca em baixo, a segunda é a camada do meio e a terceira é a camada amarela em cima.';
+      'Uma camada é uma fatia horizontal do cubo: a primeira camada é a branca em baixo, a segunda é a camada do meio e a terceira é a amarela em cima.';
 
   @override
   String get lessonObjectiveHeading => 'Objetivo de aprendizagem';
@@ -2667,7 +2905,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get solveChoiceGuidedDesc =>
-      'Aprende o método das 3 coroas passo a passo.';
+      'Aprenda o método por camadas passo a passo.';
 
   @override
   String get guidedSolvedTitle => 'Resolvido!';
@@ -2888,7 +3126,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get solveLearn => 'Aprender passo a passo';
 
   @override
-  String get solveModeGuided => 'Guiado (3 coroas)';
+  String get solveModeGuided => 'Guiado (3 camadas)';
 
   @override
   String get solveModeFast => 'Rápido (ótimo)';
@@ -2985,7 +3223,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get phaseLblCross => 'Cruz branca';
 
   @override
-  String get phaseLblCorners => 'Quinas da primeira coroa';
+  String get phaseLblCorners => 'Quinas da primeira camada';
 
   @override
   String get phaseLblMiddle => 'Meios da camada do meio';
@@ -3003,13 +3241,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get phaseLblYellowCornersOrient => 'Orientar as quinas amarelas';
 
   @override
-  String get crownFirst => 'Primeira coroa';
+  String get crownFirst => 'Primeira camada';
 
   @override
-  String get crownSecond => 'Segunda coroa';
+  String get crownSecond => 'Segunda camada';
 
   @override
-  String get crownThird => 'Terceira coroa';
+  String get crownThird => 'Terceira camada';
 
   @override
   String get crownFirstGoal => 'Face branca e primeira camada';
@@ -3026,11 +3264,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get subStepGoal12 =>
-      'Encaixe as 4 quinas brancas nos seus lugares para completar a face branca e todo o primeiro anel.';
+      'Encaixe as 4 quinas brancas nos lugares certos para terminar a face branca e toda a primeira camada.';
 
   @override
   String get subStepGoal21 =>
-      'Encaixe os 4 meios da camada do meio sem desfazer a primeira coroa.';
+      'Encaixe os 4 meios da camada do meio sem desmontar a primeira camada.';
 
   @override
   String get subStepGoal31 => 'Monte uma cruz amarela na última camada.';
@@ -3411,7 +3649,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get trackBeginner => '3×3 iniciante: as 3 coroas';
+  String get trackBeginner => '3×3 iniciante: camada por camada';
 
   @override
   String get trackCfop => 'Introdução ao CFOP';
@@ -3724,77 +3962,77 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get stepCrossGoalBody =>
-      'Segure o amarelo em cima. Os quatro meios brancos ficam em volta do centro branco embaixo, cada cor lateral combinando com o centro ao lado.';
+      'Segure o amarelo em cima e o verde virado para você. Primeiro junte os quatro meios brancos em volta do centro amarelo, com o branco para cima, como pétalas: é a margarida. Depois cada pétala desce para o centro branco, com a cor lateral igual ao centro do lado.';
 
   @override
   String get stepCrossTop => 'Meio em cima';
 
   @override
   String get stepCrossTopBody =>
-      'Encontre um meio branco em cima. Gire a camada de cima até a cor lateral dele ficar sobre o centro correspondente e gire essa face duas vezes para descê-lo.';
+      'Um meio branco em cima com o branco para cima é uma pétala da margarida. Gire o topo até a cor lateral dele ficar bem em cima do centro da mesma cor e gire essa face duas vezes (180°) para descê-lo até o centro branco.';
 
   @override
   String get stepCrossMiddle => 'Meio na camada do meio';
 
   @override
   String get stepCrossMiddleBody =>
-      'Um meio preso na camada do meio sobe primeiro: gire a lateral dele para cima, tire a camada de cima do caminho e volte a lateral, assim a cruz não se desfaz. Depois posicione-o por cima.';
+      'Um meio preso na camada do meio sobe primeiro: suba o lado dele, tire o topo do caminho e desça o lado, para as peças já colocadas não saírem. Agora é uma pétala em cima: alinhe e gire essa face duas vezes.';
 
   @override
   String get stepCornersInsert => 'Sobre o seu lugar';
 
   @override
   String get stepCornersInsertBody =>
-      'Gire a camada de cima até uma quina branca ficar sobre o lugar das cores dela, na frente à direita. R U R\' U\' encaixa a quina.';
+      'Gire o topo até a quina branca ficar bem em cima do seu lugar, entre os dois centros das cores laterais dela. Aqui basta um giro do topo e R U\' R\': U leva a quina para cima do lugar e R U\' R\' encaixa com o branco para baixo.';
 
   @override
   String get stepCornersRepeat => 'Repita o gatilho';
 
   @override
   String get stepCornersRepeatBody =>
-      'Se o branco estiver virado para o lado errado, continue repetindo R U R\' U\' sobre o mesmo lugar. Toda quina fica resolvida em no máximo cinco repetições.';
+      'Deixe o lugar na frente à direita e repita R U R\' U\' até o branco ficar para baixo: uma vez se ele olha para a direita, três se olha para cima, cinco se olha para você. Enquanto isso o topo fica bagunçado; ele se arruma sozinho.';
 
   @override
   String get stepMiddleRight => 'Meio para a direita';
 
   @override
   String get stepMiddleRightBody =>
-      'Alinhe um meio de cima com o centro dele na frente. Se a cor de cima combinar com o centro da direita, insira com U R U\' R\' U\' F\' U F.';
+      'Procure um meio de cima sem amarelo. Gire o topo até a cor da frente bater com o centro à sua frente. Se a cor de cima bater com o centro da direita, mande para a direita: U R U\' R\' U\' F\' U F.';
 
   @override
   String get stepMiddleLeft => 'Meio para a esquerda';
 
   @override
   String get stepMiddleLeftBody =>
-      'Se a cor de cima combinar com o centro da esquerda, use o espelho: U\' L\' U L U F U\' F\'.';
+      'Se a cor de cima bater com o centro da esquerda, use o espelho: U\' L\' U L U F U\' F\'. A camada branca volta inteira toda vez.';
 
   @override
   String get stepYellowCross => 'Um só algoritmo';
 
   @override
   String get stepYellowCrossBody =>
-      'F R U R\' U\' F\' transforma um ponto amarelo em um L, um L em uma linha e uma linha na cruz. Segure o L atrás à esquerda e a linha na horizontal.';
+      'Olhe só os meios amarelos em cima. Deixe o L atrás à esquerda e a linha da esquerda para a direita e faça F R U R\' U\' F\'. A linha precisa de uma vez, o L de duas, o ponto de até três.';
 
   @override
   String get stepYellowEdges => 'Alinhe os meios';
 
   @override
   String get stepYellowEdgesBody =>
-      'Gire a camada de cima até dois meios combinarem com seus centros. Com um atrás e outro à direita, R U R\' U R U2 R\' U troca os outros dois.';
+      'Gire o topo até dois meios baterem com seus centros. Com um atrás e outro à direita, R U R\' U R U2 R\' U troca o da frente com o da esquerda.';
 
   @override
   String get stepPlaceCorners => 'Posicione';
 
   @override
   String get stepPlaceCornersBody =>
-      'Segure na frente à direita uma quina que já está no lugar. U R U\' L\' U R\' U\' L move as outras três; repita até as quatro estarem no lugar.';
+      'Uma quina está no lugar quando suas cores batem com os três centros em volta, mesmo girada. Deixe uma assim na frente à direita: U R U\' L\' U R\' U\' L move as outras três. Repita até as quatro estarem no lugar.';
 
   @override
   String get stepTwistCorners => 'Oriente';
 
   @override
   String get stepTwistCornersBody =>
-      'Com uma quina não resolvida na frente à direita, repita R\' D\' R D até o amarelo ficar em cima e gire só a camada de cima para trazer a próxima. A camada de baixo parece bagunçada até o fim: continue.';
+      'Com uma quina não resolvida na frente à direita, repita R\' D\' R D de dois em dois até o amarelo ficar em cima; depois gire só o topo para trazer a próxima. A parte de baixo parece desmontada até a última quina: continue.';
 
   @override
   String get lessonCfopIntro => 'O que é CFOP?';
@@ -3887,14 +4125,14 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get stepTwoIntroBody =>
-      'Um 2×2 é um 3×3 sem meios e centros. Escolha uma cor, monte essa face embaixo e faça as cores laterais das quinas vizinhas combinarem.';
+      'Um 2×2 são só oito quinas: sem meios nem centros. Monte a camada branca embaixo com as cores laterais das vizinhas batendo e termine por um caminho só: Sune para o topo amarelo e depois a T-perm ou a Y-perm.';
 
   @override
   String get stepTwoCorner => 'Insira as quinas';
 
   @override
   String get stepTwoCornerBody =>
-      'Igual às quinas brancas do 3×3: leve uma quina para cima do seu lugar e use R U R\' U\' até ela encaixar.';
+      'Igual às quinas brancas do 3×3: leve uma quina para cima do lugar vazio na frente à direita e encaixe, aqui com U R U\' R\' ou repetindo R U R\' U\' até o branco ficar para baixo. Confira as cores laterais com a vizinha.';
 
   @override
   String get lessonTwoOll => 'Oriente o topo';
@@ -3907,7 +4145,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get stepTwoSuneBody =>
-      'O Sune também deixa o topo amarelo no 2×2. Quem usa Ortega aprende sete casos curtos; o Sune e seu espelho cobrem a maioria deles.';
+      'Conte os adesivos amarelos para cima. Deixe a única quina com amarelo para cima na frente à esquerda e faça Sune (R U R\' U R U2 R\'). Conte e segure de novo; no máximo três Sunes. Entre eles gire só o topo.';
 
   @override
   String get lessonTwoPbl => 'Permute as duas camadas';
@@ -3920,14 +4158,14 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get stepTwoAdjacentBody =>
-      'Quando duas quinas vizinhas de cima precisam trocar, segure-as à direita e use a T-perm.';
+      'Faróis são dois adesivos iguais em cima no mesmo lado. Gire o topo até os faróis ficarem à esquerda, assim as duas quinas a trocar ficam à direita, e faça a T-perm.';
 
   @override
   String get stepTwoDiagonal => 'Troca diagonal';
 
   @override
   String get stepTwoDiagonalBody =>
-      'Duas quinas em posições opostas trocam com a Y-perm.';
+      'Sem faróis em nenhum lado, duas quinas na diagonal precisam trocar: faça a Y-perm de qualquer lado e gire o topo para alinhar tudo.';
 
   @override
   String get lessonBigIntro => 'Peças dos cubos grandes';
@@ -3940,7 +4178,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get stepBigPiecesBody =>
-      'Em um 4×4 cada face tem quatro peças de centro que se movem, e cada meio é formado por duas wings. A redução agrupa essas peças para o cubo se comportar como um 3×3.';
+      'No 4×4 cada face tem quatro peças de centro que se movem e cada meio são duas wings. Nenhum centro é fixo, então confira a ordem das cores numa quina: branco oposto ao amarelo, azul ao verde, vermelho ao laranja.';
 
   @override
   String get stepBigSlices => 'Giros duplos e internos';
@@ -3960,7 +4198,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get stepBigCenterCycleBody =>
-      'Este comutador move exatamente três peças de centro e não mexe em mais nada, então os centros prontos continuam prontos.';
+      'Esse comutador move exatamente três peças de centro e deixa todo o resto, então os centros prontos continuam prontos. Use quando uma peça solta não se junta a uma barra.';
 
   @override
   String get lessonBigEdges => 'Parear os meios';
@@ -3973,7 +4211,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get stepBigEdgePairBody =>
-      'Uw\' alinha duas wings iguais, R U R\' F R\' F\' R traz um meio não pareado e Uw devolve os centros.';
+      'Uw\' alinha duas wings iguais, R U R\' F R\' F\' R traz um meio não pareado e Uw devolve os centros. Sempre feche a camada que você abriu.';
 
   @override
   String get lessonBigParity => 'Paridade';
@@ -3986,20 +4224,26 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get stepBigOllParityBody =>
-      'Um único meio invertido é impossível em um 3×3. Em cubos pares, este algoritmo desvira o meio de cima da frente. Ele pode bagunçar o resto da camada de cima, o que as últimas etapas do 3×3 corrigem de qualquer jeito.';
+      'Um meio invertido sozinho não acontece num 3×3: é paridade de OLL, não um erro. Deixe-o na frente da camada de cima e faça o algoritmo longo. Ele também troca os meios da esquerda e da direita em cima e duas quinas; os últimos passos do 3×3 corrigem isso.';
 
   @override
   String get stepBigPllParity => 'Paridade de PLL';
 
   @override
   String get stepBigPllParityBody =>
-      'Dois meios trocados bem no final? 2R2 U2 2R2 Uw2 2R2 Uw2 troca os meios de cima da frente e de trás.';
+      'Dois meios trocados bem no final e nenhum algoritmo de 3×3 serve? É paridade de PLL. Deixe-os na frente e atrás na camada de cima: 2R2 U2 2R2 Uw2 2R2 2U2 troca os dois.';
 
   @override
   String get introGoalHeading => 'Qual é o objetivo?';
 
   @override
   String get introHowHeading => 'Como fazer?';
+
+  @override
+  String get introHoldHeading => 'Como segurar';
+
+  @override
+  String get introWhyHeading => 'Por que funciona';
 
   @override
   String get introStart => 'Entendi, começar passo a passo';
@@ -4025,11 +4269,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get introGoalCross =>
-      'Forme uma cruz branca em que cada aresta branca também combine com o centro ao lado.';
+      'Monte uma cruz branca embaixo em que cada meio branco também combine com o centro do lado.';
 
   @override
   String get introGoalCorners =>
-      'Complete os quatro cantos brancos: a primeira coroa, toda a camada branca, fica pronta.';
+      'Coloque as quatro quinas brancas para completar toda a primeira camada: face branca e cores laterais batendo.';
 
   @override
   String get introGoalMiddle =>
@@ -4075,7 +4319,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get introGoalTwoPbl =>
-      'Troque os últimos cantos para o lugar e resolva o 2×2.';
+      'Leve as últimas quinas para o lugar com uma T-perm ou uma Y-perm e alinhe a camada de cima para resolver o 2×2.';
 
   @override
   String get introGoalBigIntro =>
@@ -4091,83 +4335,235 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get introGoalBigParity =>
-      'Corrija os dois casos do 4×4 que um 3×3 nunca tem: uma aresta virada ou duas arestas trocadas.';
+      'Corrija os dois casos do 4×4 que um 3×3 nunca tem: um meio invertido (paridade de OLL) ou dois meios trocados (paridade de PLL).';
 
   @override
   String get introHowBasics =>
       'Os centros nunca se mexem: indicam a cor de cada face.\nCada letra gira uma face um quarto de volta no sentido horário.\nUm apóstrofo (\') gira para trás; um 2 gira duas vezes.';
 
   @override
+  String get introHoldBasics =>
+      'Como quiser: os centros não se movem, então as cores sempre dizem qual face é qual.';
+
+  @override
+  String get introWhyBasics =>
+      'Todo algoritmo é só uma sequência dessas letras, então saber lê-las é a primeira habilidade.';
+
+  @override
   String get introHowCross =>
-      'Segure o amarelo em cima: a cruz branca é montada embaixo.\nEncontre uma aresta branca e alinhe a cor lateral com o centro certo.\nGire essa face duas vezes para descê-la até o lugar.';
+      'Leve cada meio branco para cima, com o branco para cima, em volta do centro amarelo: é a margarida.\nGire o topo até a cor lateral de uma pétala ficar sobre o centro dessa cor.\nGire essa face duas vezes para descê-la; repita com as quatro.';
+
+  @override
+  String get introHoldCross =>
+      'Centro amarelo em cima e branco embaixo durante todo o passo. Gire o topo, não o cubo, para alinhar uma pétala.';
+
+  @override
+  String get introWhyCross =>
+      'Com o branco para cima, dois giros da face da frente colocam o meio no centro branco, com o branco para baixo e o lado já batendo.';
 
   @override
   String get introHowCorners =>
-      'Leve um canto branco para cima do seu espaço vazio.\nRepita R U R\' U\' até ele entrar na posição certa.\nFaça o mesmo com os outros três cantos.';
+      'Gire o topo até uma quina branca ficar sobre o seu lugar vazio, na frente à direita.\nRepita R U R\' U\': uma vez se o branco olha para a direita, três se olha para cima, cinco se olha para você.\nFaça o mesmo com as outras três quinas.';
+
+  @override
+  String get introHoldCorners =>
+      'Branco embaixo, amarelo em cima. A quina na frente à direita, bem em cima do seu lugar.';
+
+  @override
+  String get introWhyCorners =>
+      'R U R\' U\' levanta o lugar e devolve: cada volta gira um pouco a quina até o branco ficar para baixo, e a cruz nunca se desfaz.';
 
   @override
   String get introHowMiddle =>
-      'Encontre uma aresta de cima sem amarelo e alinhe a cor da frente com um centro.\nMande-a para a direita ou para a esquerda com um algoritmo curto de 8 movimentos.\nA camada branca volta intacta todas as vezes.';
+      'Procure um meio de cima sem amarelo e combine a cor da frente com o centro embaixo.\nA cor de cima diz para onde ele vai: direita ou esquerda.\nEncaixe com o algoritmo de 8 movimentos; a camada branca volta inteira.';
+
+  @override
+  String get introHoldMiddle =>
+      'Branco embaixo, amarelo em cima. O meio na frente, com a cor da frente igual ao centro embaixo.';
+
+  @override
+  String get introWhyMiddle =>
+      'O algoritmo tira o lugar do caminho, encaixa o meio e devolve a camada branca. Meio com amarelo é do topo, nunca da camada do meio.';
 
   @override
   String get introHowYellowCross =>
-      'Olhe para o topo: um ponto, um L ou uma linha.\nSegure como na imagem e faça F R U R\' U\' F\'.\nRepita até a cruz amarela aparecer.';
+      'Olhe só os meios amarelos em cima: um ponto, um L ou uma linha.\nDeixe o L atrás à esquerda e a linha da esquerda para a direita, e faça F R U R\' U\' F\'.\nA linha precisa de uma vez, o L de duas, o ponto de até três.';
+
+  @override
+  String get introHoldYellowCross =>
+      'Branco embaixo, amarelo em cima. O L atrás à esquerda, a linha da esquerda para a direita; o ponto, de qualquer jeito.';
+
+  @override
+  String get introWhyYellowCross =>
+      'F R U R\' U\' F\' vira dois meios de cima por vez sem mexer nas duas primeiras camadas.';
 
   @override
   String get introHowYellowEdges =>
-      'Gire o topo até duas arestas combinarem com os centros.\nColoque-as atrás e à direita e faça R U R\' U R U2 R\' U.\nRepita até as quatro combinarem.';
+      'Gire o topo até dois meios baterem com seus centros.\nDeixe-os atrás e à direita e faça R U R\' U R U2 R\' U.\nSe os meios certos estiverem opostos, faça uma vez de qualquer lado antes.';
+
+  @override
+  String get introHoldYellowEdges =>
+      'Amarelo em cima. Um meio certo atrás e o outro à direita.';
+
+  @override
+  String get introWhyYellowEdges =>
+      'Esse algoritmo só move peças de cima, então as duas primeiras camadas sempre voltam.';
 
   @override
   String get introHowYellowCorners =>
-      'Um canto está no lugar quando as cores combinam com as três faces ao redor.\nMantenha um canto já colocado à frente, à direita.\nU R U\' L\' U R\' U\' L troca os outros três até todos encaixarem.';
+      'Uma quina está no lugar quando suas cores batem com os três centros em volta, mesmo girada.\nMantenha uma quina no lugar na frente à direita.\nU R U\' L\' U R\' U\' L roda as outras três; repita até encaixarem todas.';
+
+  @override
+  String get introHoldYellowCorners =>
+      'Amarelo em cima. Uma quina já no lugar na frente à direita; se não houver, qualquer quina.';
+
+  @override
+  String get introWhyYellowCorners =>
+      'Ele roda três quinas em círculo e deixa parada a da frente à direita, então cada repetição coloca mais quinas no lugar.';
 
   @override
   String get introHowTwistCorners =>
-      'Segure um canto não resolvido à frente, à direita.\nRepita R\' D\' R D até o amarelo ficar virado para cima.\nGire só o topo para o próximo canto; a camada de baixo se arruma sozinha no final.';
+      'Segure uma quina não resolvida na frente à direita.\nRepita R\' D\' R D de dois em dois até o amarelo dela ficar para cima.\nGire só o topo para a próxima; a parte de baixo volta com a última quina.';
+
+  @override
+  String get introHoldTwistCorners =>
+      'Amarelo em cima, a quina a girar na frente à direita. Entre as quinas gire só o topo, nunca o cubo inteiro.';
+
+  @override
+  String get introWhyTwistCorners =>
+      'R\' D\' R D gira a quina e bagunça a parte de baixo, mas ela volta quando todas as quinas estão giradas. Parar no meio deixa tudo desmontado.';
 
   @override
   String get introHowCfopIntro =>
       'Cruz: quatro arestas planejadas durante a inspeção.\nF2L: cada canto entra junto com a sua aresta.\nA OLL deixa o topo amarelo e a PLL leva as peças para o lugar.';
 
   @override
+  String get introHoldCfopIntro =>
+      'Speedcubers montam a cruz embaixo para enxergar as próximas peças enquanto giram.';
+
+  @override
+  String get introWhyCfopIntro =>
+      'Resolver uma quina junto com seu meio economiza muitos movimentos, e reconhecer casos substitui a tentativa e erro.';
+
+  @override
   String get introHowF2l =>
       'Encontre um canto e a aresta dele na camada de cima.\nJunte-os em par por cima do seu espaço.\nEncaixe o par com três ou quatro movimentos.';
+
+  @override
+  String get introHoldF2l =>
+      'Cruz embaixo. O lugar do par na frente à direita, ou na frente à esquerda no espelho.';
+
+  @override
+  String get introWhyF2l =>
+      'Uma quina e seu meio pareados entram juntos, então duas camadas crescem ao mesmo tempo em vez de peça por peça.';
 
   @override
   String get introHowOll =>
       'Primeiro a cruz amarela com F R U R\' U\' F\'.\nDepois oriente os cantos, por exemplo com o Sune.\nReconheça o caso pelo amarelo que vê.';
 
   @override
+  String get introHoldOll =>
+      'Amarelo em cima. No Sune, a única quina com amarelo para cima fica na frente à esquerda.';
+
+  @override
+  String get introWhyOll =>
+      'Dividir a última camada em orientar e depois permutar mantém poucos algoritmos.';
+
+  @override
   String get introHowPll =>
       'O topo já está todo amarelo.\nA T-perm troca cantos; a U-perm move três arestas.\nLeia as cores laterais para escolher o algoritmo.';
 
   @override
+  String get introHoldPll =>
+      'Amarelo em cima. T-perm: faróis à esquerda. U-perm: o lado pronto atrás.';
+
+  @override
+  String get introWhyPll =>
+      'Com o topo todo amarelo, só os lugares das peças estão errados, e poucas trocas terminam o cubo.';
+
+  @override
   String get introHowTwoFirst =>
-      'Um 2×2 só tem cantos, como um 3×3 sem arestas.\nLeve cada canto branco para cima do seu lugar.\nRepita R U R\' U\' até ele entrar.';
+      'Escolha uma quina branca como âncora, com o branco para baixo.\nLeve cada quina seguinte para cima do seu lugar, na frente à direita.\nRepita R U R\' U\' até ela entrar com as cores laterais batendo.';
+
+  @override
+  String get introHoldTwoFirst =>
+      'Branco embaixo. O lugar vazio na frente à direita, com a quina dele bem em cima, na camada de cima.';
+
+  @override
+  String get introWhyTwoFirst =>
+      'O 2×2 não tem centros: a primeira quina que você coloca define as cores das vizinhas, então as cores laterais contam, não só o branco.';
 
   @override
   String get introHowTwoOll =>
-      'Mantenha a camada branca embaixo.\nO Sune (R U R\' U R U2 R\') gira os cantos de cima.\nRepita a partir do ângulo certo até o topo ficar todo amarelo.';
+      'Conte as quinas com o amarelo para cima.\nCom uma, deixe-a na frente à esquerda e faça Sune: R U R\' U R U2 R\'.\nConte de novo e repita; no máximo três Sunes.';
+
+  @override
+  String get introHoldTwoOll =>
+      'Branco embaixo, amarelo em cima. Antes de cada Sune, a quina com amarelo para cima na frente à esquerda.';
+
+  @override
+  String get introWhyTwoOll =>
+      'O Sune gira as quinas de cima sem quebrar a camada branca; contar de novo diz como segurar na próxima vez.';
 
   @override
   String get introHowTwoPbl =>
-      'Procure um lado onde dois cantos já combinam.\nTroca adjacente: um algoritmo no estilo T-perm.\nTroca diagonal: um algoritmo um pouco mais longo.';
+      'Procure faróis: dois adesivos iguais em cima no mesmo lado.\nFaróis em um lado: deixe-os à esquerda e faça a T-perm.\nSem faróis: faça a Y-perm de qualquer lado e alinhe o topo.';
+
+  @override
+  String get introHoldTwoPbl =>
+      'Branco embaixo, amarelo em cima. T-perm: faróis à esquerda. Y-perm: qualquer lado virado para você.';
+
+  @override
+  String get introWhyTwoPbl =>
+      'Com o topo amarelo, só os lugares das quinas estão errados: a T-perm troca duas vizinhas, a Y-perm duas na diagonal.';
 
   @override
   String get introHowBigIntro =>
       'Nenhum centro é fixo: quatro peças de centro formam a cor de cada face.\nGiros duplos como Rw giram duas camadas de uma vez.\nGiros internos como 2R giram só uma camada interna.';
 
   @override
+  String get introHoldBigIntro =>
+      'No começo, como quiser: no 4×4 nenhum centro é fixo, então você escolhe onde fica cada cor.';
+
+  @override
+  String get introWhyBigIntro =>
+      'A redução agrupa centros e peças de meio para o cubo grande ser resolvido como um 3×3.';
+
+  @override
   String get introHowBigCenters =>
-      'Monte primeiro dois centros opostos.\nAs camadas internas trocam peças de centro sem desfazer os centros prontos.\nTermine os últimos quatro centros da mesma forma.';
+      'Primeiro confira a ordem das cores numa quina.\nMonte dois centros opostos e depois os outros quatro.\nAs camadas internas movem peças de centro; sempre desfaça a camada que abriu.';
+
+  @override
+  String get introHoldBigCenters =>
+      'A face que você está montando na frente; os centros prontos à esquerda e à direita, fora do caminho.';
+
+  @override
+  String get introWhyBigCenters =>
+      'Uma camada interna move centros e desfazê-la devolve os prontos, então só muda a peça que você quer.';
 
   @override
   String get introHowBigEdges =>
-      'Encontre duas peças de aresta com as mesmas cores.\nAlinhe-as lado a lado com uma camada interna.\nTire o par do caminho e devolva os centros ao lugar.';
+      'Procure as duas wings com as mesmas duas cores.\nAlinhe-as na frente e junte-as com Uw\'.\nTroque por um meio não pareado e Uw devolve os centros.';
+
+  @override
+  String get introHoldBigEdges =>
+      'O meio que você está pareando nas camadas da frente; os prontos guardados em cima e embaixo.';
+
+  @override
+  String get introWhyBigEdges =>
+      'Uw\' tira os centros do caminho para duas wings se juntarem; Uw devolve tudo e o seu trabalho fica intacto.';
 
   @override
   String get introHowBigParity =>
-      'Resolva o 4×4 como um 3×3 até ficar preso.\nUma aresta virada: o algoritmo longo de paridade OLL.\nDuas arestas trocadas: 2R2 U2 2R2 Uw2 2R2 Uw2.';
+      'Resolva o 4×4 como um 3×3 até travar.\nUm meio invertido: o algoritmo longo de paridade de OLL.\nDois meios trocados: 2R2 U2 2R2 Uw2 2R2 2U2.';
+
+  @override
+  String get introHoldBigParity =>
+      'A última camada em cima. Paridade de OLL: o meio invertido na frente. Paridade de PLL: os meios trocados na frente e atrás.';
+
+  @override
+  String get introWhyBigParity =>
+      'As wings podem chegar a estados que um 3×3 não alcança; esses algoritmos giram camadas internas para desfazer exatamente isso.';
 
   @override
   String get dirFaceR => 'Lado direito';
@@ -4278,13 +4674,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get stageParity => 'Resolver a paridade';
 
   @override
-  String get stageCrown1 => 'Primeira coroa (branca)';
+  String get stageCrown1 => 'Primeira camada (branca)';
 
   @override
-  String get stageCrown2 => 'Segunda coroa';
+  String get stageCrown2 => 'Segunda camada';
 
   @override
-  String get stageCrown3 => 'Terceira coroa (amarela)';
+  String get stageCrown3 => 'Terceira camada (amarela)';
 
   @override
   String get stageOrient => 'Orientar as peças';
@@ -4328,6 +4724,14 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'A peça do meio de cada face nunca se mexe.\nCada aresta é uma peça do meio com duas asas.\nAs camadas internas movem peças sem tocar no lado de fora.';
 
   @override
+  String get introHoldFiveIntro =>
+      'Como quiser: no 5×5 o meio de cada face nunca se move, então ele mostra a cor da face.';
+
+  @override
+  String get introWhyFiveIntro =>
+      'Os centros fixos definem o esquema de cores, então os centros não podem ficar na ordem errada.';
+
+  @override
   String get lessonFiveCenters => 'Centros do 5×5';
 
   @override
@@ -4339,7 +4743,15 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get introHowFiveCenters =>
-      'Comece pela peça do meio: ela indica a cor.\nFaça barras de três e deslize-as com uma camada interna.\nTermine juntos os dois últimos centros.';
+      'Comece pela peça central fixa: ela define a cor.\nFaça barras de três e encaixe-as com uma camada interna.\nO movimento que traz a barra também devolve o centro pronto.';
+
+  @override
+  String get introHoldFiveCenters =>
+      'O centro que você está montando na frente ou em cima; os prontos embaixo, à esquerda ou à direita.';
+
+  @override
+  String get introWhyFiveCenters =>
+      'Camada para dentro, topo, camada para fora: a camada que traz a barra também devolve os centros prontos.';
 
   @override
   String get lessonFiveEdges => 'Arestas do 5×5';
@@ -4353,21 +4765,37 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get introHowFiveEdges =>
-      'Alinhe duas asas com a aresta do meio à frente.\nGire a camada interna, troque uma aresta não resolvida e volte.\nEmparelhe as últimas arestas sem desfazer as prontas.';
+      'Junte cada wing ao seu meio central na frente.\nGire a camada interna, troque por um meio não resolvido e gire de volta.\nNos últimos meios: camada, virar, camada.';
+
+  @override
+  String get introHoldFiveEdges =>
+      'O meio que você está montando na frente; os prontos guardados nas camadas de cima e de baixo.';
+
+  @override
+  String get introWhyFiveEdges =>
+      'Abrir e fechar a camada interna junta wings enquanto centros e meios guardados voltam.';
 
   @override
   String get lessonFiveSolve => 'Resolva o 5×5 como um 3×3';
 
   @override
-  String get lessonFiveSolveDesc => 'Termine com as três coroas.';
+  String get lessonFiveSolveDesc => 'Termine camada por camada, como um 3×3.';
 
   @override
   String get introGoalFiveSolve =>
-      'Resolva o 5×5 reduzido como um 3×3, coroa a coroa.';
+      'Resolva o 5×5 reduzido como um 3×3, camada por camada, só com giros externos.';
 
   @override
   String get introHowFiveSolve =>
-      'A partir de agora, só giros externos.\nPrimeira coroa, segunda coroa e depois a amarela.\nOs centros fixos mostram a cor de cada face.';
+      'Daqui em diante só giros externos, senão os meios pareados se separam.\nCruz e quinas brancas, a camada do meio e depois a amarela.\nOs centros fixos mostram a cor de cada face.';
+
+  @override
+  String get introHoldFiveSolve =>
+      'A cor da primeira camada embaixo, igual no 3×3; a quina a encaixar na frente à direita.';
+
+  @override
+  String get introWhyFiveSolve =>
+      'Giros internos separariam de novo centros e meios; os externos tratam cada bloco como uma peça de 3×3.';
 
   @override
   String get lessonFiveParity => 'Paridade de arestas do 5×5';
@@ -4377,11 +4805,19 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get introGoalFiveParity =>
-      'Corrija a única aresta com as duas asas trocadas e termine.';
+      'Corrija o único meio com as duas wings externas trocadas: a única paridade do 5×5.';
 
   @override
   String get introHowFiveParity =>
-      'Aparece como uma aresta que não emparelha.\nFaça uma vez a correção longa de camadas internas.\nTodo o resto volta ao lugar.';
+      'Aparece como um último meio que parece invertido.\nFaça uma vez a correção longa com camadas internas.\nNo 5×5 não existe paridade de PLL.';
+
+  @override
+  String get introHoldFiveParity =>
+      'A última camada em cima e o meio com as wings trocadas na frente da camada de cima.';
+
+  @override
+  String get introWhyFiveParity =>
+      'No 5×5 só as duas wings externas de um meio podem trocar, então um algoritmo resolve.';
 
   @override
   String get lessonSixIntro => 'Conheça o 6×6';
@@ -4399,6 +4835,14 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Nenhum centro é fixo: você escolhe as cores ao montar.\nCada aresta tem asas externas e internas.\nOs giros duplos podem mover até três camadas.';
 
   @override
+  String get introHoldSixIntro =>
+      'No começo, como quiser: como o 4×4, o 6×6 não tem centros fixos.';
+
+  @override
+  String get introWhySixIntro =>
+      'Se você resolve um 4×4 e um 5×5, o 6×6 é a mesma redução com blocos maiores.';
+
+  @override
   String get lessonSixCenters => 'Centros do 6×6';
 
   @override
@@ -4410,7 +4854,15 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get introHowSixCenters =>
-      'Monte primeiro dois centros opostos.\nFaça barras de quatro e junte-as.\nMova peças soltas com o truque camada, topo, desfazer.';
+      'Primeiro confira a ordem das cores numa quina: nenhum centro é fixo.\nFaça barras de quatro e junte-as.\nNos dois últimos centros mova peças soltas: camada, topo, desfazer.';
+
+  @override
+  String get introHoldSixCenters =>
+      'A face que você está montando na frente; os centros prontos à esquerda, à direita ou embaixo.';
+
+  @override
+  String get introWhySixCenters =>
+      'As barras se juntam com camadas internas e cada camada é desfeita, então os centros prontos continuam inteiros.';
 
   @override
   String get lessonSixEdges => 'Arestas do 6×6';
@@ -4424,21 +4876,37 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get introHowSixEdges =>
-      'Alinhe na frente as asas externas e internas.\nA camada dupla profunda leva uma aresta para dentro e para fora.\nAs arestas prontas nunca se desfazem.';
+      'Alinhe na frente as wings externas e internas de um meio.\nA camada larga funda leva um meio para dentro e para fora.\nNunca desmonte um meio pronto para liberar uma peça.';
+
+  @override
+  String get introHoldSixEdges =>
+      'O meio que você está montando na frente; os prontos guardados em cima e embaixo.';
+
+  @override
+  String get introWhySixEdges =>
+      'O giro largo fundo tira os centros do caminho para as wings se juntarem e depois devolve.';
 
   @override
   String get lessonSixSolve => 'Resolva o 6×6 como um 3×3';
 
   @override
-  String get lessonSixSolveDesc => 'Termine com as três coroas.';
+  String get lessonSixSolveDesc => 'Termine camada por camada, como um 3×3.';
 
   @override
   String get introGoalSixSolve =>
-      'Resolva o 6×6 reduzido como um 3×3, coroa a coroa.';
+      'Resolva o 6×6 reduzido como um 3×3, camada por camada, só com giros externos.';
 
   @override
   String get introHowSixSolve =>
-      'A partir de agora, só giros externos.\nOs centros que montou mostram a cor de cada face.\nPrimeira coroa, segunda coroa e depois a amarela.';
+      'Daqui em diante só giros externos: uma camada interna quebraria um centro ou um meio.\nOs centros que você montou mostram a cor de cada face.\nCruz e quinas brancas, a camada do meio e depois a amarela.';
+
+  @override
+  String get introHoldSixSolve =>
+      'A cor da primeira camada embaixo, igual no 3×3; a quina a encaixar na frente à direita.';
+
+  @override
+  String get introWhySixSolve =>
+      'Giros externos movem cada centro 4×4 e cada meio como uma peça só, igual no 3×3.';
 
   @override
   String get lessonSixParity => 'Paridade do 6×6';
@@ -4452,14 +4920,22 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get introHowSixParity =>
-      'Resolva como um 3×3 até travar.\nUma aresta virada: a correção longa de paridade.\nDuas arestas trocadas: a correção curta de giros duplos.';
+      'Resolva como um 3×3 até travar.\nUm meio invertido: a correção longa com 3Rw.\nDois meios trocados: a correção curta de giros internos duplos.';
+
+  @override
+  String get introHoldSixParity =>
+      'A última camada em cima. O meio invertido na frente; se forem dois trocados, na frente e atrás.';
+
+  @override
+  String get introWhySixParity =>
+      'Como no 4×4, o 6×6 pode terminar com um meio invertido ou dois trocados; algoritmos de camadas internas corrigem isso e deixam o resto.';
 
   @override
   String get stepFivePieces => 'As peças do 5×5';
 
   @override
   String get stepFivePiecesBody =>
-      'A peça do meio de cada face nunca se mexe, então continua indicando a cor, como em um 3×3. Ao redor há mais oito peças de centro; cada aresta tem uma peça do meio e duas asas, e os cantos funcionam como em um 3×3.';
+      'A peça do meio de cada face nunca se move, então o esquema de cores não tem como sair errado. Em volta há oito peças de centro: centros de quina e de meio nunca trocam de tipo. Cada meio é uma peça central com duas wings.';
 
   @override
   String get stepFiveSlices => 'Três tipos de giros';
@@ -4473,7 +4949,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get stepFiveCenterBarBody =>
-      'Faça uma fileira de três peças de centro iguais e deslize-a até o centro da mesma cor com um giro de camada interna. Três barras formam um centro pronto.';
+      'Faça uma fileira de três peças de centro iguais, traga-a com uma camada interna, gire o topo e desfaça a camada: o movimento que traz a barra também devolve o centro pronto. Três barras fazem um centro.';
 
   @override
   String get stepFiveCenterSwap => 'Trocar sem desfazer';
@@ -4487,35 +4963,35 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get stepFiveEdgePairBody =>
-      'Alinhe duas asas ao lado da aresta do meio na frente, desça a camada interna, traga de cima uma aresta não resolvida e volte a camada interna.';
+      'Alinhe uma wing ao lado do seu meio central na frente, desça a camada interna, troque por um meio não resolvido com um gatilho curto e suba a camada interna de volta.';
 
   @override
   String get stepFiveEdgeLast => 'As últimas arestas';
 
   @override
   String get stepFiveEdgeLastBody =>
-      'Com poucas arestas, um giro duplo, um gatilho curto e o giro duplo de volta emparelham as arestas sem desfazer as prontas.';
+      'Sem nenhum meio livre para trocar, use camada, virar, camada: um giro largo, um gatilho curto e o giro largo de volta pareiam os últimos meios sem desmontar os prontos.';
 
   @override
   String get stepFiveAsThree => 'Agora é um 3×3';
 
   @override
   String get stepFiveAsThreeBody =>
-      'Com centros e arestas prontos, o 5×5 se comporta como um 3×3 grande. Use só giros externos e siga as três coroas: cruz e cantos brancos, camada do meio e camada amarela.';
+      'Com centros e meios prontos, o 5×5 se comporta como um 3×3 grande. Use só giros externos e vá camada por camada: cruz e quinas brancas, a camada do meio e depois a amarela. O 5×5 não tem paridade de PLL.';
 
   @override
   String get stepFiveEdgeParity => 'Trocar as asas da última aresta';
 
   @override
   String get stepFiveEdgeParityBody =>
-      'Às vezes a última aresta tem as duas asas trocadas. Um algoritmo longo de camadas internas destroca as asas e todo o resto volta ao lugar. Depois termine como um 3×3.';
+      'Às vezes o último meio tem as duas wings externas trocadas e parece invertido: é a única paridade do 5×5. Deixe-o na frente da camada de cima e faça uma vez o algoritmo de camadas internas; todo o resto volta para o lugar.';
 
   @override
   String get stepSixPieces => 'As peças do 6×6';
 
   @override
   String get stepSixPiecesBody =>
-      'Como o 4×4, o 6×6 não tem centro fixo: dezesseis peças de centro formam a cor de cada face. Cada aresta tem quatro peças: duas asas externas e duas internas.';
+      'Como o 4×4, o 6×6 não tem centros fixos: dezesseis peças de centro formam a cor de cada face, então confira antes a ordem das cores numa quina. Cada meio tem quatro wings: duas externas e duas internas.';
 
   @override
   String get stepSixSlices => 'Girar camadas mais fundas';
@@ -4529,49 +5005,49 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get stepSixCenterBarBody =>
-      'Faça fileiras de quatro peças de centro iguais e deslize-as lado a lado com giros de camada interna até a face ficar de uma cor só.';
+      'Faça fileiras de quatro peças de centro iguais e junte-as com giros de camadas internas, desfazendo cada camada, até a face virar um bloco 4×4 de uma cor só.';
 
   @override
   String get stepSixCenterSwap => 'Uma peça de cada vez';
 
   @override
   String get stepSixCenterSwapBody =>
-      'Gire a terceira camada, gire o topo, desfaça e volte: uma peça de centro muda e os centros prontos voltam.';
+      'Gire a terceira camada, gire o topo, desfaça e volte: uma peça de centro se move e os centros prontos voltam. Use isso nos dois últimos centros, quando nenhuma barra encaixa.';
 
   @override
   String get stepSixEdgePair => 'Quatro peças, uma aresta';
 
   @override
   String get stepSixEdgePairBody =>
-      'Junte na frente as quatro peças de uma aresta com a camada dupla profunda, traga uma aresta não resolvida e volte a camada dupla.';
+      'Junte as quatro wings de um meio na frente com a camada larga funda, troque por um meio não resolvido com um gatilho curto e gire a camada larga de volta.';
 
   @override
   String get stepSixEdgeLast => 'As últimas arestas';
 
   @override
   String get stepSixEdgeLastBody =>
-      'Emparelhe as arestas finais com um gatilho curto entre um giro duplo profundo e o desfazer dele, para as arestas prontas continuarem unidas.';
+      'Pareie os últimos meios com um gatilho curto entre um giro largo fundo e o seu desfazer, assim os prontos continuam juntos. Nunca desmonte um meio pronto para liberar uma peça.';
 
   @override
   String get stepSixAsThree => 'Agora é um 3×3';
 
   @override
   String get stepSixAsThreeBody =>
-      'Com centros 4×4 e arestas emparelhadas, resolva o 6×6 como um 3×3 com giros externos e as três coroas.';
+      'Com centros 4×4 e meios pareados, resolva o 6×6 como um 3×3, camada por camada, só com giros externos. Um meio invertido ou dois trocados no final é paridade, não erro.';
 
   @override
   String get stepSixOllParity => 'Uma aresta virada';
 
   @override
   String get stepSixOllParityBody =>
-      'Se uma só aresta parecer virada ao resolver a última camada, é paridade. Coloque-a na frente da camada de cima e faça a correção longa: as duas primeiras coroas voltam intactas.';
+      'Um único meio que parece invertido na última camada é paridade. Deixe-o na frente da camada de cima e faça a correção longa: ela vira as quatro wings, troca também os meios da esquerda e da direita em cima e não mexe nas duas primeiras camadas.';
 
   @override
   String get stepSixPllParity => 'Duas arestas trocadas';
 
   @override
   String get stepSixPllParityBody =>
-      'Se duas arestas parecerem trocadas no final, coloque-as na frente e atrás da camada de cima e faça a correção curta de giros duplos internos.';
+      'Se dois meios parecerem trocados bem no final, deixe-os na frente e atrás na camada de cima e faça a correção curta de giros internos duplos: as quatro wings dos dois meios trocam de lugar.';
 
   @override
   String get stageTwoFirstLayer => 'Monte a camada de baixo';
@@ -5154,7 +5630,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String cueCrossFlipped(String piece, String center) {
-    return 'O meio $piece está no lugar, mas invertido: o branco dele aponta para o lado. Tire-o e coloque-o de volta ao lado do centro $center do jeito certo.';
+    return 'O meio $piece está no lugar, mas invertido: o branco olha para o lado. Tire-o e suba com o branco para cima; depois desça-o junto ao centro $center.';
   }
 
   @override
@@ -5169,7 +5645,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String cueCornerTwisted(String piece) {
-    return 'A quina $piece está no lugar dela, mas torcida. Um gatilho tira ela de lá (uma quina amarela entra no lugar); continue repetindo até ela voltar certa.';
+    return 'A quina $piece está no lugar, mas girada. Um gatilho tira ela (uma quina amarela entra no lugar); continue repetindo sobre o mesmo lugar até ela voltar com o branco para baixo. Não gire o cubo para correr atrás dela.';
   }
 
   @override
@@ -5184,7 +5660,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String cueMiddleFlipped(String piece, String a, String b) {
-    return 'O meio $piece está no lugar, mas invertido. Coloque um meio amarelo ali para empurrá-lo para fora e depois insira-o de novo entre $a e $b.';
+    return 'O meio $piece está no lugar, mas invertido. Encaixe ali um meio amarelo para empurrá-lo para cima e depois encaixe-o de novo entre $a e $b.';
   }
 
   @override
@@ -5199,7 +5675,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String cueYellowDot(String front) {
-    return 'Só o centro é amarelo: um ponto. Faça o algoritmo uma vez, com o $front virado para você, para formar um L.';
+    return 'Só o centro é amarelo: um ponto. Aplique o algoritmo uma vez com o $front virado para você para obter um L. Um ponto pode levar três rodadas, então continue.';
   }
 
   @override
@@ -5229,7 +5705,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String cueTwistCorner(String piece) {
-    return 'Oriente a quina $piece da frente à direita: repita o gatilho de baixo até o amarelo dela ficar para cima. As camadas de baixo parecem bagunçadas por enquanto; é normal!';
+    return 'Gire a quina $piece na frente à direita: repita o gatilho de baixo de dois em dois até o amarelo dela ficar para cima. As camadas de baixo parecem bagunçadas; elas voltam com a última quina!';
   }
 
   @override
@@ -5307,16 +5783,16 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String cueParityOll(String front) {
-    return 'Paridade OLL: um meio de cima está invertido, o que nunca acontece num 3×3. Deixe-o na frente, com o $front virado para você, e faça a correção de paridade.';
+    return 'Paridade de OLL: um meio de cima está invertido, o que nunca acontece num 3×3. Deixe-o na frente, com o $front virado para você, e aplique a correção de paridade antes de qualquer OLL normal.';
   }
 
   @override
   String get cueParityPll =>
-      'Paridade PLL: dois meios de cima estão trocados, o que nunca acontece num 3×3. Deixe-os na frente e atrás e faça a troca de paridade.';
+      'Paridade de PLL: dois meios de cima estão trocados, o que nunca acontece num 3×3. Deixe-os na frente e atrás, aplique a troca de paridade e alinhe o topo.';
 
   @override
   String cueParityFive(String front) {
-    return 'Paridade de meio: as duas peças externas de um meio estão trocadas. Gire esse meio para a frente, com o $front virado para você, corrija e gire de volta.';
+    return 'Paridade de meios: as duas wings externas de um meio estão trocadas, a única paridade do 5×5. Deixe esse meio na frente, com o $front virado para você, e aplique a correção uma vez.';
   }
 
   @override
@@ -5347,7 +5823,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get onboardingLearnBody =>
-      'Domine o método das 3 coroas na Academia e depois gire, embaralhe e resolva à vontade na Área 3D.';
+      'Domine o método de camadas na Academia e depois gire, embaralhe e resolva à vontade no Playground 3D.';
 
   @override
   String get scanChoiceManualDesc =>
@@ -5365,7 +5841,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get crownExplain =>
-      'Uma coroa é uma camada horizontal do cubo: a primeira coroa é a camada branca embaixo, a segunda é a camada do meio e a terceira é a camada amarela em cima.';
+      'Uma camada é uma fatia horizontal do cubo: a primeira camada é a branca embaixo, a segunda é a camada do meio e a terceira é a amarela em cima.';
 
   @override
   String get lessonObjectiveHeading => 'Objetivo de aprendizagem';
@@ -5391,7 +5867,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get solveChoiceGuidedDesc =>
-      'Aprenda o método das 3 coroas passo a passo.';
+      'Aprenda o método de camadas passo a passo.';
 
   @override
   String get guidedSolvedTitle => 'Resolvido!';

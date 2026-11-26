@@ -155,7 +155,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get solveLearn => 'ללמוד צעד אחר צעד';
 
   @override
-  String get solveModeGuided => 'מודרך (3 כתרים)';
+  String get solveModeGuided => 'מודרך (3 שכבות)';
 
   @override
   String get solveModeFast => 'מהיר (אופטימלי)';
@@ -248,19 +248,19 @@ class AppLocalizationsHe extends AppLocalizations {
   String get phaseKociemba2 => 'שלב 2 · סיום הקובייה';
 
   @override
-  String get phaseLblCross => 'איקס לבן מותאם למרכזים';
+  String get phaseLblCross => 'צלב לבן מותאם למרכזים';
 
   @override
-  String get phaseLblCorners => 'פינות הכתר הראשון';
+  String get phaseLblCorners => 'פינות השכבה הראשונה';
 
   @override
   String get phaseLblMiddle => 'השלמת השכבה האמצעית';
 
   @override
-  String get phaseLblYellowCross => 'איקס צהוב';
+  String get phaseLblYellowCross => 'צלב צהוב';
 
   @override
-  String get phaseLblYellowEdges => 'התאמת מרכזי האיקס הצהוב';
+  String get phaseLblYellowEdges => 'התאמת קצוות הצלב הצהוב';
 
   @override
   String get phaseLblYellowCorners => 'מיקום הפינות למקומן';
@@ -269,13 +269,13 @@ class AppLocalizationsHe extends AppLocalizations {
   String get phaseLblYellowCornersOrient => 'סיבוב הפינות לצבעים הנכונים';
 
   @override
-  String get crownFirst => 'הכתר הראשון';
+  String get crownFirst => 'השכבה הראשונה';
 
   @override
-  String get crownSecond => 'הכתר השני';
+  String get crownSecond => 'השכבה השנייה';
 
   @override
-  String get crownThird => 'הכתר השלישי';
+  String get crownThird => 'השכבה השלישית';
 
   @override
   String get crownFirstGoal => 'הפאה הלבנה והשכבה הראשונה';
@@ -288,22 +288,22 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get subStepGoal11 =>
-      'בונים איקס לבן שבו כל צלע לבנה מתאימה גם לצבע המרכז שלידה.';
+      'בונים צלב לבן שבו כל קצה לבן מתאים גם לצבע המרכז שלידו.';
 
   @override
   String get subStepGoal12 =>
-      'מכניסים את 4 הפינות הלבנות למקומן המתאים כדי להשלים את הפאה הלבנה ואת כל הטבעת הראשונה.';
+      'מכניסים את 4 הפינות הלבנות למקומות התואמים שלהן ומסיימים את הפאה הלבנה ואת כל השכבה הראשונה.';
 
   @override
   String get subStepGoal21 =>
-      'מכניסים את 4 צלעות השכבה האמצעית בלי לפרק את הכתר הראשון.';
+      'מכניסים את 4 הקצוות של השכבה האמצעית בלי לפרק את השכבה הראשונה.';
 
   @override
-  String get subStepGoal31 => 'בונים איקס צהוב בשכבה האחרונה.';
+  String get subStepGoal31 => 'בונים צלב צהוב בשכבה האחרונה.';
 
   @override
   String get subStepGoal32 =>
-      'מחליפים את צלעות האיקס הצהוב עד שכל אחת מתאימה למרכז הצד שלה.';
+      'מחליפים את קצוות הצלב הצהוב עד שכל אחד מתאים למרכז הצד שלו.';
 
   @override
   String get subStepGoal33 =>
@@ -319,7 +319,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get explainKociemba1 =>
-      'מכוונים את כל החלקים ואוספים את צלעות השכבה האמצעית אל השכבה האמצעית.';
+      'מכוונים את כל החלקים ואוספים את קצוות השכבה האמצעית אל השכבה האמצעית.';
 
   @override
   String get explainKociemba2 =>
@@ -331,7 +331,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String explainLblCrossEdge(String piece) {
-    return 'הורידו את הצלע $piece אל ליד המרכז הלבן, כשהצבע בצד תואם למרכז.';
+    return 'הורידו את הקצה $piece אל ליד המרכז הלבן, כשהצבע בצד תואם למרכז.';
   }
 
   @override
@@ -351,22 +351,22 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String explainLblMiddleExtract(String piece) {
-    return 'הצלע $piece בשכבה האמצעית אבל לא במקום. הוציאו אותה למעלה.';
+    return 'הקצה $piece בשכבה האמצעית אבל לא במקום. הוציאו אותו למעלה.';
   }
 
   @override
   String explainLblMiddleAlign(String piece) {
-    return 'סובבו את השכבה העליונה כך שצבע הצד של הצלע $piece יתאים למרכז.';
+    return 'סובבו את השכבה העליונה כך שצבע הצד של הקצה $piece יתאים למרכז.';
   }
 
   @override
   String explainLblMiddleRight(String piece) {
-    return 'הכניסו את הצלע $piece ימינה: ⁦U R U\' R\' U\' F\' U F⁩.';
+    return 'הכניסו את הקצה $piece ימינה: ⁦U R U\' R\' U\' F\' U F⁩.';
   }
 
   @override
   String explainLblMiddleLeft(String piece) {
-    return 'הכניסו את הצלע $piece שמאלה: ⁦U\' L\' U L U F U\' F\'⁩.';
+    return 'הכניסו את הקצה $piece שמאלה: ⁦U\' L\' U L U F U\' F\'⁩.';
   }
 
   @override
@@ -375,15 +375,15 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get explainLblYellowCrossAlg =>
-      'בנו את האיקס הצהוב עם ⁦F R U R\' U\' F\'⁩.';
+      'בנו את הצלב הצהוב עם ⁦F R U R\' U\' F\'⁩.';
 
   @override
   String get explainLblYellowEdgesAlign =>
-      'סובבו את השכבה העליונה כדי ליישר את הצלעות הצהובות מול המרכזים.';
+      'סובבו את השכבה העליונה כדי ליישר את הקצוות הצהובים מול המרכזים.';
 
   @override
   String get explainLblYellowEdgesAlg =>
-      'החליפו צלעות צהובות עם ⁦R U R\' U R U2 R\' U⁩.';
+      'החליפו קצוות צהובים עם ⁦R U R\' U R U2 R\' U⁩.';
 
   @override
   String get explainLblYellowCornersAlg =>
@@ -666,7 +666,7 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => 'מתחילים 3×3: שלושת הכתרים';
+  String get trackBeginner => '3×3 למתחילים: שכבה אחרי שכבה';
 
   @override
   String get trackCfop => 'מבוא ל־CFOP';
@@ -779,10 +779,10 @@ class AppLocalizationsHe extends AppLocalizations {
   String get phaseReductionCenters => 'מרכזים';
 
   @override
-  String get phaseReductionEdges => 'הצמדת צלעות';
+  String get phaseReductionEdges => 'הצמדת קצוות';
 
   @override
-  String get phaseReductionEdgeParity => 'פריטי צלעות';
+  String get phaseReductionEdgeParity => 'פריטי קצוות';
 
   @override
   String get phaseReductionOllParity => 'פריטי OLL';
@@ -805,20 +805,20 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String explainReductionEdgeCycle(String piece) {
-    return 'מצמידים את חלקי הצלע $piece במחזור של שלושה; המרכזים נשארים פתורים.';
+    return 'מצמידים את חלקי הקצה $piece במחזור של שלושה; המרכזים נשארים פתורים.';
   }
 
   @override
   String get explainReductionEdgeParity =>
-      'את הצלעות האחרונות אי אפשר להצמיד רק במחזורים של שלושה (פריטי צלעות). סיבוב אחד של פרוסה פנימית פותר את זה.';
+      'את הקצוות האחרונים אי אפשר להצמיד רק במחזורים של שלושה (פריטי קצוות). סיבוב אחד של פרוסה פנימית פותר את זה.';
 
   @override
   String get explainReductionOllParity =>
-      'פריטי OLL: צלע אחת הפוכה – דבר שלא קורה ב־3×3. האלגוריתם הזה הופך אותה בחזרה.';
+      'פריטי OLL: קצה אחד הפוך – דבר שלא קורה ב־3×3. האלגוריתם הזה הופך אותו בחזרה.';
 
   @override
   String get explainReductionPllParity =>
-      'פריטי PLL: שתי צלעות מוחלפות – דבר בלתי אפשרי ב־3×3. האלגוריתם הזה מחליף אותן בחזרה.';
+      'פריטי PLL: שני קצוות מוחלפים – דבר בלתי אפשרי ב־3×3. האלגוריתם הזה מחליף אותם בחזרה.';
 
   @override
   String get patternsTitle => 'ספריית דוגמאות';
@@ -936,7 +936,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String dailyHintText(String moves) {
-    return 'התחילו מהאיקס הלבן: $moves';
+    return 'התחילו מהצלב הלבן: $moves';
   }
 
   @override
@@ -953,7 +953,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get stepBasicsPiecesBody =>
-      'המרכזים אף פעם לא זזים, והם קובעים את צבע הפאה. לצלעות יש שני צבעים ולפינות שלושה. לפתור פירושו להביא כל צלע וכל פינה אל המרכזים התואמים.';
+      'המרכזים אף פעם לא זזים, והם קובעים את צבע הפאה. לקצוות יש שני צבעים ולפינות שלושה. לפתור פירושו להביא כל קצה וכל פינה אל המרכזים התואמים.';
 
   @override
   String get stepBasicsFaces => 'שש אותיות לפאות';
@@ -974,77 +974,77 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get stepCrossGoalBody =>
-      'החזיקו את הצהוב למעלה. ארבע הצלעות הלבנות מקיפות את המרכז הלבן בתחתית, וצבע הצד של כל אחת תואם למרכז שלידה.';
+      'החזיקו צהוב למעלה וירוק מולכם. קודם אוספים את ארבעת הקצוות הלבנים סביב המרכז הצהוב, הלבן כלפי מעלה, כמו עלי כותרת: זו החרצית. אחר כך כל עלה יורד אל המרכז הלבן, וצבע הצד שלו תואם את המרכז שלידו.';
 
   @override
-  String get stepCrossTop => 'צלע למעלה';
+  String get stepCrossTop => 'קצה למעלה';
 
   @override
   String get stepCrossTopBody =>
-      'מצאו צלע לבנה למעלה. סובבו את הפאה העליונה עד שצבע הצד שלה מעל המרכז התואם, ואז סובבו את הפאה הזו פעמיים כדי להוריד אותה למקום.';
+      'קצה לבן למעלה שהלבן שלו פונה למעלה הוא עלה כותרת של החרצית. סובבו את השורה העליונה עד שצבע הצד שלו בדיוק מעל המרכז באותו צבע, ואז סובבו את הפאה הזו פעמיים (180 מעלות) כדי להוריד אותו אל המרכז הלבן.';
 
   @override
-  String get stepCrossMiddle => 'צלע בשכבה האמצעית';
+  String get stepCrossMiddle => 'קצה בשכבה האמצעית';
 
   @override
   String get stepCrossMiddleBody =>
-      'צלע שתקועה בשכבה האמצעית עולה קודם למעלה: מסובבים את הצד שלה למעלה, מזיזים את הפאה העליונה ומחזירים את הצד, כדי לא לפרק את האיקס. אחר כך ממקמים אותה מלמעלה.';
+      'קצה שתקוע בשכבה האמצעית עולה קודם: מעלים את הצד שלו, מזיזים את השורה העליונה מהדרך ומחזירים את הצד, כך שחלקים שכבר במקום נשארים. עכשיו הוא עלה כותרת למעלה: מיישרים ומסובבים את הפאה פעמיים.';
 
   @override
   String get stepCornersInsert => 'מעל המקום שלה';
 
   @override
   String get stepCornersInsertBody =>
-      'סובבו את הפאה העליונה עד שפינה לבנה נמצאת מעל המקום של הצבעים שלה, בקדמי־ימני. ⁦R U R\' U\'⁩ מוריד אותה פנימה.';
+      'סובבו את השורה העליונה עד שהפינה הלבנה בדיוק מעל המקום שלה, בין שני המרכזים שתואמים את צבעי הצד שלה. כאן מספיקים סיבוב אחד למעלה ו־⁦R U\' R\'⁩: ⁦U⁩ מביא את הפינה מעל המקום ו־⁦R U\' R\'⁩ מכניס אותה, הלבן כלפי מטה.';
 
   @override
   String get stepCornersRepeat => 'חוזרים על הטריגר';
 
   @override
   String get stepCornersRepeatBody =>
-      'אם הלבן פונה לכיוון הלא נכון, חזרו על ⁦R U R\' U\'⁩ מעל אותו מקום. כל פינה מסתדרת אחרי חמש חזרות לכל היותר.';
+      'החזיקו את המקום קדימה מימין וחזרו על ⁦R U R\' U\'⁩ עד שהלבן פונה למטה: פעם אחת אם הלבן פונה ימינה, שלוש אם הוא פונה למעלה, חמש אם הוא פונה אליכם. בינתיים החלק העליון נראה מבולגן; הוא מסתדר לבד.';
 
   @override
-  String get stepMiddleRight => 'צלע ימינה';
+  String get stepMiddleRight => 'קצה ימינה';
 
   @override
   String get stepMiddleRightBody =>
-      'יישרו צלע עליונה עם המרכז שלה בחזית. אם הצבע העליון שלה תואם למרכז הימני, הכניסו אותה עם ⁦U R U\' R\' U\' F\' U F⁩.';
+      'מצאו קצה עליון בלי צהוב. סובבו את השורה העליונה עד שהצבע הקדמי שלו תואם את המרכז שמולכם. אם הצבע העליון שלו תואם את המרכז הימני, שלחו אותו ימינה: ⁦U R U\' R\' U\' F\' U F⁩.';
 
   @override
-  String get stepMiddleLeft => 'צלע שמאלה';
+  String get stepMiddleLeft => 'קצה שמאלה';
 
   @override
   String get stepMiddleLeftBody =>
-      'אם הצבע העליון תואם דווקא למרכז השמאלי, השתמשו בתמונת המראה: ⁦U\' L\' U L U F U\' F\'⁩.';
+      'אם הצבע העליון שלו תואם דווקא את המרכז השמאלי, השתמשו בתמונת המראה: ⁦U\' L\' U L U F U\' F\'⁩. השכבה הלבנה חוזרת שלמה בכל פעם.';
 
   @override
   String get stepYellowCross => 'אלגוריתם אחד';
 
   @override
   String get stepYellowCrossBody =>
-      '⁦F R U R\' U\' F\'⁩ הופך נקודה צהובה ל־L, את ה־L לקו ואת הקו לאיקס. החזיקו את ה־L מאחור משמאל ואת הקו לרוחב.';
+      'הסתכלו רק על הקצוות הצהובים למעלה. החזיקו L מאחור משמאל וקו משמאל לימין, ואז בצעו ⁦F R U R\' U\' F\'⁩. קו צריך פעם אחת, L פעמיים, נקודה עד שלוש פעמים.';
 
   @override
-  String get stepYellowEdges => 'מתאימים את הצלעות';
+  String get stepYellowEdges => 'מתאימים את הקצוות';
 
   @override
   String get stepYellowEdgesBody =>
-      'סובבו את הפאה העליונה עד ששתי צלעות תואמות למרכזים. כשאחת מאחור ואחת מימין, ⁦R U R\' U R U2 R\' U⁩ מחליף בין השתיים האחרות.';
+      'סובבו את השורה העליונה עד ששני קצוות תואמים את מרכזי הצד שלהם. כשאחד מאחור ואחד מימין, ⁦R U R\' U R U2 R\' U⁩ מחליף את הקצה הקדמי והשמאלי.';
 
   @override
   String get stepPlaceCorners => 'ממקמים';
 
   @override
   String get stepPlaceCornersBody =>
-      'החזיקו פינה שכבר במקומה בקדמי־ימני. ⁦U R U\' L\' U R\' U\' L⁩ מסובב את שלוש האחרות; חזרו עד שכל הארבע במקום.';
+      'פינה נמצאת בבית כשהצבעים שלה תואמים את שלושת המרכזים סביבה, גם אם היא מסובבת. החזיקו פינה שבבית קדימה מימין: ⁦U R U\' L\' U R\' U\' L⁩ מזיז את שלוש האחרות במעגל. חזרו עד שכל הארבע בבית.';
 
   @override
   String get stepTwistCorners => 'מסובבים';
 
   @override
   String get stepTwistCornersBody =>
-      'כשפינה לא פתורה בקדמי־ימני, חזרו על ⁦R\' D\' R D⁩ עד שהצהוב למעלה, ואז סובבו רק את הפאה העליונה כדי להביא את הבאה. התחתית נראית הרוסה עד הסוף – המשיכו.';
+      'כשפינה לא פתורה קדימה מימין, חזרו על ⁦R\' D\' R D⁩ בזוגות עד שהצהוב למעלה, ואז סובבו רק את השכבה העליונה כדי להביא את הבאה. התחתית נראית שבורה עד הפינה האחרונה: המשיכו.';
 
   @override
   String get lessonCfopIntro => 'מה זה CFOP?';
@@ -1057,7 +1057,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get stepCfopOverviewBody =>
-      'קוביסטים מהירים פותרים פלוס, מצמידים כל פינה של השכבה הראשונה לצלע האמצע שלה (F2L), מכוונים את השכבה האחרונה (OLL) ולבסוף מסדרים אותה (PLL).';
+      'ספידקיוברים פותרים צלב, מצמידים כל פינה של השכבה הראשונה לקצה האמצעי שלה (F2L), מכוונים את השכבה האחרונה (OLL) ולבסוף ממקמים אותה (PLL).';
 
   @override
   String get stepCfopCross => 'מתכננים את הפלוס';
@@ -1070,14 +1070,14 @@ class AppLocalizationsHe extends AppLocalizations {
   String get lessonF2l => 'יסודות F2L';
 
   @override
-  String get lessonF2lDesc => 'מצמידים פינה לצלע שלה.';
+  String get lessonF2lDesc => 'מצמידים פינה לקצה שלה.';
 
   @override
   String get stepF2lRight => 'מכניסים זוג';
 
   @override
   String get stepF2lRightBody =>
-      'כשפינה והצלע שלה צמודות למעלה, הביאו אותן מעל החריץ שלהן והכניסו יחד.';
+      'כשפינה והקצה שלה צמודים למעלה, הביאו אותם מעל המקום שלהם והכניסו יחד.';
 
   @override
   String get stepF2lLeft => 'זוג לשמאל';
@@ -1093,11 +1093,11 @@ class AppLocalizationsHe extends AppLocalizations {
   String get lessonOllDesc => 'צובעים את הפאה העליונה בצהוב.';
 
   @override
-  String get stepOllCross => 'קודם הצלעות';
+  String get stepOllCross => 'קודם הקצוות';
 
   @override
   String get stepOllCrossBody =>
-      'OLL בשני מבטים מתחיל באלגוריתם של האיקס הצהוב שכבר מכירים.';
+      'OLL בשני מבטים מתחיל באלגוריתם של הצלב הצהוב שכבר מכירים.';
 
   @override
   String get stepOllSune => 'סון (Sune)';
@@ -1117,14 +1117,14 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get stepPllTBody =>
-      'ה־T-perm מחליף שתי פינות ושתי צלעות. משתמשים בו כדי למקם פינות: החזיקו את שתי הפינות שצריך להחליף בצד ימין.';
+      'ה־⁦T-perm⁩ מחליף שתי פינות ושני קצוות. משתמשים בו כדי למקם פינות: החזיקו את שתי הפינות שצריך להחליף בצד ימין, והפנסים משמאל.';
 
   @override
   String get stepPllU => 'U-perm';
 
   @override
   String get stepPllUBody =>
-      'כשהפינות מסודרות, ה־U-perm מסובב שלוש צלעות. השאירו את הצד הגמור מאחור.';
+      'כשהפינות מסודרות, ה־⁦U-perm⁩ מסובב שלושה קצוות. השאירו את הצד הגמור מאחור.';
 
   @override
   String get lessonTwoFirst => 'השכבה הראשונה ב־2×2';
@@ -1137,14 +1137,14 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get stepTwoIntroBody =>
-      'קובייה 2×2 היא 3×3 בלי צלעות ומרכזים. בחרו צבע, בנו את הפאה בתחתית, ודאגו שצבעי הצד של פינות סמוכות יתאימו.';
+      '‏2×2 הוא רק שמונה פינות: בלי קצוות ובלי מרכזים. בונים את השכבה הלבנה למטה כך שצבעי הצד של שכנות תואמים, ואז מסיימים במסלול אחד: Sune לפאה עליונה צהובה, ואז ⁦T-perm⁩ או ⁦Y-perm⁩.';
 
   @override
   String get stepTwoCorner => 'מכניסים פינות';
 
   @override
   String get stepTwoCornerBody =>
-      'בדיוק כמו הפינות הלבנות ב־3×3: הביאו פינה מעל המקום שלה והשתמשו ב־⁦R U R\' U\'⁩ עד שהיא נכנסת.';
+      'כמו הפינות הלבנות ב־3×3: מביאים פינה מעל המקום הריק שלה קדימה מימין ומכניסים אותה, כאן עם ⁦U R U\' R\'⁩ או בחזרה על ⁦R U R\' U\'⁩ עד שהלבן למטה. בדקו את צבעי הצד שלה מול השכנה.';
 
   @override
   String get lessonTwoOll => 'מכוונים את הפאה העליונה';
@@ -1157,7 +1157,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get stepTwoSuneBody =>
-      'סון צובע את הפאה העליונה בצהוב גם ב־2×2. בשיטת אורטגה לומדים שבעה מקרים קצרים; סון ותמונת המראה שלו מכסים את רובם.';
+      'ספרו כמה מדבקות צהובות פונות למעלה. החזיקו את הפינה היחידה עם צהוב למעלה קדימה משמאל ובצעו Sune ‏(⁦R U R\' U R U2 R\'⁩). ספרו שוב והחזיקו מחדש; לכל היותר שלושה Sune. ביניהם מסובבים רק את השכבה העליונה.';
 
   @override
   String get lessonTwoPbl => 'מסדרים את שתי השכבות';
@@ -1170,14 +1170,14 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get stepTwoAdjacentBody =>
-      'כששתי פינות עליונות סמוכות צריכות להתחלף, החזיקו אותן בצד ימין והשתמשו ב־T-perm.';
+      'פנסים הם שתי מדבקות עליונות זהות בצד אחד. סובבו את השורה העליונה עד שהפנסים משמאל, כך ששתי הפינות להחלפה מימין, ובצעו ⁦T-perm⁩.';
 
   @override
   String get stepTwoDiagonal => 'החלפה אלכסונית';
 
   @override
   String get stepTwoDiagonalBody =>
-      'שתי פינות במקומות מנוגדים מתחלפות עם ה־Y-perm.';
+      'אין פנסים בשום צד? שתי פינות אלכסוניות צריכות להתחלף: בצעו ⁦Y-perm⁩ מכל צד, ואז סובבו את השכבה העליונה כדי ליישר הכול.';
 
   @override
   String get lessonBigIntro => 'החלקים בקובייה גדולה';
@@ -1190,7 +1190,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get stepBigPiecesBody =>
-      'בקובייה 4×4 בכל פאה יש ארבעה חלקי מרכז שזזים, וכל צלע בנויה משתי כנפיים. ברדוקציה מקבצים אותם כך שהקובייה מתנהגת כמו 3×3.';
+      'ב־4×4 לכל פאה יש ארבעה חלקי מרכז שזזים, וכל קצה הוא שתי כנפיים. אין מרכז קבוע, אז בדקו את סדר הצבעים לפי פינה: לבן מול צהוב, כחול מול ירוק, אדום מול כתום.';
 
   @override
   String get stepBigSlices => 'סיבובים רחבים ופנימיים';
@@ -1210,20 +1210,20 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get stepBigCenterCycleBody =>
-      'הקומוטטור הזה מזיז בדיוק שלושה חלקי מרכז ולא נוגע בשום דבר אחר, כך שמרכזים גמורים נשארים גמורים.';
+      'הקומוטטור הזה מזיז בדיוק שלושה חלקי מרכז ומשאיר את כל השאר, כך שמרכזים גמורים נשארים גמורים. השתמשו בו כשחלק תועה אחד לא מצטרף לפס.';
 
   @override
-  String get lessonBigEdges => 'מצמידים צלעות';
+  String get lessonBigEdges => 'מצמידים קצוות';
 
   @override
-  String get lessonBigEdgesDesc => 'מחברים כנפיים לצלעות שלמות.';
+  String get lessonBigEdgesDesc => 'מחברים כנפיים לקצוות שלמים.';
 
   @override
   String get stepBigEdgePair => 'מצמידים ומחזירים';
 
   @override
   String get stepBigEdgePairBody =>
-      '⁦Uw\'⁩ מיישר שתי כנפיים תואמות, ⁦R U R\' F R\' F\' R⁩ מכניס צלע שעוד לא הוצמדה, ו־⁦Uw⁩ מחזיר את המרכזים.';
+      '⁦Uw\'⁩ מיישר שתי כנפיים תואמות, ⁦R U R\' F R\' F\' R⁩ מכניס קצה לא מוצמד, ו־⁦Uw⁩ מחזיר את המרכזים. תמיד סוגרים פרוסה שפתחתם.';
 
   @override
   String get lessonBigParity => 'פריטי';
@@ -1236,20 +1236,26 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get stepBigOllParityBody =>
-      'צלע הפוכה יחידה לא יכולה לקרות ב־3×3. בקוביות זוגיות האלגוריתם הזה הופך בחזרה את הצלע העליונה־קדמית. הוא עלול לערבב את שאר השכבה העליונה, ושלבי ה־3×3 האחרונים מסדרים אותה בכל מקרה.';
+      'קצה הפוך יחיד לא יכול לקרות ב־3×3: זה פריטי OLL, לא טעות. השאירו אותו בחזית השכבה העליונה ובצעו את האלגוריתם הארוך. הוא גם מחליף את הקצוות העליונים משמאל ומימין ושתי פינות; שלבי ה־3×3 האחרונים מתקנים אותם.';
 
   @override
   String get stepBigPllParity => 'פריטי PLL';
 
   @override
   String get stepBigPllParityBody =>
-      'שתי צלעות מוחלפות ממש בסוף? ⁦2R2 U2 2R2 Uw2 2R2 Uw2⁩ מחליף בין הצלע העליונה־קדמית לעליונה־אחורית.';
+      'שני קצוות מוחלפים ממש בסוף, ואף אלגוריתם של 3×3 לא מתאים? זה פריטי PLL. החזיקו אותם בחזית ומאחור בשכבה העליונה: ⁦2R2 U2 2R2 Uw2 2R2 2U2⁩ מחליף ביניהם.';
 
   @override
   String get introGoalHeading => 'מה המטרה?';
 
   @override
   String get introHowHeading => 'איך עושים את זה?';
+
+  @override
+  String get introHoldHeading => 'איך מחזיקים';
+
+  @override
+  String get introWhyHeading => 'למה זה עובד';
 
   @override
   String get introStart => 'הבנתי, בוא נתחיל';
@@ -1275,23 +1281,23 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get introGoalCross =>
-      'בונים איקס לבן שבו כל צלע לבנה מתאימה גם לצבע המרכז שלידה.';
+      'בונים צלב לבן למטה שבו כל קצה לבן מתאים גם לצבע המרכז שלידו.';
 
   @override
   String get introGoalCorners =>
-      'משלימים את ארבע הפינות הלבנות, וכך הכתר הראשון – כל השכבה הלבנה – גמור.';
+      'משלימים את ארבע הפינות הלבנות כך שכל השכבה הראשונה גמורה: פאה לבנה עם צבעי צד תואמים.';
 
   @override
   String get introGoalMiddle =>
-      'מציבים את ארבע הצלעות של השכבה האמצעית, וכך שתי השכבות הראשונות פתורות.';
+      'מציבים את ארבעת הקצוות של השכבה האמצעית, וכך שתי השכבות הראשונות פתורות.';
 
   @override
   String get introGoalYellowCross =>
-      'בונים איקס צהוב למעלה; צבעי הצדדים עוד לא חייבים להתאים.';
+      'בונים צלב צהוב למעלה; צבעי הצדדים עוד לא חייבים להתאים.';
 
   @override
   String get introGoalYellowEdges =>
-      'מתאימים כל צלע של האיקס הצהוב לצבע המרכז שבצד שלה.';
+      'מתאימים כל קצה של הצלב הצהוב לצבע המרכז שבצד שלו.';
 
   @override
   String get introGoalYellowCorners =>
@@ -1303,11 +1309,11 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get introGoalCfopIntro =>
-      'מכירים את התוכנית של הספידקיובינג: איקס, שתי שכבות ראשונות, ואז השכבה האחרונה בשני מבטים.';
+      'מכירים את התוכנית של הספידקיובינג: צלב, שתי שכבות ראשונות, ואז השכבה האחרונה בשני מבטים.';
 
   @override
   String get introGoalF2l =>
-      'מכניסים כל פינה לבנה יחד עם הצלע האמצעית שלה, ומסיימים שתי שכבות בבת אחת.';
+      'מכניסים כל פינה לבנה יחד עם הקצה האמצעי שלה, ומסיימים שתי שכבות בבת אחת.';
 
   @override
   String get introGoalOll =>
@@ -1325,11 +1331,11 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get introGoalTwoPbl =>
-      'מחליפים את הפינות האחרונות למקומן ופותרים את ה־2×2.';
+      'מחזירים את הפינות האחרונות הביתה עם ⁦T-perm⁩ או ⁦Y-perm⁩ אחד, ומיישרים את השכבה העליונה כדי לפתור את ה־2×2.';
 
   @override
   String get introGoalBigIntro =>
-      'מכירים את ה־4×4: מרכזים, זוגות צלעות ופינות, והמהלכים שמסובבים אותם.';
+      'מכירים את ה־4×4: מרכזים, זוגות קצוות ופינות, והמהלכים שמסובבים אותם.';
 
   @override
   String get introGoalBigCenters =>
@@ -1337,87 +1343,239 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get introGoalBigEdges =>
-      'מצמידים חלקי צלע תואמים, כך שכל צלע נראית כמו צלע אחת של 3×3.';
+      'מצמידים חלקי קצה תואמים, כך שכל קצה נראה כמו קצה אחד של 3×3.';
 
   @override
   String get introGoalBigParity =>
-      'מתקנים את שני המקרים של 4×4 שאין ב־3×3: צלע הפוכה אחת או שתי צלעות מוחלפות.';
+      'מתקנים את שני המקרים של 4×4 שאין ב־3×3: קצה הפוך אחד (פריטי OLL) או שני קצוות מוחלפים (פריטי PLL).';
 
   @override
   String get introHowBasics =>
       'המרכזים לא זזים, ולכן הם קובעים את צבע כל פאה.\nכל אות מסובבת פאה אחת רבע סיבוב עם כיוון השעון.\nגרש (\') מסובב בחזרה, ו־2 מסובב פעמיים.';
 
   @override
+  String get introHoldBasics =>
+      'איך שנוח: המרכזים לא זזים, אז הצבעים תמיד אומרים איזו פאה היא איזו.';
+
+  @override
+  String get introWhyBasics =>
+      'כל אלגוריתם הוא פשוט האותיות האלה ברצף, אז לקרוא אותן זו המיומנות הראשונה.';
+
+  @override
   String get introHowCross =>
-      'מחזיקים צהוב למעלה: האיקס הלבן נבנה למטה.\nמוצאים צלע לבנה ומיישרים את הצבע הצדדי שלה מול המרכז המתאים.\nמסובבים את הפאה הזאת פעמיים כדי להוריד את הצלע למקומה.';
+      'מעלים כל קצה לבן למעלה, הלבן כלפי מעלה, סביב המרכז הצהוב: זו החרצית.\nמסובבים את השורה העליונה עד שצבע הצד של עלה הכותרת נמצא מעל המרכז התואם.\nמסובבים את הפאה הזו פעמיים כדי להוריד אותו; חוזרים על זה לכל הארבעה.';
+
+  @override
+  String get introHoldCross =>
+      'המרכז הצהוב למעלה והמרכז הלבן למטה לאורך כל השלב. מסובבים את השורה העליונה, לא את הקובייה, כדי ליישר עלה כותרת.';
+
+  @override
+  String get introWhyCross =>
+      'כשהלבן פונה למעלה, שני סיבובים של הפאה הקדמית מנחיתים את הקצה על המרכז הלבן, הלבן כלפי מטה וצבע הצד כבר תואם.';
 
   @override
   String get introHowCorners =>
-      'מביאים פינה לבנה מעל המקום הריק שלה.\nחוזרים על ⁦R U R\' U\'⁩ עד שהיא נכנסת בכיוון הנכון.\nעושים אותו דבר לשלוש הפינות האחרות.';
+      'מסובבים את השורה העליונה עד שפינה לבנה נמצאת מעל המקום הריק שלה, במקום הקדמי־ימני.\nחוזרים על ⁦R U R\' U\'⁩: פעם אחת אם הלבן פונה ימינה, שלוש אם הוא פונה למעלה, חמש אם הוא פונה אליכם.\nעושים אותו דבר לשלוש הפינות האחרות.';
+
+  @override
+  String get introHoldCorners =>
+      'לבן למטה, צהוב למעלה. הפינה נמצאת קדימה מימין, בדיוק מעל המקום שלה.';
+
+  @override
+  String get introWhyCorners =>
+      '⁦R U R\' U\'⁩ מרים את המקום ומחזיר אותו: כל סיבוב מסובב מעט את הפינה עד שהלבן פונה למטה, והצלב אף פעם לא מתפרק.';
 
   @override
   String get introHowMiddle =>
-      'מוצאים צלע עליונה בלי צהוב ומתאימים את הצבע הקדמי שלה למרכז.\nשולחים אותה ימינה או שמאלה באלגוריתם קצר של 8 מהלכים.\nהשכבה הלבנה חוזרת שלמה בכל פעם.';
+      'מוצאים קצה עליון בלי צהוב ומתאימים את הצבע הקדמי שלו למרכז שמתחתיו.\nהצבע העליון שלו אומר לאן הוא הולך: ימינה או שמאלה.\nשולחים אותו בהכנסה של 8 מהלכים; השכבה הלבנה חוזרת שלמה בכל פעם.';
+
+  @override
+  String get introHoldMiddle =>
+      'לבן למטה, צהוב למעלה. הקצה נמצא בחזית, והצבע הקדמי שלו תואם את המרכז שמתחתיו.';
+
+  @override
+  String get introWhyMiddle =>
+      'ההכנסה מרימה את המקום מהדרך, מחליקה פנימה את הקצה ומחזירה את השכבה הלבנה. קצה עם צהוב שייך למעלה, אף פעם לא לאמצע.';
 
   @override
   String get introHowYellowCross =>
-      'מסתכלים למעלה: נקודה, L או קו.\nמחזיקים כמו בתמונה ועושים ⁦F R U R\' U\' F\'⁩.\nחוזרים עד שמופיע האיקס הצהוב.';
+      'מסתכלים רק על הקצוות הצהובים למעלה: נקודה, L או קו.\nמחזיקים את ה־L מאחור משמאל ואת הקו משמאל לימין, ומבצעים ⁦F R U R\' U\' F\'⁩.\nקו צריך פעם אחת, L פעמיים, נקודה עד שלוש פעמים.';
+
+  @override
+  String get introHoldYellowCross =>
+      'לבן למטה, צהוב למעלה. L מאחור משמאל, קו משמאל לימין; נקודה בכל כיוון.';
+
+  @override
+  String get introWhyYellowCross =>
+      '⁦F R U R\' U\' F\'⁩ הופך שני קצוות עליונים בכל פעם בלי לגעת בשתי השכבות הראשונות.';
 
   @override
   String get introHowYellowEdges =>
-      'מסובבים את הפאה העליונה עד ששתי צלעות מתאימות למרכזים שלהן.\nמחזיקים אותן מאחור ומימין ועושים ⁦R U R\' U R U2 R\' U⁩.\nחוזרים עד שכל ארבע הצלעות מתאימות.';
+      'מסובבים את השורה העליונה עד ששני קצוות מתאימים למרכזי הצד שלהם.\nמחזיקים אותם מאחור ומימין, ומבצעים ⁦R U R\' U R U2 R\' U⁩.\nאם הקצוות התואמים זה מול זה, מבצעים פעם אחת מכל צד קודם.';
+
+  @override
+  String get introHoldYellowEdges =>
+      'צהוב למעלה. קצה תואם אחד מאחור והשני מימין.';
+
+  @override
+  String get introWhyYellowEdges =>
+      'האלגוריתם הזה מזיז רק חלקים עליונים, ולכן שתי השכבות הראשונות תמיד חוזרות.';
 
   @override
   String get introHowYellowCorners =>
-      'פינה נמצאת במקומה כשהצבעים שלה מתאימים לשלוש הפאות סביבה.\nמשאירים פינה שכבר במקום בקדמי־ימני.\n⁦U R U\' L\' U R\' U\' L⁩ מסובב את שלוש האחרות עד שכולן מתאימות.';
+      'פינה נמצאת בבית כשהצבעים שלה מתאימים לשלושת המרכזים סביבה, גם אם היא מסובבת.\nמשאירים פינה שבבית במקום הקדמי־ימני.\n⁦U R U\' L\' U R\' U\' L⁩ מסובב את שלוש האחרות במעגל; חוזרים עד שכל הארבע מתאימות.';
+
+  @override
+  String get introHoldYellowCorners =>
+      'צהוב למעלה. פינה שכבר בבית קדימה מימין; אם אין כזו, כל פינה.';
+
+  @override
+  String get introWhyYellowCorners =>
+      'הוא מזיז שלוש פינות במעגל ומשאיר במקום את זו שקדימה מימין, כך שכל חזרה מביאה עוד פינות הביתה.';
 
   @override
   String get introHowTwistCorners =>
-      'מחזיקים פינה לא פתורה בקדמי־ימני.\nחוזרים על ⁦R\' D\' R D⁩ עד שהצהוב שלה פונה למעלה.\nמסובבים רק את הפאה העליונה לפינה הבאה; השכבה התחתונה מסתדרת לבד בסוף.';
+      'מחזיקים פינה לא פתורה במקום הקדמי־ימני.\nחוזרים על ⁦R\' D\' R D⁩ בזוגות עד שהצהוב שלה פונה למעלה.\nמסובבים רק את השכבה העליונה לפינה הבאה; התחתית חוזרת עם הפינה האחרונה.';
+
+  @override
+  String get introHoldTwistCorners =>
+      'צהוב למעלה, הפינה לסיבוב קדימה מימין. בין פינות מסובבים רק את השכבה העליונה, אף פעם לא את כל הקובייה.';
+
+  @override
+  String get introWhyTwistCorners =>
+      '⁦R\' D\' R D⁩ מסובב את הפינה ומבלגן את התחתית, אבל התחתית חוזרת ברגע שכל הפינות מסובבות. עצירה באמצע משאירה אותה שבורה.';
 
   @override
   String get introHowCfopIntro =>
-      'איקס: ארבע צלעות שמתכננים בזמן הבדיקה.\nF2L: כל פינה נכנסת יחד עם הצלע שלה.\nOLL צובע את הפאה העליונה בצהוב, ואז PLL מחזיר את החלקים למקום.';
+      'צלב: ארבעה קצוות שמתכננים בזמן הבדיקה.\nF2L: כל פינה נכנסת יחד עם הקצה שלה.\nOLL צובע את הפאה העליונה בצהוב, ואז PLL מחזיר את החלקים למקום.';
+
+  @override
+  String get introHoldCfopIntro =>
+      'ספידקיוברים בונים את הצלב למטה, כדי לראות מראש את החלקים הבאים בזמן שהם מסובבים.';
+
+  @override
+  String get introWhyCfopIntro =>
+      'פתרון פינה והקצה שלה יחד חוסך הרבה מהלכים, וזיהוי מקרים מחליף ניסוי וטעייה.';
 
   @override
   String get introHowF2l =>
-      'מוצאים פינה ואת הצלע המתאימה לה בשכבה העליונה.\nמחברים אותן לזוג מעל החריץ שלהן.\nמורידים את הזוג פנימה בשלושה–ארבעה מהלכים.';
+      'מוצאים פינה ואת הקצה המתאים לה בשכבה העליונה.\nמחברים אותם לזוג מעל המקום שלהם.\nמורידים את הזוג פנימה בשלושה–ארבעה מהלכים.';
+
+  @override
+  String get introHoldF2l =>
+      'הצלב למטה. המקום של הזוג קדימה מימין, או קדימה משמאל בתמונת המראה.';
+
+  @override
+  String get introWhyF2l =>
+      'פינה וקצה מוצמדים נכנסים יחד, כך ששתי שכבות גדלות בבת אחת במקום חלק אחד בכל פעם.';
 
   @override
   String get introHowOll =>
-      'קודם האיקס הצהוב עם ⁦F R U R\' U\' F\'⁩.\nאחר כך מסובבים את הפינות, למשל עם Sune.\nמזהים את המקרה לפי הצהוב שרואים.';
+      'קודם הצלב הצהוב עם ⁦F R U R\' U\' F\'⁩.\nאחר כך מסובבים את הפינות, למשל עם Sune.\nמזהים את המקרה לפי הצהוב שרואים.';
+
+  @override
+  String get introHoldOll =>
+      'צהוב למעלה. ב־Sune, הפינה היחידה שהצהוב שלה למעלה הולכת קדימה משמאל.';
+
+  @override
+  String get introWhyOll =>
+      'פיצול השכבה האחרונה לכיוון ואז למיקום שומר על מספר קטן של אלגוריתמים.';
 
   @override
   String get introHowPll =>
-      'הפאה העליונה כבר כולה צהובה.\nT-perm מחליף פינות; U-perm מסובב שלוש צלעות.\nקוראים את צבעי הצדדים כדי לבחור אלגוריתם.';
+      'הפאה העליונה כבר כולה צהובה.\n⁦T-perm⁩ מחליף פינות; ⁦U-perm⁩ מסובב שלושה קצוות.\nקוראים את צבעי הצדדים כדי לבחור אלגוריתם.';
+
+  @override
+  String get introHoldPll =>
+      'צהוב למעלה. ⁦T-perm⁩: הפנסים משמאל. ⁦U-perm⁩: הצד הגמור מאחור.';
+
+  @override
+  String get introWhyPll =>
+      'כשהפאה העליונה כולה צהובה, רק המקומות של החלקים לא נכונים, וכמה החלפות מסיימות את הקובייה.';
 
   @override
   String get introHowTwoFirst =>
-      'קובייה 2×2 היא רק פינות, כמו 3×3 בלי צלעות.\nמביאים כל פינה לבנה מעל המקום שלה.\nחוזרים על ⁦R U R\' U\'⁩ עד שהיא נכנסת.';
+      'בוחרים פינה לבנה כעוגן, הלבן כלפי מטה.\nמביאים כל פינה נוספת מעל המקום שלה, קדימה מימין.\nחוזרים על ⁦R U R\' U\'⁩ עד שהיא נכנסת עם צבעי צד תואמים.';
+
+  @override
+  String get introHoldTwoFirst =>
+      'לבן למטה. המקום הריק קדימה מימין, והפינה שלו בדיוק מעליו בשכבה העליונה.';
+
+  @override
+  String get introWhyTwoFirst =>
+      'ב־2×2 אין מרכזים: הפינה הראשונה שמניחים קובעת את צבעי השכנות שלה, ולכן צבעי הצד חשובים, לא רק הלבן.';
 
   @override
   String get introHowTwoOll =>
-      'משאירים את השכבה הלבנה למטה.\nSune ‏(⁦R U R\' U R U2 R\'⁩) מסובב את הפינות העליונות.\nחוזרים מהזווית הנכונה עד שכל הפאה העליונה צהובה.';
+      'סופרים כמה פינות מראות צהוב למעלה.\nכשיש אחת, מחזיקים אותה קדימה משמאל ומבצעים Sune: ⁦R U R\' U R U2 R\'⁩.\nסופרים שוב וחוזרים; לכל היותר שלושה Sune.';
+
+  @override
+  String get introHoldTwoOll =>
+      'לבן למטה, צהוב למעלה. לפני כל Sune, הפינה שהצהוב שלה למעלה קדימה משמאל.';
+
+  @override
+  String get introWhyTwoOll =>
+      'Sune מסובב את הפינות העליונות בלי לשבור את השכבה הלבנה; ספירה מחדש בכל פעם אומרת איך להחזיק בפעם הבאה.';
 
   @override
   String get introHowTwoPbl =>
-      'מחפשים צד שבו שתי פינות כבר מתאימות.\nהחלפה סמוכה: אלגוריתם אחד בסגנון T-perm.\nהחלפה אלכסונית: אלגוריתם אחד ארוך יותר.';
+      'מחפשים פנסים: שתי מדבקות עליונות זהות בצד אחד.\nפנסים בצד אחד: מחזיקים אותם משמאל ומבצעים ⁦T-perm⁩.\nאין פנסים: מבצעים ⁦Y-perm⁩ מכל צד, ואז מיישרים את השכבה העליונה.';
+
+  @override
+  String get introHoldTwoPbl =>
+      'לבן למטה, צהוב למעלה. ⁦T-perm⁩: הפנסים משמאל. ⁦Y-perm⁩: כל צד מולכם.';
+
+  @override
+  String get introWhyTwoPbl =>
+      'כשהחלק העליון צהוב, רק המקומות של הפינות לא נכונים: ⁦T-perm⁩ מחליף שתי שכנות, ⁦Y-perm⁩ שתי אלכסוניות.';
 
   @override
   String get introHowBigIntro =>
       'אין מרכז קבוע: ארבעה חלקי מרכז יוצרים את צבע הפאה.\nמהלכים רחבים כמו ⁦Rw⁩ מסובבים שתי שכבות יחד.\nמהלכים פנימיים כמו ⁦2R⁩ מסובבים רק פרוסה פנימית אחת.';
 
   @override
+  String get introHoldBigIntro =>
+      'בהתחלה איך שנוח: ב־4×4 אין מרכז קבוע, אז אתם בוחרים איפה כל צבע.';
+
+  @override
+  String get introWhyBigIntro =>
+      'הצמצום מקבץ מרכזים וחלקי קצה, כך שאפשר לפתור את הקובייה הגדולה כמו 3×3.';
+
+  @override
   String get introHowBigCenters =>
-      'בונים קודם שני מרכזים נגדיים.\nפרוסות פנימיות מחליפות חלקי מרכז בלי לפרק מרכזים גמורים.\nמסיימים את ארבעת המרכזים האחרונים באותה דרך.';
+      'קודם בודקים את סדר הצבעים לפי פינה.\nבונים שני מרכזים נגדיים, ואז את ארבעת האחרים.\nפרוסות פנימיות מזיזות חלקי מרכז; תמיד מחזירים פרוסה שפתחתם.';
+
+  @override
+  String get introHoldBigCenters =>
+      'הפאה שבונים בחזית, והמרכזים הגמורים מחוץ לדרך, משמאל ומימין.';
+
+  @override
+  String get introWhyBigCenters =>
+      'פרוסה מזיזה מרכזים, וביטול שלה מחזיר את הגמורים, כך שרק החלק שכיוונתם אליו משתנה.';
 
   @override
   String get introHowBigEdges =>
-      'מוצאים שני חלקי צלע באותם צבעים.\nמיישרים אותם זה ליד זה עם פרוסה פנימית.\nמזיזים את הזוג הצידה ומחזירים את המרכזים.';
+      'מוצאים את שתי הכנפיים עם אותם שני צבעים.\nמיישרים אותן בחזית ומחברים אותן עם ⁦Uw\'⁩.\nמכניסים קצה לא מוצמד, ואז ⁦Uw⁩ מחזיר את המרכזים.';
+
+  @override
+  String get introHoldBigEdges =>
+      'הקצה שמצמידים בשכבות הקדמיות; קצוות גמורים חונים בשכבה העליונה ובתחתונה.';
+
+  @override
+  String get introWhyBigEdges =>
+      '⁦Uw\'⁩ מזיז את המרכזים הצידה כדי ששתי כנפיים ייפגשו; ⁦Uw⁩ מחזיר את המרכזים ושומר על העבודה שלכם.';
 
   @override
   String get introHowBigParity =>
-      'פותרים את ה־4×4 כמו 3×3 עד שנתקעים.\nצלע הפוכה אחת: אלגוריתם הזוגיות הארוך של OLL.\nשתי צלעות מוחלפות: ⁦2R2 U2 2R2 Uw2 2R2 Uw2⁩.';
+      'פותרים את ה־4×4 כמו 3×3 עד שנתקעים.\nקצה הפוך אחד: אלגוריתם פריטי ה־OLL הארוך.\nשני קצוות מוחלפים: ⁦2R2 U2 2R2 Uw2 2R2 2U2⁩.';
+
+  @override
+  String get introHoldBigParity =>
+      'השכבה האחרונה למעלה. פריטי OLL: הקצה ההפוך בחזית. פריטי PLL: הקצוות המוחלפים בחזית ומאחור.';
+
+  @override
+  String get introWhyBigParity =>
+      'כנפיים יכולות להגיע למצבים ש־3×3 לא מגיע אליהם; האלגוריתמים האלה מסובבים שכבות פנימיות כדי לבטל בדיוק את זה.';
 
   @override
   String get dirFaceR => 'צד ימין';
@@ -1522,19 +1680,19 @@ class AppLocalizationsHe extends AppLocalizations {
   String get stageCenters => 'בניית גושי המרכז';
 
   @override
-  String get stageEdges => 'צימוד צלעות חיצוניות ופנימיות';
+  String get stageEdges => 'הצמדת קצוות חיצוניים ופנימיים';
 
   @override
   String get stageParity => 'פתרון זוגיות';
 
   @override
-  String get stageCrown1 => 'הכתר הראשון (לבן)';
+  String get stageCrown1 => 'השכבה הראשונה (לבנה)';
 
   @override
-  String get stageCrown2 => 'הכתר השני';
+  String get stageCrown2 => 'השכבה השנייה';
 
   @override
-  String get stageCrown3 => 'הכתר השלישי (צהוב)';
+  String get stageCrown3 => 'השכבה השלישית (צהובה)';
 
   @override
   String get stageOrient => 'כיוון החלקים';
@@ -1567,15 +1725,23 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get lessonFiveIntroDesc =>
-      'מרכזים קבועים, פסי מרכז, צלעות אמצעיות וכנפיים.';
+      'מרכזים קבועים, פסי מרכז, קצוות אמצעיים וכנפיים.';
 
   @override
   String get introGoalFiveIntro =>
-      'מכירים את ה־5×5: מרכזים קבועים, פסי מרכז, צלעות אמצעיות וכנפיים.';
+      'מכירים את ה־5×5: מרכזים קבועים, פסי מרכז, קצוות אמצעיים וכנפיים.';
 
   @override
   String get introHowFiveIntro =>
-      'החלק האמצעי בכל פאה לא זז אף פעם.\nכל צלע היא חלק אמצעי ושתי כנפיים.\nפרוסות פנימיות מזיזות חלקים בלי לגעת בחוץ.';
+      'החלק האמצעי בכל פאה לא זז אף פעם.\nכל קצה הוא חלק אמצעי ושתי כנפיים.\nפרוסות פנימיות מזיזות חלקים בלי לגעת בחוץ.';
+
+  @override
+  String get introHoldFiveIntro =>
+      'איך שנוח: ב־5×5 האמצע של כל פאה לא זז, אז הוא מראה את צבע הפאה.';
+
+  @override
+  String get introWhyFiveIntro =>
+      'האמצעים הקבועים קובעים את סכמת הצבעים, ולכן אי אפשר לבנות את המרכזים בסדר הלא נכון.';
 
   @override
   String get lessonFiveCenters => 'מרכזי ה־5×5';
@@ -1588,63 +1754,103 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get introHowFiveCenters =>
-      'מתחילים מהחלק האמצעי: הוא קובע את הצבע.\nבונים פסים של שלושה ומחליקים אותם פנימה בפרוסה פנימית.\nמסיימים את שני המרכזים האחרונים יחד.';
+      'מתחילים מחלק האמצע הקבוע: הוא קובע את הצבע.\nבונים פסים של שלושה ומחליקים אותם פנימה בפרוסה פנימית.\nהמהלך שמכניס פס גם מחזיר את המרכז הגמור.';
 
   @override
-  String get lessonFiveEdges => 'צלעות ה־5×5';
+  String get introHoldFiveCenters =>
+      'המרכז שבונים בחזית או למעלה; מרכזים גמורים למטה, משמאל או מימין, מחוץ לדרך.';
 
   @override
-  String get lessonFiveEdgesDesc => 'מחברים שתי כנפיים לצלע האמצעית שלהן.';
+  String get introWhyFiveCenters =>
+      'פרוסה פנימה, סיבוב למעלה, פרוסה חזרה: הפרוסה שמכניסה את הפס גם מחזירה את המרכזים הגמורים.';
+
+  @override
+  String get lessonFiveEdges => 'קצוות ה־5×5';
+
+  @override
+  String get lessonFiveEdgesDesc => 'מחברים שתי כנפיים לקצה האמצעי שלהן.';
 
   @override
   String get introGoalFiveEdges =>
-      'מחברים כל צלע אמצעית לשתי הכנפיים שלה, כך שכל 12 הצלעות נראות כחלק אחד.';
+      'מחברים כל קצה אמצעי לשתי הכנפיים שלו, כך שכל 12 הקצוות נראים כחלק אחד.';
 
   @override
   String get introHowFiveEdges =>
-      'מתאימים שתי כנפיים לצלע האמצעית שלהן בחזית.\nמסובבים את השכבה הפנימית, מכניסים צלע לא פתורה ומחזירים.\nמצמדים את הצלעות האחרונות בלי לפרק צלעות גמורות.';
+      'מתאימים כל כנף לקצה האמצעי שלה בחזית.\nמסובבים את השכבה הפנימית, מכניסים קצה לא פתור ומחזירים אותה.\nלקצוות האחרונים: פרוסה, היפוך, פרוסה.';
+
+  @override
+  String get introHoldFiveEdges =>
+      'הקצה שבונים בחזית; קצוות גמורים שמורים בשכבה העליונה ובתחתונה.';
+
+  @override
+  String get introWhyFiveEdges =>
+      'פתיחה וסגירה של הפרוסה הפנימית מחברות כנפיים, והמרכזים והקצוות השמורים חוזרים.';
 
   @override
   String get lessonFiveSolve => 'פותרים את ה־5×5 כמו 3×3';
 
   @override
-  String get lessonFiveSolveDesc => 'מסיימים עם שלושת הכתרים.';
+  String get lessonFiveSolveDesc => 'מסיימים שכבה אחרי שכבה, כמו ב־3×3.';
 
   @override
   String get introGoalFiveSolve =>
-      'פותרים את ה־5×5 המצומצם כמו 3×3, כתר אחרי כתר.';
+      'פותרים את ה־5×5 המצומצם כמו 3×3, שכבה אחרי שכבה, רק בסיבובים חיצוניים.';
 
   @override
   String get introHowFiveSolve =>
-      'מעכשיו רק סיבובים חיצוניים.\nהכתר הראשון, הכתר השני ואז הכתר הצהוב.\nהמרכזים הקבועים מראים את צבע כל פאה.';
+      'מעכשיו רק סיבובים חיצוניים, אחרת הקצוות המוצמדים מתפרקים.\nצלב ופינות לבנים, השכבה האמצעית, ואז השכבה הצהובה.\nחלקי האמצע הקבועים מראים את צבע כל פאה.';
 
   @override
-  String get lessonFiveParity => 'זוגיות צלעות ב־5×5';
+  String get introHoldFiveSolve =>
+      'צבע השכבה הראשונה למטה, בדיוק כמו ב־3×3; הפינה להכנסה קדימה מימין.';
 
   @override
-  String get lessonFiveParityDesc => 'מתקנים צלע שהכנפיים שלה מוחלפות.';
+  String get introWhyFiveSolve =>
+      'סיבובים פנימיים היו מפרקים שוב מרכזים וקצוות; סיבובים חיצוניים מתייחסים לכל גוש כחלק אחד של 3×3.';
+
+  @override
+  String get lessonFiveParity => 'פריטי קצוות ב־5×5';
+
+  @override
+  String get lessonFiveParityDesc => 'מתקנים קצה שהכנפיים שלו מוחלפות.';
 
   @override
   String get introGoalFiveParity =>
-      'מתקנים את הצלע היחידה ששתי הכנפיים שלה מוחלפות, ואז מסיימים.';
+      'מתקנים את הקצה היחיד ששתי הכנפיים החיצוניות שלו מוחלפות: הפריטי היחיד שיש ב־5×5.';
 
   @override
   String get introHowFiveParity =>
-      'זה נראה כמו צלע שלא מסכימה להתחבר.\nמבצעים פעם אחת את התיקון הארוך של הפרוסות הפנימיות.\nכל השאר חוזר למקומו.';
+      'זה נראה כמו קצה אחרון אחד שנראה הפוך.\nמבצעים פעם אחת את התיקון הארוך בפרוסות פנימיות.\nב־5×5 אין פריטי PLL.';
+
+  @override
+  String get introHoldFiveParity =>
+      'השכבה האחרונה למעלה, והקצה עם הכנפיים המוחלפות בחזית השכבה העליונה.';
+
+  @override
+  String get introWhyFiveParity =>
+      'ב־5×5 רק שתי הכנפיים החיצוניות של קצה אחד יכולות להתחלף, ולכן אלגוריתם אחד מכסה את זה.';
 
   @override
   String get lessonSixIntro => 'הכירו את ה־6×6';
 
   @override
-  String get lessonSixIntroDesc => 'אין מרכזים קבועים, וארבעה חלקים בכל צלע.';
+  String get lessonSixIntroDesc => 'אין מרכזים קבועים, וארבעה חלקים בכל קצה.';
 
   @override
   String get introGoalSixIntro =>
-      'מכירים את ה־6×6: שישה־עשר חלקי מרכז בכל פאה וארבעה חלקים בכל צלע.';
+      'מכירים את ה־6×6: שישה־עשר חלקי מרכז בכל פאה וארבעה חלקים בכל קצה.';
 
   @override
   String get introHowSixIntro =>
-      'אין מרכז קבוע: אתם בוחרים את הצבעים תוך כדי בנייה.\nבכל צלע יש כנפיים חיצוניות ופנימיות.\nסיבובים רחבים יכולים להזיז עד שלוש שכבות.';
+      'אין מרכז קבוע: אתם בוחרים את הצבעים תוך כדי בנייה.\nבכל קצה יש כנפיים חיצוניות ופנימיות.\nסיבובים רחבים יכולים להזיז עד שלוש שכבות.';
+
+  @override
+  String get introHoldSixIntro =>
+      'בהתחלה איך שנוח: כמו ב־4×4, ב־6×6 אין מרכז קבוע.';
+
+  @override
+  String get introWhySixIntro =>
+      'אם אתם פותרים 4×4 ו־5×5, ה־6×6 הוא אותו צמצום עם גושים גדולים יותר.';
 
   @override
   String get lessonSixCenters => 'מרכזי ה־6×6';
@@ -1658,56 +1864,88 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get introHowSixCenters =>
-      'בונים קודם שני מרכזים נגדיים.\nיוצרים פסים של ארבעה ומחליקים אותם זה לזה.\nמזיזים חלק בודד בתרגיל פרוסה, למעלה, ביטול.';
+      'קודם בודקים את סדר הצבעים לפי פינה: אין מרכז קבוע.\nבונים פסים של ארבעה ומחליקים אותם יחד.\nבשני המרכזים האחרונים מזיזים חלקים בודדים: פרוסה, למעלה, ביטול.';
 
   @override
-  String get lessonSixEdges => 'צלעות ה־6×6';
+  String get introHoldSixCenters =>
+      'הפאה שבונים בחזית, ומרכזים גמורים משמאל, מימין או למטה.';
 
   @override
-  String get lessonSixEdgesDesc => 'אוספים את ארבעת החלקים של כל צלע.';
+  String get introWhySixCenters =>
+      'פסים מתחברים בפרוסות פנימיות, וכל פרוסה מבוטלת, כך שהמרכזים הגמורים נשארים שלמים.';
+
+  @override
+  String get lessonSixEdges => 'קצוות ה־6×6';
+
+  @override
+  String get lessonSixEdgesDesc => 'אוספים את ארבעת החלקים של כל קצה.';
 
   @override
   String get introGoalSixEdges =>
-      'אוספים את ארבעת החלקים של כל צלע, כך שב־6×6 יש 12 צלעות נקיות.';
+      'אוספים את ארבעת החלקים של כל קצה, כך שב־6×6 יש 12 קצוות נקיים.';
 
   @override
   String get introHowSixEdges =>
-      'מיישרים בחזית את הכנפיים החיצוניות והפנימיות.\nהשכבה הרחבה העמוקה מכניסה ומוציאה צלע.\nצלעות גמורות אף פעם לא מתפרקות.';
+      'מיישרים בחזית את הכנפיים החיצוניות והפנימיות של קצה אחד.\nהשכבה הרחבה העמוקה מכניסה ומוציאה קצה.\nלעולם לא מפרקים קצה גמור כדי לשחרר חלק.';
+
+  @override
+  String get introHoldSixEdges =>
+      'הקצה שבונים בחזית; קצוות גמורים חונים בשכבה העליונה ובתחתונה.';
+
+  @override
+  String get introWhySixEdges =>
+      'הסיבוב הרחב העמוק מזיז את המרכזים הצידה כדי שכנפיים ייפגשו, ואז מחזיר אותם.';
 
   @override
   String get lessonSixSolve => 'פותרים את ה־6×6 כמו 3×3';
 
   @override
-  String get lessonSixSolveDesc => 'מסיימים עם שלושת הכתרים.';
+  String get lessonSixSolveDesc => 'מסיימים שכבה אחרי שכבה, כמו ב־3×3.';
 
   @override
   String get introGoalSixSolve =>
-      'פותרים את ה־6×6 המצומצם כמו 3×3, כתר אחרי כתר.';
+      'פותרים את ה־6×6 המצומצם כמו 3×3, שכבה אחרי שכבה, רק בסיבובים חיצוניים.';
 
   @override
   String get introHowSixSolve =>
-      'מעכשיו רק סיבובים חיצוניים.\nהמרכזים שבניתם מראים את צבע כל פאה.\nהכתר הראשון, הכתר השני ואז הכתר הצהוב.';
+      'מעכשיו רק סיבובים חיצוניים: פרוסה הייתה מפרקת מרכז או קצה.\nהמרכזים שבניתם מראים את צבע כל פאה.\nצלב ופינות לבנים, השכבה האמצעית, ואז השכבה הצהובה.';
+
+  @override
+  String get introHoldSixSolve =>
+      'צבע השכבה הראשונה למטה, בדיוק כמו ב־3×3; הפינה להכנסה קדימה מימין.';
+
+  @override
+  String get introWhySixSolve =>
+      'סיבובים חיצוניים מזיזים כל מרכז 4×4 וכל קצה כחלק אחד, בדיוק כמו ב־3×3.';
 
   @override
   String get lessonSixParity => 'זוגיות ב־6×6';
 
   @override
-  String get lessonSixParityDesc => 'צלע הפוכה אחת או שתי צלעות מוחלפות.';
+  String get lessonSixParityDesc => 'קצה הפוך אחד או שני קצוות מוחלפים.';
 
   @override
   String get introGoalSixParity =>
-      'מתקנים את שני המקרים של 6×6 שאין ב־3×3: צלע הפוכה אחת או שתי צלעות מוחלפות.';
+      'מתקנים את שני המקרים של 6×6 שאין ב־3×3: קצה הפוך אחד או שני קצוות מוחלפים.';
 
   @override
   String get introHowSixParity =>
-      'פותרים כמו 3×3 עד שנתקעים.\nצלע הפוכה אחת: תיקון הזוגיות הארוך.\nשתי צלעות מוחלפות: התיקון הקצר של סיבובים כפולים.';
+      'פותרים כמו 3×3 עד שנתקעים.\nקצה הפוך אחד: התיקון הארוך עם ⁦3Rw⁩.\nשני קצוות מוחלפים: התיקון הקצר בסיבובים פנימיים כפולים.';
+
+  @override
+  String get introHoldSixParity =>
+      'השכבה האחרונה למעלה. הקצה ההפוך בחזית; לשני קצוות מוחלפים, בחזית ומאחור.';
+
+  @override
+  String get introWhySixParity =>
+      'כמו ב־4×4, ב־6×6 אפשר לסיים עם קצה הפוך אחד או שני קצוות מוחלפים; אלגוריתמים של שכבות פנימיות מתקנים אותם ומשאירים את השאר.';
 
   @override
   String get stepFivePieces => 'החלקים של 5×5';
 
   @override
   String get stepFivePiecesBody =>
-      'החלק האמצעי בכל פאה לא זז אף פעם, ולכן הוא עדיין קובע את צבע הפאה, כמו ב־3×3. סביבו יש עוד שמונה חלקי מרכז; בכל צלע יש חלק אמצעי ושתי כנפיים, והפינות מתנהגות כמו ב־3×3.';
+      'החלק האמצעי בכל פאה לא זז אף פעם, ולכן סכמת הצבעים לא יכולה לצאת שגויה. סביבו שמונה חלקי מרכז: מרכזי פינה ומרכזי קצה אף פעם לא מתחלפים ביניהם. כל קצה הוא חלק אמצעי עם שתי כנפיים.';
 
   @override
   String get stepFiveSlices => 'שלושה סוגי סיבובים';
@@ -1721,7 +1959,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get stepFiveCenterBarBody =>
-      'בונים שורה של שלושה חלקי מרכז תואמים, ואז מחליקים אותה ליד המרכז האמצעי המתאים בסיבוב פרוסה פנימית. שלושה פסים יוצרים מרכז גמור.';
+      'בנו שורה של שלושה חלקי מרכז תואמים, החליקו אותה פנימה בפרוסה פנימית, סובבו את השכבה העליונה והחזירו: המהלך שמכניס את הפס גם מחזיר את המרכז הגמור. שלושה פסים הם מרכז.';
 
   @override
   String get stepFiveCenterSwap => 'מחליפים בלי לשבור';
@@ -1731,95 +1969,95 @@ class AppLocalizationsHe extends AppLocalizations {
       'כדי להזיז חלק מרכז בודד: מסובבים פרוסה פנימית, מסובבים את הפאה העליונה, מבטלים את הפרוסה ומחזירים את העליונה. מרכזים גמורים חוזרים בכל פעם.';
 
   @override
-  String get stepFiveEdgePair => 'מצמדים כנפיים לצלע אמצעית';
+  String get stepFiveEdgePair => 'מצמידים כנפיים לקצה אמצעי';
 
   @override
   String get stepFiveEdgePairBody =>
-      'מיישרים שתי כנפיים ליד הצלע האמצעית שלהן בחזית, מורידים את השכבה הפנימית, מכניסים מלמעלה צלע לא פתורה ומחזירים את השכבה הפנימית.';
+      'יישרו כנף ליד הקצה האמצעי התואם שלה בחזית, הורידו את השכבה הפנימית, הכניסו קצה לא פתור בטריגר קצר, ואז החזירו את השכבה הפנימית.';
 
   @override
-  String get stepFiveEdgeLast => 'הצלעות האחרונות';
+  String get stepFiveEdgeLast => 'הקצוות האחרונים';
 
   @override
   String get stepFiveEdgeLastBody =>
-      'כשנשארו מעט צלעות, סיבוב רחב, טריגר קצר וחזרה של הסיבוב הרחב מצמדים אותן בלי לפרק צלעות גמורות.';
+      'כשלא נשאר קצה פנוי להכניס, משתמשים בפרוסה, היפוך, פרוסה: סיבוב רחב, טריגר קצר והסיבוב הרחב חזרה מצמידים את הקצוות האחרונים בלי לשבור את הגמורים.';
 
   @override
   String get stepFiveAsThree => 'עכשיו זו 3×3';
 
   @override
   String get stepFiveAsThreeBody =>
-      'כשהמרכזים והצלעות מוכנים, ה־5×5 מתנהגת כמו 3×3 גדולה. משתמשים רק בסיבובים חיצוניים ועוברים את שלושת הכתרים: איקס ופינות לבנים, השכבה האמצעית ואז השכבה הצהובה.';
+      'כשהמרכזים והקצוות מוכנים, ה־5×5 מתנהג כמו 3×3 גדול. משתמשים רק בסיבובים חיצוניים ומתקדמים שכבה אחרי שכבה: צלב ופינות לבנים, השכבה האמצעית, ואז השכבה הצהובה. ב־5×5 אין פריטי PLL.';
 
   @override
-  String get stepFiveEdgeParity => 'מחליפים את כנפי הצלע האחרונה';
+  String get stepFiveEdgeParity => 'מחליפים את כנפי הקצה האחרון';
 
   @override
   String get stepFiveEdgeParityBody =>
-      'לפעמים בצלע האחרונה שתי הכנפיים מוחלפות. אלגוריתם ארוך של פרוסות פנימיות מחליף אותן בחזרה וכל השאר חוזר למקומו. אחר כך מסיימים כמו 3×3.';
+      'לפעמים לקצה האחרון שתי הכנפיים החיצוניות מוחלפות, אז הוא נראה הפוך: הפריטי היחיד של ה־5×5. החזיקו אותו בחזית השכבה העליונה ובצעו פעם אחת את אלגוריתם הפרוסות הפנימיות; כל השאר חוזר למקומו.';
 
   @override
   String get stepSixPieces => 'החלקים של 6×6';
 
   @override
   String get stepSixPiecesBody =>
-      'כמו ב־4×4, ב־6×6 אין מרכז קבוע: שישה־עשר חלקי מרכז יוצרים את צבע הפאה. בכל צלע ארבעה חלקים: שתי כנפיים חיצוניות ושתיים פנימיות.';
+      'כמו ב־4×4, ב־6×6 אין מרכז קבוע: שישה־עשר חלקי מרכז יוצרים את צבע כל פאה, אז קודם בודקים את סדר הצבעים לפי פינה. לכל קצה ארבע כנפיים: שתיים חיצוניות ושתיים פנימיות.';
 
   @override
   String get stepSixSlices => 'מסובבים שכבות עמוקות';
 
   @override
   String get stepSixSlicesBody =>
-      'סיבובים רחבים יכולים להזיז שתיים או שלוש שכבות מפאה. פרוסות פנימיות בשכבה השנייה או השלישית הן הכלים למרכזים ולצלעות.';
+      'סיבובים רחבים יכולים להזיז שתיים או שלוש שכבות מפאה. פרוסות פנימיות בשכבה השנייה או השלישית הן הכלים למרכזים ולקצוות.';
 
   @override
   String get stepSixCenterBar => 'פסים של ארבעה';
 
   @override
   String get stepSixCenterBarBody =>
-      'בונים שורות של ארבעה חלקי מרכז תואמים ומחליקים אותן זו ליד זו בסיבובי פרוסה פנימית, עד שהפאה בצבע אחד אחיד.';
+      'בנו שורות של ארבעה חלקי מרכז תואמים והחליקו אותן זו ליד זו בסיבובי פרוסה פנימיים, תוך ביטול כל פרוסה, עד שהפאה היא גוש 4×4 אחיד.';
 
   @override
   String get stepSixCenterSwap => 'מזיזים חלק אחד בכל פעם';
 
   @override
   String get stepSixCenterSwapBody =>
-      'מסובבים את השכבה השלישית, מסובבים את העליונה, מבטלים ומחזירים: חלק מרכז אחד זז ומרכזים גמורים חוזרים.';
+      'סובבו את השכבה השלישית, סובבו את השכבה העליונה, בטלו, החזירו: חלק מרכז אחד זז והמרכזים הגמורים חוזרים. השתמשו בזה לשני המרכזים האחרונים, כשאף פס לא נכנס.';
 
   @override
-  String get stepSixEdgePair => 'ארבעה חלקים, צלע אחת';
+  String get stepSixEdgePair => 'ארבעה חלקים, קצה אחד';
 
   @override
   String get stepSixEdgePairBody =>
-      'אוספים בחזית את ארבעת החלקים של צלע בעזרת השכבה הרחבה העמוקה, מכניסים צלע לא פתורה ומחזירים את השכבה הרחבה.';
+      'אספו את ארבע הכנפיים של קצה בחזית בעזרת השכבה הרחבה העמוקה, הכניסו קצה לא פתור בטריגר קצר, ואז החזירו את השכבה הרחבה.';
 
   @override
-  String get stepSixEdgeLast => 'הצלעות האחרונות';
+  String get stepSixEdgeLast => 'הקצוות האחרונים';
 
   @override
   String get stepSixEdgeLastBody =>
-      'מצמדים את הצלעות האחרונות בטריגר קצר בין סיבוב רחב עמוק לביטול שלו, כך שצלעות גמורות נשארות מחוברות.';
+      'הצמידו את הקצוות האחרונים בטריגר קצר בין סיבוב רחב עמוק לביטול שלו, כך שקצוות גמורים נשארים מוצמדים. לעולם לא מפרקים קצה גמור כדי לשחרר חלק.';
 
   @override
   String get stepSixAsThree => 'עכשיו זו 3×3';
 
   @override
   String get stepSixAsThreeBody =>
-      'עם מרכזי 4×4 וצלעות מצומדות, פותרים את ה־6×6 כמו 3×3 בסיבובים חיצוניים ובשלושת הכתרים.';
+      'עם מרכזי 4×4 וקצוות מוצמדים, פותרים את ה־6×6 כמו 3×3, שכבה אחרי שכבה, רק בסיבובים חיצוניים. קצה הפוך אחד או שני קצוות מוחלפים בסוף הם פריטי, לא טעות.';
 
   @override
-  String get stepSixOllParity => 'צלע הפוכה אחת';
+  String get stepSixOllParity => 'קצה הפוך אחד';
 
   @override
   String get stepSixOllParityBody =>
-      'אם צלע אחת נראית הפוכה בזמן פתרון השכבה האחרונה, זו זוגיות. מחזיקים אותה בחזית השכבה העליונה ומבצעים את התיקון הארוך: שני הכתרים הראשונים חוזרים בלי פגע.';
+      'קצה יחיד שנראה הפוך בשכבה האחרונה הוא פריטי. החזיקו אותו בחזית השכבה העליונה ובצעו את התיקון הארוך: הוא הופך את כל ארבע הכנפיים, מחליף גם את הקצוות העליונים משמאל ומימין, ולא נוגע בשתי השכבות הראשונות.';
 
   @override
-  String get stepSixPllParity => 'שתי צלעות מוחלפות';
+  String get stepSixPllParity => 'שני קצוות מוחלפים';
 
   @override
   String get stepSixPllParityBody =>
-      'אם שתי צלעות נראות מוחלפות ממש בסוף, מחזיקים אותן מקדימה ומאחור בשכבה העליונה ומבצעים את התיקון הקצר של סיבובים כפולים פנימיים.';
+      'אם שני קצוות נראים מוחלפים ממש בסוף, החזיקו אותם בחזית ומאחור בשכבה העליונה ובצעו את התיקון הקצר בסיבובים פנימיים כפולים: כל ארבע הכנפיים של שני הקצוות מתחלפות.';
 
   @override
   String get stageTwoFirstLayer => 'בונים את השכבה התחתונה';
@@ -2390,22 +2628,22 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String cueCrossTop(String piece, String center) {
-    return 'הצלע בצבעי $piece נמצאת בשכבה העליונה. סובבו את הפאה העליונה עד שהיא בדיוק מעל המרכז ה$center, ואז סובבו את הפאה הזו פעמיים כדי להוריד אותה.';
+    return 'הקצה בצבעי $piece נמצא בשכבה העליונה. סובבו את השורה העליונה עד שהוא בדיוק מעל המרכז ה$center, ואז סובבו את הפאה הזו פעמיים כדי להוריד אותו.';
   }
 
   @override
   String cueCrossMiddle(String piece, String center) {
-    return 'הצלע בצבעי $piece תקועה בשכבה האמצעית. העלו אותה למעלה, יישרו אותה מעל המרכז ה$center, ואז הורידו אותה.';
+    return 'הקצה בצבעי $piece תקוע בשכבה האמצעית. העלו אותו למעלה, יישרו אותו מעל המרכז ה$center, ואז הורידו אותו.';
   }
 
   @override
   String cueCrossFlipped(String piece, String center) {
-    return 'הצלע בצבעי $piece במקום הנכון אבל הפוכה: הלבן שלה פונה הצידה. הוציאו אותה, ואז החזירו אותה ליד המרכז ה$center בכיוון הנכון.';
+    return 'הקצה בצבעי $piece במקום שלו אבל הפוך: הלבן שלו פונה הצידה. הוציאו אותו והעלו אותו למעלה, הלבן כלפי מעלה, ואז הורידו אותו ליד המרכז ה$center.';
   }
 
   @override
   String cueCrossBottom(String piece, String center) {
-    return 'בסגנון ⁦CFOP⁩ מותר לסובב גם את התחתית. הכניסו את הצלע בצבעי $piece וסובבו את התחתית כך שתתיישר עם המרכז ה$center.';
+    return 'בסגנון ⁦CFOP⁩ מותר לסובב גם את התחתית. הכניסו את הקצה בצבעי $piece וסובבו את התחתית כך שיתיישר עם המרכז ה$center.';
   }
 
   @override
@@ -2415,27 +2653,27 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String cueCornerTwisted(String piece) {
-    return 'הפינה בצבעי $piece במקום שלה אבל מסובבת. תנועה אחת מוציאה אותה (פינה צהובה נכנסת במקומה); המשיכו לחזור עד שהיא נכנסת שוב נכון.';
+    return 'הפינה בצבעי $piece במקום שלה אבל מסובבת. טריגר אחד מקפיץ אותה החוצה (פינה צהובה נכנסת במקומה); המשיכו לחזור מעל אותו מקום עד שהיא נכנסת שוב עם הלבן למטה. אל תסובבו את הקובייה כדי לרדוף אחריה.';
   }
 
   @override
   String cueMiddleRight(String piece, String a, String b) {
-    return 'סובבו את הפאה העליונה עד שהצלע בצבעי $piece מיושרת עם המרכז ה$a, ואז שלחו אותה למטה ימינה, אל המקום שבין ה$a ל$b.';
+    return 'סובבו את השורה העליונה עד שהקצה בצבעי $piece מיושר עם המרכז ה$a, ואז שלחו אותו למטה ימינה, אל המקום שבין ה$a ל$b.';
   }
 
   @override
   String cueMiddleLeft(String piece, String a, String b) {
-    return 'סובבו את הפאה העליונה עד שהצלע בצבעי $piece מיושרת עם המרכז ה$a, ואז שלחו אותה למטה שמאלה, אל המקום שבין ה$a ל$b.';
+    return 'סובבו את השורה העליונה עד שהקצה בצבעי $piece מיושר עם המרכז ה$a, ואז שלחו אותו למטה שמאלה, אל המקום שבין ה$a ל$b.';
   }
 
   @override
   String cueMiddleFlipped(String piece, String a, String b) {
-    return 'הצלע בצבעי $piece במקום שלה אבל הפוכה. הכניסו לשם צלע צהובה כדי לדחוף אותה החוצה, ואז הכניסו אותה שוב בין ה$a ל$b.';
+    return 'הקצה בצבעי $piece במקום שלו אבל הפוך. הכניסו לשם קצה צהוב כדי לדחוף אותו למעלה, ואז הכניסו אותו שוב בין ה$a ל$b.';
   }
 
   @override
   String cueYellowLine(String front) {
-    return 'קו צהוב: סובבו את הפאה העליונה כך שהקו יעבור משמאל לימין, השאירו את ה$front מולכם ובצעו את אלגוריתם האיקס הצהוב.';
+    return 'קו צהוב: סובבו את השורה העליונה כך שהקו יעבור משמאל לימין, השאירו את ה$front מולכם ובצעו את אלגוריתם הצלב הצהוב.';
   }
 
   @override
@@ -2445,22 +2683,22 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String cueYellowDot(String front) {
-    return 'רק המרכז הצהוב צהוב: נקודה. בצעו את האלגוריתם פעם אחת, כשה$front מולכם, כדי לקבל ⁦L⁩.';
+    return 'רק המרכז הצהוב צהוב: נקודה. בצעו את האלגוריתם פעם אחת כשה$front מולכם כדי לקבל L. נקודה יכולה לקחת שלושה סבבים, אז המשיכו.';
   }
 
   @override
   String cueEdgesMatch(String piece, String center) {
-    return 'סובבו את הפאה העליונה עד שהצלע בצבעי $piece תואמת את המרכז ה$center.';
+    return 'סובבו את השורה העליונה עד שהקצה בצבעי $piece תואם את המרכז ה$center.';
   }
 
   @override
   String cueEdgesSwap(String front) {
-    return 'שתי צלעות תואמות נמצאות מאחור ומימין. כשה$front מולכם, בצעו את ההחלפה: הצלע הקדמית והשמאלית מתחלפות.';
+    return 'שני קצוות תואמים נמצאים מאחור ומימין. כשה$front מולכם, בצעו את ההחלפה: הקצה הקדמי והשמאלי מתחלפים.';
   }
 
   @override
   String cueEdgesOpposite(String front) {
-    return 'הצלעות התואמות נמצאות זו מול זו. בצעו את ההחלפה פעם אחת כשה$front מולכם; אחר כך שתי צלעות שכנות יתאימו.';
+    return 'הקצוות התואמים נמצאים זה מול זה. בצעו את ההחלפה פעם אחת כשה$front מולכם; אחר כך שני קצוות שכנים יתאימו.';
   }
 
   @override
@@ -2475,7 +2713,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String cueTwistCorner(String piece) {
-    return 'סובבו את הפינה בצבעי $piece שבקדמי־ימני: חזרו על התנועה עד שהצהוב שלה פונה למעלה. השכבות התחתונות נראות מבולגנות בינתיים, וזה תקין!';
+    return 'סובבו את הפינה בצבעי $piece שקדימה מימין: חזרו על הטריגר התחתון בזוגות עד שהצהוב שלה פונה למעלה. השכבות התחתונות נראות מבולגנות בינתיים; הן חוזרות עם הפינה האחרונה!';
   }
 
   @override
@@ -2489,12 +2727,12 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String cueF2lPair(String piece, String edge, String a, String b) {
-    return 'חברו את הפינה בצבעי $piece עם הצלע בצבעי $edge למעלה, ואז הכניסו את הזוג למקום שבין ה$a ל$b.';
+    return 'חברו את הפינה בצבעי $piece עם הקצה בצבעי $edge למעלה, ואז הכניסו את הזוג למקום שבין ה$a ל$b.';
   }
 
   @override
   String cueF2lStuck(String piece) {
-    return 'הפינה בצבעי $piece תקועה במקום שלה עם הצלע הלא נכונה. קודם הוציאו אותה למעלה, ואז חברו אותה לזוג והכניסו.';
+    return 'הפינה בצבעי $piece תקועה במקום שלה עם הקצה הלא נכון. קודם הוציאו אותה למעלה, ואז חברו אותה לזוג והכניסו.';
   }
 
   @override
@@ -2514,12 +2752,12 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String cuePllEdges(String piece) {
-    return 'הפינות מוכנות. השאירו את הצלע בצבעי $piece מאחור והעבירו במחזור את שלוש הצלעות האחרות עם ⁦U-perm⁩.';
+    return 'הפינות מוכנות. השאירו את הקצה בצבעי $piece מאחור והעבירו במחזור את שלושת הקצוות האחרים עם ⁦U-perm⁩.';
   }
 
   @override
   String get cuePllNoEdge =>
-      'אף צלע עליונה עוד לא תואמת את המרכז שלה. בצעו ⁦U-perm⁩ פעם אחת מכל צד שתבחרו; אחריו צלע אחת תתאים.';
+      'אף קצה עליון עוד לא תואם את המרכז שלו. בצעו ⁦U-perm⁩ פעם אחת מכל צד שתבחרו; אחריו קצה אחד יתאים.';
 
   @override
   String cueTwoSwapAdjacent(String front) {
@@ -2543,26 +2781,26 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String cueEdgePair(String piece) {
-    return 'הצמידו את שני חלקי הצלע בצבעי $piece: יישרו אותם, סובבו שכבה פנימית, הכניסו צלע לא מוצמדת בתנועות יד ימין והחזירו את השכבה.';
+    return 'הצמידו את שני חלקי הקצה בצבעי $piece: יישרו אותם, סובבו שכבה פנימית, הכניסו קצה לא מוצמד בתנועות יד ימין והחזירו את השכבה.';
   }
 
   @override
   String cueEdgeLast(String piece) {
-    return 'הצלעות האחרונות: הצמידו את הצלע בצבעי $piece באלגוריתם שתי הצלעות האחרונות, ששומר על כל הצלעות הגמורות.';
+    return 'הקצוות האחרונים: הצמידו את הקצה בצבעי $piece באלגוריתם שני הקצוות האחרונים, ששומר על כל הקצוות הגמורים.';
   }
 
   @override
   String cueParityOll(String front) {
-    return 'פריטי ⁦OLL⁩: צלע עליונה אחת הפוכה, דבר שלא קורה אף פעם ב־⁦3×3⁩. השאירו אותה מקדימה, כשה$front מולכם, ובצעו את תיקון הפריטי.';
+    return 'פריטי OLL: קצה עליון אחד הפוך, דבר שלא קורה ב־3×3. השאירו אותו בחזית, כשה$front מולכם, ובצעו את תיקון הפריטי לפני כל OLL רגיל.';
   }
 
   @override
   String get cueParityPll =>
-      'פריטי ⁦PLL⁩: שתי צלעות עליונות התחלפו, דבר שלא קורה אף פעם ב־⁦3×3⁩. השאירו אותן מקדימה ומאחור ובצעו את החלפת הפריטי.';
+      'פריטי PLL: שני קצוות עליונים מוחלפים, דבר שלא קורה ב־3×3. השאירו אותם בחזית ומאחור, בצעו את החלפת הפריטי, ואז יישרו את השכבה העליונה.';
 
   @override
   String cueParityFive(String front) {
-    return 'פריטי צלע: שני החלקים החיצוניים של צלע אחת התחלפו. סובבו את הצלע הזו לחזית, כשה$front מולכם, בצעו את התיקון וסובבו חזרה.';
+    return 'פריטי קצוות: שתי הכנפיים החיצוניות של קצה אחד מוחלפות, הפריטי היחיד שיש ב־5×5. השאירו את הקצה בחזית, כשה$front מולכם, ובצעו את התיקון פעם אחת.';
   }
 
   @override
@@ -2593,7 +2831,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get onboardingLearnBody =>
-      'שלטו בשיטת שלושת הכתרים באקדמיה, ואז סובבו, ערבבו ופתרו בחופשיות במגרש התלת־ממד.';
+      'למדו את שיטת השכבות באקדמיה, ואז סובבו, ערבבו ופתרו בחופשיות במגרש המשחקים התלת־ממדי.';
 
   @override
   String get scanChoiceManualDesc => 'הקישו את צבעי כל פאה, מדבקה אחר מדבקה.';
@@ -2610,7 +2848,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get crownExplain =>
-      'כתר הוא שכבה אופקית אחת של הקובייה: הכתר הראשון הוא השכבה הלבנה למטה, השני הוא השכבה האמצעית והשלישי הוא השכבה הצהובה למעלה.';
+      'שכבה היא פרוסה אופקית אחת של הקובייה: השכבה הראשונה היא השכבה הלבנה למטה, השנייה היא השכבה האמצעית והשלישית היא השכבה הצהובה למעלה.';
 
   @override
   String get lessonObjectiveHeading => 'מטרת הלמידה';
@@ -2634,7 +2872,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get solveChoiceFastDesc => 'הפתרון הקצר ביותר, מהלך אחר מהלך.';
 
   @override
-  String get solveChoiceGuidedDesc => 'למדו את שיטת שלושת הכתרים צעד אחר צעד.';
+  String get solveChoiceGuidedDesc => 'לומדים את שיטת השכבות צעד אחר צעד.';
 
   @override
   String get guidedSolvedTitle => 'נפתרה!';

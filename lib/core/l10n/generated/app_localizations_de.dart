@@ -159,7 +159,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get solveLearn => 'Schritt für Schritt lernen';
 
   @override
-  String get solveModeGuided => 'Geführt (3 Kronen)';
+  String get solveModeGuided => 'Geführt (3 Ebenen)';
 
   @override
   String get solveModeFast => 'Schnell (optimal)';
@@ -256,7 +256,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get phaseLblCross => 'Weißes Kreuz';
 
   @override
-  String get phaseLblCorners => 'Ecken der ersten Krone';
+  String get phaseLblCorners => 'Ecken der ersten Ebene';
 
   @override
   String get phaseLblMiddle => 'Kanten der mittleren Ebene';
@@ -274,13 +274,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get phaseLblYellowCornersOrient => 'Gelbe Ecken drehen';
 
   @override
-  String get crownFirst => 'Erste Krone';
+  String get crownFirst => 'Erste Ebene';
 
   @override
-  String get crownSecond => 'Zweite Krone';
+  String get crownSecond => 'Zweite Ebene';
 
   @override
-  String get crownThird => 'Dritte Krone';
+  String get crownThird => 'Dritte Ebene';
 
   @override
   String get crownFirstGoal => 'Weiße Seite und erste Ebene';
@@ -297,11 +297,11 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get subStepGoal12 =>
-      'Setze die 4 weißen Ecken an ihre Plätze, um die weiße Seite und den ganzen ersten Ring fertigzustellen.';
+      'Setze die 4 weißen Ecken in ihre passenden Plätze und mach so die weiße Seite und die ganze erste Ebene fertig.';
 
   @override
   String get subStepGoal21 =>
-      'Setze die 4 Kanten der mittleren Ebene ein, ohne die erste Krone zu zerstören.';
+      'Setze die 4 Kanten der mittleren Ebene ein, ohne die erste Ebene zu zerstören.';
 
   @override
   String get subStepGoal31 => 'Baue ein gelbes Kreuz auf der letzten Ebene.';
@@ -685,7 +685,7 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => '3×3 für Anfänger: die 3 Kronen';
+  String get trackBeginner => '3×3 für Einsteiger: Ebene für Ebene';
 
   @override
   String get trackCfop => 'Einführung in CFOP';
@@ -1000,77 +1000,77 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get stepCrossGoalBody =>
-      'Halte Gelb oben. Die vier weißen Kanten liegen unten um die weiße Mitte, jede Seitenfarbe passend zur benachbarten Mitte.';
+      'Halte Gelb oben und Grün zu dir. Sammle zuerst die vier weißen Kanten um die gelbe Mitte, Weiß nach oben, wie Blütenblätter: das Gänseblümchen. Dann kommt jedes Blatt nach unten zur weißen Mitte, seine Seitenfarbe passend zur Mitte daneben.';
 
   @override
   String get stepCrossTop => 'Kante oben';
 
   @override
   String get stepCrossTopBody =>
-      'Suche oben eine weiße Kante. Drehe die obere Ebene, bis ihre Seitenfarbe über der passenden Mitte steht, und drehe diese Seite dann zweimal, um sie nach unten zu bringen.';
+      'Eine weiße Kante oben mit Weiß nach oben ist ein Blütenblatt des Gänseblümchens. Dreh die obere Ebene, bis ihre Seitenfarbe genau über der gleichfarbigen Mitte steht, dann dreh diese Seite zweimal (180°), um sie auf die weiße Mitte zu bringen.';
 
   @override
   String get stepCrossMiddle => 'Kante in der Mitte';
 
   @override
   String get stepCrossMiddleBody =>
-      'Eine Kante in der mittleren Ebene muss erst nach oben: Drehe ihre Seite hoch, drehe die obere Ebene aus dem Weg und die Seite zurück, damit das Kreuz heil bleibt. Setze sie dann von oben ein.';
+      'Eine Kante, die in der mittleren Ebene steckt, kommt zuerst hoch: ihre Seite hoch, die obere Ebene aus dem Weg, die Seite zurück, damit gesetzte Steine bleiben. Jetzt ist sie ein Blütenblatt oben: ausrichten und die Seite zweimal drehen.';
 
   @override
   String get stepCornersInsert => 'Über ihrem Platz';
 
   @override
   String get stepCornersInsertBody =>
-      'Drehe die obere Ebene, bis eine weiße Ecke über dem Platz ihrer Farben vorne rechts steht. R U R\' U\' setzt sie ein.';
+      'Dreh die obere Ebene, bis die weiße Ecke genau über ihrem Platz steht, zwischen den zwei Mitten ihrer Seitenfarben. Hier reichen eine obere Drehung und R U\' R\': U bringt die Ecke über den Platz, R U\' R\' setzt sie mit Weiß nach unten ein.';
 
   @override
   String get stepCornersRepeat => 'Trigger wiederholen';
 
   @override
   String get stepCornersRepeatBody =>
-      'Zeigt Weiß in die falsche Richtung, wiederhole R U R\' U\' über demselben Platz. Jede Ecke ist nach höchstens fünf Wiederholungen gelöst.';
+      'Halte den Platz vorne rechts und wiederhole R U R\' U\', bis Weiß unten ist: einmal, wenn Weiß nach rechts zeigt, dreimal nach oben, fünfmal zu dir. Oben sieht es dabei wild aus; das ordnet sich von selbst.';
 
   @override
   String get stepMiddleRight => 'Kante nach rechts';
 
   @override
   String get stepMiddleRightBody =>
-      'Richte eine obere Kante an ihrer Mitte auf der Vorderseite aus. Passt ihre obere Farbe zur rechten Mitte, setze sie mit U R U\' R\' U\' F\' U F ein.';
+      'Such eine obere Kante ohne Gelb. Dreh die obere Ebene, bis ihre Vorderfarbe zur Mitte vor dir passt. Passt ihre obere Farbe zur rechten Mitte, schick sie nach rechts: U R U\' R\' U\' F\' U F.';
 
   @override
   String get stepMiddleLeft => 'Kante nach links';
 
   @override
   String get stepMiddleLeftBody =>
-      'Passt die obere Farbe stattdessen zur linken Mitte, nimm die Spiegelung: U\' L\' U L U F U\' F\'.';
+      'Passt ihre obere Farbe stattdessen zur linken Mitte, nimm die Spiegelung: U\' L\' U L U F U\' F\'. Die weiße Ebene kommt jedes Mal ganz zurück.';
 
   @override
   String get stepYellowCross => 'Ein Algorithmus';
 
   @override
   String get stepYellowCrossBody =>
-      'F R U R\' U\' F\' macht aus einem gelben Punkt ein L, aus einem L eine Linie und aus einer Linie das Kreuz. Halte das L hinten links und die Linie waagerecht.';
+      'Schau nur auf die gelben Kanten oben. Halte ein L hinten links und eine Linie von links nach rechts, dann F R U R\' U\' F\'. Die Linie braucht ihn einmal, das L zweimal, der Punkt bis zu dreimal.';
 
   @override
   String get stepYellowEdges => 'Kanten ausrichten';
 
   @override
   String get stepYellowEdgesBody =>
-      'Drehe die obere Ebene, bis zwei Kanten zu ihren Mitten passen. Mit einer hinten und einer rechts tauscht R U R\' U R U2 R\' U die anderen beiden.';
+      'Dreh die obere Ebene, bis zwei Kanten zu ihren Mitten passen. Ist eine hinten und eine rechts, tauscht R U R\' U R U2 R\' U die vordere und die linke Kante.';
 
   @override
   String get stepPlaceCorners => 'Platzieren';
 
   @override
   String get stepPlaceCornersBody =>
-      'Halte eine Ecke, die schon am richtigen Platz ist, vorne rechts. U R U\' L\' U R\' U\' L bewegt die anderen drei; wiederhole, bis alle vier am Platz sind.';
+      'Eine Ecke sitzt richtig, wenn ihre Farben zu den drei Mitten um sie passen, auch verdreht. Halte so eine Ecke vorne rechts: U R U\' L\' U R\' U\' L tauscht die anderen drei im Kreis. Wiederhole, bis alle vier sitzen.';
 
   @override
   String get stepTwistCorners => 'Drehen';
 
   @override
   String get stepTwistCornersBody =>
-      'Mit einer ungelösten Ecke vorne rechts wiederholst du R\' D\' R D, bis Gelb oben ist, und drehst dann nur die obere Ebene, um die nächste zu holen. Unten sieht es bis ganz zum Schluss chaotisch aus: einfach weitermachen.';
+      'Mit einer ungelösten Ecke vorne rechts wiederholst du R\' D\' R D paarweise, bis Gelb oben ist; dann dreh nur die obere Ebene für die nächste. Unten sieht bis zur letzten Ecke kaputt aus: weitermachen.';
 
   @override
   String get lessonCfopIntro => 'Was ist CFOP?';
@@ -1163,14 +1163,14 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get stepTwoIntroBody =>
-      'Ein 2×2 ist ein 3×3 ohne Kanten und Mitten. Wähle eine Farbe, baue diese Seite unten und sorge dafür, dass die Seitenfarben benachbarter Ecken zusammenpassen.';
+      'Ein 2×2 besteht nur aus acht Ecken: keine Kanten, keine Mitten. Bau unten die weiße Ebene mit passenden Nachbarfarben und löse dann auf einem Weg: Sune für eine gelbe Oberseite, danach T-Perm oder Y-Perm.';
 
   @override
   String get stepTwoCorner => 'Ecken einsetzen';
 
   @override
   String get stepTwoCornerBody =>
-      'Genau wie die weißen Ecken beim 3×3: Bringe eine Ecke über ihren Platz und wiederhole R U R\' U\', bis sie passt.';
+      'Wie die weißen Ecken beim 3×3: Bring eine Ecke über ihren leeren Platz vorne rechts und setz sie ein, hier mit U R U\' R\' oder durch Wiederholen von R U R\' U\', bis Weiß unten ist. Prüf die Seitenfarben am Nachbarn.';
 
   @override
   String get lessonTwoOll => 'Oberseite orientieren';
@@ -1183,7 +1183,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get stepTwoSuneBody =>
-      'Sune macht auch beim 2×2 die Oberseite gelb. Ortega-Löser lernen sieben kurze Fälle; Sune und seine Spiegelung decken die meisten davon ab.';
+      'Zähle die gelben Sticker, die nach oben zeigen. Halte die einzige Ecke mit Gelb oben vorne links und mach den Sune (R U R\' U R U2 R\'). Neu zählen, neu halten; höchstens drei Sunes. Dazwischen nur oben drehen.';
 
   @override
   String get lessonTwoPbl => 'Beide Ebenen permutieren';
@@ -1196,14 +1196,14 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get stepTwoAdjacentBody =>
-      'Müssen zwei benachbarte obere Ecken getauscht werden, halte sie rechts und nutze die T-Perm.';
+      'Scheinwerfer sind zwei gleiche obere Sticker auf einer Seite. Dreh oben, bis die Scheinwerfer links sind, dann liegen die zwei zu tauschenden Ecken rechts, und mach die T-Perm.';
 
   @override
   String get stepTwoDiagonal => 'Diagonaler Tausch';
 
   @override
   String get stepTwoDiagonalBody =>
-      'Zwei gegenüberliegende Ecken tauschst du mit der Y-Perm.';
+      'Nirgends Scheinwerfer? Dann müssen zwei diagonale Ecken tauschen: Mach die Y-Perm von beliebiger Seite und dreh oben, um alles auszurichten.';
 
   @override
   String get lessonBigIntro => 'Steine großer Würfel';
@@ -1216,7 +1216,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get stepBigPiecesBody =>
-      'Beim 4×4 hat jede Seite vier bewegliche Mittelsteine, und jede Kante besteht aus zwei Flügeln. Die Reduktion gruppiert sie, sodass sich der Würfel wie ein 3×3 verhält.';
+      'Beim 4×4 hat jede Seite vier bewegliche Mittelsteine, und jede Kante besteht aus zwei Flügeln. Keine Mitte ist fest, also prüf die Farbreihenfolge an einer Ecke: Weiß gegenüber Gelb, Blau gegenüber Grün, Rot gegenüber Orange.';
 
   @override
   String get stepBigSlices => 'Breite und innere Drehungen';
@@ -1236,7 +1236,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get stepBigCenterCycleBody =>
-      'Dieser Kommutator bewegt genau drei Mittelsteine und lässt alles andere unberührt, sodass fertige Mitten fertig bleiben.';
+      'Dieser Kommutator bewegt genau drei Mittelsteine und lässt alles andere in Ruhe, also bleiben fertige Mitten fertig. Nimm ihn, wenn ein einzelner Stein nicht in einen Balken will.';
 
   @override
   String get lessonBigEdges => 'Kanten paaren';
@@ -1249,7 +1249,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get stepBigEdgePairBody =>
-      'Uw\' bringt zwei passende Flügel zusammen, R U R\' F R\' F\' R tauscht eine ungepaarte Kante ein, und Uw stellt die Mitten wieder her.';
+      'Uw\' richtet zwei passende Flügel aus, R U R\' F R\' F\' R tauscht eine ungepaarte Kante ein, und Uw stellt die Mitten wieder her. Schließ jede Schicht, die du öffnest.';
 
   @override
   String get lessonBigParity => 'Parität';
@@ -1262,20 +1262,26 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get stepBigOllParityBody =>
-      'Eine einzelne gekippte Kante gibt es auf einem 3×3 nicht. Bei geraden Würfeln kippt dieser Algorithmus die vordere obere Kante zurück. Dabei kann der Rest der oberen Ebene durcheinandergeraten, was die letzten 3×3-Schritte ohnehin beheben.';
+      'Eine einzelne gekippte Kante gibt es beim 3×3 nicht: Das ist OLL-Parität, kein Fehler. Halte sie vorne in der oberen Ebene und spiel den langen Algorithmus. Er tauscht auch die linke und rechte obere Kante und zwei Ecken; das lösen die letzten 3×3-Schritte.';
 
   @override
   String get stepBigPllParity => 'PLL-Parität';
 
   @override
   String get stepBigPllParityBody =>
-      'Ganz am Ende zwei vertauschte Kanten? 2R2 U2 2R2 Uw2 2R2 Uw2 tauscht die vordere und die hintere obere Kante.';
+      'Ganz am Ende zwei vertauschte Kanten, und kein 3×3-Algorithmus passt? Das ist PLL-Parität. Halte sie vorne und hinten in der oberen Ebene: 2R2 U2 2R2 Uw2 2R2 2U2 tauscht sie.';
 
   @override
   String get introGoalHeading => 'Was ist das Ziel?';
 
   @override
   String get introHowHeading => 'Wie geht das?';
+
+  @override
+  String get introHoldHeading => 'So hältst du ihn';
+
+  @override
+  String get introWhyHeading => 'Warum es klappt';
 
   @override
   String get introStart => 'Verstanden, Schritt für Schritt starten';
@@ -1301,11 +1307,11 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get introGoalCross =>
-      'Baue ein weißes Kreuz, bei dem jede weiße Kante auch zur Farbe des Mittelstücks daneben passt.';
+      'Bau unten ein weißes Kreuz, bei dem jede weiße Kante auch zur Farbe der Mitte daneben passt.';
 
   @override
   String get introGoalCorners =>
-      'Setze die vier weißen Ecken ein, damit die erste Krone, die ganze weiße Ebene, fertig ist.';
+      'Setze die vier weißen Ecken ein, damit die ganze erste Ebene fertig ist: weiße Seite mit passenden Seitenfarben.';
 
   @override
   String get introGoalMiddle =>
@@ -1352,7 +1358,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get introGoalTwoPbl =>
-      'Tausche die letzten Ecken an ihren Platz, um den 2×2 zu lösen.';
+      'Bring die letzten Ecken mit einer T-Perm oder Y-Perm nach Hause und richte die obere Ebene aus, um den 2×2 zu lösen.';
 
   @override
   String get introGoalBigIntro =>
@@ -1368,83 +1374,235 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get introGoalBigParity =>
-      'Behebe die zwei 4×4-Fälle, die es beim 3×3 nie gibt: eine gekippte Kante oder zwei vertauschte Kanten.';
+      'Löse die zwei 4×4-Fälle, die ein 3×3 nie hat: eine gekippte Kante (OLL-Parität) oder zwei vertauschte Kanten (PLL-Parität).';
 
   @override
   String get introHowBasics =>
       'Mittelstücke bewegen sich nie, sie zeigen die Farbe jeder Seite.\nJeder Buchstabe dreht eine Seite eine Vierteldrehung im Uhrzeigersinn.\nEin Apostroph (\') dreht zurück, eine 2 dreht zweimal.';
 
   @override
+  String get introHoldBasics =>
+      'Wie du willst: Die Mitten bewegen sich nicht, also zeigen dir die Farben immer, welche Seite welche ist.';
+
+  @override
+  String get introWhyBasics =>
+      'Jeder Algorithmus ist nur eine Reihe dieser Buchstaben, also ist das Lesen die erste Fähigkeit.';
+
+  @override
   String get introHowCross =>
-      'Halte Gelb oben: Das weiße Kreuz entsteht unten.\nSuche eine weiße Kante und richte ihre Seitenfarbe am passenden Mittelstück aus.\nDreh diese Seite zweimal, um die Kante an ihren Platz zu bringen.';
+      'Bring jede weiße Kante nach oben, Weiß nach oben, rund um die gelbe Mitte: das ist das Gänseblümchen.\nDreh die obere Ebene, bis die Seitenfarbe eines Blütenblatts über der passenden Mitte steht.\nDreh diese Seite zweimal, um es nach unten zu bringen; wiederhole das für alle vier.';
+
+  @override
+  String get introHoldCross =>
+      'Gelbe Mitte oben, weiße Mitte unten, den ganzen Schritt lang. Dreh die obere Ebene, nicht den Würfel, um ein Blütenblatt auszurichten.';
+
+  @override
+  String get introWhyCross =>
+      'Zeigt Weiß nach oben, setzen zwei Drehungen der Vorderseite die Kante auf die weiße Mitte, Weiß unten und die Seitenfarbe schon passend.';
 
   @override
   String get introHowCorners =>
-      'Bring eine weiße Ecke über ihren leeren Platz.\nWiederhole R U R\' U\', bis sie richtig herum einrastet.\nMach dasselbe mit den anderen drei Ecken.';
+      'Dreh die obere Ebene, bis eine weiße Ecke über ihrem leeren Platz vorne rechts steht.\nWiederhole R U R\' U\': einmal, wenn Weiß nach rechts zeigt, dreimal nach oben, fünfmal zu dir.\nMach dasselbe mit den anderen drei Ecken.';
+
+  @override
+  String get introHoldCorners =>
+      'Weiß unten, Gelb oben. Die Ecke vorne rechts, direkt über ihrem Platz.';
+
+  @override
+  String get introWhyCorners =>
+      'R U R\' U\' hebt den Platz an und setzt ihn zurück: Jede Runde dreht die Ecke ein Stück, bis Weiß unten ist, und das Kreuz bleibt immer ganz.';
 
   @override
   String get introHowMiddle =>
-      'Suche eine obere Kante ohne Gelb und richte ihre vordere Farbe an einem Mittelstück aus.\nSchick sie mit einem kurzen Algorithmus aus 8 Zügen nach rechts oder links.\nDie weiße Ebene kommt jedes Mal unversehrt zurück.';
+      'Such eine obere Kante ohne Gelb und richte ihre Vorderfarbe an der Mitte darunter aus.\nIhre obere Farbe sagt, wohin sie gehört: rechts oder links.\nSetz sie mit dem 8-Zug-Algorithmus ein; die weiße Ebene kommt jedes Mal zurück.';
+
+  @override
+  String get introHoldMiddle =>
+      'Weiß unten, Gelb oben. Die Kante vorne, ihre Vorderfarbe passend zur Mitte darunter.';
+
+  @override
+  String get introWhyMiddle =>
+      'Der Algorithmus hebt den Platz aus dem Weg, schiebt die Kante hinein und bringt die weiße Ebene zurück. Eine Kante mit Gelb gehört nach oben, nie in die Mitte.';
 
   @override
   String get introHowYellowCross =>
-      'Schau nach oben: ein Punkt, ein L oder eine Linie.\nHalte es wie gezeigt und mach F R U R\' U\' F\'.\nWiederhole, bis das gelbe Kreuz erscheint.';
+      'Schau nur auf die gelben Kanten oben: Punkt, L oder Linie.\nHalte das L hinten links und die Linie von links nach rechts, dann F R U R\' U\' F\'.\nDie Linie braucht ihn einmal, das L zweimal, der Punkt bis zu dreimal.';
+
+  @override
+  String get introHoldYellowCross =>
+      'Weiß unten, Gelb oben. Das L hinten links, die Linie von links nach rechts; der Punkt beliebig.';
+
+  @override
+  String get introWhyYellowCross =>
+      'F R U R\' U\' F\' kippt jedes Mal zwei obere Kanten, ohne die ersten zwei Ebenen anzurühren.';
 
   @override
   String get introHowYellowEdges =>
-      'Dreh die obere Ebene, bis zwei Kanten zu ihren Mittelstücken passen.\nHalte sie hinten und rechts und mach dann R U R\' U R U2 R\' U.\nWiederhole, bis alle vier Kanten passen.';
+      'Dreh die obere Ebene, bis zwei Kanten zu ihren Mitten passen.\nHalte sie hinten und rechts, dann R U R\' U R U2 R\' U.\nLiegen die passenden Kanten gegenüber, mach es zuerst einmal von beliebiger Seite.';
+
+  @override
+  String get introHoldYellowEdges =>
+      'Gelb oben. Eine passende Kante hinten, die andere rechts.';
+
+  @override
+  String get introWhyYellowEdges =>
+      'Dieser Algorithmus bewegt nur obere Steine, also kommen die ersten zwei Ebenen immer zurück.';
 
   @override
   String get introHowYellowCorners =>
-      'Eine Ecke sitzt richtig, wenn ihre Farben zu den drei Seiten um sie herum passen.\nHalte eine richtig platzierte Ecke vorne rechts.\nU R U\' L\' U R\' U\' L tauscht die anderen drei, bis alle passen.';
+      'Eine Ecke sitzt richtig, wenn ihre Farben zu den drei Mitten passen, auch wenn sie verdreht ist.\nHalte eine richtig sitzende Ecke vorne rechts.\nU R U\' L\' U R\' U\' L tauscht die anderen drei im Kreis; wiederhole, bis alle passen.';
+
+  @override
+  String get introHoldYellowCorners =>
+      'Gelb oben. Eine schon richtig sitzende Ecke vorne rechts; gibt es keine, irgendeine.';
+
+  @override
+  String get introWhyYellowCorners =>
+      'Er tauscht drei Ecken im Kreis und lässt die vorne rechts stehen, also bringt jede Wiederholung mehr Ecken nach Hause.';
 
   @override
   String get introHowTwistCorners =>
-      'Halte eine ungelöste Ecke vorne rechts.\nWiederhole R\' D\' R D, bis ihr Gelb nach oben zeigt.\nDreh für die nächste nur die obere Ebene; unten ordnet sich am Ende alles von selbst.';
+      'Halte eine ungelöste Ecke vorne rechts.\nWiederhole R\' D\' R D paarweise, bis ihr Gelb nach oben zeigt.\nDreh für die nächste nur die obere Ebene; unten kommt mit der letzten Ecke zurück.';
+
+  @override
+  String get introHoldTwistCorners =>
+      'Gelb oben, die zu drehende Ecke vorne rechts. Zwischen den Ecken nur die obere Ebene drehen, nie den ganzen Würfel.';
+
+  @override
+  String get introWhyTwistCorners =>
+      'R\' D\' R D dreht die Ecke und bringt unten durcheinander, aber unten kommt zurück, sobald alle Ecken gedreht sind. Wer mittendrin aufhört, lässt es kaputt.';
 
   @override
   String get introHowCfopIntro =>
       'Kreuz: vier Kanten, geplant während der Inspektion.\nF2L: Jede Ecke geht zusammen mit ihrer Kante hinein.\nOLL macht die Oberseite gelb, dann bringt PLL die Teile an ihren Platz.';
 
   @override
+  String get introHoldCfopIntro =>
+      'Speedcuber bauen das Kreuz unten, damit sie beim Drehen schon die nächsten Steine sehen.';
+
+  @override
+  String get introWhyCfopIntro =>
+      'Eine Ecke mit ihrer Kante zusammen zu lösen spart viele Züge, und Fälle zu erkennen ersetzt Ausprobieren.';
+
+  @override
   String get introHowF2l =>
       'Suche eine Ecke und ihre passende Kante in der oberen Ebene.\nFüge sie über ihrem Slot zu einem Paar zusammen.\nSetz das Paar mit drei oder vier Zügen ein.';
+
+  @override
+  String get introHoldF2l =>
+      'Kreuz unten. Der Platz des Paares vorne rechts, gespiegelt vorne links.';
+
+  @override
+  String get introWhyF2l =>
+      'Ein gepaartes Ecke-Kante-Paar geht zusammen hinein, also wachsen zwei Ebenen gleichzeitig statt Stein für Stein.';
 
   @override
   String get introHowOll =>
       'Zuerst das gelbe Kreuz mit F R U R\' U\' F\'.\nDann die Ecken ausrichten, zum Beispiel mit dem Sune.\nErkenne den Fall am sichtbaren Gelb.';
 
   @override
+  String get introHoldOll =>
+      'Gelb oben. Beim Sune kommt die einzige Ecke mit Gelb oben nach vorne links.';
+
+  @override
+  String get introWhyOll =>
+      'Die letzte Ebene in erst orientieren, dann permutieren zu teilen, hält die Zahl der Algorithmen klein.';
+
+  @override
   String get introHowPll =>
       'Die Oberseite ist bereits ganz gelb.\nDie T-Perm tauscht Ecken, die U-Perm verschiebt drei Kanten.\nLies die Seitenfarben, um den Algorithmus zu wählen.';
 
   @override
+  String get introHoldPll =>
+      'Gelb oben. T-Perm: Scheinwerfer links. U-Perm: die fertige Seite hinten.';
+
+  @override
+  String get introWhyPll =>
+      'Ist oben alles gelb, stimmen nur noch die Plätze der Steine nicht, und ein paar Tausche lösen den Würfel.';
+
+  @override
   String get introHowTwoFirst =>
-      'Ein 2×2 hat nur Ecken, wie ein 3×3 ohne Kanten.\nBring jede weiße Ecke über ihren Platz.\nWiederhole R U R\' U\', bis sie einrastet.';
+      'Wähle eine weiße Ecke als Anker, Weiß nach unten.\nBring jede weitere Ecke über ihren Platz vorne rechts.\nWiederhole R U R\' U\', bis sie mit passenden Seitenfarben einrastet.';
+
+  @override
+  String get introHoldTwoFirst =>
+      'Weiß unten. Der leere Platz vorne rechts, seine Ecke direkt darüber in der oberen Ebene.';
+
+  @override
+  String get introWhyTwoFirst =>
+      'Ein 2×2 hat keine Mitten: Die erste Ecke legt die Farben ihrer Nachbarn fest, also zählen die Seitenfarben, nicht nur Weiß.';
 
   @override
   String get introHowTwoOll =>
-      'Lass die weiße Ebene unten.\nDer Sune (R U R\' U R U2 R\') verdreht die oberen Ecken.\nWiederhole aus dem richtigen Winkel, bis oben alles gelb ist.';
+      'Zähle die Ecken, deren Gelb nach oben zeigt.\nBei einer: Halte sie vorne links und mach den Sune: R U R\' U R U2 R\'.\nZähle neu und wiederhole; höchstens drei Sunes.';
+
+  @override
+  String get introHoldTwoOll =>
+      'Weiß unten, Gelb oben. Vor jedem Sune die Ecke mit Gelb oben vorne links.';
+
+  @override
+  String get introWhyTwoOll =>
+      'Der Sune dreht die oberen Ecken, ohne die weiße Ebene zu zerstören; neu zählen sagt dir, wie du ihn als Nächstes hältst.';
 
   @override
   String get introHowTwoPbl =>
-      'Suche eine Seite, auf der zwei Ecken schon passen.\nBenachbarter Tausch: ein Algorithmus im T-Perm-Stil.\nDiagonaler Tausch: ein etwas längerer Algorithmus.';
+      'Such Scheinwerfer: zwei gleiche obere Sticker auf einer Seite.\nScheinwerfer auf einer Seite: nach links drehen und T-Perm.\nKeine Scheinwerfer: Y-Perm von beliebiger Seite, dann oben ausrichten.';
+
+  @override
+  String get introHoldTwoPbl =>
+      'Weiß unten, Gelb oben. T-Perm: Scheinwerfer links. Y-Perm: beliebige Seite zu dir.';
+
+  @override
+  String get introWhyTwoPbl =>
+      'Ist oben gelb, stimmen nur noch die Plätze der Ecken: Die T-Perm tauscht zwei Nachbarn, die Y-Perm zwei diagonale.';
 
   @override
   String get introHowBigIntro =>
       'Kein Mittelstück ist fest: Vier Mittelteile bilden die Farbe jeder Seite.\nBreite Züge wie Rw drehen zwei Ebenen auf einmal.\nInnere Züge wie 2R drehen nur eine innere Scheibe.';
 
   @override
+  String get introHoldBigIntro =>
+      'Anfangs wie du willst: Beim 4×4 ist keine Mitte fest, du entscheidest, wo jede Farbe hinkommt.';
+
+  @override
+  String get introWhyBigIntro =>
+      'Die Reduktion fasst Mitten und Kantensteine zusammen, damit der große Würfel wie ein 3×3 lösbar wird.';
+
+  @override
   String get introHowBigCenters =>
-      'Baue zuerst zwei gegenüberliegende Mitten.\nInnere Scheiben tauschen Mittelteile, ohne fertige Mitten zu zerstören.\nVervollständige die letzten vier Mitten genauso.';
+      'Prüfe zuerst die Farbreihenfolge an einer Ecke.\nBau zwei gegenüberliegende Mitten, dann die anderen vier.\nInnere Schichten verschieben Mittelsteine; mach jede geöffnete Schicht wieder zu.';
+
+  @override
+  String get introHoldBigCenters =>
+      'Die Seite, die du baust, vorne; fertige Mitten links und rechts aus dem Weg.';
+
+  @override
+  String get introWhyBigCenters =>
+      'Eine Schicht verschiebt Mitten, und das Zurückdrehen stellt die fertigen wieder her, also ändert sich nur der gewünschte Stein.';
 
   @override
   String get introHowBigEdges =>
-      'Suche zwei Kantenteile mit denselben Farben.\nBring sie mit einer inneren Scheibe nebeneinander.\nLeg das Paar beiseite und stell die Mitten wieder her.';
+      'Such die zwei Flügel mit denselben zwei Farben.\nRichte sie vorne aus und verbinde sie mit Uw\'.\nTausch eine ungepaarte Kante ein, dann bringt Uw die Mitten zurück.';
+
+  @override
+  String get introHoldBigEdges =>
+      'Die Kante, die du paarst, in den vorderen Schichten; fertige Kanten oben und unten geparkt.';
+
+  @override
+  String get introWhyBigEdges =>
+      'Uw\' schiebt die Mitten weg, damit zwei Flügel sich treffen; Uw bringt sie zurück, und deine Arbeit bleibt.';
 
   @override
   String get introHowBigParity =>
-      'Löse den 4×4 wie einen 3×3, bis es hakt.\nEine gekippte Kante: der lange OLL-Paritätsalgorithmus.\nZwei vertauschte Kanten: 2R2 U2 2R2 Uw2 2R2 Uw2.';
+      'Löse den 4×4 wie einen 3×3, bis es hakt.\nEine gekippte Kante: der lange OLL-Paritätsalgorithmus.\nZwei vertauschte Kanten: 2R2 U2 2R2 Uw2 2R2 2U2.';
+
+  @override
+  String get introHoldBigParity =>
+      'Letzte Ebene oben. OLL-Parität: die gekippte Kante vorne. PLL-Parität: die vertauschten Kanten vorne und hinten.';
+
+  @override
+  String get introWhyBigParity =>
+      'Flügel können in Lagen geraten, die ein 3×3 nie erreicht; diese Algorithmen drehen innere Schichten, um genau das rückgängig zu machen.';
 
   @override
   String get dirFaceR => 'Rechte Seite';
@@ -1555,13 +1713,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get stageParity => 'Parität auflösen';
 
   @override
-  String get stageCrown1 => 'Erste Krone (weiß)';
+  String get stageCrown1 => 'Erste Ebene (weiß)';
 
   @override
-  String get stageCrown2 => 'Zweite Krone';
+  String get stageCrown2 => 'Zweite Ebene';
 
   @override
-  String get stageCrown3 => 'Dritte Krone (gelb)';
+  String get stageCrown3 => 'Dritte Ebene (gelb)';
 
   @override
   String get stageOrient => 'Teile ausrichten';
@@ -1605,6 +1763,14 @@ class AppLocalizationsDe extends AppLocalizations {
       'Das mittlere Teil jeder Seite bewegt sich nie.\nJede Kante ist ein Mittelteil mit zwei Flügeln.\nInnere Scheiben bewegen Teile, ohne die Außenseite zu berühren.';
 
   @override
+  String get introHoldFiveIntro =>
+      'Wie du willst: Beim 5×5 bewegt sich die Mitte jeder Seite nie, sie zeigt also ihre Farbe.';
+
+  @override
+  String get introWhyFiveIntro =>
+      'Die festen Mitten legen das Farbschema fest, also kann man die Mitten nicht falsch anordnen.';
+
+  @override
   String get lessonFiveCenters => '5×5-Mitten';
 
   @override
@@ -1616,7 +1782,15 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get introHowFiveCenters =>
-      'Beginne beim Mittelteil: Es bestimmt die Farbe.\nBaue Dreierbalken und schiebe sie mit einer inneren Scheibe hinein.\nLöse die letzten zwei Mitten zusammen.';
+      'Fang beim festen Mittelstein an: Er gibt die Farbe vor.\nBau Dreierbalken und schieb sie mit einer inneren Schicht hinein.\nDer Zug, der den Balken bringt, stellt auch die fertige Mitte wieder her.';
+
+  @override
+  String get introHoldFiveCenters =>
+      'Die Mitte, die du baust, vorne oder oben; fertige Mitten unten, links oder rechts aus dem Weg.';
+
+  @override
+  String get introWhyFiveCenters =>
+      'Schicht rein, oben drehen, Schicht zurück: Die Schicht, die den Balken bringt, stellt auch die fertigen Mitten wieder her.';
 
   @override
   String get lessonFiveEdges => '5×5-Kanten';
@@ -1631,21 +1805,38 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get introHowFiveEdges =>
-      'Bring zwei Flügel vorne zu ihrer Mittelkante.\nDreh die innere Ebene, tausch eine ungelöste Kante ein, dreh zurück.\nPaare die letzten Kanten, ohne fertige zu zerstören.';
+      'Setz vorne jeden Flügel an seine Mittelkante.\nInnere Schicht drehen, ungelöste Kante eintauschen, zurückdrehen.\nFür die letzten Kanten: Schicht, Kippen, Schicht.';
+
+  @override
+  String get introHoldFiveEdges =>
+      'Die Kante, die du baust, vorne; fertige Kanten in der oberen und unteren Ebene verstaut.';
+
+  @override
+  String get introWhyFiveEdges =>
+      'Die innere Schicht öffnen und schließen verbindet Flügel, während Mitten und verstaute Kanten zurückkommen.';
 
   @override
   String get lessonFiveSolve => 'Den 5×5 wie einen 3×3 lösen';
 
   @override
-  String get lessonFiveSolveDesc => 'Mit den drei Kronen abschließen.';
+  String get lessonFiveSolveDesc =>
+      'Ebene für Ebene fertig lösen, wie einen 3×3.';
 
   @override
   String get introGoalFiveSolve =>
-      'Löse den reduzierten 5×5 wie einen 3×3, Krone für Krone.';
+      'Löse den reduzierten 5×5 wie einen 3×3, Ebene für Ebene, nur mit äußeren Drehungen.';
 
   @override
   String get introHowFiveSolve =>
-      'Ab jetzt nur noch äußere Drehungen.\nErste Krone, zweite Krone, dann die gelbe Krone.\nDie festen Mitten zeigen jede Seitenfarbe.';
+      'Ab jetzt nur äußere Drehungen, sonst zerfallen gepaarte Kanten.\nWeißes Kreuz und Ecken, mittlere Ebene, dann die gelbe Ebene.\nDie festen Mittelsteine zeigen jede Seitenfarbe.';
+
+  @override
+  String get introHoldFiveSolve =>
+      'Die Farbe der ersten Ebene unten, genau wie beim 3×3; die Ecke zum Einsetzen vorne rechts.';
+
+  @override
+  String get introWhyFiveSolve =>
+      'Innere Drehungen würden Mitten und Kanten wieder trennen; äußere behandeln jeden Block wie einen 3×3-Stein.';
 
   @override
   String get lessonFiveParity => '5×5-Kantenparität';
@@ -1656,11 +1847,19 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get introGoalFiveParity =>
-      'Repariere die eine Kante mit vertauschten Flügeln und löse dann fertig.';
+      'Korrigiere die eine Kante, deren zwei äußere Flügel vertauscht sind: die einzige Parität des 5×5.';
 
   @override
   String get introHowFiveParity =>
-      'Sie zeigt sich als Kante, die sich nicht paaren lässt.\nSpiele einmal die lange Korrektur mit inneren Scheiben.\nAlles andere kehrt an seinen Platz zurück.';
+      'Sie zeigt sich als letzte Kante, die gekippt aussieht.\nSpiel einmal die lange Korrektur mit inneren Schichten.\nEin 5×5 hat keine PLL-Parität.';
+
+  @override
+  String get introHoldFiveParity =>
+      'Letzte Ebene oben, die Kante mit vertauschten Flügeln vorne in der oberen Ebene.';
+
+  @override
+  String get introWhyFiveParity =>
+      'Beim 5×5 können nur die zwei äußeren Flügel einer Kante tauschen, also reicht ein Algorithmus.';
 
   @override
   String get lessonSixIntro => 'Lerne den 6×6 kennen';
@@ -1678,6 +1877,14 @@ class AppLocalizationsDe extends AppLocalizations {
       'Keine Mitte ist fest: Du wählst die Farben beim Bauen.\nJede Kante hat äußere und innere Flügel.\nBreite Drehungen bewegen bis zu drei Ebenen.';
 
   @override
+  String get introHoldSixIntro =>
+      'Anfangs wie du willst: Wie der 4×4 hat der 6×6 keine feste Mitte.';
+
+  @override
+  String get introWhySixIntro =>
+      'Wenn du einen 4×4 und einen 5×5 löst, ist der 6×6 dieselbe Reduktion mit größeren Blöcken.';
+
+  @override
   String get lessonSixCenters => '6×6-Mitten';
 
   @override
@@ -1689,7 +1896,15 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get introHowSixCenters =>
-      'Baue zuerst zwei gegenüberliegende Mitten.\nBaue Viererbalken und füge sie zusammen.\nBewege einzelne Teile mit dem Trick Scheibe, oben, zurück.';
+      'Prüfe zuerst die Farbreihenfolge an einer Ecke: Keine Mitte ist fest.\nBau Viererbalken und schieb sie zusammen.\nBei den letzten zwei Mitten einzelne Steine bewegen: Schicht, oben, zurück.';
+
+  @override
+  String get introHoldSixCenters =>
+      'Die Seite, die du baust, vorne; fertige Mitten links, rechts oder unten.';
+
+  @override
+  String get introWhySixCenters =>
+      'Balken verbinden sich über innere Schichten, und jede wird zurückgedreht, also bleiben fertige Mitten ganz.';
 
   @override
   String get lessonSixEdges => '6×6-Kanten';
@@ -1703,21 +1918,38 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get introHowSixEdges =>
-      'Bring äußere und innere Flügel vorne in eine Linie.\nDie tiefe breite Ebene bringt eine Kante hinein und hinaus.\nFertige Kanten werden nie zerstört.';
+      'Richte vorne die äußeren und inneren Flügel einer Kante aus.\nDie tiefe breite Schicht bringt eine Kante hinein und hinaus.\nZerstöre nie eine fertige Kante, um einen Stein freizubekommen.';
+
+  @override
+  String get introHoldSixEdges =>
+      'Die Kante, die du baust, vorne; fertige Kanten oben und unten geparkt.';
+
+  @override
+  String get introWhySixEdges =>
+      'Die tiefe breite Drehung schiebt die Mitten weg, damit Flügel sich treffen, und bringt sie dann zurück.';
 
   @override
   String get lessonSixSolve => 'Den 6×6 wie einen 3×3 lösen';
 
   @override
-  String get lessonSixSolveDesc => 'Mit den drei Kronen abschließen.';
+  String get lessonSixSolveDesc =>
+      'Ebene für Ebene fertig lösen, wie einen 3×3.';
 
   @override
   String get introGoalSixSolve =>
-      'Löse den reduzierten 6×6 wie einen 3×3, Krone für Krone.';
+      'Löse den reduzierten 6×6 wie einen 3×3, Ebene für Ebene, nur mit äußeren Drehungen.';
 
   @override
   String get introHowSixSolve =>
-      'Ab jetzt nur noch äußere Drehungen.\nDie gebauten Mitten zeigen jede Seitenfarbe.\nErste Krone, zweite Krone, dann die gelbe Krone.';
+      'Ab jetzt nur äußere Drehungen: Eine Schicht würde Mitte oder Kante trennen.\nDeine gebauten Mitten zeigen jede Seitenfarbe.\nWeißes Kreuz und Ecken, mittlere Ebene, dann die gelbe Ebene.';
+
+  @override
+  String get introHoldSixSolve =>
+      'Die Farbe der ersten Ebene unten, genau wie beim 3×3; die Ecke zum Einsetzen vorne rechts.';
+
+  @override
+  String get introWhySixSolve =>
+      'Äußere Drehungen bewegen jede 4×4-Mitte und jede Kante als einen Stein, genau wie beim 3×3.';
 
   @override
   String get lessonSixParity => '6×6-Parität';
@@ -1732,14 +1964,22 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get introHowSixParity =>
-      'Löse wie einen 3×3, bis es hakt.\nEine gekippte Kante: die lange Paritätskorrektur.\nZwei vertauschte Kanten: die kurze Korrektur mit Doppeldrehungen.';
+      'Löse wie einen 3×3, bis es hakt.\nEine gekippte Kante: die lange Korrektur mit 3Rw.\nZwei vertauschte Kanten: die kurze Korrektur mit inneren Doppeldrehungen.';
+
+  @override
+  String get introHoldSixParity =>
+      'Letzte Ebene oben. Die gekippte Kante vorne; bei zwei vertauschten Kanten vorne und hinten.';
+
+  @override
+  String get introWhySixParity =>
+      'Wie beim 4×4 kann ein 6×6 mit einer gekippten oder zwei vertauschten Kanten enden; Algorithmen mit inneren Schichten beheben das und lassen den Rest stehen.';
 
   @override
   String get stepFivePieces => 'Die Teile des 5×5';
 
   @override
   String get stepFivePiecesBody =>
-      'Das mittlere Teil jeder Seite bewegt sich nie und zeigt daher wie beim 3×3 die Seitenfarbe. Drumherum sitzen acht weitere Mittelteile; jede Kante hat ein Mittelteil und zwei Flügel, und die Ecken funktionieren wie beim 3×3.';
+      'Der mittlere Stein jeder Seite bewegt sich nie, also kann das Farbschema nicht falsch werden. Um ihn liegen acht Mittelsteine: Eck- und Kantenmitten tauschen nie die Art. Jede Kante ist ein Mittelstück mit zwei Flügeln.';
 
   @override
   String get stepFiveSlices => 'Drei Arten von Drehungen';
@@ -1753,7 +1993,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get stepFiveCenterBarBody =>
-      'Baue eine Reihe aus drei gleichen Mittelteilen und schiebe sie mit einer inneren Scheibendrehung neben die passende Mitte. Drei Balken ergeben eine fertige Mitte.';
+      'Bau eine Reihe aus drei passenden Mittelsteinen, schieb sie mit einer inneren Schicht hinein, dreh oben und schieb zurück: Der Zug, der den Balken bringt, stellt auch die fertige Mitte wieder her. Drei Balken sind eine Mitte.';
 
   @override
   String get stepFiveCenterSwap => 'Tauschen ohne Zerstören';
@@ -1767,35 +2007,35 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get stepFiveEdgePairBody =>
-      'Bring zwei Flügel vorne neben ihre Mittelkante, dreh die innere Ebene nach unten, hol eine ungelöste Kante von oben und dreh die innere Ebene zurück.';
+      'Richte vorne einen Flügel neben seiner passenden Mittelkante aus, dreh die innere Schicht runter, tausch mit einem kurzen Trigger eine ungelöste Kante ein und dreh die innere Schicht zurück.';
 
   @override
   String get stepFiveEdgeLast => 'Die letzten Kanten';
 
   @override
   String get stepFiveEdgeLastBody =>
-      'Wenn nur noch wenige Kanten übrig sind, paaren eine breite Drehung, ein kurzer Trigger und die breite Drehung zurück sie, ohne fertige Kanten zu zerstören.';
+      'Keine freie Kante mehr zum Eintauschen? Dann Schicht, Kippen, Schicht: eine breite Drehung, ein kurzer Trigger und die breite Drehung zurück paaren die letzten Kanten, ohne fertige zu zerstören.';
 
   @override
   String get stepFiveAsThree => 'Jetzt ist es ein 3×3';
 
   @override
   String get stepFiveAsThreeBody =>
-      'Mit fertigen Mitten und Kanten verhält sich der 5×5 wie ein großer 3×3. Nutze nur äußere Drehungen und folge den drei Kronen: weißes Kreuz und Ecken, mittlere Ebene, dann die gelbe Ebene.';
+      'Mit fertigen Mitten und Kanten verhält sich der 5×5 wie ein großer 3×3. Nur äußere Drehungen, Ebene für Ebene: weißes Kreuz und Ecken, die mittlere Ebene, dann die gelbe Ebene. Ein 5×5 hat keine PLL-Parität.';
 
   @override
   String get stepFiveEdgeParity => 'Flügel der letzten Kante tauschen';
 
   @override
   String get stepFiveEdgeParityBody =>
-      'Manchmal sind die zwei Flügel der letzten Kante vertauscht. Ein langer Algorithmus mit inneren Scheiben tauscht sie zurück, alles andere kehrt an seinen Platz zurück. Dann wie einen 3×3 fertig lösen.';
+      'Manchmal sind bei der letzten Kante die zwei äußeren Flügel vertauscht, sie sieht gekippt aus: die einzige Parität des 5×5. Halte sie vorne in der oberen Ebene und spiel einmal den Algorithmus mit inneren Schichten; alles andere kehrt zurück.';
 
   @override
   String get stepSixPieces => 'Die Teile des 6×6';
 
   @override
   String get stepSixPiecesBody =>
-      'Wie der 4×4 hat der 6×6 keine feste Mitte: Sechzehn Mittelteile bilden jede Seitenfarbe. Jede Kante hat vier Teile: zwei äußere und zwei innere Flügel.';
+      'Wie der 4×4 hat der 6×6 keine feste Mitte: Sechzehn Mittelsteine bilden jede Seitenfarbe, also prüf zuerst die Farbreihenfolge an einer Ecke. Jede Kante hat vier Flügel: zwei äußere und zwei innere.';
 
   @override
   String get stepSixSlices => 'Tiefere Ebenen drehen';
@@ -1809,49 +2049,49 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get stepSixCenterBarBody =>
-      'Baue Reihen aus vier gleichen Mittelteilen und schiebe sie mit inneren Scheibendrehungen nebeneinander, bis die Seite einfarbig ist.';
+      'Bau Reihen aus vier passenden Mittelsteinen und schieb sie mit inneren Schichten nebeneinander, jede Schicht wieder zurück, bis die Seite ein einfarbiger 4×4-Block ist.';
 
   @override
   String get stepSixCenterSwap => 'Ein Teil nach dem anderen';
 
   @override
   String get stepSixCenterSwapBody =>
-      'Dritte Ebene drehen, oben drehen, zurück, zurück: Ein Mittelteil bewegt sich und fertige Mitten kehren zurück.';
+      'Dritte Schicht drehen, oben drehen, zurück, oben zurück: Ein Mittelstein wandert, und fertige Mitten kommen zurück. Nimm das für die letzten zwei Mitten, wenn kein Balken passt.';
 
   @override
   String get stepSixEdgePair => 'Vier Teile, eine Kante';
 
   @override
   String get stepSixEdgePairBody =>
-      'Sammle vorne die vier Teile einer Kante mit der tiefen breiten Ebene, hol eine ungelöste Kante herein und dreh die breite Ebene zurück.';
+      'Sammle die vier Flügel einer Kante vorne mit der tiefen breiten Schicht, tausch mit einem kurzen Trigger eine ungelöste Kante ein und dreh die breite Schicht zurück.';
 
   @override
   String get stepSixEdgeLast => 'Die letzten Kanten';
 
   @override
   String get stepSixEdgeLastBody =>
-      'Paare die letzten Kanten mit einem kurzen Trigger zwischen einer tiefen breiten Drehung und ihrer Umkehr, damit fertige Kanten gepaart bleiben.';
+      'Paare die letzten Kanten mit einem kurzen Trigger zwischen einer tiefen breiten Drehung und ihrer Umkehr, damit fertige Kanten gepaart bleiben. Zerstöre nie eine fertige Kante, um einen Stein freizubekommen.';
 
   @override
   String get stepSixAsThree => 'Jetzt ist es ein 3×3';
 
   @override
   String get stepSixAsThreeBody =>
-      'Mit 4×4-Mitten und gepaarten Kanten löst du den 6×6 wie einen 3×3 mit äußeren Drehungen und den drei Kronen.';
+      'Mit 4×4-Mitten und gepaarten Kanten löst du den 6×6 wie einen 3×3, Ebene für Ebene, nur mit äußeren Drehungen. Eine gekippte oder zwei vertauschte Kanten am Ende sind Parität, kein Fehler.';
 
   @override
   String get stepSixOllParity => 'Eine gekippte Kante';
 
   @override
   String get stepSixOllParityBody =>
-      'Wirkt beim Lösen der letzten Ebene eine einzelne Kante gekippt, ist das Parität. Halte sie vorne in der oberen Ebene und spiele die lange Korrektur: Die ersten zwei Kronen kommen unversehrt zurück.';
+      'Eine einzelne Kante, die in der letzten Ebene gekippt aussieht, ist Parität. Halte sie vorne in der oberen Ebene und spiel die lange Korrektur: Sie kippt alle vier Flügel, tauscht auch die linke und rechte obere Kante und lässt die ersten zwei Ebenen unberührt.';
 
   @override
   String get stepSixPllParity => 'Zwei vertauschte Kanten';
 
   @override
   String get stepSixPllParityBody =>
-      'Wirken ganz am Ende zwei Kanten vertauscht, halte sie vorne und hinten in der oberen Ebene und spiele die kurze Korrektur mit inneren Doppeldrehungen.';
+      'Sehen ganz am Ende zwei Kanten vertauscht aus, halte sie vorne und hinten in der oberen Ebene und spiel die kurze Korrektur mit inneren Doppeldrehungen: Alle vier Flügel beider Kanten tauschen.';
 
   @override
   String get stageTwoFirstLayer => 'Untere Ebene bauen';
@@ -2436,7 +2676,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String cueCrossFlipped(String piece, String center) {
-    return 'Die Kante $piece ist an ihrem Platz, aber gekippt: Ihr Weiß zeigt zur Seite. Nimm sie heraus und setze sie richtig herum neben die Mitte $center zurück.';
+    return 'Die Kante $piece sitzt richtig, ist aber gekippt: Ihr Weiß zeigt zur Seite. Nimm sie heraus und bring sie mit Weiß nach oben nach oben, dann setz sie neben der Mitte $center ein.';
   }
 
   @override
@@ -2451,7 +2691,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String cueCornerTwisted(String piece) {
-    return 'Die Ecke $piece ist an ihrem Platz, aber verdreht. Ein Trigger holt sie heraus (eine gelbe Ecke rückt nach); wiederhole, bis sie richtig zurückfällt.';
+    return 'Die Ecke $piece sitzt in ihrem Platz, ist aber verdreht. Ein Trigger holt sie heraus (eine gelbe Ecke rückt nach); wiederhole über demselben Platz, bis sie mit Weiß unten zurückkommt. Dreh nicht den Würfel hinterher.';
   }
 
   @override
@@ -2466,7 +2706,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String cueMiddleFlipped(String piece, String a, String b) {
-    return 'Die Kante $piece ist in ihrem Slot, aber gekippt. Setze dort eine gelbe Kante ein, um sie herauszudrücken, und setze sie dann erneut zwischen $a und $b ein.';
+    return 'Die Kante $piece sitzt in ihrem Platz, ist aber gekippt. Setz dort eine gelbe Kante ein, um sie nach oben zu drücken, und setz sie dann neu zwischen $a und $b ein.';
   }
 
   @override
@@ -2481,7 +2721,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String cueYellowDot(String front) {
-    return 'Nur die gelbe Mitte ist gelb: ein Punkt. Führe den Algorithmus einmal mit $front zu dir aus, um ein L zu bekommen.';
+    return 'Nur die Mitte ist gelb: ein Punkt. Wende den Algorithmus einmal mit $front zu dir an, dann entsteht ein L. Ein Punkt kann drei Runden brauchen, also weitermachen.';
   }
 
   @override
@@ -2511,7 +2751,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String cueTwistCorner(String piece) {
-    return 'Drehe die Ecke $piece vorne rechts: Wiederhole den unteren Trigger, bis ihr Gelb nach oben zeigt. Die unteren Ebenen sehen vorerst durcheinander aus – das ist normal!';
+    return 'Dreh die Ecke $piece vorne rechts: Wiederhole den unteren Trigger paarweise, bis ihr Gelb oben ist. Die unteren Ebenen sehen vorerst durcheinander aus; mit der letzten Ecke kommen sie zurück!';
   }
 
   @override
@@ -2589,16 +2829,16 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String cueParityOll(String front) {
-    return 'OLL-Parität: Eine obere Kante ist gekippt, was auf dem 3×3 nie vorkommt. Halte sie vorne, $front zu dir, und führe die Paritätskorrektur aus.';
+    return 'OLL-Parität: Eine obere Kante ist gekippt, was beim 3×3 nie passiert. Halte sie vorne, $front zu dir, und wende die Paritätskorrektur vor jedem normalen OLL an.';
   }
 
   @override
   String get cueParityPll =>
-      'PLL-Parität: Zwei obere Kanten sind vertauscht, was auf dem 3×3 nie vorkommt. Halte sie vorne und hinten und führe den Paritätstausch aus.';
+      'PLL-Parität: Zwei obere Kanten sind vertauscht, was beim 3×3 nie passiert. Halte sie vorne und hinten, wende den Paritätstausch an und richte oben aus.';
 
   @override
   String cueParityFive(String front) {
-    return 'Kantenparität: Die zwei äußeren Teile einer Kante sind vertauscht. Drehe diese Kante nach vorne, $front zu dir, korrigiere sie und drehe zurück.';
+    return 'Kantenparität: Die zwei äußeren Flügel einer Kante sind vertauscht, die einzige Parität des 5×5. Halte diese Kante vorne, $front zu dir, und wende die Korrektur einmal an.';
   }
 
   @override
@@ -2629,7 +2869,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get onboardingLearnBody =>
-      'Meistere die 3-Kronen-Methode in der Akademie und dreh, verdreh und löse dann frei auf der 3D-Spielwiese.';
+      'Lerne in der Akademie die Ebene-für-Ebene-Methode und drehe, mische und löse dann frei im 3D-Playground.';
 
   @override
   String get scanChoiceManualDesc =>
@@ -2647,7 +2887,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get crownExplain =>
-      'Eine Krone ist eine waagerechte Schicht des Würfels: Die erste Krone ist die weiße Schicht unten, die zweite die mittlere Schicht und die dritte die gelbe Schicht oben.';
+      'Eine Ebene ist eine waagerechte Schicht des Würfels: Die erste Ebene ist die weiße unten, die zweite die mittlere und die dritte die gelbe oben.';
 
   @override
   String get lessonObjectiveHeading => 'Lernziel';
@@ -2672,7 +2912,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get solveChoiceGuidedDesc =>
-      'Lerne die 3-Kronen-Methode Schritt für Schritt.';
+      'Lerne die Ebene-für-Ebene-Methode Schritt für Schritt.';
 
   @override
   String get guidedSolvedTitle => 'Gelöst!';

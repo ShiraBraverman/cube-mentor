@@ -161,7 +161,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get solveLearn => 'Ucz się krok po kroku';
 
   @override
-  String get solveModeGuided => 'Z przewodnikiem (3 korony)';
+  String get solveModeGuided => 'Z podpowiedziami (3 warstwy)';
 
   @override
   String get solveModeFast => 'Szybko (optymalnie)';
@@ -258,7 +258,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get phaseLblCross => 'Biały krzyż';
 
   @override
-  String get phaseLblCorners => 'Rogi pierwszej korony';
+  String get phaseLblCorners => 'Rogi pierwszej warstwy';
 
   @override
   String get phaseLblMiddle => 'Krawędzie środkowej warstwy';
@@ -276,13 +276,13 @@ class AppLocalizationsPl extends AppLocalizations {
   String get phaseLblYellowCornersOrient => 'Zorientuj żółte rogi';
 
   @override
-  String get crownFirst => 'Pierwsza korona';
+  String get crownFirst => 'Pierwsza warstwa';
 
   @override
-  String get crownSecond => 'Druga korona';
+  String get crownSecond => 'Druga warstwa';
 
   @override
-  String get crownThird => 'Trzecia korona';
+  String get crownThird => 'Trzecia warstwa';
 
   @override
   String get crownFirstGoal => 'Biała ściana i pierwsza warstwa';
@@ -299,11 +299,11 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get subStepGoal12 =>
-      'Wstaw 4 białe rogi na ich miejsca, aby dokończyć białą ścianę i cały pierwszy pierścień.';
+      'Wstaw 4 białe rogi na ich miejsca i dokończ białą ścianę oraz całą pierwszą warstwę.';
 
   @override
   String get subStepGoal21 =>
-      'Wstaw 4 krawędzie środkowej warstwy, nie psując pierwszej korony.';
+      'Wstaw 4 krawędzie środkowej warstwy, nie psując pierwszej warstwy.';
 
   @override
   String get subStepGoal31 => 'Ułóż żółty krzyż na ostatniej warstwie.';
@@ -688,7 +688,7 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => '3×3 dla początkujących: 3 korony';
+  String get trackBeginner => '3×3 dla początkujących: warstwa po warstwie';
 
   @override
   String get trackCfop => 'Wprowadzenie do CFOP';
@@ -697,7 +697,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get trackTwoByTwo => '2×2 dla początkujących i Ortega';
 
   @override
-  String get trackBigCubes => 'Duże kostki: redukcja i parzystość';
+  String get trackBigCubes => 'Duże kostki: redukcja i parity';
 
   @override
   String moveSentence(String layer, String direction) {
@@ -807,13 +807,13 @@ class AppLocalizationsPl extends AppLocalizations {
   String get phaseReductionEdges => 'Parowanie krawędzi';
 
   @override
-  String get phaseReductionEdgeParity => 'Parzystość krawędzi';
+  String get phaseReductionEdgeParity => 'Parity krawędzi';
 
   @override
-  String get phaseReductionOllParity => 'Parzystość OLL';
+  String get phaseReductionOllParity => 'OLL parity';
 
   @override
-  String get phaseReductionPllParity => 'Parzystość PLL';
+  String get phaseReductionPllParity => 'PLL parity';
 
   @override
   String get explainReductionCenterBlock =>
@@ -826,7 +826,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get explainReductionParityCenters =>
-      'Odbuduj środki przesunięte przez ruch naprawiający parzystość.';
+      'Odbuduj środki przesunięte przez ruch naprawiający parity.';
 
   @override
   String explainReductionEdgeCycle(String piece) {
@@ -835,15 +835,15 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get explainReductionEdgeParity =>
-      'Ostatnich krawędzi nie da się sparować samymi 3-cyklami (parzystość krawędzi). Naprawia to jeden ruch warstwy wewnętrznej.';
+      'Ostatnich krawędzi nie da się sparować samymi 3-cyklami (parity krawędzi). Naprawia to jeden ruch warstwy wewnętrznej.';
 
   @override
   String get explainReductionOllParity =>
-      'Parzystość OLL: jedna krawędź jest odwrócona, co na 3×3 jest niemożliwe. Ten algorytm odwraca ją z powrotem.';
+      'OLL parity: jedna krawędź jest odwrócona, co na 3×3 jest niemożliwe. Ten algorytm odwraca ją z powrotem.';
 
   @override
   String get explainReductionPllParity =>
-      'Parzystość PLL: dwie krawędzie są zamienione, co na 3×3 jest niemożliwe. Ten algorytm zamienia je z powrotem.';
+      'PLL parity: dwie krawędzie są zamienione, co na 3×3 jest niemożliwe. Ten algorytm zamienia je z powrotem.';
 
   @override
   String get patternsTitle => 'Biblioteka wzorów';
@@ -999,77 +999,77 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get stepCrossGoalBody =>
-      'Trzymaj żółty u góry. Cztery białe krawędzie otaczają biały środek na dole, a boczny kolor każdej pasuje do sąsiedniego środka.';
+      'Trzymaj żółty na górze i zielony do siebie. Najpierw zbierz cztery białe krawędzie wokół żółtego środka, białym do góry, jak płatki. Potem każda schodzi do białego środka, a jej kolor boczny pasuje do środka obok.';
 
   @override
   String get stepCrossTop => 'Krawędź na górze';
 
   @override
   String get stepCrossTopBody =>
-      'Znajdź białą krawędź na górze. Obracaj górę, aż jej boczny kolor znajdzie się nad pasującym środkiem, a potem obróć tę ścianę dwa razy, aby ją opuścić.';
+      'Biała krawędź na górze, białym do góry, jest gotowa do zejścia. Kręć górną warstwą, aż jej kolor boczny stanie dokładnie nad środkiem tego samego koloru, a potem obróć tę ścianę o 180°, by położyć ją na białym środku.';
 
   @override
   String get stepCrossMiddle => 'Krawędź w środku';
 
   @override
   String get stepCrossMiddleBody =>
-      'Krawędź utknięta w środkowej warstwie najpierw idzie na górę: obróć jej ścianę w górę, odsuń górę i obróć ścianę z powrotem, aby krzyż pozostał nienaruszony. Potem wstaw ją z góry.';
+      'Krawędź utknięta w środkowej warstwie najpierw idzie w górę: jej bok w górę, góra na bok, bok z powrotem, żeby ułożone elementy zostały. Teraz jest na górze: ustaw ją i obróć ścianę o 180°.';
 
   @override
   String get stepCornersInsert => 'Nad swoim miejscem';
 
   @override
   String get stepCornersInsertBody =>
-      'Obracaj górę, aż biały róg znajdzie się nad miejscem, do którego należą jego kolory, z przodu po prawej. R U R\' U\' wstawi go na dół.';
+      'Kręć górą, aż biały róg stanie dokładnie nad swoim miejscem, między dwoma środkami jego kolorów bocznych. Tu wystarczy jeden ruch górą i R U\' R\': U stawia róg nad miejscem, a R U\' R\' wsuwa go białym w dół.';
 
   @override
   String get stepCornersRepeat => 'Powtarzaj sekwencję';
 
   @override
   String get stepCornersRepeatBody =>
-      'Jeśli biały jest skierowany w złą stronę, powtarzaj R U R\' U\' nad tym samym miejscem. Każdy róg jest ułożony po najwyżej pięciu powtórzeniach.';
+      'Trzymaj miejsce z przodu po prawej i powtarzaj R U R\' U\', aż biały będzie na dole: raz, gdy patrzy w prawo, trzy razy, gdy w górę, pięć, gdy na ciebie. Góra wygląda wtedy na pomieszaną; sama się ułoży.';
 
   @override
   String get stepMiddleRight => 'Krawędź w prawo';
 
   @override
   String get stepMiddleRightBody =>
-      'Ustaw górną krawędź nad jej środkiem z przodu. Jeśli jej górny kolor pasuje do prawego środka, wstaw ją ruchami U R U\' R\' U\' F\' U F.';
+      'Znajdź górną krawędź bez żółtego. Kręć górą, aż jej przedni kolor pasuje do środka przed tobą. Jeśli jej górny kolor pasuje do prawego środka, wyślij ją w prawo: U R U\' R\' U\' F\' U F.';
 
   @override
   String get stepMiddleLeft => 'Krawędź w lewo';
 
   @override
   String get stepMiddleLeftBody =>
-      'Jeśli jej górny kolor pasuje do lewego środka, użyj odbicia lustrzanego: U\' L\' U L U F U\' F\'.';
+      'Jeśli jej górny kolor pasuje do lewego środka, użyj lustrzanego: U\' L\' U L U F U\' F\'. Biała warstwa za każdym razem wraca cała.';
 
   @override
   String get stepYellowCross => 'Jeden algorytm';
 
   @override
   String get stepYellowCrossBody =>
-      'F R U R\' U\' F\' zmienia żółtą kropkę w literę L, L w linię, a linię w krzyż. Trzymaj L z tyłu po lewej, a linię poziomo.';
+      'Patrz tylko na żółte krawędzie na górze. Trzymaj L z tyłu po lewej, a linię od lewej do prawej, i zrób F R U R\' U\' F\'. Linia potrzebuje go raz, L dwa razy, kropka do trzech.';
 
   @override
   String get stepYellowEdges => 'Dopasuj krawędzie';
 
   @override
   String get stepYellowEdgesBody =>
-      'Obracaj górę, aż dwie krawędzie będą pasować do środków. Gdy jedna jest z tyłu, a druga po prawej, R U R\' U R U2 R\' U zamienia pozostałe dwie.';
+      'Kręć górą, aż dwie krawędzie pasują do swoich środków. Gdy jedna jest z tyłu, a druga po prawej, R U R\' U R U2 R\' U zamienia przednią i lewą.';
 
   @override
   String get stepPlaceCorners => 'Ustaw je';
 
   @override
   String get stepPlaceCornersBody =>
-      'Trzymaj róg, który już jest na swoim miejscu, z przodu po prawej. U R U\' L\' U R\' U\' L przestawia pozostałe trzy; powtarzaj, aż wszystkie cztery będą na miejscach.';
+      'Róg jest na miejscu, gdy jego kolory pasują do trzech środków wokół, nawet jeśli jest obrócony. Trzymaj taki róg z przodu po prawej: U R U\' L\' U R\' U\' L przesuwa pozostałe trzy. Powtarzaj, aż wszystkie cztery będą na miejscu.';
 
   @override
   String get stepTwistCorners => 'Skręć je';
 
   @override
   String get stepTwistCornersBody =>
-      'Z nieułożonym rogiem z przodu po prawej powtarzaj R\' D\' R D, aż żółty będzie u góry, a potem obracaj tylko górę, aby podstawić następny. Dół wygląda na zepsuty aż do samego końca: kontynuuj.';
+      'Z nieułożonym rogiem z przodu po prawej powtarzaj R\' D\' R D parami, aż żółty będzie na górze, potem kręć tylko górą, by przynieść następny. Dół wygląda na zepsuty aż do ostatniego rogu: nie przerywaj.';
 
   @override
   String get lessonCfopIntro => 'Czym jest CFOP?';
@@ -1162,14 +1162,14 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get stepTwoIntroBody =>
-      'Kostka 2×2 to 3×3 bez krawędzi i środków. Wybierz kolor, ułóż tę ścianę na dole i dopasuj boczne kolory sąsiednich rogów.';
+      'Kostka 2×2 to tylko osiem rogów: bez krawędzi i środków. Ułóż białą warstwę na dole z pasującymi kolorami sąsiadów i skończ jedną drogą: Sune dla żółtej góry, potem T-perm albo Y-perm.';
 
   @override
   String get stepTwoCorner => 'Wstawianie rogów';
 
   @override
   String get stepTwoCornerBody =>
-      'Dokładnie jak białe rogi na 3×3: przenieś róg nad jego miejsce i powtarzaj R U R\' U\', aż pasuje.';
+      'Jak białe rogi w 3×3: przenieś róg nad puste miejsce z przodu po prawej i wsuń go, tu ruchami U R U\' R\' albo powtarzając R U R\' U\', aż biały będzie na dole. Sprawdź kolory boczne z sąsiadem.';
 
   @override
   String get lessonTwoOll => 'Orientacja góry';
@@ -1182,7 +1182,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get stepTwoSuneBody =>
-      'Sune robi żółtą górę także na 2×2. Układający metodą Ortega uczą się siedmiu krótkich przypadków; Sune i jego lustrzane odbicie obejmują większość z nich.';
+      'Policz żółte naklejki skierowane w górę. Jedyny róg z żółtym do góry trzymaj z przodu po lewej i zrób Sune (R U R\' U R U2 R\'). Policz i chwyć od nowa; najwyżej trzy Sune. Pomiędzy kręć tylko górą.';
 
   @override
   String get lessonTwoPbl => 'Permutacja obu warstw';
@@ -1195,14 +1195,14 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get stepTwoAdjacentBody =>
-      'Gdy dwa sąsiednie górne rogi trzeba zamienić, trzymaj je po prawej i użyj T-perm.';
+      'Światła to dwie takie same górne naklejki po jednej stronie. Kręć górą, aż światła będą po lewej, wtedy dwa rogi do zamiany są po prawej, i zrób T-perm.';
 
   @override
   String get stepTwoDiagonal => 'Zamiana po przekątnej';
 
   @override
   String get stepTwoDiagonalBody =>
-      'Dwa rogi leżące naprzeciw siebie zamienia Y-perm.';
+      'Brak świateł z każdej strony oznacza, że zamieniają się dwa rogi po przekątnej: zrób Y-perm z dowolnej strony i obróć górę, by wszystko wyrównać.';
 
   @override
   String get lessonBigIntro => 'Elementy dużych kostek';
@@ -1215,7 +1215,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get stepBigPiecesBody =>
-      'Na 4×4 każda ściana ma cztery ruchome elementy środka, a każda krawędź składa się z dwóch skrzydełek. Redukcja grupuje je tak, aby kostka zachowywała się jak 3×3.';
+      'W 4×4 każda ściana ma cztery ruchome elementy środka, a każda krawędź to dwa skrzydełka. Żaden środek nie jest stały, więc sprawdź kolejność kolorów na rogu: biały naprzeciw żółtego, niebieski zielonego, czerwony pomarańczowego.';
 
   @override
   String get stepBigSlices => 'Ruchy szerokie i wewnętrzne';
@@ -1235,7 +1235,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get stepBigCenterCycleBody =>
-      'Ten komutator przesuwa dokładnie trzy elementy środka i nie rusza niczego innego, więc ułożone środki pozostają ułożone.';
+      'Ten komutator przesuwa dokładnie trzy elementy środka i nie rusza reszty, więc gotowe środki zostają gotowe. Użyj go, gdy jeden zbłąkany element nie chce dołączyć do paska.';
 
   @override
   String get lessonBigEdges => 'Parowanie krawędzi';
@@ -1248,34 +1248,40 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get stepBigEdgePairBody =>
-      'Uw\' ustawia dwa pasujące skrzydełka w linii, R U R\' F R\' F\' R wstawia niesparowaną krawędź, a Uw przywraca środki.';
+      'Uw\' ustawia dwa pasujące skrzydełka, R U R\' F R\' F\' R wstawia niesparowaną krawędź, a Uw przywraca środki. Zawsze zamykaj warstwę, którą otworzysz.';
 
   @override
-  String get lessonBigParity => 'Parzystość';
+  String get lessonBigParity => 'Parity';
 
   @override
   String get lessonBigParityDesc =>
-      'Parzystość OLL i PLL na parzystych kostkach.';
+      'OLL parity i PLL parity na parzystych kostkach.';
 
   @override
-  String get stepBigOllParity => 'Parzystość OLL';
+  String get stepBigOllParity => 'OLL parity';
 
   @override
   String get stepBigOllParityBody =>
-      'Pojedyncza odwrócona krawędź nie może wystąpić na 3×3. Na parzystych kostkach ten algorytm odwraca z powrotem górną przednią krawędź. Może przemieszać resztę górnej warstwy, ale ostatnie kroki 3×3 i tak to naprawią.';
+      'Pojedyncza odwrócona krawędź nie zdarza się w 3×3: to OLL parity, nie błąd. Trzymaj ją z przodu górnej warstwy i zrób długi algorytm. Zamienia on też lewą i prawą górną krawędź oraz dwa rogi; ostatnie kroki 3×3 to naprawią.';
 
   @override
-  String get stepBigPllParity => 'Parzystość PLL';
+  String get stepBigPllParity => 'PLL parity';
 
   @override
   String get stepBigPllParityBody =>
-      'Dwie zamienione krawędzie na samym końcu? 2R2 U2 2R2 Uw2 2R2 Uw2 zamienia przednią i tylną krawędź górnej warstwy.';
+      'Na samym końcu dwie krawędzie są zamienione i żaden algorytm 3×3 nie pasuje? To PLL parity. Trzymaj je z przodu i z tyłu górnej warstwy: 2R2 U2 2R2 Uw2 2R2 2U2 je zamienia.';
 
   @override
   String get introGoalHeading => 'Jaki jest cel?';
 
   @override
   String get introHowHeading => 'Jak to zrobić?';
+
+  @override
+  String get introHoldHeading => 'Jak trzymać';
+
+  @override
+  String get introWhyHeading => 'Dlaczego to działa';
 
   @override
   String get introStart => 'Rozumiem, zaczynam krok po kroku';
@@ -1301,11 +1307,11 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get introGoalCross =>
-      'Ułóż biały plus, w którym każda biała krawędź pasuje też do sąsiedniego środka.';
+      'Ułóż na dole biały krzyż, w którym każda biała krawędź pasuje też do środka obok.';
 
   @override
   String get introGoalCorners =>
-      'Wstaw cztery białe rogi, aby pierwsza korona, cała biała warstwa, była gotowa.';
+      'Wstaw cztery białe rogi, by skończyć całą pierwszą warstwę: biała ściana i pasujące kolory boczne.';
 
   @override
   String get introGoalMiddle =>
@@ -1351,7 +1357,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get introGoalTwoPbl =>
-      'Zamień ostatnie rogi na miejsca, aby ułożyć 2×2.';
+      'Ustaw ostatnie rogi jedną T-perm albo Y-perm i wyrównaj górną warstwę, by ułożyć 2×2.';
 
   @override
   String get introGoalBigIntro =>
@@ -1367,83 +1373,235 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get introGoalBigParity =>
-      'Napraw dwa przypadki 4×4, których 3×3 nigdy nie ma: jedną odwróconą krawędź lub dwie zamienione krawędzie.';
+      'Napraw dwa przypadki 4×4, których 3×3 nigdy nie ma: jedną odwróconą krawędź (OLL parity) albo dwie zamienione krawędzie (PLL parity).';
 
   @override
   String get introHowBasics =>
       'Środki nigdy się nie ruszają, więc pokazują kolor każdej ściany.\nKażda litera obraca jedną ścianę o ćwierć obrotu zgodnie z ruchem wskazówek zegara.\nApostrof (\') obraca ją z powrotem; 2 obraca ją dwa razy.';
 
   @override
+  String get introHoldBasics =>
+      'Jak chcesz: środki się nie ruszają, więc kolory zawsze mówią, która ściana jest która.';
+
+  @override
+  String get introWhyBasics =>
+      'Każdy algorytm to po prostu rząd tych liter, więc czytanie ich to pierwsza umiejętność.';
+
+  @override
   String get introHowCross =>
-      'Trzymaj żółty u góry: biały krzyż powstaje na dole.\nZnajdź białą krawędź i ustaw jej boczny kolor nad pasującym środkiem.\nObróć tę ścianę dwa razy, aby wstawić krawędź na miejsce.';
+      'Wynieś każdą białą krawędź na górę, białym do góry, wokół żółtego środka.\nKręć górną warstwą, aż kolor boczny krawędzi stanie nad pasującym środkiem.\nObróć tę ścianę o 180°, by sprowadzić ją w dół; tak ze wszystkimi czterema.';
+
+  @override
+  String get introHoldCross =>
+      'Żółty środek na górze, biały na dole przez cały krok. By ustawić krawędź, kręć górną warstwą, nie kostką.';
+
+  @override
+  String get introWhyCross =>
+      'Gdy biały patrzy w górę, dwa obroty przedniej ściany kładą krawędź na białym środku, białym w dół i z pasującym bokiem.';
 
   @override
   String get introHowCorners =>
-      'Przenieś biały róg nad jego puste miejsce.\nPowtarzaj R U R\' U\', aż wskoczy właściwie obrócony.\nZrób to samo z pozostałymi trzema rogami.';
+      'Kręć górą, aż biały róg stanie nad pustym miejscem z przodu po prawej.\nPowtarzaj R U R\' U\': raz, gdy biały patrzy w prawo, trzy razy, gdy w górę, pięć, gdy na ciebie.\nTo samo zrób z pozostałymi trzema rogami.';
+
+  @override
+  String get introHoldCorners =>
+      'Biały na dole, żółty na górze. Róg z przodu po prawej, dokładnie nad swoim miejscem.';
+
+  @override
+  String get introWhyCorners =>
+      'R U R\' U\' podnosi miejsce i je odkłada: każda runda trochę obraca róg, aż biały będzie na dole, a krzyż nigdy się nie psuje.';
 
   @override
   String get introHowMiddle =>
-      'Znajdź górną krawędź bez żółtego i dopasuj jej przedni kolor do środka.\nWyślij ją w prawo lub w lewo krótkim algorytmem z 8 ruchów.\nBiała warstwa za każdym razem wraca nienaruszona.';
+      'Znajdź górną krawędź bez żółtego i dopasuj jej przedni kolor do środka pod nią.\nJej górny kolor mówi, dokąd idzie: w prawo czy w lewo.\nWstaw ją algorytmem z 8 ruchów; biała warstwa za każdym razem wraca.';
+
+  @override
+  String get introHoldMiddle =>
+      'Biały na dole, żółty na górze. Krawędź z przodu, jej przedni kolor pasuje do środka pod nią.';
+
+  @override
+  String get introWhyMiddle =>
+      'Algorytm odsuwa miejsce, wsuwa krawędź i przywraca białą warstwę. Krawędź z żółtym należy na górę, nigdy do środka.';
 
   @override
   String get introHowYellowCross =>
-      'Spójrz na górę: kropka, L lub linia.\nTrzymaj tak, jak pokazano, i wykonaj F R U R\' U\' F\'.\nPowtarzaj, aż pojawi się żółty krzyż.';
+      'Patrz tylko na żółte krawędzie na górze: kropka, L albo linia.\nTrzymaj L z tyłu po lewej, a linię od lewej do prawej, i zrób F R U R\' U\' F\'.\nLinia potrzebuje go raz, L dwa razy, kropka do trzech.';
+
+  @override
+  String get introHoldYellowCross =>
+      'Biały na dole, żółty na górze. L z tyłu po lewej, linia od lewej do prawej; kropka dowolnie.';
+
+  @override
+  String get introWhyYellowCross =>
+      'F R U R\' U\' F\' odwraca po dwie górne krawędzie, nie ruszając dwóch pierwszych warstw.';
 
   @override
   String get introHowYellowEdges =>
-      'Obracaj górę, aż dwie krawędzie będą pasować do środków.\nTrzymaj je z tyłu i po prawej, a potem wykonaj R U R\' U R U2 R\' U.\nPowtarzaj, aż wszystkie cztery krawędzie będą pasować.';
+      'Kręć górą, aż dwie krawędzie pasują do swoich środków.\nTrzymaj je z tyłu i po prawej i zrób R U R\' U R U2 R\' U.\nJeśli pasujące krawędzie są naprzeciw siebie, najpierw zrób to raz z dowolnej strony.';
+
+  @override
+  String get introHoldYellowEdges =>
+      'Żółty na górze. Jedna pasująca krawędź z tyłu, druga po prawej.';
+
+  @override
+  String get introWhyYellowEdges =>
+      'Ten algorytm rusza tylko górne elementy, więc dwie pierwsze warstwy zawsze wracają.';
 
   @override
   String get introHowYellowCorners =>
-      'Róg jest na swoim miejscu, gdy jego kolory pasują do trzech ścian wokół niego.\nTrzymaj ustawiony róg z przodu po prawej.\nU R U\' L\' U R\' U\' L przestawia pozostałe trzy, aż wszystkie będą pasować.';
+      'Róg jest na miejscu, gdy jego kolory pasują do trzech środków wokół, nawet jeśli jest obrócony.\nTrzymaj taki róg z przodu po prawej.\nU R U\' L\' U R\' U\' L zamienia pozostałe trzy w kółko; powtarzaj, aż wszystkie pasują.';
+
+  @override
+  String get introHoldYellowCorners =>
+      'Żółty na górze. Róg, który już jest na miejscu, z przodu po prawej; jeśli nie ma, dowolny.';
+
+  @override
+  String get introWhyYellowCorners =>
+      'Zamienia trzy rogi w kółko, a róg z przodu po prawej zostawia, więc każde powtórzenie ustawia więcej rogów.';
 
   @override
   String get introHowTwistCorners =>
-      'Trzymaj nieułożony róg z przodu po prawej.\nPowtarzaj R\' D\' R D, aż jego żółty kolor będzie u góry.\nDo następnego obracaj tylko górę; dół naprawi się sam na końcu.';
+      'Trzymaj nieułożony róg z przodu po prawej.\nPowtarzaj R\' D\' R D parami, aż jego żółty będzie u góry.\nDo następnego kręć tylko górą; dół wróci z ostatnim rogiem.';
+
+  @override
+  String get introHoldTwistCorners =>
+      'Żółty na górze, obracany róg z przodu po prawej. Między rogami kręć tylko górą, nigdy całą kostką.';
+
+  @override
+  String get introWhyTwistCorners =>
+      'R\' D\' R D obraca róg i miesza dół, ale dół wraca, gdy wszystkie rogi są obrócone. Przerwanie w połowie zostawia go zepsutym.';
 
   @override
   String get introHowCfopIntro =>
       'Cross: cztery krawędzie zaplanowane podczas inspekcji.\nF2L: każdy róg wchodzi razem ze swoją krawędzią.\nOLL robi żółtą górę, a potem PLL przenosi elementy na miejsca.';
 
   @override
+  String get introHoldCfopIntro =>
+      'Speedcuberzy układają krzyż na dole, żeby widzieć kolejne elementy już podczas kręcenia.';
+
+  @override
+  String get introWhyCfopIntro =>
+      'Róg z krawędzią naraz to dużo mniej ruchów, a rozpoznawanie przypadków zastępuje próby i błędy.';
+
+  @override
   String get introHowF2l =>
       'Znajdź w górnej warstwie róg i pasującą do niego krawędź.\nSparuj je nad ich slotem.\nWstaw parę trzema lub czterema ruchami.';
+
+  @override
+  String get introHoldF2l =>
+      'Krzyż na dole. Miejsce pary z przodu po prawej, w lustrzanym przypadku z przodu po lewej.';
+
+  @override
+  String get introWhyF2l =>
+      'Sparowany róg z krawędzią wchodzą razem, więc dwie warstwy rosną jednocześnie zamiast element po elemencie.';
 
   @override
   String get introHowOll =>
       'Najpierw żółty krzyż algorytmem F R U R\' U\' F\'.\nPotem zorientuj rogi, na przykład algorytmem Sune.\nRozpoznaj przypadek po widocznym żółtym kolorze.';
 
   @override
+  String get introHoldOll =>
+      'Żółty na górze. Przy Sune jedyny róg z żółtym do góry trzymaj z przodu po lewej.';
+
+  @override
+  String get introWhyOll =>
+      'Podział ostatniej warstwy na orientację, a potem permutację, utrzymuje mało algorytmów.';
+
+  @override
   String get introHowPll =>
       'Góra jest już cała żółta.\nT-perm zamienia rogi; U-perm przestawia cyklicznie trzy krawędzie.\nOdczytaj boczne kolory, aby wybrać algorytm.';
 
   @override
+  String get introHoldPll =>
+      'Żółty na górze. T-perm: światła po lewej. U-perm: gotowa strona z tyłu.';
+
+  @override
+  String get introWhyPll =>
+      'Gdy góra jest cała żółta, złe są tylko miejsca elementów, a kilka zamian kończy kostkę.';
+
+  @override
   String get introHowTwoFirst =>
-      'Kostka 2×2 to same rogi, jak 3×3 bez krawędzi.\nPrzenieś każdy biały róg nad jego miejsce.\nPowtarzaj R U R\' U\', aż wskoczy na miejsce.';
+      'Wybierz biały róg jako kotwicę, białym w dół.\nKażdy kolejny róg przenieś nad jego miejsce z przodu po prawej.\nPowtarzaj R U R\' U\', aż wskoczy z pasującymi kolorami bocznymi.';
+
+  @override
+  String get introHoldTwoFirst =>
+      'Biały na dole. Puste miejsce z przodu po prawej, jego róg tuż nad nim w górnej warstwie.';
+
+  @override
+  String get introWhyTwoFirst =>
+      '2×2 nie ma środków: pierwszy ustawiony róg wyznacza kolory sąsiadów, więc liczą się kolory boczne, nie tylko biały.';
 
   @override
   String get introHowTwoOll =>
-      'Trzymaj białą warstwę na dole.\nSune (R U R\' U R U2 R\') skręca górne rogi.\nPowtarzaj z właściwego ustawienia, aż góra będzie cała żółta.';
+      'Policz rogi z żółtym do góry.\nGdy jest jeden, trzymaj go z przodu po lewej i zrób Sune: R U R\' U R U2 R\'.\nPolicz znowu i powtórz; najwyżej trzy Sune.';
+
+  @override
+  String get introHoldTwoOll =>
+      'Biały na dole, żółty na górze. Przed każdym Sune róg z żółtym do góry z przodu po lewej.';
+
+  @override
+  String get introWhyTwoOll =>
+      'Sune obraca górne rogi, nie psując białej warstwy; ponowne liczenie mówi, jak trzymać dalej.';
 
   @override
   String get introHowTwoPbl =>
-      'Poszukaj strony, na której dwa rogi już pasują.\nZamiana sąsiednich: jeden algorytm w stylu T-perm.\nZamiana po przekątnej: jeden dłuższy algorytm.';
+      'Szukaj świateł: dwóch takich samych górnych naklejek po jednej stronie.\nŚwiatła z jednej strony: ustaw je po lewej i zrób T-perm.\nBrak świateł: zrób Y-perm z dowolnej strony i wyrównaj górę.';
+
+  @override
+  String get introHoldTwoPbl =>
+      'Biały na dole, żółty na górze. T-perm: światła po lewej. Y-perm: dowolna strona do ciebie.';
+
+  @override
+  String get introWhyTwoPbl =>
+      'Gdy góra jest żółta, złe są tylko miejsca rogów: T-perm zamienia dwa sąsiednie, Y-perm dwa po przekątnej.';
 
   @override
   String get introHowBigIntro =>
       'Żaden środek nie jest stały: cztery elementy środka tworzą kolor każdej ściany.\nRuchy szerokie, jak Rw, obracają dwie warstwy naraz.\nRuchy wewnętrzne, jak 2R, obracają tylko jedną wewnętrzną warstwę.';
 
   @override
+  String get introHoldBigIntro =>
+      'Na początku jak chcesz: w 4×4 żaden środek nie jest stały, więc sam wybierasz, gdzie jest który kolor.';
+
+  @override
+  String get introWhyBigIntro =>
+      'Redukcja łączy środki i elementy krawędzi, by dużą kostkę ułożyć jak 3×3.';
+
+  @override
   String get introHowBigCenters =>
-      'Najpierw ułóż dwa przeciwległe środki.\nWarstwy wewnętrzne zamieniają elementy środka, nie psując ułożonych.\nOstatnie cztery środki dokończ w ten sam sposób.';
+      'Najpierw sprawdź kolejność kolorów na rogu.\nUłóż dwa przeciwległe środki, potem pozostałe cztery.\nWewnętrzne warstwy przesuwają elementy środka; zawsze cofaj otwartą warstwę.';
+
+  @override
+  String get introHoldBigCenters =>
+      'Układana ściana z przodu, gotowe środki po lewej i prawej, z dala od pracy.';
+
+  @override
+  String get introWhyBigCenters =>
+      'Warstwa przesuwa środki, a jej cofnięcie przywraca gotowe, więc zmienia się tylko wybrany element.';
 
   @override
   String get introHowBigEdges =>
-      'Znajdź dwa elementy krawędzi o tych samych kolorach.\nUstaw je obok siebie warstwą wewnętrzną.\nOdłóż parę na bok i przywróć środki.';
+      'Znajdź dwa skrzydełka o tych samych dwóch kolorach.\nUstaw je z przodu i połącz ruchem Uw\'.\nWstaw niesparowaną krawędź, a Uw przywróci środki.';
+
+  @override
+  String get introHoldBigEdges =>
+      'Parowana krawędź w przednich warstwach; gotowe krawędzie odłożone na górze i na dole.';
+
+  @override
+  String get introWhyBigEdges =>
+      'Uw\' odsuwa środki, by dwa skrzydełka się spotkały; Uw je przywraca i twoja praca zostaje.';
 
   @override
   String get introHowBigParity =>
-      'Układaj 4×4 jak 3×3, aż utkniesz.\nJedna odwrócona krawędź: długi algorytm parzystości OLL.\nDwie zamienione krawędzie: 2R2 U2 2R2 Uw2 2R2 Uw2.';
+      'Układaj 4×4 jak 3×3, aż utkniesz.\nJedna odwrócona krawędź: długi algorytm OLL parity.\nDwie zamienione krawędzie: 2R2 U2 2R2 Uw2 2R2 2U2.';
+
+  @override
+  String get introHoldBigParity =>
+      'Ostatnia warstwa na górze. OLL parity: odwrócona krawędź z przodu. PLL parity: zamienione krawędzie z przodu i z tyłu.';
+
+  @override
+  String get introWhyBigParity =>
+      'Skrzydełka mogą trafić w stany niedostępne dla 3×3; te algorytmy kręcą wewnętrznymi warstwami, by cofnąć dokładnie to.';
 
   @override
   String get dirFaceR => 'Prawa strona';
@@ -1553,16 +1711,16 @@ class AppLocalizationsPl extends AppLocalizations {
   String get stageEdges => 'Sparuj krawędzie zewnętrzne i wewnętrzne';
 
   @override
-  String get stageParity => 'Rozwiązanie parzystości';
+  String get stageParity => 'Naprawa parity';
 
   @override
-  String get stageCrown1 => 'Pierwsza korona (biała)';
+  String get stageCrown1 => 'Pierwsza warstwa (biała)';
 
   @override
-  String get stageCrown2 => 'Druga korona';
+  String get stageCrown2 => 'Druga warstwa';
 
   @override
-  String get stageCrown3 => 'Trzecia korona (żółta)';
+  String get stageCrown3 => 'Trzecia warstwa (żółta)';
 
   @override
   String get stageOrient => 'Orientacja elementów';
@@ -1606,6 +1764,14 @@ class AppLocalizationsPl extends AppLocalizations {
       'Sam środek każdej ściany nigdy się nie rusza.\nKażda krawędź to element środkowy i dwa skrzydełka.\nWarstwy wewnętrzne przesuwają elementy bez ruszania zewnętrza.';
 
   @override
+  String get introHoldFiveIntro =>
+      'Jak chcesz: w 5×5 środek każdej ściany nigdy się nie rusza, więc pokazuje jej kolor.';
+
+  @override
+  String get introWhyFiveIntro =>
+      'Nieruchome środki wyznaczają schemat kolorów, więc środków nie da się ułożyć w złej kolejności.';
+
+  @override
   String get lessonFiveCenters => 'Środki 5×5';
 
   @override
@@ -1617,7 +1783,15 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get introHowFiveCenters =>
-      'Zacznij od środkowego elementu: on wskazuje kolor.\nUłóż belki po trzy i wsuń je warstwą wewnętrzną.\nOstatnie dwa środki dokończ razem.';
+      'Zacznij od nieruchomego środka: on wyznacza kolor.\nUkładaj paski po trzy i wsuwaj je wewnętrzną warstwą.\nRuch, który wprowadza pasek, przywraca też gotowy środek.';
+
+  @override
+  String get introHoldFiveCenters =>
+      'Układany środek z przodu albo na górze; gotowe środki na dole, po lewej lub po prawej.';
+
+  @override
+  String get introWhyFiveCenters =>
+      'Warstwa w środek, góra, warstwa z powrotem: warstwa, która wprowadza pasek, przywraca też gotowe środki.';
 
   @override
   String get lessonFiveEdges => 'Krawędzie 5×5';
@@ -1632,24 +1806,40 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get introHowFiveEdges =>
-      'Dopasuj dwa skrzydełka do ich krawędzi środkowej z przodu.\nObróć warstwę wewnętrzną, wstaw nieułożoną krawędź, obróć z powrotem.\nSparuj ostatnie krawędzie, nie psując ułożonych.';
+      'Dopasuj z przodu każde skrzydełko do jego środkowej krawędzi.\nWarstwa wewnętrzna w dół, wstaw nieułożoną krawędź, warstwa z powrotem.\nOstatnie krawędzie: warstwa, odwrócenie, warstwa.';
+
+  @override
+  String get introHoldFiveEdges =>
+      'Układana krawędź z przodu; gotowe krawędzie schowane w górnej i dolnej warstwie.';
+
+  @override
+  String get introWhyFiveEdges =>
+      'Otwarcie i zamknięcie wewnętrznej warstwy łączy skrzydełka, a środki i odłożone krawędzie wracają.';
 
   @override
   String get lessonFiveSolve => 'Ułóż 5×5 jak 3×3';
 
   @override
-  String get lessonFiveSolveDesc => 'Dokończ trzema koronami.';
+  String get lessonFiveSolveDesc => 'Dokończ warstwa po warstwie, jak 3×3.';
 
   @override
   String get introGoalFiveSolve =>
-      'Ułóż zredukowaną 5×5 jak 3×3, korona po koronie.';
+      'Ułóż zredukowaną 5×5 jak 3×3, warstwa po warstwie, tylko ruchami zewnętrznymi.';
 
   @override
   String get introHowFiveSolve =>
-      'Od teraz tylko ruchy zewnętrzne.\nPierwsza korona, druga korona, potem żółta korona.\nStałe środki wskazują kolor każdej ściany.';
+      'Od teraz tylko ruchy zewnętrzne, inaczej sparowane krawędzie się rozpadną.\nBiały krzyż i rogi, środkowa warstwa, potem żółta.\nNieruchome środki pokazują kolor każdej ściany.';
 
   @override
-  String get lessonFiveParity => 'Parzystość krawędzi 5×5';
+  String get introHoldFiveSolve =>
+      'Kolor pierwszej warstwy na dole, jak w 3×3; wstawiany róg z przodu po prawej.';
+
+  @override
+  String get introWhyFiveSolve =>
+      'Ruchy wewnętrzne znów rozdzieliłyby środki i krawędzie; zewnętrzne traktują każdy blok jak element 3×3.';
+
+  @override
+  String get lessonFiveParity => 'Parity krawędzi 5×5';
 
   @override
   String get lessonFiveParityDesc =>
@@ -1657,11 +1847,19 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get introGoalFiveParity =>
-      'Napraw jedyną krawędź, której dwa skrzydełka są zamienione, a potem dokończ.';
+      'Napraw jedyną krawędź z zamienionymi dwoma zewnętrznymi skrzydełkami: to jedyne parity na 5×5.';
 
   @override
   String get introHowFiveParity =>
-      'Objawia się jako krawędź, której nie da się sparować.\nWykonaj raz długi algorytm warstw wewnętrznych.\nWszystko inne wraca na swoje miejsce.';
+      'Wygląda jak ostatnia krawędź, która wydaje się odwrócona.\nZrób raz długą poprawkę wewnętrznymi warstwami.\nNa 5×5 nie ma PLL parity.';
+
+  @override
+  String get introHoldFiveParity =>
+      'Ostatnia warstwa na górze, krawędź z zamienionymi skrzydełkami z przodu górnej warstwy.';
+
+  @override
+  String get introWhyFiveParity =>
+      'W 5×5 zamienić się mogą tylko dwa zewnętrzne skrzydełka jednej krawędzi, więc wystarczy jeden algorytm.';
 
   @override
   String get lessonSixIntro => 'Poznaj 6×6';
@@ -1679,6 +1877,14 @@ class AppLocalizationsPl extends AppLocalizations {
       'Żaden środek nie jest stały: kolory wybierasz podczas układania.\nKażda krawędź ma skrzydełka zewnętrzne i wewnętrzne.\nRuchy szerokie mogą przesuwać do trzech warstw.';
 
   @override
+  String get introHoldSixIntro =>
+      'Na początku jak chcesz: jak 4×4, kostka 6×6 nie ma stałego środka.';
+
+  @override
+  String get introWhySixIntro =>
+      'Jeśli układasz 4×4 i 5×5, to 6×6 jest tą samą redukcją z większymi blokami.';
+
+  @override
   String get lessonSixCenters => 'Środki 6×6';
 
   @override
@@ -1690,7 +1896,15 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get introHowSixCenters =>
-      'Najpierw ułóż dwa przeciwległe środki.\nUłóż belki po cztery i zsuń je razem.\nPojedyncze elementy przenoś sztuczką: warstwa, góra, cofnięcie.';
+      'Najpierw sprawdź kolejność kolorów na rogu: żaden środek nie jest stały.\nUkładaj paski po cztery i łącz je.\nW dwóch ostatnich środkach przesuwaj pojedyncze elementy: warstwa, góra, cofnij.';
+
+  @override
+  String get introHoldSixCenters =>
+      'Układana ściana z przodu, gotowe środki po lewej, po prawej albo na dole.';
+
+  @override
+  String get introWhySixCenters =>
+      'Paski łączą się wewnętrznymi warstwami, a każda jest cofana, więc gotowe środki zostają całe.';
 
   @override
   String get lessonSixEdges => 'Krawędzie 6×6';
@@ -1704,24 +1918,40 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get introHowSixEdges =>
-      'Ustaw skrzydełka zewnętrzne i wewnętrzne w linii z przodu.\nGłęboka szeroka warstwa wprowadza i wyprowadza krawędź.\nUłożone krawędzie nigdy nie są psute.';
+      'Ustaw z przodu zewnętrzne i wewnętrzne skrzydełka jednej krawędzi.\nGłęboka szeroka warstwa wprowadza i wyprowadza krawędź.\nNigdy nie psuj gotowej krawędzi, by uwolnić element.';
+
+  @override
+  String get introHoldSixEdges =>
+      'Układana krawędź z przodu; gotowe krawędzie odłożone na górze i na dole.';
+
+  @override
+  String get introWhySixEdges =>
+      'Głęboki szeroki ruch odsuwa środki, by skrzydełka się spotkały, a potem je przywraca.';
 
   @override
   String get lessonSixSolve => 'Ułóż 6×6 jak 3×3';
 
   @override
-  String get lessonSixSolveDesc => 'Dokończ trzema koronami.';
+  String get lessonSixSolveDesc => 'Dokończ warstwa po warstwie, jak 3×3.';
 
   @override
   String get introGoalSixSolve =>
-      'Ułóż zredukowaną 6×6 jak 3×3, korona po koronie.';
+      'Ułóż zredukowaną 6×6 jak 3×3, warstwa po warstwie, tylko ruchami zewnętrznymi.';
 
   @override
   String get introHowSixSolve =>
-      'Od teraz tylko ruchy zewnętrzne.\nUłożone środki wskazują kolor każdej ściany.\nPierwsza korona, druga korona, potem żółta korona.';
+      'Od teraz tylko ruchy zewnętrzne: warstwa wewnętrzna rozbiłaby środek albo krawędź.\nUłożone środki pokazują kolor każdej ściany.\nBiały krzyż i rogi, środkowa warstwa, potem żółta.';
 
   @override
-  String get lessonSixParity => 'Parzystość 6×6';
+  String get introHoldSixSolve =>
+      'Kolor pierwszej warstwy na dole, jak w 3×3; wstawiany róg z przodu po prawej.';
+
+  @override
+  String get introWhySixSolve =>
+      'Ruchy zewnętrzne przesuwają każdy środek 4×4 i każdą krawędź jak jeden element, tak jak w 3×3.';
+
+  @override
+  String get lessonSixParity => 'Parity 6×6';
 
   @override
   String get lessonSixParityDesc =>
@@ -1733,14 +1963,22 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get introHowSixParity =>
-      'Układaj jak 3×3, aż utkniesz.\nJedna odwrócona krawędź: długi algorytm parzystości.\nDwie zamienione krawędzie: krótki algorytm z podwójnymi obrotami.';
+      'Układaj jak 3×3, aż utkniesz.\nJedna odwrócona krawędź: długa poprawka z 3Rw.\nDwie zamienione krawędzie: krótka poprawka podwójnymi ruchami wewnętrznymi.';
+
+  @override
+  String get introHoldSixParity =>
+      'Ostatnia warstwa na górze. Odwrócona krawędź z przodu; dwie zamienione z przodu i z tyłu.';
+
+  @override
+  String get introWhySixParity =>
+      'Jak 4×4, kostka 6×6 może skończyć z jedną odwróconą albo dwiema zamienionymi krawędziami; algorytmy wewnętrznych warstw to naprawiają i zostawiają resztę.';
 
   @override
   String get stepFivePieces => 'Elementy 5×5';
 
   @override
   String get stepFivePiecesBody =>
-      'Sam środkowy element każdej ściany nigdy się nie rusza, więc nadal wskazuje kolor ściany, jak na 3×3. Wokół niego jest jeszcze osiem elementów środka; każda krawędź ma element środkowy i dwa skrzydełka, a rogi działają jak na 3×3.';
+      'Środkowy element każdej ściany nigdy się nie rusza, więc schemat kolorów nie może wyjść źle. Wokół niego jest osiem elementów środka: środki narożne i krawędziowe nigdy nie zamieniają się typami. Każda krawędź to element środkowy z dwoma skrzydełkami.';
 
   @override
   String get stepFiveSlices => 'Trzy rodzaje ruchów';
@@ -1754,7 +1992,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get stepFiveCenterBarBody =>
-      'Ułóż rząd trzech pasujących elementów środka, a potem wsuń go obok pasującego środka ruchem warstwy wewnętrznej. Trzy belki tworzą gotowy środek.';
+      'Ułóż rząd trzech pasujących elementów środka, wsuń go wewnętrzną warstwą, obróć górę i cofnij warstwę: ruch, który wprowadza pasek, przywraca też gotowy środek. Trzy paski to cały środek.';
 
   @override
   String get stepFiveCenterSwap => 'Zamiana bez psucia';
@@ -1768,35 +2006,35 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get stepFiveEdgePairBody =>
-      'Ustaw dwa skrzydełka obok pasującej krawędzi środkowej z przodu, obróć warstwę wewnętrzną w dół, wprowadź z góry nieułożoną krawędź, a potem obróć warstwę wewnętrzną z powrotem.';
+      'Ustaw z przodu skrzydełko obok jego środkowej krawędzi, opuść wewnętrzną warstwę, wstaw nieułożoną krawędź krótkim triggerem i podnieś warstwę z powrotem.';
 
   @override
   String get stepFiveEdgeLast => 'Ostatnie krawędzie';
 
   @override
   String get stepFiveEdgeLastBody =>
-      'Gdy zostało tylko kilka krawędzi, ruch szeroki, krótka sekwencja i ruch szeroki z powrotem parują je bez psucia ułożonych krawędzi.';
+      'Gdy nie zostaje żadna wolna krawędź do wstawienia, użyj schematu warstwa, odwrócenie, warstwa: szeroki ruch, krótki trigger i szeroki ruch z powrotem parują ostatnie krawędzie bez psucia gotowych.';
 
   @override
   String get stepFiveAsThree => 'Teraz to 3×3';
 
   @override
   String get stepFiveAsThreeBody =>
-      'Gdy środki i krawędzie są gotowe, 5×5 zachowuje się jak duża 3×3. Używaj tylko ruchów zewnętrznych i podążaj za trzema koronami: biały krzyż i rogi, środkowa warstwa, potem żółta warstwa.';
+      'Z gotowymi środkami i krawędziami 5×5 zachowuje się jak duża 3×3. Tylko ruchy zewnętrzne, warstwa po warstwie: biały krzyż i rogi, środkowa warstwa, potem żółta. 5×5 nie ma PLL parity.';
 
   @override
   String get stepFiveEdgeParity => 'Zamień skrzydełka ostatniej krawędzi';
 
   @override
   String get stepFiveEdgeParityBody =>
-      'Czasem ostatnia krawędź ma zamienione skrzydełka. Dłuższy algorytm warstw wewnętrznych zamienia je z powrotem, a wszystko inne wraca na miejsce. Potem dokończ jak 3×3.';
+      'Czasem ostatnia krawędź ma zamienione dwa zewnętrzne skrzydełka i wygląda na odwróconą: to jedyne parity 5×5. Trzymaj ją z przodu górnej warstwy i raz zrób algorytm wewnętrznych warstw; reszta wraca na miejsce.';
 
   @override
   String get stepSixPieces => 'Elementy 6×6';
 
   @override
   String get stepSixPiecesBody =>
-      'Jak 4×4, kostka 6×6 nie ma stałego środka: szesnaście elementów środka tworzy kolor każdej ściany. Każda krawędź ma cztery elementy: dwa skrzydełka zewnętrzne i dwa wewnętrzne.';
+      'Jak 4×4, kostka 6×6 nie ma stałego środka: szesnaście elementów tworzy kolor każdej ściany, więc najpierw sprawdź kolejność kolorów na rogu. Każda krawędź ma cztery skrzydełka: dwa zewnętrzne i dwa wewnętrzne.';
 
   @override
   String get stepSixSlices => 'Obracanie głębszych warstw';
@@ -1810,49 +2048,49 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get stepSixCenterBarBody =>
-      'Ułóż rzędy czterech pasujących elementów środka i zsuwaj je obok siebie ruchami warstw wewnętrznych, aż ściana będzie jednolita.';
+      'Układaj rzędy czterech pasujących elementów środka i łącz je ruchami wewnętrznych warstw, cofając każdą warstwę, aż ściana będzie jednolitym blokiem 4×4.';
 
   @override
   String get stepSixCenterSwap => 'Przenoś po jednym elemencie';
 
   @override
   String get stepSixCenterSwapBody =>
-      'Obróć trzecią warstwę, obróć górę, cofnij, obróć z powrotem: jeden element środka się przesuwa, a ułożone środki wracają.';
+      'Trzecia warstwa, góra, cofnij, góra z powrotem: jeden element środka się przesuwa, a gotowe środki wracają. Użyj tego przy dwóch ostatnich środkach, gdy żaden pasek nie pasuje.';
 
   @override
   String get stepSixEdgePair => 'Cztery elementy, jedna krawędź';
 
   @override
   String get stepSixEdgePairBody =>
-      'Zbierz z przodu cztery elementy krawędzi głęboką szeroką warstwą, potem wprowadź nieułożoną krawędź i obróć szeroką warstwę z powrotem.';
+      'Zbierz z przodu cztery skrzydełka krawędzi głęboką szeroką warstwą, wstaw nieułożoną krawędź krótkim triggerem i obróć szeroką warstwę z powrotem.';
 
   @override
   String get stepSixEdgeLast => 'Ostatnie krawędzie';
 
   @override
   String get stepSixEdgeLastBody =>
-      'Sparuj ostatnie krawędzie krótką sekwencją między głębokim ruchem szerokim a jego cofnięciem, aby ułożone krawędzie pozostały sparowane.';
+      'Paruj ostatnie krawędzie krótkim triggerem między głębokim szerokim ruchem a jego cofnięciem, żeby gotowe krawędzie zostały sparowane. Nigdy nie psuj gotowej krawędzi, by uwolnić element.';
 
   @override
   String get stepSixAsThree => 'Teraz to 3×3';
 
   @override
   String get stepSixAsThreeBody =>
-      'Mając środki 4×4 i sparowane krawędzie, ułóż 6×6 jak 3×3 ruchami zewnętrznymi i trzema koronami.';
+      'Ze środkami 4×4 i sparowanymi krawędziami ułóż 6×6 jak 3×3, warstwa po warstwie, tylko ruchami zewnętrznymi. Jedna odwrócona albo dwie zamienione krawędzie na końcu to parity, nie błąd.';
 
   @override
   String get stepSixOllParity => 'Jedna odwrócona krawędź';
 
   @override
   String get stepSixOllParityBody =>
-      'Jeśli podczas układania ostatniej warstwy pojedyncza krawędź wydaje się odwrócona, to parzystość. Trzymaj ją z przodu górnej warstwy i wykonaj długi algorytm: dwie pierwsze korony wrócą nienaruszone.';
+      'Pojedyncza krawędź, która wygląda na odwróconą w ostatniej warstwie, to parity. Trzymaj ją z przodu górnej warstwy i zrób długą poprawkę: odwraca wszystkie cztery skrzydełka, zamienia też lewą i prawą górną krawędź i nie rusza dwóch pierwszych warstw.';
 
   @override
   String get stepSixPllParity => 'Dwie zamienione krawędzie';
 
   @override
   String get stepSixPllParityBody =>
-      'Jeśli na samym końcu dwie krawędzie wyglądają na zamienione, trzymaj je z przodu i z tyłu górnej warstwy i wykonaj krótki algorytm z podwójnymi obrotami warstw wewnętrznych.';
+      'Jeśli na samym końcu dwie krawędzie wyglądają na zamienione, trzymaj je z przodu i z tyłu górnej warstwy i zrób krótką poprawkę podwójnymi ruchami wewnętrznymi: cztery skrzydełka obu krawędzi zamieniają się miejscami.';
 
   @override
   String get stageTwoFirstLayer => 'Ułóż dolną warstwę';
@@ -2459,7 +2697,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String cueCrossFlipped(String piece, String center) {
-    return 'Krawędź w kolorach $piece jest na swoim miejscu, ale odwrócona: biały patrzy w bok. Wyjmij ją i włóż z powrotem obok środka w kolorze $center właściwą stroną.';
+    return 'Krawędź $piece jest na miejscu, ale odwrócona: jej biały patrzy w bok. Wyjmij ją i podnieś na górę białym do góry, potem sprowadź obok środka $center.';
   }
 
   @override
@@ -2474,7 +2712,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String cueCornerTwisted(String piece) {
-    return 'Róg w kolorach $piece jest na swoim miejscu, ale skręcony. Jeden ruch go wyjmuje (na jego miejsce wchodzi żółty róg); powtarzaj, aż wróci prawidłowo.';
+    return 'Róg $piece jest na swoim miejscu, ale obrócony. Jeden trigger go wyjmuje (na jego miejsce wchodzi żółty róg); powtarzaj nad tym samym miejscem, aż wróci białym w dół. Nie obracaj kostki, żeby go gonić.';
   }
 
   @override
@@ -2489,7 +2727,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String cueMiddleFlipped(String piece, String a, String b) {
-    return 'Krawędź w kolorach $piece jest w swoim slocie, ale odwrócona. Wstaw tam żółtą krawędź, aby ją wypchnąć, a potem wstaw ją ponownie między $a a $b.';
+    return 'Krawędź $piece jest na swoim miejscu, ale odwrócona. Wstaw tam żółtą krawędź, by wypchnąć ją na górę, a potem wstaw ją ponownie między $a i $b.';
   }
 
   @override
@@ -2504,7 +2742,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String cueYellowDot(String front) {
-    return 'Żółty jest tylko środek: kropka. Wykonaj algorytm raz, z kolorem $front przodem do siebie, aby dostać L.';
+    return 'Żółty jest tylko środek: kropka. Zastosuj algorytm raz, kolorem $front do siebie, żeby dostać L. Kropka może wymagać trzech rund, więc nie przerywaj.';
   }
 
   @override
@@ -2534,7 +2772,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String cueTwistCorner(String piece) {
-    return 'Skręć róg w kolorach $piece z przodu po prawej: powtarzaj dolny ruch, aż jego żółty będzie na górze. Dolne warstwy na razie wyglądają na pomieszane — to normalne!';
+    return 'Obróć róg $piece z przodu po prawej: powtarzaj dolny trigger parami, aż jego żółty będzie u góry. Dolne warstwy na razie wyglądają na pomieszane; wrócą z ostatnim rogiem!';
   }
 
   @override
@@ -2612,16 +2850,16 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String cueParityOll(String front) {
-    return 'Parzystość OLL: jedna górna krawędź jest odwrócona, co na 3×3 nigdy się nie zdarza. Trzymaj ją z przodu, kolor $front przodem do siebie, i wykonaj poprawkę parzystości.';
+    return 'OLL parity: jedna górna krawędź jest odwrócona, co nigdy nie zdarza się w 3×3. Trzymaj ją z przodu, kolorem $front do siebie, i zastosuj poprawkę parity przed zwykłym OLL.';
   }
 
   @override
   String get cueParityPll =>
-      'Parzystość PLL: dwie górne krawędzie są zamienione, co na 3×3 nigdy się nie zdarza. Trzymaj je z przodu i z tyłu i wykonaj zamianę parzystości.';
+      'PLL parity: dwie górne krawędzie są zamienione, co nigdy nie zdarza się w 3×3. Trzymaj je z przodu i z tyłu, zastosuj zamianę parity i wyrównaj górę.';
 
   @override
   String cueParityFive(String front) {
-    return 'Parzystość krawędzi: dwa zewnętrzne elementy jednej krawędzi są zamienione. Obróć tę krawędź do przodu, kolor $front przodem do siebie, popraw i obróć z powrotem.';
+    return 'Parity krawędzi: dwa zewnętrzne skrzydełka jednej krawędzi są zamienione, to jedyne parity 5×5. Trzymaj tę krawędź z przodu, kolorem $front do siebie, i zastosuj poprawkę raz.';
   }
 
   @override
@@ -2652,7 +2890,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get onboardingLearnBody =>
-      'Opanuj metodę trzech koron w Akademii, a potem swobodnie kręć, mieszaj i układaj na placu zabaw 3D.';
+      'Opanuj metodę warstwową w Akademii, a potem kręć, mieszaj i układaj swobodnie w Playground 3D.';
 
   @override
   String get scanChoiceManualDesc =>
@@ -2670,7 +2908,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get crownExplain =>
-      'Korona to jedna pozioma warstwa kostki: pierwsza korona to biała warstwa na dole, druga to środkowa warstwa, a trzecia to żółta warstwa na górze.';
+      'Warstwa to jeden poziomy plaster kostki: pierwsza warstwa to biała na dole, druga to środkowa, a trzecia to żółta na górze.';
 
   @override
   String get lessonObjectiveHeading => 'Cel lekcji';
@@ -2695,7 +2933,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get solveChoiceGuidedDesc =>
-      'Poznaj metodę trzech koron krok po kroku.';
+      'Ucz się metody warstwowej krok po kroku.';
 
   @override
   String get guidedSolvedTitle => 'Ułożona!';

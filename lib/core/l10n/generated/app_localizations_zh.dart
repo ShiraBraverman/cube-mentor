@@ -153,7 +153,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get solveLearn => '一步步学习';
 
   @override
-  String get solveModeGuided => '引导（三顶皇冠）';
+  String get solveModeGuided => '引导（3 层）';
 
   @override
   String get solveModeFast => '快速（最优）';
@@ -261,13 +261,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get phaseLblYellowCornersOrient => '翻转黄色角块';
 
   @override
-  String get crownFirst => '第一顶皇冠';
+  String get crownFirst => '第一层';
 
   @override
-  String get crownSecond => '第二顶皇冠';
+  String get crownSecond => '第二层';
 
   @override
-  String get crownThird => '第三顶皇冠';
+  String get crownThird => '第三层';
 
   @override
   String get crownFirstGoal => '白色面与第一层';
@@ -282,10 +282,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get subStepGoal11 => '拼出白色十字，并让每个白色棱块的侧面颜色与相邻中心一致。';
 
   @override
-  String get subStepGoal12 => '把 4 个白色角块放入对应位置，完成白色面和整个第一层。';
+  String get subStepGoal12 => '把 4 个白色角块放进对应的位置，完成白色面和整个第一层。';
 
   @override
-  String get subStepGoal21 => '在不破坏第一顶皇冠的前提下，插入中层的 4 个棱块。';
+  String get subStepGoal21 => '在不破坏第一层的前提下，放好中层的 4 个棱块。';
 
   @override
   String get subStepGoal31 => '在最后一层拼出黄色十字。';
@@ -628,7 +628,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => '3×3 新手：三顶皇冠';
+  String get trackBeginner => '新手 3×3：层先法';
 
   @override
   String get trackCfop => 'CFOP 入门';
@@ -928,77 +928,77 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get stepCrossGoalBody =>
-      '黄色朝上拿好魔方。四个白色棱块围在底部白色中心四周，每个棱块的侧面颜色都与相邻中心一致。';
+      '黄色朝上、绿色朝向你。先把四个白色棱块白色朝上围在黄色中心周围，像花瓣一样：这就是小花。然后把每片花瓣转到白色中心，让侧面颜色和旁边的中心块对上。';
 
   @override
   String get stepCrossTop => '顶层的棱块';
 
   @override
   String get stepCrossTopBody =>
-      '在顶层找到一个白色棱块。转动顶层，直到它的侧面颜色位于同色中心的正上方，然后把这一面转两次，让它落到底部。';
+      '顶层白色朝上的白色棱块就是小花的一片花瓣。转动顶层，让它的侧面颜色正好在同色中心块上方，再把那一面转 180°（转两下），把它放到白色中心上。';
 
   @override
   String get stepCrossMiddle => '中层的棱块';
 
   @override
   String get stepCrossMiddleBody =>
-      '卡在中层的棱块要先提上来：把它所在的侧面向上转，移开顶层，再把侧面转回去，这样十字不会被破坏。然后从顶层把它放好。';
+      '卡在中层的棱块要先上去：把它所在的侧面转上来，把顶层移开，再把侧面转回去，已放好的块就不会动。现在它是顶层的一片花瓣：对齐后把那一面转两下。';
 
   @override
   String get stepCornersInsert => '移到目标位置上方';
 
   @override
   String get stepCornersInsertBody =>
-      '转动顶层，直到一个白色角块位于它颜色对应的位置（右前方）正上方。用 R U R\' U\' 把它放下去。';
+      '转动顶层，让白色角块正好在它的位置上方，也就是和它侧面颜色相同的两个中心之间。这里转一下顶层加 R U\' R\' 就够了：U 把角块带到位置上方，R U\' R\' 把它白色朝下放进去。';
 
   @override
   String get stepCornersRepeat => '重复基本动作';
 
   @override
   String get stepCornersRepeatBody =>
-      '如果白色朝向不对，就在同一位置继续重复 R U R\' U\'。每个角块最多重复五次就能还原。';
+      '把位置放在右前方，重复 R U R\' U\' 直到白色朝下：白色朝右做 1 次，朝上做 3 次，朝向你做 5 次。过程中顶层看起来很乱，它会自己恢复。';
 
   @override
   String get stepMiddleRight => '向右插入';
 
   @override
   String get stepMiddleRightBody =>
-      '让顶层的一个棱块与前面的中心对齐。如果它朝上的颜色与右边中心相同，用 U R U\' R\' U\' F\' U F 插入。';
+      '找一个没有黄色的顶层棱块。转动顶层，让它的前面颜色对上你面前的中心块。如果它顶面的颜色和右边中心相同，就往右放：U R U\' R\' U\' F\' U F。';
 
   @override
   String get stepMiddleLeft => '向左插入';
 
   @override
   String get stepMiddleLeftBody =>
-      '如果它朝上的颜色与左边中心相同，就用镜像公式：U\' L\' U L U F U\' F\'。';
+      '如果顶面颜色和左边中心相同，就用镜像公式：U\' L\' U L U F U\' F\'。白色层每次都会完整复原。';
 
   @override
   String get stepYellowCross => '一个公式就够';
 
   @override
   String get stepYellowCrossBody =>
-      'F R U R\' U\' F\' 能把黄色的点变成 L 形，把 L 形变成一字，再把一字变成十字。L 形放在左后方，一字横着放。';
+      '只看顶面的黄色棱块。L 形放在左后方，一字横放，然后做 F R U R\' U\' F\'。一字做 1 次，L 形 2 次，点最多 3 次。';
 
   @override
   String get stepYellowEdges => '对齐棱块';
 
   @override
   String get stepYellowEdgesBody =>
-      '转动顶层，直到两个棱块与中心对齐。让其中一个在后面、一个在右边，用 R U R\' U R U2 R\' U 交换另外两个。';
+      '转动顶层，直到两个棱块和中心对上。一个在后面、一个在右边时，R U R\' U R U2 R\' U 会交换前面和左边的棱块。';
 
   @override
   String get stepPlaceCorners => '归位';
 
   @override
   String get stepPlaceCornersBody =>
-      '把一个已经在正确位置的角块放在右前方。U R U\' L\' U R\' U\' L 会轮换另外三个；重复直到四个角块都归位。';
+      '角块颜色和周围三个中心一致，就算没翻正也已经归位。把这样的角块放在右前方：U R U\' L\' U R\' U\' L 让另外三个轮换。重复到四个都归位。';
 
   @override
   String get stepTwistCorners => '翻转';
 
   @override
   String get stepTwistCornersBody =>
-      '把未完成的角块放在右前方，重复 R\' D\' R D 直到黄色朝上，然后只转顶层把下一个角块转过来。底层在最后之前看起来都是乱的：继续就好。';
+      '右前方放一个没翻正的角块，两次一组重复 R\' D\' R D 直到黄色朝上，再只转顶层把下一个带过来。在最后一个角块之前底部看起来都是乱的：继续做。';
 
   @override
   String get lessonCfopIntro => '什么是 CFOP？';
@@ -1086,14 +1086,14 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get stepTwoIntroBody =>
-      '2×2 就是没有棱块和中心块的 3×3。选一种颜色，在底面拼好这一面，并让相邻角块的侧面颜色一致。';
+      '2×2 只有八个角块：没有棱块也没有中心块。先在底面拼出白色层，让相邻的侧面颜色对上，然后只走一条路线：小鱼让顶面变黄，再用 T-perm 或 Y-perm。';
 
   @override
   String get stepTwoCorner => '插入角块';
 
   @override
   String get stepTwoCornerBody =>
-      '和 3×3 的白色角块完全一样：把角块转到目标位置上方，重复 R U R\' U\' 直到它归位。';
+      '和 3×3 的白色角块一样：把角块转到右前方空位上方再放进去，这里用 U R U\' R\'，或重复 R U R\' U\' 直到白色朝下。再和旁边的角块核对侧面颜色。';
 
   @override
   String get lessonTwoOll => '调整顶面朝向';
@@ -1106,7 +1106,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get stepTwoSuneBody =>
-      '小鱼公式在 2×2 上同样能让顶面变黄。Ortega 法要学七种简短情况，其中大多数都能用小鱼公式及其镜像解决。';
+      '数一数朝上的黄色贴纸。把唯一黄色朝上的角块放在左前方，做小鱼（R U R\' U R U2 R\'）。再数、再调整拿法；最多做三次小鱼，中间只转顶层。';
 
   @override
   String get lessonTwoPbl => '调整两层位置';
@@ -1118,13 +1118,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get stepTwoAdjacent => '相邻交换';
 
   @override
-  String get stepTwoAdjacentBody => '当顶层两个相邻角块需要交换时，把它们放在右边，使用 T 置换。';
+  String get stepTwoAdjacentBody =>
+      '车灯就是同一侧面顶层两个同色贴纸。转动顶层让车灯在左边，要交换的两个角块就在右边，然后做 T-perm。';
 
   @override
   String get stepTwoDiagonal => '对角交换';
 
   @override
-  String get stepTwoDiagonalBody => '位于对角位置的两个角块用 Y 置换交换。';
+  String get stepTwoDiagonalBody =>
+      '哪一面都没有车灯，就是两个对角的角块要交换：从任意一面做 Y-perm，再转顶层把一切对齐。';
 
   @override
   String get lessonBigIntro => '高阶魔方的块';
@@ -1137,7 +1139,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get stepBigPiecesBody =>
-      '在 4×4 上，每个面有四个可移动的中心块，每条棱由两个翼棱组成。降阶法把它们组合起来，让魔方像 3×3 一样还原。';
+      '4×4 每个面有四个会移动的中心块，每个棱都由两个翼棱组成。没有固定中心，所以先用一个角块确认颜色顺序：白对黄、蓝对绿、红对橙。';
 
   @override
   String get stepBigSlices => '双层转动与内层转动';
@@ -1156,7 +1158,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get stepBigCenterCycleBody =>
-      '这个交换子只移动三个中心块，其余部分都不受影响，所以已完成的中心会保持完成状态。';
+      '这个交换子正好移动三个中心块，其他都不动，所以拼好的中心保持完整。当一块散落的中心块进不了条块时就用它。';
 
   @override
   String get lessonBigEdges => '棱块配对';
@@ -1169,7 +1171,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get stepBigEdgePairBody =>
-      'Uw\' 让两个相同的翼棱对齐，R U R\' F R\' F\' R 换入一个未配对的棱，Uw 再把中心复原。';
+      'Uw\' 让两个相同的翼棱对齐，R U R\' F R\' F\' R 换入一个未配对的棱，Uw 再把中心复原。打开的内层一定要关上。';
 
   @override
   String get lessonBigParity => '奇偶校验';
@@ -1182,20 +1184,26 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get stepBigOllParityBody =>
-      '3×3 上不可能只有一个棱块翻转。在偶数阶魔方上，这个公式会把顶层前方的棱块翻回来。它可能打乱顶层的其余部分，不过 3×3 的最后几步本来就会处理好。';
+      '单独一个棱块翻转在 3×3 上不可能出现：这是 OLL 奇偶（O特），不是你做错了。把它放在顶层前面，做长公式。它还会交换顶层左右两个棱块和两个角块，最后的 3×3 步骤会修好。';
 
   @override
   String get stepBigPllParity => 'PLL 奇偶';
 
   @override
   String get stepBigPllParityBody =>
-      '最后有两个棱块互换了？2R2 U2 2R2 Uw2 2R2 Uw2 会交换顶层前后两个棱块。';
+      '最后两个棱块互换，而且没有 3×3 公式能用？这就是 PLL 奇偶（P特）。把它们放在顶层前面和后面：2R2 U2 2R2 Uw2 2R2 2U2 会交换它们。';
 
   @override
   String get introGoalHeading => '目标是什么？';
 
   @override
   String get introHowHeading => '怎么做？';
+
+  @override
+  String get introHoldHeading => '怎么拿';
+
+  @override
+  String get introWhyHeading => '为什么有效';
 
   @override
   String get introStart => '明白了，开始分步学习';
@@ -1219,10 +1227,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get introGoalBasics => '学会读懂魔方：它的块、六个面，以及转动符号怎样转动它们。';
 
   @override
-  String get introGoalCross => '拼出白色十字，并让每个白色棱块的侧面颜色与相邻中心一致。';
+  String get introGoalCross => '在底面拼出白十字，并让每个白色棱块也和旁边中心块的颜色对上。';
 
   @override
-  String get introGoalCorners => '放好四个白色角块，完成第一个王冠，也就是整个白色层。';
+  String get introGoalCorners => '放好四个白色角块，完成整个第一层：白色面加上对齐的侧面颜色。';
 
   @override
   String get introGoalMiddle => '放好中间层的四个棱块，前两层就完成了。';
@@ -1258,7 +1266,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get introGoalTwoOll => '让 2×2 的顶面全部变成黄色。';
 
   @override
-  String get introGoalTwoPbl => '交换最后的角块，完成 2×2。';
+  String get introGoalTwoPbl => '用一次 T-perm 或 Y-perm 把最后的角块归位，再转顶层对齐，还原 2×2。';
 
   @override
   String get introGoalBigIntro => '认识 4×4：中心块、棱块对、角块，以及转动它们的符号。';
@@ -1270,81 +1278,199 @@ class AppLocalizationsZh extends AppLocalizations {
   String get introGoalBigEdges => '把颜色相同的棱块配对，让每条棱看起来像 3×3 的一个棱块。';
 
   @override
-  String get introGoalBigParity => '解决 3×3 不会出现的两种 4×4 情况：一个翻转的棱块，或两个互换的棱块。';
+  String get introGoalBigParity =>
+      '解决 3×3 永远不会出现的两种 4×4 情况：一个棱块翻转（O特，OLL 奇偶）或两个棱块互换（P特，PLL 奇偶）。';
 
   @override
   String get introHowBasics =>
       '中心块从不移动，所以它们决定每个面的颜色。\n每个字母把一个面顺时针转 90°。\n撇号（\'）表示反方向，2 表示转两次。';
 
   @override
+  String get introHoldBasics => '怎么拿都行：中心块不会动，所以颜色总能告诉你哪一面是哪一面。';
+
+  @override
+  String get introWhyBasics => '每个公式都只是这些字母排成一串，所以会读它们是第一项本领。';
+
+  @override
   String get introHowCross =>
-      '黄色朝上拿：白色十字在底面完成。\n找到一个白色棱块，把它的侧面颜色对准相同颜色的中心。\n把这个面转两次，让棱块落到位。';
+      '把白色棱块白色朝上转到顶层，围在黄色中心块周围：这就是小花。\n转动顶层，让一片花瓣的侧面颜色对准同色的中心块。\n把那一面转 180° 放下去，四片花瓣都这样做。';
+
+  @override
+  String get introHoldCross => '整个步骤黄色中心朝上、白色中心朝下。对花瓣时转顶层，不要转整个魔方。';
+
+  @override
+  String get introWhyCross => '白色朝上时，前面转两下就能把棱块放到白色中心上，白色朝下，侧面颜色也已经对上。';
 
   @override
   String get introHowCorners =>
-      '把一个白色角块转到它的空位上方。\n重复 R U R\' U\'，直到它以正确方向落入。\n其余三个角块也照做。';
+      '转动顶层，让白色角块来到右前方空位的正上方。\n重复 R U R\' U\'：白色朝右做 1 次，朝上做 3 次，朝向你做 5 次。\n其余三个角块也照做。';
+
+  @override
+  String get introHoldCorners => '白色在下，黄色在上。角块在右前方，正好在它的位置上方。';
+
+  @override
+  String get introWhyCorners =>
+      'R U R\' U\' 把槽位抬起再放回：每做一轮角块就扭一点，直到白色朝下，十字始终不会被破坏。';
 
   @override
   String get introHowMiddle =>
-      '找一个不含黄色的顶层棱块，把它的前面颜色对准中心。\n用一个 8 步的短公式把它送到右边或左边。\n白色层每次都会完好地回来。';
+      '找一个没有黄色的顶层棱块，让它的前面颜色对准下方的中心块。\n它顶面的颜色告诉你往哪边放：右边还是左边。\n用 8 步公式放进去，白色层每次都会复原。';
+
+  @override
+  String get introHoldMiddle => '白色在下，黄色在上。棱块在前面，前面颜色和下方中心块相同。';
+
+  @override
+  String get introWhyMiddle => '公式先把槽位移开，送入棱块，再把白色层复原。带黄色的棱块属于顶层，绝不属于中层。';
 
   @override
   String get introHowYellowCross =>
-      '看顶面：一个点、一个 L 形或一条线。\n按图示拿好，做 F R U R\' U\' F\'。\n重复直到出现黄色十字。';
+      '只看顶面的黄色棱块：点、L 形或一字。\nL 放在左后方，一字横放，然后做 F R U R\' U\' F\'。\n一字做 1 次，L 形 2 次，点最多 3 次。';
+
+  @override
+  String get introHoldYellowCross => '白色在下，黄色在上。L 形放左后方，一字横放；点怎么拿都行。';
+
+  @override
+  String get introWhyYellowCross => 'F R U R\' U\' F\' 每次翻正两个顶层棱块，不会动到前两层。';
 
   @override
   String get introHowYellowEdges =>
-      '转动顶层，直到有两个棱块与中心对齐。\n把它们放在后面和右边，然后做 R U R\' U R U2 R\' U。\n重复直到四个都对齐。';
+      '转动顶层，直到两个棱块和侧面中心对上。\n把它们放在后面和右边，然后做 R U R\' U R U2 R\' U。\n如果对上的两个棱块相对，先从任意一面做一次。';
+
+  @override
+  String get introHoldYellowEdges => '黄色在上。一个对上的棱块在后面，另一个在右边。';
+
+  @override
+  String get introWhyYellowEdges => '这个公式只动顶层的块，所以前两层总能复原。';
 
   @override
   String get introHowYellowCorners =>
-      '角块的颜色与周围三个面一致时，它就在正确位置。\n把一个已归位的角块放在右前方。\nU R U\' L\' U R\' U\' L 轮换另外三个，直到全部归位。';
+      '角块的颜色和周围三个中心块一致，就算还没翻正也已经归位。\n把一个已归位的角块放在右前方。\nU R U\' L\' U R\' U\' L 让另外三个轮换，重复到全部归位。';
+
+  @override
+  String get introHoldYellowCorners => '黄色在上。把已经归位的角块放在右前方；没有的话任意一个都行。';
+
+  @override
+  String get introWhyYellowCorners => '它让三个角块轮换，右前方的角块不动，所以每重复一次就有更多角块归位。';
 
   @override
   String get introHowTwistCorners =>
-      '把一个未完成的角块拿在右前方。\n重复 R\' D\' R D，直到它的黄色朝上。\n下一个只转顶层；底层最后会自己复原。';
+      '把一个没翻正的角块放在右前方。\n两次一组重复 R\' D\' R D，直到它的黄色朝上。\n下一个角块只转顶层带过来，底部会在最后一个角块时复原。';
+
+  @override
+  String get introHoldTwistCorners => '黄色在上，要翻的角块在右前方。角块之间只转顶层，绝不转整个魔方。';
+
+  @override
+  String get introWhyTwistCorners =>
+      'R\' D\' R D 会扭角块、打乱底部，但所有角块都翻正后底部会复原。半途停下底部就会乱着。';
 
   @override
   String get introHowCfopIntro =>
       '十字：在观察时规划好四个棱块。\nF2L：每个角块和它的棱块一起放入。\nOLL 让顶面全黄，然后 PLL 把各块送回原位。';
 
   @override
+  String get introHoldCfopIntro => '速拧玩家把十字放在底面，这样转的时候就能提前看到下一块。';
+
+  @override
+  String get introWhyCfopIntro => '把角块和它的棱块一起解能省下很多步，认出情况就不用反复试错。';
+
+  @override
   String get introHowF2l => '在顶层找到一个角块和与它配对的棱块。\n在槽位上方把它们组成一对。\n用三四步把这一对放进去。';
+
+  @override
+  String get introHoldF2l => '十字在底面。这一对的槽位在右前方，镜像情况在左前方。';
+
+  @override
+  String get introWhyF2l => '配好的角块和棱块一起放进去，两层同时完成，而不是一块一块来。';
 
   @override
   String get introHowOll =>
       '先用 F R U R\' U\' F\' 做出黄色十字。\n再调整角块朝向，例如用 Sune。\n根据看到的黄色图案识别情况。';
 
   @override
+  String get introHoldOll => '黄色在上。做小鱼时，唯一黄色朝上的角块放在左前方。';
+
+  @override
+  String get introWhyOll => '把最后一层分成先调朝向、再调位置，要记的公式就很少。';
+
+  @override
   String get introHowPll =>
       '顶面已经全是黄色。\nT-perm 交换角块；U-perm 轮换三个棱块。\n看侧面颜色来选择公式。';
 
   @override
+  String get introHoldPll => '黄色在上。T-perm：车灯在左边。U-perm：已完成的一面在后面。';
+
+  @override
+  String get introWhyPll => '顶面全黄以后只剩位置不对，几次交换就能还原魔方。';
+
+  @override
   String get introHowTwoFirst =>
-      '2×2 只有角块，就像没有棱块的 3×3。\n把每个白色角块转到它的位置上方。\n重复 R U R\' U\'，直到它落入。';
+      '选一个白色朝下的白色角块作为基准。\n把下一个角块转到右前方位置的正上方。\n重复 R U R\' U\'，直到它带着对齐的侧面颜色落入。';
+
+  @override
+  String get introHoldTwoFirst => '白色在下。空位在右前方，它的角块就在顶层正上方。';
+
+  @override
+  String get introWhyTwoFirst => '2×2 没有中心块：第一个放好的角块决定了邻居的颜色，所以侧面颜色也很重要，不只是白色。';
 
   @override
   String get introHowTwoOll =>
-      '白色层保持在底部。\nSune（R U R\' U R U2 R\'）会翻转顶层角块。\n从正确角度重复，直到顶面全黄。';
+      '数一数黄色朝上的角块。\n有一个时把它放在左前方，做小鱼（Sune）：R U R\' U R U2 R\'。\n再数一次并重复，最多三次。';
+
+  @override
+  String get introHoldTwoOll => '白色在下，黄色在上。每次做小鱼前，黄色朝上的角块放在左前方。';
+
+  @override
+  String get introWhyTwoOll => '小鱼能扭顶层角块而不破坏白色层；重新数一下就知道下次怎么拿。';
 
   @override
   String get introHowTwoPbl =>
-      '找一个已有两个角块对齐的侧面。\n相邻交换：一个类似 T-perm 的公式。\n对角交换：一个稍长的公式。';
+      '找车灯：同一侧面顶层两个同色贴纸。\n某一侧有车灯：转到左边，做 T-perm。\n没有车灯：从任意一面做 Y-perm，再对齐顶层。';
+
+  @override
+  String get introHoldTwoPbl => '白色在下，黄色在上。T-perm：车灯在左边。Y-perm：任意一面朝向你。';
+
+  @override
+  String get introWhyTwoPbl => '顶面黄了以后只剩角块的位置：T-perm 交换相邻的两个，Y-perm 交换对角的两个。';
 
   @override
   String get introHowBigIntro =>
       '没有固定的中心：四个中心块组成一个面的颜色。\n像 Rw 这样的双层转动一次转两层。\n像 2R 这样的内层转动只转一个内层。';
 
   @override
-  String get introHowBigCenters =>
-      '先拼好两个相对的中心。\n用内层交换中心块，不会破坏已拼好的中心。\n用同样方法完成最后四个中心。';
+  String get introHoldBigIntro => '一开始怎么拿都行：4×4 没有固定中心，每种颜色放哪里由你决定。';
 
   @override
-  String get introHowBigEdges => '找到两个颜色相同的棱块。\n用内层把它们并排对齐。\n把这一对移开，再把中心恢复。';
+  String get introWhyBigIntro => '降阶法把中心块和棱块组合起来，让大魔方能像 3×3 一样还原。';
+
+  @override
+  String get introHowBigCenters =>
+      '先用一个角块确认颜色顺序。\n先拼两个相对的中心，再拼其余四个。\n内层转动搬动中心块；打开的内层一定要转回来。';
+
+  @override
+  String get introHoldBigCenters => '正在拼的面朝前，拼好的中心放在左右两边，不碍事。';
+
+  @override
+  String get introWhyBigCenters => '内层转动会搬动中心，转回来又会复原拼好的中心，所以只有目标那一块会改变。';
+
+  @override
+  String get introHowBigEdges =>
+      '找出两种颜色相同的两个翼棱。\n在前面排好，用 Uw\' 合在一起。\n换入一个未配对的棱块，再用 Uw 把中心复原。';
+
+  @override
+  String get introHoldBigEdges => '正在配对的棱块在前面几层，拼好的棱块存放在顶层和底层。';
+
+  @override
+  String get introWhyBigEdges => 'Uw\' 把中心移开，让两个翼棱相遇；Uw 再把中心转回来，你的成果不会丢。';
 
   @override
   String get introHowBigParity =>
-      '像 3×3 一样还原 4×4，直到卡住。\n一个翻转的棱块：较长的 OLL 奇偶公式。\n两个互换的棱块：2R2 U2 2R2 Uw2 2R2 Uw2。';
+      '像 3×3 一样还原 4×4，直到卡住。\n一个棱块翻转：长的 OLL 奇偶公式。\n两个棱块互换：2R2 U2 2R2 Uw2 2R2 2U2。';
+
+  @override
+  String get introHoldBigParity => '最后一层朝上。O特：翻转的棱块在前面。P特：互换的棱块在前面和后面。';
+
+  @override
+  String get introWhyBigParity => '翼棱可能处在 3×3 达不到的状态；这些公式转动内层，正好把它撤销。';
 
   @override
   String get dirFaceR => '右侧';
@@ -1454,13 +1580,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get stageParity => '解决奇偶校验';
 
   @override
-  String get stageCrown1 => '第一顶王冠（白色）';
+  String get stageCrown1 => '第一层（白色）';
 
   @override
-  String get stageCrown2 => '第二顶王冠';
+  String get stageCrown2 => '第二层';
 
   @override
-  String get stageCrown3 => '第三顶王冠（黄色）';
+  String get stageCrown3 => '第三层（黄色）';
 
   @override
   String get stageOrient => '调整块的朝向';
@@ -1502,6 +1628,12 @@ class AppLocalizationsZh extends AppLocalizations {
       '每个面正中间的块永远不动。\n每条棱由一个中棱和两个翼棱组成。\n内层转动能移动块而不碰外面。';
 
   @override
+  String get introHoldFiveIntro => '怎么拿都行：5×5 每个面的正中心不会动，它显示这一面的颜色。';
+
+  @override
+  String get introWhyFiveIntro => '固定的中心决定了配色，所以中心不可能拼错顺序。';
+
+  @override
   String get lessonFiveCenters => '5×5 中心';
 
   @override
@@ -1512,7 +1644,13 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get introHowFiveCenters =>
-      '从正中间的块开始：它决定颜色。\n拼出三格中心条，用内层把它推进去。\n最后两个中心一起完成。';
+      '从固定的中心块开始：颜色由它决定。\n拼出三块一条的条块，用内层滑进去。\n送入条块的那一步也会把拼好的中心复原。';
+
+  @override
+  String get introHoldFiveCenters => '正在拼的中心在前面或顶面，拼好的中心在底面、左边或右边。';
+
+  @override
+  String get introWhyFiveCenters => '内层进、转顶层、内层回：送入条块的内层也把拼好的中心复原。';
 
   @override
   String get lessonFiveEdges => '5×5 棱块';
@@ -1525,20 +1663,32 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get introHowFiveEdges =>
-      '在前面把两个翼棱对准它们的中棱。\n转内层，换进一条未完成的棱，再转回来。\n配对最后几条棱时不破坏已完成的。';
+      '在前面把每个翼棱和它的中棱对齐。\n转内层，换入未完成的棱块，再转回来。\n最后几个棱块：内层、翻转、内层。';
+
+  @override
+  String get introHoldFiveEdges => '正在拼的棱块在前面，拼好的棱块存放在顶层和底层。';
+
+  @override
+  String get introWhyFiveEdges => '打开再关上内层就能接上翼棱，中心和存放的棱块也会回来。';
 
   @override
   String get lessonFiveSolve => '按 3×3 还原 5×5';
 
   @override
-  String get lessonFiveSolveDesc => '用三顶王冠收尾。';
+  String get lessonFiveSolveDesc => '像 3×3 一样逐层完成。';
 
   @override
-  String get introGoalFiveSolve => '把降阶后的 5×5 像 3×3 一样，一顶王冠一顶王冠地还原。';
+  String get introGoalFiveSolve => '把降阶后的 5×5 当成 3×3，只用外层转动逐层还原。';
 
   @override
   String get introHowFiveSolve =>
-      '从现在起只用外层转动。\n第一顶王冠、第二顶，然后是黄色王冠。\n固定中心显示每个面的颜色。';
+      '从现在起只转外层，否则配好的棱块会散开。\n白十字和角块、中层，然后是黄色层。\n固定的中心块显示每个面的颜色。';
+
+  @override
+  String get introHoldFiveSolve => '第一层的颜色朝下，和 3×3 完全一样；要放的角块在右前方。';
+
+  @override
+  String get introWhyFiveSolve => '转内层会再次拆开中心和棱块；转外层则把每个块组当成 3×3 的一块。';
 
   @override
   String get lessonFiveParity => '5×5 棱块奇偶';
@@ -1547,10 +1697,17 @@ class AppLocalizationsZh extends AppLocalizations {
   String get lessonFiveParityDesc => '修好两个翼棱互换的棱。';
 
   @override
-  String get introGoalFiveParity => '修好两个翼棱互换的那一条棱，然后完成还原。';
+  String get introGoalFiveParity => '修正两个外侧翼棱互换的那一个棱块：这是 5×5 唯一的奇偶情况。';
 
   @override
-  String get introHowFiveParity => '它表现为一条怎么也配不上的棱。\n做一次较长的内层修正公式。\n其他一切都回到原位。';
+  String get introHowFiveParity =>
+      '它表现为最后一个看起来翻转的棱块。\n做一次用内层的长公式。\n5×5 没有 PLL 奇偶。';
+
+  @override
+  String get introHoldFiveParity => '最后一层朝上，翼棱互换的棱块在顶层前面。';
+
+  @override
+  String get introWhyFiveParity => '5×5 只有一个棱块的两个外翼棱可能互换，所以一个公式就够了。';
 
   @override
   String get lessonSixIntro => '认识 6×6';
@@ -1566,6 +1723,12 @@ class AppLocalizationsZh extends AppLocalizations {
       '没有固定中心：拼的时候由你决定颜色。\n每条棱有外翼棱和内翼棱。\n宽层转动最多能动三层。';
 
   @override
+  String get introHoldSixIntro => '一开始怎么拿都行：和 4×4 一样，6×6 也没有固定中心。';
+
+  @override
+  String get introWhySixIntro => '会还原 4×4 和 5×5，6×6 就是块更大的同一种降阶。';
+
+  @override
   String get lessonSixCenters => '6×6 中心';
 
   @override
@@ -1576,7 +1739,13 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get introHowSixCenters =>
-      '先拼两个相对的中心。\n拼出四格中心条并把它们合在一起。\n用“内层、顶层、撤回”技巧一次移动一块。';
+      '先用一个角块确认颜色顺序：没有固定的中心。\n拼出四块一条的条块再合起来。\n最后两个中心一块一块地搬：内层、顶层、撤回。';
+
+  @override
+  String get introHoldSixCenters => '正在拼的面朝前，拼好的中心在左边、右边或底面。';
+
+  @override
+  String get introWhySixCenters => '条块靠内层转动拼接，每次都转回来，所以拼好的中心保持完整。';
 
   @override
   String get lessonSixEdges => '6×6 棱块';
@@ -1588,20 +1757,33 @@ class AppLocalizationsZh extends AppLocalizations {
   String get introGoalSixEdges => '集齐每条棱的四块，让 6×6 有 12 条整齐的棱。';
 
   @override
-  String get introHowSixEdges => '在前面排好外翼棱和内翼棱。\n深的宽层负责把棱送进送出。\n已完成的棱永远不会被拆散。';
+  String get introHowSixEdges =>
+      '在前面排好一个棱块的外翼棱和内翼棱。\n深层宽转把棱块送进送出。\n不要为了取出一块而拆掉拼好的棱块。';
+
+  @override
+  String get introHoldSixEdges => '正在拼的棱块在前面，拼好的棱块存放在顶层和底层。';
+
+  @override
+  String get introWhySixEdges => '深层宽转把中心移开，让翼棱相遇，然后再转回来。';
 
   @override
   String get lessonSixSolve => '按 3×3 还原 6×6';
 
   @override
-  String get lessonSixSolveDesc => '用三顶王冠收尾。';
+  String get lessonSixSolveDesc => '像 3×3 一样逐层完成。';
 
   @override
-  String get introGoalSixSolve => '把降阶后的 6×6 像 3×3 一样，一顶王冠一顶王冠地还原。';
+  String get introGoalSixSolve => '把降阶后的 6×6 当成 3×3，只用外层转动逐层还原。';
 
   @override
   String get introHowSixSolve =>
-      '从现在起只用外层转动。\n你拼好的中心显示每个面的颜色。\n第一顶王冠、第二顶，然后是黄色王冠。';
+      '从现在起只转外层：内层转动会拆散中心或棱块。\n你拼好的中心显示每个面的颜色。\n白十字和角块、中层，然后是黄色层。';
+
+  @override
+  String get introHoldSixSolve => '第一层的颜色朝下，和 3×3 完全一样；要放的角块在右前方。';
+
+  @override
+  String get introWhySixSolve => '外层转动把每个 4×4 中心和每个棱块当成一块来移动，和 3×3 一模一样。';
 
   @override
   String get lessonSixParity => '6×6 奇偶校验';
@@ -1614,14 +1796,21 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get introHowSixParity =>
-      '像 3×3 一样还原，直到卡住。\n一条棱翻转：较长的奇偶修正。\n两条棱互换：用双层转动的短修正。';
+      '像 3×3 一样还原，直到卡住。\n一个棱块翻转：用 3Rw 的长公式。\n两个棱块互换：内层双转的短公式。';
+
+  @override
+  String get introHoldSixParity => '最后一层朝上。翻转的棱块在前面；两个互换就放在前面和后面。';
+
+  @override
+  String get introWhySixParity =>
+      '和 4×4 一样，6×6 也可能以一个翻转或两个互换的棱块结尾；内层公式只修正它们，其余不动。';
 
   @override
   String get stepFivePieces => '5×5 的块';
 
   @override
   String get stepFivePiecesBody =>
-      '每个面正中间的块不动，所以和 3×3 一样决定面的颜色。它周围还有 8 个中心块；每条棱有一个中棱和两个翼棱，角块和 3×3 一样。';
+      '每个面的正中心块不会动，所以配色不可能出错。它周围有八个中心块：角中心和棱中心永远不会互换类型。每个棱由一个中棱和两个翼棱组成。';
 
   @override
   String get stepFiveSlices => '三种转动';
@@ -1635,7 +1824,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get stepFiveCenterBarBody =>
-      '拼出三个同色中心块排成一行，再用内层转动把它移到同色中心旁边。三条中心条组成一个完整的中心。';
+      '把三个同色中心块排成一条，用内层滑进去，转顶层再把内层转回：送入条块的那一步也会复原拼好的中心。三条组成一个中心。';
 
   @override
   String get stepFiveCenterSwap => '换块不破坏';
@@ -1649,34 +1838,35 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get stepFiveEdgePairBody =>
-      '在前面把两个翼棱放到中棱旁边，把内层转下去，从上面带入一条未完成的棱，再把内层转回来。';
+      '在前面把一个翼棱排在它的中棱旁边，把内层转下去，用一个短公式换入未完成的棱块，再把内层转回来。';
 
   @override
   String get stepFiveEdgeLast => '最后几条棱';
 
   @override
-  String get stepFiveEdgeLastBody => '只剩几条棱时，用宽层转动、短触发和宽层转回，就能配好它们而不破坏已完成的棱。';
+  String get stepFiveEdgeLastBody =>
+      '没有空闲棱块可换时，用内层、翻转、内层：一次宽转、一个短触发、再宽转回来，就能配好最后的棱块而不拆散已完成的。';
 
   @override
   String get stepFiveAsThree => '现在它是 3×3 了';
 
   @override
   String get stepFiveAsThreeBody =>
-      '中心和棱都完成后，5×5 就像一个大 3×3。只用外层转动，依次完成三顶王冠：白色十字和角块、中间层，然后是黄色层。';
+      '中心和棱块都完成后，5×5 就像一个大号 3×3。只转外层，逐层还原：白十字和角块、中层，然后是黄色层。5×5 没有 PLL 奇偶。';
 
   @override
   String get stepFiveEdgeParity => '换回最后一条棱的翼棱';
 
   @override
   String get stepFiveEdgeParityBody =>
-      '有时最后一条棱的两个翼棱是互换的。一段较长的内层公式会把它们换回来，其他块都回到原位。之后按 3×3 完成。';
+      '有时最后一个棱块的两个外翼棱互换了，看起来像翻转：这是 5×5 唯一的奇偶情况。把它放在顶层前面，做一次内层公式，其他一切都会回到原位。';
 
   @override
   String get stepSixPieces => '6×6 的块';
 
   @override
   String get stepSixPiecesBody =>
-      '和 4×4 一样，6×6 没有固定中心：16 个中心块组成每个面的颜色。每条棱有四块：两个外翼棱和两个内翼棱。';
+      '和 4×4 一样，6×6 没有固定中心：十六个中心块组成每个面的颜色，所以先用一个角块确认颜色顺序。每个棱有四个翼棱：两个外翼、两个内翼。';
 
   @override
   String get stepSixSlices => '转动更深的层';
@@ -1688,44 +1878,50 @@ class AppLocalizationsZh extends AppLocalizations {
   String get stepSixCenterBar => '四格中心条';
 
   @override
-  String get stepSixCenterBarBody => '拼出四个同色中心块排成一行，用内层转动把它们并排放好，直到整个面同色。';
+  String get stepSixCenterBarBody =>
+      '把四个同色中心块排成条，用内层转动把它们并排拼起来，每次都把内层转回，直到这一面成为同色的 4×4 块。';
 
   @override
   String get stepSixCenterSwap => '一次一块';
 
   @override
-  String get stepSixCenterSwapBody => '转第三层，转顶层，撤回，再转回：一个中心块移动，已完成的中心复原。';
+  String get stepSixCenterSwapBody =>
+      '转第三层、转顶层、撤回、顶层转回：一个中心块被搬走，拼好的中心都会回来。最后两个中心没有条块能放时就用它。';
 
   @override
   String get stepSixEdgePair => '四块拼一条棱';
 
   @override
-  String get stepSixEdgePairBody => '用深的宽层把一条棱的四块集中到前面，带入一条未完成的棱，再把宽层转回来。';
+  String get stepSixEdgePairBody =>
+      '用深层宽转把一个棱的四个翼棱集中到前面，用一个短公式换入未完成的棱块，再把宽层转回来。';
 
   @override
   String get stepSixEdgeLast => '最后几条棱';
 
   @override
-  String get stepSixEdgeLastBody => '在深宽层转动和撤回之间插入短触发来配好最后的棱，已完成的棱保持不散。';
+  String get stepSixEdgeLastBody =>
+      '在深层宽转和它的撤回之间加一个短触发来配好最后的棱块，已完成的棱块不会散开。不要为了取出一块而拆掉拼好的棱块。';
 
   @override
   String get stepSixAsThree => '现在它是 3×3 了';
 
   @override
-  String get stepSixAsThreeBody => '有了 4×4 中心和配好的棱，用外层转动和三顶王冠把 6×6 当作 3×3 还原。';
+  String get stepSixAsThreeBody =>
+      '有了 4×4 中心和配好的棱块，就像 3×3 一样只转外层、逐层还原 6×6。最后出现一个翻转或两个互换的棱块是奇偶，不是错误。';
 
   @override
   String get stepSixOllParity => '一条棱翻转';
 
   @override
   String get stepSixOllParityBody =>
-      '如果还原最后一层时只有一条棱看起来是翻的，那就是奇偶。把它放在顶层前面，做较长的修正：前两顶王冠会完好地回来。';
+      '最后一层里单独一个看起来翻转的棱块就是奇偶。把它放在顶层前面，做长公式：它翻转全部四个翼棱，也交换顶层左右的棱块，但不会动到前两层。';
 
   @override
   String get stepSixPllParity => '两条棱互换';
 
   @override
-  String get stepSixPllParityBody => '如果最后看到两条棱互换了，把它们放在顶层的前面和后面，做用内层双转的短修正。';
+  String get stepSixPllParityBody =>
+      '如果最后两个棱块看起来互换了，把它们放在顶层前面和后面，做内层双转的短公式：两个棱块的四个翼棱全部对调。';
 
   @override
   String get stageTwoFirstLayer => '完成底层';
@@ -2227,7 +2423,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String cueCrossFlipped(String piece, String center) {
-    return '$piece棱块位置对了，但方向反了：白色朝向侧面。先把它取出来，再以正确方向放回$center色中心旁边。';
+    return '$piece棱块位置对了但翻转了：白色朝向侧面。先把它取出来，白色朝上转到顶层，再放到$center中心块旁边。';
   }
 
   @override
@@ -2242,7 +2438,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String cueCornerTwisted(String piece) {
-    return '$piece角块在自己的位置上，但方向转错了。做一次公式就会把它取出（一个黄色角块会换进去）；继续重复，直到它正确地回到原位。';
+    return '$piece角块在槽位里但没翻正。做一次就能把它取出（会有一个黄色角块换进去）；在同一个槽位上继续重复，直到它白色朝下回来。不要转整个魔方去追它。';
   }
 
   @override
@@ -2257,7 +2453,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String cueMiddleFlipped(String piece, String a, String b) {
-    return '$piece棱块在槽位里，但方向反了。先把一个黄色棱块插进去把它顶出来，再把它重新插入$a色和$b色之间。';
+    return '$piece棱块在槽位里但翻转了。先在那里放进一个黄色棱块把它顶到顶层，再把它重新放到$a和$b之间。';
   }
 
   @override
@@ -2272,7 +2468,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String cueYellowDot(String front) {
-    return '只有中心是黄色：一个点。保持$front色朝向你，做一次公式，就会得到 L 形。';
+    return '只有中心是黄色：点。$front色朝向你，做一次公式就会出现 L 形。点可能要做三轮，继续就好。';
   }
 
   @override
@@ -2302,7 +2498,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String cueTwistCorner(String piece) {
-    return '调整右前方的$piece角块：重复下层公式，直到它的黄色朝上。下面几层暂时看起来是乱的，这很正常！';
+    return '翻正右前方的$piece角块：两次一组重复下层公式，直到它的黄色朝上。下面几层现在看起来很乱，最后一个角块时会复原！';
   }
 
   @override
@@ -2378,16 +2574,16 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String cueParityOll(String front) {
-    return 'OLL 特殊情况：顶层有一个棱块翻转了，这在三阶上从不会发生。把它放在前面，保持$front色朝向你，做特殊情况修正公式。';
+    return 'OLL 奇偶（O特）：顶层有一个棱块翻转了，3×3 上不会发生。$front色朝向你，把它放在前面，在普通 OLL 之前先做奇偶公式。';
   }
 
   @override
   String get cueParityPll =>
-      'PLL 特殊情况：顶层两个棱块互换了，这在三阶上从不会发生。把它们放在前面和后面，做特殊情况交换公式。';
+      'PLL 奇偶（P特）：顶层两个棱块互换了，3×3 上不会发生。把它们放在前面和后面，做奇偶交换，再对齐顶层。';
 
   @override
   String cueParityFive(String front) {
-    return '棱的特殊情况：一条棱外侧的两个小块互换了。把这条棱转到前面，保持$front色朝向你，修正后再转回去。';
+    return '棱块奇偶：一个棱块的两个外翼棱互换了，这是 5×5 唯一的奇偶情况。$front色朝向你，把这个棱块放在前面，做一次修正公式。';
   }
 
   @override
@@ -2416,7 +2612,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get onboardingLearnTitle => '边学边玩';
 
   @override
-  String get onboardingLearnBody => '在学院掌握三皇冠法，然后在 3D 练习场里自由转动、打乱和还原。';
+  String get onboardingLearnBody => '在学院里掌握层先法，然后在 3D 游乐场里自由转动、打乱和还原。';
 
   @override
   String get scanChoiceManualDesc => '逐个贴纸点选每个面的颜色。';
@@ -2431,7 +2627,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get scanLightingHint => '让这个面位于网格中央。使用明亮均匀的光线，避免反光。';
 
   @override
-  String get crownExplain => '皇冠就是魔方的一个水平层：第一顶皇冠是底部的白色层，第二顶是中间层，第三顶是顶部的黄色层。';
+  String get crownExplain => '层就是魔方的一个水平层：第一层是底部的白色层，第二层是中间层，第三层是顶部的黄色层。';
 
   @override
   String get lessonObjectiveHeading => '学习目标';
@@ -2455,7 +2651,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get solveChoiceFastDesc => '最短解法，一步一步来。';
 
   @override
-  String get solveChoiceGuidedDesc => '一步步学习三皇冠法。';
+  String get solveChoiceGuidedDesc => '一步一步学会层先法。';
 
   @override
   String get guidedSolvedTitle => '还原完成！';
@@ -2645,7 +2841,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   }
 
   @override
-  String get solved => '已還原';
+  String get solved => '已復原';
 
   @override
   String get scrambled => '已打亂';
@@ -2669,7 +2865,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get solveLearn => '一步步學習';
 
   @override
-  String get solveModeGuided => '引導模式（三頂皇冠）';
+  String get solveModeGuided => '引導（3 層）';
 
   @override
   String get solveModeFast => '快速（最佳解）';
@@ -2680,7 +2876,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   }
 
   @override
-  String get solveAlreadySolved => '方塊已經還原了。';
+  String get solveAlreadySolved => '方塊已經復原了。';
 
   @override
   String solveFailed(String reason) {
@@ -2691,7 +2887,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get solveEngineMissing => '此裝置無法使用求解引擎。';
 
   @override
-  String get solveComplete => '還原了！做得好。';
+  String get solveComplete => '復原了！做得好。';
 
   @override
   String solveSummary(int count) {
@@ -2759,7 +2955,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get phaseLblCross => '白色十字';
 
   @override
-  String get phaseLblCorners => '第一頂皇冠的角塊';
+  String get phaseLblCorners => '第一層角塊';
 
   @override
   String get phaseLblMiddle => '中層邊塊';
@@ -2777,13 +2973,13 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get phaseLblYellowCornersOrient => '翻轉黃色角塊';
 
   @override
-  String get crownFirst => '第一頂皇冠';
+  String get crownFirst => '第一層';
 
   @override
-  String get crownSecond => '第二頂皇冠';
+  String get crownSecond => '第二層';
 
   @override
-  String get crownThird => '第三頂皇冠';
+  String get crownThird => '第三層';
 
   @override
   String get crownFirstGoal => '白色面與第一層';
@@ -2798,10 +2994,10 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get subStepGoal11 => '做出白色十字，讓每個白色邊塊也與旁邊的中心塊同色。';
 
   @override
-  String get subStepGoal12 => '把 4 個白色角塊放進對應的位置，完成白色面與整個第一圈。';
+  String get subStepGoal12 => '把 4 個白色角塊放進對應的位置，完成白色面和整個第一層。';
 
   @override
-  String get subStepGoal21 => '放入 4 個中層邊塊，同時不破壞第一頂皇冠。';
+  String get subStepGoal21 => '在不破壞第一層的情況下，放好中間層的 4 個邊塊。';
 
   @override
   String get subStepGoal31 => '在最後一層做出黃色十字。';
@@ -2813,7 +3009,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get subStepGoal33 => '把 4 個黃色角塊移到正確位置，即使方向還沒轉正。';
 
   @override
-  String get subStepGoal34 => '在原位翻轉每個黃色角塊，直到所有貼紙都對齊、方塊還原。';
+  String get subStepGoal34 => '在原位翻轉每個黃色角塊，直到所有貼紙都對齊、方塊復原。';
 
   @override
   String get explainOptimal2x2 => '搜尋所有 2×2 狀態後找到的最短解法。';
@@ -3144,7 +3340,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   }
 
   @override
-  String get trackBeginner => '3×3 新手：三頂皇冠';
+  String get trackBeginner => '新手 3×3：層先法';
 
   @override
   String get trackCfop => 'CFOP 入門';
@@ -3423,7 +3619,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get stepBasicsPiecesBody =>
-      '中心塊永遠不會移動，決定每一面的顏色。邊塊有兩種顏色，角塊有三種。還原就是把每個邊塊和角塊移到同色的中心塊旁邊。';
+      '中心塊永遠不會移動，決定每一面的顏色。邊塊有兩種顏色，角塊有三種。復原就是把每個邊塊和角塊移到同色的中心塊旁邊。';
 
   @override
   String get stepBasicsFaces => '六個面的字母';
@@ -3442,77 +3638,78 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get stepCrossGoal => '目標';
 
   @override
-  String get stepCrossGoalBody => '黃色朝上。四個白色邊塊圍繞底部的白色中心，每個邊塊的側面顏色都對上旁邊的中心塊。';
+  String get stepCrossGoalBody =>
+      '黃色朝上、綠色朝向你。先把四個白色邊塊白色朝上圍在黃色中心旁邊，像花瓣一樣：這就是黃色小花。再把每片花瓣降到白色中心，讓側面顏色和旁邊的中心塊對齊。';
 
   @override
   String get stepCrossTop => '頂層的邊塊';
 
   @override
   String get stepCrossTopBody =>
-      '在頂層找到一個白色邊塊。轉動頂層，直到它的側面顏色位於同色中心塊上方，再把那一面轉兩次放下去。';
+      '頂層白色朝上的白色邊塊就是一片花瓣。轉動頂層，讓它的側面顏色正好在同色中心塊上方，再把那一面轉 2 次（180°），把它降到白色中心上。';
 
   @override
   String get stepCrossMiddle => '中層的邊塊';
 
   @override
   String get stepCrossMiddleBody =>
-      '卡在中層的邊塊要先移上去：把它所在的側面轉上去，把頂層移開，再把側面轉回來，十字就不會被破壞。然後從頂層放入。';
+      '卡在中間層的邊塊要先上去：把它所在的側面轉上來，把頂層移開，再把側面轉回去，已放好的方塊就不會動。現在它是頂層的一片花瓣：對齊後把那一面轉 2 次。';
 
   @override
   String get stepCornersInsert => '在位置正上方';
 
   @override
   String get stepCornersInsertBody =>
-      '轉動頂層，直到白色角塊位於它顏色所屬位置的正上方，也就是右前方。R U R\' U\' 就能把它放下去。';
+      '轉動頂層，讓白色角塊正好在它的位置上方，也就是和它側面顏色相同的兩個中心之間。這裡轉一下頂層加 R U\' R\' 就夠了：U 把角塊帶到位置上方，R U\' R\' 把它白色朝下放進去。';
 
   @override
   String get stepCornersRepeat => '重複這組動作';
 
   @override
   String get stepCornersRepeatBody =>
-      '如果白色朝向不對，就在同一個位置繼續重複 R U R\' U\'。每個角塊最多重複五次就會完成。';
+      '把位置放在右前方，重複 R U R\' U\' 直到白色朝下：白色朝右做 1 次，朝上做 3 次，朝向你做 5 次。過程中頂層看起來很亂，它會自己恢復。';
 
   @override
   String get stepMiddleRight => '邊塊放右邊';
 
   @override
   String get stepMiddleRightBody =>
-      '把頂層邊塊對齊前面的中心塊。如果它的頂部顏色與右邊中心塊相同，用 U R U\' R\' U\' F\' U F 放入。';
+      '找一個沒有黃色的頂層邊塊。轉動頂層，讓它前面的顏色對齊你面前的中心塊。如果它頂面的顏色和右邊中心相同，就往右放：U R U\' R\' U\' F\' U F。';
 
   @override
   String get stepMiddleLeft => '邊塊放左邊';
 
   @override
   String get stepMiddleLeftBody =>
-      '如果頂部顏色與左邊中心塊相同，就用鏡像公式：U\' L\' U L U F U\' F\'。';
+      '如果頂面顏色和左邊中心相同，就用鏡像公式：U\' L\' U L U F U\' F\'。白色層每次都會完整復原。';
 
   @override
   String get stepYellowCross => '一個公式';
 
   @override
   String get stepYellowCrossBody =>
-      'F R U R\' U\' F\' 能把黃色點變成 L 形、L 形變成一字形、一字形變成十字。L 形放在左後方，一字形橫放。';
+      '只看頂面的黃色邊塊。L 形放在左後方，一字橫放，然後做 F R U R\' U\' F\'。一字做 1 次，L 形 2 次，點最多 3 次。';
 
   @override
   String get stepYellowEdges => '對齊邊塊';
 
   @override
   String get stepYellowEdgesBody =>
-      '轉動頂層，直到兩個邊塊對上中心塊。一個在後、一個在右時，R U R\' U R U2 R\' U 會交換另外兩個。';
+      '轉動頂層，直到兩個邊塊和中心對齊。一個在後面、一個在右邊時，R U R\' U R U2 R\' U 會交換前面和左邊的邊塊。';
 
   @override
   String get stepPlaceCorners => '歸位角塊';
 
   @override
   String get stepPlaceCornersBody =>
-      '把已經在正確位置的角塊放在右前方。U R U\' L\' U R\' U\' L 會移動另外三個；重複直到四個都歸位。';
+      '角塊顏色和周圍三個中心一致，就算方向不對也已經歸位。把這樣的角塊放在右前方：U R U\' L\' U R\' U\' L 讓另外三個輪換。重複到四個都歸位。';
 
   @override
   String get stepTwistCorners => '翻轉角塊';
 
   @override
   String get stepTwistCornersBody =>
-      '把未完成的角塊放在右前方，重複 R\' D\' R D 直到黃色朝上，然後只轉頂層帶出下一個。底層直到最後都會看起來亂掉：繼續做就對了。';
+      '右前方放一個方向不對的角塊，兩次一組重複 R\' D\' R D 直到黃色朝上，再只轉頂層把下一個帶過來。在最後一個角塊之前底部看起來都是亂的：繼續做。';
 
   @override
   String get lessonCfopIntro => '什麼是 CFOP？';
@@ -3600,14 +3797,14 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get stepTwoIntroBody =>
-      '2×2 就是沒有邊塊和中心塊的 3×3。選一個顏色，把那一面拼在底部，並讓相鄰角塊的側面顏色相符。';
+      '2×2 只有八個角塊：沒有邊塊也沒有中心塊。先在底面拼出白色層，讓相鄰的側面顏色對齊，然後只走一條路線：小魚讓頂面變黃，再用 T-perm 或 Y-perm。';
 
   @override
   String get stepTwoCorner => '放入角塊';
 
   @override
   String get stepTwoCornerBody =>
-      '就像 3×3 的白色角塊：把角塊移到它的位置上方，重複 R U R\' U\' 直到放好。';
+      '和 3×3 的白色角塊一樣：把角塊轉到右前方空位上方再放進去，這裡用 U R U\' R\'，或重複 R U R\' U\' 直到白色朝下。再和旁邊的角塊核對側面顏色。';
 
   @override
   String get lessonTwoOll => '調整頂面方向';
@@ -3620,7 +3817,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get stepTwoSuneBody =>
-      'Sune 也能讓 2×2 的頂面變黃。Ortega 玩家會學七種短公式；Sune 和它的鏡像就涵蓋了大部分。';
+      '數一數朝上的黃色貼紙。把唯一黃色朝上的角塊放在左前方，做小魚（R U R\' U R U2 R\'）。再數、再調整拿法；最多做三次小魚，中間只轉頂層。';
 
   @override
   String get lessonTwoPbl => '兩層同時歸位';
@@ -3632,13 +3829,15 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get stepTwoAdjacent => '相鄰交換';
 
   @override
-  String get stepTwoAdjacentBody => '當頂層兩個相鄰角塊需要交換時，把它們放在右邊並使用 T-perm。';
+  String get stepTwoAdjacentBody =>
+      '車燈就是同一側面頂層兩個同色貼紙。轉動頂層讓車燈在左邊，要交換的兩個角塊就在右邊，然後做 T-perm。';
 
   @override
   String get stepTwoDiagonal => '對角交換';
 
   @override
-  String get stepTwoDiagonalBody => '位於對角的兩個角塊用 Y-perm 交換。';
+  String get stepTwoDiagonalBody =>
+      '每一面都沒有車燈，就是兩個對角的角塊要交換：從任一面做 Y-perm，再轉頂層把全部對齊。';
 
   @override
   String get lessonBigIntro => '高階方塊的塊';
@@ -3651,7 +3850,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get stepBigPiecesBody =>
-      '在 4×4 上，每一面有四個會移動的中心塊，每條邊由兩個翼邊組成。降階法把它們組合起來，讓方塊像 3×3 一樣運作。';
+      '4×4 每一面有四個會移動的中心塊，每個邊都由兩個翼邊組成。沒有固定中心，所以先用一個角塊確認顏色順序：白對黃、藍對綠、紅對橘。';
 
   @override
   String get stepBigSlices => '雙層與內層轉動';
@@ -3669,7 +3868,8 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get stepBigCenterCycle => '中心三循環';
 
   @override
-  String get stepBigCenterCycleBody => '這個交換子只移動三個中心塊，其他都不動，所以已完成的中心會保持完成。';
+  String get stepBigCenterCycleBody =>
+      '這個交換子剛好移動三個中心塊，其他都不動，所以拼好的中心保持完整。當一塊落單的中心塊接不上長條時就用它。';
 
   @override
   String get lessonBigEdges => '配對邊塊';
@@ -3678,11 +3878,11 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get lessonBigEdgesDesc => '把翼邊組成完整的邊。';
 
   @override
-  String get stepBigEdgePair => '配對並還原';
+  String get stepBigEdgePair => '配對並復原';
 
   @override
   String get stepBigEdgePairBody =>
-      'Uw\' 讓兩個相同的翼邊對齊，R U R\' F R\' F\' R 換入一個未配對的邊，再用 Uw 把中心轉回來。';
+      'Uw\' 讓兩個相同的翼邊對齊，R U R\' F R\' F\' R 換入一個未配對的邊，再用 Uw 把中心轉回來。打開的內層一定要關上。';
 
   @override
   String get lessonBigParity => 'Parity';
@@ -3695,20 +3895,26 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get stepBigOllParityBody =>
-      '3×3 上不可能只有一個邊塊被翻轉。在偶數階方塊上，這個公式會把頂層前方的邊塊翻回來。它可能打亂頂層其他部分，但最後的 3×3 步驟反正都會修好。';
+      '單獨一個邊塊翻轉在 3×3 上不可能發生：這是 O 特（OLL Parity），不是你做錯。把它放在頂層前面，做長公式。它也會交換頂層左右兩個邊塊和兩個角塊，最後的 3×3 步驟會修好。';
 
   @override
   String get stepBigPllParity => 'PLL Parity';
 
   @override
   String get stepBigPllParityBody =>
-      '最後剩兩個邊塊互換？2R2 U2 2R2 Uw2 2R2 Uw2 會交換頂層前後的邊塊。';
+      '最後兩個邊塊對調，而且沒有 3×3 公式能用？這就是 P 特（PLL Parity）。把它們放在頂層前面和後面：2R2 U2 2R2 Uw2 2R2 2U2 會交換它們。';
 
   @override
   String get introGoalHeading => '目標是什麼？';
 
   @override
   String get introHowHeading => '怎麼做？';
+
+  @override
+  String get introHoldHeading => '怎麼拿';
+
+  @override
+  String get introWhyHeading => '為什麼有效';
 
   @override
   String get introStart => '了解，開始一步步做';
@@ -3732,10 +3938,10 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get introGoalBasics => '學會看懂方塊：它的塊、六個面，以及轉動字母如何轉動它們。';
 
   @override
-  String get introGoalCross => '做出白色十字，讓每個白色邊塊也與旁邊的中心塊同色。';
+  String get introGoalCross => '在底面拼出白色十字，並讓每個白色邊塊也和旁邊中心塊的顏色對齊。';
 
   @override
-  String get introGoalCorners => '補上四個白色角塊，完成第一頂皇冠，也就是整個白色層。';
+  String get introGoalCorners => '放好四個白色角塊，完成整個第一層：白色面加上對齊的側面顏色。';
 
   @override
   String get introGoalMiddle => '放好四個中層邊塊，完成前兩層。';
@@ -3750,7 +3956,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get introGoalYellowCorners => '把每個黃色角塊移到自己的位置，即使方向還沒轉正。';
 
   @override
-  String get introGoalTwistCorners => '把黃色角塊轉到正確方向，讓整顆方塊還原。';
+  String get introGoalTwistCorners => '把黃色角塊轉到正確方向，讓整顆方塊復原。';
 
   @override
   String get introGoalCfopIntro => '了解速解的流程：十字、前兩層，再用兩段式完成最後一層。';
@@ -3771,7 +3977,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get introGoalTwoOll => '讓 2×2 的頂面全部變黃。';
 
   @override
-  String get introGoalTwoPbl => '交換最後的角塊到位，還原 2×2。';
+  String get introGoalTwoPbl => '用一次 T-perm 或 Y-perm 讓最後的角塊歸位，再轉頂層對齊，復原 2×2。';
 
   @override
   String get introGoalBigIntro => '認識 4×4：中心、邊塊組與角塊，以及轉動它們的步驟。';
@@ -3783,81 +3989,199 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get introGoalBigEdges => '把相同的邊塊配對，讓每條邊看起來就像一個 3×3 邊塊。';
 
   @override
-  String get introGoalBigParity => '修正 3×3 不會出現的兩種 4×4 情況：一個邊塊翻轉，或兩個邊塊互換。';
+  String get introGoalBigParity =>
+      '解決 3×3 永遠不會出現的兩種 4×4 狀況：一個邊塊翻轉（O 特，OLL Parity）或兩個邊塊對調（P 特，PLL Parity）。';
 
   @override
   String get introHowBasics =>
       '中心塊永遠不動，所以它們代表每一面的顏色。\n每個字母把一面順時針轉 90°。\n撇號（\'）表示轉回來；2 表示轉兩次。';
 
   @override
+  String get introHoldBasics => '怎麼拿都可以：中心塊不會動，所以顏色永遠會告訴你哪一面是哪一面。';
+
+  @override
+  String get introWhyBasics => '每個公式都只是這些字母排成一串，所以會讀它們是第一項技能。';
+
+  @override
   String get introHowCross =>
-      '黃色朝上：白色十字做在底部。\n找到一個白色邊塊，把它的側面顏色對上同色中心塊。\n把那一面轉兩次，讓邊塊歸位。';
+      '把白色邊塊白色朝上轉到頂層，圍在黃色中心塊旁邊：這就是黃色小花。\n轉動頂層，讓一片花瓣的側面顏色對準同色的中心塊。\n把那一面轉 2 次讓花瓣降下去，四片都這樣做。';
+
+  @override
+  String get introHoldCross => '整個步驟黃色中心朝上、白色中心朝下。對花瓣時轉頂層，不要轉整顆方塊。';
+
+  @override
+  String get introWhyCross => '白色朝上時，前面轉 2 次就能把邊塊放到白色中心上，白色朝下，側面顏色也已經對齊。';
 
   @override
   String get introHowCorners =>
-      '把一個白色角塊移到它空位的正上方。\n重複 R U R\' U\'，直到它以正確方向歸位。\n其他三個角塊也照做。';
+      '轉動頂層，讓白色角塊來到右前方空位的正上方。\n重複 R U R\' U\'：白色朝右做 1 次，朝上做 3 次，朝向你做 5 次。\n其他三個角塊也照做。';
+
+  @override
+  String get introHoldCorners => '白色在下，黃色在上。角塊在右前方，正好在它的位置上方。';
+
+  @override
+  String get introWhyCorners =>
+      'R U R\' U\' 把槽位抬起再放回：每做一輪角塊就轉一點，直到白色朝下，十字始終不會被破壞。';
 
   @override
   String get introHowMiddle =>
-      '在頂層找一個沒有黃色的邊塊，把它的前面顏色對上中心塊。\n用一個 8 步的短公式把它送到右邊或左邊。\n每次白色層都會完好地回來。';
+      '找一個沒有黃色的頂層邊塊，讓它前面的顏色對準下方中心塊。\n它頂面的顏色告訴你要往哪邊放：右邊或左邊。\n用 8 步公式放進去，白色層每次都會復原。';
+
+  @override
+  String get introHoldMiddle => '白色在下，黃色在上。邊塊在前面，前面的顏色和下方中心塊相同。';
+
+  @override
+  String get introWhyMiddle => '公式先把槽位移開，送入邊塊，再讓白色層復原。帶黃色的邊塊屬於頂層，絕不屬於中間層。';
 
   @override
   String get introHowYellowCross =>
-      '看頂面：一個點、一個 L 形或一條線。\n照圖拿好，做 F R U R\' U\' F\'。\n重複直到出現黃色十字。';
+      '只看頂面的黃色邊塊：點、L 形或一字。\nL 放在左後方，一字橫放，然後做 F R U R\' U\' F\'。\n一字做 1 次，L 形 2 次，點最多 3 次。';
+
+  @override
+  String get introHoldYellowCross => '白色在下，黃色在上。L 形放左後方，一字橫放；點怎麼拿都可以。';
+
+  @override
+  String get introWhyYellowCross => 'F R U R\' U\' F\' 每次翻正兩個頂層邊塊，不會動到前兩層。';
 
   @override
   String get introHowYellowEdges =>
-      '轉動頂層，直到兩個邊塊對上中心塊。\n把它們放在後面和右邊，然後做 R U R\' U R U2 R\' U。\n重複直到四個邊塊都對上。';
+      '轉動頂層，直到兩個邊塊和側面中心對齊。\n把它們放在後面和右邊，然後做 R U R\' U R U2 R\' U。\n如果對齊的兩個邊塊在對面，先從任一面做一次。';
+
+  @override
+  String get introHoldYellowEdges => '黃色在上。一個對齊的邊塊在後面，另一個在右邊。';
+
+  @override
+  String get introWhyYellowEdges => '這個公式只動頂層的方塊，所以前兩層一定會復原。';
 
   @override
   String get introHowYellowCorners =>
-      '角塊的顏色和周圍三個面相符時，就代表它在正確位置。\n把一個已歸位的角塊放在右前方。\nU R U\' L\' U R\' U\' L 會循環另外三個，直到全部歸位。';
+      '角塊顏色和周圍三個中心一致，就算方向不對也已經歸位。\n把一個已歸位的角塊放在右前方。\nU R U\' L\' U R\' U\' L 讓另外三個輪換，重複到全部歸位。';
+
+  @override
+  String get introHoldYellowCorners => '黃色在上。把已歸位的角塊放在右前方；沒有的話任何一個都可以。';
+
+  @override
+  String get introWhyYellowCorners => '它讓三個角塊輪換，右前方的角塊不動，所以每重複一次就有更多角塊歸位。';
 
   @override
   String get introHowTwistCorners =>
-      '把一個未完成的角塊放在右前方。\n重複 R\' D\' R D，直到它的黃色朝上。\n只轉頂層換到下一個；底層最後會自動復原。';
+      '把一個方向不對的角塊放在右前方。\n兩次一組重複 R\' D\' R D，直到它的黃色朝上。\n下一個角塊只轉頂層帶過來，底部會在最後一個角塊時復原。';
+
+  @override
+  String get introHoldTwistCorners => '黃色在上，要翻的角塊在右前方。角塊之間只轉頂層，絕對不要轉整顆方塊。';
+
+  @override
+  String get introWhyTwistCorners =>
+      'R\' D\' R D 會轉動角塊、打亂底部，但所有角塊都翻正後底部就會復原。半途停下底部就會亂掉。';
 
   @override
   String get introHowCfopIntro =>
       'Cross：四個邊塊，在觀察時規劃。\nF2L：每個角塊和它的邊塊一起放入。\nOLL 讓頂面變黃，再用 PLL 把塊送回原位。';
 
   @override
+  String get introHoldCfopIntro => '速解玩家把十字放在底面，這樣轉動時就能提前看到下一塊。';
+
+  @override
+  String get introWhyCfopIntro => '把角塊和它的邊塊一起解能省很多步，認出狀況就不用一直嘗試。';
+
+  @override
   String get introHowF2l =>
       '在頂層找到一個角塊和與它相配的邊塊。\n在它們的槽位上方把兩者配成一組。\n用三到四步把這組放進去。';
+
+  @override
+  String get introHoldF2l => '十字在底面。這一組的槽位在右前方，鏡像情況在左前方。';
+
+  @override
+  String get introWhyF2l => '配好的角塊和邊塊一起放進去，兩層同時完成，而不是一塊一塊來。';
 
   @override
   String get introHowOll =>
       '先用 F R U R\' U\' F\' 做出黃色十字。\n再調整角塊方向，例如用 Sune。\n從看到的黃色辨認情況。';
 
   @override
+  String get introHoldOll => '黃色在上。做小魚時，唯一黃色朝上的角塊放在左前方。';
+
+  @override
+  String get introWhyOll => '把最後一層分成先翻方向、再換位置，要記的公式就很少。';
+
+  @override
   String get introHowPll => '頂面已經全黃了。\nT-perm 交換角塊；U-perm 循環三個邊塊。\n看側面顏色來選擇公式。';
 
   @override
+  String get introHoldPll => '黃色在上。T-perm：車燈在左邊。U-perm：完成的一面在後面。';
+
+  @override
+  String get introWhyPll => '頂面全黃之後只剩位置不對，幾次交換就能復原方塊。';
+
+  @override
   String get introHowTwoFirst =>
-      '2×2 只有角塊，就像沒有邊塊的 3×3。\n把每個白色角塊移到它的位置上方。\n重複 R U R\' U\' 直到它歸位。';
+      '選一個白色朝下的白色角塊當基準。\n把下一個角塊轉到右前方位置的正上方。\n重複 R U R\' U\'，直到它帶著對齊的側面顏色歸位。';
+
+  @override
+  String get introHoldTwoFirst => '白色在下。空位在右前方，它的角塊就在頂層正上方。';
+
+  @override
+  String get introWhyTwoFirst => '2×2 沒有中心塊：第一個放好的角塊決定鄰居的顏色，所以側面顏色也很重要，不只是白色。';
 
   @override
   String get introHowTwoOll =>
-      '白色層保持在底部。\nSune（R U R\' U R U2 R\'）會轉動頂層的角塊。\n從正確的角度重複，直到頂面全黃。';
+      '數一數黃色朝上的角塊。\n有一個時把它放在左前方，做小魚（Sune）：R U R\' U R U2 R\'。\n再數一次並重複，最多三次。';
+
+  @override
+  String get introHoldTwoOll => '白色在下，黃色在上。每次做小魚前，黃色朝上的角塊放在左前方。';
+
+  @override
+  String get introWhyTwoOll => '小魚能翻轉頂層角塊而不破壞白色層；重新數一次就知道下次怎麼拿。';
 
   @override
   String get introHowTwoPbl =>
-      '找一個已經有兩個角塊相符的側面。\n相鄰交換：一個類似 T-perm 的公式。\n對角交換：一個較長的公式。';
+      '找車燈：同一側面頂層兩個同色貼紙。\n某一側有車燈：轉到左邊，做 T-perm。\n沒有車燈：從任一面做 Y-perm，再對齊頂層。';
+
+  @override
+  String get introHoldTwoPbl => '白色在下，黃色在上。T-perm：車燈在左邊。Y-perm：任一面朝向你。';
+
+  @override
+  String get introWhyTwoPbl => '頂面黃了之後只剩角塊的位置：T-perm 交換相鄰的兩個，Y-perm 交換對角的兩個。';
 
   @override
   String get introHowBigIntro =>
       '沒有固定的中心：四個中心塊組成每一面的顏色。\n像 Rw 這樣的雙層轉動一次轉兩層。\n像 2R 這樣的內層轉動只轉一個內層。';
 
   @override
-  String get introHowBigCenters =>
-      '先完成兩個相對的中心。\n內層可以交換中心塊，而不破壞已完成的中心。\n用同樣方法完成最後四個中心。';
+  String get introHoldBigIntro => '一開始怎麼拿都可以：4×4 沒有固定中心，每個顏色放哪裡由你決定。';
 
   @override
-  String get introHowBigEdges => '找到兩個顏色相同的邊塊。\n用一個內層把它們並排對齊。\n把這組移開，再把中心轉回來。';
+  String get introWhyBigIntro => '降階法把中心塊和邊塊組合起來，讓大方塊能像 3×3 一樣復原。';
+
+  @override
+  String get introHowBigCenters =>
+      '先用一個角塊確認顏色順序。\n先拼兩個相對的中心，再拼其他四個。\n內層轉動會移動中心塊；打開的內層一定要轉回來。';
+
+  @override
+  String get introHoldBigCenters => '正在拼的面朝前，拼好的中心放在左右兩邊，不會擋路。';
+
+  @override
+  String get introWhyBigCenters => '內層轉動會移動中心，轉回來又會讓拼好的中心復原，所以只有目標那一塊會改變。';
+
+  @override
+  String get introHowBigEdges =>
+      '找出兩個顏色相同的翼邊。\n在前面排好，用 Uw\' 合在一起。\n換入一個未配對的邊塊，再用 Uw 把中心轉回來。';
+
+  @override
+  String get introHoldBigEdges => '正在配對的邊塊在前面幾層，拼好的邊塊停放在頂層和底層。';
+
+  @override
+  String get introWhyBigEdges => 'Uw\' 把中心移開，讓兩個翼邊相遇；Uw 再把中心轉回來，你的成果不會不見。';
 
   @override
   String get introHowBigParity =>
-      '像 3×3 一樣解 4×4，直到卡住。\n一個邊塊翻轉：長的 OLL Parity 公式。\n兩個邊塊互換：2R2 U2 2R2 Uw2 2R2 Uw2。';
+      '像 3×3 一樣復原 4×4，直到卡住。\n一個邊塊翻轉：長的 OLL Parity 公式。\n兩個邊塊對調：2R2 U2 2R2 Uw2 2R2 2U2。';
+
+  @override
+  String get introHoldBigParity => '最後一層朝上。O 特：翻轉的邊塊在前面。P 特：對調的邊塊在前面和後面。';
+
+  @override
+  String get introWhyBigParity => '翼邊可能處在 3×3 做不到的狀態；這些公式轉動內層，剛好把它撤銷。';
 
   @override
   String get dirFaceR => '右側';
@@ -3955,7 +4279,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get phaseDailyScramble => '打亂今天的方塊';
 
   @override
-  String get explainDailyScramble => '從還原好的方塊開始，白色朝上、綠色朝前，在你的實體方塊上照著每一步轉。';
+  String get explainDailyScramble => '從復原好的方塊開始，白色朝上、綠色朝前，在你的實體方塊上照著每一步轉。';
 
   @override
   String get stageCenters => '拼出中心塊';
@@ -3967,13 +4291,13 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get stageParity => '處理 Parity';
 
   @override
-  String get stageCrown1 => '第一頂皇冠（白）';
+  String get stageCrown1 => '第一層（白色）';
 
   @override
-  String get stageCrown2 => '第二頂皇冠';
+  String get stageCrown2 => '第二層';
 
   @override
-  String get stageCrown3 => '第三頂皇冠（黃）';
+  String get stageCrown3 => '第三層（黃色）';
 
   @override
   String get stageOrient => '調整方向';
@@ -4015,6 +4339,12 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
       '每一面正中央的塊永遠不動。\n每條邊由一個中間塊和兩個翼邊組成。\n內層轉動可以移動塊而不影響外側。';
 
   @override
+  String get introHoldFiveIntro => '怎麼拿都可以：5×5 每一面的正中心不會動，它顯示這一面的顏色。';
+
+  @override
+  String get introWhyFiveIntro => '固定的中心決定了配色，所以中心不可能拼錯順序。';
+
+  @override
   String get lessonFiveCenters => '5×5 中心';
 
   @override
@@ -4025,7 +4355,13 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get introHowFiveCenters =>
-      '從正中央的塊開始：它決定顏色。\n拼出三塊一條的中心條，用內層滑進去。\n最後兩個中心一起完成。';
+      '從固定的中心塊開始：顏色由它決定。\n拼出三塊一條的長條，用內層滑進去。\n送入長條的那一步也會讓拼好的中心復原。';
+
+  @override
+  String get introHoldFiveCenters => '正在拼的中心在前面或頂面，拼好的中心在底面、左邊或右邊。';
+
+  @override
+  String get introWhyFiveCenters => '內層進、轉頂層、內層回：送入長條的內層也讓拼好的中心復原。';
 
   @override
   String get lessonFiveEdges => '5×5 邊塊';
@@ -4038,20 +4374,32 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get introHowFiveEdges =>
-      '在前面把兩個翼邊對上它們的中間邊塊。\n轉動內層，換入一個未完成的邊，再轉回來。\n配對最後的邊塊，不破壞已完成的邊。';
+      '在前面把每個翼邊和它的中邊對齊。\n轉內層，換入未完成的邊塊，再轉回來。\n最後幾個邊塊：內層、翻轉、內層。';
+
+  @override
+  String get introHoldFiveEdges => '正在拼的邊塊在前面，拼好的邊塊收在頂層和底層。';
+
+  @override
+  String get introWhyFiveEdges => '打開再關上內層就能接上翼邊，中心和收好的邊塊也會回來。';
 
   @override
   String get lessonFiveSolve => '像 3×3 一樣解 5×5';
 
   @override
-  String get lessonFiveSolveDesc => '用三頂皇冠完成。';
+  String get lessonFiveSolveDesc => '像 3×3 一樣一層一層完成。';
 
   @override
-  String get introGoalFiveSolve => '把降階後的 5×5 像 3×3 一樣，一頂皇冠一頂皇冠地解開。';
+  String get introGoalFiveSolve => '把降階後的 5×5 當成 3×3，只用外層轉動一層一層復原。';
 
   @override
   String get introHowFiveSolve =>
-      '從現在起只轉外層。\n第一頂皇冠、第二頂皇冠，然後是黃色皇冠。\n固定中心代表每一面的顏色。';
+      '從現在起只轉外層，否則配好的邊塊會散開。\n白色十字和角塊、中間層，然後是黃色層。\n固定的中心塊顯示每一面的顏色。';
+
+  @override
+  String get introHoldFiveSolve => '第一層的顏色朝下，和 3×3 完全一樣；要放的角塊在右前方。';
+
+  @override
+  String get introWhyFiveSolve => '轉內層會再次拆開中心和邊塊；轉外層則把每個區塊當成 3×3 的一塊。';
 
   @override
   String get lessonFiveParity => '5×5 邊塊 Parity';
@@ -4060,10 +4408,17 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get lessonFiveParityDesc => '修正翼邊互換的邊塊。';
 
   @override
-  String get introGoalFiveParity => '修正兩個翼邊互換的那一條邊，然後完成。';
+  String get introGoalFiveParity => '修正兩個外側翼邊對調的那一個邊塊：這是 5×5 唯一的 Parity。';
 
   @override
-  String get introHowFiveParity => '它會以一條無法配對的邊出現。\n做一次長的內層修正公式。\n其他一切都會回到原位。';
+  String get introHowFiveParity =>
+      '它會以最後一個看起來翻轉的邊塊出現。\n做一次用內層的長公式。\n5×5 沒有 PLL Parity。';
+
+  @override
+  String get introHoldFiveParity => '最後一層朝上，翼邊對調的邊塊在頂層前面。';
+
+  @override
+  String get introWhyFiveParity => '5×5 只有一個邊塊的兩個外翼邊可能對調，所以一個公式就夠了。';
 
   @override
   String get lessonSixIntro => '認識 6×6';
@@ -4079,6 +4434,12 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
       '沒有固定的中心：顏色由你拼的時候決定。\n每條邊都有外翼邊和內翼邊。\n雙層轉動最多可移動三層。';
 
   @override
+  String get introHoldSixIntro => '一開始怎麼拿都可以：和 4×4 一樣，6×6 也沒有固定中心。';
+
+  @override
+  String get introWhySixIntro => '會復原 4×4 和 5×5，6×6 就是區塊更大的同一種降階。';
+
+  @override
   String get lessonSixCenters => '6×6 中心';
 
   @override
@@ -4089,7 +4450,13 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get introHowSixCenters =>
-      '先完成兩個相對的中心。\n拼出四塊一條的中心條，再把它們併在一起。\n用「內層、頂層、復原」技巧移動單一塊。';
+      '先用一個角塊確認顏色順序：沒有固定的中心。\n拼出四塊一條的長條再合起來。\n最後兩個中心一塊一塊移：內層、頂層、撤回。';
+
+  @override
+  String get introHoldSixCenters => '正在拼的面朝前，拼好的中心在左邊、右邊或底面。';
+
+  @override
+  String get introWhySixCenters => '長條靠內層轉動拼接，每次都轉回來，所以拼好的中心保持完整。';
 
   @override
   String get lessonSixEdges => '6×6 邊塊';
@@ -4102,20 +4469,32 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get introHowSixEdges =>
-      '在前面把外翼邊和內翼邊對齊。\n深層的雙層轉動把一條邊帶進來再帶出去。\n已完成的邊永遠不會被破壞。';
+      '在前面排好一個邊塊的外翼邊和內翼邊。\n深層寬轉把邊塊送進送出。\n不要為了取出一塊而拆掉拼好的邊塊。';
+
+  @override
+  String get introHoldSixEdges => '正在拼的邊塊在前面，拼好的邊塊停放在頂層和底層。';
+
+  @override
+  String get introWhySixEdges => '深層寬轉把中心移開，讓翼邊相遇，然後再轉回來。';
 
   @override
   String get lessonSixSolve => '像 3×3 一樣解 6×6';
 
   @override
-  String get lessonSixSolveDesc => '用三頂皇冠完成。';
+  String get lessonSixSolveDesc => '像 3×3 一樣一層一層完成。';
 
   @override
-  String get introGoalSixSolve => '把降階後的 6×6 像 3×3 一樣，一頂皇冠一頂皇冠地解開。';
+  String get introGoalSixSolve => '把降階後的 6×6 當成 3×3，只用外層轉動一層一層復原。';
 
   @override
   String get introHowSixSolve =>
-      '從現在起只轉外層。\n你拼好的中心代表每一面的顏色。\n第一頂皇冠、第二頂皇冠，然後是黃色皇冠。';
+      '從現在起只轉外層：內層轉動會拆散中心或邊塊。\n你拼好的中心顯示每一面的顏色。\n白色十字和角塊、中間層，然後是黃色層。';
+
+  @override
+  String get introHoldSixSolve => '第一層的顏色朝下，和 3×3 完全一樣；要放的角塊在右前方。';
+
+  @override
+  String get introWhySixSolve => '外層轉動把每個 4×4 中心和每個邊塊當成一塊來移動，和 3×3 一模一樣。';
 
   @override
   String get lessonSixParity => '6×6 Parity';
@@ -4128,14 +4507,21 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get introHowSixParity =>
-      '像 3×3 一樣解，直到卡住。\n一個邊塊翻轉：長的 Parity 修正公式。\n兩個邊塊互換：短的雙轉修正公式。';
+      '像 3×3 一樣復原，直到卡住。\n一個邊塊翻轉：用 3Rw 的長公式。\n兩個邊塊對調：內層轉 2 次的短公式。';
+
+  @override
+  String get introHoldSixParity => '最後一層朝上。翻轉的邊塊在前面；兩個對調就放在前面和後面。';
+
+  @override
+  String get introWhySixParity =>
+      '和 4×4 一樣，6×6 也可能以一個翻轉或兩個對調的邊塊結束；內層公式只修正它們，其他不動。';
 
   @override
   String get stepFivePieces => '5×5 的塊';
 
   @override
   String get stepFivePiecesBody =>
-      '每一面正中央的塊永遠不動，所以和 3×3 一樣代表那一面的顏色。它周圍還有八個中心塊；每條邊有一個中間塊和兩個翼邊，角塊則和 3×3 一樣。';
+      '每一面的正中心塊不會動，所以配色不可能出錯。它周圍有八個中心塊：角中心和邊中心永遠不會互換類型。每個邊由一個中邊和兩個翼邊組成。';
 
   @override
   String get stepFiveSlices => '三種轉動';
@@ -4149,7 +4535,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get stepFiveCenterBarBody =>
-      '拼出一排三個同色的中心塊，再用內層轉動把它滑到同色的正中央塊旁邊。三條就組成一個完整的中心。';
+      '把三個同色中心塊排成一條，用內層滑進去，轉頂層再把內層轉回：送入長條的那一步也會讓拼好的中心復原。三條組成一個中心。';
 
   @override
   String get stepFiveCenterSwap => '交換而不破壞';
@@ -4163,35 +4549,35 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get stepFiveEdgePairBody =>
-      '在前面把兩個翼邊對齊到同色的中間邊塊旁，把內層往下轉，從頂層換入一個未完成的邊，再把內層轉回來。';
+      '在前面把一個翼邊排在它的中邊旁邊，把內層轉下去，用一個短公式換入未完成的邊塊，再把內層轉回來。';
 
   @override
   String get stepFiveEdgeLast => '最後的邊塊';
 
   @override
   String get stepFiveEdgeLastBody =>
-      '只剩幾條邊時，用一次雙層轉動、一組短公式，再把雙層轉回，就能配對它們而不破壞已完成的邊。';
+      '沒有空的邊塊可以換時，用內層、翻轉、內層：一次寬轉、一個短觸發、再寬轉回來，就能配好最後的邊塊而不拆散完成的。';
 
   @override
   String get stepFiveAsThree => '現在它是 3×3 了';
 
   @override
   String get stepFiveAsThreeBody =>
-      '中心和邊塊完成後，5×5 就像一顆大 3×3。只用外層轉動，照三頂皇冠進行：白色十字與角塊、中層，然後是黃色層。';
+      '中心和邊塊都完成後，5×5 就像一顆大的 3×3。只轉外層，一層一層復原：白色十字和角塊、中間層，然後是黃色層。5×5 沒有 PLL Parity。';
 
   @override
   String get stepFiveEdgeParity => '交換最後一條邊的翼邊';
 
   @override
   String get stepFiveEdgeParityBody =>
-      '有時最後一條邊的兩個翼邊互換了。用一個較長的內層公式把它們換回來，其他一切都會回到原位。然後像 3×3 一樣完成。';
+      '有時最後一個邊塊的兩個外翼邊對調了，看起來像翻轉：這是 5×5 唯一的 Parity。把它放在頂層前面，做一次內層公式，其他一切都會回到原位。';
 
   @override
   String get stepSixPieces => '6×6 的塊';
 
   @override
   String get stepSixPiecesBody =>
-      '和 4×4 一樣，6×6 沒有固定的中心：十六個中心塊組成每一面的顏色。每條邊有四個塊：兩個外翼邊和兩個內翼邊。';
+      '和 4×4 一樣，6×6 沒有固定中心：十六個中心塊組成每一面的顏色，所以先用一個角塊確認顏色順序。每個邊有四個翼邊：兩個外翼、兩個內翼。';
 
   @override
   String get stepSixSlices => '轉動更深的層';
@@ -4203,46 +4589,50 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get stepSixCenterBar => '四塊一條';
 
   @override
-  String get stepSixCenterBarBody => '拼出一排排四個同色的中心塊，用內層轉動把它們併在一起，直到整面變成同一顏色。';
+  String get stepSixCenterBarBody =>
+      '把四個同色中心塊排成長條，用內層轉動把它們並排拼起來，每次都把內層轉回，直到這一面成為同色的 4×4 區塊。';
 
   @override
   String get stepSixCenterSwap => '一次移動一塊';
 
   @override
-  String get stepSixCenterSwapBody => '轉第三層、轉頂層、復原、轉回：移動一個中心塊，同時已完成的中心會恢復。';
+  String get stepSixCenterSwapBody =>
+      '轉第三層、轉頂層、撤回、頂層轉回：一個中心塊被移走，拼好的中心都會回來。最後兩個中心沒有長條能放時就用它。';
 
   @override
   String get stepSixEdgePair => '四個塊，一條邊';
 
   @override
-  String get stepSixEdgePairBody => '用深層的雙層轉動在前面集齊一條邊的四個塊，再換入一個未完成的邊，把雙層轉回來。';
+  String get stepSixEdgePairBody =>
+      '用深層寬轉把一個邊的四個翼邊集中到前面，用一個短公式換入未完成的邊塊，再把寬層轉回來。';
 
   @override
   String get stepSixEdgeLast => '最後的邊塊';
 
   @override
-  String get stepSixEdgeLastBody => '在深層雙層轉動和它的復原之間夾一組短公式來配對最後的邊塊，讓已完成的邊保持配對。';
+  String get stepSixEdgeLastBody =>
+      '在深層寬轉和它的撤回之間加一個短觸發來配好最後的邊塊，完成的邊塊不會散開。不要為了取出一塊而拆掉拼好的邊塊。';
 
   @override
   String get stepSixAsThree => '現在它是 3×3 了';
 
   @override
   String get stepSixAsThreeBody =>
-      '有了 4×4 中心和配對好的邊塊，就用外層轉動和三頂皇冠，像 3×3 一樣解開 6×6。';
+      '有了 4×4 中心和配好的邊塊，就像 3×3 一樣只轉外層、一層一層復原 6×6。最後出現一個翻轉或兩個對調的邊塊是 Parity，不是錯誤。';
 
   @override
   String get stepSixOllParity => '一個邊塊翻轉';
 
   @override
   String get stepSixOllParityBody =>
-      '如果在解最後一層時有一個邊塊看起來被翻轉，那就是 Parity。把它放在頂層前方，做長的修正公式：前兩頂皇冠會完好如初。';
+      '最後一層裡單獨一個看起來翻轉的邊塊就是 Parity。把它放在頂層前面，做長公式：它翻轉全部四個翼邊，也交換頂層左右的邊塊，但不會動到前兩層。';
 
   @override
   String get stepSixPllParity => '兩個邊塊互換';
 
   @override
   String get stepSixPllParityBody =>
-      '如果到最後有兩個邊塊看起來互換了，把它們放在頂層的前方和後方，做由內層雙轉組成的短修正公式。';
+      '如果最後兩個邊塊看起來對調了，把它們放在頂層前面和後面，做內層轉 2 次的短公式：兩個邊塊的四個翼邊全部對調。';
 
   @override
   String get stageTwoFirstLayer => '拼出底層';
@@ -4338,7 +4728,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '用 $count 步還原！',
+      other: '用 $count 步復原！',
     );
     return '$_temp0';
   }
@@ -4371,7 +4761,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get nicknamePromptTitle => '我們該怎麼稱呼你？';
 
   @override
-  String get nicknamePromptBody => '每次你還原方塊時，我們都會叫著你的名字為你喝采。';
+  String get nicknamePromptBody => '每次你復原方塊時，我們都會叫著你的名字為你喝采。';
 
   @override
   String get nicknameHint => '你的名字或暱稱';
@@ -4394,7 +4784,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get celebrateAnon => '太棒了！';
 
   @override
-  String get celebrateCubeSolved => '方塊還原了！';
+  String get celebrateCubeSolved => '方塊復原了！';
 
   @override
   String get celebrateDailyDone => '每日挑戰完成！';
@@ -4414,7 +4804,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
     String _temp0 = intl.Intl.pluralLogic(
       limit,
       locale: localeName,
-      other: '任何打亂都能在 $limit 步以內還原',
+      other: '任何打亂都能在 $limit 步以內復原',
     );
     return '$_temp0';
   }
@@ -4703,11 +5093,11 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get lessonFreePractice => '自由練習';
 
   @override
-  String get lessonFreePracticeDesc => '自己還原一顆打亂的 3D 方塊，從頭一直到這一步。';
+  String get lessonFreePracticeDesc => '自己復原一顆打亂的 3D 方塊，從頭一直到這一步。';
 
   @override
   String freePracticeBanner(String topic) {
-    return '自由練習：從頭開始，把方塊還原到「$topic」！';
+    return '自由練習：從頭開始，把方塊復原到「$topic」！';
   }
 
   @override
@@ -4759,7 +5149,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String cueCrossFlipped(String piece, String center) {
-    return '$piece邊塊位置對了，但方向相反：白色朝向側面。先把它拿出來，再以正確方向放回$center色中心旁邊。';
+    return '$piece邊塊位置對了但翻轉了：白色朝向側面。先把它取出，白色朝上轉到頂層，再放到$center中心塊旁邊。';
   }
 
   @override
@@ -4774,7 +5164,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String cueCornerTwisted(String piece) {
-    return '$piece角塊在自己的位置上，但方向轉錯了。做一次公式就會把它拿出來（一個黃色角塊會換進去）；繼續重複，直到它正確地回到原位。';
+    return '$piece角塊在槽位裡但方向不對。做一次就能把它取出（會有一個黃色角塊換進去）；在同一個槽位上繼續重複，直到它白色朝下回來。不要轉整顆方塊去追它。';
   }
 
   @override
@@ -4789,7 +5179,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String cueMiddleFlipped(String piece, String a, String b) {
-    return '$piece邊塊在位置上，但方向相反。先插入一個黃色邊塊把它頂出來，再把它重新插入$a色和$b色之間。';
+    return '$piece邊塊在槽位裡但翻轉了。先在那裡放進一個黃色邊塊把它頂到頂層，再把它重新放到$a和$b之間。';
   }
 
   @override
@@ -4804,7 +5194,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String cueYellowDot(String front) {
-    return '只有中心是黃色：一個點。保持$front色朝向你，做一次公式，就會得到 L 形。';
+    return '只有中心是黃色：點。$front色朝向你，做一次公式就會出現 L 形。點可能要做三輪，繼續就好。';
   }
 
   @override
@@ -4834,7 +5224,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String cueTwistCorner(String piece) {
-    return '調整右前方的$piece角塊：重複下層公式，直到它的黃色朝上。下面幾層暫時看起來是亂的，這很正常！';
+    return '翻正右前方的$piece角塊：兩次一組重複下層公式，直到它的黃色朝上。下面幾層現在看起來很亂，最後一個角塊時會復原！';
   }
 
   @override
@@ -4890,7 +5280,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String cueCenterCycle(String color) {
-    return '用中心三循環把走散的$color色中心塊送回家：內層、頂層、內層，然後全部還原。';
+    return '用中心三循環把走散的$color色中心塊送回家：內層、頂層、內層，然後全部復原。';
   }
 
   @override
@@ -4910,16 +5300,16 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String cueParityOll(String front) {
-    return 'OLL 特殊狀況：頂層有一個邊塊翻轉了，這在三階上從不會發生。把它放在前面，保持$front色朝向你，做特殊狀況修正公式。';
+    return 'O 特（OLL Parity）：頂層有一個邊塊翻轉了，3×3 上不會發生。$front色朝向你，把它放在前面，在一般 OLL 之前先做 Parity 公式。';
   }
 
   @override
   String get cueParityPll =>
-      'PLL 特殊狀況：頂層兩個邊塊互換了，這在三階上從不會發生。把它們放在前面和後面，做特殊狀況交換公式。';
+      'P 特（PLL Parity）：頂層兩個邊塊對調了，3×3 上不會發生。把它們放在前面和後面，做 Parity 交換，再對齊頂層。';
 
   @override
   String cueParityFive(String front) {
-    return '邊的特殊狀況：一條邊外側的兩個小塊互換了。把這條邊轉到前面，保持$front色朝向你，修正後再轉回去。';
+    return '邊塊 Parity：一個邊塊的兩個外翼邊對調了，這是 5×5 唯一的 Parity。$front色朝向你，把這個邊塊放在前面，做一次修正公式。';
   }
 
   @override
@@ -4948,7 +5338,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get onboardingLearnTitle => '邊學邊玩';
 
   @override
-  String get onboardingLearnBody => '在學院學會三皇冠法，然後在 3D 遊樂場自由轉動、打亂和解開。';
+  String get onboardingLearnBody => '在學院學會層先法，然後在 3D 遊樂場自由轉動、打亂和復原。';
 
   @override
   String get scanChoiceManualDesc => '逐一點選每一面每張貼紙的顏色。';
@@ -4963,7 +5353,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get scanLightingHint => '讓這一面位於格線中央。使用明亮均勻的光線，避免反光。';
 
   @override
-  String get crownExplain => '皇冠就是魔術方塊的一個水平層：第一頂皇冠是底部的白色層，第二頂是中間層，第三頂是頂部的黃色層。';
+  String get crownExplain => '層就是方塊的一個水平層：第一層是底部的白色層，第二層是中間層，第三層是頂部的黃色層。';
 
   @override
   String get lessonObjectiveHeading => '學習目標';
@@ -4987,7 +5377,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get solveChoiceFastDesc => '最短解法，一步一步來。';
 
   @override
-  String get solveChoiceGuidedDesc => '一步步學習三皇冠法。';
+  String get solveChoiceGuidedDesc => '一步一步學會層先法。';
 
   @override
   String get guidedSolvedTitle => '解開了！';

@@ -1,6 +1,8 @@
 import 'generated/app_localizations.dart';
 
-/// Number of crowns (stages) of the beginner's layer-by-layer method.
+/// Number of layers (stages) of the beginner's layer-by-layer method.
+/// Identifiers keep the historical name "crown"; user-visible text says
+/// "layer" in every language except French ("couronne").
 const int kCrowns = 3;
 
 /// The seven sub-steps of the beginner's method in order: solver phase key,

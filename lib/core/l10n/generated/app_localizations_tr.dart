@@ -156,7 +156,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get solveLearn => 'Adım adım öğren';
 
   @override
-  String get solveModeGuided => 'Rehberli (3 taç)';
+  String get solveModeGuided => 'Rehberli (3 katman)';
 
   @override
   String get solveModeFast => 'Hızlı (optimal)';
@@ -252,7 +252,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get phaseLblCross => 'Beyaz artı';
 
   @override
-  String get phaseLblCorners => 'Birinci taç köşeleri';
+  String get phaseLblCorners => 'Birinci katman köşeleri';
 
   @override
   String get phaseLblMiddle => 'Orta katman kenarları';
@@ -270,13 +270,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get phaseLblYellowCornersOrient => 'Sarı köşeleri yönlendir';
 
   @override
-  String get crownFirst => 'Birinci taç';
+  String get crownFirst => 'Birinci katman';
 
   @override
-  String get crownSecond => 'İkinci taç';
+  String get crownSecond => 'İkinci katman';
 
   @override
-  String get crownThird => 'Üçüncü taç';
+  String get crownThird => 'Üçüncü katman';
 
   @override
   String get crownFirstGoal => 'Beyaz yüz ve birinci katman';
@@ -293,11 +293,11 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get subStepGoal12 =>
-      'Beyaz yüzü ve birinci halkanın tamamını bitirmek için 4 beyaz köşeyi yerlerine yerleştir.';
+      '4 beyaz köşeyi yerlerine yerleştirip beyaz yüzü ve tüm birinci katmanı bitir.';
 
   @override
   String get subStepGoal21 =>
-      'Birinci tacı bozmadan 4 orta katman kenarını yerleştir.';
+      'Birinci katmanı bozmadan orta katmanın 4 kenarını yerleştir.';
 
   @override
   String get subStepGoal31 => 'Son katmanda sarı bir artı oluştur.';
@@ -672,7 +672,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => 'Başlangıç 3×3: 3 taç';
+  String get trackBeginner => 'Başlangıç 3×3: katman katman';
 
   @override
   String get trackCfop => 'CFOP\'a giriş';
@@ -681,7 +681,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get trackTwoByTwo => '2×2 başlangıç ve Ortega';
 
   @override
-  String get trackBigCubes => 'Büyük küpler: indirgeme ve parite';
+  String get trackBigCubes => 'Büyük küpler: indirgeme ve parity';
 
   @override
   String moveSentence(String layer, String direction) {
@@ -786,13 +786,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get phaseReductionEdges => 'Kenarları eşleştir';
 
   @override
-  String get phaseReductionEdgeParity => 'Kenar paritesi';
+  String get phaseReductionEdgeParity => 'Kenar parity';
 
   @override
-  String get phaseReductionOllParity => 'OLL paritesi';
+  String get phaseReductionOllParity => 'OLL parity';
 
   @override
-  String get phaseReductionPllParity => 'PLL paritesi';
+  String get phaseReductionPllParity => 'PLL parity';
 
   @override
   String get explainReductionCenterBlock =>
@@ -805,7 +805,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get explainReductionParityCenters =>
-      'Parite çevirmesinin kaydırdığı merkezleri yeniden kur.';
+      'Parity hamlesinin kaydırdığı merkezleri yeniden kur.';
 
   @override
   String explainReductionEdgeCycle(String piece) {
@@ -814,15 +814,15 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get explainReductionEdgeParity =>
-      'Son kenarlar yalnızca 3\'lü döngülerle eşleştirilemez (kenar paritesi). Tek bir iç katman çevirmesi bunu düzeltir.';
+      'Son kenarlar yalnızca 3\'lü döngülerle eşleştirilemez (kenar parity). Tek bir iç katman çevirmesi bunu düzeltir.';
 
   @override
   String get explainReductionOllParity =>
-      'OLL paritesi: bir kenar ters, bu 3×3\'te olamaz. Bu algoritma onu geri çevirir.';
+      'OLL parity: bir kenar ters, bu 3×3\'te olamaz. Bu algoritma onu geri çevirir.';
 
   @override
   String get explainReductionPllParity =>
-      'PLL paritesi: iki kenar yer değiştirmiş, bu 3×3\'te imkânsız. Bu algoritma onları geri değiştirir.';
+      'PLL parity: iki kenar yer değiştirmiş, bu 3×3\'te imkânsız. Bu algoritma onları geri değiştirir.';
 
   @override
   String get patternsTitle => 'Desen kütüphanesi';
@@ -978,77 +978,77 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get stepCrossGoalBody =>
-      'Sarıyı üstte tut. Dört beyaz kenar alttaki beyaz merkezin etrafına yerleşir ve her birinin yan rengi yanındaki merkezle eşleşir.';
+      'Sarıyı üstte, yeşili sana dönük tut. Önce dört beyaz kenarı sarı merkezin etrafına, beyazı yukarı bakacak şekilde, yapraklar gibi topla: bu papatya. Sonra her yaprak beyaz merkeze iner ve yan rengi yanındaki merkezle eşleşir.';
 
   @override
   String get stepCrossTop => 'Üstteki kenar';
 
   @override
   String get stepCrossTopBody =>
-      'Üstte bir beyaz kenar bul. Yan rengi eşleşen merkezin üstüne gelene kadar üstü çevir, sonra onu indirmek için o yüzü iki kez çevir.';
+      'Üstte beyazı yukarı bakan beyaz kenar bir papatya yaprağıdır. Üst katmanı, yan rengi aynı renkli merkezin tam üstüne gelene kadar çevir, sonra o yüzü iki kez (180°) çevirip beyaz merkeze indir.';
 
   @override
   String get stepCrossMiddle => 'Ortadaki kenar';
 
   @override
   String get stepCrossMiddleBody =>
-      'Orta katmanda sıkışan bir kenar önce yukarı çıkar: yan yüzünü yukarı çevir, üstü yoldan çek ve yan yüzü geri çevir; böylece artı bozulmaz. Sonra onu üstten yerleştir.';
+      'Orta katmanda sıkışan kenar önce yukarı çıkar: yanını yukarı çevir, üstü kenara al ve yanı geri çevir; yerleşmiş parçalar yerinde kalır. Artık üstte bir yaprak: hizala ve o yüzü iki kez çevir.';
 
   @override
   String get stepCornersInsert => 'Yerinin üstünde';
 
   @override
   String get stepCornersInsertBody =>
-      'Bir beyaz köşe, renklerinin ait olduğu yerin üstüne, sağ öne gelene kadar üstü çevir. R U R\' U\' onu aşağı indirir.';
+      'Üst katmanı, beyaz köşe yan renklerine uyan iki merkezin arasındaki yerinin tam üstüne gelene kadar çevir. Burada bir üst hamlesi ve R U\' R\' yeter: U köşeyi yerinin üstüne getirir, R U\' R\' onu beyaz aşağıda olacak şekilde sokar.';
 
   @override
   String get stepCornersRepeat => 'Tetikleyiciyi tekrarla';
 
   @override
   String get stepCornersRepeatBody =>
-      'Beyaz yanlış yöne bakıyorsa aynı yerin üstünde R U R\' U\' tekrarlamaya devam et. Her köşe en fazla beş tekrarda çözülür.';
+      'Yeri ön sağda tut ve beyaz aşağı bakana kadar R U R\' U\' tekrarla: beyaz sağa bakıyorsa bir, yukarı bakıyorsa üç, sana bakıyorsa beş kez. Bu arada üst karışık görünür; kendiliğinden düzelir.';
 
   @override
   String get stepMiddleRight => 'Kenar sağa';
 
   @override
   String get stepMiddleRightBody =>
-      'Üstteki bir kenarı önde kendi merkeziyle hizala. Üst rengi sağ merkezle eşleşiyorsa U R U\' R\' U\' F\' U F ile yerleştir.';
+      'Üstte sarısı olmayan bir kenar bul. Ön rengi karşındaki merkezle eşleşene kadar üstü çevir. Üst rengi sağ merkezle eşleşiyorsa sağa gönder: U R U\' R\' U\' F\' U F.';
 
   @override
   String get stepMiddleLeft => 'Kenar sola';
 
   @override
   String get stepMiddleLeftBody =>
-      'Üst rengi bunun yerine sol merkezle eşleşiyorsa ayna algoritmasını kullan: U\' L\' U L U F U\' F\'.';
+      'Üst rengi sol merkezle eşleşiyorsa aynasını kullan: U\' L\' U L U F U\' F\'. Beyaz katman her seferinde bütün olarak geri gelir.';
 
   @override
   String get stepYellowCross => 'Tek algoritma';
 
   @override
   String get stepYellowCrossBody =>
-      'F R U R\' U\' F\' sarı noktayı L\'ye, L\'yi çizgiye, çizgiyi de artıya çevirir. L\'yi sol arkada, çizgiyi yatay tut.';
+      'Sadece üstteki sarı kenarlara bak. L\'yi arka solda, çizgiyi soldan sağa tut, sonra F R U R\' U\' F\' yap. Çizgi bir kez, L iki kez, nokta en fazla üç kez ister.';
 
   @override
   String get stepYellowEdges => 'Kenarları eşleştir';
 
   @override
   String get stepYellowEdgesBody =>
-      'İki kenar merkezleriyle eşleşene kadar üstü çevir. Biri arkada, biri sağdayken R U R\' U R U2 R\' U diğer ikisini yer değiştirir.';
+      'Üstü, iki kenar merkezleriyle eşleşene kadar çevir. Biri arkada, biri sağdayken R U R\' U R U2 R\' U ön ve sol kenarların yerini değiştirir.';
 
   @override
   String get stepPlaceCorners => 'Yerleştir';
 
   @override
   String get stepPlaceCornersBody =>
-      'Zaten yerinde olan bir köşeyi sağ önde tut. U R U\' L\' U R\' U\' L diğer üçünü döndürür; dördü de yerine gelene kadar tekrarla.';
+      'Bir köşe, renkleri çevresindeki üç merkezle eşleşince yerindedir, dönük olsa bile. Böyle bir köşeyi ön sağda tut: U R U\' L\' U R\' U\' L diğer üçünü döndürür. Dördü de yerine gelene kadar tekrarla.';
 
   @override
   String get stepTwistCorners => 'Döndür';
 
   @override
   String get stepTwistCornersBody =>
-      'Çözülmemiş bir köşe sağ öndeyken sarı üste gelene kadar R\' D\' R D tekrarla, sonra sıradakini getirmek için yalnızca üstü çevir. Alt kısım sona kadar bozuk görünür: devam et.';
+      'Çözülmemiş köşe ön sağdayken sarı üste gelene kadar R\' D\' R D\'yi çiftler halinde tekrarla, sonra sıradakini getirmek için yalnızca üstü çevir. Alt kısım son köşeye kadar bozuk görünür: devam et.';
 
   @override
   String get lessonCfopIntro => 'CFOP nedir?';
@@ -1141,14 +1141,14 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get stepTwoIntroBody =>
-      '2×2, kenarları ve merkezleri olmayan bir 3×3\'tür. Bir renk seç, o yüzü altta kur ve komşu köşelerin yan renklerini eşleştir.';
+      '2×2 yalnızca sekiz köşedir: kenar da merkez de yok. Komşu yan renkleri eşleşen beyaz katmanı altta kur, sonra tek bir yoldan bitir: sarı üst için Sune, ardından T-perm ya da Y-perm.';
 
   @override
   String get stepTwoCorner => 'Köşeleri yerleştir';
 
   @override
   String get stepTwoCornerBody =>
-      'Tıpkı 3×3\'ün beyaz köşeleri gibi: bir köşeyi yerinin üstüne getir ve oturana kadar R U R\' U\' kullan.';
+      '3×3\'teki beyaz köşeler gibi: bir köşeyi ön sağdaki boş yerinin üstüne getir ve sok; burada U R U\' R\' ile ya da beyaz aşağı bakana kadar R U R\' U\' tekrarlayarak. Yan renklerini komşusuyla karşılaştır.';
 
   @override
   String get lessonTwoOll => 'Üstü yönlendir';
@@ -1161,7 +1161,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get stepTwoSuneBody =>
-      'Sune 2×2\'de de üstü sarı yapar. Ortega kullananlar yedi kısa durum öğrenir; Sune ve aynası çoğunu kapsar.';
+      'Yukarı bakan sarı çıkartmaları say. Sarısı yukarı bakan tek köşeyi ön solda tut ve Sune yap (R U R\' U R U2 R\'). Yeniden say ve tut; en fazla üç Sune. Aralarda yalnızca üstü çevir.';
 
   @override
   String get lessonTwoPbl => 'İki katmanı da permüte et';
@@ -1174,14 +1174,14 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get stepTwoAdjacentBody =>
-      'Üstteki iki komşu köşenin yer değiştirmesi gerektiğinde onları sağda tut ve T-perm kullan.';
+      'Farlar, bir yanda üstteki iki aynı renkli çıkartmadır. Farlar sola gelene kadar üstü çevir; böylece değişecek iki köşe sağda olur. Sonra T-perm yap.';
 
   @override
   String get stepTwoDiagonal => 'Çapraz değişim';
 
   @override
   String get stepTwoDiagonalBody =>
-      'Karşılıklı köşelerdeki iki parça Y-perm ile yer değiştirir.';
+      'Hiçbir yanda far yoksa çapraz iki köşe yer değiştirmelidir: herhangi bir yandan Y-perm yap, sonra her şeyi hizalamak için üstü çevir.';
 
   @override
   String get lessonBigIntro => 'Büyük küp parçaları';
@@ -1194,7 +1194,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get stepBigPiecesBody =>
-      '4×4\'te her yüzün hareket eden dört merkez parçası vardır ve her kenar iki kanattan oluşur. İndirgeme bunları gruplar, böylece küp 3×3 gibi davranır.';
+      '4×4\'te her yüzün dört hareketli merkez parçası vardır ve her kenar iki kanattan oluşur. Sabit merkez yok, bu yüzden renk sırasını bir köşeden kontrol et: beyaz sarının, mavi yeşilin, kırmızı turuncunun karşısında.';
 
   @override
   String get stepBigSlices => 'Geniş ve iç çevirmeler';
@@ -1214,7 +1214,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get stepBigCenterCycleBody =>
-      'Bu komütatör tam olarak üç merkez parçasını hareket ettirir ve geri kalan her şeyi olduğu gibi bırakır; böylece bitmiş merkezler bitmiş kalır.';
+      'Bu komütatör tam olarak üç merkez parçasını taşır ve gerisine dokunmaz; bitmiş merkezler bitmiş kalır. Tek bir parça çubuğa katılmıyorsa bunu kullan.';
 
   @override
   String get lessonBigEdges => 'Kenarları eşleştir';
@@ -1227,33 +1227,39 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get stepBigEdgePairBody =>
-      'Uw\' eşleşen iki kanadı hizalar, R U R\' F R\' F\' R eşleşmemiş bir kenarı içeri alır ve Uw merkezleri geri yerine koyar.';
+      'Uw\' iki eşleşen kanadı hizalar, R U R\' F R\' F\' R eşleşmemiş bir kenarı içeri alır ve Uw merkezleri geri getirir. Açtığın katmanı hep kapat.';
 
   @override
-  String get lessonBigParity => 'Parite';
+  String get lessonBigParity => 'Parity';
 
   @override
-  String get lessonBigParityDesc => 'Çift küplerde OLL ve PLL paritesi.';
+  String get lessonBigParityDesc => 'Çift küplerde OLL parity ve PLL parity.';
 
   @override
-  String get stepBigOllParity => 'OLL paritesi';
+  String get stepBigOllParity => 'OLL parity';
 
   @override
   String get stepBigOllParityBody =>
-      '3×3\'te tek bir ters kenar olamaz. Çift küplerde bu algoritma üst-ön kenarı geri çevirir. Üst katmanın geri kalanını karıştırabilir, ama son 3×3 adımları zaten bunu düzeltir.';
+      'Tek bir ters kenar 3×3\'te olamaz: bu OLL parity\'dir, hata değil. Onu üst katmanın önünde tut ve uzun algoritmayı yap. Algoritma üstteki sol ve sağ kenarları ve iki köşeyi de değiştirir; son 3×3 adımları bunları düzeltir.';
 
   @override
-  String get stepBigPllParity => 'PLL paritesi';
+  String get stepBigPllParity => 'PLL parity';
 
   @override
   String get stepBigPllParityBody =>
-      'En sonda iki kenar yer değiştirmiş mi? 2R2 U2 2R2 Uw2 2R2 Uw2 üstteki ön ve arka kenarları yer değiştirir.';
+      'En sonda iki kenar yer değiştirmiş ve hiçbir 3×3 algoritması uymuyor mu? Bu PLL parity. Onları üst katmanda önde ve arkada tut: 2R2 U2 2R2 Uw2 2R2 2U2 yerlerini değiştirir.';
 
   @override
   String get introGoalHeading => 'Hedef ne?';
 
   @override
   String get introHowHeading => 'Nasıl yapıyoruz?';
+
+  @override
+  String get introHoldHeading => 'Nasıl tutulur';
+
+  @override
+  String get introWhyHeading => 'Neden işe yarar';
 
   @override
   String get introStart => 'Anladım, adım adım başla';
@@ -1279,11 +1285,11 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get introGoalCross =>
-      'Her beyaz kenarın yanındaki merkez rengiyle de eşleştiği beyaz bir artı yap.';
+      'Altta, her beyaz kenarın yanındaki merkezle de eşleştiği bir beyaz artı yap.';
 
   @override
   String get introGoalCorners =>
-      'Birinci taç, yani tüm beyaz katman tamamlansın diye dört beyaz köşeyi yerleştir.';
+      'Dört beyaz köşeyi yerleştirip tüm birinci katmanı bitir: beyaz yüz ve eşleşen yan renkler.';
 
   @override
   String get introGoalMiddle =>
@@ -1328,7 +1334,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get introGoalTwoPbl =>
-      '2×2\'yi çözmek için son köşeleri yerlerine değiştir.';
+      'Son köşeleri tek bir T-perm ya da Y-perm ile yerine götür, sonra üst katmanı hizalayıp 2×2\'yi çöz.';
 
   @override
   String get introGoalBigIntro =>
@@ -1344,83 +1350,235 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get introGoalBigParity =>
-      '3×3\'te hiç olmayan iki 4×4 durumunu düzelt: bir ters kenar veya iki yer değiştirmiş kenar.';
+      'Bir 3×3\'te hiç olmayan iki 4×4 durumunu düzelt: ters dönmüş tek kenar (OLL parity) ya da yer değiştirmiş iki kenar (PLL parity).';
 
   @override
   String get introHowBasics =>
       'Merkezler asla hareket etmez, bu yüzden her yüzün rengini gösterir.\nHer harf bir yüzü saat yönünde çeyrek tur çevirir.\nKesme işareti (\') geri çevirir; 2 iki kez çevirir.';
 
   @override
+  String get introHoldBasics =>
+      'İstediğin gibi: merkezler hareket etmez, bu yüzden renkler hangi yüzün hangisi olduğunu hep söyler.';
+
+  @override
+  String get introWhyBasics =>
+      'Her algoritma bu harflerin bir dizisidir, bu yüzden onları okumak ilk beceridir.';
+
+  @override
   String get introHowCross =>
-      'Sarıyı üstte tut: beyaz artı altta kurulur.\nBir beyaz kenar bul ve yan rengini eşleşen merkezle hizala.\nKenarı yerine indirmek için o yüzü iki kez çevir.';
+      'Her beyaz kenarı beyazı yukarı bakacak şekilde, sarı merkezin etrafına üste çıkar: bu papatya.\nÜst katmanı, bir yaprağın yan rengi kendi merkezinin üstüne gelene kadar çevir.\nO yüzü iki kez çevirip aşağı indir; dördü için de tekrarla.';
+
+  @override
+  String get introHoldCross =>
+      'Adım boyunca sarı merkez üstte, beyaz merkez altta. Bir yaprağı hizalamak için küpü değil üst katmanı çevir.';
+
+  @override
+  String get introWhyCross =>
+      'Beyaz yukarı bakarken ön yüzü iki kez çevirmek kenarı beyaz merkezin üstüne, beyaz aşağıda ve yan rengi zaten eşleşmiş olarak koyar.';
 
   @override
   String get introHowCorners =>
-      'Bir beyaz köşeyi boş yerinin üstüne getir.\nDoğru yönde oturana kadar R U R\' U\' tekrarla.\nDiğer üç köşe için de aynısını yap.';
+      'Üst katmanı, beyaz bir köşe ön sağdaki boş yerinin üstüne gelene kadar çevir.\nR U R\' U\' tekrarla: beyaz sağa bakıyorsa bir, yukarı bakıyorsa üç, sana bakıyorsa beş kez.\nDiğer üç köşe için de aynısını yap.';
+
+  @override
+  String get introHoldCorners =>
+      'Beyaz altta, sarı üstte. Köşe ön sağda, tam yerinin üstünde.';
+
+  @override
+  String get introWhyCorners =>
+      'R U R\' U\' yeri kaldırıp geri koyar: her tur köşeyi biraz çevirir, sonunda beyaz aşağı bakar ve artı hiç bozulmaz.';
 
   @override
   String get introHowMiddle =>
-      'Üstte sarı içermeyen bir kenar bul ve ön rengini bir merkezle eşleştir.\nKısa 8 hamlelik bir algoritmayla sağa veya sola gönder.\nBeyaz katman her seferinde sağlam geri gelir.';
+      'Üstte sarısı olmayan bir kenar bul ve ön rengini altındaki merkezle eşleştir.\nÜst rengi nereye gideceğini söyler: sağa ya da sola.\n8 hamlelik algoritmayla yerleştir; beyaz katman her seferinde geri gelir.';
+
+  @override
+  String get introHoldMiddle =>
+      'Beyaz altta, sarı üstte. Kenar önde, ön rengi altındaki merkezle aynı.';
+
+  @override
+  String get introWhyMiddle =>
+      'Algoritma yeri kenara çeker, kenarı içeri kaydırır ve beyaz katmanı geri getirir. Sarısı olan kenar üste aittir, ortaya asla.';
 
   @override
   String get introHowYellowCross =>
-      'Üste bak: bir nokta, bir L veya bir çizgi.\nGösterildiği gibi tut ve F R U R\' U\' F\' yap.\nSarı artı görünene kadar tekrarla.';
+      'Sadece üstteki sarı kenarlara bak: nokta, L ya da çizgi.\nL\'yi arka solda, çizgiyi soldan sağa tut ve F R U R\' U\' F\' yap.\nÇizgi bir kez, L iki kez, nokta en fazla üç kez ister.';
+
+  @override
+  String get introHoldYellowCross =>
+      'Beyaz altta, sarı üstte. L arka solda, çizgi soldan sağa; nokta nasıl olursa.';
+
+  @override
+  String get introWhyYellowCross =>
+      'F R U R\' U\' F\' ilk iki katmana dokunmadan her seferinde iki üst kenarı çevirir.';
 
   @override
   String get introHowYellowEdges =>
-      'İki kenar merkezleriyle eşleşene kadar üstü çevir.\nOnları arkada ve sağda tut, sonra R U R\' U R U2 R\' U yap.\nDört kenar da eşleşene kadar tekrarla.';
+      'Üst katmanı, iki kenar kendi merkezleriyle eşleşene kadar çevir.\nOnları arkada ve sağda tut, sonra R U R\' U R U2 R\' U yap.\nEşleşen kenarlar karşı karşıyaysa önce herhangi bir yandan bir kez yap.';
+
+  @override
+  String get introHoldYellowEdges =>
+      'Sarı üstte. Eşleşen bir kenar arkada, diğeri sağda.';
+
+  @override
+  String get introWhyYellowEdges =>
+      'Bu algoritma yalnızca üst parçaları hareket ettirir, bu yüzden ilk iki katman hep geri gelir.';
 
   @override
   String get introHowYellowCorners =>
-      'Bir köşe, renkleri etrafındaki üç yüzle eşleştiğinde yerindedir.\nYerleşmiş bir köşeyi sağ önde tut.\nU R U\' L\' U R\' U\' L diğer üçünü hepsi oturana kadar döndürür.';
+      'Bir köşe, renkleri çevresindeki üç merkezle eşleşince yerindedir, dönük olsa bile.\nYerindeki bir köşeyi ön sağda tut.\nU R U\' L\' U R\' U\' L diğer üçünü döndürür; hepsi oturana kadar tekrarla.';
+
+  @override
+  String get introHoldYellowCorners =>
+      'Sarı üstte. Zaten yerinde olan bir köşe ön sağda; yoksa herhangi bir köşe.';
+
+  @override
+  String get introWhyYellowCorners =>
+      'Üç köşeyi daire halinde döndürür, ön sağdakini yerinde bırakır; her tekrar daha çok köşeyi yerine getirir.';
 
   @override
   String get introHowTwistCorners =>
-      'Çözülmemiş bir köşeyi sağ önde tut.\nSarısı yukarı bakana kadar R\' D\' R D tekrarla.\nSıradaki için yalnızca üstü çevir; alt kısım sonunda kendiliğinden düzelir.';
+      'Çözülmemiş bir köşeyi ön sağda tut.\nSarısı yukarı bakana kadar R\' D\' R D\'yi çiftler halinde tekrarla.\nSonraki için yalnızca üstü çevir; alt kısım son köşeyle geri gelir.';
+
+  @override
+  String get introHoldTwistCorners =>
+      'Sarı üstte, çevrilecek köşe ön sağda. Köşeler arasında yalnızca üstü çevir, asla bütün küpü değil.';
+
+  @override
+  String get introWhyTwistCorners =>
+      'R\' D\' R D köşeyi çevirir ve altı karıştırır, ama tüm köşeler çevrilince alt geri gelir. Yarıda bırakırsan bozuk kalır.';
 
   @override
   String get introHowCfopIntro =>
       'Cross: inceleme sırasında planlanan dört kenar.\nF2L: her köşe kenarıyla birlikte girer.\nOLL üstü sarı yapar, sonra PLL parçaları yerlerine taşır.';
 
   @override
+  String get introHoldCfopIntro =>
+      'Hızlı küpçüler artıyı altta yapar, böylece çevirirken sıradaki parçaları önceden görürler.';
+
+  @override
+  String get introWhyCfopIntro =>
+      'Köşeyi kenarıyla birlikte çözmek çok hamle kazandırır, durumları tanımak deneme yanılmanın yerini alır.';
+
+  @override
   String get introHowF2l =>
       'Üst katmanda bir köşe ve eşleşen kenarını bul.\nOnları yuvalarının üstünde eşleştir.\nÇifti üç veya dört hamleyle yerleştir.';
+
+  @override
+  String get introHoldF2l =>
+      'Artı altta. Çiftin yeri ön sağda, ayna durumda ön solda.';
+
+  @override
+  String get introWhyF2l =>
+      'Eşleşmiş köşe ve kenar birlikte girer, böylece parça parça değil iki katman aynı anda büyür.';
 
   @override
   String get introHowOll =>
       'Önce F R U R\' U\' F\' ile sarı artı.\nSonra köşeleri yönlendir, örneğin Sune ile.\nDurumu gördüğün sarıdan tanı.';
 
   @override
+  String get introHoldOll =>
+      'Sarı üstte. Sune için sarısı yukarı bakan tek köşe ön solda durur.';
+
+  @override
+  String get introWhyOll =>
+      'Son katmanı önce yönlendirme, sonra yer değiştirme olarak bölmek algoritma sayısını az tutar.';
+
+  @override
   String get introHowPll =>
       'Üst zaten tamamen sarı.\nT-perm köşeleri değiştirir; U-perm üç kenarı döngüsel taşır.\nAlgoritmayı seçmek için yan renkleri oku.';
 
   @override
+  String get introHoldPll =>
+      'Sarı üstte. T-perm: farlar solda. U-perm: bitmiş yan arkada.';
+
+  @override
+  String get introWhyPll =>
+      'Üst tamamen sarı olunca yalnızca parçaların yerleri yanlıştır ve birkaç değişim küpü bitirir.';
+
+  @override
   String get introHowTwoFirst =>
-      '2×2 yalnızca köşelerden oluşur, kenarsız bir 3×3 gibi.\nHer beyaz köşeyi yerinin üstüne getir.\nOturana kadar R U R\' U\' tekrarla.';
+      'Beyazı aşağıda olan bir köşeyi çapa olarak seç.\nSonraki her köşeyi ön sağdaki yerinin üstüne getir.\nYan renkleri eşleşerek oturana kadar R U R\' U\' tekrarla.';
+
+  @override
+  String get introHoldTwoFirst =>
+      'Beyaz altta. Boş yer ön sağda, köşesi üst katmanda tam üstünde.';
+
+  @override
+  String get introWhyTwoFirst =>
+      '2×2\'nin merkezi yoktur: koyduğun ilk köşe komşularının renklerini belirler, bu yüzden yalnızca beyaz değil yan renkler de önemlidir.';
 
   @override
   String get introHowTwoOll =>
-      'Beyaz katmanı altta tut.\nSune (R U R\' U R U2 R\') üst köşeleri döndürür.\nÜst tamamen sarı olana kadar doğru açıdan tekrarla.';
+      'Sarısı yukarı bakan köşeleri say.\nBir taneyse onu ön solda tut ve Sune yap: R U R\' U R U2 R\'.\nYeniden say ve tekrarla; en fazla üç Sune.';
+
+  @override
+  String get introHoldTwoOll =>
+      'Beyaz altta, sarı üstte. Her Sune\'dan önce sarısı yukarı bakan köşe ön solda.';
+
+  @override
+  String get introWhyTwoOll =>
+      'Sune beyaz katmanı bozmadan üst köşeleri çevirir; yeniden saymak bir sonraki tutuşu söyler.';
 
   @override
   String get introHowTwoPbl =>
-      'İki köşenin zaten eşleştiği bir yan ara.\nKomşu değişim: T-perm tarzı tek algoritma.\nÇapraz değişim: daha uzun tek algoritma.';
+      'Far ara: bir yanda üstte iki aynı renkli çıkartma.\nBir yanda far varsa sola al ve T-perm yap.\nFar yoksa herhangi bir yandan Y-perm yap, sonra üstü hizala.';
+
+  @override
+  String get introHoldTwoPbl =>
+      'Beyaz altta, sarı üstte. T-perm: farlar solda. Y-perm: herhangi bir yan sana dönük.';
+
+  @override
+  String get introWhyTwoPbl =>
+      'Üst sarıyken yalnızca köşelerin yerleri yanlıştır: T-perm iki komşuyu, Y-perm iki çaprazı değiştirir.';
 
   @override
   String get introHowBigIntro =>
       'Hiçbir merkez sabit değil: dört merkez parçası her yüz rengini oluşturur.\nRw gibi geniş hamleler iki katmanı aynı anda çevirir.\n2R gibi iç hamleler yalnızca bir iç katmanı çevirir.';
 
   @override
+  String get introHoldBigIntro =>
+      'Başta istediğin gibi: 4×4\'te sabit merkez yoktur, her rengin yerini sen seçersin.';
+
+  @override
+  String get introWhyBigIntro =>
+      'İndirgeme, merkezleri ve kenar parçalarını gruplar; böylece büyük küp 3×3 gibi çözülür.';
+
+  @override
   String get introHowBigCenters =>
-      'Önce iki karşılıklı merkezi kur.\nİç katmanlar bitmiş merkezleri bozmadan merkez parçalarını değiştirir.\nSon dört merkezi de aynı şekilde bitir.';
+      'Önce bir köşeden renk sırasını kontrol et.\nİki karşı merkezi, sonra diğer dördünü kur.\nİç katmanlar merkez parçalarını taşır; açtığın katmanı hep geri kapat.';
+
+  @override
+  String get introHoldBigCenters =>
+      'Kurduğun yüz önde; bitmiş merkezler solda ve sağda, yoldan uzak.';
+
+  @override
+  String get introWhyBigCenters =>
+      'Bir katman merkezleri taşır, geri almak bitmişleri geri getirir; yalnızca hedeflediğin parça değişir.';
 
   @override
   String get introHowBigEdges =>
-      'Aynı renklere sahip iki kenar parçası bul.\nBir iç katmanla onları yan yana hizala.\nÇifti kenara koy ve merkezleri geri getir.';
+      'Aynı iki renge sahip iki kanadı bul.\nOnları önde hizala ve Uw\' ile birleştir.\nEşleşmemiş bir kenarı içeri al, Uw merkezleri geri getirir.';
+
+  @override
+  String get introHoldBigEdges =>
+      'Eşleştirdiğin kenar ön katmanlarda; bitmiş kenarlar üstte ve altta park edilmiş.';
+
+  @override
+  String get introWhyBigEdges =>
+      'Uw\' iki kanat buluşsun diye merkezleri kenara çeker; Uw onları geri getirir ve emeğin korunur.';
 
   @override
   String get introHowBigParity =>
-      '4×4\'ü takılana kadar 3×3 gibi çöz.\nBir ters kenar: uzun OLL parite algoritması.\nİki yer değiştirmiş kenar: 2R2 U2 2R2 Uw2 2R2 Uw2.';
+      '4×4\'ü takılana kadar 3×3 gibi çöz.\nTers dönmüş tek kenar: uzun OLL parity algoritması.\nYer değiştirmiş iki kenar: 2R2 U2 2R2 Uw2 2R2 2U2.';
+
+  @override
+  String get introHoldBigParity =>
+      'Son katman üstte. OLL parity: ters kenar önde. PLL parity: yer değiştiren kenarlar önde ve arkada.';
+
+  @override
+  String get introWhyBigParity =>
+      'Kanatlar 3×3\'ün ulaşamadığı durumlara girebilir; bu algoritmalar tam bunu geri almak için iç katmanları çevirir.';
 
   @override
   String get dirFaceR => 'Sağ taraf';
@@ -1528,16 +1686,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get stageEdges => 'Dış ve iç kenarları eşleştir';
 
   @override
-  String get stageParity => 'Parite çözümü';
+  String get stageParity => 'Parity çözümü';
 
   @override
-  String get stageCrown1 => 'Birinci taç (beyaz)';
+  String get stageCrown1 => 'Birinci katman (beyaz)';
 
   @override
-  String get stageCrown2 => 'İkinci taç';
+  String get stageCrown2 => 'İkinci katman';
 
   @override
-  String get stageCrown3 => 'Üçüncü taç (sarı)';
+  String get stageCrown3 => 'Üçüncü katman (sarı)';
 
   @override
   String get stageOrient => 'Parçaları yönlendir';
@@ -1581,6 +1739,14 @@ class AppLocalizationsTr extends AppLocalizations {
       'Her yüzün tam ortası asla hareket etmez.\nHer kenar bir orta parça ve iki kanattan oluşur.\nİç katmanlar dışa dokunmadan parçaları hareket ettirir.';
 
   @override
+  String get introHoldFiveIntro =>
+      'İstediğin gibi: 5×5\'te her yüzün ortası hiç hareket etmez, yüzün rengini o gösterir.';
+
+  @override
+  String get introWhyFiveIntro =>
+      'Sabit merkezler renk düzenini belirler, bu yüzden merkezler yanlış sırada kurulamaz.';
+
+  @override
   String get lessonFiveCenters => '5×5 merkezleri';
 
   @override
@@ -1592,7 +1758,15 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get introHowFiveCenters =>
-      'Orta parçadan başla: rengi o belirler.\nÜçlü çubuklar kur ve bir iç katmanla içeri kaydır.\nSon iki merkezi birlikte bitir.';
+      'Sabit orta parçadan başla: rengi o belirler.\nÜçlü çubuklar yap ve bir iç katmanla içeri kaydır.\nÇubuğu getiren hamle bitmiş merkezi de geri getirir.';
+
+  @override
+  String get introHoldFiveCenters =>
+      'Kurduğun merkez önde ya da üstte; bitmiş merkezler altta, solda ya da sağda.';
+
+  @override
+  String get introWhyFiveCenters =>
+      'Katman içeri, üst, katman geri: çubuğu getiren katman bitmiş merkezleri de geri getirir.';
 
   @override
   String get lessonFiveEdges => '5×5 kenarları';
@@ -1606,35 +1780,59 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get introHowFiveEdges =>
-      'Önde iki kanadı orta kenarlarıyla eşleştir.\nİç katmanı çevir, çözülmemiş bir kenarı içeri al, geri çevir.\nBitmiş kenarları bozmadan son kenarları eşleştir.';
+      'Her kanadı önde kendi orta kenarıyla eşleştir.\nİç katmanı çevir, çözülmemiş bir kenarı al, geri çevir.\nSon kenarlar için: katman, çevir, katman.';
+
+  @override
+  String get introHoldFiveEdges =>
+      'Kurduğun kenar önde; bitmiş kenarlar üst ve alt katmanlarda saklı.';
+
+  @override
+  String get introWhyFiveEdges =>
+      'İç katmanı açıp kapamak kanatları birleştirir, merkezler ve saklanan kenarlar geri gelir.';
 
   @override
   String get lessonFiveSolve => '5×5\'i 3×3 gibi çöz';
 
   @override
-  String get lessonFiveSolveDesc => 'Üç taçla bitir.';
+  String get lessonFiveSolveDesc => '3×3 gibi katman katman bitir.';
 
   @override
   String get introGoalFiveSolve =>
-      'İndirgenmiş 5×5\'i taç taç bir 3×3 gibi çöz.';
+      'İndirgenmiş 5×5\'i 3×3 gibi, katman katman, yalnızca dış hamlelerle çöz.';
 
   @override
   String get introHowFiveSolve =>
-      'Bundan sonra yalnızca dış çevirmeler.\nBirinci taç, ikinci taç, sonra sarı taç.\nSabit orta parçalar her yüzün rengini gösterir.';
+      'Artık yalnızca dış hamleler, yoksa eşleşmiş kenarlar ayrılır.\nBeyaz artı ve köşeler, orta katman, sonra sarı katman.\nSabit orta parçalar her yüzün rengini gösterir.';
 
   @override
-  String get lessonFiveParity => '5×5 kenar paritesi';
+  String get introHoldFiveSolve =>
+      'Birinci katmanın rengi altta, tıpkı 3×3\'teki gibi; yerleştirilecek köşe ön sağda.';
+
+  @override
+  String get introWhyFiveSolve =>
+      'İç hamleler merkezleri ve kenarları yeniden ayırır; dış hamleler her bloğu tek bir 3×3 parçası gibi taşır.';
+
+  @override
+  String get lessonFiveParity => '5×5 kenar parity';
 
   @override
   String get lessonFiveParityDesc => 'Kanatları yer değiştirmiş kenarı düzelt.';
 
   @override
   String get introGoalFiveParity =>
-      'İki kanadı yer değiştirmiş tek kenarı düzelt, sonra bitir.';
+      'İki dış kanadı yer değiştirmiş tek kenarı düzelt: 5×5\'in tek parity durumu.';
 
   @override
   String get introHowFiveParity =>
-      'Eşleşmeyen bir kenar olarak ortaya çıkar.\nUzun iç katman düzeltmesini bir kez uygula.\nGeri kalan her şey yerine döner.';
+      'Ters dönmüş gibi görünen son bir kenar olarak çıkar.\nUzun iç katman düzeltmesini bir kez yap.\n5×5\'te PLL parity yoktur.';
+
+  @override
+  String get introHoldFiveParity =>
+      'Son katman üstte, kanatları yer değiştirmiş kenar üst katmanın önünde.';
+
+  @override
+  String get introWhyFiveParity =>
+      '5×5\'te yalnızca bir kenarın iki dış kanadı yer değiştirebilir, bu yüzden tek algoritma yeter.';
 
   @override
   String get lessonSixIntro => '6×6 ile tanış';
@@ -1652,6 +1850,14 @@ class AppLocalizationsTr extends AppLocalizations {
       'Hiçbir merkez sabit değil: renkleri kurarken sen seçersin.\nHer kenarın dış ve iç kanatları vardır.\nGeniş çevirmeler üç katmana kadar hareket ettirebilir.';
 
   @override
+  String get introHoldSixIntro =>
+      'Başta istediğin gibi: 4×4 gibi 6×6\'da da sabit merkez yoktur.';
+
+  @override
+  String get introWhySixIntro =>
+      '4×4 ve 5×5 çözebiliyorsan 6×6, daha büyük bloklarla aynı indirgemedir.';
+
+  @override
   String get lessonSixCenters => '6×6 merkezleri';
 
   @override
@@ -1663,7 +1869,15 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get introHowSixCenters =>
-      'Önce iki karşılıklı merkezi kur.\nDörtlü çubuklar yap ve onları yan yana kaydır.\nTek parçaları katman, üst, geri al hilesiyle taşı.';
+      'Önce bir köşeden renk sırasını kontrol et: hiçbir merkez sabit değil.\nDörtlü çubuklar yap ve birleştir.\nSon iki merkezde tek tek parça taşı: katman, üst, geri al.';
+
+  @override
+  String get introHoldSixCenters =>
+      'Kurduğun yüz önde; bitmiş merkezler solda, sağda ya da altta.';
+
+  @override
+  String get introWhySixCenters =>
+      'Çubuklar iç katmanlarla birleşir ve her katman geri alınır, bu yüzden bitmiş merkezler bütün kalır.';
 
   @override
   String get lessonSixEdges => '6×6 kenarları';
@@ -1677,24 +1891,40 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get introHowSixEdges =>
-      'Önde dış ve iç kanatları hizala.\nDerin geniş katman bir kenarı içeri ve dışarı alır.\nBitmiş kenarlar asla bozulmaz.';
+      'Bir kenarın dış ve iç kanatlarını önde hizala.\nDerin geniş katman bir kenarı içeri alıp dışarı çıkarır.\nBir parçayı kurtarmak için bitmiş kenarı asla bozma.';
+
+  @override
+  String get introHoldSixEdges =>
+      'Kurduğun kenar önde; bitmiş kenarlar üstte ve altta park edilmiş.';
+
+  @override
+  String get introWhySixEdges =>
+      'Derin geniş hamle, kanatlar buluşsun diye merkezleri kenara çeker, sonra geri getirir.';
 
   @override
   String get lessonSixSolve => '6×6\'yı 3×3 gibi çöz';
 
   @override
-  String get lessonSixSolveDesc => 'Üç taçla bitir.';
+  String get lessonSixSolveDesc => '3×3 gibi katman katman bitir.';
 
   @override
   String get introGoalSixSolve =>
-      'İndirgenmiş 6×6\'yı taç taç bir 3×3 gibi çöz.';
+      'İndirgenmiş 6×6\'yı 3×3 gibi, katman katman, yalnızca dış hamlelerle çöz.';
 
   @override
   String get introHowSixSolve =>
-      'Bundan sonra yalnızca dış çevirmeler.\nKurduğun merkezler her yüzün rengini gösterir.\nBirinci taç, ikinci taç, sonra sarı taç.';
+      'Artık yalnızca dış hamleler: iç katman bir merkezi ya da kenarı bozar.\nKurduğun merkezler her yüzün rengini gösterir.\nBeyaz artı ve köşeler, orta katman, sonra sarı katman.';
 
   @override
-  String get lessonSixParity => '6×6 paritesi';
+  String get introHoldSixSolve =>
+      'Birinci katmanın rengi altta, tıpkı 3×3\'teki gibi; yerleştirilecek köşe ön sağda.';
+
+  @override
+  String get introWhySixSolve =>
+      'Dış hamleler her 4×4 merkezi ve her kenarı tek parça gibi taşır, tıpkı 3×3\'teki gibi.';
+
+  @override
+  String get lessonSixParity => '6×6 parity';
 
   @override
   String get lessonSixParityDesc =>
@@ -1706,14 +1936,22 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get introHowSixParity =>
-      'Takılana kadar 3×3 gibi çöz.\nBir ters kenar: uzun parite düzeltmesi.\nİki yer değiştirmiş kenar: kısa çift çevirme düzeltmesi.';
+      'Takılana kadar 3×3 gibi çöz.\nTers dönmüş tek kenar: 3Rw ile uzun düzeltme.\nYer değiştirmiş iki kenar: iç çift hamlelerle kısa düzeltme.';
+
+  @override
+  String get introHoldSixParity =>
+      'Son katman üstte. Ters kenar önde; iki kenar yer değiştirdiyse önde ve arkada.';
+
+  @override
+  String get introWhySixParity =>
+      '4×4 gibi 6×6 da ters tek kenar ya da yer değiştirmiş iki kenarla bitebilir; iç katman algoritmaları bunları düzeltir ve gerisini bırakır.';
 
   @override
   String get stepFivePieces => '5×5\'in parçaları';
 
   @override
   String get stepFivePiecesBody =>
-      'Her yüzün tam ortasındaki parça asla hareket etmez, bu yüzden 3×3\'teki gibi yüzün rengini göstermeye devam eder. Etrafında sekiz merkez parçası daha bulunur; her kenarın bir orta parçası ve iki kanadı vardır, köşeler ise 3×3\'teki gibi çalışır.';
+      'Her yüzün orta parçası hiç hareket etmez, bu yüzden renk düzeni yanlış çıkamaz. Çevresinde sekiz merkez parçası vardır: köşe merkezleri ve kenar merkezleri asla tür değiştirmez. Her kenar, iki kanatlı bir orta parçadır.';
 
   @override
   String get stepFiveSlices => 'Üç tür çevirme';
@@ -1727,7 +1965,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get stepFiveCenterBarBody =>
-      'Eşleşen üç merkez parçasından bir sıra kur, sonra bir iç katman çevirmesiyle eşleşen ortanın yanına kaydır. Üç çubuk bitmiş bir merkez oluşturur.';
+      'Üç eşleşen merkez parçasından bir sıra yap, bir iç katmanla içeri kaydır, üstü çevir ve katmanı geri al: çubuğu getiren hamle bitmiş merkezi de geri getirir. Üç çubuk bir merkez eder.';
 
   @override
   String get stepFiveCenterSwap => 'Bozmadan değiştir';
@@ -1741,35 +1979,35 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get stepFiveEdgePairBody =>
-      'Önde iki kanadı eşleşen orta kenarın yanına hizala, iç katmanı aşağı çevir, üstten çözülmemiş bir kenar getir, sonra iç katmanı geri çevir.';
+      'Önde bir kanadı kendi orta kenarının yanına hizala, iç katmanı aşağı çevir, kısa bir tetikle çözülmemiş bir kenarı al, sonra iç katmanı geri çevir.';
 
   @override
   String get stepFiveEdgeLast => 'Son kenarlar';
 
   @override
   String get stepFiveEdgeLastBody =>
-      'Yalnızca birkaç kenar kaldığında bir geniş çevirme, kısa bir tetikleyici ve geri geniş çevirme bitmiş kenarları bozmadan onları eşleştirir.';
+      'Değiştirecek boş kenar kalmayınca katman, çevir, katman kullan: geniş bir hamle, kısa bir tetik ve geri geniş hamle son kenarları, bitmişleri bozmadan eşleştirir.';
 
   @override
   String get stepFiveAsThree => 'Artık bir 3×3';
 
   @override
   String get stepFiveAsThreeBody =>
-      'Merkezler ve kenarlar bitince 5×5 büyük bir 3×3 gibi davranır. Yalnızca dış çevirmeler kullan ve üç tacı izle: beyaz artı ve köşeler, orta katman, sonra sarı katman.';
+      'Merkezler ve kenarlar hazırken 5×5 büyük bir 3×3 gibi davranır. Yalnızca dış hamlelerle katman katman ilerle: beyaz artı ve köşeler, orta katman, sonra sarı katman. 5×5\'te PLL parity yoktur.';
 
   @override
   String get stepFiveEdgeParity => 'Son kenarın kanatlarını değiştir';
 
   @override
   String get stepFiveEdgeParityBody =>
-      'Bazen son kenarın iki kanadı yer değiştirmiş olur. Daha uzun bir iç katman algoritması onları geri değiştirirken geri kalan her şey yerine döner. Sonra 3×3 gibi bitir.';
+      'Bazen son kenarın iki dış kanadı yer değiştirmiştir ve ters görünür: 5×5\'in tek parity durumu. Onu üst katmanın önünde tut ve iç katman algoritmasını bir kez yap; geri kalan her şey yerine döner.';
 
   @override
   String get stepSixPieces => '6×6\'nın parçaları';
 
   @override
   String get stepSixPiecesBody =>
-      '4×4 gibi 6×6\'nın da sabit merkezi yoktur: on altı merkez parçası her yüz rengini oluşturur. Her kenarın dört parçası vardır: iki dış kanat ve iki iç kanat.';
+      '4×4 gibi 6×6\'da da sabit merkez yoktur: on altı merkez parçası her yüzün rengini oluşturur, bu yüzden önce bir köşeden renk sırasını kontrol et. Her kenarın dört kanadı vardır: iki dış, iki iç.';
 
   @override
   String get stepSixSlices => 'Daha derin katmanları çevirmek';
@@ -1783,49 +2021,49 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get stepSixCenterBarBody =>
-      'Eşleşen dört merkez parçasından sıralar kur ve yüz tek düz renk olana kadar iç katman çevirmeleriyle onları yan yana kaydır.';
+      'Dört eşleşen merkez parçasından sıralar yap ve iç katman hamleleriyle yan yana kaydır, her katmanı geri al; yüz tek renkli bir 4×4 blok olana kadar.';
 
   @override
   String get stepSixCenterSwap => 'Parçaları tek tek taşı';
 
   @override
   String get stepSixCenterSwapBody =>
-      'Üçüncü katmanı çevir, üstü çevir, geri al, geri çevir: bir merkez parçası yer değiştirirken bitmiş merkezler geri gelir.';
+      'Üçüncü katmanı çevir, üstü çevir, geri al, üstü geri çevir: bir merkez parçası taşınır, bitmiş merkezler geri gelir. Hiçbir çubuk uymadığında son iki merkez için kullan.';
 
   @override
   String get stepSixEdgePair => 'Dört parça, bir kenar';
 
   @override
   String get stepSixEdgePairBody =>
-      'Bir kenarın dört parçasını derin geniş katmanla önde topla, sonra çözülmemiş bir kenar getir ve geniş katmanı geri çevir.';
+      'Bir kenarın dört kanadını derin geniş katmanla önde topla, kısa bir tetikle çözülmemiş bir kenarı al, sonra geniş katmanı geri çevir.';
 
   @override
   String get stepSixEdgeLast => 'Son kenarlar';
 
   @override
   String get stepSixEdgeLastBody =>
-      'Son kenarları derin bir geniş çevirme ile onun geri alınması arasındaki kısa bir tetikleyiciyle eşleştir; böylece bitmiş kenarlar eşleşmiş kalır.';
+      'Son kenarları derin bir geniş hamle ile onun geri alınması arasındaki kısa bir tetikle eşleştir; bitmiş kenarlar eşli kalır. Bir parçayı kurtarmak için bitmiş kenarı asla bozma.';
 
   @override
   String get stepSixAsThree => 'Artık bir 3×3';
 
   @override
   String get stepSixAsThreeBody =>
-      '4×4 merkezler ve eşleşmiş kenarlarla 6×6\'yı dış çevirmeler ve üç taçla bir 3×3 gibi çöz.';
+      '4×4 merkezler ve eşleşmiş kenarlarla 6×6\'yı 3×3 gibi, katman katman, yalnızca dış hamlelerle çöz. Sonda ters tek kenar ya da yer değiştirmiş iki kenar parity\'dir, hata değil.';
 
   @override
   String get stepSixOllParity => 'Bir ters kenar';
 
   @override
   String get stepSixOllParityBody =>
-      'Son katmanı çözerken tek bir kenar ters görünüyorsa bu paritedir. Onu üst katmanın önünde tut ve uzun düzeltmeyi uygula: ilk iki taç dokunulmadan geri gelir.';
+      'Son katmanda ters görünen tek bir kenar parity\'dir. Onu üst katmanın önünde tut ve uzun düzeltmeyi yap: dört kanadın hepsini çevirir, üstteki sol ve sağ kenarları da değiştirir ve ilk iki katmana dokunmaz.';
 
   @override
   String get stepSixPllParity => 'İki yer değiştirmiş kenar';
 
   @override
   String get stepSixPllParityBody =>
-      'En sonda iki kenar yer değiştirmiş görünüyorsa onları üst katmanın önünde ve arkasında tut ve iç katman çift çevirmelerinden oluşan kısa düzeltmeyi uygula.';
+      'En sonda iki kenar yer değiştirmiş görünüyorsa onları üst katmanda önde ve arkada tut ve iç çift hamlelerle kısa düzeltmeyi yap: iki kenarın dört kanadı da yer değiştirir.';
 
   @override
   String get stageTwoFirstLayer => 'Alt katmanı kur';
@@ -2367,7 +2605,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String cueCrossFlipped(String piece, String center) {
-    return '$piece kenar yerinde ama ters: beyazı yana bakıyor. Onu çıkar, sonra $center merkezin yanına doğru yönde geri koy.';
+    return '$piece kenarı yerinde ama ters: beyazı yana bakıyor. Onu çıkar, beyazı yukarı bakacak şekilde üste al, sonra $center merkezin yanına indir.';
   }
 
   @override
@@ -2382,7 +2620,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String cueCornerTwisted(String piece) {
-    return '$piece köşe yerinde ama dönmüş. Bir hamle onu dışarı çıkarır (yerine sarı bir köşe girer); doğru şekilde geri oturana kadar tekrarla.';
+    return '$piece köşesi yerinde ama dönük. Bir tetik onu dışarı çıkarır (yerine sarı bir köşe girer); beyaz aşağıda geri girene kadar aynı yerin üstünde tekrarla. Onu kovalamak için küpü çevirme.';
   }
 
   @override
@@ -2397,7 +2635,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String cueMiddleFlipped(String piece, String a, String b) {
-    return '$piece kenar yuvasında ama ters. Onu dışarı itmek için oraya sarı bir kenar sok, sonra onu yeniden $a ile $b arasına yerleştir.';
+    return '$piece kenarı yerinde ama ters. Oraya sarı bir kenar sokarak onu üste it, sonra $a ile $b arasına yeniden yerleştir.';
   }
 
   @override
@@ -2412,7 +2650,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String cueYellowDot(String front) {
-    return 'Yalnızca merkez sarı: bir nokta. L elde etmek için $front sana dönükken algoritmayı bir kez uygula.';
+    return 'Yalnızca merkez sarı: nokta. $front sana dönükken algoritmayı bir kez uygula, L elde edersin. Nokta üç tur sürebilir, devam et.';
   }
 
   @override
@@ -2442,7 +2680,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String cueTwistCorner(String piece) {
-    return 'Sağ öndeki $piece köşeyi çevir: sarısı yukarı bakana kadar alt hamleyi tekrarla. Alt katmanlar şimdilik karışık görünür, bu normal!';
+    return 'Ön sağdaki $piece köşesini çevir: sarısı yukarı bakana kadar alt tetiği çiftler halinde tekrarla. Alt katmanlar şimdilik karışık görünür; son köşeyle geri gelirler!';
   }
 
   @override
@@ -2520,16 +2758,16 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String cueParityOll(String front) {
-    return 'OLL paritesi: üstteki bir kenar ters dönmüş, bu 3×3\'te asla olmaz. Onu önde tut, $front sana dönük olsun, ve parite düzeltmesini uygula.';
+    return 'OLL parity: üstte bir kenar ters, bu 3×3\'te asla olmaz. Onu önde tut, $front sana dönük, ve normal OLL\'den önce parity düzeltmesini uygula.';
   }
 
   @override
   String get cueParityPll =>
-      'PLL paritesi: üstteki iki kenar yer değiştirmiş, bu 3×3\'te asla olmaz. Onları önde ve arkada tut ve parite değişimini uygula.';
+      'PLL parity: üstte iki kenar yer değiştirmiş, bu 3×3\'te asla olmaz. Onları önde ve arkada tut, parity değişimini uygula, sonra üstü hizala.';
 
   @override
   String cueParityFive(String front) {
-    return 'Kenar paritesi: bir kenarın iki dış parçası yer değiştirmiş. O kenarı öne çevir, $front sana dönük olsun, düzelt ve geri çevir.';
+    return 'Kenar parity: bir kenarın iki dış kanadı yer değiştirmiş, 5×5\'in tek parity durumu. O kenarı önde tut, $front sana dönük, ve düzeltmeyi bir kez uygula.';
   }
 
   @override
@@ -2560,7 +2798,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get onboardingLearnBody =>
-      'Akademi’de 3 taç yöntemini öğren, sonra 3D Oyun Alanı’nda serbestçe çevir, karıştır ve çöz.';
+      'Akademide katman katman yöntemini öğren, sonra 3D Oyun Alanı\'nda serbestçe çevir, karıştır ve çöz.';
 
   @override
   String get scanChoiceManualDesc =>
@@ -2578,7 +2816,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get crownExplain =>
-      'Taç, küpün yatay bir katmanıdır: birinci taç alttaki beyaz katman, ikincisi orta katman, üçüncüsü üstteki sarı katmandır.';
+      'Katman, küpün yatay bir dilimidir: birinci katman alttaki beyaz katman, ikincisi orta katman, üçüncüsü üstteki sarı katmandır.';
 
   @override
   String get lessonObjectiveHeading => 'Öğrenme hedefi';
@@ -2602,7 +2840,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get solveChoiceFastDesc => 'En kısa çözüm, hamle hamle.';
 
   @override
-  String get solveChoiceGuidedDesc => '3 taç yöntemini adım adım öğren.';
+  String get solveChoiceGuidedDesc =>
+      'Katman katman yöntemini adım adım öğren.';
 
   @override
   String get guidedSolvedTitle => 'Çözüldü!';

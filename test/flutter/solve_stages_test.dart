@@ -42,7 +42,7 @@ void main() {
     expect(plan.stageAt(13)!.number, 4);
   });
 
-  test('big cubes: reduction stages, then the three crowns', () {
+  test('big cubes: reduction stages, then the three layers', () {
     final steps = [
       ..._times(120, _step('reductionCenters')),
       ..._times(90, _step('reductionEdgeParity')),
@@ -58,9 +58,9 @@ void main() {
     expect(headline(0), 'Stage 1 of 6: Build center blocks');
     expect(headline(150), 'Stage 2 of 6: Pair outer & inner edges');
     expect(headline(420), 'Stage 3 of 6: Parity resolution');
-    expect(headline(430), 'Stage 4 of 6: First crown (white)');
-    expect(headline(470), 'Stage 5 of 6: Second crown');
-    expect(headline(500), 'Stage 6 of 6: Third crown (yellow)');
+    expect(headline(430), 'Stage 4 of 6: First layer (white)');
+    expect(headline(470), 'Stage 5 of 6: Second layer');
+    expect(headline(500), 'Stage 6 of 6: Third layer (yellow)');
     // Pairing (with its slice parity) is one stage: 290 moves.
     final edges = plan.stageAt(150)!;
     expect((edges.first, edges.last), (120, 409));
@@ -73,7 +73,7 @@ void main() {
     ], 5);
     expect(
       stageHeadline(en, odd.stageAt(2)!),
-      'Stage 3 of 5: First crown (white)',
+      'Stage 3 of 5: First layer (white)',
     );
   });
 

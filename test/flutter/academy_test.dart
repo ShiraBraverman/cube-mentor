@@ -57,7 +57,7 @@ void main() {
       }
     });
 
-    test('the beginner track is the 3-crown, 7-sub-step syllabus', () {
+    test('the beginner track is the 3-layer, 7-sub-step syllabus', () {
       final beginner = [
         for (final lesson in kLessons)
           if (lesson.crown > 0) (lesson.crown, lesson.subStep),
@@ -85,15 +85,15 @@ void main() {
         lessonTitle(_he, 'twistCorners'),
         '3.4 סיבוב הפינות לצבעים הנכונים',
       );
-      expect(lessonTitle(_he, 'corners'), '1.2 פינות הכתר הראשון');
+      expect(lessonTitle(_he, 'corners'), '1.2 פינות השכבה הראשונה');
       expect(lessonTitle(_he, 'middle'), '2.1 השלמת השכבה האמצעית');
-      expect(lessonTitle(_he, 'yellowEdges'), '3.2 התאמת מרכזי האיקס הצהוב');
-      expect(crownName(_he, 1), 'הכתר הראשון');
-      expect(crownName(_he, 2), 'הכתר השני');
-      expect(crownName(_he, 3), 'הכתר השלישי');
+      expect(lessonTitle(_he, 'yellowEdges'), '3.2 התאמת קצוות הצלב הצהוב');
+      expect(crownName(_he, 1), 'השכבה הראשונה');
+      expect(crownName(_he, 2), 'השכבה השנייה');
+      expect(crownName(_he, 3), 'השכבה השלישית');
       expect(
         lessonDescription(_en, 'middle'),
-        'Insert the 4 middle-layer edges without disturbing the first crown.',
+        'Insert the 4 middle-layer edges without disturbing the first layer.',
       );
     });
 
@@ -518,7 +518,7 @@ void main() {
     // The page title (the home card reads "האקדמיה").
     expect(find.text('אקדמיה'), findsOneWidget);
     expect(find.text('0 מתוך 29 שיעורים הושלמו'), findsOneWidget);
-    expect(find.text('מתחילים 3×3: שלושת הכתרים'), findsOneWidget);
+    expect(find.text('3×3 למתחילים: שכבה אחרי שכבה'), findsOneWidget);
     // Below the hero cards: scroll to the first crown's lessons.
     await tester.scrollUntilVisible(
       find.byKey(const ValueKey('lesson-cross')),
@@ -527,7 +527,7 @@ void main() {
     );
     // One numbering: the sub-step badge and the lesson's name.
     expect(find.text('1.1'), findsWidgets);
-    expect(find.text('איקס לבן מותאם למרכזים'), findsWidgets);
+    expect(find.text('צלב לבן מותאם למרכזים'), findsWidgets);
     expect(find.byKey(const ValueKey('academy-crown-explain')), findsOneWidget);
     expect(find.byKey(const ValueKey('academy-crown-1')), findsOneWidget);
     expect(

@@ -324,11 +324,11 @@ void main() {
       tester
           .widget<Text>(find.byKey(const ValueKey('substep-intro-title')))
           .data,
-      '1.2 First crown corners',
+      '1.2 First layer corners',
     );
     await tester.tap(find.byKey(const ValueKey('intro-start')));
     await _advance(tester, 12);
-    expect(find.text('1.2 First crown corners'), findsOneWidget);
+    expect(find.text('1.2 First layer corners'), findsOneWidget);
 
     // The flag in the banner reopens the card at any time.
     await tester.tap(find.byKey(const ValueKey('solve-intro-open')));
@@ -357,7 +357,7 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('playback-prev')));
     await _advance(tester, 12);
     expect(container.read(cubeSessionProvider(3)).cube.isSolved, isFalse);
-    expect(find.text('1.2 First crown corners'), findsOneWidget);
+    expect(find.text('1.2 First layer corners'), findsOneWidget);
 
     // The toggle re-solves from here with the fast solver, and remembers it.
     await tester.tap(find.byKey(const ValueKey('solve-mode-fast')));

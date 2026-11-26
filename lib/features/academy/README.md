@@ -11,6 +11,12 @@ Interactive, localized lessons (Milestone 4).
   Texts live in the ARB files.
 - `model/academy_progress.dart`: completed lessons and the last one opened
   (shared preferences); powers the Home "Continue learning" card.
+- Stage 1 of every lesson is a Goal / How to hold it / How / Why it works
+  card (`introGoalText`, `introHoldText`, `introHowText`, `introWhyText`).
+  Texts follow `CubeMentor_Master_Curriculum_Localization_Reference.md`:
+  "layer" (never "crown", except French *couronne*), one 2x2 finish route
+  (Sune, then T-perm or Y-perm), a single 5x5 edge parity, and every
+  algorithm named in a text matches the lesson's 3D demonstration.
 - `lesson_screen.dart`: plays a lesson on the shared 3D session with the
   guided-playback arrows; "Show me" animates the demo, swipes follow it.
 

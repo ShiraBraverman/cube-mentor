@@ -159,7 +159,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get solveLearn => 'Belajar langkah demi langkah';
 
   @override
-  String get solveModeGuided => 'Terpandu (3 mahkota)';
+  String get solveModeGuided => 'Terpandu (3 lapisan)';
 
   @override
   String get solveModeFast => 'Cepat (optimal)';
@@ -256,7 +256,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get phaseLblCross => 'Silang putih';
 
   @override
-  String get phaseLblCorners => 'Sudut mahkota pertama';
+  String get phaseLblCorners => 'Sudut lapisan pertama';
 
   @override
   String get phaseLblMiddle => 'Rusuk lapisan tengah';
@@ -274,13 +274,13 @@ class AppLocalizationsId extends AppLocalizations {
   String get phaseLblYellowCornersOrient => 'Orientasikan sudut kuning';
 
   @override
-  String get crownFirst => 'Mahkota pertama';
+  String get crownFirst => 'Lapisan pertama';
 
   @override
-  String get crownSecond => 'Mahkota kedua';
+  String get crownSecond => 'Lapisan kedua';
 
   @override
-  String get crownThird => 'Mahkota ketiga';
+  String get crownThird => 'Lapisan ketiga';
 
   @override
   String get crownFirstGoal => 'Sisi putih dan lapisan pertama';
@@ -297,11 +297,11 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get subStepGoal12 =>
-      'Masukkan 4 sudut putih ke slotnya untuk menyelesaikan sisi putih dan seluruh cincin pertama.';
+      'Masukkan 4 sudut putih ke tempatnya untuk menyelesaikan sisi putih dan seluruh lapisan pertama.';
 
   @override
   String get subStepGoal21 =>
-      'Masukkan 4 rusuk lapisan tengah tanpa merusak mahkota pertama.';
+      'Masukkan 4 rusuk lapisan tengah tanpa merusak lapisan pertama.';
 
   @override
   String get subStepGoal31 => 'Bentuk silang kuning di lapisan terakhir.';
@@ -675,7 +675,7 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => '3×3 pemula: 3 mahkota';
+  String get trackBeginner => '3×3 pemula: lapis demi lapis';
 
   @override
   String get trackCfop => 'Pengenalan CFOP';
@@ -684,7 +684,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get trackTwoByTwo => '2×2 pemula & Ortega';
 
   @override
-  String get trackBigCubes => 'Kubus besar: reduksi & paritas';
+  String get trackBigCubes => 'Kubus besar: reduksi & parity';
 
   @override
   String moveSentence(String layer, String direction) {
@@ -796,13 +796,13 @@ class AppLocalizationsId extends AppLocalizations {
   String get phaseReductionEdges => 'Pasangkan rusuk';
 
   @override
-  String get phaseReductionEdgeParity => 'Paritas rusuk';
+  String get phaseReductionEdgeParity => 'Parity rusuk';
 
   @override
-  String get phaseReductionOllParity => 'Paritas OLL';
+  String get phaseReductionOllParity => 'OLL parity';
 
   @override
-  String get phaseReductionPllParity => 'Paritas PLL';
+  String get phaseReductionPllParity => 'PLL parity';
 
   @override
   String get explainReductionCenterBlock =>
@@ -815,7 +815,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get explainReductionParityCenters =>
-      'Susun ulang pusat yang bergeser karena putaran paritas.';
+      'Susun ulang pusat yang bergeser karena putaran parity.';
 
   @override
   String explainReductionEdgeCycle(String piece) {
@@ -824,15 +824,15 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get explainReductionEdgeParity =>
-      'Rusuk terakhir tidak bisa dipasangkan hanya dengan siklus-3 (paritas rusuk). Satu putaran irisan dalam akan memperbaikinya.';
+      'Rusuk terakhir tidak bisa dipasangkan hanya dengan siklus-3 (parity rusuk). Satu putaran irisan dalam akan memperbaikinya.';
 
   @override
   String get explainReductionOllParity =>
-      'Paritas OLL: satu rusuk terbalik, hal yang mustahil pada 3×3. Algoritma ini membaliknya kembali.';
+      'OLL parity: satu rusuk terbalik, hal yang mustahil pada 3×3. Algoritma ini membaliknya kembali.';
 
   @override
   String get explainReductionPllParity =>
-      'Paritas PLL: dua rusuk tertukar, hal yang mustahil pada 3×3. Algoritma ini menukarnya kembali.';
+      'PLL parity: dua rusuk tertukar, hal yang mustahil pada 3×3. Algoritma ini menukarnya kembali.';
 
   @override
   String get patternsTitle => 'Pustaka pola';
@@ -989,77 +989,77 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get stepCrossGoalBody =>
-      'Pegang kuning di atas. Keempat rusuk putih mengelilingi pusat putih di bawah, dan warna samping masing-masing cocok dengan pusat di sebelahnya.';
+      'Pegang kuning di atas dan hijau menghadapmu. Kumpulkan dulu empat rusuk putih di sekeliling pusat kuning, putih menghadap atas, seperti kelopak: itulah bunga. Lalu tiap kelopak turun ke pusat putih dengan warna samping cocok dengan pusat di sebelahnya.';
 
   @override
   String get stepCrossTop => 'Rusuk di atas';
 
   @override
   String get stepCrossTopBody =>
-      'Cari rusuk putih di atas. Putar lapisan atas sampai warna sampingnya berada di atas pusat yang cocok, lalu putar sisi itu dua kali untuk menurunkannya.';
+      'Rusuk putih di atas dengan putih menghadap atas adalah kelopak bunga. Putar lapisan atas sampai warna sampingnya tepat di atas pusat yang sewarna, lalu putar sisi itu dua kali (180°) untuk menurunkannya ke pusat putih.';
 
   @override
   String get stepCrossMiddle => 'Rusuk di tengah';
 
   @override
   String get stepCrossMiddleBody =>
-      'Rusuk yang tersangkut di lapisan tengah dinaikkan dulu: putar sisinya ke atas, geser lapisan atas agar tidak menghalangi, lalu kembalikan sisinya supaya silang tetap utuh. Setelah itu tempatkan dari atas.';
+      'Rusuk yang tersangkut di lapisan tengah naik dulu: putar sisinya ke atas, geser lapisan atas, lalu kembalikan sisinya agar keping yang sudah dipasang tetap. Sekarang ia kelopak di atas: sejajarkan dan putar sisi itu dua kali.';
 
   @override
   String get stepCornersInsert => 'Di atas tempatnya';
 
   @override
   String get stepCornersInsertBody =>
-      'Putar lapisan atas sampai sebuah sudut putih berada di atas tempat warnanya, di depan kanan. R U R\' U\' akan memasukkannya.';
+      'Putar lapisan atas sampai sudut putih tepat di atas slotnya, di antara dua pusat yang sewarna dengan warna sampingnya. Di sini cukup satu putaran atas dan R U\' R\': U membawa sudut ke atas slot, R U\' R\' memasukkannya dengan putih di bawah.';
 
   @override
   String get stepCornersRepeat => 'Ulangi pemicunya';
 
   @override
   String get stepCornersRepeatBody =>
-      'Jika putih menghadap ke arah yang salah, terus ulangi R U R\' U\' di tempat yang sama. Setiap sudut selesai paling banyak dalam lima kali ulangan.';
+      'Pegang slot di depan kanan dan ulangi R U R\' U\' sampai putih di bawah: sekali jika putih menghadap kanan, tiga kali jika ke atas, lima kali jika menghadapmu. Bagian atas tampak berantakan sementara; nanti rapi sendiri.';
 
   @override
   String get stepMiddleRight => 'Rusuk ke kanan';
 
   @override
   String get stepMiddleRightBody =>
-      'Sejajarkan rusuk atas dengan pusatnya di sisi depan. Jika warna atasnya cocok dengan pusat kanan, masukkan dengan U R U\' R\' U\' F\' U F.';
+      'Cari rusuk atas tanpa kuning. Putar lapisan atas sampai warna depannya cocok dengan pusat di depanmu. Jika warna atasnya cocok dengan pusat kanan, kirim ke kanan: U R U\' R\' U\' F\' U F.';
 
   @override
   String get stepMiddleLeft => 'Rusuk ke kiri';
 
   @override
   String get stepMiddleLeftBody =>
-      'Jika warna atasnya cocok dengan pusat kiri, gunakan versi cerminnya: U\' L\' U L U F U\' F\'.';
+      'Jika warna atasnya cocok dengan pusat kiri, pakai cerminnya: U\' L\' U L U F U\' F\'. Lapisan putih selalu kembali utuh.';
 
   @override
   String get stepYellowCross => 'Satu algoritma';
 
   @override
   String get stepYellowCrossBody =>
-      'F R U R\' U\' F\' mengubah titik kuning menjadi bentuk L, L menjadi garis, dan garis menjadi silang. Pegang L di kiri belakang dan garis dalam posisi mendatar.';
+      'Lihat hanya rusuk kuning di atas. Pegang L di belakang kiri dan garis dari kiri ke kanan, lalu lakukan F R U R\' U\' F\'. Garis butuh sekali, L dua kali, titik sampai tiga kali.';
 
   @override
   String get stepYellowEdges => 'Cocokkan rusuk';
 
   @override
   String get stepYellowEdgesBody =>
-      'Putar lapisan atas sampai dua rusuk cocok dengan pusatnya. Dengan satu di belakang dan satu di kanan, R U R\' U R U2 R\' U menukar dua rusuk lainnya.';
+      'Putar lapisan atas sampai dua rusuk cocok dengan pusatnya. Dengan satu di belakang dan satu di kanan, R U R\' U R U2 R\' U menukar rusuk depan dan kiri.';
 
   @override
   String get stepPlaceCorners => 'Tempatkan';
 
   @override
   String get stepPlaceCornersBody =>
-      'Pegang sudut yang sudah di tempatnya di depan kanan. U R U\' L\' U R\' U\' L memindahkan tiga sudut lainnya; ulangi sampai keempatnya di tempatnya.';
+      'Sudut sudah di tempatnya jika warnanya cocok dengan tiga pusat di sekitarnya, meski terpelintir. Pegang sudut seperti itu di depan kanan: U R U\' L\' U R\' U\' L memutar tiga lainnya. Ulangi sampai keempatnya di tempat.';
 
   @override
   String get stepTwistCorners => 'Putar';
 
   @override
   String get stepTwistCornersBody =>
-      'Dengan sudut yang belum selesai di depan kanan, ulangi R\' D\' R D sampai kuning di atas, lalu putar lapisan atas saja untuk membawa sudut berikutnya. Lapisan bawah akan terlihat berantakan sampai akhir: teruskan saja.';
+      'Dengan sudut yang belum selesai di depan kanan, ulangi R\' D\' R D berpasangan sampai kuning di atas, lalu putar hanya lapisan atas untuk membawa sudut berikutnya. Bagian bawah tampak rusak sampai sudut terakhir: terus saja.';
 
   @override
   String get lessonCfopIntro => 'Apa itu CFOP?';
@@ -1152,14 +1152,14 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get stepTwoIntroBody =>
-      '2×2 adalah 3×3 tanpa rusuk dan pusat. Pilih satu warna, bentuk sisi itu di bawah, dan cocokkan warna samping sudut-sudut yang bersebelahan.';
+      '2×2 hanyalah delapan sudut: tanpa rusuk dan tanpa pusat. Bangun lapisan putih di bawah dengan warna samping tetangga yang cocok, lalu selesaikan lewat satu jalur: Sune untuk atas kuning, kemudian T-perm atau Y-perm.';
 
   @override
   String get stepTwoCorner => 'Masukkan sudut';
 
   @override
   String get stepTwoCornerBody =>
-      'Persis seperti sudut putih pada 3×3: bawa sudut ke atas tempatnya dan gunakan R U R\' U\' sampai pas.';
+      'Seperti sudut putih di 3×3: bawa sudut ke atas slot kosongnya di depan kanan lalu masukkan, di sini dengan U R U\' R\' atau dengan mengulang R U R\' U\' sampai putih di bawah. Cocokkan warna sampingnya dengan tetangganya.';
 
   @override
   String get lessonTwoOll => 'Orientasikan bagian atas';
@@ -1172,7 +1172,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get stepTwoSuneBody =>
-      'Sune juga membuat bagian atas 2×2 menjadi kuning. Pengguna Ortega mempelajari tujuh kasus pendek; Sune dan cerminnya mencakup sebagian besar.';
+      'Hitung stiker kuning yang menghadap atas. Pegang satu-satunya sudut dengan kuning di atas di depan kiri dan lakukan Sune (R U R\' U R U2 R\'). Hitung dan pegang ulang; paling banyak tiga Sune. Di antaranya putar hanya lapisan atas.';
 
   @override
   String get lessonTwoPbl => 'Permutasi kedua lapisan';
@@ -1185,14 +1185,14 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get stepTwoAdjacentBody =>
-      'Jika dua sudut atas yang bersebelahan harus ditukar, pegang keduanya di kanan dan gunakan T-perm.';
+      'Lampu depan adalah dua stiker atas yang sama di satu sisi. Putar lapisan atas sampai lampu depan di kiri, sehingga dua sudut yang ditukar ada di kanan, lalu lakukan T-perm.';
 
   @override
   String get stepTwoDiagonal => 'Tukar diagonal';
 
   @override
   String get stepTwoDiagonalBody =>
-      'Dua sudut di posisi berseberangan ditukar dengan Y-perm.';
+      'Tidak ada lampu depan di sisi mana pun berarti dua sudut diagonal harus ditukar: lakukan Y-perm dari sisi mana saja, lalu putar lapisan atas untuk meluruskan semuanya.';
 
   @override
   String get lessonBigIntro => 'Kepingan kubus besar';
@@ -1205,7 +1205,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get stepBigPiecesBody =>
-      'Pada 4×4, setiap sisi punya empat kepingan pusat yang bisa berpindah, dan setiap rusuk terdiri dari dua sayap. Reduksi mengelompokkannya agar kubus berperilaku seperti 3×3.';
+      'Di 4×4 tiap sisi punya empat keping pusat yang bisa berpindah, dan tiap rusuk terdiri dari dua sayap. Tidak ada pusat tetap, jadi cek urutan warna pada sudut: putih seberang kuning, biru seberang hijau, merah seberang oranye.';
 
   @override
   String get stepBigSlices => 'Putaran lebar dan dalam';
@@ -1225,7 +1225,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get stepBigCenterCycleBody =>
-      'Komutator ini memindahkan tepat tiga kepingan pusat dan tidak menyentuh yang lain, jadi pusat yang sudah jadi tetap jadi.';
+      'Komutator ini memindahkan tepat tiga keping pusat dan membiarkan sisanya, jadi pusat yang sudah jadi tetap jadi. Pakai ini saat satu keping nyasar tidak mau bergabung ke batang.';
 
   @override
   String get lessonBigEdges => 'Pasangkan rusuk';
@@ -1238,33 +1238,40 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get stepBigEdgePairBody =>
-      'Uw\' menyejajarkan dua sayap yang cocok, R U R\' F R\' F\' R menukar masuk rusuk yang belum berpasangan, dan Uw mengembalikan pusat.';
+      'Uw\' menyejajarkan dua sayap yang cocok, R U R\' F R\' F\' R menukar masuk rusuk yang belum berpasangan, dan Uw mengembalikan pusat. Selalu tutup lapisan yang kamu buka.';
 
   @override
-  String get lessonBigParity => 'Paritas';
+  String get lessonBigParity => 'Parity';
 
   @override
-  String get lessonBigParityDesc => 'Paritas OLL dan PLL pada kubus genap.';
+  String get lessonBigParityDesc =>
+      'OLL parity dan PLL parity pada kubus genap.';
 
   @override
-  String get stepBigOllParity => 'Paritas OLL';
+  String get stepBigOllParity => 'OLL parity';
 
   @override
   String get stepBigOllParityBody =>
-      'Satu rusuk terbalik tidak mungkin terjadi pada 3×3. Pada kubus genap, algoritma ini membalik kembali rusuk depan atas. Algoritma ini bisa mengacak sisa lapisan atas, yang toh akan diperbaiki oleh langkah terakhir 3×3.';
+      'Satu rusuk terbalik sendirian tidak mungkin di 3×3: ini OLL parity, bukan kesalahan. Pegang di depan lapisan atas dan lakukan rumus panjangnya. Rumus ini juga menukar rusuk atas kiri dan kanan serta dua sudut; langkah 3×3 terakhir memperbaikinya.';
 
   @override
-  String get stepBigPllParity => 'Paritas PLL';
+  String get stepBigPllParity => 'PLL parity';
 
   @override
   String get stepBigPllParityBody =>
-      'Dua rusuk tertukar di bagian paling akhir? 2R2 U2 2R2 Uw2 2R2 Uw2 menukar rusuk atas depan dan belakang.';
+      'Dua rusuk tertukar di akhir dan tidak ada rumus 3×3 yang cocok? Itu PLL parity. Pegang keduanya di depan dan belakang lapisan atas: 2R2 U2 2R2 Uw2 2R2 2U2 menukarnya.';
 
   @override
   String get introGoalHeading => 'Apa tujuannya?';
 
   @override
   String get introHowHeading => 'Bagaimana caranya?';
+
+  @override
+  String get introHoldHeading => 'Cara memegang';
+
+  @override
+  String get introWhyHeading => 'Kenapa ini berhasil';
 
   @override
   String get introStart => 'Paham, mulai langkah demi langkah';
@@ -1290,11 +1297,11 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get introGoalCross =>
-      'Buat silang putih yang setiap rusuk putihnya juga cocok dengan warna pusat di sebelahnya.';
+      'Buat silang putih di bawah yang setiap rusuk putihnya juga cocok dengan warna pusat di sebelahnya.';
 
   @override
   String get introGoalCorners =>
-      'Isi keempat sudut putih sehingga mahkota pertama, seluruh lapisan putih, selesai.';
+      'Pasang keempat sudut putih agar seluruh lapisan pertama selesai: sisi putih dengan warna samping yang cocok.';
 
   @override
   String get introGoalMiddle =>
@@ -1341,7 +1348,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get introGoalTwoPbl =>
-      'Tukar sudut terakhir ke tempatnya untuk menyelesaikan 2×2.';
+      'Bawa sudut terakhir ke tempatnya dengan satu T-perm atau Y-perm, lalu luruskan lapisan atas untuk menyelesaikan 2×2.';
 
   @override
   String get introGoalBigIntro =>
@@ -1357,83 +1364,235 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get introGoalBigParity =>
-      'Atasi dua kasus 4×4 yang tidak ada di 3×3: satu rusuk terbalik atau dua rusuk tertukar.';
+      'Perbaiki dua kasus 4×4 yang tidak pernah ada di 3×3: satu rusuk terbalik (OLL parity) atau dua rusuk tertukar (PLL parity).';
 
   @override
   String get introHowBasics =>
       'Pusat tidak pernah berpindah, jadi pusat menunjukkan warna tiap sisi.\nSetiap huruf memutar satu sisi seperempat putaran searah jarum jam.\nTanda petik (\') memutar balik; angka 2 memutar dua kali.';
 
   @override
+  String get introHoldBasics =>
+      'Bebas: pusat tidak bergerak, jadi warnanya selalu memberi tahu sisi mana adalah mana.';
+
+  @override
+  String get introWhyBasics =>
+      'Setiap rumus hanyalah deretan huruf ini, jadi membacanya adalah keterampilan pertama.';
+
+  @override
   String get introHowCross =>
-      'Pegang kuning di atas: silang putih dibuat di bawah.\nCari rusuk putih dan sejajarkan warna sampingnya dengan pusat yang cocok.\nPutar sisi itu dua kali untuk menurunkan rusuk ke tempatnya.';
+      'Bawa setiap rusuk putih ke atas, putih menghadap atas, di sekeliling pusat kuning: itulah bunga (daisy).\nPutar lapisan atas sampai warna samping satu kelopak ada di atas pusat yang sewarna.\nPutar sisi itu dua kali untuk menurunkannya; ulangi untuk keempatnya.';
+
+  @override
+  String get introHoldCross =>
+      'Pusat kuning di atas dan pusat putih di bawah selama langkah ini. Putar lapisan atas, bukan kubusnya, untuk menyejajarkan kelopak.';
+
+  @override
+  String get introWhyCross =>
+      'Saat putih menghadap atas, dua putaran sisi depan menurunkan rusuk ke pusat putih, putih di bawah dan warna sampingnya sudah cocok.';
 
   @override
   String get introHowCorners =>
-      'Bawa sudut putih ke atas tempat kosongnya.\nUlangi R U R\' U\' sampai sudut masuk dengan arah yang benar.\nLakukan hal yang sama untuk tiga sudut lainnya.';
+      'Putar lapisan atas sampai sudut putih ada di atas tempat kosongnya, di depan kanan.\nUlangi R U R\' U\': sekali jika putih menghadap kanan, tiga kali jika ke atas, lima kali jika menghadapmu.\nLakukan hal yang sama untuk tiga sudut lainnya.';
+
+  @override
+  String get introHoldCorners =>
+      'Putih di bawah, kuning di atas. Sudut di depan kanan, tepat di atas tempatnya.';
+
+  @override
+  String get introWhyCorners =>
+      'R U R\' U\' mengangkat slot lalu mengembalikannya: tiap putaran memelintir sudut sedikit sampai putih di bawah, dan silang tidak pernah rusak.';
 
   @override
   String get introHowMiddle =>
-      'Cari rusuk atas tanpa kuning dan cocokkan warna depannya dengan pusat.\nKirim ke kanan atau ke kiri dengan algoritma pendek 8 gerakan.\nLapisan putih selalu kembali utuh.';
+      'Cari rusuk atas tanpa kuning dan cocokkan warna depannya dengan pusat di bawahnya.\nWarna atasnya menentukan arahnya: kanan atau kiri.\nMasukkan dengan rumus 8 gerakan; lapisan putih selalu kembali utuh.';
+
+  @override
+  String get introHoldMiddle =>
+      'Putih di bawah, kuning di atas. Rusuk di depan, warna depannya sama dengan pusat di bawahnya.';
+
+  @override
+  String get introWhyMiddle =>
+      'Rumusnya menyingkirkan slot, memasukkan rusuk, dan mengembalikan lapisan putih. Rusuk yang ada kuningnya milik bagian atas, bukan tengah.';
 
   @override
   String get introHowYellowCross =>
-      'Lihat sisi atas: titik, huruf L, atau garis.\nPegang seperti contoh lalu lakukan F R U R\' U\' F\'.\nUlangi sampai silang kuning muncul.';
+      'Lihat hanya rusuk kuning di atas: titik, huruf L, atau garis.\nPegang L di belakang kiri dan garis dari kiri ke kanan, lalu lakukan F R U R\' U\' F\'.\nGaris butuh sekali, L dua kali, titik sampai tiga kali.';
+
+  @override
+  String get introHoldYellowCross =>
+      'Putih di bawah, kuning di atas. L di belakang kiri, garis dari kiri ke kanan; titik bebas.';
+
+  @override
+  String get introWhyYellowCross =>
+      'F R U R\' U\' F\' membalik dua rusuk atas setiap kali tanpa menyentuh dua lapisan pertama.';
 
   @override
   String get introHowYellowEdges =>
-      'Putar lapisan atas sampai dua rusuk cocok dengan pusatnya.\nTaruh keduanya di belakang dan kanan, lalu lakukan R U R\' U R U2 R\' U.\nUlangi sampai keempat rusuk cocok.';
+      'Putar lapisan atas sampai dua rusuk cocok dengan pusatnya.\nPegang keduanya di belakang dan kanan, lalu lakukan R U R\' U R U2 R\' U.\nJika rusuk yang cocok saling berhadapan, lakukan sekali dari sisi mana saja dulu.';
+
+  @override
+  String get introHoldYellowEdges =>
+      'Kuning di atas. Satu rusuk yang cocok di belakang, yang lain di kanan.';
+
+  @override
+  String get introWhyYellowEdges =>
+      'Rumus ini hanya menggerakkan keping atas, jadi dua lapisan pertama selalu kembali.';
 
   @override
   String get introHowYellowCorners =>
-      'Sudut ada di tempatnya jika warnanya cocok dengan tiga sisi di sekitarnya.\nTaruh satu sudut yang sudah benar di depan kanan.\nU R U\' L\' U R\' U\' L menggilir tiga sudut lainnya sampai semuanya pas.';
+      'Sudut sudah di tempatnya jika warnanya cocok dengan tiga pusat di sekitarnya, meski masih terpelintir.\nPegang sudut yang sudah di tempatnya di depan kanan.\nU R U\' L\' U R\' U\' L memutar tiga sudut lain; ulangi sampai semuanya pas.';
+
+  @override
+  String get introHoldYellowCorners =>
+      'Kuning di atas. Sudut yang sudah di tempatnya di depan kanan; kalau tidak ada, sudut mana saja.';
+
+  @override
+  String get introWhyYellowCorners =>
+      'Rumus ini memutar tiga sudut melingkar dan membiarkan sudut depan kanan, jadi tiap pengulangan menempatkan lebih banyak sudut.';
 
   @override
   String get introHowTwistCorners =>
-      'Pegang sudut yang belum beres di depan kanan.\nUlangi R\' D\' R D sampai warna kuningnya menghadap atas.\nPutar hanya lapisan atas untuk sudut berikutnya; lapisan bawah beres sendiri di akhir.';
+      'Pegang sudut yang belum selesai di depan kanan.\nUlangi R\' D\' R D berpasangan sampai kuningnya menghadap atas.\nPutar hanya lapisan atas untuk sudut berikutnya; bagian bawah kembali di sudut terakhir.';
+
+  @override
+  String get introHoldTwistCorners =>
+      'Kuning di atas, sudut yang akan diputar di depan kanan. Di antara sudut putar hanya lapisan atas, jangan seluruh kubus.';
+
+  @override
+  String get introWhyTwistCorners =>
+      'R\' D\' R D memelintir sudut dan mengacak bagian bawah, tapi bagian bawah kembali setelah semua sudut diputar. Berhenti di tengah membuatnya rusak.';
 
   @override
   String get introHowCfopIntro =>
       'Silang: empat rusuk yang direncanakan saat inspeksi.\nF2L: setiap sudut masuk bersama rusuknya.\nOLL membuat sisi atas kuning, lalu PLL memindahkan keping ke tempatnya.';
 
   @override
+  String get introHoldCfopIntro =>
+      'Speedcuber membuat silang di bawah agar bisa melihat keping berikutnya sambil memutar.';
+
+  @override
+  String get introWhyCfopIntro =>
+      'Menyelesaikan sudut bersama rusuknya menghemat banyak gerakan, dan mengenali kasus menggantikan coba-coba.';
+
+  @override
   String get introHowF2l =>
       'Cari sudut dan rusuk pasangannya di lapisan atas.\nPasangkan keduanya di atas slotnya.\nMasukkan pasangan itu dengan tiga atau empat gerakan.';
+
+  @override
+  String get introHoldF2l =>
+      'Silang di bawah. Slot pasangan di depan kanan, atau depan kiri untuk versi cermin.';
+
+  @override
+  String get introWhyF2l =>
+      'Sudut dan rusuk yang berpasangan masuk bersama, jadi dua lapisan tumbuh sekaligus, bukan keping demi keping.';
 
   @override
   String get introHowOll =>
       'Pertama silang kuning dengan F R U R\' U\' F\'.\nLalu orientasikan sudut, misalnya dengan Sune.\nKenali kasusnya dari pola kuning yang terlihat.';
 
   @override
+  String get introHoldOll =>
+      'Kuning di atas. Untuk Sune, satu-satunya sudut dengan kuning di atas berada di depan kiri.';
+
+  @override
+  String get introWhyOll =>
+      'Membagi lapisan terakhir menjadi orientasi lalu permutasi membuat jumlah rumus tetap sedikit.';
+
+  @override
   String get introHowPll =>
       'Sisi atas sudah kuning semua.\nT-perm menukar sudut; U-perm menggilir tiga rusuk.\nBaca warna samping untuk memilih algoritma.';
 
   @override
+  String get introHoldPll =>
+      'Kuning di atas. T-perm: lampu depan di kiri. U-perm: sisi yang sudah jadi di belakang.';
+
+  @override
+  String get introWhyPll =>
+      'Saat atas sudah kuning semua, hanya posisi keping yang salah, dan beberapa tukaran menyelesaikan kubus.';
+
+  @override
   String get introHowTwoFirst =>
-      '2×2 hanya berisi sudut, seperti 3×3 tanpa rusuk.\nBawa setiap sudut putih ke atas tempatnya.\nUlangi R U R\' U\' sampai sudut masuk.';
+      'Pilih satu sudut putih sebagai jangkar, putih menghadap bawah.\nBawa setiap sudut berikutnya ke atas tempatnya di depan kanan.\nUlangi R U R\' U\' sampai masuk dengan warna samping yang cocok.';
+
+  @override
+  String get introHoldTwoFirst =>
+      'Putih di bawah. Tempat kosong di depan kanan, sudutnya tepat di atasnya di lapisan atas.';
+
+  @override
+  String get introWhyTwoFirst =>
+      '2×2 tidak punya pusat: sudut pertama yang dipasang menentukan warna tetangganya, jadi warna samping penting, bukan hanya putih.';
 
   @override
   String get introHowTwoOll =>
-      'Biarkan lapisan putih di bawah.\nSune (R U R\' U R U2 R\') memutar sudut-sudut atas.\nUlangi dari sudut pandang yang tepat sampai sisi atas kuning semua.';
+      'Hitung sudut yang kuningnya menghadap atas.\nJika ada satu, pegang di depan kiri dan lakukan Sune: R U R\' U R U2 R\'.\nHitung lagi dan ulangi; paling banyak tiga Sune.';
+
+  @override
+  String get introHoldTwoOll =>
+      'Putih di bawah, kuning di atas. Sebelum tiap Sune, sudut dengan kuning di atas di depan kiri.';
+
+  @override
+  String get introWhyTwoOll =>
+      'Sune memelintir sudut atas tanpa merusak lapisan putih; menghitung ulang memberi tahu cara memegang berikutnya.';
 
   @override
   String get introHowTwoPbl =>
-      'Cari sisi yang dua sudutnya sudah cocok.\nTukar bersebelahan: satu algoritma bergaya T-perm.\nTukar diagonal: satu algoritma yang sedikit lebih panjang.';
+      'Cari lampu depan: dua stiker atas yang sama di satu sisi.\nLampu depan di satu sisi: taruh di kiri dan lakukan T-perm.\nTanpa lampu depan: lakukan Y-perm dari sisi mana saja, lalu luruskan atas.';
+
+  @override
+  String get introHoldTwoPbl =>
+      'Putih di bawah, kuning di atas. T-perm: lampu depan di kiri. Y-perm: sisi mana saja menghadapmu.';
+
+  @override
+  String get introWhyTwoPbl =>
+      'Saat atas kuning, hanya posisi sudut yang salah: T-perm menukar dua tetangga, Y-perm dua yang diagonal.';
 
   @override
   String get introHowBigIntro =>
       'Tidak ada pusat yang tetap: empat keping pusat membentuk warna tiap sisi.\nGerakan lebar seperti Rw memutar dua lapisan sekaligus.\nGerakan dalam seperti 2R hanya memutar satu irisan dalam.';
 
   @override
+  String get introHoldBigIntro =>
+      'Awalnya bebas: di 4×4 tidak ada pusat tetap, jadi kamu yang memilih letak tiap warna.';
+
+  @override
+  String get introWhyBigIntro =>
+      'Reduksi mengelompokkan pusat dan keping rusuk agar kubus besar bisa diselesaikan seperti 3×3.';
+
+  @override
   String get introHowBigCenters =>
-      'Buat dulu dua pusat yang berseberangan.\nIrisan dalam menukar keping pusat tanpa merusak pusat yang sudah jadi.\nSelesaikan empat pusat terakhir dengan cara yang sama.';
+      'Cek dulu urutan warna pada satu sudut.\nBangun dua pusat yang berseberangan, lalu empat lainnya.\nLapisan dalam memindahkan keping pusat; selalu kembalikan lapisan yang kamu buka.';
+
+  @override
+  String get introHoldBigCenters =>
+      'Sisi yang sedang dibangun di depan; pusat yang sudah jadi di kiri dan kanan, tidak menghalangi.';
+
+  @override
+  String get introWhyBigCenters =>
+      'Lapisan dalam memindahkan pusat, dan membatalkannya mengembalikan yang sudah jadi, jadi hanya keping incaranmu yang berubah.';
 
   @override
   String get introHowBigEdges =>
-      'Cari dua keping rusuk dengan warna yang sama.\nJajarkan keduanya dengan irisan dalam.\nSimpan pasangan itu lalu kembalikan pusatnya.';
+      'Cari dua sayap dengan dua warna yang sama.\nSejajarkan di depan dan satukan dengan Uw\'.\nTukar dengan rusuk yang belum berpasangan, lalu Uw mengembalikan pusat.';
+
+  @override
+  String get introHoldBigEdges =>
+      'Rusuk yang dipasangkan di lapisan depan; rusuk jadi diparkir di lapisan atas dan bawah.';
+
+  @override
+  String get introWhyBigEdges =>
+      'Uw\' menyingkirkan pusat agar dua sayap bertemu; Uw mengembalikannya sehingga hasil kerjamu tetap utuh.';
 
   @override
   String get introHowBigParity =>
-      'Selesaikan 4×4 seperti 3×3 sampai macet.\nSatu rusuk terbalik: algoritma panjang paritas OLL.\nDua rusuk tertukar: 2R2 U2 2R2 Uw2 2R2 Uw2.';
+      'Selesaikan 4×4 seperti 3×3 sampai macet.\nSatu rusuk terbalik: rumus panjang OLL parity.\nDua rusuk tertukar: 2R2 U2 2R2 Uw2 2R2 2U2.';
+
+  @override
+  String get introHoldBigParity =>
+      'Lapisan terakhir di atas. OLL parity: rusuk terbalik di depan. PLL parity: rusuk yang tertukar di depan dan belakang.';
+
+  @override
+  String get introWhyBigParity =>
+      'Sayap bisa masuk ke keadaan yang tak bisa dicapai 3×3; rumus ini memutar lapisan dalam untuk membatalkan tepat itu.';
 
   @override
   String get dirFaceR => 'Sisi kanan';
@@ -1542,16 +1701,16 @@ class AppLocalizationsId extends AppLocalizations {
   String get stageEdges => 'Pasangkan rusuk luar & dalam';
 
   @override
-  String get stageParity => 'Atasi paritas';
+  String get stageParity => 'Atasi parity';
 
   @override
-  String get stageCrown1 => 'Mahkota pertama (putih)';
+  String get stageCrown1 => 'Lapisan pertama (putih)';
 
   @override
-  String get stageCrown2 => 'Mahkota kedua';
+  String get stageCrown2 => 'Lapisan kedua';
 
   @override
-  String get stageCrown3 => 'Mahkota ketiga (kuning)';
+  String get stageCrown3 => 'Lapisan ketiga (kuning)';
 
   @override
   String get stageOrient => 'Orientasikan keping';
@@ -1595,6 +1754,14 @@ class AppLocalizationsId extends AppLocalizations {
       'Keping tengah setiap sisi tidak pernah berpindah.\nSetiap rusuk terdiri dari keping tengah dan dua sayap.\nIrisan dalam memindahkan keping tanpa menyentuh bagian luar.';
 
   @override
+  String get introHoldFiveIntro =>
+      'Bebas: di 5×5 bagian tengah tiap sisi tidak pernah bergerak, jadi ia menunjukkan warna sisinya.';
+
+  @override
+  String get introWhyFiveIntro =>
+      'Pusat yang tetap menentukan skema warna, jadi pusat tidak mungkin tersusun salah urutan.';
+
+  @override
   String get lessonFiveCenters => 'Pusat 5×5';
 
   @override
@@ -1607,7 +1774,15 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get introHowFiveCenters =>
-      'Mulai dari keping tengah: ia menentukan warnanya.\nBuat batang berisi tiga dan geser masuk dengan irisan dalam.\nSelesaikan dua pusat terakhir bersama-sama.';
+      'Mulai dari keping tengah yang tetap: dialah penentu warna.\nBuat batang berisi tiga lalu geser masuk dengan lapisan dalam.\nGerakan yang memasukkan batang juga mengembalikan pusat yang sudah jadi.';
+
+  @override
+  String get introHoldFiveCenters =>
+      'Pusat yang sedang dibangun di depan atau atas; pusat jadi di bawah, kiri, atau kanan.';
+
+  @override
+  String get introWhyFiveCenters =>
+      'Lapisan masuk, putar atas, lapisan kembali: lapisan yang membawa batang juga mengembalikan pusat yang sudah jadi.';
 
   @override
   String get lessonFiveEdges => 'Rusuk 5×5';
@@ -1621,35 +1796,59 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get introHowFiveEdges =>
-      'Sejajarkan dua sayap dengan rusuk tengahnya di depan.\nPutar lapisan dalam, tukar rusuk yang belum jadi, lalu kembalikan.\nPasangkan rusuk terakhir tanpa merusak yang sudah jadi.';
+      'Pasangkan tiap sayap dengan rusuk tengahnya di depan.\nPutar lapisan dalam, tukar dengan rusuk yang belum selesai, putar kembali.\nUntuk rusuk terakhir: lapisan, balik, lapisan.';
+
+  @override
+  String get introHoldFiveEdges =>
+      'Rusuk yang sedang dibangun di depan; rusuk jadi disimpan di lapisan atas dan bawah.';
+
+  @override
+  String get introWhyFiveEdges =>
+      'Membuka dan menutup lapisan dalam menyatukan sayap, sementara pusat dan rusuk simpanan kembali.';
 
   @override
   String get lessonFiveSolve => 'Selesaikan 5×5 seperti 3×3';
 
   @override
-  String get lessonFiveSolveDesc => 'Akhiri dengan tiga mahkota.';
+  String get lessonFiveSolveDesc => 'Selesaikan lapis demi lapis, seperti 3×3.';
 
   @override
   String get introGoalFiveSolve =>
-      'Selesaikan 5×5 yang sudah direduksi seperti 3×3, mahkota demi mahkota.';
+      'Selesaikan 5×5 yang sudah direduksi seperti 3×3, lapis demi lapis, hanya dengan putaran luar.';
 
   @override
   String get introHowFiveSolve =>
-      'Mulai sekarang hanya putaran luar.\nMahkota pertama, kedua, lalu mahkota kuning.\nPusat tetap menunjukkan warna tiap sisi.';
+      'Mulai sekarang hanya putaran luar, kalau tidak rusuk yang berpasangan terpisah lagi.\nSilang dan sudut putih, lapisan tengah, lalu lapisan kuning.\nPusat yang tetap menunjukkan warna setiap sisi.';
 
   @override
-  String get lessonFiveParity => 'Paritas rusuk 5×5';
+  String get introHoldFiveSolve =>
+      'Warna lapisan pertama di bawah, sama seperti 3×3; sudut yang akan dimasukkan di depan kanan.';
+
+  @override
+  String get introWhyFiveSolve =>
+      'Putaran dalam akan memisahkan pusat dan rusuk lagi; putaran luar memperlakukan tiap blok sebagai satu keping 3×3.';
+
+  @override
+  String get lessonFiveParity => 'Parity rusuk 5×5';
 
   @override
   String get lessonFiveParityDesc => 'Perbaiki rusuk yang sayapnya tertukar.';
 
   @override
   String get introGoalFiveParity =>
-      'Perbaiki satu rusuk yang kedua sayapnya tertukar, lalu selesaikan.';
+      'Perbaiki satu rusuk yang dua sayap luarnya tertukar: satu-satunya parity di 5×5.';
 
   @override
   String get introHowFiveParity =>
-      'Terlihat sebagai rusuk yang tidak mau berpasangan.\nLakukan sekali perbaikan panjang dengan irisan dalam.\nSemua yang lain kembali ke tempatnya.';
+      'Muncul sebagai satu rusuk terakhir yang tampak terbalik.\nLakukan sekali perbaikan panjang dengan lapisan dalam.\nTidak ada PLL parity di 5×5.';
+
+  @override
+  String get introHoldFiveParity =>
+      'Lapisan terakhir di atas, rusuk dengan sayap tertukar di depan lapisan atas.';
+
+  @override
+  String get introWhyFiveParity =>
+      'Di 5×5 hanya dua sayap luar dari satu rusuk yang bisa tertukar, jadi satu rumus sudah cukup.';
 
   @override
   String get lessonSixIntro => 'Kenali 6×6';
@@ -1667,6 +1866,14 @@ class AppLocalizationsId extends AppLocalizations {
       'Tidak ada pusat tetap: kamu memilih warnanya saat membangun.\nSetiap rusuk punya sayap luar dan sayap dalam.\nPutaran lebar bisa memindahkan hingga tiga lapisan.';
 
   @override
+  String get introHoldSixIntro =>
+      'Awalnya bebas: seperti 4×4, 6×6 tidak punya pusat tetap.';
+
+  @override
+  String get introWhySixIntro =>
+      'Kalau kamu bisa 4×4 dan 5×5, 6×6 adalah reduksi yang sama dengan blok lebih besar.';
+
+  @override
   String get lessonSixCenters => 'Pusat 6×6';
 
   @override
@@ -1679,7 +1886,15 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get introHowSixCenters =>
-      'Bangun dulu dua pusat yang berseberangan.\nBuat batang berisi empat lalu satukan.\nPindahkan keping satuan dengan trik irisan, atas, batalkan.';
+      'Cek dulu urutan warna pada satu sudut: tidak ada pusat yang tetap.\nBuat batang berisi empat lalu satukan.\nDi dua pusat terakhir pindahkan keping satu per satu: lapisan, atas, batalkan.';
+
+  @override
+  String get introHoldSixCenters =>
+      'Sisi yang sedang dibangun di depan; pusat jadi di kiri, kanan, atau bawah.';
+
+  @override
+  String get introWhySixCenters =>
+      'Batang menyatu lewat lapisan dalam dan setiap lapisan dibatalkan, jadi pusat yang sudah jadi tetap utuh.';
 
   @override
   String get lessonSixEdges => 'Rusuk 6×6';
@@ -1693,24 +1908,40 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get introHowSixEdges =>
-      'Sejajarkan sayap luar dan dalam di depan.\nLapisan lebar yang dalam memasukkan dan mengeluarkan rusuk.\nRusuk yang sudah jadi tidak pernah rusak.';
+      'Sejajarkan sayap luar dan dalam dari satu rusuk di depan.\nLapisan lebar yang dalam membawa rusuk masuk dan keluar.\nJangan pernah merusak rusuk jadi untuk membebaskan keping.';
+
+  @override
+  String get introHoldSixEdges =>
+      'Rusuk yang sedang dibangun di depan; rusuk jadi diparkir di atas dan bawah.';
+
+  @override
+  String get introWhySixEdges =>
+      'Putaran lebar yang dalam menyingkirkan pusat agar sayap bertemu, lalu mengembalikannya.';
 
   @override
   String get lessonSixSolve => 'Selesaikan 6×6 seperti 3×3';
 
   @override
-  String get lessonSixSolveDesc => 'Akhiri dengan tiga mahkota.';
+  String get lessonSixSolveDesc => 'Selesaikan lapis demi lapis, seperti 3×3.';
 
   @override
   String get introGoalSixSolve =>
-      'Selesaikan 6×6 yang sudah direduksi seperti 3×3, mahkota demi mahkota.';
+      'Selesaikan 6×6 yang sudah direduksi seperti 3×3, lapis demi lapis, hanya dengan putaran luar.';
 
   @override
   String get introHowSixSolve =>
-      'Mulai sekarang hanya putaran luar.\nPusat yang kamu bangun menunjukkan warna tiap sisi.\nMahkota pertama, kedua, lalu mahkota kuning.';
+      'Mulai sekarang hanya putaran luar: lapisan dalam akan memecah pusat atau rusuk.\nPusat yang kamu bangun menunjukkan warna setiap sisi.\nSilang dan sudut putih, lapisan tengah, lalu lapisan kuning.';
 
   @override
-  String get lessonSixParity => 'Paritas 6×6';
+  String get introHoldSixSolve =>
+      'Warna lapisan pertama di bawah, sama seperti 3×3; sudut yang akan dimasukkan di depan kanan.';
+
+  @override
+  String get introWhySixSolve =>
+      'Putaran luar menggerakkan tiap pusat 4×4 dan tiap rusuk sebagai satu keping, persis seperti 3×3.';
+
+  @override
+  String get lessonSixParity => 'Parity 6×6';
 
   @override
   String get lessonSixParityDesc =>
@@ -1722,14 +1953,22 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get introHowSixParity =>
-      'Selesaikan seperti 3×3 sampai macet.\nSatu rusuk terbalik: perbaikan paritas yang panjang.\nDua rusuk tertukar: perbaikan pendek dengan putaran ganda.';
+      'Selesaikan seperti 3×3 sampai macet.\nSatu rusuk terbalik: perbaikan panjang dengan 3Rw.\nDua rusuk tertukar: perbaikan pendek dengan putaran ganda di dalam.';
+
+  @override
+  String get introHoldSixParity =>
+      'Lapisan terakhir di atas. Rusuk terbalik di depan; dua rusuk tertukar di depan dan belakang.';
+
+  @override
+  String get introWhySixParity =>
+      'Seperti 4×4, 6×6 bisa berakhir dengan satu rusuk terbalik atau dua rusuk tertukar; rumus lapisan dalam memperbaikinya dan membiarkan sisanya.';
 
   @override
   String get stepFivePieces => 'Keping 5×5';
 
   @override
   String get stepFivePiecesBody =>
-      'Keping tengah setiap sisi tidak pernah berpindah, jadi tetap menunjukkan warna sisi seperti pada 3×3. Di sekitarnya ada delapan keping pusat lagi; setiap rusuk punya keping tengah dan dua sayap, dan sudutnya sama seperti 3×3.';
+      'Keping tengah tiap sisi tidak pernah bergerak, jadi skema warna tidak mungkin salah. Di sekitarnya ada delapan keping pusat: pusat sudut dan pusat rusuk tidak pernah bertukar jenis. Tiap rusuk adalah keping tengah dengan dua sayap.';
 
   @override
   String get stepFiveSlices => 'Tiga jenis putaran';
@@ -1743,7 +1982,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get stepFiveCenterBarBody =>
-      'Buat baris berisi tiga keping pusat yang sama, lalu geser ke samping keping tengah yang cocok dengan putaran irisan dalam. Tiga batang menjadi satu pusat jadi.';
+      'Buat deret tiga keping pusat yang sama, geser masuk dengan lapisan dalam, putar atas, lalu kembalikan lapisannya: gerakan yang membawa batang juga mengembalikan pusat yang sudah jadi. Tiga batang membentuk satu pusat.';
 
   @override
   String get stepFiveCenterSwap => 'Tukar tanpa merusak';
@@ -1757,35 +1996,35 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get stepFiveEdgePairBody =>
-      'Sejajarkan dua sayap di samping rusuk tengahnya di depan, turunkan lapisan dalam, bawa rusuk yang belum jadi dari atas, lalu naikkan lagi lapisan dalam.';
+      'Sejajarkan satu sayap di samping rusuk tengahnya di depan, turunkan lapisan dalam, tukar masuk rusuk yang belum selesai dengan pemicu pendek, lalu kembalikan lapisan dalam.';
 
   @override
   String get stepFiveEdgeLast => 'Rusuk terakhir';
 
   @override
   String get stepFiveEdgeLastBody =>
-      'Saat tinggal sedikit rusuk, putaran lebar, pemicu pendek, dan putaran lebar kembali memasangkannya tanpa merusak rusuk yang sudah jadi.';
+      'Kalau tidak ada lagi rusuk bebas untuk ditukar, pakai lapisan, balik, lapisan: putaran lebar, pemicu pendek, dan putaran lebar kembali memasangkan rusuk terakhir tanpa merusak yang sudah jadi.';
 
   @override
   String get stepFiveAsThree => 'Sekarang menjadi 3×3';
 
   @override
   String get stepFiveAsThreeBody =>
-      'Setelah pusat dan rusuk jadi, 5×5 bekerja seperti 3×3 besar. Gunakan hanya putaran luar dan ikuti tiga mahkota: silang dan sudut putih, lapisan tengah, lalu lapisan kuning.';
+      'Dengan pusat dan rusuk selesai, 5×5 berperilaku seperti 3×3 besar. Pakai hanya putaran luar dan maju lapis demi lapis: silang dan sudut putih, lapisan tengah, lalu lapisan kuning. 5×5 tidak punya PLL parity.';
 
   @override
   String get stepFiveEdgeParity => 'Tukar sayap rusuk terakhir';
 
   @override
   String get stepFiveEdgeParityBody =>
-      'Kadang rusuk terakhir punya dua sayap yang tertukar. Algoritma irisan dalam yang panjang menukarnya kembali dan semua yang lain kembali ke tempatnya. Lalu selesaikan seperti 3×3.';
+      'Kadang rusuk terakhir punya dua sayap luar yang tertukar sehingga tampak terbalik: satu-satunya parity di 5×5. Pegang di depan lapisan atas dan lakukan sekali rumus lapisan dalam; semua yang lain kembali ke tempatnya.';
 
   @override
   String get stepSixPieces => 'Keping 6×6';
 
   @override
   String get stepSixPiecesBody =>
-      'Seperti 4×4, 6×6 tidak punya pusat tetap: enam belas keping pusat membentuk warna setiap sisi. Setiap rusuk punya empat keping: dua sayap luar dan dua sayap dalam.';
+      'Seperti 4×4, 6×6 tidak punya pusat tetap: enam belas keping pusat membentuk warna tiap sisi, jadi cek dulu urutan warna pada sudut. Tiap rusuk punya empat sayap: dua luar dan dua dalam.';
 
   @override
   String get stepSixSlices => 'Memutar lapisan lebih dalam';
@@ -1799,49 +2038,49 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get stepSixCenterBarBody =>
-      'Buat baris berisi empat keping pusat yang sama dan geser berdampingan dengan putaran irisan dalam sampai sisinya satu warna.';
+      'Buat deret empat keping pusat yang sama dan geser berdampingan dengan putaran lapisan dalam, batalkan tiap lapisan, sampai sisi itu menjadi satu blok 4×4 berwarna sama.';
 
   @override
   String get stepSixCenterSwap => 'Satu keping setiap kali';
 
   @override
   String get stepSixCenterSwapBody =>
-      'Putar lapisan ketiga, putar atas, batalkan, kembalikan: satu keping pusat berpindah dan pusat yang sudah jadi kembali.';
+      'Putar lapisan ketiga, putar atas, batalkan, putar balik: satu keping pusat berpindah dan pusat yang sudah jadi kembali. Pakai ini untuk dua pusat terakhir saat tidak ada batang yang pas.';
 
   @override
   String get stepSixEdgePair => 'Empat keping, satu rusuk';
 
   @override
   String get stepSixEdgePairBody =>
-      'Kumpulkan empat keping satu rusuk di depan dengan lapisan lebar yang dalam, bawa rusuk yang belum jadi, lalu kembalikan lapisan lebar.';
+      'Kumpulkan empat sayap satu rusuk di depan dengan lapisan lebar yang dalam, tukar masuk rusuk yang belum selesai dengan pemicu pendek, lalu putar lapisan lebar kembali.';
 
   @override
   String get stepSixEdgeLast => 'Rusuk terakhir';
 
   @override
   String get stepSixEdgeLastBody =>
-      'Pasangkan rusuk terakhir dengan pemicu pendek di antara putaran lebar dalam dan pembatalannya, agar rusuk yang sudah jadi tetap berpasangan.';
+      'Pasangkan rusuk terakhir dengan pemicu pendek di antara putaran lebar yang dalam dan pembatalannya, agar rusuk yang sudah jadi tetap berpasangan. Jangan pernah merusak rusuk jadi untuk membebaskan keping.';
 
   @override
   String get stepSixAsThree => 'Sekarang menjadi 3×3';
 
   @override
   String get stepSixAsThreeBody =>
-      'Dengan pusat 4×4 dan rusuk berpasangan, selesaikan 6×6 seperti 3×3 dengan putaran luar dan tiga mahkota.';
+      'Dengan pusat 4×4 dan rusuk berpasangan, selesaikan 6×6 seperti 3×3, lapis demi lapis, hanya dengan putaran luar. Satu rusuk terbalik atau dua tertukar di akhir adalah parity, bukan kesalahan.';
 
   @override
   String get stepSixOllParity => 'Satu rusuk terbalik';
 
   @override
   String get stepSixOllParityBody =>
-      'Jika satu rusuk tampak terbalik saat menyelesaikan lapisan terakhir, itu paritas. Taruh di depan lapisan atas dan lakukan perbaikan panjang: dua mahkota pertama kembali utuh.';
+      'Satu rusuk yang tampak terbalik di lapisan terakhir adalah parity. Pegang di depan lapisan atas dan lakukan perbaikan panjang: keempat sayapnya dibalik, rusuk atas kiri dan kanan ikut tertukar, dan dua lapisan pertama tidak tersentuh.';
 
   @override
   String get stepSixPllParity => 'Dua rusuk tertukar';
 
   @override
   String get stepSixPllParityBody =>
-      'Jika dua rusuk tampak tertukar di akhir, taruh di depan dan belakang lapisan atas lalu lakukan perbaikan pendek dengan putaran ganda di dalam.';
+      'Jika di akhir dua rusuk tampak tertukar, pegang keduanya di depan dan belakang lapisan atas lalu lakukan perbaikan pendek dengan putaran ganda di dalam: keempat sayap kedua rusuk bertukar tempat.';
 
   @override
   String get stageTwoFirstLayer => 'Bangun lapisan bawah';
@@ -2366,7 +2605,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String cueCrossFlipped(String piece, String center) {
-    return 'Rusuk $piece sudah di tempatnya tetapi terbalik: putihnya menghadap ke samping. Keluarkan, lalu masukkan kembali di samping pusat $center dengan arah yang benar.';
+    return 'Rusuk $piece sudah di tempatnya tapi terbalik: putihnya menghadap samping. Keluarkan dan naikkan ke atas dengan putih menghadap atas, lalu turunkan di samping pusat $center.';
   }
 
   @override
@@ -2381,7 +2620,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String cueCornerTwisted(String piece) {
-    return 'Sudut $piece sudah di tempatnya tetapi terpelintir. Satu gerakan mengeluarkannya (sudut kuning masuk menggantikannya); terus ulangi sampai ia masuk kembali dengan benar.';
+    return 'Sudut $piece ada di slotnya tapi terpelintir. Satu pemicu mengeluarkannya (sudut kuning masuk menggantikannya); terus ulangi di atas slot yang sama sampai ia masuk lagi dengan putih di bawah. Jangan memutar kubus untuk mengejarnya.';
   }
 
   @override
@@ -2396,7 +2635,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String cueMiddleFlipped(String piece, String a, String b) {
-    return 'Rusuk $piece sudah di celahnya tetapi terbalik. Masukkan rusuk kuning ke sana untuk mendorongnya keluar, lalu masukkan lagi di antara $a dan $b.';
+    return 'Rusuk $piece ada di slotnya tapi terbalik. Masukkan rusuk kuning ke sana untuk mendorongnya ke atas, lalu masukkan lagi di antara $a dan $b.';
   }
 
   @override
@@ -2411,7 +2650,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String cueYellowDot(String front) {
-    return 'Hanya pusat yang kuning: sebuah titik. Jalankan algoritma sekali dengan $front menghadapmu untuk mendapatkan L.';
+    return 'Hanya pusatnya yang kuning: titik. Lakukan rumusnya sekali dengan $front menghadapmu untuk mendapat L. Titik bisa butuh tiga putaran, jadi lanjutkan.';
   }
 
   @override
@@ -2441,7 +2680,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String cueTwistCorner(String piece) {
-    return 'Putar sudut $piece di depan kanan: ulangi gerakan bawah sampai kuningnya menghadap ke atas. Lapisan bawah tampak berantakan untuk sementara; itu normal!';
+    return 'Putar sudut $piece di depan kanan: ulangi pemicu bawah berpasangan sampai kuningnya menghadap atas. Lapisan bawah tampak berantakan dulu; semuanya kembali di sudut terakhir!';
   }
 
   @override
@@ -2519,16 +2758,16 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String cueParityOll(String front) {
-    return 'Paritas OLL: satu rusuk atas terbalik, hal yang tidak pernah terjadi di 3×3. Biarkan di depan, $front menghadapmu, lalu jalankan perbaikan paritas.';
+    return 'OLL parity: satu rusuk atas terbalik, hal yang tak pernah terjadi di 3×3. Pegang di depan, dengan $front menghadapmu, dan lakukan perbaikan parity sebelum OLL biasa.';
   }
 
   @override
   String get cueParityPll =>
-      'Paritas PLL: dua rusuk atas tertukar, hal yang tidak pernah terjadi di 3×3. Biarkan di depan dan belakang lalu jalankan penukaran paritas.';
+      'PLL parity: dua rusuk atas tertukar, hal yang tak pernah terjadi di 3×3. Pegang di depan dan belakang, lakukan tukaran parity, lalu luruskan lapisan atas.';
 
   @override
   String cueParityFive(String front) {
-    return 'Paritas rusuk: dua keping luar dari satu rusuk tertukar. Putar rusuk itu ke depan, $front menghadapmu, perbaiki, lalu putar kembali.';
+    return 'Parity rusuk: dua sayap luar dari satu rusuk tertukar, satu-satunya parity di 5×5. Pegang rusuk itu di depan, dengan $front menghadapmu, dan lakukan perbaikannya sekali.';
   }
 
   @override
@@ -2559,7 +2798,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get onboardingLearnBody =>
-      'Kuasai metode 3 mahkota di Akademi, lalu putar, acak, dan selesaikan dengan bebas di Arena 3D.';
+      'Kuasai metode lapis demi lapis di Akademi, lalu putar, acak, dan selesaikan sesukamu di Playground 3D.';
 
   @override
   String get scanChoiceManualDesc =>
@@ -2577,7 +2816,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get crownExplain =>
-      'Mahkota adalah satu lapisan horizontal kubus: mahkota pertama adalah lapisan putih di bawah, yang kedua lapisan tengah, dan yang ketiga lapisan kuning di atas.';
+      'Lapisan (layer) adalah satu irisan mendatar kubus: lapisan pertama adalah lapisan putih di bawah, yang kedua lapisan tengah, dan yang ketiga lapisan kuning di atas.';
 
   @override
   String get lessonObjectiveHeading => 'Tujuan pembelajaran';
@@ -2602,7 +2841,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get solveChoiceGuidedDesc =>
-      'Pelajari metode 3 mahkota selangkah demi selangkah.';
+      'Pelajari metode lapis demi lapis langkah demi langkah.';
 
   @override
   String get guidedSolvedTitle => 'Selesai!';

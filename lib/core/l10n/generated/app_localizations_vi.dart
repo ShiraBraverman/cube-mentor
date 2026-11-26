@@ -156,7 +156,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get solveLearn => 'Học từng bước';
 
   @override
-  String get solveModeGuided => 'Có hướng dẫn (3 vương miện)';
+  String get solveModeGuided => 'Có hướng dẫn (3 tầng)';
 
   @override
   String get solveModeFast => 'Nhanh (tối ưu)';
@@ -252,7 +252,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get phaseLblCross => 'Dấu cộng trắng';
 
   @override
-  String get phaseLblCorners => 'Các góc vương miện thứ nhất';
+  String get phaseLblCorners => 'Các góc tầng 1';
 
   @override
   String get phaseLblMiddle => 'Các cạnh tầng giữa';
@@ -270,13 +270,13 @@ class AppLocalizationsVi extends AppLocalizations {
   String get phaseLblYellowCornersOrient => 'Định hướng các góc vàng';
 
   @override
-  String get crownFirst => 'Vương miện thứ nhất';
+  String get crownFirst => 'Tầng 1';
 
   @override
-  String get crownSecond => 'Vương miện thứ hai';
+  String get crownSecond => 'Tầng 2';
 
   @override
-  String get crownThird => 'Vương miện thứ ba';
+  String get crownThird => 'Tầng 3';
 
   @override
   String get crownFirstGoal => 'Mặt trắng và tầng thứ nhất';
@@ -293,11 +293,11 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get subStepGoal12 =>
-      'Đưa 4 góc trắng vào đúng ô để hoàn thành mặt trắng và cả vòng thứ nhất.';
+      'Đưa 4 góc trắng vào đúng chỗ để hoàn thành mặt trắng và toàn bộ tầng 1.';
 
   @override
   String get subStepGoal21 =>
-      'Đưa 4 cạnh tầng giữa vào mà không phá vương miện thứ nhất.';
+      'Đưa 4 cạnh tầng giữa vào chỗ mà không phá tầng 1.';
 
   @override
   String get subStepGoal31 => 'Tạo dấu cộng vàng ở tầng cuối.';
@@ -668,7 +668,7 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get trackBeginner => '3×3 cơ bản: 3 vương miện';
+  String get trackBeginner => '3×3 cơ bản: giải theo từng tầng';
 
   @override
   String get trackCfop => 'Nhập môn CFOP';
@@ -976,77 +976,77 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get stepCrossGoalBody =>
-      'Cầm mặt vàng ở trên. Bốn cạnh trắng nằm quanh tâm trắng ở dưới, màu mặt bên của mỗi cạnh khớp với tâm bên cạnh.';
+      'Cầm vàng ở trên và xanh lá hướng về bạn. Trước tiên gom bốn cạnh trắng quanh tâm vàng, trắng hướng lên, như cánh hoa: đó là bông hoa trắng. Sau đó từng cánh hoa đi xuống tâm trắng, màu bên khớp với tâm bên cạnh.';
 
   @override
   String get stepCrossTop => 'Cạnh ở tầng trên';
 
   @override
   String get stepCrossTopBody =>
-      'Tìm một cạnh trắng ở tầng trên. Xoay tầng trên cho đến khi màu mặt bên của nó nằm trên tâm cùng màu, rồi xoay mặt đó hai lần để đưa cạnh xuống.';
+      'Một cạnh trắng ở trên có màu trắng hướng lên là một cánh hoa. Xoay tầng trên đến khi màu bên của nó nằm ngay trên tâm cùng màu, rồi xoay mặt đó hai lần (180°) để đưa nó xuống tâm trắng.';
 
   @override
   String get stepCrossMiddle => 'Cạnh ở tầng giữa';
 
   @override
   String get stepCrossMiddleBody =>
-      'Cạnh kẹt ở tầng giữa phải đưa lên trước: xoay mặt bên của nó lên, dời tầng trên đi chỗ khác rồi xoay mặt bên trở lại, để dấu cộng không bị phá. Sau đó đặt nó từ tầng trên.';
+      'Cạnh mắc ở tầng giữa phải lên trước: xoay mặt bên của nó lên, đẩy tầng trên sang bên rồi xoay mặt bên lại, để các mảnh đã đặt không bị xê dịch. Giờ nó là cánh hoa ở trên: căn rồi xoay mặt đó hai lần.';
 
   @override
   String get stepCornersInsert => 'Ngay trên vị trí';
 
   @override
   String get stepCornersInsertBody =>
-      'Xoay tầng trên cho đến khi một góc trắng nằm ngay trên vị trí của nó, ở phía trước bên phải. R U R\' U\' sẽ đưa nó xuống.';
+      'Xoay tầng trên đến khi góc trắng nằm ngay trên ô của nó, giữa hai tâm cùng màu với các màu bên. Ở đây chỉ cần một lượt xoay trên và R U\' R\': U đưa góc lên trên ô, R U\' R\' đưa nó vào với màu trắng hướng xuống.';
 
   @override
   String get stepCornersRepeat => 'Lặp lại công thức';
 
   @override
   String get stepCornersRepeatBody =>
-      'Nếu màu trắng quay sai hướng, cứ lặp lại R U R\' U\' ở cùng vị trí đó. Mỗi góc sẽ xong sau tối đa năm lần lặp.';
+      'Giữ ô ở trước bên phải và lặp R U R\' U\' đến khi trắng hướng xuống: 1 lần nếu trắng quay sang phải, 3 lần nếu quay lên, 5 lần nếu quay về phía bạn. Tầng trên trông rối trong lúc đó; nó sẽ tự gọn lại.';
 
   @override
   String get stepMiddleRight => 'Cạnh sang phải';
 
   @override
   String get stepMiddleRightBody =>
-      'Căn một cạnh ở tầng trên với tâm của nó ở mặt trước. Nếu màu trên của nó khớp với tâm bên phải, đưa vào bằng U R U\' R\' U\' F\' U F.';
+      'Tìm một cạnh tầng trên không có màu vàng. Xoay tầng trên đến khi màu trước của nó khớp với tâm trước mặt bạn. Nếu màu trên của nó khớp với tâm bên phải, đưa sang phải: U R U\' R\' U\' F\' U F.';
 
   @override
   String get stepMiddleLeft => 'Cạnh sang trái';
 
   @override
   String get stepMiddleLeftBody =>
-      'Nếu màu trên khớp với tâm bên trái, dùng công thức đối xứng: U\' L\' U L U F U\' F\'.';
+      'Nếu màu trên khớp với tâm bên trái, dùng công thức đối xứng: U\' L\' U L U F U\' F\'. Tầng trắng luôn trở lại nguyên vẹn.';
 
   @override
   String get stepYellowCross => 'Một công thức';
 
   @override
   String get stepYellowCrossBody =>
-      'F R U R\' U\' F\' biến chấm vàng thành hình chữ L, chữ L thành đường thẳng và đường thẳng thành dấu cộng. Giữ chữ L ở phía sau bên trái và đường thẳng nằm ngang.';
+      'Chỉ nhìn các cạnh vàng ở trên. Giữ chữ L ở sau bên trái và đường thẳng nằm ngang, rồi làm F R U R\' U\' F\'. Đường thẳng cần 1 lần, chữ L 2 lần, chấm tối đa 3 lần.';
 
   @override
   String get stepYellowEdges => 'Khớp các cạnh';
 
   @override
   String get stepYellowEdgesBody =>
-      'Xoay tầng trên cho đến khi hai cạnh khớp với tâm. Với một cạnh ở phía sau và một cạnh bên phải, R U R\' U R U2 R\' U sẽ đổi chỗ hai cạnh còn lại.';
+      'Xoay tầng trên đến khi hai cạnh khớp với tâm của chúng. Khi một cạnh ở sau và một ở bên phải, R U R\' U R U2 R\' U đổi chỗ cạnh trước và cạnh trái.';
 
   @override
   String get stepPlaceCorners => 'Đặt đúng chỗ';
 
   @override
   String get stepPlaceCornersBody =>
-      'Giữ một góc đã đúng vị trí ở phía trước bên phải. U R U\' L\' U R\' U\' L di chuyển ba góc còn lại; lặp lại cho đến khi cả bốn về đúng chỗ.';
+      'Một góc đã đúng chỗ khi màu của nó khớp với ba tâm xung quanh, dù còn xoay lệch. Giữ góc như vậy ở trước bên phải: U R U\' L\' U R\' U\' L xoay vòng ba góc còn lại. Lặp đến khi cả bốn đều đúng chỗ.';
 
   @override
   String get stepTwistCorners => 'Xoắn góc';
 
   @override
   String get stepTwistCornersBody =>
-      'Với một góc chưa giải ở phía trước bên phải, lặp lại R\' D\' R D cho đến khi màu vàng ở trên, rồi chỉ xoay tầng trên để đưa góc tiếp theo vào. Tầng dưới trông như bị phá cho đến tận cuối: cứ tiếp tục.';
+      'Với một góc chưa xong ở trước bên phải, lặp R\' D\' R D theo từng cặp đến khi vàng ở trên, rồi chỉ xoay tầng trên để đưa góc tiếp theo tới. Phần dưới trông bị phá đến góc cuối cùng: cứ tiếp tục.';
 
   @override
   String get lessonCfopIntro => 'CFOP là gì?';
@@ -1139,14 +1139,14 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get stepTwoIntroBody =>
-      'Khối 2×2 là khối 3×3 không có cạnh và tâm. Chọn một màu, dựng mặt đó ở dưới, và làm cho màu mặt bên của các góc kề nhau khớp với nhau.';
+      '2×2 chỉ có tám góc: không cạnh, không tâm. Ghép tầng trắng ở dưới với màu bên của các góc kề khớp nhau, rồi hoàn thành theo một lộ trình: Sune để mặt trên vàng, sau đó T-perm hoặc Y-perm.';
 
   @override
   String get stepTwoCorner => 'Đưa góc vào';
 
   @override
   String get stepTwoCornerBody =>
-      'Giống hệt các góc trắng của 3×3: đưa góc lên trên vị trí của nó và dùng R U R\' U\' cho đến khi vừa khít.';
+      'Giống các góc trắng của 3×3: đưa một góc lên trên ô trống ở trước bên phải rồi đưa vào, ở đây bằng U R U\' R\' hoặc lặp R U R\' U\' đến khi trắng hướng xuống. Kiểm tra màu bên với góc bên cạnh.';
 
   @override
   String get lessonTwoOll => 'Định hướng mặt trên';
@@ -1159,7 +1159,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get stepTwoSuneBody =>
-      'Sune cũng làm mặt trên của 2×2 thành màu vàng. Người giải theo Ortega học bảy trường hợp ngắn; Sune và bản đối xứng của nó bao gồm phần lớn.';
+      'Đếm số miếng dán vàng hướng lên. Giữ góc duy nhất có vàng hướng lên ở trước bên trái và làm Sune (R U R\' U R U2 R\'). Đếm lại và cầm lại; tối đa ba lần Sune. Ở giữa chỉ xoay tầng trên.';
 
   @override
   String get lessonTwoPbl => 'Hoán vị cả hai tầng';
@@ -1172,14 +1172,14 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get stepTwoAdjacentBody =>
-      'Khi hai góc kề nhau ở tầng trên cần đổi chỗ, giữ chúng ở bên phải và dùng T-perm.';
+      'Headlights là hai miếng dán trên cùng màu ở một mặt bên. Xoay tầng trên đến khi headlights ở bên trái, để hai góc cần đổi nằm bên phải, rồi làm T-perm.';
 
   @override
   String get stepTwoDiagonal => 'Đổi chỗ chéo';
 
   @override
   String get stepTwoDiagonalBody =>
-      'Hai góc ở vị trí đối diện nhau được đổi chỗ bằng Y-perm.';
+      'Không có headlights ở mặt nào nghĩa là hai góc chéo nhau cần đổi chỗ: làm Y-perm từ bất kỳ phía nào, rồi xoay tầng trên cho thẳng hàng.';
 
   @override
   String get lessonBigIntro => 'Các viên của khối lớn';
@@ -1192,7 +1192,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get stepBigPiecesBody =>
-      'Trên khối 4×4, mỗi mặt có bốn viên tâm di chuyển được, và mỗi cạnh gồm hai cánh. Phương pháp rút gọn gom chúng lại để khối hoạt động như 3×3.';
+      'Ở 4×4 mỗi mặt có bốn mảnh tâm di chuyển được, và mỗi cạnh gồm hai cánh. Không có tâm cố định, nên hãy kiểm tra thứ tự màu trên một góc: trắng đối vàng, xanh dương đối xanh lá, đỏ đối cam.';
 
   @override
   String get stepBigSlices => 'Xoay kép và xoay tầng trong';
@@ -1212,7 +1212,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get stepBigCenterCycleBody =>
-      'Commutator này di chuyển đúng ba viên tâm và không động đến phần còn lại, nên các tâm đã xong vẫn giữ nguyên.';
+      'Commutator này di chuyển đúng ba mảnh tâm và giữ nguyên mọi thứ khác, nên tâm đã xong vẫn xong. Dùng nó khi một mảnh lạc không chịu vào thanh.';
 
   @override
   String get lessonBigEdges => 'Ghép cạnh';
@@ -1225,7 +1225,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get stepBigEdgePairBody =>
-      'Uw\' xếp hai cánh cùng màu thẳng hàng, R U R\' F R\' F\' R đưa một cạnh chưa ghép vào, và Uw đưa các tâm trở lại.';
+      'Uw\' xếp thẳng hai cánh cùng màu, R U R\' F R\' F\' R đổi vào một cạnh chưa ghép, và Uw trả các tâm về. Luôn đóng lát bạn đã mở.';
 
   @override
   String get lessonBigParity => 'Parity';
@@ -1238,20 +1238,26 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get stepBigOllParityBody =>
-      'Một cạnh bị lật đơn lẻ không thể xảy ra trên 3×3. Trên khối chẵn, công thức này lật cạnh trên-trước trở lại. Nó có thể xáo phần còn lại của tầng trên, nhưng các bước 3×3 cuối cùng vẫn sẽ sửa lại.';
+      'Một cạnh bị lật đơn lẻ không thể xảy ra ở 3×3: đó là parity OLL, không phải lỗi. Giữ nó ở trước tầng trên và làm công thức dài. Nó cũng đổi chỗ cạnh trên trái và phải cùng hai góc; các bước 3×3 cuối sẽ sửa chúng.';
 
   @override
   String get stepBigPllParity => 'Parity PLL';
 
   @override
   String get stepBigPllParityBody =>
-      'Hai cạnh bị đổi chỗ ở bước cuối cùng? 2R2 U2 2R2 Uw2 2R2 Uw2 đổi chỗ cạnh trên phía trước và phía sau.';
+      'Hai cạnh bị đổi chỗ ở cuối và không công thức 3×3 nào hợp? Đó là parity PLL. Giữ chúng ở trước và sau tầng trên: 2R2 U2 2R2 Uw2 2R2 2U2 đổi chúng lại.';
 
   @override
   String get introGoalHeading => 'Mục tiêu là gì?';
 
   @override
   String get introHowHeading => 'Làm thế nào?';
+
+  @override
+  String get introHoldHeading => 'Cách cầm';
+
+  @override
+  String get introWhyHeading => 'Vì sao hiệu quả';
 
   @override
   String get introStart => 'Hiểu rồi, bắt đầu từng bước';
@@ -1277,11 +1283,11 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get introGoalCross =>
-      'Tạo dấu cộng trắng sao cho mỗi cạnh trắng cũng khớp màu với tâm bên cạnh.';
+      'Tạo dấu cộng trắng ở dưới, trong đó mỗi cạnh trắng cũng khớp với màu tâm bên cạnh.';
 
   @override
   String get introGoalCorners =>
-      'Lấp bốn góc trắng để hoàn thành vương miện thứ nhất, toàn bộ tầng trắng.';
+      'Đặt bốn góc trắng để hoàn thành cả tầng 1: mặt trắng và các màu bên khớp nhau.';
 
   @override
   String get introGoalMiddle =>
@@ -1328,7 +1334,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get introGoalTwoPbl =>
-      'Đổi chỗ các góc cuối về đúng vị trí để giải khối 2×2.';
+      'Đưa các góc cuối về chỗ bằng một T-perm hoặc Y-perm, rồi chỉnh tầng trên để giải xong khối 2×2.';
 
   @override
   String get introGoalBigIntro =>
@@ -1344,83 +1350,235 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get introGoalBigParity =>
-      'Sửa hai trường hợp của 4×4 mà 3×3 không bao giờ có: một cạnh bị lật hoặc hai cạnh bị đổi chỗ.';
+      'Sửa hai trường hợp của 4×4 mà 3×3 không bao giờ có: một cạnh bị lật (parity OLL) hoặc hai cạnh bị đổi chỗ (parity PLL).';
 
   @override
   String get introHowBasics =>
       'Tâm không bao giờ di chuyển, nên chúng cho biết màu của mỗi mặt.\nMỗi chữ cái xoay một mặt một phần tư vòng theo chiều kim đồng hồ.\nDấu phẩy trên (\') xoay ngược lại; số 2 xoay hai lần.';
 
   @override
+  String get introHoldBasics =>
+      'Cầm tùy ý: các tâm không di chuyển, nên màu sắc luôn cho bạn biết mặt nào là mặt nào.';
+
+  @override
+  String get introWhyBasics =>
+      'Mọi công thức chỉ là một dãy các chữ cái này, nên đọc được chúng là kỹ năng đầu tiên.';
+
+  @override
   String get introHowCross =>
-      'Cầm mặt vàng ở trên: dấu cộng trắng được dựng ở mặt dưới.\nTìm một cạnh trắng và căn màu mặt bên của nó với tâm cùng màu.\nXoay mặt đó hai lần để đưa cạnh vào chỗ.';
+      'Đưa từng cạnh trắng lên trên, màu trắng hướng lên, quanh tâm vàng: đó là bông hoa trắng.\nXoay tầng trên đến khi màu bên của một cánh hoa nằm trên tâm cùng màu.\nXoay mặt đó 180° để đưa nó xuống; làm vậy với cả bốn.';
+
+  @override
+  String get introHoldCross =>
+      'Tâm vàng ở trên, tâm trắng ở dưới suốt bước này. Xoay tầng trên, không xoay cả khối, để căn một cánh hoa.';
+
+  @override
+  String get introWhyCross =>
+      'Khi trắng hướng lên, hai lượt xoay mặt trước đặt cạnh xuống tâm trắng, trắng hướng xuống và màu bên đã khớp sẵn.';
 
   @override
   String get introHowCorners =>
-      'Đưa một góc trắng lên trên ô trống của nó.\nLặp lại R U R\' U\' cho đến khi nó vào đúng hướng.\nLàm tương tự với ba góc còn lại.';
+      'Xoay tầng trên đến khi một góc trắng nằm trên ô trống của nó, ở trước bên phải.\nLặp R U R\' U\': 1 lần nếu trắng quay sang phải, 3 lần nếu quay lên, 5 lần nếu quay về phía bạn.\nLàm tương tự với ba góc còn lại.';
+
+  @override
+  String get introHoldCorners =>
+      'Trắng dưới, vàng trên. Góc ở trước bên phải, ngay trên chỗ của nó.';
+
+  @override
+  String get introWhyCorners =>
+      'R U R\' U\' nhấc ô lên rồi đặt lại: mỗi vòng xoay góc một chút đến khi trắng hướng xuống, và dấu cộng không bao giờ bị phá.';
 
   @override
   String get introHowMiddle =>
-      'Tìm một cạnh ở tầng trên không có màu vàng và khớp màu trước của nó với một tâm.\nĐưa nó sang phải hoặc trái bằng một công thức ngắn 8 nước.\nTầng trắng luôn trở lại nguyên vẹn.';
+      'Tìm một cạnh tầng trên không có màu vàng và khớp màu trước của nó với tâm bên dưới.\nMàu trên của nó cho biết nó đi đâu: sang phải hay sang trái.\nĐưa vào bằng công thức 8 bước; tầng trắng luôn trở lại nguyên vẹn.';
+
+  @override
+  String get introHoldMiddle =>
+      'Trắng dưới, vàng trên. Cạnh ở mặt trước, màu trước của nó khớp với tâm bên dưới.';
+
+  @override
+  String get introWhyMiddle =>
+      'Công thức nhấc ô ra, đưa cạnh vào và trả lại tầng trắng. Cạnh có màu vàng thuộc tầng trên, không bao giờ ở giữa.';
 
   @override
   String get introHowYellowCross =>
-      'Nhìn mặt trên: một chấm, chữ L hoặc đường thẳng.\nGiữ như hình và làm F R U R\' U\' F\'.\nLặp lại cho đến khi dấu cộng vàng xuất hiện.';
+      'Chỉ nhìn các cạnh vàng trên đỉnh: chấm, chữ L hoặc đường thẳng.\nGiữ chữ L ở sau bên trái, đường thẳng nằm ngang, rồi làm F R U R\' U\' F\'.\nĐường thẳng cần 1 lần, chữ L 2 lần, chấm tối đa 3 lần.';
+
+  @override
+  String get introHoldYellowCross =>
+      'Trắng dưới, vàng trên. Chữ L ở sau bên trái, đường thẳng nằm ngang; chấm cầm sao cũng được.';
+
+  @override
+  String get introWhyYellowCross =>
+      'F R U R\' U\' F\' lật hai cạnh trên mỗi lần mà không chạm vào hai tầng đầu.';
 
   @override
   String get introHowYellowEdges =>
-      'Xoay tầng trên cho đến khi hai cạnh khớp với tâm.\nGiữ chúng ở phía sau và bên phải, rồi làm R U R\' U R U2 R\' U.\nLặp lại cho đến khi cả bốn cạnh khớp.';
+      'Xoay tầng trên đến khi hai cạnh khớp với tâm của chúng.\nGiữ chúng ở phía sau và bên phải, rồi làm R U R\' U R U2 R\' U.\nNếu hai cạnh khớp nằm đối diện, làm một lần từ bất kỳ phía nào trước.';
+
+  @override
+  String get introHoldYellowEdges =>
+      'Vàng ở trên. Một cạnh khớp ở phía sau, cạnh kia ở bên phải.';
+
+  @override
+  String get introWhyYellowEdges =>
+      'Công thức này chỉ di chuyển mảnh ở tầng trên, nên hai tầng đầu luôn trở lại.';
 
   @override
   String get introHowYellowCorners =>
-      'Một góc đúng chỗ khi màu của nó khớp với ba mặt xung quanh.\nGiữ một góc đã đúng chỗ ở phía trước bên phải.\nU R U\' L\' U R\' U\' L hoán vị ba góc còn lại cho đến khi tất cả vừa khít.';
+      'Một góc đã đúng chỗ khi màu của nó khớp với ba tâm xung quanh, dù còn bị xoay lệch.\nGiữ một góc đúng chỗ ở trước bên phải.\nU R U\' L\' U R\' U\' L xoay vòng ba góc còn lại; lặp đến khi tất cả vào chỗ.';
+
+  @override
+  String get introHoldYellowCorners =>
+      'Vàng ở trên. Một góc đã đúng chỗ ở trước bên phải; nếu không có, góc nào cũng được.';
+
+  @override
+  String get introWhyYellowCorners =>
+      'Nó xoay vòng ba góc và giữ nguyên góc trước bên phải, nên mỗi lần lặp lại đưa thêm góc về chỗ.';
 
   @override
   String get introHowTwistCorners =>
-      'Giữ một góc chưa giải ở phía trước bên phải.\nLặp lại R\' D\' R D cho đến khi màu vàng của nó hướng lên.\nChỉ xoay tầng trên để chuyển sang góc tiếp theo; tầng dưới tự trở lại ở cuối.';
+      'Giữ một góc chưa xong ở trước bên phải.\nLặp R\' D\' R D theo từng cặp đến khi màu vàng của nó hướng lên.\nChỉ xoay tầng trên cho góc tiếp theo; phần dưới sẽ trở lại ở góc cuối.';
+
+  @override
+  String get introHoldTwistCorners =>
+      'Vàng ở trên, góc cần xoay ở trước bên phải. Giữa các góc chỉ xoay tầng trên, không bao giờ xoay cả khối.';
+
+  @override
+  String get introWhyTwistCorners =>
+      'R\' D\' R D xoay góc và làm rối phần dưới, nhưng phần dưới trở lại khi mọi góc đã xoay xong. Dừng giữa chừng sẽ để nó bị rối.';
 
   @override
   String get introHowCfopIntro =>
       'Cross: bốn cạnh, lên kế hoạch trong lúc quan sát.\nF2L: mỗi góc được đưa vào cùng với cạnh của nó.\nOLL làm mặt trên thành màu vàng, rồi PLL đưa các viên về chỗ.';
 
   @override
+  String get introHoldCfopIntro =>
+      'Speedcuber làm dấu cộng ở dưới để nhìn trước các mảnh tiếp theo trong lúc xoay.';
+
+  @override
+  String get introWhyCfopIntro =>
+      'Giải một góc cùng cạnh của nó tiết kiệm nhiều nước, và nhận diện trường hợp thay cho thử và sai.';
+
+  @override
   String get introHowF2l =>
       'Tìm một góc và cạnh cùng màu với nó ở tầng trên.\nGhép chúng thành cặp ngay trên ô của chúng.\nĐưa cặp vào bằng ba hoặc bốn nước.';
+
+  @override
+  String get introHoldF2l =>
+      'Dấu cộng ở dưới. Ô của cặp ở trước bên phải, hoặc trước bên trái với trường hợp đối xứng.';
+
+  @override
+  String get introWhyF2l =>
+      'Góc và cạnh đã ghép cặp vào cùng nhau, nên hai tầng lớn lên cùng lúc thay vì từng mảnh.';
 
   @override
   String get introHowOll =>
       'Trước hết là dấu cộng vàng với F R U R\' U\' F\'.\nSau đó định hướng các góc, ví dụ bằng Sune.\nNhận diện trường hợp qua phần màu vàng bạn thấy.';
 
   @override
+  String get introHoldOll =>
+      'Vàng ở trên. Với Sune, góc duy nhất có vàng hướng lên đặt ở trước bên trái.';
+
+  @override
+  String get introWhyOll =>
+      'Chia tầng cuối thành định hướng trước, hoán vị sau giúp số công thức ít.';
+
+  @override
   String get introHowPll =>
       'Mặt trên đã toàn màu vàng.\nT-perm đổi chỗ góc; U-perm hoán vị vòng ba cạnh.\nĐọc màu các mặt bên để chọn công thức.';
 
   @override
+  String get introHoldPll =>
+      'Vàng ở trên. T-perm: headlights bên trái. U-perm: mặt đã xong ở phía sau.';
+
+  @override
+  String get introWhyPll =>
+      'Khi tầng trên đã vàng hết, chỉ còn vị trí các mảnh sai, và vài lần hoán đổi là xong khối.';
+
+  @override
   String get introHowTwoFirst =>
-      'Khối 2×2 chỉ có góc, như 3×3 không có cạnh.\nĐưa mỗi góc trắng lên trên vị trí của nó.\nLặp lại R U R\' U\' cho đến khi nó vào chỗ.';
+      'Chọn một góc trắng làm mốc, màu trắng hướng xuống.\nĐưa từng góc tiếp theo lên trên chỗ của nó, ở trước bên phải.\nLặp R U R\' U\' đến khi nó vào chỗ với các màu bên khớp nhau.';
+
+  @override
+  String get introHoldTwoFirst =>
+      'Trắng ở dưới. Ô trống ở trước bên phải, góc của nó ngay phía trên ở tầng trên.';
+
+  @override
+  String get introWhyTwoFirst =>
+      '2×2 không có tâm: góc đầu tiên bạn đặt quyết định màu của các góc bên cạnh, nên màu bên quan trọng, không chỉ màu trắng.';
 
   @override
   String get introHowTwoOll =>
-      'Giữ tầng trắng ở dưới.\nSune (R U R\' U R U2 R\') xoắn các góc ở trên.\nLặp lại từ đúng góc độ cho đến khi mặt trên toàn màu vàng.';
+      'Đếm số góc có màu vàng hướng lên.\nNếu có một, giữ nó ở trước bên trái và làm Sune: R U R\' U R U2 R\'.\nĐếm lại và lặp; tối đa ba lần Sune.';
+
+  @override
+  String get introHoldTwoOll =>
+      'Trắng dưới, vàng trên. Trước mỗi lần Sune, góc có vàng hướng lên ở trước bên trái.';
+
+  @override
+  String get introWhyTwoOll =>
+      'Sune xoay các góc trên mà không phá tầng trắng; đếm lại cho bạn biết cách cầm lần sau.';
 
   @override
   String get introHowTwoPbl =>
-      'Tìm một mặt bên có hai góc đã khớp nhau.\nĐổi chỗ kề nhau: một công thức kiểu T-perm.\nĐổi chỗ chéo: một công thức dài hơn.';
+      'Tìm headlights: hai miếng dán trên cùng màu ở một mặt bên.\nCó headlights ở một mặt: đưa sang trái và làm T-perm.\nKhông có headlights: làm Y-perm từ bất kỳ phía nào, rồi chỉnh tầng trên.';
+
+  @override
+  String get introHoldTwoPbl =>
+      'Trắng dưới, vàng trên. T-perm: headlights bên trái. Y-perm: mặt nào hướng về bạn cũng được.';
+
+  @override
+  String get introWhyTwoPbl =>
+      'Khi tầng trên đã vàng, chỉ còn vị trí góc sai: T-perm đổi hai góc kề nhau, Y-perm đổi hai góc chéo.';
 
   @override
   String get introHowBigIntro =>
       'Không có tâm cố định: bốn viên tâm tạo nên màu của mỗi mặt.\nNước xoay kép như Rw xoay hai tầng cùng lúc.\nNước xoay tầng trong như 2R chỉ xoay một tầng bên trong.';
 
   @override
+  String get introHoldBigIntro =>
+      'Ban đầu cầm tùy ý: 4×4 không có tâm cố định, nên bạn tự chọn chỗ của mỗi màu.';
+
+  @override
+  String get introWhyBigIntro =>
+      'Thu gọn gom tâm và mảnh cạnh để khối lớn được giải như 3×3.';
+
+  @override
   String get introHowBigCenters =>
-      'Dựng hai tâm đối diện trước.\nCác tầng trong đổi chỗ viên tâm mà không phá các tâm đã xong.\nHoàn thành bốn tâm cuối theo cách tương tự.';
+      'Trước hết kiểm tra thứ tự màu trên một góc.\nGhép hai tâm đối diện, rồi bốn tâm còn lại.\nCác lát trong di chuyển mảnh tâm; luôn trả lại lát bạn đã mở.';
+
+  @override
+  String get introHoldBigCenters =>
+      'Mặt đang ghép ở phía trước; các tâm đã xong ở bên trái và phải, tránh vướng.';
+
+  @override
+  String get introWhyBigCenters =>
+      'Một lát di chuyển tâm, và hoàn tác nó trả lại các tâm đã xong, nên chỉ mảnh bạn nhắm tới thay đổi.';
 
   @override
   String get introHowBigEdges =>
-      'Tìm hai mảnh cạnh cùng màu.\nXếp chúng cạnh nhau bằng một tầng trong.\nCất cặp đó đi và đưa các tâm trở lại.';
+      'Tìm hai cánh có cùng hai màu.\nXếp chúng ở mặt trước và nối lại bằng Uw\'.\nĐổi vào một cạnh chưa ghép, rồi Uw trả các tâm về.';
+
+  @override
+  String get introHoldBigEdges =>
+      'Cạnh đang ghép ở các lớp phía trước; cạnh đã xong cất ở tầng trên và tầng dưới.';
+
+  @override
+  String get introWhyBigEdges =>
+      'Uw\' đẩy các tâm sang bên để hai cánh gặp nhau; Uw trả chúng về và công sức của bạn vẫn nguyên.';
 
   @override
   String get introHowBigParity =>
-      'Giải 4×4 như 3×3 cho đến khi bị kẹt.\nMột cạnh bị lật: công thức parity OLL dài.\nHai cạnh bị đổi chỗ: 2R2 U2 2R2 Uw2 2R2 Uw2.';
+      'Giải 4×4 như 3×3 đến khi bị kẹt.\nMột cạnh bị lật: công thức dài parity OLL.\nHai cạnh đổi chỗ: 2R2 U2 2R2 Uw2 2R2 2U2.';
+
+  @override
+  String get introHoldBigParity =>
+      'Tầng cuối ở trên. Parity OLL: cạnh bị lật ở phía trước. Parity PLL: hai cạnh đổi chỗ ở phía trước và phía sau.';
+
+  @override
+  String get introWhyBigParity =>
+      'Các cánh có thể rơi vào trạng thái mà 3×3 không có; các công thức này xoay lát trong để hoàn tác đúng điều đó.';
 
   @override
   String get dirFaceR => 'Mặt phải';
@@ -1531,13 +1689,13 @@ class AppLocalizationsVi extends AppLocalizations {
   String get stageParity => 'Xử lý parity';
 
   @override
-  String get stageCrown1 => 'Vương miện thứ nhất (trắng)';
+  String get stageCrown1 => 'Tầng 1 (trắng)';
 
   @override
-  String get stageCrown2 => 'Vương miện thứ hai';
+  String get stageCrown2 => 'Tầng 2';
 
   @override
-  String get stageCrown3 => 'Vương miện thứ ba (vàng)';
+  String get stageCrown3 => 'Tầng 3 (vàng)';
 
   @override
   String get stageOrient => 'Định hướng các viên';
@@ -1581,6 +1739,14 @@ class AppLocalizationsVi extends AppLocalizations {
       'Viên chính giữa mỗi mặt không bao giờ di chuyển.\nMỗi cạnh gồm một viên giữa và hai cánh.\nCác tầng trong di chuyển viên mà không động đến bên ngoài.';
 
   @override
+  String get introHoldFiveIntro =>
+      'Cầm tùy ý: ở 5×5 phần giữa mỗi mặt không bao giờ di chuyển, nên nó cho biết màu mặt đó.';
+
+  @override
+  String get introWhyFiveIntro =>
+      'Các tâm cố định quyết định bảng màu, nên không thể ghép tâm sai thứ tự.';
+
+  @override
   String get lessonFiveCenters => 'Tâm của 5×5';
 
   @override
@@ -1592,7 +1758,15 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get introHowFiveCenters =>
-      'Bắt đầu từ viên chính giữa: nó cho biết màu.\nDựng các thanh ba viên và trượt chúng vào bằng một tầng trong.\nHoàn thành hai tâm cuối cùng lúc.';
+      'Bắt đầu từ mảnh giữa cố định: nó quyết định màu.\nGhép thanh 3 mảnh rồi trượt vào bằng một lát trong.\nNước đưa thanh vào cũng trả lại tâm đã xong.';
+
+  @override
+  String get introHoldFiveCenters =>
+      'Tâm đang ghép ở phía trước hoặc phía trên; tâm đã xong ở dưới, bên trái hoặc bên phải.';
+
+  @override
+  String get introWhyFiveCenters =>
+      'Lát vào, xoay trên, lát ra: lát đưa thanh vào cũng trả lại các tâm đã xong.';
 
   @override
   String get lessonFiveEdges => 'Cạnh của 5×5';
@@ -1606,21 +1780,37 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get introHowFiveEdges =>
-      'Khớp hai cánh với cạnh giữa của chúng ở mặt trước.\nXoay tầng trong, đưa một cạnh chưa giải vào, rồi xoay trở lại.\nGhép các cạnh cuối mà không phá các cạnh đã xong.';
+      'Ghép mỗi cánh với cạnh giữa của nó ở mặt trước.\nXoay lát trong, đổi vào một cạnh chưa xong, xoay lại.\nVới các cạnh cuối: lát, lật, lát.';
+
+  @override
+  String get introHoldFiveEdges =>
+      'Cạnh đang ghép ở phía trước; cạnh đã xong cất ở tầng trên và tầng dưới.';
+
+  @override
+  String get introWhyFiveEdges =>
+      'Mở và đóng lát trong nối các cánh lại, trong khi tâm và cạnh đã cất trở về.';
 
   @override
   String get lessonFiveSolve => 'Giải 5×5 như 3×3';
 
   @override
-  String get lessonFiveSolveDesc => 'Hoàn thành với ba vương miện.';
+  String get lessonFiveSolveDesc => 'Hoàn thành từng tầng, như khối 3×3.';
 
   @override
   String get introGoalFiveSolve =>
-      'Giải khối 5×5 đã rút gọn như 3×3, từng vương miện một.';
+      'Giải khối 5×5 đã thu gọn như 3×3, từng tầng một, chỉ bằng các lượt xoay ngoài.';
 
   @override
   String get introHowFiveSolve =>
-      'Từ giờ chỉ xoay các tầng ngoài.\nVương miện thứ nhất, thứ hai, rồi đến vương miện vàng.\nCác tâm cố định cho biết màu của mỗi mặt.';
+      'Từ giờ chỉ xoay lớp ngoài, nếu không các cạnh đã ghép sẽ tách ra.\nDấu cộng và góc trắng, tầng giữa, rồi tầng vàng.\nCác tâm cố định cho biết màu của mỗi mặt.';
+
+  @override
+  String get introHoldFiveSolve =>
+      'Màu của tầng 1 ở dưới, y như 3×3; góc cần đưa vào ở trước bên phải.';
+
+  @override
+  String get introWhyFiveSolve =>
+      'Xoay lát trong sẽ lại tách tâm và cạnh; xoay lớp ngoài coi mỗi khối như một mảnh của 3×3.';
 
   @override
   String get lessonFiveParity => 'Parity cạnh 5×5';
@@ -1630,11 +1820,19 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get introGoalFiveParity =>
-      'Sửa cạnh duy nhất có hai cánh bị đổi chỗ, rồi hoàn thành.';
+      'Sửa cạnh duy nhất có hai cánh ngoài bị đổi chỗ: parity duy nhất của 5×5.';
 
   @override
   String get introHowFiveParity =>
-      'Nó xuất hiện dưới dạng một cạnh không thể ghép.\nThực hiện công thức tầng trong dài một lần.\nMọi thứ khác trở về chỗ cũ.';
+      'Nó hiện ra như một cạnh cuối trông như bị lật.\nLàm một lần công thức dài bằng lát trong.\n5×5 không có parity PLL.';
+
+  @override
+  String get introHoldFiveParity =>
+      'Tầng cuối ở trên, cạnh có hai cánh đổi chỗ ở phía trước tầng trên.';
+
+  @override
+  String get introWhyFiveParity =>
+      'Ở 5×5 chỉ hai cánh ngoài của một cạnh có thể đổi chỗ, nên một công thức là đủ.';
 
   @override
   String get lessonSixIntro => 'Làm quen với 6×6';
@@ -1652,6 +1850,14 @@ class AppLocalizationsVi extends AppLocalizations {
       'Không có tâm cố định: bạn chọn màu khi dựng.\nMỗi cạnh có cánh ngoài và cánh trong.\nNước xoay kép có thể di chuyển đến ba tầng.';
 
   @override
+  String get introHoldSixIntro =>
+      'Ban đầu cầm tùy ý: giống 4×4, khối 6×6 không có tâm cố định.';
+
+  @override
+  String get introWhySixIntro =>
+      'Nếu bạn giải được 4×4 và 5×5, thì 6×6 là cùng cách thu gọn với khối lớn hơn.';
+
+  @override
   String get lessonSixCenters => 'Tâm của 6×6';
 
   @override
@@ -1663,7 +1869,15 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get introHowSixCenters =>
-      'Dựng hai tâm đối diện trước.\nTạo các thanh bốn viên và trượt chúng lại với nhau.\nDi chuyển từng viên bằng mẹo: tầng trong, tầng trên, hoàn tác.';
+      'Trước hết kiểm tra thứ tự màu trên một góc: không có tâm cố định.\nGhép thanh 4 mảnh rồi nối chúng lại.\nVới hai tâm cuối, di chuyển từng mảnh: lát, trên, hoàn tác.';
+
+  @override
+  String get introHoldSixCenters =>
+      'Mặt đang ghép ở phía trước; tâm đã xong ở bên trái, bên phải hoặc ở dưới.';
+
+  @override
+  String get introWhySixCenters =>
+      'Các thanh nối nhau bằng lát trong và mỗi lát đều được hoàn tác, nên tâm đã xong vẫn nguyên.';
 
   @override
   String get lessonSixEdges => 'Cạnh của 6×6';
@@ -1677,21 +1891,37 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get introHowSixEdges =>
-      'Xếp cánh ngoài và cánh trong thẳng hàng ở mặt trước.\nTầng kép sâu đưa một cạnh vào và ra.\nCác cạnh đã xong không bao giờ bị phá.';
+      'Xếp các cánh ngoài và cánh trong của một cạnh ở mặt trước.\nTầng rộng sâu đưa cạnh vào và ra.\nĐừng bao giờ phá một cạnh đã xong để lấy một mảnh.';
+
+  @override
+  String get introHoldSixEdges =>
+      'Cạnh đang ghép ở phía trước; cạnh đã xong cất ở trên và dưới.';
+
+  @override
+  String get introWhySixEdges =>
+      'Lượt xoay rộng sâu đẩy tâm sang bên để các cánh gặp nhau, rồi trả chúng về.';
 
   @override
   String get lessonSixSolve => 'Giải 6×6 như 3×3';
 
   @override
-  String get lessonSixSolveDesc => 'Hoàn thành với ba vương miện.';
+  String get lessonSixSolveDesc => 'Hoàn thành từng tầng, như khối 3×3.';
 
   @override
   String get introGoalSixSolve =>
-      'Giải khối 6×6 đã rút gọn như 3×3, từng vương miện một.';
+      'Giải khối 6×6 đã thu gọn như 3×3, từng tầng một, chỉ bằng các lượt xoay ngoài.';
 
   @override
   String get introHowSixSolve =>
-      'Từ giờ chỉ xoay các tầng ngoài.\nCác tâm bạn đã dựng cho biết màu của mỗi mặt.\nVương miện thứ nhất, thứ hai, rồi đến vương miện vàng.';
+      'Từ giờ chỉ xoay lớp ngoài: một lát trong sẽ làm vỡ tâm hoặc cạnh.\nCác tâm bạn đã ghép cho biết màu của mỗi mặt.\nDấu cộng và góc trắng, tầng giữa, rồi tầng vàng.';
+
+  @override
+  String get introHoldSixSolve =>
+      'Màu của tầng 1 ở dưới, y như 3×3; góc cần đưa vào ở trước bên phải.';
+
+  @override
+  String get introWhySixSolve =>
+      'Xoay lớp ngoài di chuyển mỗi tâm 4×4 và mỗi cạnh như một mảnh, y như 3×3.';
 
   @override
   String get lessonSixParity => 'Parity 6×6';
@@ -1705,14 +1935,22 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get introHowSixParity =>
-      'Giải như 3×3 cho đến khi bị kẹt.\nMột cạnh bị lật: công thức parity dài.\nHai cạnh bị đổi chỗ: công thức ngắn với các nước xoay kép tầng trong.';
+      'Giải như 3×3 đến khi bị kẹt.\nMột cạnh bị lật: công thức dài với 3Rw.\nHai cạnh đổi chỗ: công thức ngắn với các lượt xoay kép bên trong.';
+
+  @override
+  String get introHoldSixParity =>
+      'Tầng cuối ở trên. Cạnh bị lật ở phía trước; hai cạnh đổi chỗ thì ở trước và sau.';
+
+  @override
+  String get introWhySixParity =>
+      'Giống 4×4, khối 6×6 có thể kết thúc với một cạnh bị lật hoặc hai cạnh đổi chỗ; công thức lát trong sửa chúng và giữ nguyên phần còn lại.';
 
   @override
   String get stepFivePieces => 'Các viên của 5×5';
 
   @override
   String get stepFivePiecesBody =>
-      'Viên chính giữa mỗi mặt không bao giờ di chuyển, nên nó vẫn cho biết màu của mặt, giống như trên 3×3. Quanh nó còn tám viên tâm khác; mỗi cạnh có một viên giữa và hai cánh, còn các góc hoạt động như trên 3×3.';
+      'Mảnh giữa của mỗi mặt không bao giờ di chuyển, nên bảng màu không thể sai. Quanh nó có tám mảnh tâm: tâm góc và tâm cạnh không bao giờ đổi loại. Mỗi cạnh là một mảnh giữa với hai cánh.';
 
   @override
   String get stepFiveSlices => 'Ba kiểu xoay';
@@ -1726,7 +1964,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get stepFiveCenterBarBody =>
-      'Dựng một hàng ba viên tâm cùng màu, rồi trượt nó cạnh viên giữa cùng màu bằng một nước xoay tầng trong. Ba thanh tạo thành một tâm hoàn chỉnh.';
+      'Ghép một hàng ba mảnh tâm cùng màu, đưa vào bằng lát trong, xoay tầng trên rồi trả lát: nước đưa thanh vào cũng trả lại tâm đã xong. Ba thanh là một tâm.';
 
   @override
   String get stepFiveCenterSwap => 'Đổi chỗ mà không phá';
@@ -1740,35 +1978,35 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get stepFiveEdgePairBody =>
-      'Xếp hai cánh cạnh cạnh giữa cùng màu ở mặt trước, xoay tầng trong xuống, đưa một cạnh chưa giải từ tầng trên vào, rồi xoay tầng trong trở lại.';
+      'Xếp một cánh cạnh cạnh giữa của nó ở mặt trước, hạ lát trong xuống, đổi vào một cạnh chưa xong bằng một trigger ngắn, rồi đưa lát trong trở lại.';
 
   @override
   String get stepFiveEdgeLast => 'Các cạnh cuối';
 
   @override
   String get stepFiveEdgeLastBody =>
-      'Khi chỉ còn vài cạnh, một nước xoay kép, một công thức ngắn và nước xoay kép trở lại sẽ ghép chúng mà không phá các cạnh đã xong.';
+      'Khi không còn cạnh trống để đổi, dùng lát, lật, lát: một lượt xoay rộng, một trigger ngắn và lượt xoay rộng trở lại ghép các cạnh cuối mà không phá cạnh đã xong.';
 
   @override
   String get stepFiveAsThree => 'Giờ nó là 3×3';
 
   @override
   String get stepFiveAsThreeBody =>
-      'Khi tâm và cạnh đã xong, khối 5×5 hoạt động như một khối 3×3 lớn. Chỉ dùng các nước xoay ngoài và làm theo ba vương miện: dấu cộng và góc trắng, tầng giữa, rồi tầng vàng.';
+      'Khi tâm và cạnh đã xong, 5×5 hoạt động như một khối 3×3 lớn. Chỉ xoay lớp ngoài và đi từng tầng: dấu cộng và góc trắng, tầng giữa, rồi tầng vàng. 5×5 không có parity PLL.';
 
   @override
   String get stepFiveEdgeParity => 'Đổi chỗ hai cánh của cạnh cuối';
 
   @override
   String get stepFiveEdgeParityBody =>
-      'Đôi khi cạnh cuối có hai cánh bị đổi chỗ. Một công thức tầng trong dài hơn sẽ đổi chúng lại trong khi mọi thứ khác trở về chỗ cũ. Sau đó hoàn thành như 3×3.';
+      'Đôi khi cạnh cuối có hai cánh ngoài đổi chỗ nên trông như bị lật: parity duy nhất của 5×5. Giữ nó ở trước tầng trên và làm một lần công thức lát trong; mọi thứ khác trở về chỗ.';
 
   @override
   String get stepSixPieces => 'Các viên của 6×6';
 
   @override
   String get stepSixPiecesBody =>
-      'Giống như 4×4, khối 6×6 không có tâm cố định: mười sáu viên tâm tạo nên màu của mỗi mặt. Mỗi cạnh có bốn viên: hai cánh ngoài và hai cánh trong.';
+      'Giống 4×4, khối 6×6 không có tâm cố định: mười sáu mảnh tâm tạo nên màu mỗi mặt, nên hãy kiểm tra thứ tự màu trên một góc trước. Mỗi cạnh có bốn cánh: hai ngoài và hai trong.';
 
   @override
   String get stepSixSlices => 'Xoay các tầng sâu hơn';
@@ -1782,49 +2020,49 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get stepSixCenterBarBody =>
-      'Dựng các hàng bốn viên tâm cùng màu và trượt chúng cạnh nhau bằng các nước xoay tầng trong cho đến khi mặt có một màu liền.';
+      'Ghép các hàng bốn mảnh tâm cùng màu rồi trượt chúng cạnh nhau bằng các lát trong, hoàn tác mỗi lát, đến khi mặt thành một khối 4×4 một màu.';
 
   @override
   String get stepSixCenterSwap => 'Di chuyển từng viên một';
 
   @override
   String get stepSixCenterSwapBody =>
-      'Xoay tầng thứ ba, xoay tầng trên, hoàn tác, xoay trở lại: một viên tâm di chuyển trong khi các tâm đã xong trở về như cũ.';
+      'Xoay lát thứ ba, xoay tầng trên, hoàn tác, xoay lại: một mảnh tâm di chuyển và các tâm đã xong trở về. Dùng cho hai tâm cuối khi không thanh nào vừa.';
 
   @override
   String get stepSixEdgePair => 'Bốn viên, một cạnh';
 
   @override
   String get stepSixEdgePairBody =>
-      'Gom bốn viên của một cạnh ở mặt trước bằng tầng kép sâu, rồi đưa một cạnh chưa giải vào và xoay tầng kép trở lại.';
+      'Gom bốn cánh của một cạnh ở mặt trước bằng tầng rộng sâu, đổi vào một cạnh chưa xong bằng một trigger ngắn, rồi xoay tầng rộng trở lại.';
 
   @override
   String get stepSixEdgeLast => 'Các cạnh cuối';
 
   @override
   String get stepSixEdgeLastBody =>
-      'Ghép các cạnh cuối cùng bằng một công thức ngắn giữa một nước xoay kép sâu và nước hoàn tác của nó, để các cạnh đã xong vẫn được ghép.';
+      'Ghép các cạnh cuối bằng một trigger ngắn giữa một lượt xoay rộng sâu và lượt hoàn tác của nó, để cạnh đã xong vẫn ghép nguyên. Đừng bao giờ phá cạnh đã xong để lấy một mảnh.';
 
   @override
   String get stepSixAsThree => 'Giờ nó là 3×3';
 
   @override
   String get stepSixAsThreeBody =>
-      'Với tâm 4×4 và các cạnh đã ghép, giải khối 6×6 như 3×3 bằng các nước xoay ngoài và ba vương miện.';
+      'Với tâm 4×4 và cạnh đã ghép, giải 6×6 như 3×3, từng tầng, chỉ xoay lớp ngoài. Một cạnh bị lật hoặc hai cạnh đổi chỗ ở cuối là parity, không phải lỗi.';
 
   @override
   String get stepSixOllParity => 'Một cạnh bị lật';
 
   @override
   String get stepSixOllParityBody =>
-      'Nếu một cạnh đơn lẻ có vẻ bị lật khi bạn giải tầng cuối, đó là parity. Giữ nó ở phía trước tầng trên và thực hiện công thức dài: hai vương miện đầu sẽ trở lại nguyên vẹn.';
+      'Một cạnh trông như bị lật ở tầng cuối là parity. Giữ nó ở trước tầng trên và làm công thức dài: nó lật cả bốn cánh, đổi chỗ cạnh trên trái và phải, và không chạm vào hai tầng đầu.';
 
   @override
   String get stepSixPllParity => 'Hai cạnh bị đổi chỗ';
 
   @override
   String get stepSixPllParityBody =>
-      'Nếu hai cạnh có vẻ bị đổi chỗ ở bước cuối cùng, giữ chúng ở phía trước và phía sau tầng trên rồi thực hiện công thức ngắn gồm các nước xoay kép tầng trong.';
+      'Nếu ở cuối hai cạnh trông như đổi chỗ, giữ chúng ở trước và sau tầng trên và làm công thức ngắn bằng các lượt xoay kép bên trong: cả bốn cánh của hai cạnh đổi chỗ cho nhau.';
 
   @override
   String get stageTwoFirstLayer => 'Dựng tầng dưới';
@@ -2362,7 +2600,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String cueCrossFlipped(String piece, String center) {
-    return 'Cạnh $piece đã đúng chỗ nhưng bị lật: màu trắng quay sang bên. Lấy nó ra, rồi đặt lại cạnh tâm $center đúng chiều.';
+    return 'Cạnh $piece đã đúng chỗ nhưng bị lật: màu trắng của nó quay sang bên. Lấy nó ra và đưa lên trên với trắng hướng lên, rồi đưa xuống cạnh tâm $center.';
   }
 
   @override
@@ -2377,7 +2615,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String cueCornerTwisted(String piece) {
-    return 'Góc $piece đã ở đúng chỗ nhưng bị xoắn. Một lần động tác sẽ lấy nó ra (một góc vàng vào thay); tiếp tục lặp lại đến khi nó vào lại đúng chiều.';
+    return 'Góc $piece ở đúng ô nhưng bị xoay lệch. Một trigger đưa nó ra (một góc vàng vào thay); cứ lặp ở cùng ô đến khi nó vào lại với trắng hướng xuống. Đừng xoay cả khối để đuổi theo nó.';
   }
 
   @override
@@ -2392,7 +2630,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String cueMiddleFlipped(String piece, String a, String b) {
-    return 'Cạnh $piece đã ở trong khe nhưng bị lật. Đưa một cạnh vàng vào đó để đẩy nó ra, rồi đưa nó vào lại giữa $a và $b.';
+    return 'Cạnh $piece ở đúng ô nhưng bị lật. Đưa một cạnh vàng vào đó để đẩy nó lên trên, rồi đưa nó vào lại giữa $a và $b.';
   }
 
   @override
@@ -2407,7 +2645,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String cueYellowDot(String front) {
-    return 'Chỉ có tâm màu vàng: một chấm. Làm công thức một lần với $front hướng về bạn để có chữ L.';
+    return 'Chỉ có tâm là màu vàng: một chấm. Làm công thức một lần với $front hướng về bạn để được chữ L. Chấm có thể cần ba lượt, cứ tiếp tục.';
   }
 
   @override
@@ -2437,7 +2675,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String cueTwistCorner(String piece) {
-    return 'Xoắn góc $piece ở phía trước bên phải: lặp lại động tác dưới đến khi màu vàng của nó hướng lên. Các tầng dưới tạm thời trông lộn xộn, điều đó là bình thường!';
+    return 'Xoay góc $piece ở trước bên phải: lặp trigger dưới theo từng cặp đến khi màu vàng hướng lên. Các tầng dưới trông rối lúc này; chúng sẽ trở lại ở góc cuối!';
   }
 
   @override
@@ -2515,16 +2753,16 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String cueParityOll(String front) {
-    return 'Parity OLL: một cạnh tầng trên bị lật, điều không bao giờ xảy ra trên 3×3. Giữ nó ở phía trước, $front hướng về bạn, rồi làm công thức sửa parity.';
+    return 'Parity OLL: một cạnh trên bị lật, điều không bao giờ xảy ra ở 3×3. Giữ nó ở phía trước, $front hướng về bạn, và làm công thức parity trước mọi OLL thông thường.';
   }
 
   @override
   String get cueParityPll =>
-      'Parity PLL: hai cạnh tầng trên bị đổi chỗ, điều không bao giờ xảy ra trên 3×3. Giữ chúng ở phía trước và phía sau rồi làm phép đổi parity.';
+      'Parity PLL: hai cạnh trên bị đổi chỗ, điều không bao giờ xảy ra ở 3×3. Giữ chúng ở trước và sau, làm công thức đổi parity, rồi chỉnh tầng trên.';
 
   @override
   String cueParityFive(String front) {
-    return 'Parity cạnh: hai viên ngoài của một cạnh bị đổi chỗ. Xoay cạnh đó ra phía trước, $front hướng về bạn, sửa lại rồi xoay về.';
+    return 'Parity cạnh: hai cánh ngoài của một cạnh bị đổi chỗ, parity duy nhất của 5×5. Giữ cạnh đó ở phía trước, $front hướng về bạn, và làm công thức sửa một lần.';
   }
 
   @override
@@ -2555,7 +2793,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get onboardingLearnBody =>
-      'Thành thạo phương pháp 3 vương miện trong Học viện, rồi tự do xoay, xáo trộn và giải trong Sân chơi 3D.';
+      'Thành thạo cách giải theo tầng trong Học viện, rồi xoay, đảo và giải thoải mái trong Sân chơi 3D.';
 
   @override
   String get scanChoiceManualDesc =>
@@ -2573,7 +2811,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get crownExplain =>
-      'Vương miện là một tầng nằm ngang của khối: vương miện thứ nhất là tầng trắng ở dưới, thứ hai là tầng giữa và thứ ba là tầng vàng ở trên.';
+      'Tầng là một lát nằm ngang của khối: tầng 1 là tầng trắng ở dưới, tầng 2 là tầng giữa và tầng 3 là tầng vàng ở trên.';
 
   @override
   String get lessonObjectiveHeading => 'Mục tiêu bài học';
@@ -2597,8 +2835,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get solveChoiceFastDesc => 'Lời giải ngắn nhất, từng bước xoay.';
 
   @override
-  String get solveChoiceGuidedDesc =>
-      'Học phương pháp 3 vương miện từng bước một.';
+  String get solveChoiceGuidedDesc => 'Học cách giải theo tầng từng bước một.';
 
   @override
   String get guidedSolvedTitle => 'Đã giải xong!';

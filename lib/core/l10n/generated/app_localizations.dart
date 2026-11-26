@@ -397,7 +397,7 @@ abstract class AppLocalizations {
   /// No description provided for @solveModeGuided.
   ///
   /// In en, this message translates to:
-  /// **'Guided (3 crowns)'**
+  /// **'Guided (3 layers)'**
   String get solveModeGuided;
 
   /// No description provided for @solveModeFast.
@@ -565,7 +565,7 @@ abstract class AppLocalizations {
   /// No description provided for @phaseLblCorners.
   ///
   /// In en, this message translates to:
-  /// **'First crown corners'**
+  /// **'First layer corners'**
   String get phaseLblCorners;
 
   /// No description provided for @phaseLblMiddle.
@@ -601,19 +601,19 @@ abstract class AppLocalizations {
   /// No description provided for @crownFirst.
   ///
   /// In en, this message translates to:
-  /// **'First crown'**
+  /// **'First layer'**
   String get crownFirst;
 
   /// No description provided for @crownSecond.
   ///
   /// In en, this message translates to:
-  /// **'Second crown'**
+  /// **'Second layer'**
   String get crownSecond;
 
   /// No description provided for @crownThird.
   ///
   /// In en, this message translates to:
-  /// **'Third crown'**
+  /// **'Third layer'**
   String get crownThird;
 
   /// No description provided for @crownFirstGoal.
@@ -643,13 +643,13 @@ abstract class AppLocalizations {
   /// No description provided for @subStepGoal12.
   ///
   /// In en, this message translates to:
-  /// **'Insert the 4 white corners into their matching slots to finish the white face and the whole first ring.'**
+  /// **'Insert the 4 white corners into their matching slots to finish the white face and the whole first layer.'**
   String get subStepGoal12;
 
   /// No description provided for @subStepGoal21.
   ///
   /// In en, this message translates to:
-  /// **'Insert the 4 middle-layer edges without disturbing the first crown.'**
+  /// **'Insert the 4 middle-layer edges without disturbing the first layer.'**
   String get subStepGoal21;
 
   /// No description provided for @subStepGoal31.
@@ -1231,7 +1231,7 @@ abstract class AppLocalizations {
   /// No description provided for @trackBeginner.
   ///
   /// In en, this message translates to:
-  /// **'Beginner 3×3: the 3 crowns'**
+  /// **'Beginner 3×3: layer by layer'**
   String get trackBeginner;
 
   /// No description provided for @trackCfop.
@@ -1777,7 +1777,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepCrossGoalBody.
   ///
   /// In en, this message translates to:
-  /// **'Hold yellow on top. The four white edges go around the white center on the bottom, each side color matching the center next to it.'**
+  /// **'Hold yellow on top and green facing you. First gather the four white edges around the yellow center, white facing up, like petals: that\'s the daisy. Then each petal goes down to the white center, its side color matching the center beside it.'**
   String get stepCrossGoalBody;
 
   /// No description provided for @stepCrossTop.
@@ -1789,7 +1789,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepCrossTopBody.
   ///
   /// In en, this message translates to:
-  /// **'Find a white edge on top. Turn the top until its side color sits above the matching center, then turn that face twice to drop it in.'**
+  /// **'A white edge on top with white facing up is a daisy petal. Turn the top until its side color sits right above the center of the same color, then turn that face twice (180°) to drop it onto the white center.'**
   String get stepCrossTopBody;
 
   /// No description provided for @stepCrossMiddle.
@@ -1801,7 +1801,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepCrossMiddleBody.
   ///
   /// In en, this message translates to:
-  /// **'An edge stuck in the middle layer goes up first: turn its side up, move the top out of the way and turn the side back, so the cross stays intact. Then place it from the top.'**
+  /// **'An edge stuck in the middle layer goes up first: turn its side up, move the top out of the way and turn the side back, so placed pieces stay put. Now it\'s a petal on top: line it up and turn that face twice.'**
   String get stepCrossMiddleBody;
 
   /// No description provided for @stepCornersInsert.
@@ -1813,7 +1813,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepCornersInsertBody.
   ///
   /// In en, this message translates to:
-  /// **'Turn the top until a white corner sits above the spot where its colors belong, at the front right. R U R\' U\' then drops it in.'**
+  /// **'Turn the top until the white corner sits right above its slot, between the two centers that match its side colors. Here one top turn and R U\' R\' are enough: U brings the corner over its slot and R U\' R\' tucks it in, white facing down.'**
   String get stepCornersInsertBody;
 
   /// No description provided for @stepCornersRepeat.
@@ -1825,7 +1825,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepCornersRepeatBody.
   ///
   /// In en, this message translates to:
-  /// **'If white faces the wrong way, keep repeating R U R\' U\' over the same spot. Every corner is solved after at most five repeats.'**
+  /// **'Hold the slot at the front right and repeat R U R\' U\' until white faces down: once if white faces right, three times if it faces up, five times if it faces you. The top looks messy meanwhile; it sorts itself out.'**
   String get stepCornersRepeatBody;
 
   /// No description provided for @stepMiddleRight.
@@ -1837,7 +1837,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepMiddleRightBody.
   ///
   /// In en, this message translates to:
-  /// **'Line up a top edge with its center on the front. If its top color matches the right center, insert it with U R U\' R\' U\' F\' U F.'**
+  /// **'Find a top edge with no yellow on it. Turn the top until its front color matches the center facing you. If its top color matches the right center, send it right: U R U\' R\' U\' F\' U F.'**
   String get stepMiddleRightBody;
 
   /// No description provided for @stepMiddleLeft.
@@ -1849,7 +1849,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepMiddleLeftBody.
   ///
   /// In en, this message translates to:
-  /// **'If its top color matches the left center instead, use the mirror: U\' L\' U L U F U\' F\'.'**
+  /// **'If its top color matches the left center instead, use the mirror: U\' L\' U L U F U\' F\'. The white layer comes back whole every time.'**
   String get stepMiddleLeftBody;
 
   /// No description provided for @stepYellowCross.
@@ -1861,7 +1861,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepYellowCrossBody.
   ///
   /// In en, this message translates to:
-  /// **'F R U R\' U\' F\' turns a yellow dot into an L, an L into a line and a line into the cross. Hold the L at the back left and the line sideways.'**
+  /// **'Look only at the yellow edges on top. Hold an L at the back left and a line from left to right, then do F R U R\' U\' F\'. A line needs it once, an L twice, a dot up to three times.'**
   String get stepYellowCrossBody;
 
   /// No description provided for @stepYellowEdges.
@@ -1873,7 +1873,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepYellowEdgesBody.
   ///
   /// In en, this message translates to:
-  /// **'Turn the top until two edges match their centers. With one at the back and one on the right, R U R\' U R U2 R\' U swaps the other two.'**
+  /// **'Turn the top until two edges match their side centers. With one at the back and one on the right, R U R\' U R U2 R\' U swaps the front and left edges.'**
   String get stepYellowEdgesBody;
 
   /// No description provided for @stepPlaceCorners.
@@ -1885,7 +1885,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepPlaceCornersBody.
   ///
   /// In en, this message translates to:
-  /// **'Hold a corner that is already in its spot at the front right. U R U\' L\' U R\' U\' L moves the other three around; repeat until all four are home.'**
+  /// **'A corner is home when its colors match the three centers around it, even if it\'s twisted. Hold a home corner at the front right: U R U\' L\' U R\' U\' L moves the other three around. Repeat until all four are home.'**
   String get stepPlaceCornersBody;
 
   /// No description provided for @stepTwistCorners.
@@ -1897,7 +1897,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepTwistCornersBody.
   ///
   /// In en, this message translates to:
-  /// **'With an unsolved corner at the front right, repeat R\' D\' R D until yellow is on top, then turn only the top to bring the next one. The bottom looks broken until the very end: keep going.'**
+  /// **'With an unsolved corner at the front right, repeat R\' D\' R D in pairs until yellow is on top, then turn only the top to bring the next one. The bottom looks broken until the very last corner: keep going.'**
   String get stepTwistCornersBody;
 
   /// No description provided for @lessonCfopIntro.
@@ -2065,7 +2065,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepTwoIntroBody.
   ///
   /// In en, this message translates to:
-  /// **'A 2×2 is a 3×3 without edges and centers. Pick a color, build that face on the bottom, and make the side colors of neighbouring corners match.'**
+  /// **'A 2×2 is only eight corners: no edges, no centers. Build the white layer on the bottom so neighbouring side colors match, then finish on one route: Sune for a yellow top, then the T-perm or Y-perm.'**
   String get stepTwoIntroBody;
 
   /// No description provided for @stepTwoCorner.
@@ -2077,7 +2077,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepTwoCornerBody.
   ///
   /// In en, this message translates to:
-  /// **'Exactly like the 3×3 white corners: bring a corner above its spot and use R U R\' U\' until it fits.'**
+  /// **'Like the 3×3 white corners: bring a corner above its empty slot at the front right and tuck it in, with U R U\' R\' here or by repeating R U R\' U\' until white faces down. Check its side colors against its neighbour.'**
   String get stepTwoCornerBody;
 
   /// No description provided for @lessonTwoOll.
@@ -2101,7 +2101,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepTwoSuneBody.
   ///
   /// In en, this message translates to:
-  /// **'Sune turns the top yellow on a 2×2 too. Ortega solvers learn seven short cases; Sune and its mirror cover most of them.'**
+  /// **'Count the yellow stickers facing up. Hold the one yellow-up corner at the front left and do Sune (R U R\' U R U2 R\'). Count again and re-hold; it takes three Sunes at most. Turn only the top between them.'**
   String get stepTwoSuneBody;
 
   /// No description provided for @lessonTwoPbl.
@@ -2125,7 +2125,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepTwoAdjacentBody.
   ///
   /// In en, this message translates to:
-  /// **'When two neighbouring top corners must swap, hold them on the right and use the T-perm.'**
+  /// **'Headlights are two matching top stickers on one side. Turn the top until the headlights are on the left, so the two corners to swap are on the right, then do the T-perm.'**
   String get stepTwoAdjacentBody;
 
   /// No description provided for @stepTwoDiagonal.
@@ -2137,7 +2137,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepTwoDiagonalBody.
   ///
   /// In en, this message translates to:
-  /// **'Two corners in opposite spots swap with the Y-perm.'**
+  /// **'No headlights anywhere means two diagonal corners must swap: do the Y-perm from any side, then turn the top to line everything up.'**
   String get stepTwoDiagonalBody;
 
   /// No description provided for @lessonBigIntro.
@@ -2161,7 +2161,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepBigPiecesBody.
   ///
   /// In en, this message translates to:
-  /// **'On a 4×4 each face has four center pieces that move around, and every edge is made of two wings. Reduction groups them so the cube behaves like a 3×3.'**
+  /// **'On a 4×4 each face has four center pieces that move around, and every edge is two wings. No center is fixed, so check the color order on a corner: white opposite yellow, blue opposite green, red opposite orange.'**
   String get stepBigPiecesBody;
 
   /// No description provided for @stepBigSlices.
@@ -2197,7 +2197,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepBigCenterCycleBody.
   ///
   /// In en, this message translates to:
-  /// **'This commutator moves exactly three center pieces and leaves everything else alone, so finished centers stay finished.'**
+  /// **'This commutator moves exactly three center pieces and leaves everything else alone, so finished centers stay finished. Use it when one stray piece won\'t join a bar.'**
   String get stepBigCenterCycleBody;
 
   /// No description provided for @lessonBigEdges.
@@ -2221,7 +2221,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepBigEdgePairBody.
   ///
   /// In en, this message translates to:
-  /// **'Uw\' lines two matching wings up, R U R\' F R\' F\' R swaps in an unpaired edge, and Uw puts the centers back.'**
+  /// **'Uw\' lines up two matching wings, R U R\' F R\' F\' R swaps in an unpaired edge, and Uw brings the centers back. Always close a slice you opened.'**
   String get stepBigEdgePairBody;
 
   /// No description provided for @lessonBigParity.
@@ -2245,7 +2245,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepBigOllParityBody.
   ///
   /// In en, this message translates to:
-  /// **'A single flipped edge can\'t happen on a 3×3. On even cubes this algorithm flips the top-front edge back. It may shuffle the rest of the top layer, which the last 3×3 steps fix anyway.'**
+  /// **'A single flipped edge can\'t happen on a 3×3: it\'s OLL parity, not a mistake. Keep it at the front of the top layer and play the long algorithm. It also swaps the left and right top edges and two corners; the last 3×3 steps fix those.'**
   String get stepBigOllParityBody;
 
   /// No description provided for @stepBigPllParity.
@@ -2257,7 +2257,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepBigPllParityBody.
   ///
   /// In en, this message translates to:
-  /// **'Two swapped edges at the very end? 2R2 U2 2R2 Uw2 2R2 Uw2 swaps the front and back top edges.'**
+  /// **'Two swapped edges at the very end, and no 3×3 algorithm fits? That\'s PLL parity. Hold them at the front and back of the top layer: 2R2 U2 2R2 Uw2 2R2 2U2 swaps them.'**
   String get stepBigPllParityBody;
 
   /// No description provided for @introGoalHeading.
@@ -2271,6 +2271,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'How do we do it?'**
   String get introHowHeading;
+
+  /// No description provided for @introHoldHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'How to hold it'**
+  String get introHoldHeading;
+
+  /// No description provided for @introWhyHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Why it works'**
+  String get introWhyHeading;
 
   /// No description provided for @introStart.
   ///
@@ -2317,13 +2329,13 @@ abstract class AppLocalizations {
   /// No description provided for @introGoalCross.
   ///
   /// In en, this message translates to:
-  /// **'Make a white plus sign where every white edge also matches the center color beside it.'**
+  /// **'Make a white plus sign on the bottom where every white edge also matches the center color beside it.'**
   String get introGoalCross;
 
   /// No description provided for @introGoalCorners.
   ///
   /// In en, this message translates to:
-  /// **'Fill in the four white corners so the first crown, the whole white layer, is complete.'**
+  /// **'Fill in the four white corners so the whole first layer is done: a white face with matching side colors.'**
   String get introGoalCorners;
 
   /// No description provided for @introGoalMiddle.
@@ -2395,7 +2407,7 @@ abstract class AppLocalizations {
   /// No description provided for @introGoalTwoPbl.
   ///
   /// In en, this message translates to:
-  /// **'Swap the last corners into place to solve the 2×2.'**
+  /// **'Put the last corners home with one T-perm or Y-perm, then line up the top to solve the 2×2.'**
   String get introGoalTwoPbl;
 
   /// No description provided for @introGoalBigIntro.
@@ -2419,7 +2431,7 @@ abstract class AppLocalizations {
   /// No description provided for @introGoalBigParity.
   ///
   /// In en, this message translates to:
-  /// **'Fix the two 4×4 cases a 3×3 never has: one flipped edge or two swapped edges.'**
+  /// **'Fix the two 4×4 cases a 3×3 never has: one flipped edge (OLL parity) or two swapped edges (PLL parity).'**
   String get introGoalBigParity;
 
   /// No description provided for @introHowBasics.
@@ -2428,47 +2440,143 @@ abstract class AppLocalizations {
   /// **'Centers never move, so they tell you each face\'s color.\nEach letter turns one face a quarter turn clockwise.\nAn apostrophe (\') turns it back; a 2 turns it twice.'**
   String get introHowBasics;
 
+  /// No description provided for @introHoldBasics.
+  ///
+  /// In en, this message translates to:
+  /// **'Any way you like: the centers stay in place, so the colors always tell you which face is which.'**
+  String get introHoldBasics;
+
+  /// No description provided for @introWhyBasics.
+  ///
+  /// In en, this message translates to:
+  /// **'Every algorithm is just these letters in a row, so reading them is the first skill.'**
+  String get introWhyBasics;
+
   /// No description provided for @introHowCross.
   ///
   /// In en, this message translates to:
-  /// **'Hold yellow on top: the white cross is built on the bottom.\nFind a white edge and line its side color up with the matching center.\nTurn that face twice to drop the edge into place.'**
+  /// **'Bring each white edge to the top, white facing up, around the yellow center: that\'s the daisy.\nTurn the top until a petal\'s side color sits above its matching center.\nTurn that face twice to drop it down; repeat for all four.'**
   String get introHowCross;
+
+  /// No description provided for @introHoldCross.
+  ///
+  /// In en, this message translates to:
+  /// **'Yellow center on top, white center on the bottom, for the whole step. Turn the top layer, not the cube, to line up a petal.'**
+  String get introHoldCross;
+
+  /// No description provided for @introWhyCross.
+  ///
+  /// In en, this message translates to:
+  /// **'With white facing up on top, two turns of the front face land the edge on the white center, white facing down, already matching its side.'**
+  String get introWhyCross;
 
   /// No description provided for @introHowCorners.
   ///
   /// In en, this message translates to:
-  /// **'Bring a white corner above its empty spot.\nRepeat R U R\' U\' until it drops in the right way round.\nDo the same for the other three corners.'**
+  /// **'Turn the top until a white corner sits above its empty slot, and hold that slot at the front right.\nRepeat R U R\' U\': once if white faces right, three times if it faces up, five if it faces you.\nDo the same for the other three corners.'**
   String get introHowCorners;
+
+  /// No description provided for @introHoldCorners.
+  ///
+  /// In en, this message translates to:
+  /// **'White on the bottom, yellow on top. The corner sits at the front right, directly above its slot.'**
+  String get introHoldCorners;
+
+  /// No description provided for @introWhyCorners.
+  ///
+  /// In en, this message translates to:
+  /// **'R U R\' U\' lifts the slot and puts it back: each round twists the corner a little until white faces down, and the cross is never broken.'**
+  String get introWhyCorners;
 
   /// No description provided for @introHowMiddle.
   ///
   /// In en, this message translates to:
-  /// **'Find a top edge without yellow and match its front color to a center.\nSend it right or left with a short 8-move algorithm.\nThe white layer comes back intact every time.'**
+  /// **'Find a top edge with no yellow on it and match its front color to the center below.\nIts top color says where it goes: right or left.\nSend it with the 8-move insert; the white layer comes back every time.'**
   String get introHowMiddle;
+
+  /// No description provided for @introHoldMiddle.
+  ///
+  /// In en, this message translates to:
+  /// **'White on the bottom, yellow on top. The edge sits on the front, its front color matching the center below it.'**
+  String get introHoldMiddle;
+
+  /// No description provided for @introWhyMiddle.
+  ///
+  /// In en, this message translates to:
+  /// **'The insert lifts the slot out of the way, slides the edge in and brings the white layer back. An edge with yellow belongs on top, never in the middle.'**
+  String get introWhyMiddle;
 
   /// No description provided for @introHowYellowCross.
   ///
   /// In en, this message translates to:
-  /// **'Look at the top: a dot, an L or a line.\nHold it as shown and do F R U R\' U\' F\'.\nRepeat until the yellow cross appears.'**
+  /// **'Look only at the yellow edges on top: a dot, an L or a line.\nHold the L at the back left, the line from left to right, and do F R U R\' U\' F\'.\nA line needs it once, an L twice, a dot up to three times.'**
   String get introHowYellowCross;
+
+  /// No description provided for @introHoldYellowCross.
+  ///
+  /// In en, this message translates to:
+  /// **'White on the bottom, yellow on top. An L at the back left, a line from left to right; a dot any way.'**
+  String get introHoldYellowCross;
+
+  /// No description provided for @introWhyYellowCross.
+  ///
+  /// In en, this message translates to:
+  /// **'F R U R\' U\' F\' flips two top edges up at a time without touching the first two layers.'**
+  String get introWhyYellowCross;
 
   /// No description provided for @introHowYellowEdges.
   ///
   /// In en, this message translates to:
-  /// **'Turn the top until two edges match their centers.\nHold them at the back and right, then do R U R\' U R U2 R\' U.\nRepeat until all four edges match.'**
+  /// **'Turn the top until two edges match their side centers.\nHold them at the back and on the right, then do R U R\' U R U2 R\' U.\nIf the matched edges are opposite, do it once from any side first.'**
   String get introHowYellowEdges;
+
+  /// No description provided for @introHoldYellowEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'Yellow on top. One matched edge at the back and the other on the right.'**
+  String get introHoldYellowEdges;
+
+  /// No description provided for @introWhyYellowEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'This algorithm only moves top pieces, so the first two layers always come back.'**
+  String get introWhyYellowEdges;
 
   /// No description provided for @introHowYellowCorners.
   ///
   /// In en, this message translates to:
-  /// **'A corner is in its spot when its colors match the three faces around it.\nKeep a placed corner at the front right.\nU R U\' L\' U R\' U\' L cycles the other three until they all fit.'**
+  /// **'A corner is home when its colors match the three centers around it, even if twisted.\nKeep a home corner at the front right.\nU R U\' L\' U R\' U\' L cycles the other three; repeat until all four fit.'**
   String get introHowYellowCorners;
+
+  /// No description provided for @introHoldYellowCorners.
+  ///
+  /// In en, this message translates to:
+  /// **'Yellow on top. A corner that is already home at the front right; if none is, any corner.'**
+  String get introHoldYellowCorners;
+
+  /// No description provided for @introWhyYellowCorners.
+  ///
+  /// In en, this message translates to:
+  /// **'It moves three corners in a circle and leaves the one at the front right in place, so every repeat brings more corners home.'**
+  String get introWhyYellowCorners;
 
   /// No description provided for @introHowTwistCorners.
   ///
   /// In en, this message translates to:
-  /// **'Hold an unsolved corner at the front right.\nRepeat R\' D\' R D until its yellow faces up.\nTurn only the top for the next one; the bottom fixes itself at the end.'**
+  /// **'Hold an unsolved corner at the front right.\nRepeat R\' D\' R D in pairs until its yellow faces up.\nTurn only the top for the next one; the bottom comes back with the last corner.'**
   String get introHowTwistCorners;
+
+  /// No description provided for @introHoldTwistCorners.
+  ///
+  /// In en, this message translates to:
+  /// **'Yellow on top, the corner to twist at the front right. Between corners turn only the top, never the whole cube.'**
+  String get introHoldTwistCorners;
+
+  /// No description provided for @introWhyTwistCorners.
+  ///
+  /// In en, this message translates to:
+  /// **'R\' D\' R D twists the corner and scrambles the bottom, but the bottom returns once every corner is twisted. Stopping halfway leaves it broken.'**
+  String get introWhyTwistCorners;
 
   /// No description provided for @introHowCfopIntro.
   ///
@@ -2476,11 +2584,35 @@ abstract class AppLocalizations {
   /// **'Cross: four edges, planned during inspection.\nF2L: each corner goes in together with its edge.\nOLL makes the top yellow, then PLL moves the pieces home.'**
   String get introHowCfopIntro;
 
+  /// No description provided for @introHoldCfopIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Speedcubers build the cross on the bottom, so they can look ahead at the next pieces while they turn.'**
+  String get introHoldCfopIntro;
+
+  /// No description provided for @introWhyCfopIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Solving a corner and its edge together saves many moves, and recognizing cases replaces trial and error.'**
+  String get introWhyCfopIntro;
+
   /// No description provided for @introHowF2l.
   ///
   /// In en, this message translates to:
   /// **'Find a corner and its matching edge in the top layer.\nPair them up above their slot.\nDrop the pair in with three or four moves.'**
   String get introHowF2l;
+
+  /// No description provided for @introHoldF2l.
+  ///
+  /// In en, this message translates to:
+  /// **'Cross on the bottom. The pair\'s slot at the front right, or the front left for the mirror.'**
+  String get introHoldF2l;
+
+  /// No description provided for @introWhyF2l.
+  ///
+  /// In en, this message translates to:
+  /// **'A paired corner and edge drop in together, so two layers grow at once instead of one piece at a time.'**
+  String get introWhyF2l;
 
   /// No description provided for @introHowOll.
   ///
@@ -2488,29 +2620,89 @@ abstract class AppLocalizations {
   /// **'First the yellow cross with F R U R\' U\' F\'.\nThen orient the corners, for example with Sune.\nRecognize the case by the yellow you see.'**
   String get introHowOll;
 
+  /// No description provided for @introHoldOll.
+  ///
+  /// In en, this message translates to:
+  /// **'Yellow on top. For Sune, the one corner with yellow facing up goes at the front left.'**
+  String get introHoldOll;
+
+  /// No description provided for @introWhyOll.
+  ///
+  /// In en, this message translates to:
+  /// **'Splitting the last layer into orient first, then permute keeps the number of algorithms small.'**
+  String get introWhyOll;
+
   /// No description provided for @introHowPll.
   ///
   /// In en, this message translates to:
   /// **'The top is already all yellow.\nThe T-perm swaps corners; the U-perm cycles three edges.\nRead the side colors to choose the algorithm.'**
   String get introHowPll;
 
+  /// No description provided for @introHoldPll.
+  ///
+  /// In en, this message translates to:
+  /// **'Yellow on top. T-perm: headlights on the left. U-perm: the finished side at the back.'**
+  String get introHoldPll;
+
+  /// No description provided for @introWhyPll.
+  ///
+  /// In en, this message translates to:
+  /// **'Once the top is all yellow, only the pieces\' places are wrong, and a few swaps finish the cube.'**
+  String get introWhyPll;
+
   /// No description provided for @introHowTwoFirst.
   ///
   /// In en, this message translates to:
-  /// **'A 2×2 is only corners, like a 3×3 without edges.\nBring each white corner above its spot.\nRepeat R U R\' U\' until it drops in.'**
+  /// **'Pick a white corner as your anchor, white facing down.\nBring each next corner above its slot at the front right.\nRepeat R U R\' U\' until it drops in with matching side colors.'**
   String get introHowTwoFirst;
+
+  /// No description provided for @introHoldTwoFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'White on the bottom. The empty slot at the front right, its corner right above it on the top layer.'**
+  String get introHoldTwoFirst;
+
+  /// No description provided for @introWhyTwoFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'A 2×2 has no centers: the first corner you place sets the colors of its neighbours, so side colors matter, not only white.'**
+  String get introWhyTwoFirst;
 
   /// No description provided for @introHowTwoOll.
   ///
   /// In en, this message translates to:
-  /// **'Keep the white layer at the bottom.\nSune (R U R\' U R U2 R\') twists the top corners.\nRepeat from the right angle until the top is all yellow.'**
+  /// **'Count the corners with yellow facing up.\nWith one up, hold it at the front left and do Sune: R U R\' U R U2 R\'.\nCount again and repeat; three Sunes at most.'**
   String get introHowTwoOll;
+
+  /// No description provided for @introHoldTwoOll.
+  ///
+  /// In en, this message translates to:
+  /// **'White on the bottom, yellow on top. The corner with yellow up at the front left before each Sune.'**
+  String get introHoldTwoOll;
+
+  /// No description provided for @introWhyTwoOll.
+  ///
+  /// In en, this message translates to:
+  /// **'Sune twists the top corners without breaking the white layer; recounting each time tells you how to hold it next.'**
+  String get introWhyTwoOll;
 
   /// No description provided for @introHowTwoPbl.
   ///
   /// In en, this message translates to:
-  /// **'Look for a side where two corners already match.\nAdjacent swap: one T-perm style algorithm.\nDiagonal swap: one longer algorithm.'**
+  /// **'Look for headlights: two matching top stickers on one side.\nHeadlights on one side: hold them on the left and do the T-perm.\nNo headlights: do the Y-perm from any side, then line up the top.'**
   String get introHowTwoPbl;
+
+  /// No description provided for @introHoldTwoPbl.
+  ///
+  /// In en, this message translates to:
+  /// **'White on the bottom, yellow on top. T-perm: headlights on the left. Y-perm: any side facing you.'**
+  String get introHoldTwoPbl;
+
+  /// No description provided for @introWhyTwoPbl.
+  ///
+  /// In en, this message translates to:
+  /// **'With the top yellow, only the corners\' places are wrong: the T-perm swaps two neighbours, the Y-perm two diagonals.'**
+  String get introWhyTwoPbl;
 
   /// No description provided for @introHowBigIntro.
   ///
@@ -2518,23 +2710,71 @@ abstract class AppLocalizations {
   /// **'No center is fixed: four center pieces make up each face color.\nWide moves like Rw turn two layers at once.\nInner moves like 2R turn just one inner slice.'**
   String get introHowBigIntro;
 
+  /// No description provided for @introHoldBigIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Any way you like at first: on a 4×4 no center is fixed, so you choose where each color goes.'**
+  String get introHoldBigIntro;
+
+  /// No description provided for @introWhyBigIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Reduction groups centers and edge pieces so the big cube can be solved like a 3×3.'**
+  String get introWhyBigIntro;
+
   /// No description provided for @introHowBigCenters.
   ///
   /// In en, this message translates to:
-  /// **'Build two opposite centers first.\nInner slices swap center pieces without breaking finished ones.\nFinish the last four centers the same way.'**
+  /// **'Check the color order from a corner first.\nBuild two opposite centers, then the other four.\nInner slices move center pieces; always undo a slice you opened.'**
   String get introHowBigCenters;
+
+  /// No description provided for @introHoldBigCenters.
+  ///
+  /// In en, this message translates to:
+  /// **'The face you are building in front, finished centers out of the way on the left and right.'**
+  String get introHoldBigCenters;
+
+  /// No description provided for @introWhyBigCenters.
+  ///
+  /// In en, this message translates to:
+  /// **'A slice moves centers, and undoing it restores the finished ones, so only the piece you aimed for changes.'**
+  String get introWhyBigCenters;
 
   /// No description provided for @introHowBigEdges.
   ///
   /// In en, this message translates to:
-  /// **'Find two edge pieces with the same colors.\nLine them up side by side with an inner slice.\nPut the pair away and bring the centers back.'**
+  /// **'Find the two wings with the same two colors.\nLine them up on the front and join them with Uw\'.\nSwap in an unpaired edge, then Uw brings the centers back.'**
   String get introHowBigEdges;
+
+  /// No description provided for @introHoldBigEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'The edge you are pairing in the front layers; finished edges parked in the top and bottom layers.'**
+  String get introHoldBigEdges;
+
+  /// No description provided for @introWhyBigEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'Uw\' moves the centers aside so two wings can meet; Uw puts the centers back, keeping your work.'**
+  String get introWhyBigEdges;
 
   /// No description provided for @introHowBigParity.
   ///
   /// In en, this message translates to:
-  /// **'Solve the 4×4 like a 3×3 until it gets stuck.\nOne flipped edge: the long OLL parity algorithm.\nTwo swapped edges: 2R2 U2 2R2 Uw2 2R2 Uw2.'**
+  /// **'Solve the 4×4 like a 3×3 until it gets stuck.\nOne flipped edge: the long OLL parity algorithm.\nTwo swapped edges: 2R2 U2 2R2 Uw2 2R2 2U2.'**
   String get introHowBigParity;
+
+  /// No description provided for @introHoldBigParity.
+  ///
+  /// In en, this message translates to:
+  /// **'The last layer on top. OLL parity: the flipped edge at the front. PLL parity: the swapped edges at the front and back.'**
+  String get introHoldBigParity;
+
+  /// No description provided for @introWhyBigParity.
+  ///
+  /// In en, this message translates to:
+  /// **'Edge wings can end up in states a 3×3 can\'t reach; these algorithms turn inner layers to undo exactly that.'**
+  String get introWhyBigParity;
 
   /// No description provided for @dirFaceR.
   ///
@@ -2737,19 +2977,19 @@ abstract class AppLocalizations {
   /// No description provided for @stageCrown1.
   ///
   /// In en, this message translates to:
-  /// **'First crown (white)'**
+  /// **'First layer (white)'**
   String get stageCrown1;
 
   /// No description provided for @stageCrown2.
   ///
   /// In en, this message translates to:
-  /// **'Second crown'**
+  /// **'Second layer'**
   String get stageCrown2;
 
   /// No description provided for @stageCrown3.
   ///
   /// In en, this message translates to:
-  /// **'Third crown (yellow)'**
+  /// **'Third layer (yellow)'**
   String get stageCrown3;
 
   /// No description provided for @stageOrient.
@@ -2824,6 +3064,18 @@ abstract class AppLocalizations {
   /// **'The very middle of each face never moves.\nEach edge is a middle piece with two wings.\nInner slices move pieces without touching the outside.'**
   String get introHowFiveIntro;
 
+  /// No description provided for @introHoldFiveIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Any way you like: on a 5×5 the very middle of each face never moves, so it shows that face\'s color.'**
+  String get introHoldFiveIntro;
+
+  /// No description provided for @introWhyFiveIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Fixed middles set the color scheme, so the centers can\'t be built in the wrong order.'**
+  String get introWhyFiveIntro;
+
   /// No description provided for @lessonFiveCenters.
   ///
   /// In en, this message translates to:
@@ -2845,8 +3097,20 @@ abstract class AppLocalizations {
   /// No description provided for @introHowFiveCenters.
   ///
   /// In en, this message translates to:
-  /// **'Start from the middle piece: it tells the color.\nBuild bars of three and slide them in with an inner slice.\nFinish the last two centers together.'**
+  /// **'Start from the fixed middle piece: it sets the color.\nBuild bars of three and slide them in with an inner slice.\nThe move that brings a bar in also restores the finished center.'**
   String get introHowFiveCenters;
+
+  /// No description provided for @introHoldFiveCenters.
+  ///
+  /// In en, this message translates to:
+  /// **'The center you are building in front or on top; finished centers on the bottom, left or right, out of the way.'**
+  String get introHoldFiveCenters;
+
+  /// No description provided for @introWhyFiveCenters.
+  ///
+  /// In en, this message translates to:
+  /// **'Slice in, turn the top, slice back: the slice that brings the bar in also restores the finished centers.'**
+  String get introWhyFiveCenters;
 
   /// No description provided for @lessonFiveEdges.
   ///
@@ -2869,8 +3133,20 @@ abstract class AppLocalizations {
   /// No description provided for @introHowFiveEdges.
   ///
   /// In en, this message translates to:
-  /// **'Match two wings to their middle edge on the front.\nTurn the inner layer, swap in an unsolved edge, turn it back.\nPair the last edges without breaking finished ones.'**
+  /// **'Match each wing to its middle edge on the front.\nTurn the inner layer, swap in an unsolved edge, turn it back.\nFor the last edges, use slice, flip, slice.'**
   String get introHowFiveEdges;
+
+  /// No description provided for @introHoldFiveEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'The edge you are building at the front; finished edges stored in the top and bottom layers.'**
+  String get introHoldFiveEdges;
+
+  /// No description provided for @introWhyFiveEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'Opening and closing the inner slice joins wings while centers and stored edges come back.'**
+  String get introWhyFiveEdges;
 
   /// No description provided for @lessonFiveSolve.
   ///
@@ -2881,20 +3157,32 @@ abstract class AppLocalizations {
   /// No description provided for @lessonFiveSolveDesc.
   ///
   /// In en, this message translates to:
-  /// **'Finish with the three crowns.'**
+  /// **'Finish layer by layer, like a 3×3.'**
   String get lessonFiveSolveDesc;
 
   /// No description provided for @introGoalFiveSolve.
   ///
   /// In en, this message translates to:
-  /// **'Solve the reduced 5×5 like a 3×3, crown by crown.'**
+  /// **'Solve the reduced 5×5 like a 3×3, layer by layer, with outer turns only.'**
   String get introGoalFiveSolve;
 
   /// No description provided for @introHowFiveSolve.
   ///
   /// In en, this message translates to:
-  /// **'Only outer turns from now on.\nFirst crown, second crown, then the yellow crown.\nThe fixed middles show each face color.'**
+  /// **'Only outer turns from now on, or paired edges split apart.\nWhite cross and corners, the middle layer, then the yellow layer.\nThe fixed middles show each face\'s color.'**
   String get introHowFiveSolve;
+
+  /// No description provided for @introHoldFiveSolve.
+  ///
+  /// In en, this message translates to:
+  /// **'The first layer\'s color on the bottom, exactly as on a 3×3; the corner to insert at the front right.'**
+  String get introHoldFiveSolve;
+
+  /// No description provided for @introWhyFiveSolve.
+  ///
+  /// In en, this message translates to:
+  /// **'Inner turns would split centers and edges again; outer turns treat each block as one 3×3 piece.'**
+  String get introWhyFiveSolve;
 
   /// No description provided for @lessonFiveParity.
   ///
@@ -2911,14 +3199,26 @@ abstract class AppLocalizations {
   /// No description provided for @introGoalFiveParity.
   ///
   /// In en, this message translates to:
-  /// **'Fix the one edge whose two wings are swapped, then finish.'**
+  /// **'Fix the one edge whose two outer wings are swapped: the only parity a 5×5 has.'**
   String get introGoalFiveParity;
 
   /// No description provided for @introHowFiveParity.
   ///
   /// In en, this message translates to:
-  /// **'It shows up as an edge that will not pair.\nPlay the long inner-slice fix once.\nEverything else returns to its place.'**
+  /// **'It shows up as one last edge that looks flipped.\nPlay the long inner-slice fix once.\nThere is no PLL parity on a 5×5.'**
   String get introHowFiveParity;
+
+  /// No description provided for @introHoldFiveParity.
+  ///
+  /// In en, this message translates to:
+  /// **'The last layer on top, the edge with swapped wings at the front of the top layer.'**
+  String get introHoldFiveParity;
+
+  /// No description provided for @introWhyFiveParity.
+  ///
+  /// In en, this message translates to:
+  /// **'Only the two outer wings of one edge can swap on a 5×5, so a single algorithm covers it.'**
+  String get introWhyFiveParity;
 
   /// No description provided for @lessonSixIntro.
   ///
@@ -2944,6 +3244,18 @@ abstract class AppLocalizations {
   /// **'No center is fixed: you choose the colors as you build.\nEach edge has outer and inner wings.\nWide turns can move up to three layers.'**
   String get introHowSixIntro;
 
+  /// No description provided for @introHoldSixIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Any way you like at first: like a 4×4, a 6×6 has no fixed center.'**
+  String get introHoldSixIntro;
+
+  /// No description provided for @introWhySixIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'If you can solve a 4×4 and a 5×5, the 6×6 is the same reduction with bigger blocks.'**
+  String get introWhySixIntro;
+
   /// No description provided for @lessonSixCenters.
   ///
   /// In en, this message translates to:
@@ -2965,8 +3277,20 @@ abstract class AppLocalizations {
   /// No description provided for @introHowSixCenters.
   ///
   /// In en, this message translates to:
-  /// **'Build two opposite centers first.\nMake bars of four and slide them together.\nMove single pieces with a slice, top, undo trick.'**
+  /// **'Check the color order from a corner first: no center is fixed.\nBuild bars of four and slide them together.\nFor the last two centers, move single pieces with slice, top, undo.'**
   String get introHowSixCenters;
+
+  /// No description provided for @introHoldSixCenters.
+  ///
+  /// In en, this message translates to:
+  /// **'The face you are building in front, finished centers on the left, right or bottom.'**
+  String get introHoldSixCenters;
+
+  /// No description provided for @introWhySixCenters.
+  ///
+  /// In en, this message translates to:
+  /// **'Bars join with inner slices, and every slice is undone, so finished centers stay whole.'**
+  String get introWhySixCenters;
 
   /// No description provided for @lessonSixEdges.
   ///
@@ -2989,8 +3313,20 @@ abstract class AppLocalizations {
   /// No description provided for @introHowSixEdges.
   ///
   /// In en, this message translates to:
-  /// **'Line up the outer and inner wings on the front.\nThe deep wide layer brings an edge in and out.\nFinished edges are never broken.'**
+  /// **'Line up the outer and inner wings of one edge on the front.\nThe deep wide layer brings an edge in and out.\nNever break a finished edge to free a piece.'**
   String get introHowSixEdges;
+
+  /// No description provided for @introHoldSixEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'The edge you are building at the front; finished edges parked in the top and bottom layers.'**
+  String get introHoldSixEdges;
+
+  /// No description provided for @introWhySixEdges.
+  ///
+  /// In en, this message translates to:
+  /// **'The deep wide turn moves centers aside so wings can meet, then brings them back.'**
+  String get introWhySixEdges;
 
   /// No description provided for @lessonSixSolve.
   ///
@@ -3001,20 +3337,32 @@ abstract class AppLocalizations {
   /// No description provided for @lessonSixSolveDesc.
   ///
   /// In en, this message translates to:
-  /// **'Finish with the three crowns.'**
+  /// **'Finish layer by layer, like a 3×3.'**
   String get lessonSixSolveDesc;
 
   /// No description provided for @introGoalSixSolve.
   ///
   /// In en, this message translates to:
-  /// **'Solve the reduced 6×6 like a 3×3, crown by crown.'**
+  /// **'Solve the reduced 6×6 like a 3×3, layer by layer, with outer turns only.'**
   String get introGoalSixSolve;
 
   /// No description provided for @introHowSixSolve.
   ///
   /// In en, this message translates to:
-  /// **'Only outer turns from now on.\nThe centers you built show each face color.\nFirst crown, second crown, then the yellow crown.'**
+  /// **'Only outer turns from now on: a slice would split a center or an edge.\nThe centers you built show each face\'s color.\nWhite cross and corners, the middle layer, then the yellow layer.'**
   String get introHowSixSolve;
+
+  /// No description provided for @introHoldSixSolve.
+  ///
+  /// In en, this message translates to:
+  /// **'The first layer\'s color on the bottom, exactly as on a 3×3; the corner to insert at the front right.'**
+  String get introHoldSixSolve;
+
+  /// No description provided for @introWhySixSolve.
+  ///
+  /// In en, this message translates to:
+  /// **'Outer turns move each 4×4 center and each edge as one piece, just like on a 3×3.'**
+  String get introWhySixSolve;
 
   /// No description provided for @lessonSixParity.
   ///
@@ -3037,8 +3385,20 @@ abstract class AppLocalizations {
   /// No description provided for @introHowSixParity.
   ///
   /// In en, this message translates to:
-  /// **'Solve like a 3×3 until it gets stuck.\nOne flipped edge: the long parity fix.\nTwo swapped edges: the short double-turn fix.'**
+  /// **'Solve like a 3×3 until it gets stuck.\nOne flipped edge: the long parity fix with 3Rw.\nTwo swapped edges: the short fix of inner double turns.'**
   String get introHowSixParity;
+
+  /// No description provided for @introHoldSixParity.
+  ///
+  /// In en, this message translates to:
+  /// **'The last layer on top. The flipped edge at the front; for two swapped edges, the front and back.'**
+  String get introHoldSixParity;
+
+  /// No description provided for @introWhySixParity.
+  ///
+  /// In en, this message translates to:
+  /// **'Like a 4×4, a 6×6 can end with one flipped or two swapped edges; inner-layer algorithms fix them and leave the rest alone.'**
+  String get introWhySixParity;
 
   /// No description provided for @stepFivePieces.
   ///
@@ -3049,7 +3409,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepFivePiecesBody.
   ///
   /// In en, this message translates to:
-  /// **'The very middle piece of each face never moves, so it still tells the face\'s color, like on a 3×3. Around it sit eight more center pieces; each edge has a middle piece and two wings, and the corners work like a 3×3\'s.'**
+  /// **'The very middle piece of each face never moves, so the color scheme can\'t come out wrong. Around it sit eight center pieces: corner centers and edge centers never swap types. Each edge is a middle piece with two wings.'**
   String get stepFivePiecesBody;
 
   /// No description provided for @stepFiveSlices.
@@ -3073,7 +3433,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepFiveCenterBarBody.
   ///
   /// In en, this message translates to:
-  /// **'Build a row of three matching center pieces, then slide it next to the matching middle with an inner slice turn. Three bars make a finished center.'**
+  /// **'Build a row of three matching center pieces, slide it in with an inner slice, turn the top and slide back: the move that brings the bar in also restores the finished center. Three bars make a center.'**
   String get stepFiveCenterBarBody;
 
   /// No description provided for @stepFiveCenterSwap.
@@ -3097,7 +3457,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepFiveEdgePairBody.
   ///
   /// In en, this message translates to:
-  /// **'Line up two wings beside their matching middle edge on the front, turn the inner layer down, bring in an unsolved edge from the top, then turn the inner layer back.'**
+  /// **'Line up a wing beside its matching middle edge on the front, turn the inner layer down, swap in an unsolved edge with a short trigger, then turn the inner layer back.'**
   String get stepFiveEdgePairBody;
 
   /// No description provided for @stepFiveEdgeLast.
@@ -3109,7 +3469,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepFiveEdgeLastBody.
   ///
   /// In en, this message translates to:
-  /// **'With only a few edges left, a wide turn, a short trigger and the wide turn back pair them without breaking finished edges.'**
+  /// **'With no free edge left to swap in, use slice, flip, slice: a wide turn, a short trigger and the wide turn back pair the last edges without breaking finished ones.'**
   String get stepFiveEdgeLastBody;
 
   /// No description provided for @stepFiveAsThree.
@@ -3121,7 +3481,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepFiveAsThreeBody.
   ///
   /// In en, this message translates to:
-  /// **'With centers and edges done, the 5×5 behaves like a big 3×3. Use only outer turns and follow the three crowns: white cross and corners, the middle layer, then the yellow layer.'**
+  /// **'With centers and edges done, the 5×5 behaves like a big 3×3. Use only outer turns and go layer by layer: white cross and corners, the middle layer, then the yellow layer. A 5×5 has no PLL parity.'**
   String get stepFiveAsThreeBody;
 
   /// No description provided for @stepFiveEdgeParity.
@@ -3133,7 +3493,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepFiveEdgeParityBody.
   ///
   /// In en, this message translates to:
-  /// **'Sometimes the last edge has its two wings swapped. A longer inner-slice algorithm swaps them back while everything else returns to its place. Then finish as a 3×3.'**
+  /// **'Sometimes the last edge has its two outer wings swapped, so it looks flipped: the 5×5\'s only parity. Hold it at the front of the top layer and play the inner-slice algorithm once; everything else returns to its place.'**
   String get stepFiveEdgeParityBody;
 
   /// No description provided for @stepSixPieces.
@@ -3145,7 +3505,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepSixPiecesBody.
   ///
   /// In en, this message translates to:
-  /// **'Like a 4×4, a 6×6 has no fixed center: sixteen center pieces make up each face color. Each edge has four pieces: two outer wings and two inner wings.'**
+  /// **'Like a 4×4, a 6×6 has no fixed center: sixteen center pieces make up each face color, so check the color order on a corner first. Each edge has four wings: two outer and two inner.'**
   String get stepSixPiecesBody;
 
   /// No description provided for @stepSixSlices.
@@ -3169,7 +3529,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepSixCenterBarBody.
   ///
   /// In en, this message translates to:
-  /// **'Build rows of four matching center pieces and slide them next to each other with inner slice turns until the face is one solid color.'**
+  /// **'Build rows of four matching center pieces and slide them next to each other with inner slice turns, undoing each slice, until the face is one solid 4×4 block.'**
   String get stepSixCenterBarBody;
 
   /// No description provided for @stepSixCenterSwap.
@@ -3181,7 +3541,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepSixCenterSwapBody.
   ///
   /// In en, this message translates to:
-  /// **'Turn the third layer, turn the top, undo, turn back: one center piece moves while finished centers come back.'**
+  /// **'Turn the third layer, turn the top, undo, turn back: one center piece moves while finished centers come back. Use it for the last two centers, when no bar fits.'**
   String get stepSixCenterSwapBody;
 
   /// No description provided for @stepSixEdgePair.
@@ -3193,7 +3553,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepSixEdgePairBody.
   ///
   /// In en, this message translates to:
-  /// **'Collect the four pieces of an edge on the front with the deep wide layer, then bring in an unsolved edge and turn the wide layer back.'**
+  /// **'Collect the four wings of an edge on the front with the deep wide layer, swap in an unsolved edge with a short trigger, then turn the wide layer back.'**
   String get stepSixEdgePairBody;
 
   /// No description provided for @stepSixEdgeLast.
@@ -3205,7 +3565,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepSixEdgeLastBody.
   ///
   /// In en, this message translates to:
-  /// **'Pair the final edges with a short trigger between a deep wide turn and its undo, so finished edges stay paired.'**
+  /// **'Pair the final edges with a short trigger between a deep wide turn and its undo, so finished edges stay paired. Never break a finished edge to free a piece.'**
   String get stepSixEdgeLastBody;
 
   /// No description provided for @stepSixAsThree.
@@ -3217,7 +3577,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepSixAsThreeBody.
   ///
   /// In en, this message translates to:
-  /// **'With 4×4 centers and paired edges, solve the 6×6 like a 3×3 with outer turns and the three crowns.'**
+  /// **'With 4×4 centers and paired edges, solve the 6×6 like a 3×3, layer by layer, with outer turns only. One flipped or two swapped edges at the end is parity, not a mistake.'**
   String get stepSixAsThreeBody;
 
   /// No description provided for @stepSixOllParity.
@@ -3229,7 +3589,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepSixOllParityBody.
   ///
   /// In en, this message translates to:
-  /// **'If a single edge seems flipped while you solve the last layer, it is parity. Hold it at the front of the top layer and play the long fix: the first two crowns come back untouched.'**
+  /// **'A single edge that looks flipped in the last layer is parity. Hold it at the front of the top layer and play the long fix: it flips all four wings, also swaps the left and right top edges, and leaves the first two layers untouched.'**
   String get stepSixOllParityBody;
 
   /// No description provided for @stepSixPllParity.
@@ -3241,7 +3601,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepSixPllParityBody.
   ///
   /// In en, this message translates to:
-  /// **'If two edges look swapped at the very end, hold them at the front and back of the top layer and play the short fix of inner double turns.'**
+  /// **'If two edges look swapped at the very end, hold them at the front and back of the top layer and play the short fix of inner double turns: all four wings of both edges trade places.'**
   String get stepSixPllParityBody;
 
   /// No description provided for @stageTwoFirstLayer.
@@ -4093,7 +4453,7 @@ abstract class AppLocalizations {
   /// No description provided for @cueCrossFlipped.
   ///
   /// In en, this message translates to:
-  /// **'The {piece} edge is in its spot but flipped: its white faces sideways. Take it out, then bring it back next to the {center} center the right way round.'**
+  /// **'The {piece} edge is in its spot but flipped: its white faces sideways. Take it out and lift it to the top, white facing up, then bring it down next to the {center} center.'**
   String cueCrossFlipped(String piece, String center);
 
   /// No description provided for @cueCrossBottom.
@@ -4111,7 +4471,7 @@ abstract class AppLocalizations {
   /// No description provided for @cueCornerTwisted.
   ///
   /// In en, this message translates to:
-  /// **'The {piece} corner is in its slot but twisted. One trigger pops it out (a yellow corner takes its place); keep repeating until it drops back in correctly.'**
+  /// **'The {piece} corner is in its slot but twisted. One trigger pops it out (a yellow corner takes its place); keep repeating over the same slot until it drops back in with white down. Don\'t turn the cube to chase it.'**
   String cueCornerTwisted(String piece);
 
   /// No description provided for @cueMiddleRight.
@@ -4129,7 +4489,7 @@ abstract class AppLocalizations {
   /// No description provided for @cueMiddleFlipped.
   ///
   /// In en, this message translates to:
-  /// **'The {piece} edge is in its slot but flipped. Insert a yellow edge there to push it out, then insert it again between {a} and {b}.'**
+  /// **'The {piece} edge is in its slot but flipped. Insert a yellow edge there to push it out to the top, then insert it again between {a} and {b}.'**
   String cueMiddleFlipped(String piece, String a, String b);
 
   /// No description provided for @cueYellowLine.
@@ -4147,7 +4507,7 @@ abstract class AppLocalizations {
   /// No description provided for @cueYellowDot.
   ///
   /// In en, this message translates to:
-  /// **'Only the yellow center is yellow: a dot. Apply the algorithm once with {front} facing you to get an L.'**
+  /// **'Only the yellow center is yellow: a dot. Apply the algorithm once with {front} facing you to get an L. A dot can take three rounds, so keep going.'**
   String cueYellowDot(String front);
 
   /// No description provided for @cueEdgesMatch.
@@ -4183,7 +4543,7 @@ abstract class AppLocalizations {
   /// No description provided for @cueTwistCorner.
   ///
   /// In en, this message translates to:
-  /// **'Twist the {piece} corner at the front right: repeat the down-trigger until its yellow faces up. The lower layers look messy for now; that\'s normal!'**
+  /// **'Twist the {piece} corner at the front right: repeat the down-trigger in pairs until its yellow faces up. The lower layers look messy for now; they come back with the last corner!'**
   String cueTwistCorner(String piece);
 
   /// No description provided for @cueTwistFour.
@@ -4279,19 +4639,19 @@ abstract class AppLocalizations {
   /// No description provided for @cueParityOll.
   ///
   /// In en, this message translates to:
-  /// **'OLL parity: one top edge is flipped, which never happens on a 3×3. Keep it at the front, {front} facing you, and apply the parity fix.'**
+  /// **'OLL parity: one top edge is flipped, which never happens on a 3×3. Keep it at the front, {front} facing you, and apply the parity fix before any normal OLL.'**
   String cueParityOll(String front);
 
   /// No description provided for @cueParityPll.
   ///
   /// In en, this message translates to:
-  /// **'PLL parity: two top edges are swapped, which never happens on a 3×3. Keep them at the front and back and apply the parity swap.'**
+  /// **'PLL parity: two top edges are swapped, which never happens on a 3×3. Keep them at the front and back, apply the parity swap, then line up the top.'**
   String get cueParityPll;
 
   /// No description provided for @cueParityFive.
   ///
   /// In en, this message translates to:
-  /// **'Edge parity: the two outer pieces of one edge are swapped. Turn that edge to the front, {front} facing you, apply the fix, and turn back.'**
+  /// **'Edge parity: the two outer wings of one edge are swapped, the only parity a 5×5 has. Keep that edge at the front, {front} facing you, and apply the fix once.'**
   String cueParityFive(String front);
 
   /// First-launch intro: skips the remaining pages.
@@ -4345,7 +4705,7 @@ abstract class AppLocalizations {
   /// First-launch intro, page 3 text.
   ///
   /// In en, this message translates to:
-  /// **'Master the 3-crown method in the Academy, then twist, scramble and solve freely in the 3D Playground.'**
+  /// **'Master the layer-by-layer method in the Academy, then twist, scramble and solve freely in the 3D Playground.'**
   String get onboardingLearnBody;
 
   /// Scan & Solve sheet: description of the manual color entry choice.
@@ -4375,7 +4735,7 @@ abstract class AppLocalizations {
   /// Academy: one-sentence explanation of a crown (a horizontal layer) where crowns are first introduced.
   ///
   /// In en, this message translates to:
-  /// **'A crown is one horizontal layer of the cube: the first crown is the white layer at the bottom, the second is the middle layer and the third is the yellow layer on top.'**
+  /// **'A layer is one horizontal slice of the cube: the first layer is the white layer at the bottom, the second is the middle layer and the third is the yellow layer on top.'**
   String get crownExplain;
 
   /// Heading of the learning-objective card at the start of an Academy lesson.
@@ -4423,7 +4783,7 @@ abstract class AppLocalizations {
   /// Solve choice sheet: description of the guided step-by-step solve.
   ///
   /// In en, this message translates to:
-  /// **'Learn the 3-crown method one step at a time.'**
+  /// **'Learn the layer-by-layer method one step at a time.'**
   String get solveChoiceGuidedDesc;
 
   /// Dialog title when the last step of a guided solve is done.

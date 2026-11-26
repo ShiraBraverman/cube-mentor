@@ -1001,77 +1001,77 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get stepCrossGoalBody =>
-      'Tenez le jaune en haut. Les quatre arêtes blanches entourent le centre blanc en bas, chaque couleur latérale assortie au centre voisin.';
+      'Tenez le jaune en haut et le vert face à vous. Rassemblez d\'abord les quatre arêtes blanches autour du centre jaune, blanc vers le haut, comme des pétales : c\'est la marguerite. Puis chaque pétale descend sur le centre blanc, sa couleur latérale assortie au centre voisin.';
 
   @override
   String get stepCrossTop => 'Arête en haut';
 
   @override
   String get stepCrossTopBody =>
-      'Trouvez une arête blanche en haut. Tournez la couche du haut jusqu\'à ce que sa couleur latérale soit au-dessus du centre assorti, puis tournez cette face deux fois pour la descendre.';
+      'Une arête blanche en haut, blanc vers le haut, est un pétale de la marguerite. Tournez le dessus jusqu\'à ce que sa couleur latérale soit juste au-dessus du centre de même couleur, puis faites un demi-tour (180°) de cette face pour la poser sur le centre blanc.';
 
   @override
   String get stepCrossMiddle => 'Arête au milieu';
 
   @override
   String get stepCrossMiddleBody =>
-      'Une arête coincée dans la couche du milieu remonte d\'abord : tournez sa face latérale vers le haut, écartez la couche du haut puis remettez la face latérale, pour garder la croix intacte. Placez-la ensuite depuis le haut.';
+      'Une arête coincée dans la couronne du milieu remonte d\'abord : montez son côté, écartez le dessus et redescendez le côté, ainsi les pièces placées ne bougent pas. C\'est maintenant un pétale en haut : alignez-le et faites un demi-tour de cette face.';
 
   @override
   String get stepCornersInsert => 'Au-dessus de sa place';
 
   @override
   String get stepCornersInsertBody =>
-      'Tournez la couche du haut jusqu\'à ce qu\'un coin blanc soit au-dessus de l\'emplacement de ses couleurs, en avant à droite. R U R\' U\' le met en place.';
+      'Tournez le dessus jusqu\'à ce que le coin blanc soit juste au-dessus de sa place, entre les deux centres de ses couleurs latérales. Ici, un tour du dessus et R U\' R\' suffisent : U amène le coin au-dessus et R U\' R\' l\'insère, blanc vers le bas.';
 
   @override
   String get stepCornersRepeat => 'Répétez le trigger';
 
   @override
   String get stepCornersRepeatBody =>
-      'Si le blanc est orienté du mauvais côté, continuez à répéter R U R\' U\' au même endroit. Chaque coin est résolu en cinq répétitions au maximum.';
+      'Gardez la place devant à droite et répétez R U R\' U\' jusqu\'à ce que le blanc soit en bas : une fois s\'il regarde à droite, trois s\'il regarde en haut, cinq s\'il vous regarde. Le dessus semble en désordre ; il se remet tout seul.';
 
   @override
   String get stepMiddleRight => 'Arête vers la droite';
 
   @override
   String get stepMiddleRightBody =>
-      'Alignez une arête du haut avec son centre sur la face avant. Si sa couleur du dessus correspond au centre de droite, insérez-la avec U R U\' R\' U\' F\' U F.';
+      'Cherchez une arête du haut sans jaune. Tournez le dessus jusqu\'à ce que sa couleur avant corresponde au centre face à vous. Si sa couleur du dessus correspond au centre de droite, envoyez-la à droite : U R U\' R\' U\' F\' U F.';
 
   @override
   String get stepMiddleLeft => 'Arête vers la gauche';
 
   @override
   String get stepMiddleLeftBody =>
-      'Si sa couleur du dessus correspond plutôt au centre de gauche, utilisez le miroir : U\' L\' U L U F U\' F\'.';
+      'Si sa couleur du dessus correspond plutôt au centre de gauche, utilisez le miroir : U\' L\' U L U F U\' F\'. La couronne blanche revient intacte à chaque fois.';
 
   @override
   String get stepYellowCross => 'Un seul algorithme';
 
   @override
   String get stepYellowCrossBody =>
-      'F R U R\' U\' F\' transforme un point jaune en L, un L en ligne et une ligne en croix. Tenez le L en arrière à gauche et la ligne à l\'horizontale.';
+      'Regardez seulement les arêtes jaunes du dessus. Tenez un L en arrière à gauche et une ligne de gauche à droite, puis faites F R U R\' U\' F\'. La ligne demande une fois, le L deux, le point jusqu\'à trois.';
 
   @override
   String get stepYellowEdges => 'Alignez les arêtes';
 
   @override
   String get stepYellowEdgesBody =>
-      'Tournez la couche du haut jusqu\'à ce que deux arêtes correspondent à leurs centres. Avec l\'une à l\'arrière et l\'autre à droite, R U R\' U R U2 R\' U échange les deux autres.';
+      'Tournez le dessus jusqu\'à ce que deux arêtes correspondent à leurs centres. Avec l\'une derrière et l\'autre à droite, R U R\' U R U2 R\' U échange l\'arête avant et l\'arête gauche.';
 
   @override
   String get stepPlaceCorners => 'Placez-les';
 
   @override
   String get stepPlaceCornersBody =>
-      'Tenez en avant à droite un coin déjà à sa place. U R U\' L\' U R\' U\' L déplace les trois autres : répétez jusqu\'à ce que les quatre soient en place.';
+      'Un coin est placé quand ses couleurs correspondent aux trois centres autour, même mal orienté. Tenez un coin placé devant à droite : U R U\' L\' U R\' U\' L fait tourner les trois autres. Répétez jusqu\'à ce que les quatre soient placés.';
 
   @override
   String get stepTwistCorners => 'Orientez-les';
 
   @override
   String get stepTwistCornersBody =>
-      'Avec un coin non résolu en avant à droite, répétez R\' D\' R D jusqu\'à ce que le jaune soit en haut, puis tournez seulement la couche du haut pour amener le suivant. Le bas semble cassé jusqu\'à la toute fin : continuez.';
+      'Avec un coin non résolu devant à droite, répétez R\' D\' R D par paires jusqu\'à ce que le jaune soit en haut, puis tournez seulement le dessus pour amener le suivant. Le bas semble cassé jusqu\'au dernier coin : continuez.';
 
   @override
   String get lessonCfopIntro => 'Qu\'est-ce que le CFOP ?';
@@ -1164,14 +1164,14 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get stepTwoIntroBody =>
-      'Un 2×2 est un 3×3 sans arêtes ni centres. Choisissez une couleur, formez cette face en bas et faites correspondre les couleurs latérales des coins voisins.';
+      'Un 2×2, ce ne sont que huit coins : ni arêtes, ni centres. Construisez la couronne blanche en bas avec des côtés voisins assortis, puis finissez par une seule voie : Sune pour un dessus jaune, puis la T-perm ou la Y-perm.';
 
   @override
   String get stepTwoCorner => 'Insérez les coins';
 
   @override
   String get stepTwoCornerBody =>
-      'Exactement comme les coins blancs du 3×3 : amenez un coin au-dessus de sa place et faites R U R\' U\' jusqu\'à ce qu\'il s\'y mette.';
+      'Comme les coins blancs du 3×3 : amenez un coin au-dessus de sa place vide devant à droite et insérez-le, ici avec U R U\' R\' ou en répétant R U R\' U\' jusqu\'à ce que le blanc soit en bas. Vérifiez ses côtés avec son voisin.';
 
   @override
   String get lessonTwoOll => 'Orientez le dessus';
@@ -1184,7 +1184,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get stepTwoSuneBody =>
-      'Le Sune rend aussi le dessus jaune sur un 2×2. Avec la méthode Ortega, on apprend sept cas courts ; le Sune et son miroir couvrent la plupart d\'entre eux.';
+      'Comptez les stickers jaunes tournés vers le haut. Placez le seul coin jaune en haut devant à gauche et faites Sune (R U R\' U R U2 R\'). Recomptez et repositionnez ; trois Sune au maximum. Entre deux, tournez seulement le dessus.';
 
   @override
   String get lessonTwoPbl => 'Permutez les deux couches';
@@ -1197,14 +1197,14 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get stepTwoAdjacentBody =>
-      'Quand deux coins voisins du haut doivent être échangés, tenez-les à droite et utilisez la T-perm.';
+      'Des phares, ce sont deux stickers identiques en haut d\'un même côté. Tournez le dessus jusqu\'à avoir les phares à gauche : les deux coins à échanger sont alors à droite. Faites la T-perm.';
 
   @override
   String get stepTwoDiagonal => 'Échange en diagonale';
 
   @override
   String get stepTwoDiagonalBody =>
-      'Deux coins en positions opposées s\'échangent avec la Y-perm.';
+      'Aucun phare nulle part : deux coins en diagonale doivent s\'échanger. Faites la Y-perm de n\'importe quel côté, puis tournez le dessus pour tout aligner.';
 
   @override
   String get lessonBigIntro => 'Les pièces des grands cubes';
@@ -1217,7 +1217,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get stepBigPiecesBody =>
-      'Sur un 4×4, chaque face a quatre pièces de centre mobiles, et chaque arête est formée de deux ailes. La réduction les regroupe pour que le cube se comporte comme un 3×3.';
+      'Sur un 4×4, chaque face a quatre pièces centrales mobiles et chaque arête est faite de deux ailes. Aucun centre n\'est fixe : vérifiez l\'ordre des couleurs sur un coin, blanc opposé au jaune, bleu au vert, rouge à l\'orange.';
 
   @override
   String get stepBigSlices => 'Tours larges et internes';
@@ -1237,7 +1237,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get stepBigCenterCycleBody =>
-      'Ce commutateur déplace exactement trois pièces de centre et ne touche à rien d\'autre, donc les centres terminés le restent.';
+      'Ce commutateur déplace exactement trois pièces centrales et laisse tout le reste : les centres finis restent finis. Utilisez-le quand une pièce isolée refuse de rejoindre une barre.';
 
   @override
   String get lessonBigEdges => 'Apparier les arêtes';
@@ -1250,7 +1250,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get stepBigEdgePairBody =>
-      'Uw\' aligne deux ailes assorties, R U R\' F R\' F\' R fait entrer une arête non appariée, et Uw remet les centres en place.';
+      'Uw\' aligne deux ailes assorties, R U R\' F R\' F\' R fait entrer une arête non appariée, et Uw remet les centres. Refermez toujours une tranche ouverte.';
 
   @override
   String get lessonBigParity => 'Parité';
@@ -1263,20 +1263,26 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get stepBigOllParityBody =>
-      'Une seule arête retournée est impossible sur un 3×3. Sur les cubes pairs, cet algorithme retourne l\'arête avant du haut. Il peut mélanger le reste de la couche du haut, ce que les dernières étapes du 3×3 corrigent de toute façon.';
+      'Une seule arête retournée est impossible sur un 3×3 : c\'est la parité OLL, pas une erreur. Gardez-la devant, dans la couronne du haut, et jouez le long algorithme. Il échange aussi les arêtes gauche et droite du haut et deux coins ; les dernières étapes du 3×3 les corrigent.';
 
   @override
   String get stepBigPllParity => 'Parité PLL';
 
   @override
   String get stepBigPllParityBody =>
-      'Deux arêtes échangées tout à la fin ? 2R2 U2 2R2 Uw2 2R2 Uw2 échange les arêtes avant et arrière du haut.';
+      'Deux arêtes échangées tout à la fin, et aucun algorithme de 3×3 ne convient ? C\'est la parité PLL. Tenez-les devant et derrière dans la couronne du haut : 2R2 U2 2R2 Uw2 2R2 2U2 les échange.';
 
   @override
   String get introGoalHeading => 'Quel est le but ?';
 
   @override
   String get introHowHeading => 'Comment fait-on ?';
+
+  @override
+  String get introHoldHeading => 'Comment le tenir';
+
+  @override
+  String get introWhyHeading => 'Pourquoi ça marche';
 
   @override
   String get introStart => 'Compris, commencer pas à pas';
@@ -1302,11 +1308,11 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get introGoalCross =>
-      'Formez une croix blanche dont chaque arête blanche correspond aussi au centre voisin.';
+      'Formez une croix blanche en bas dont chaque arête blanche correspond aussi au centre voisin.';
 
   @override
   String get introGoalCorners =>
-      'Placez les quatre coins blancs : la première couronne, toute la couche blanche, est terminée.';
+      'Placez les quatre coins blancs pour finir toute la première couronne : face blanche et couleurs latérales assorties.';
 
   @override
   String get introGoalMiddle =>
@@ -1353,7 +1359,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get introGoalTwoPbl =>
-      'Échangez les derniers coins pour résoudre le 2×2.';
+      'Ramenez les derniers coins chez eux avec une T-perm ou une Y-perm, puis alignez le dessus pour résoudre le 2×2.';
 
   @override
   String get introGoalBigIntro =>
@@ -1369,83 +1375,235 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get introGoalBigParity =>
-      'Corrigez les deux cas du 4×4 qu\'un 3×3 n\'a jamais : une arête retournée ou deux arêtes échangées.';
+      'Corrigez les deux cas du 4×4 qu\'un 3×3 n\'a jamais : une arête retournée (parité OLL) ou deux arêtes échangées (parité PLL).';
 
   @override
   String get introHowBasics =>
       'Les centres ne bougent jamais : ils donnent la couleur de chaque face.\nChaque lettre tourne une face d\'un quart de tour dans le sens horaire.\nUne apostrophe (\') tourne dans l\'autre sens ; un 2 tourne deux fois.';
 
   @override
+  String get introHoldBasics =>
+      'Comme vous voulez : les centres ne bougent pas, les couleurs vous disent toujours quelle face est laquelle.';
+
+  @override
+  String get introWhyBasics =>
+      'Chaque algorithme n\'est qu\'une suite de ces lettres : savoir les lire est la première compétence.';
+
+  @override
   String get introHowCross =>
-      'Tenez le jaune en haut : la croix blanche se construit en bas.\nTrouvez une arête blanche et alignez sa couleur latérale avec le bon centre.\nTournez cette face deux fois pour descendre l\'arête à sa place.';
+      'Montez chaque arête blanche en haut, blanc vers le haut, autour du centre jaune : c\'est la marguerite.\nTournez le dessus jusqu\'à ce que la couleur latérale d\'un pétale soit au-dessus de son centre.\nFaites un demi-tour de cette face pour le descendre ; répétez pour les quatre.';
+
+  @override
+  String get introHoldCross =>
+      'Centre jaune en haut, centre blanc en bas pendant toute l\'étape. Tournez le dessus, pas le cube, pour aligner un pétale.';
+
+  @override
+  String get introWhyCross =>
+      'Blanc vers le haut, un demi-tour de la face avant pose l\'arête sur le centre blanc, blanc vers le bas et côté déjà assorti.';
 
   @override
   String get introHowCorners =>
-      'Amenez un coin blanc au-dessus de sa place vide.\nRépétez R U R\' U\' jusqu\'à ce qu\'il entre dans le bon sens.\nFaites de même pour les trois autres coins.';
+      'Tournez le dessus jusqu\'à ce qu\'un coin blanc soit au-dessus de sa place vide, devant à droite.\nRépétez R U R\' U\' : une fois si le blanc regarde à droite, trois s\'il regarde en haut, cinq s\'il vous regarde.\nFaites de même pour les trois autres coins.';
+
+  @override
+  String get introHoldCorners =>
+      'Blanc en bas, jaune en haut. Le coin devant à droite, juste au-dessus de sa place.';
+
+  @override
+  String get introWhyCorners =>
+      'R U R\' U\' soulève l\'emplacement puis le remet : chaque tour oriente un peu le coin jusqu\'à ce que le blanc soit en bas, sans jamais casser la croix.';
 
   @override
   String get introHowMiddle =>
-      'Trouvez une arête du haut sans jaune et alignez sa couleur avant avec un centre.\nEnvoyez-la à droite ou à gauche avec un court algorithme de 8 mouvements.\nLa couche blanche revient intacte à chaque fois.';
+      'Cherchez une arête du haut sans jaune et faites correspondre sa couleur avant au centre en dessous.\nSa couleur du dessus dit où elle va : à droite ou à gauche.\nInsérez-la avec l\'algorithme de 8 mouvements ; la couronne blanche revient intacte.';
+
+  @override
+  String get introHoldMiddle =>
+      'Blanc en bas, jaune en haut. L\'arête devant, sa couleur avant assortie au centre en dessous.';
+
+  @override
+  String get introWhyMiddle =>
+      'L\'algorithme écarte l\'emplacement, glisse l\'arête et remet la couronne blanche. Une arête avec du jaune va en haut, jamais au milieu.';
 
   @override
   String get introHowYellowCross =>
-      'Regardez le dessus : un point, un L ou une ligne.\nTenez-le comme montré et faites F R U R\' U\' F\'.\nRépétez jusqu\'à voir la croix jaune.';
+      'Regardez seulement les arêtes jaunes du dessus : un point, un L ou une ligne.\nTenez le L en arrière à gauche, la ligne de gauche à droite, et faites F R U R\' U\' F\'.\nLa ligne demande une fois, le L deux, le point jusqu\'à trois.';
+
+  @override
+  String get introHoldYellowCross =>
+      'Blanc en bas, jaune en haut. Le L en arrière à gauche, la ligne de gauche à droite ; le point, n\'importe comment.';
+
+  @override
+  String get introWhyYellowCross =>
+      'F R U R\' U\' F\' retourne deux arêtes du haut à la fois sans toucher aux deux premières couronnes.';
 
   @override
   String get introHowYellowEdges =>
-      'Tournez le haut jusqu\'à ce que deux arêtes correspondent à leurs centres.\nPlacez-les derrière et à droite, puis faites R U R\' U R U2 R\' U.\nRépétez jusqu\'à ce que les quatre correspondent.';
+      'Tournez le dessus jusqu\'à ce que deux arêtes correspondent à leurs centres.\nTenez-les derrière et à droite, puis faites R U R\' U R U2 R\' U.\nSi les deux bonnes arêtes sont opposées, faites-le d\'abord une fois de n\'importe quel côté.';
+
+  @override
+  String get introHoldYellowEdges =>
+      'Jaune en haut. Une bonne arête derrière et l\'autre à droite.';
+
+  @override
+  String get introWhyYellowEdges =>
+      'Cet algorithme ne bouge que des pièces du haut, donc les deux premières couronnes reviennent toujours.';
 
   @override
   String get introHowYellowCorners =>
-      'Un coin est à sa place quand ses couleurs correspondent aux trois faces qui l\'entourent.\nGardez un coin déjà placé en avant à droite.\nU R U\' L\' U R\' U\' L fait tourner les trois autres jusqu\'à ce qu\'ils soient tous en place.';
+      'Un coin est placé quand ses couleurs correspondent aux trois centres autour, même s\'il est mal orienté.\nGardez un coin placé devant à droite.\nU R U\' L\' U R\' U\' L fait tourner les trois autres ; répétez jusqu\'à ce qu\'ils soient tous placés.';
+
+  @override
+  String get introHoldYellowCorners =>
+      'Jaune en haut. Un coin déjà placé devant à droite ; s\'il n\'y en a pas, n\'importe lequel.';
+
+  @override
+  String get introWhyYellowCorners =>
+      'Il fait tourner trois coins en cercle et laisse en place celui de devant à droite : chaque répétition place davantage de coins.';
 
   @override
   String get introHowTwistCorners =>
-      'Tenez un coin non résolu en avant à droite.\nRépétez R\' D\' R D jusqu\'à ce que son jaune soit en haut.\nTournez seulement le haut pour le suivant ; le bas se répare tout seul à la fin.';
+      'Tenez un coin non résolu devant à droite.\nRépétez R\' D\' R D par paires jusqu\'à ce que son jaune soit en haut.\nTournez seulement le dessus pour le suivant ; le bas revient avec le dernier coin.';
+
+  @override
+  String get introHoldTwistCorners =>
+      'Jaune en haut, le coin à orienter devant à droite. Entre deux coins, tournez seulement le dessus, jamais tout le cube.';
+
+  @override
+  String get introWhyTwistCorners =>
+      'R\' D\' R D oriente le coin et mélange le bas, mais le bas revient une fois tous les coins orientés. S\'arrêter en route le laisse cassé.';
 
   @override
   String get introHowCfopIntro =>
       'Croix : quatre arêtes planifiées pendant l\'inspection.\nF2L : chaque coin entre avec son arête.\nL\'OLL rend le dessus jaune, puis la PLL remet les pièces en place.';
 
   @override
+  String get introHoldCfopIntro =>
+      'Les speedcubers font la croix en bas pour anticiper les pièces suivantes pendant qu\'ils tournent.';
+
+  @override
+  String get introWhyCfopIntro =>
+      'Résoudre un coin avec son arête économise beaucoup de mouvements, et reconnaître les cas remplace les essais au hasard.';
+
+  @override
   String get introHowF2l =>
       'Trouvez un coin et son arête dans la couche du haut.\nAssociez-les au-dessus de leur emplacement.\nInsérez la paire en trois ou quatre mouvements.';
+
+  @override
+  String get introHoldF2l =>
+      'Croix en bas. L\'emplacement de la paire devant à droite, ou devant à gauche pour le miroir.';
+
+  @override
+  String get introWhyF2l =>
+      'Un coin et son arête appariés entrent ensemble : deux couronnes avancent à la fois au lieu d\'une pièce à la fois.';
 
   @override
   String get introHowOll =>
       'D\'abord la croix jaune avec F R U R\' U\' F\'.\nPuis orientez les coins, par exemple avec le Sune.\nReconnaissez le cas au jaune que vous voyez.';
 
   @override
+  String get introHoldOll =>
+      'Jaune en haut. Pour Sune, le seul coin dont le jaune est en haut va devant à gauche.';
+
+  @override
+  String get introWhyOll =>
+      'Séparer la dernière couronne en orientation puis permutation garde peu d\'algorithmes à apprendre.';
+
+  @override
   String get introHowPll =>
       'Le dessus est déjà entièrement jaune.\nLa T-perm échange des coins ; la U-perm fait tourner trois arêtes.\nLisez les couleurs des côtés pour choisir l\'algorithme.';
 
   @override
+  String get introHoldPll =>
+      'Jaune en haut. T-perm : phares à gauche. U-perm : le côté fini derrière.';
+
+  @override
+  String get introWhyPll =>
+      'Une fois le dessus tout jaune, seules les places des pièces sont fausses, et quelques échanges finissent le cube.';
+
+  @override
   String get introHowTwoFirst =>
-      'Un 2×2 n\'a que des coins, comme un 3×3 sans arêtes.\nAmenez chaque coin blanc au-dessus de sa place.\nRépétez R U R\' U\' jusqu\'à ce qu\'il entre.';
+      'Choisissez un coin blanc comme repère, blanc vers le bas.\nAmenez chaque coin suivant au-dessus de sa place, devant à droite.\nRépétez R U R\' U\' jusqu\'à ce qu\'il entre avec les couleurs latérales assorties.';
+
+  @override
+  String get introHoldTwoFirst =>
+      'Blanc en bas. La place vide devant à droite, son coin juste au-dessus dans la couronne du haut.';
+
+  @override
+  String get introWhyTwoFirst =>
+      'Un 2×2 n\'a pas de centres : le premier coin placé fixe les couleurs de ses voisins, donc les côtés comptent, pas seulement le blanc.';
 
   @override
   String get introHowTwoOll =>
-      'Gardez la couche blanche en bas.\nLe Sune (R U R\' U R U2 R\') tourne les coins du haut.\nRépétez depuis le bon angle jusqu\'à ce que le dessus soit tout jaune.';
+      'Comptez les coins dont le jaune est en haut.\nS\'il y en a un, placez-le devant à gauche et faites Sune : R U R\' U R U2 R\'.\nRecomptez et recommencez ; trois Sune au maximum.';
+
+  @override
+  String get introHoldTwoOll =>
+      'Blanc en bas, jaune en haut. Avant chaque Sune, le coin dont le jaune est en haut devant à gauche.';
+
+  @override
+  String get introWhyTwoOll =>
+      'Sune oriente les coins du haut sans casser la couronne blanche ; recompter vous dit comment le tenir ensuite.';
 
   @override
   String get introHowTwoPbl =>
-      'Cherchez un côté où deux coins correspondent déjà.\nÉchange adjacent : un algorithme de type T-perm.\nÉchange en diagonale : un algorithme un peu plus long.';
+      'Cherchez des phares : deux stickers identiques en haut d\'un même côté.\nDes phares d\'un côté : mettez-les à gauche et faites la T-perm.\nPas de phares : faites la Y-perm de n\'importe quel côté, puis alignez le dessus.';
+
+  @override
+  String get introHoldTwoPbl =>
+      'Blanc en bas, jaune en haut. T-perm : phares à gauche. Y-perm : n\'importe quel côté face à vous.';
+
+  @override
+  String get introWhyTwoPbl =>
+      'Avec le dessus jaune, seules les places des coins sont fausses : la T-perm échange deux voisins, la Y-perm deux en diagonale.';
 
   @override
   String get introHowBigIntro =>
       'Aucun centre n\'est fixe : quatre pièces centrales forment la couleur de chaque face.\nLes tours larges comme Rw tournent deux couches à la fois.\nLes tours internes comme 2R tournent une seule tranche intérieure.';
 
   @override
+  String get introHoldBigIntro =>
+      'Au début, comme vous voulez : sur un 4×4 aucun centre n\'est fixe, vous choisissez où va chaque couleur.';
+
+  @override
+  String get introWhyBigIntro =>
+      'La réduction regroupe centres et pièces d\'arête pour résoudre le grand cube comme un 3×3.';
+
+  @override
   String get introHowBigCenters =>
-      'Construisez d\'abord deux centres opposés.\nLes tranches intérieures échangent des pièces centrales sans casser les centres finis.\nTerminez les quatre derniers centres de la même façon.';
+      'Vérifiez d\'abord l\'ordre des couleurs sur un coin.\nConstruisez deux centres opposés, puis les quatre autres.\nLes tranches intérieures déplacent les centres ; refermez toujours une tranche ouverte.';
+
+  @override
+  String get introHoldBigCenters =>
+      'La face en construction devant, les centres finis à gauche et à droite, hors du chemin.';
+
+  @override
+  String get introWhyBigCenters =>
+      'Une tranche déplace des centres et l\'annuler remet les centres finis : seule la pièce visée change.';
 
   @override
   String get introHowBigEdges =>
-      'Trouvez deux pièces d\'arête aux mêmes couleurs.\nAlignez-les côte à côte avec une tranche intérieure.\nRangez la paire et remettez les centres en place.';
+      'Trouvez les deux ailes aux deux mêmes couleurs.\nAlignez-les devant et réunissez-les avec Uw\'.\nÉchangez avec une arête non appariée, puis Uw remet les centres.';
+
+  @override
+  String get introHoldBigEdges =>
+      'L\'arête à apparier dans les couches avant ; les arêtes finies rangées en haut et en bas.';
+
+  @override
+  String get introWhyBigEdges =>
+      'Uw\' écarte les centres pour que deux ailes se rejoignent ; Uw les remet et votre travail reste intact.';
 
   @override
   String get introHowBigParity =>
-      'Résolvez le 4×4 comme un 3×3 jusqu\'à être bloqué.\nUne arête retournée : le long algorithme de parité OLL.\nDeux arêtes échangées : 2R2 U2 2R2 Uw2 2R2 Uw2.';
+      'Résolvez le 4×4 comme un 3×3 jusqu\'au blocage.\nUne arête retournée : le long algorithme de parité OLL.\nDeux arêtes échangées : 2R2 U2 2R2 Uw2 2R2 2U2.';
+
+  @override
+  String get introHoldBigParity =>
+      'La dernière couronne en haut. Parité OLL : l\'arête retournée devant. Parité PLL : les arêtes échangées devant et derrière.';
+
+  @override
+  String get introWhyBigParity =>
+      'Les ailes peuvent atteindre des états impossibles sur un 3×3 ; ces algorithmes tournent des tranches intérieures pour annuler exactement cela.';
 
   @override
   String get dirFaceR => 'Côté droit';
@@ -1606,6 +1764,14 @@ class AppLocalizationsFr extends AppLocalizations {
       'La pièce du milieu de chaque face ne bouge jamais.\nChaque arête est une pièce du milieu avec deux ailes.\nLes tranches intérieures déplacent des pièces sans toucher l\'extérieur.';
 
   @override
+  String get introHoldFiveIntro =>
+      'Comme vous voulez : sur un 5×5 le milieu de chaque face ne bouge jamais, il montre sa couleur.';
+
+  @override
+  String get introWhyFiveIntro =>
+      'Les centres fixes imposent le schéma de couleurs : impossible de construire les centres dans le mauvais ordre.';
+
+  @override
   String get lessonFiveCenters => 'Centres du 5×5';
 
   @override
@@ -1618,7 +1784,15 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get introHowFiveCenters =>
-      'Partez de la pièce du milieu : elle donne la couleur.\nFormez des barres de trois et glissez-les avec une tranche intérieure.\nTerminez ensemble les deux derniers centres.';
+      'Partez de la pièce centrale fixe : elle donne la couleur.\nFaites des barres de trois et glissez-les avec une tranche intérieure.\nLe mouvement qui fait entrer la barre remet aussi le centre fini.';
+
+  @override
+  String get introHoldFiveCenters =>
+      'Le centre en construction devant ou en haut ; les centres finis en bas, à gauche ou à droite.';
+
+  @override
+  String get introWhyFiveCenters =>
+      'Tranche, dessus, tranche retour : la tranche qui fait entrer la barre remet aussi les centres finis.';
 
   @override
   String get lessonFiveEdges => 'Arêtes du 5×5';
@@ -1633,7 +1807,15 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get introHowFiveEdges =>
-      'Alignez deux ailes avec leur arête du milieu devant.\nTournez la couche intérieure, échangez une arête non résolue, puis revenez.\nAppariez les dernières arêtes sans casser celles qui sont finies.';
+      'Associez chaque aile à son arête du milieu, devant.\nTournez la tranche intérieure, échangez avec une arête non résolue, puis revenez.\nPour les dernières arêtes : tranche, retournement, tranche.';
+
+  @override
+  String get introHoldFiveEdges =>
+      'L\'arête en construction devant ; les arêtes finies rangées dans les couches du haut et du bas.';
+
+  @override
+  String get introWhyFiveEdges =>
+      'Ouvrir puis refermer la tranche intérieure réunit des ailes, et centres et arêtes rangées reviennent.';
 
   @override
   String get lessonFiveSolve => 'Résoudre le 5×5 comme un 3×3';
@@ -1643,11 +1825,19 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get introGoalFiveSolve =>
-      'Résolvez le 5×5 réduit comme un 3×3, couronne par couronne.';
+      'Résolvez le 5×5 réduit comme un 3×3, couronne par couronne, avec des tours extérieurs uniquement.';
 
   @override
   String get introHowFiveSolve =>
-      'Désormais, seulement des tours extérieurs.\nPremière couronne, deuxième, puis la couronne jaune.\nLes centres fixes montrent la couleur de chaque face.';
+      'Désormais, tours extérieurs uniquement, sinon les arêtes appariées se séparent.\nCroix et coins blancs, la couronne du milieu, puis la couronne jaune.\nLes centres fixes montrent la couleur de chaque face.';
+
+  @override
+  String get introHoldFiveSolve =>
+      'La couleur de la première couronne en bas, comme sur un 3×3 ; le coin à insérer devant à droite.';
+
+  @override
+  String get introWhyFiveSolve =>
+      'Des tours intérieurs sépareraient à nouveau centres et arêtes ; les tours extérieurs traitent chaque bloc comme une pièce de 3×3.';
 
   @override
   String get lessonFiveParity => 'Parité des arêtes du 5×5';
@@ -1658,11 +1848,19 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get introGoalFiveParity =>
-      'Réparez l\'unique arête dont les deux ailes sont échangées, puis terminez.';
+      'Corrigez la seule arête dont les deux ailes extérieures sont échangées : l\'unique parité du 5×5.';
 
   @override
   String get introHowFiveParity =>
-      'Elle apparaît comme une arête qui refuse de s\'apparier.\nJouez une fois la longue correction de tranches intérieures.\nTout le reste reprend sa place.';
+      'Elle apparaît comme une dernière arête qui semble retournée.\nJouez une fois la longue correction en tranches intérieures.\nIl n\'y a pas de parité PLL sur un 5×5.';
+
+  @override
+  String get introHoldFiveParity =>
+      'La dernière couronne en haut, l\'arête aux ailes échangées devant, dans la couronne du haut.';
+
+  @override
+  String get introWhyFiveParity =>
+      'Sur un 5×5, seules les deux ailes extérieures d\'une arête peuvent s\'échanger : un seul algorithme suffit.';
 
   @override
   String get lessonSixIntro => 'Découvrir le 6×6';
@@ -1680,6 +1878,14 @@ class AppLocalizationsFr extends AppLocalizations {
       'Aucun centre n\'est fixe : vous choisissez les couleurs en construisant.\nChaque arête a des ailes extérieures et intérieures.\nLes tours larges peuvent bouger jusqu\'à trois couches.';
 
   @override
+  String get introHoldSixIntro =>
+      'Au début, comme vous voulez : comme le 4×4, le 6×6 n\'a pas de centre fixe.';
+
+  @override
+  String get introWhySixIntro =>
+      'Si vous résolvez un 4×4 et un 5×5, le 6×6 est la même réduction avec de plus gros blocs.';
+
+  @override
   String get lessonSixCenters => 'Centres du 6×6';
 
   @override
@@ -1692,7 +1898,15 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get introHowSixCenters =>
-      'Construisez d\'abord deux centres opposés.\nFormez des barres de quatre et réunissez-les.\nDéplacez une pièce seule avec le truc tranche, haut, annuler.';
+      'Vérifiez d\'abord l\'ordre des couleurs sur un coin : aucun centre n\'est fixe.\nFaites des barres de quatre et réunissez-les.\nPour les deux derniers centres, déplacez les pièces une à une : tranche, dessus, annuler.';
+
+  @override
+  String get introHoldSixCenters =>
+      'La face en construction devant, les centres finis à gauche, à droite ou en bas.';
+
+  @override
+  String get introWhySixCenters =>
+      'Les barres se rejoignent par des tranches intérieures, chacune annulée : les centres finis restent entiers.';
 
   @override
   String get lessonSixEdges => 'Arêtes du 6×6';
@@ -1707,7 +1921,15 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get introHowSixEdges =>
-      'Alignez devant les ailes extérieures et intérieures.\nLa couche large profonde fait entrer et sortir une arête.\nLes arêtes finies ne sont jamais cassées.';
+      'Alignez devant les ailes extérieures et intérieures d\'une arête.\nLa couche large profonde fait entrer et sortir une arête.\nNe cassez jamais une arête finie pour libérer une pièce.';
+
+  @override
+  String get introHoldSixEdges =>
+      'L\'arête en construction devant ; les arêtes finies rangées en haut et en bas.';
+
+  @override
+  String get introWhySixEdges =>
+      'Le tour large profond écarte les centres pour que les ailes se rejoignent, puis les remet.';
 
   @override
   String get lessonSixSolve => 'Résoudre le 6×6 comme un 3×3';
@@ -1717,11 +1939,19 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get introGoalSixSolve =>
-      'Résolvez le 6×6 réduit comme un 3×3, couronne par couronne.';
+      'Résolvez le 6×6 réduit comme un 3×3, couronne par couronne, avec des tours extérieurs uniquement.';
 
   @override
   String get introHowSixSolve =>
-      'Désormais, seulement des tours extérieurs.\nLes centres construits montrent la couleur de chaque face.\nPremière couronne, deuxième, puis la couronne jaune.';
+      'Désormais, tours extérieurs uniquement : une tranche casserait un centre ou une arête.\nLes centres construits montrent la couleur de chaque face.\nCroix et coins blancs, la couronne du milieu, puis la couronne jaune.';
+
+  @override
+  String get introHoldSixSolve =>
+      'La couleur de la première couronne en bas, comme sur un 3×3 ; le coin à insérer devant à droite.';
+
+  @override
+  String get introWhySixSolve =>
+      'Les tours extérieurs déplacent chaque centre 4×4 et chaque arête d\'un seul bloc, comme sur un 3×3.';
 
   @override
   String get lessonSixParity => 'Parité du 6×6';
@@ -1736,14 +1966,22 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get introHowSixParity =>
-      'Résolvez comme un 3×3 jusqu\'à être bloqué.\nUne arête retournée : la longue correction de parité.\nDeux arêtes échangées : la courte correction en doubles tours.';
+      'Résolvez comme un 3×3 jusqu\'au blocage.\nUne arête retournée : la longue correction avec 3Rw.\nDeux arêtes échangées : la courte correction en doubles tours intérieurs.';
+
+  @override
+  String get introHoldSixParity =>
+      'La dernière couronne en haut. L\'arête retournée devant ; pour deux arêtes échangées, devant et derrière.';
+
+  @override
+  String get introWhySixParity =>
+      'Comme le 4×4, le 6×6 peut finir avec une arête retournée ou deux arêtes échangées ; des algorithmes en tranches intérieures les corrigent sans toucher au reste.';
 
   @override
   String get stepFivePieces => 'Les pièces du 5×5';
 
   @override
   String get stepFivePiecesBody =>
-      'La pièce du milieu de chaque face ne bouge jamais ; elle donne donc la couleur de la face, comme sur un 3×3. Autour, huit autres pièces de centre ; chaque arête a une pièce du milieu et deux ailes, et les coins fonctionnent comme sur un 3×3.';
+      'La pièce du milieu de chaque face ne bouge jamais, donc le schéma de couleurs ne peut pas être faux. Autour, huit pièces centrales : centres de coin et centres d\'arête ne changent jamais de type. Chaque arête est une pièce du milieu avec deux ailes.';
 
   @override
   String get stepFiveSlices => 'Trois sortes de tours';
@@ -1757,7 +1995,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get stepFiveCenterBarBody =>
-      'Formez une rangée de trois pièces de centre identiques, puis glissez-la près du milieu assorti par un tour de tranche intérieure. Trois barres font un centre terminé.';
+      'Formez une rangée de trois pièces centrales assorties, faites-la entrer avec une tranche intérieure, tournez le dessus et revenez : le mouvement qui fait entrer la barre remet aussi le centre fini. Trois barres font un centre.';
 
   @override
   String get stepFiveCenterSwap => 'Échanger sans casser';
@@ -1771,35 +2009,35 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get stepFiveEdgePairBody =>
-      'Alignez deux ailes près de leur arête du milieu devant, descendez la couche intérieure, amenez une arête non résolue par le haut, puis remontez la couche intérieure.';
+      'Alignez une aile à côté de son arête du milieu devant, descendez la tranche intérieure, échangez avec une arête non résolue grâce à une courte gâchette, puis remontez la tranche.';
 
   @override
   String get stepFiveEdgeLast => 'Les dernières arêtes';
 
   @override
   String get stepFiveEdgeLastBody =>
-      'Quand il reste peu d’arêtes, un tour large, un court déclencheur et le tour large inverse les apparient sans casser les arêtes finies.';
+      'Plus d\'arête libre à faire entrer ? Utilisez tranche, retournement, tranche : un tour large, une courte gâchette et le tour large retour apparient les dernières arêtes sans casser les arêtes finies.';
 
   @override
   String get stepFiveAsThree => 'C\'est maintenant un 3×3';
 
   @override
   String get stepFiveAsThreeBody =>
-      'Une fois centres et arêtes faits, le 5×5 se comporte comme un grand 3×3. Utilisez seulement des tours extérieurs et suivez les trois couronnes : croix et coins blancs, couche du milieu, puis couche jaune.';
+      'Centres et arêtes faits, le 5×5 se comporte comme un grand 3×3. Utilisez seulement des tours extérieurs et avancez couronne par couronne : croix et coins blancs, la couronne du milieu, puis la jaune. Le 5×5 n\'a pas de parité PLL.';
 
   @override
   String get stepFiveEdgeParity => 'Échanger les ailes de la dernière arête';
 
   @override
   String get stepFiveEdgeParityBody =>
-      'Parfois, la dernière arête a ses deux ailes échangées. Un long algorithme de tranches intérieures les remet en place et tout le reste revient. Terminez ensuite comme un 3×3.';
+      'Parfois la dernière arête a ses deux ailes extérieures échangées et paraît retournée : c\'est l\'unique parité du 5×5. Tenez-la devant, dans la couronne du haut, et jouez une fois l\'algorithme en tranches intérieures ; tout le reste revient en place.';
 
   @override
   String get stepSixPieces => 'Les pièces du 6×6';
 
   @override
   String get stepSixPiecesBody =>
-      'Comme le 4×4, le 6×6 n\'a pas de centre fixe : seize pièces de centre forment la couleur de chaque face. Chaque arête a quatre pièces : deux ailes extérieures et deux intérieures.';
+      'Comme un 4×4, un 6×6 n\'a pas de centre fixe : seize pièces centrales forment chaque couleur, vérifiez donc d\'abord l\'ordre des couleurs sur un coin. Chaque arête a quatre ailes : deux extérieures et deux intérieures.';
 
   @override
   String get stepSixSlices => 'Tourner des couches plus profondes';
@@ -1813,49 +2051,49 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get stepSixCenterBarBody =>
-      'Formez des rangées de quatre pièces de centre identiques et glissez-les côte à côte avec des tours de tranche intérieure jusqu\'à ce que la face soit d\'une seule couleur.';
+      'Formez des rangées de quatre pièces centrales assorties et rapprochez-les avec des tranches intérieures, en annulant chaque tranche, jusqu\'à obtenir un bloc 4×4 d\'une seule couleur.';
 
   @override
   String get stepSixCenterSwap => 'Une pièce à la fois';
 
   @override
   String get stepSixCenterSwapBody =>
-      'Tournez la troisième couche, tournez le haut, annulez, revenez : une pièce de centre bouge et les centres finis reviennent.';
+      'Tournez la troisième tranche, le dessus, annulez, revenez : une pièce centrale bouge et les centres finis reviennent. Utilisez-le pour les deux derniers centres, quand aucune barre ne rentre.';
 
   @override
   String get stepSixEdgePair => 'Quatre pièces, une arête';
 
   @override
   String get stepSixEdgePairBody =>
-      'Rassemblez devant les quatre pièces d\'une arête avec la couche large profonde, amenez une arête non résolue, puis remettez la couche large.';
+      'Rassemblez les quatre ailes d\'une arête devant avec la couche large profonde, échangez avec une arête non résolue grâce à une courte gâchette, puis ramenez la couche large.';
 
   @override
   String get stepSixEdgeLast => 'Les dernières arêtes';
 
   @override
   String get stepSixEdgeLastBody =>
-      'Appariez les dernières arêtes avec un court déclencheur entre un tour large profond et son inverse, pour que les arêtes finies restent appariées.';
+      'Appariez les dernières arêtes avec une courte gâchette entre un tour large profond et son annulation : les arêtes finies restent appariées. Ne cassez jamais une arête finie pour libérer une pièce.';
 
   @override
   String get stepSixAsThree => 'C\'est maintenant un 3×3';
 
   @override
   String get stepSixAsThreeBody =>
-      'Avec des centres 4×4 et des arêtes appariées, résolvez le 6×6 comme un 3×3 avec des tours extérieurs et les trois couronnes.';
+      'Avec des centres 4×4 et des arêtes appariées, résolvez le 6×6 comme un 3×3, couronne par couronne, en tours extérieurs uniquement. Une arête retournée ou deux échangées à la fin, c\'est la parité, pas une erreur.';
 
   @override
   String get stepSixOllParity => 'Une arête retournée';
 
   @override
   String get stepSixOllParityBody =>
-      'Si une seule arête semble retournée pendant la dernière couche, c\'est la parité. Placez-la devant dans la couche du haut et jouez la longue correction : les deux premières couronnes reviennent intactes.';
+      'Une seule arête qui semble retournée dans la dernière couronne, c\'est la parité. Tenez-la devant, dans la couronne du haut, et jouez la longue correction : elle retourne ses quatre ailes, échange aussi les arêtes gauche et droite du haut et ne touche pas aux deux premières couronnes.';
 
   @override
   String get stepSixPllParity => 'Deux arêtes échangées';
 
   @override
   String get stepSixPllParityBody =>
-      'Si deux arêtes semblent échangées tout à la fin, placez-les devant et derrière dans la couche du haut et jouez la courte correction en doubles tours intérieurs.';
+      'Si deux arêtes semblent échangées tout à la fin, tenez-les devant et derrière dans la couronne du haut et jouez la courte correction en doubles tours intérieurs : les quatre ailes des deux arêtes s\'échangent.';
 
   @override
   String get stageTwoFirstLayer => 'Construire la couche du bas';
@@ -2439,7 +2677,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String cueCrossFlipped(String piece, String center) {
-    return 'L\'arête $piece est à sa place mais retournée : son blanc regarde sur le côté. Sortez-la, puis remettez-la à côté du centre $center dans le bon sens.';
+    return 'L\'arête $piece est à sa place mais retournée : son blanc regarde sur le côté. Sortez-la et montez-la, blanc vers le haut, puis redescendez-la à côté du centre $center.';
   }
 
   @override
@@ -2454,7 +2692,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String cueCornerTwisted(String piece) {
-    return 'Le coin $piece est à sa place mais tourné. Une gâchette le fait sortir (un coin jaune prend sa place) ; répétez jusqu\'à ce qu\'il revienne correctement.';
+    return 'Le coin $piece est à sa place mais mal orienté. Une gâchette le sort (un coin jaune prend sa place) ; continuez à répéter au même endroit jusqu\'à ce qu\'il revienne, blanc en bas. Ne tournez pas le cube pour le poursuivre.';
   }
 
   @override
@@ -2469,7 +2707,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String cueMiddleFlipped(String piece, String a, String b) {
-    return 'L\'arête $piece est dans son emplacement mais retournée. Insérez-y une arête jaune pour la chasser, puis réinsérez-la entre $a et $b.';
+    return 'L\'arête $piece est à sa place mais retournée. Insérez-y une arête jaune pour la faire remonter, puis réinsérez-la entre $a et $b.';
   }
 
   @override
@@ -2484,7 +2722,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String cueYellowDot(String front) {
-    return 'Seul le centre est jaune : un point. Faites l\'algorithme une fois, $front face à vous, pour obtenir un L.';
+    return 'Seul le centre est jaune : un point. Appliquez l\'algorithme une fois, $front face à vous, pour obtenir un L. Un point peut demander trois tours, alors continuez.';
   }
 
   @override
@@ -2514,7 +2752,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String cueTwistCorner(String piece) {
-    return 'Orientez le coin $piece en avant à droite : répétez la gâchette du bas jusqu\'à ce que son jaune soit en haut. Les couches du bas semblent mélangées pour l\'instant, c\'est normal !';
+    return 'Orientez le coin $piece devant à droite : répétez la gâchette du bas par paires jusqu\'à ce que son jaune soit en haut. Les couronnes du bas semblent en désordre ; elles reviennent avec le dernier coin !';
   }
 
   @override
@@ -2592,16 +2830,16 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String cueParityOll(String front) {
-    return 'Parité OLL : une arête du haut est retournée, ce qui n\'arrive jamais sur un 3×3. Gardez-la devant, $front face à vous, et faites la correction de parité.';
+    return 'Parité OLL : une arête du haut est retournée, ce qui n\'arrive jamais sur un 3×3. Gardez-la devant, $front face à vous, et appliquez la correction de parité avant tout OLL normal.';
   }
 
   @override
   String get cueParityPll =>
-      'Parité PLL : deux arêtes du haut sont échangées, ce qui n\'arrive jamais sur un 3×3. Gardez-les devant et derrière et faites l\'échange de parité.';
+      'Parité PLL : deux arêtes du haut sont échangées, ce qui n\'arrive jamais sur un 3×3. Gardez-les devant et derrière, appliquez l\'échange de parité, puis alignez le dessus.';
 
   @override
   String cueParityFive(String front) {
-    return 'Parité d\'arête : les deux pièces extérieures d\'une arête sont échangées. Tournez cette arête vers l\'avant, $front face à vous, corrigez-la et revenez.';
+    return 'Parité d\'arête : les deux ailes extérieures d\'une arête sont échangées, l\'unique parité du 5×5. Gardez cette arête devant, $front face à vous, et appliquez la correction une fois.';
   }
 
   @override
