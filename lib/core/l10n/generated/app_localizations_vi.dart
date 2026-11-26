@@ -206,11 +206,11 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get wideTurnMore =>
-      'Tuyệt! Tiếp tục vuốt từng tầng đang sáng để hoàn thành nước xoay kép.';
+      'Tuyệt! Tiếp tục vuốt từng tầng theo mũi tên để hoàn thành nước xoay kép.';
 
   @override
   String get guideSwipeHint =>
-      'Vuốt tầng đang sáng theo hướng mũi tên, hoặc chạm Tiếp.';
+      'Vuốt tầng mà mũi tên chỉ theo hướng mũi tên, hoặc chạm Tiếp.';
 
   @override
   String get guideRotateHint => 'Xoay cả khối như mũi tên chỉ: chạm Tiếp.';
@@ -2831,11 +2831,18 @@ class AppLocalizationsVi extends AppLocalizations {
       'Đưa từng mặt vào camera (hoặc chạm nhập màu) và làm theo lời giải 3D từng bước xoay.';
 
   @override
-  String get onboardingLearnTitle => 'Học và chơi';
+  String get onboardingLearnTitle => 'Học trong Học viện';
 
   @override
   String get onboardingLearnBody =>
-      'Thành thạo cách giải theo tầng trong Học viện, rồi xoay, đảo và giải thoải mái trong Sân chơi 3D.';
+      'Thành thạo cách giải theo tầng qua các bài học ngắn, với khối 3D cho thấy từng bước xoay.';
+
+  @override
+  String get onboardingPatternsTitle => 'Hoa văn đẹp mắt & Sân chơi 3D';
+
+  @override
+  String get onboardingPatternsBody =>
+      'Biến mọi khối từ 2×2 đến 6×6 thành hoa văn bắt mắt, hoặc xoay và đảo thoải mái trong Sân chơi. Kéo khối để xoay; chạm vào một kích cỡ để đổi.';
 
   @override
   String get scanChoiceManualDesc =>

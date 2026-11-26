@@ -28,20 +28,9 @@ bool isBigCube(int size) => size >= 4;
 ///   A hand turn matching it advances the solution (with a firmer haptic);
 ///   any other turn springs back with a shake and is not applied.
 class CubeViewport extends ConsumerStatefulWidget {
-  const CubeViewport({
-    super.key,
-    required this.size,
-    this.highlighted = const {},
-    this.focus = const {},
-  });
+  const CubeViewport({super.key, required this.size});
 
   final int size;
-
-  /// Cubie ids to emphasize.
-  final Set<int> highlighted;
-
-  /// Cubie ids of the layer to turn next (kept bright, no outline).
-  final Set<int> focus;
 
   @override
   ConsumerState<CubeViewport> createState() => _CubeViewportState();
@@ -193,8 +182,6 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
       cube: session.cube,
       orbit: _orbit.value,
       turn: turn,
-      highlighted: widget.highlighted,
-      focus: widget.focus,
       xray: session.xray,
     );
   }
@@ -430,8 +417,6 @@ class _CubeViewportState extends ConsumerState<CubeViewport>
                     cube: session.cube,
                     orbit: _orbit.value,
                     turn: turn,
-                    highlighted: widget.highlighted,
-                    focus: widget.focus,
                     xray: session.xray,
                   ),
                   // Hidden while a layer is held or turning.

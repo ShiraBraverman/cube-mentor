@@ -167,7 +167,6 @@ class _GoalPreviewState extends State<GoalPreview>
                         0,
                       ),
                       turn: turn,
-                      focus: widget.data.focus,
                       muted: widget.data.muted,
                     ),
                   ),

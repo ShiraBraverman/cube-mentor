@@ -208,11 +208,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get wideTurnMore =>
-      'رائع! واصل سحب الطبقات المضيئة واحدة تلو الأخرى لإكمال الدورة العريضة.';
+      'رائع! واصل سحب الطبقات واحدة تلو الأخرى متتبعًا السهم لإكمال الدورة العريضة.';
 
   @override
   String get guideSwipeHint =>
-      'اسحب الطبقة المضيئة في اتجاه السهم، أو اضغط التالي.';
+      'اسحب الطبقة التي يشير إليها السهم في اتجاهه، أو اضغط التالي.';
 
   @override
   String get guideRotateHint => 'أدر المكعب كله كما يوضح السهم: اضغط التالي.';
@@ -2930,11 +2930,18 @@ class AppLocalizationsAr extends AppLocalizations {
       'اعرض كل وجه على الكاميرا (أو أدخل الألوان) واتبع الحل ثلاثي الأبعاد حركةً بحركة.';
 
   @override
-  String get onboardingLearnTitle => 'تعلّم والعب';
+  String get onboardingLearnTitle => 'تعلّم في الأكاديمية';
 
   @override
   String get onboardingLearnBody =>
-      'أتقِن طريقة الطبقات في الأكاديمية، ثم أدِر واخلط وحُلّ بحرية في ساحة اللعب ثلاثية الأبعاد.';
+      'أتقِن طريقة الطبقات درسًا قصيرًا تلو الآخر، مع مكعب ثلاثي الأبعاد يعرض كل حركة.';
+
+  @override
+  String get onboardingPatternsTitle => 'أنماط رائعة وساحة لعب ثلاثية الأبعاد';
+
+  @override
+  String get onboardingPatternsBody =>
+      'حوّل أي مكعب من 2×2 إلى 6×6 إلى أنماط لافتة، أو أدِر واخلط بحرية في ساحة اللعب. اسحب المكعب لتدويره، واضغط على حجم للتبديل.';
 
   @override
   String get scanChoiceManualDesc => 'أدخل ألوان كل وجه، ملصقًا بعد ملصق.';

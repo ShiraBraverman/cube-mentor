@@ -211,11 +211,11 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get wideTurnMore =>
-      'Здорово! Проводите подсвеченные слои по одному, чтобы завершить широкий ход.';
+      'Здорово! Проводите слои по одному, следуя стрелке, чтобы завершить широкий ход.';
 
   @override
   String get guideSwipeHint =>
-      'Проведите светящийся слой по стрелке или нажмите «Далее».';
+      'Проведите слой, на который указывает стрелка, в её направлении или нажмите «Далее».';
 
   @override
   String get guideRotateHint =>
@@ -2931,11 +2931,18 @@ class AppLocalizationsRu extends AppLocalizations {
       'Покажите камере каждую грань (или введите цвета) и следуйте 3D-решению ход за ходом.';
 
   @override
-  String get onboardingLearnTitle => 'Учитесь и играйте';
+  String get onboardingLearnTitle => 'Учитесь в Академии';
 
   @override
   String get onboardingLearnBody =>
-      'Освойте послойную сборку в Академии, а потом крутите, запутывайте и собирайте в 3D-песочнице.';
+      'Освойте послойную сборку короткими уроками — 3D-кубик покажет каждый ход.';
+
+  @override
+  String get onboardingPatternsTitle => 'Крутые узоры и 3D-песочница';
+
+  @override
+  String get onboardingPatternsBody =>
+      'Превратите любой кубик от 2×2 до 6×6 в эффектный узор или крутите и запутывайте его в песочнице. Потяните кубик, чтобы повернуть; нажмите на размер, чтобы сменить.';
 
   @override
   String get scanChoiceManualDesc =>

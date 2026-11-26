@@ -198,10 +198,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get wideTurnOuter => '太棒了！现在滑动相邻的外层，完成双层转动。';
 
   @override
-  String get wideTurnMore => '太棒了！继续逐层滑动发光的层，完成双层转动。';
+  String get wideTurnMore => '太棒了！跟着箭头继续逐层滑动，完成双层转动。';
 
   @override
-  String get guideSwipeHint => '按箭头方向滑动发光的层，或点按“下一步”。';
+  String get guideSwipeHint => '按箭头方向滑动箭头所指的层，或点按“下一步”。';
 
   @override
   String get guideRotateHint => '按箭头所示转动整个魔方，然后点按“下一步”。';
@@ -2652,10 +2652,17 @@ class AppLocalizationsZh extends AppLocalizations {
   String get onboardingScanBody => '把每个面对准相机（或手动点选颜色），然后跟着 3D 解法一步步操作。';
 
   @override
-  String get onboardingLearnTitle => '边学边玩';
+  String get onboardingLearnTitle => '在学院里学习';
 
   @override
-  String get onboardingLearnBody => '在学院里掌握层先法，然后在 3D 游乐场里自由转动、打乱和还原。';
+  String get onboardingLearnBody => '通过简短的课程掌握层先法，3D 魔方会演示每一步。';
+
+  @override
+  String get onboardingPatternsTitle => '炫酷图案与 3D 游乐场';
+
+  @override
+  String get onboardingPatternsBody =>
+      '把 2×2 到 6×6 的任意魔方变成吸睛图案，或在游乐场里自由转动和打乱。拖动魔方即可旋转，点按尺寸即可切换。';
 
   @override
   String get scanChoiceManualDesc => '逐个贴纸点选每个面的颜色。';
@@ -2953,10 +2960,10 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get wideTurnOuter => '太棒了！現在滑動旁邊的外層，完成雙層轉動。';
 
   @override
-  String get wideTurnMore => '太棒了！繼續一層一層滑動發亮的層，完成雙層轉動。';
+  String get wideTurnMore => '太棒了！跟著箭頭繼續一層一層滑動，完成雙層轉動。';
 
   @override
-  String get guideSwipeHint => '依箭頭方向滑動發亮的層，或點一下「下一步」。';
+  String get guideSwipeHint => '依箭頭方向滑動箭頭所指的層，或點一下「下一步」。';
 
   @override
   String get guideRotateHint => '依箭頭所示轉動整顆方塊：點一下「下一步」。';
@@ -5421,10 +5428,17 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get onboardingScanBody => '把每一面對準相機（或手動點選顏色），然後跟著 3D 解法一步步操作。';
 
   @override
-  String get onboardingLearnTitle => '邊學邊玩';
+  String get onboardingLearnTitle => '在學院學習';
 
   @override
-  String get onboardingLearnBody => '在學院學會層先法，然後在 3D 遊樂場自由轉動、打亂和復原。';
+  String get onboardingLearnBody => '透過簡短的課程學會層先法，3D 魔術方塊會示範每一步。';
+
+  @override
+  String get onboardingPatternsTitle => '酷炫圖案與 3D 遊樂場';
+
+  @override
+  String get onboardingPatternsBody =>
+      '把 2×2 到 6×6 的任何魔術方塊變成吸睛圖案，或在遊樂場自由轉動和打亂。拖曳方塊即可旋轉，點一下尺寸即可切換。';
 
   @override
   String get scanChoiceManualDesc => '逐一點選每一面每張貼紙的顏色。';

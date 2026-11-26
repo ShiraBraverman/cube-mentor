@@ -134,8 +134,6 @@ class CubeFrame {
     required this.cube,
     required this.orbit,
     this.turn,
-    this.highlighted = const {},
-    this.focus = const {},
     this.muted = const {},
     this.xray = false,
   });
@@ -145,13 +143,6 @@ class CubeFrame {
 
   /// Layers currently rotated away from their committed position.
   final LayerTurn? turn;
-
-  /// Cubie ids to emphasize (pedagogical highlighting).
-  final Set<int> highlighted;
-
-  /// Cubie ids of the layer the user should turn next; shown at full
-  /// brightness (without an outline) while other cubies are dimmed.
-  final Set<int> focus;
 
   /// Cubie ids drawn in plain gray: pieces that do not matter for a goal.
   final Set<int> muted;
@@ -164,8 +155,6 @@ class CubeFrame {
         cube: cube,
         orbit: orbit,
         turn: clearTurn ? null : (turn ?? this.turn),
-        highlighted: highlighted,
-        focus: focus,
         muted: muted,
         xray: xray ?? this.xray,
       );
@@ -176,8 +165,6 @@ class CubeFrame {
       identical(other.cube, cube) &&
       other.orbit == orbit &&
       other.turn == turn &&
-      setEquals(other.highlighted, highlighted) &&
-      setEquals(other.focus, focus) &&
       setEquals(other.muted, muted) &&
       other.xray == xray;
 

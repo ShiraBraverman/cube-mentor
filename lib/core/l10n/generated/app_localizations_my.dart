@@ -206,11 +206,11 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get wideTurnMore =>
-      'အရမ်းကောင်းတယ်။ အလွှာနှစ်ထပ်လှည့်ခြင်း ပြီးစေရန် လင်းနေသော အလွှာများကို တစ်ခုချင်း ဆက်ပွတ်ဆွဲပါ။';
+      'အရမ်းကောင်းတယ်။ အလွှာနှစ်ထပ်လှည့်ခြင်း ပြီးစေရန် မြှားအတိုင်း အလွှာများကို တစ်ခုချင်း ဆက်ပွတ်ဆွဲပါ။';
 
   @override
   String get guideSwipeHint =>
-      'လင်းနေသော အလွှာကို မြှားညွှန်ရာဘက် ပွတ်ဆွဲပါ၊ သို့မဟုတ် ရှေ့သို့ ကို နှိပ်ပါ။';
+      'မြှားပြထားသော အလွှာကို မြှားညွှန်ရာဘက် ပွတ်ဆွဲပါ၊ သို့မဟုတ် ရှေ့သို့ ကို နှိပ်ပါ။';
 
   @override
   String get guideRotateHint =>
@@ -2855,11 +2855,18 @@ class AppLocalizationsMy extends AppLocalizations {
       'မျက်နှာတစ်ခုစီကို ကင်မရာသို့ ပြပါ (သို့မဟုတ် အရောင်များကို နှိပ်ထည့်ပါ)၊ ပြီးလျှင် 3D ဖြေရှင်းချက်ကို တစ်လှည့်ချင်း လိုက်လုပ်ပါ။';
 
   @override
-  String get onboardingLearnTitle => 'လေ့လာပြီး ကစားပါ';
+  String get onboardingLearnTitle => 'Academy တွင် လေ့လာပါ';
 
   @override
   String get onboardingLearnBody =>
-      'Academy တွင် အလွှာလိုက်နည်းကို ကျွမ်းကျင်အောင်လေ့လာပြီး 3D Playground တွင် စိတ်ကြိုက် လှည့်၊ ရှုပ်၊ ဖြေပါ။';
+      'အလွှာလိုက်နည်းကို သင်ခန်းစာတိုများဖြင့် ကျွမ်းကျင်အောင်လေ့လာပါ၊ လှည့်ကွက်တိုင်းကို 3D ကုဗက ပြပေးသည်။';
+
+  @override
+  String get onboardingPatternsTitle => 'မိုက်သော ပုံစံများနှင့် 3D Playground';
+
+  @override
+  String get onboardingPatternsBody =>
+      '2×2 မှ 6×6 အထိ မည်သည့်ကုဗကိုမဆို လှပသော ပုံစံများအဖြစ် ပြောင်းပါ၊ သို့မဟုတ် Playground တွင် စိတ်ကြိုက် လှည့်၊ ရှုပ်ပါ။ လှည့်ရန် ကုဗကို ဆွဲပါ၊ ပြောင်းရန် အရွယ်ကို နှိပ်ပါ။';
 
   @override
   String get scanChoiceManualDesc =>

@@ -276,18 +276,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
             child: Stack(
               children: [
                 const Positioned.fill(child: CubeStage(intensity: 0.7)),
-                Positioned.fill(
-                  child: CubeViewport(
-                    size: size,
-                    // The pieces the current callout talks about glow; the
-                    // rest of the cube steps back.
-                    highlighted: {
-                      ...solveHighlights(session),
-                      ...?beat?.targets,
-                    },
-                    focus: solveFocus(session),
-                  ),
-                ),
+                Positioned.fill(child: CubeViewport(size: size)),
                 PositionedDirectional(
                   top: AppSpace.xs,
                   start: 0,

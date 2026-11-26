@@ -57,65 +57,21 @@ class CubePainter extends CustomPainter {
   }
 
   void _paintOpaque(Canvas canvas, List<ProjectedFace> faces) {
-    final hasTargets = frame.highlighted.isNotEmpty;
-    final hasHighlights = hasTargets || frame.focus.isNotEmpty;
+    // Every sticker is drawn in its own clear color: no glow, outline or
+    // dimming. Guidance comes from the move arrow and the text instead.
     for (final face in faces) {
       _fill.color = _shaded(AppColors.cubeBody, face.shade);
       canvas.drawPath(_polygon(face.quad), _fill);
 
       final color = face.color;
       if (color == null) continue;
-      final id = face.cubie.id;
-      final isHighlighted = frame.highlighted.contains(id);
-      final inFocus = frame.focus.contains(id);
-      final muted = frame.muted.contains(id);
-      var stickerColor = _shaded(
+      final muted = frame.muted.contains(face.cubie.id);
+      _fill.color = _shaded(
         muted ? _mutedSticker : palette[color]!,
         face.shade,
       );
-      // Gray pieces stay flat: neither dimmed further nor outlined.
-      if (!muted && hasHighlights && !isHighlighted) {
-        if (!inFocus) {
-          // Not relevant right now: washed out and stepped back, still
-          // readable as its color.
-          stickerColor = Color.lerp(
-            _desaturated(stickerColor, 0.55),
-            AppColors.cubeBody,
-            0.5,
-          )!;
-        } else if (hasTargets) {
-          // The layer to turn stays clear, a notch under the targets.
-          stickerColor = _desaturated(stickerColor, 0.2);
-        }
-      }
-      final stickerPath = _roundedSticker(face.quad);
-      if (hasTargets && isHighlighted && face.frontFacing) {
-        // A soft halo behind the target piece.
-        _glow.color = AppColors.gold.withValues(alpha: 0.55);
-        canvas.drawPath(stickerPath, _glow);
-      }
-      _fill.color = stickerColor;
-      canvas.drawPath(stickerPath, _fill);
-      if (hasTargets && isHighlighted) {
-        _stroke
-          ..color = Colors.white.withValues(alpha: 0.95)
-          ..strokeWidth = 2;
-        canvas.drawPath(stickerPath, _stroke);
-      }
+      canvas.drawPath(_roundedSticker(face.quad), _fill);
     }
-  }
-
-  final Paint _glow = Paint()
-    ..isAntiAlias = true
-    ..style = PaintingStyle.stroke
-    ..strokeWidth = 6
-    ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 4);
-
-  /// [color] moved [amount] of the way toward its own gray.
-  static Color _desaturated(Color color, double amount) {
-    final luma = 0.299 * color.r + 0.587 * color.g + 0.114 * color.b;
-    final gray = Color.from(alpha: color.a, red: luma, green: luma, blue: luma);
-    return Color.lerp(color, gray, amount)!;
   }
 
   void _paintXray(Canvas canvas, List<ProjectedFace> faces) {

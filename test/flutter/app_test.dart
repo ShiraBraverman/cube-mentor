@@ -294,11 +294,10 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('solve-collapse')));
     await _advance(tester, 8);
     expect(find.byKey(const ValueKey('solve-details')), findsOneWidget);
-    expect(find.textContaining('Swipe the glowing layer'), findsOneWidget);
-    // The piece the step talks about is highlighted.
-    final viewport = tester.widget<CubeViewport>(find.byType(CubeViewport));
-    final session = container.read(cubeSessionProvider(3));
-    expect(viewport.highlighted, {session.cube.cubieIdAt((0, 2, 2))});
+    expect(
+      find.textContaining('Swipe the layer under the arrow'),
+      findsOneWidget,
+    );
     // The step buttons spell out which way they go.
     expect(
       find.descendant(
@@ -598,9 +597,9 @@ void main() {
       await _advance(tester, 8);
       await _pickGuided(tester);
       expect(find.text('Stage 2 of 2: Finish the cube'), findsOneWidget);
-      // The arrow points out the expected move; its layer is in focus.
+      // The arrow points out the expected move; the cube itself is drawn
+      // plainly, without glow or dimming.
       expect(painter(tester).guide?.notation, 'R');
-      expect(painter(tester).frame.focus, hasLength(9));
 
       platformCalls.clear();
       await swipeR(tester);

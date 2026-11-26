@@ -557,6 +557,10 @@ void main() {
 
   // First launch and Settings extras.
   shot('26_onboarding', (t) => _show(t, const OnboardingScreen(), root: true));
+  shot(
+    '26b_onboarding_patterns',
+    (t) => _show(t, const OnboardingScreen(initialPage: 3), root: true),
+  );
   shot('27_privacy', (t) => _show(t, const PrivacyPolicyScreen()));
 
   // The Playground's Solve: Fast or Guided, then the end of a guided solve.

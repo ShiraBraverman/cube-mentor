@@ -198,10 +198,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get wideTurnOuter => 'いいですね！続けて隣の外側の層をスワイプすると、ワイド回転が完成します。';
 
   @override
-  String get wideTurnMore => 'いいですね！光っている層を1つずつスワイプして、ワイド回転を完成させましょう。';
+  String get wideTurnMore => 'いいですね！矢印に沿って層を1つずつスワイプして、ワイド回転を完成させましょう。';
 
   @override
-  String get guideSwipeHint => '光っている層を矢印の方向にスワイプするか、「次へ」をタップしてください。';
+  String get guideSwipeHint => '矢印が示す層を矢印の方向にスワイプするか、「次へ」をタップしてください。';
 
   @override
   String get guideRotateHint => '矢印のとおりにキューブ全体を持ち替えて、「次へ」をタップしてください。';
@@ -2688,11 +2688,18 @@ class AppLocalizationsJa extends AppLocalizations {
       '各面をカメラに見せる（または色をタップで入力する）だけで、3D の解法を1手ずつたどれます。';
 
   @override
-  String get onboardingLearnTitle => '学んで、遊ぶ';
+  String get onboardingLearnTitle => 'アカデミーで学ぶ';
 
   @override
   String get onboardingLearnBody =>
-      'アカデミーで段ごとにそろえる解法をマスターしたら、3Dプレイグラウンドで自由に回して、崩して、解いてみましょう。';
+      '短いレッスンで段ごとにそろえる解法をマスター。3Dキューブが手順を1手ずつ見せてくれます。';
+
+  @override
+  String get onboardingPatternsTitle => 'かっこいい模様と3Dプレイグラウンド';
+
+  @override
+  String get onboardingPatternsBody =>
+      '2×2から6×6までどのキューブも目を引く模様に変身。プレイグラウンドでは自由に回して崩せます。キューブをドラッグで回転、サイズをタップで切り替え。';
 
   @override
   String get scanChoiceManualDesc => '各面の色をステッカーごとにタップで入力します。';

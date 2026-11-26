@@ -208,11 +208,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get wideTurnMore =>
-      'Ótimo! Continue a deslizar as camadas iluminadas, uma de cada vez, para completar a rotação dupla.';
+      'Ótimo! Continue a deslizar as camadas, uma de cada vez, seguindo a seta, para completar a rotação dupla.';
 
   @override
   String get guideSwipeHint =>
-      'Deslize a camada iluminada no sentido da seta ou toque em Seguinte.';
+      'Deslize a camada indicada pela seta no sentido dela ou toque em Seguinte.';
 
   @override
   String get guideRotateHint =>
@@ -2899,11 +2899,18 @@ class AppLocalizationsPt extends AppLocalizations {
       'Mostra cada face à câmara (ou introduz as cores) e segue a solução em 3D movimento a movimento.';
 
   @override
-  String get onboardingLearnTitle => 'Aprende e joga';
+  String get onboardingLearnTitle => 'Aprenda na Academia';
 
   @override
   String get onboardingLearnBody =>
-      'Domine o método por camadas na Academia e depois rode, baralhe e resolva à vontade no Playground 3D.';
+      'Domine o método por camadas em lições curtas, com um cubo 3D que mostra cada movimento.';
+
+  @override
+  String get onboardingPatternsTitle => 'Padrões fixes e Playground 3D';
+
+  @override
+  String get onboardingPatternsBody =>
+      'Transforme qualquer cubo de 2×2 a 6×6 em padrões vistosos, ou rode e baralhe à vontade no Playground. Arraste o cubo para o rodar; toque num tamanho para mudar.';
 
   @override
   String get scanChoiceManualDesc =>
@@ -3218,11 +3225,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get wideTurnMore =>
-      'Ótimo! Continue deslizando as camadas iluminadas, uma de cada vez, para completar o giro duplo.';
+      'Ótimo! Continue deslizando as camadas, uma de cada vez, seguindo a seta, para completar o giro duplo.';
 
   @override
   String get guideSwipeHint =>
-      'Deslize a camada iluminada na direção da seta ou toque em Próximo.';
+      'Deslize a camada indicada pela seta na direção dela ou toque em Próximo.';
 
   @override
   String get guideRotateHint =>
@@ -5903,11 +5910,18 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Mostre cada face para a câmera (ou insira as cores) e siga a solução em 3D movimento por movimento.';
 
   @override
-  String get onboardingLearnTitle => 'Aprenda e jogue';
+  String get onboardingLearnTitle => 'Aprenda na Academia';
 
   @override
   String get onboardingLearnBody =>
-      'Domine o método de camadas na Academia e depois gire, embaralhe e resolva à vontade no Playground 3D.';
+      'Domine o método de camadas em lições curtas, com um cubo 3D que mostra cada movimento.';
+
+  @override
+  String get onboardingPatternsTitle => 'Padrões incríveis e Playground 3D';
+
+  @override
+  String get onboardingPatternsBody =>
+      'Transforme qualquer cubo de 2×2 a 6×6 em padrões chamativos, ou gire e embaralhe à vontade no Playground. Arraste o cubo para girá-lo; toque em um tamanho para trocar.';
 
   @override
   String get scanChoiceManualDesc =>

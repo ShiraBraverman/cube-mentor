@@ -210,11 +210,11 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get wideTurnMore =>
-      'Super ! Continuez à faire glisser les couches lumineuses une par une pour terminer le tour large.';
+      'Super ! Continuez à faire glisser les couches une par une en suivant la flèche pour terminer le tour large.';
 
   @override
   String get guideSwipeHint =>
-      'Faites glisser la couche lumineuse dans le sens de la flèche, ou touchez Suivant.';
+      'Faites glisser la couche indiquée par la flèche dans son sens, ou touchez Suivant.';
 
   @override
   String get guideRotateHint =>
@@ -2908,11 +2908,18 @@ class AppLocalizationsFr extends AppLocalizations {
       'Montrez chaque face à la caméra (ou saisissez les couleurs) et suivez la solution en 3D mouvement par mouvement.';
 
   @override
-  String get onboardingLearnTitle => 'Apprenez et jouez';
+  String get onboardingLearnTitle => 'Apprenez à l’Académie';
 
   @override
   String get onboardingLearnBody =>
-      'Maîtrisez la méthode des 3 couronnes à l’Académie, puis tournez, mélangez et résolvez librement dans le Bac à sable 3D.';
+      'Maîtrisez la méthode des 3 couronnes en courtes leçons, avec un cube 3D qui montre chaque mouvement.';
+
+  @override
+  String get onboardingPatternsTitle => 'Motifs stylés et bac à sable 3D';
+
+  @override
+  String get onboardingPatternsBody =>
+      'Transformez n’importe quel cube du 2×2 au 6×6 en motifs saisissants, ou tournez et mélangez librement dans le Bac à sable. Faites glisser le cube pour le faire pivoter ; touchez une taille pour changer.';
 
   @override
   String get scanChoiceManualDesc =>

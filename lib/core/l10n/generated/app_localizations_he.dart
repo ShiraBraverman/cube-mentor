@@ -204,11 +204,11 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get wideTurnMore =>
-      'מצוין! המשיכו להחליק את השכבות הזוהרות אחת אחת כדי להשלים את הסיבוב הרחב.';
+      'מצוין! המשיכו להחליק את השכבות אחת אחת לפי החץ כדי להשלים את הסיבוב הרחב.';
 
   @override
   String get guideSwipeHint =>
-      'החליקו את השכבה הזוהרת בכיוון החץ, או הקישו על הבא.';
+      'החליקו את השכבה שהחץ מסמן בכיוון החץ, או הקישו על הבא.';
 
   @override
   String get guideRotateHint =>
@@ -2869,11 +2869,18 @@ class AppLocalizationsHe extends AppLocalizations {
       'הראו כל פאה למצלמה (או הקישו את הצבעים) ועקבו אחרי הפתרון בתלת־ממד מהלך אחר מהלך.';
 
   @override
-  String get onboardingLearnTitle => 'לומדים ומשחקים';
+  String get onboardingLearnTitle => 'לומדים באקדמיה';
 
   @override
   String get onboardingLearnBody =>
-      'למדו את שיטת השכבות באקדמיה, ואז סובבו, ערבבו ופתרו בחופשיות במגרש המשחקים התלת־ממדי.';
+      'שולטים בשיטת השכבות שיעור קצר אחרי שיעור, עם קובייה תלת־ממדית שמראה כל מהלך.';
+
+  @override
+  String get onboardingPatternsTitle => 'דוגמאות מגניבות ומגרש משחקים תלת־ממדי';
+
+  @override
+  String get onboardingPatternsBody =>
+      'הפכו כל קובייה מ־2×2 ועד 6×6 לדוגמאות מרהיבות, או סובבו וערבבו בחופשיות במגרש המשחקים. גררו את הקובייה כדי לסובב אותה; הקישו על גודל כדי להחליף.';
 
   @override
   String get scanChoiceManualDesc => 'הקישו את צבעי כל פאה, מדבקה אחר מדבקה.';

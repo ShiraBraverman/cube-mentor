@@ -209,11 +209,11 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get wideTurnMore =>
-      'Super! Wische die leuchtenden Ebenen nacheinander weiter, um die breite Drehung abzuschließen.';
+      'Super! Wische die Ebenen weiter nacheinander dem Pfeil nach, um die breite Drehung abzuschließen.';
 
   @override
   String get guideSwipeHint =>
-      'Wische die leuchtende Ebene in Pfeilrichtung oder tippe auf Weiter.';
+      'Wische die Ebene unter dem Pfeil in Pfeilrichtung oder tippe auf Weiter.';
 
   @override
   String get guideRotateHint =>
@@ -2907,11 +2907,18 @@ class AppLocalizationsDe extends AppLocalizations {
       'Zeig der Kamera jede Seite (oder tippe die Farben ein) und folge der 3D-Lösung Zug für Zug.';
 
   @override
-  String get onboardingLearnTitle => 'Lernen und spielen';
+  String get onboardingLearnTitle => 'Lernen in der Akademie';
 
   @override
   String get onboardingLearnBody =>
-      'Lerne in der Akademie die Ebene-für-Ebene-Methode und drehe, mische und löse dann frei im 3D-Playground.';
+      'Meistere die Ebene-für-Ebene-Methode in kurzen Lektionen, mit einem 3D-Würfel, der jeden Zug zeigt.';
+
+  @override
+  String get onboardingPatternsTitle => 'Coole Muster & 3D-Playground';
+
+  @override
+  String get onboardingPatternsBody =>
+      'Verwandle jeden Würfel von 2×2 bis 6×6 in auffällige Muster oder drehe und mische frei im Playground. Ziehe am Würfel, um ihn zu drehen; tippe auf eine Größe zum Wechseln.';
 
   @override
   String get scanChoiceManualDesc =>

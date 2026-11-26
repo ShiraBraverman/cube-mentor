@@ -209,11 +209,11 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get wideTurnMore =>
-      'Galing! Ituloy ang pag-swipe sa mga umiilaw na layer, isa-isa, para makumpleto ang wide turn.';
+      'Galing! Ituloy ang pag-swipe sa mga layer, isa-isa, ayon sa arrow, para makumpleto ang wide turn.';
 
   @override
   String get guideSwipeHint =>
-      'I-swipe ang umiilaw na layer ayon sa direksyon ng arrow, o i-tap ang Susunod.';
+      'I-swipe ang layer na tinuturo ng arrow ayon sa direksyon nito, o i-tap ang Susunod.';
 
   @override
   String get guideRotateHint =>
@@ -2853,11 +2853,18 @@ class AppLocalizationsFil extends AppLocalizations {
       'Ipakita ang bawat mukha sa camera (o i-tap ang mga kulay) at sundan ang 3D na solusyon bawat galaw.';
 
   @override
-  String get onboardingLearnTitle => 'Matuto at maglaro';
+  String get onboardingLearnTitle => 'Matuto sa Academy';
 
   @override
   String get onboardingLearnBody =>
-      'Masterin ang layer-by-layer na paraan sa Academy, saka mag-ikot, mag-scramble at mag-solve nang malaya sa 3D Playground.';
+      'Masterin ang layer-by-layer na paraan sa maiikling aralin, kasama ang 3D cube na nagpapakita ng bawat galaw.';
+
+  @override
+  String get onboardingPatternsTitle => 'Astig na pattern at 3D Playground';
+
+  @override
+  String get onboardingPatternsBody =>
+      'Gawing kapansin-pansing pattern ang anumang cube mula 2×2 hanggang 6×6, o mag-ikot at mag-scramble nang malaya sa Playground. I-drag ang cube para paikutin; i-tap ang laki para magpalit.';
 
   @override
   String get scanChoiceManualDesc =>

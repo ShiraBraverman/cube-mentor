@@ -209,11 +209,11 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get wideTurnMore =>
-      '¡Genial! Sigue deslizando las capas iluminadas una a una para completar el giro doble.';
+      '¡Genial! Sigue deslizando las capas una a una, siguiendo la flecha, para completar el giro doble.';
 
   @override
   String get guideSwipeHint =>
-      'Desliza la capa iluminada en la dirección de la flecha o toca Siguiente.';
+      'Desliza la capa que marca la flecha en su dirección o toca Siguiente.';
 
   @override
   String get guideRotateHint =>
@@ -2898,11 +2898,18 @@ class AppLocalizationsEs extends AppLocalizations {
       'Muestra cada cara a la cámara (o introduce los colores) y sigue la solución en 3D movimiento a movimiento.';
 
   @override
-  String get onboardingLearnTitle => 'Aprende y juega';
+  String get onboardingLearnTitle => 'Aprende en la Academia';
 
   @override
   String get onboardingLearnBody =>
-      'Domina el método por capas en la Academia y luego gira, mezcla y resuelve libremente en el Playground 3D.';
+      'Domina el método por capas con lecciones cortas y un cubo 3D que muestra cada movimiento.';
+
+  @override
+  String get onboardingPatternsTitle => 'Patrones geniales y Playground 3D';
+
+  @override
+  String get onboardingPatternsBody =>
+      'Convierte cualquier cubo de 2×2 a 6×6 en patrones llamativos, o gira y mezcla libremente en el Playground. Arrastra el cubo para girarlo; toca un tamaño para cambiar.';
 
   @override
   String get scanChoiceManualDesc =>

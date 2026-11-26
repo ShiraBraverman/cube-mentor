@@ -105,8 +105,8 @@
   "halfTurnHalfway": "Nice, halfway there! Turn it once more for a double turn (180°).",
   "wideTurnInner": "Great! Now swipe the inner adjacent layer to complete the wide turn.",
   "wideTurnOuter": "Great! Now swipe the outer layer next to it to complete the wide turn.",
-  "wideTurnMore": "Great! Keep swiping the glowing layers one at a time to complete the wide turn.",
-  "guideSwipeHint": "Swipe the glowing layer the way the arrow points, or tap Next.",
+  "wideTurnMore": "Great! Keep swiping the layers one at a time, following the arrow, to complete the wide turn.",
+  "guideSwipeHint": "Swipe the layer under the arrow the way it points, or tap Next.",
   "guideRotateHint": "Turn the whole cube as the arrow shows: tap Next.",
   "guideWrongMove": "Follow the highlighted arrow",
   "guideExit": "Exit guide",
@@ -1991,13 +1991,21 @@
   "@onboardingScanBody": {
     "description": "First-launch intro, page 2 text."
   },
-  "onboardingLearnTitle": "Learn and play",
+  "onboardingLearnTitle": "Learn in the Academy",
   "@onboardingLearnTitle": {
-    "description": "First-launch intro, page 3 title: Academy and 3D Playground."
+    "description": "First-launch intro, page 3 title: the Academy."
   },
-  "onboardingLearnBody": "Master the layer-by-layer method in the Academy, then twist, scramble and solve freely in the 3D Playground.",
+  "onboardingLearnBody": "Master the layer-by-layer method one short lesson at a time, with a 3D cube that shows every move.",
   "@onboardingLearnBody": {
     "description": "First-launch intro, page 3 text."
+  },
+  "onboardingPatternsTitle": "Cool patterns & 3D Playground",
+  "@onboardingPatternsTitle": {
+    "description": "First-launch intro, page 4 title: Pattern Library and 3D Playground."
+  },
+  "onboardingPatternsBody": "Turn any cube from 2×2 to 6×6 into eye-catching patterns, or twist and scramble freely in the Playground. Drag the cube to spin it; tap a size to switch.",
+  "@onboardingPatternsBody": {
+    "description": "First-launch intro, page 4 text, under live 3D pattern cubes for every size."
   },
   "scanChoiceManualDesc": "Tap in the colors of each face, sticker by sticker.",
   "@scanChoiceManualDesc": {

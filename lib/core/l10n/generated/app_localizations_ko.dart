@@ -198,10 +198,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get wideTurnOuter => '잘했어요! 이제 옆의 바깥쪽 층을 밀어 와이드 회전을 완성하세요.';
 
   @override
-  String get wideTurnMore => '잘했어요! 빛나는 층을 하나씩 계속 밀어 와이드 회전을 완성하세요.';
+  String get wideTurnMore => '잘했어요! 화살표를 따라 층을 하나씩 계속 밀어 와이드 회전을 완성하세요.';
 
   @override
-  String get guideSwipeHint => '빛나는 층을 화살표 방향으로 밀거나 다음을 탭하세요.';
+  String get guideSwipeHint => '화살표가 가리키는 층을 화살표 방향으로 밀거나 다음을 탭하세요.';
 
   @override
   String get guideRotateHint => '화살표대로 큐브 전체를 돌린 뒤 다음을 탭하세요.';
@@ -2696,11 +2696,18 @@ class AppLocalizationsKo extends AppLocalizations {
       '각 면을 카메라에 보여 주거나 색을 직접 입력하고, 3D 풀이를 한 수씩 따라 하세요.';
 
   @override
-  String get onboardingLearnTitle => '배우고 놀기';
+  String get onboardingLearnTitle => '아카데미에서 배우기';
 
   @override
   String get onboardingLearnBody =>
-      '아카데미에서 층별 맞추기를 익힌 다음, 3D 놀이터에서 마음껏 돌리고 섞고 맞춰 보세요.';
+      '짧은 레슨으로 층별 맞추기를 익히세요. 3D 큐브가 모든 동작을 보여 줍니다.';
+
+  @override
+  String get onboardingPatternsTitle => '멋진 패턴과 3D 놀이터';
+
+  @override
+  String get onboardingPatternsBody =>
+      '2×2부터 6×6까지 어떤 큐브든 눈길을 끄는 패턴으로 바꾸거나, 놀이터에서 마음껏 돌리고 섞어 보세요. 큐브를 드래그해 돌리고, 크기를 탭해 바꾸세요.';
 
   @override
   String get scanChoiceManualDesc => '각 면의 색을 스티커 하나씩 입력하세요.';

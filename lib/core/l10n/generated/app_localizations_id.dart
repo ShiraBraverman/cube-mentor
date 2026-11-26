@@ -209,11 +209,11 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get wideTurnMore =>
-      'Hebat! Terus geser lapisan yang menyala satu per satu untuk menyelesaikan putaran lebar.';
+      'Hebat! Terus geser lapisan satu per satu mengikuti panah untuk menyelesaikan putaran lebar.';
 
   @override
   String get guideSwipeHint =>
-      'Geser lapisan yang menyala sesuai arah panah, atau ketuk Berikutnya.';
+      'Geser lapisan yang ditunjuk panah sesuai arahnya, atau ketuk Berikutnya.';
 
   @override
   String get guideRotateHint =>
@@ -2836,11 +2836,18 @@ class AppLocalizationsId extends AppLocalizations {
       'Tunjukkan setiap sisi ke kamera (atau ketuk warnanya) dan ikuti solusi 3D langkah demi langkah.';
 
   @override
-  String get onboardingLearnTitle => 'Belajar dan bermain';
+  String get onboardingLearnTitle => 'Belajar di Akademi';
 
   @override
   String get onboardingLearnBody =>
-      'Kuasai metode lapis demi lapis di Akademi, lalu putar, acak, dan selesaikan sesukamu di Playground 3D.';
+      'Kuasai metode lapis demi lapis lewat pelajaran singkat, dengan kubus 3D yang menampilkan setiap gerakan.';
+
+  @override
+  String get onboardingPatternsTitle => 'Pola keren & Playground 3D';
+
+  @override
+  String get onboardingPatternsBody =>
+      'Ubah kubus apa pun dari 2×2 sampai 6×6 menjadi pola yang memukau, atau putar dan acak sesukamu di Playground. Seret kubus untuk memutarnya; ketuk ukuran untuk berganti.';
 
   @override
   String get scanChoiceManualDesc =>

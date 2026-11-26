@@ -207,11 +207,11 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get wideTurnMore =>
-      'Шәп! Киң борылышны тәмамлар өчен балкыган катламнарны берәм-берәм сыпыруны дәвам итегез.';
+      'Шәп! Киң борылышны тәмамлар өчен катламнарны ук буенча берәм-берәм сыпыруны дәвам итегез.';
 
   @override
   String get guideSwipeHint =>
-      'Балкыган катламны ук күрсәткән якка сыпырыгыз яки «Алга» төймәсенә басыгыз.';
+      'Ук күрсәткән катламны ук ягына сыпырыгыз яки «Алга» төймәсенә басыгыз.';
 
   @override
   String get guideRotateHint =>
@@ -2828,11 +2828,18 @@ class AppLocalizationsTt extends AppLocalizations {
       'Һәр якны камерага күрсәт (яки төсләрне кулдан керт) һәм 3D чишелешне адымлап кабатла.';
 
   @override
-  String get onboardingLearnTitle => 'Өйрән һәм уйна';
+  String get onboardingLearnTitle => 'Академиядә өйрән';
 
   @override
   String get onboardingLearnBody =>
-      'Академиядә катлам-катлам ысулын үзләштерегез, аннары 3D мәйданчыкта иркен әйләндерегез, бутагыз һәм җыегыз.';
+      'Катлам-катлам ысулын кыска дәресләр белән үзләштерегез, 3D кубик һәр хәрәкәтне күрсәтә.';
+
+  @override
+  String get onboardingPatternsTitle => 'Матур үрнәкләр һәм 3D мәйданчык';
+
+  @override
+  String get onboardingPatternsBody =>
+      '2×2 дән 6×6 га кадәр теләсә кайсы кубикны күз явын алырлык үрнәкләргә әйләндерегез яки мәйданчыкта иркен әйләндерегез һәм бутагыз. Әйләндерү өчен кубикны тартыгыз; алыштыру өчен зурлыкка басыгыз.';
 
   @override
   String get scanChoiceManualDesc => 'Һәр якның төсләрен стикерлап кертеп чык.';

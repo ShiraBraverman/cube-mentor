@@ -42,7 +42,7 @@ void main() {
       for (final id in data.focus) {
         expect(pieceGroupOf(id, 3), PieceGroup.whiteEdges);
       }
-      // 26 visible pieces: 4 glowing edges, 6 dimmed centers, 16 gray.
+      // 26 visible pieces: 4 target edges, 6 centers, 16 gray.
       expect(data.muted, hasLength(16));
     });
 

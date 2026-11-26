@@ -521,32 +521,6 @@ class FastMoveBadge extends StatelessWidget {
   }
 }
 
-/// Cubie ids to highlight for the current step of [session].
-Set<int> solveHighlights(CubeSession session) {
-  final step = session.currentStep;
-  if (step == null) return const {};
-  return {
-    for (final position in step.highlightedCubies)
-      ?session.cube.cubieIdAt(position),
-  };
-}
-
-/// Cubie ids of the layer the current step turns, so it stands out on the
-/// cube. Empty for whole-cube rotations (nothing to single out).
-Set<int> solveFocus(CubeSession session) {
-  if (session.currentStep == null) return const {};
-  // While a step is half made by hand, only what is left of it glows.
-  final moves = session.isIdle && session.partial.isNotEmpty
-      ? session.remainingMoves
-      : [session.playback[session.currentStepIndex]];
-  return {
-    for (final move in moves)
-      if (move.fromLayer != 0 || move.toLayer != session.size - 1)
-        for (final cubie in session.cube.cubies)
-          if (session.cube.isAffected(cubie, move)) cubie.id,
-  };
-}
-
 /// Mid-move encouragement once part of a double or wide turn was swiped.
 class StepHintText extends StatelessWidget {
   const StepHintText({super.key, required this.hint});

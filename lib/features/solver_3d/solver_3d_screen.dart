@@ -392,13 +392,7 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
                   child: Stack(
                     children: [
                       const Positioned.fill(child: CubeStage(intensity: 0.8)),
-                      Positioned.fill(
-                        child: CubeViewport(
-                          size: size,
-                          highlighted: solveHighlights(session),
-                          focus: solveFocus(session),
-                        ),
-                      ),
+                      Positioned.fill(child: CubeViewport(size: size)),
                       if (session.steps.isEmpty)
                         PositionedDirectional(
                           bottom: AppSpace.xs,

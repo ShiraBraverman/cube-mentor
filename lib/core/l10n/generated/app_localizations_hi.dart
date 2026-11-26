@@ -206,11 +206,11 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get wideTurnMore =>
-      'शानदार! वाइड घुमाव पूरा करने के लिए चमकती परतों को एक-एक करके स्वाइप करते रहें।';
+      'शानदार! वाइड घुमाव पूरा करने के लिए तीर के अनुसार परतों को एक-एक करके स्वाइप करते रहें।';
 
   @override
   String get guideSwipeHint =>
-      'चमकती परत को तीर की दिशा में स्वाइप करें, या अगला दबाएँ।';
+      'तीर जिस परत पर है, उसे तीर की दिशा में स्वाइप करें, या अगला दबाएँ।';
 
   @override
   String get guideRotateHint => 'तीर के अनुसार पूरा क्यूब घुमाएँ: अगला दबाएँ।';
@@ -2866,11 +2866,18 @@ class AppLocalizationsHi extends AppLocalizations {
       'हर फलक कैमरे को दिखाएँ (या रंग टैप करें) और 3D हल को एक-एक चाल करके फ़ॉलो करें।';
 
   @override
-  String get onboardingLearnTitle => 'सीखें और खेलें';
+  String get onboardingLearnTitle => 'अकादमी में सीखें';
 
   @override
   String get onboardingLearnBody =>
-      'अकादमी में परत-दर-परत तरीका सीखें, फिर 3D प्लेग्राउंड में खुलकर घुमाएँ, मिलाएँ और हल करें।';
+      'छोटे-छोटे पाठों में परत-दर-परत तरीका सीखें, ऐसे 3D क्यूब के साथ जो हर चाल दिखाता है।';
+
+  @override
+  String get onboardingPatternsTitle => 'शानदार पैटर्न और 3D प्लेग्राउंड';
+
+  @override
+  String get onboardingPatternsBody =>
+      '2×2 से 6×6 तक किसी भी क्यूब को आकर्षक पैटर्न में बदलें, या प्लेग्राउंड में खुलकर घुमाएँ और मिलाएँ। घुमाने के लिए क्यूब को खींचें; बदलने के लिए कोई आकार दबाएँ।';
 
   @override
   String get scanChoiceManualDesc =>

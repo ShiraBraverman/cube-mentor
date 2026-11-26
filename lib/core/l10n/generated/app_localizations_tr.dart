@@ -205,11 +205,11 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get wideTurnMore =>
-      'Harika! Geniş çevirmeyi tamamlamak için parlayan katmanları tek tek kaydırmaya devam et.';
+      'Harika! Geniş çevirmeyi tamamlamak için oku izleyerek katmanları tek tek kaydırmaya devam et.';
 
   @override
   String get guideSwipeHint =>
-      'Parlayan katmanı okun gösterdiği yöne kaydır ya da İleri\'ye dokun.';
+      'Okun gösterdiği katmanı okun yönüne kaydır ya da İleri\'ye dokun.';
 
   @override
   String get guideRotateHint =>
@@ -2836,11 +2836,18 @@ class AppLocalizationsTr extends AppLocalizations {
       'Her yüzü kameraya göster (ya da renkleri gir) ve 3D çözümü hamle hamle takip et.';
 
   @override
-  String get onboardingLearnTitle => 'Öğren ve oyna';
+  String get onboardingLearnTitle => 'Akademide öğren';
 
   @override
   String get onboardingLearnBody =>
-      'Akademide katman katman yöntemini öğren, sonra 3D Oyun Alanı\'nda serbestçe çevir, karıştır ve çöz.';
+      'Katman katman yöntemini kısa derslerle öğren; 3D küp her hamleyi gösterir.';
+
+  @override
+  String get onboardingPatternsTitle => 'Havalı desenler ve 3D Oyun Alanı';
+
+  @override
+  String get onboardingPatternsBody =>
+      '2×2\'den 6×6\'ya her küpü göz alıcı desenlere dönüştür ya da Oyun Alanı\'nda serbestçe çevir ve karıştır. Döndürmek için küpü sürükle; değiştirmek için bir boyuta dokun.';
 
   @override
   String get scanChoiceManualDesc =>

@@ -208,11 +208,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get wideTurnMore =>
-      'Great! Keep swiping the glowing layers one at a time to complete the wide turn.';
+      'Great! Keep swiping the layers one at a time, following the arrow, to complete the wide turn.';
 
   @override
   String get guideSwipeHint =>
-      'Swipe the glowing layer the way the arrow points, or tap Next.';
+      'Swipe the layer under the arrow the way it points, or tap Next.';
 
   @override
   String get guideRotateHint =>
@@ -2886,11 +2886,18 @@ class AppLocalizationsEn extends AppLocalizations {
       'Show each face to the camera (or tap in the colors) and follow the 3D solution move by move.';
 
   @override
-  String get onboardingLearnTitle => 'Learn and play';
+  String get onboardingLearnTitle => 'Learn in the Academy';
 
   @override
   String get onboardingLearnBody =>
-      'Master the layer-by-layer method in the Academy, then twist, scramble and solve freely in the 3D Playground.';
+      'Master the layer-by-layer method one short lesson at a time, with a 3D cube that shows every move.';
+
+  @override
+  String get onboardingPatternsTitle => 'Cool patterns & 3D Playground';
+
+  @override
+  String get onboardingPatternsBody =>
+      'Turn any cube from 2×2 to 6×6 into eye-catching patterns, or twist and scramble freely in the Playground. Drag the cube to spin it; tap a size to switch.';
 
   @override
   String get scanChoiceManualDesc =>

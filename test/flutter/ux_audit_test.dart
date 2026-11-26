@@ -6,6 +6,8 @@ import 'package:cube_mentor/core/solver/cube_solver.dart';
 import 'package:cube_mentor/core/vision/scan_analyzer.dart';
 import 'package:cube_mentor/features/daily/daily_controller.dart';
 import 'package:cube_mentor/features/daily/daily_screen.dart';
+import 'package:cube_mentor/features/home/onboarding_patterns.dart';
+import 'package:cube_mentor/features/home/onboarding_screen.dart';
 import 'package:cube_mentor/features/home/privacy_policy_screen.dart';
 import 'package:cube_mentor/features/home/root_shell.dart';
 import 'package:cube_mentor/features/scanner/camera/camera_scan_view.dart';
@@ -52,7 +54,7 @@ Widget _scope(SharedPreferences prefs, Widget child) => ProviderScope(
 );
 
 void main() {
-  testWidgets('first launch shows the 3-page intro once; Skip opens home', (
+  testWidgets('first launch shows the 4-page intro once; Skip opens home', (
     tester,
   ) async {
     final prefs = await _phone(tester);
@@ -66,6 +68,49 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('onboarding-skip')));
     await _advance(tester, 12);
     expect(find.byKey(const ValueKey('root-shell')), findsOneWidget);
+    expect(prefs.getBool('onboarding_done'), isTrue);
+  });
+
+  testWidgets('intro patterns page: a live pattern for every size', (
+    tester,
+  ) async {
+    final prefs = await _phone(tester);
+    await tester.pumpWidget(
+      _scope(prefs, testApp(const OnboardingScreen(initialPage: 3))),
+    );
+    await _advance(tester);
+    expect(find.byKey(const ValueKey('onboarding-page-3')), findsOneWidget);
+    expect(find.text('Cool patterns & 3D Playground'), findsOneWidget);
+    for (final (size, _) in kOnboardingPatterns) {
+      expect(find.byKey(ValueKey('onboarding-pattern-$size')), findsOneWidget);
+    }
+    // The large cube starts on the 2x2 and cycles through the sizes.
+    expect(
+      find.byKey(const ValueKey('onboarding-pattern-cube-2')),
+      findsOneWidget,
+    );
+    await _advance(tester, 70);
+    expect(
+      find.byKey(const ValueKey('onboarding-pattern-cube-3')),
+      findsOneWidget,
+    );
+    // Picking a size shows it and stops the cycle.
+    await tester.tap(find.byKey(const ValueKey('onboarding-pattern-6')));
+    await _advance(tester, 100);
+    expect(
+      find.byKey(const ValueKey('onboarding-pattern-cube-6')),
+      findsOneWidget,
+    );
+    expect(find.text('Block checkerboard'), findsWidgets);
+    // Dragging spins the large cube without errors; Get started finishes.
+    await tester.drag(
+      find.byKey(const ValueKey('onboarding-patterns-hero')),
+      const Offset(80, 30),
+    );
+    await _advance(tester);
+    expect(tester.takeException(), isNull);
+    await tester.tap(find.byKey(const ValueKey('onboarding-next')));
+    await _advance(tester);
     expect(prefs.getBool('onboarding_done'), isTrue);
   });
 

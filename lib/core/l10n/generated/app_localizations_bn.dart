@@ -205,11 +205,11 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get wideTurnMore =>
-      'দারুণ! ওয়াইড টার্ন শেষ করতে উজ্জ্বল স্তরগুলো একে একে সোয়াইপ করতে থাকুন।';
+      'দারুণ! তীর দেখে স্তরগুলো একে একে সোয়াইপ করতে থাকুন, ওয়াইড টার্ন শেষ হবে।';
 
   @override
   String get guideSwipeHint =>
-      'তীর যেদিকে দেখাচ্ছে, উজ্জ্বল স্তরটি সেদিকে সোয়াইপ করুন, অথবা পরবর্তী চাপুন।';
+      'তীর যে স্তরের ওপর আছে, সেটি তীরের দিকে সোয়াইপ করুন, অথবা পরবর্তী চাপুন।';
 
   @override
   String get guideRotateHint => 'তীরের মতো পুরো কিউবটি ঘোরান: পরবর্তী চাপুন।';
@@ -2828,11 +2828,18 @@ class AppLocalizationsBn extends AppLocalizations {
       'প্রতিটি দিক ক্যামেরায় দেখান (বা রং ট্যাপ করে দিন) এবং 3D সমাধান এক চাল করে অনুসরণ করুন।';
 
   @override
-  String get onboardingLearnTitle => 'শিখুন আর খেলুন';
+  String get onboardingLearnTitle => 'অ্যাকাডেমিতে শিখুন';
 
   @override
   String get onboardingLearnBody =>
-      'অ্যাকাডেমিতে স্তর-ধরে-ধরে পদ্ধতি শিখুন, তারপর 3D প্লেগ্রাউন্ডে ইচ্ছেমতো ঘোরান, এলোমেলো করুন আর সমাধান করুন।';
+      'ছোট ছোট পাঠে স্তর-ধরে-ধরে পদ্ধতি আয়ত্ত করুন, প্রতিটি চাল দেখায় এমন একটি 3D কিউবের সাথে।';
+
+  @override
+  String get onboardingPatternsTitle => 'দারুণ প্যাটার্ন ও 3D প্লেগ্রাউন্ড';
+
+  @override
+  String get onboardingPatternsBody =>
+      '2×2 থেকে 6×6 যেকোনো কিউবকে নজরকাড়া প্যাটার্নে বদলে দিন, অথবা প্লেগ্রাউন্ডে ইচ্ছেমতো ঘোরান আর এলোমেলো করুন। ঘোরাতে কিউবটি টানুন; বদলাতে একটি আকারে চাপুন।';
 
   @override
   String get scanChoiceManualDesc =>

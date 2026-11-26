@@ -7,26 +7,31 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/glass.dart';
 import '../../core/theme/ui_kit.dart';
 import '../../shared/widgets/cube_icons/cube_icons.dart';
+import 'onboarding_patterns.dart';
 
-/// First-launch intro: three swipeable pages (what CubeMentor is, scan &
-/// solve, learn & play), page dots, Skip and Next / Get started. Finishing
+/// First-launch intro: four swipeable pages (what CubeMentor is, scan &
+/// solve, the Academy, live patterns and the 3D Playground), page dots,
+/// Skip and Next / Get started. Finishing
 /// or skipping marks it seen, so it never shows again; [onDone] then opens
 /// the app.
 class OnboardingScreen extends ConsumerStatefulWidget {
-  const OnboardingScreen({super.key, this.onDone});
+  const OnboardingScreen({super.key, this.onDone, this.initialPage = 0});
 
   /// Called after the intro is marked seen; by default nothing (the app
   /// root switches to the home screen by itself).
   final VoidCallback? onDone;
+
+  /// Page shown first (screenshots open a later page directly).
+  final int initialPage;
 
   @override
   ConsumerState<OnboardingScreen> createState() => _OnboardingScreenState();
 }
 
 class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
-  static const _pages = 3;
-  final _controller = PageController();
-  int _page = 0;
+  static const _pages = 4;
+  late final _controller = PageController(initialPage: widget.initialPage);
+  late int _page = widget.initialPage;
 
   @override
   void dispose() {
@@ -84,6 +89,12 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         accent: AppColors.accentSecondary,
         title: l10n.onboardingLearnTitle,
         body: l10n.onboardingLearnBody,
+      ),
+      _OnboardingPage(
+        key: const ValueKey('onboarding-page-3'),
+        hero: const OnboardingPatternShowcase(),
+        title: l10n.onboardingPatternsTitle,
+        body: l10n.onboardingPatternsBody,
       ),
     ];
 
@@ -157,15 +168,19 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
 class _OnboardingPage extends StatelessWidget {
   const _OnboardingPage({
     super.key,
-    required this.icon,
-    required this.accent,
+    this.icon,
+    this.accent = AppColors.accent,
+    this.hero,
     required this.title,
     required this.body,
     this.footer,
   });
 
-  final Widget icon;
+  final Widget? icon;
   final Color accent;
+
+  /// Replaces the icon tile (the live pattern showcase).
+  final Widget? hero;
   final String title;
   final String body;
   final Widget? footer;
@@ -182,7 +197,13 @@ class _OnboardingPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CubeIconTile(accent: accent, size: 132, glow: true, child: icon),
+              hero ??
+                  CubeIconTile(
+                    accent: accent,
+                    size: 132,
+                    glow: true,
+                    child: icon ?? const SizedBox.shrink(),
+                  ),
               const SizedBox(height: AppSpace.lg),
               Text(
                 title,

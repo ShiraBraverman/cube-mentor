@@ -475,13 +475,13 @@ abstract class AppLocalizations {
   /// No description provided for @wideTurnMore.
   ///
   /// In en, this message translates to:
-  /// **'Great! Keep swiping the glowing layers one at a time to complete the wide turn.'**
+  /// **'Great! Keep swiping the layers one at a time, following the arrow, to complete the wide turn.'**
   String get wideTurnMore;
 
   /// No description provided for @guideSwipeHint.
   ///
   /// In en, this message translates to:
-  /// **'Swipe the glowing layer the way the arrow points, or tap Next.'**
+  /// **'Swipe the layer under the arrow the way it points, or tap Next.'**
   String get guideSwipeHint;
 
   /// No description provided for @guideRotateHint.
@@ -4762,17 +4762,29 @@ abstract class AppLocalizations {
   /// **'Show each face to the camera (or tap in the colors) and follow the 3D solution move by move.'**
   String get onboardingScanBody;
 
-  /// First-launch intro, page 3 title: Academy and 3D Playground.
+  /// First-launch intro, page 3 title: the Academy.
   ///
   /// In en, this message translates to:
-  /// **'Learn and play'**
+  /// **'Learn in the Academy'**
   String get onboardingLearnTitle;
 
   /// First-launch intro, page 3 text.
   ///
   /// In en, this message translates to:
-  /// **'Master the layer-by-layer method in the Academy, then twist, scramble and solve freely in the 3D Playground.'**
+  /// **'Master the layer-by-layer method one short lesson at a time, with a 3D cube that shows every move.'**
   String get onboardingLearnBody;
+
+  /// First-launch intro, page 4 title: Pattern Library and 3D Playground.
+  ///
+  /// In en, this message translates to:
+  /// **'Cool patterns & 3D Playground'**
+  String get onboardingPatternsTitle;
+
+  /// First-launch intro, page 4 text, under live 3D pattern cubes for every size.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn any cube from 2×2 to 6×6 into eye-catching patterns, or twist and scramble freely in the Playground. Drag the cube to spin it; tap a size to switch.'**
+  String get onboardingPatternsBody;
 
   /// Scan & Solve sheet: description of the manual color entry choice.
   ///

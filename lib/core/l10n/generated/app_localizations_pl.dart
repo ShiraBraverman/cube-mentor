@@ -211,11 +211,11 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get wideTurnMore =>
-      'Świetnie! Przesuwaj podświetlone warstwy po kolei, aby dokończyć szeroki ruch.';
+      'Świetnie! Przesuwaj warstwy po kolei, zgodnie ze strzałką, aby dokończyć szeroki ruch.';
 
   @override
   String get guideSwipeHint =>
-      'Przesuń podświetloną warstwę zgodnie ze strzałką albo stuknij Dalej.';
+      'Przesuń warstwę wskazaną strzałką w jej kierunku albo stuknij Dalej.';
 
   @override
   String get guideRotateHint =>
@@ -2928,11 +2928,18 @@ class AppLocalizationsPl extends AppLocalizations {
       'Pokaż aparatowi każdą ścianę (albo wpisz kolory) i podążaj za rozwiązaniem 3D ruch po ruchu.';
 
   @override
-  String get onboardingLearnTitle => 'Ucz się i baw';
+  String get onboardingLearnTitle => 'Ucz się w Akademii';
 
   @override
   String get onboardingLearnBody =>
-      'Opanuj metodę warstwową w Akademii, a potem kręć, mieszaj i układaj swobodnie w Playground 3D.';
+      'Opanuj metodę warstwową w krótkich lekcjach, z kostką 3D, która pokazuje każdy ruch.';
+
+  @override
+  String get onboardingPatternsTitle => 'Fajne wzory i Playground 3D';
+
+  @override
+  String get onboardingPatternsBody =>
+      'Zamień dowolną kostkę od 2×2 do 6×6 w efektowne wzory albo kręć i mieszaj swobodnie w Playground. Przeciągnij kostkę, aby ją obrócić; stuknij rozmiar, aby zmienić.';
 
   @override
   String get scanChoiceManualDesc =>

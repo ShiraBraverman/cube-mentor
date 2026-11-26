@@ -526,7 +526,7 @@ void main() {
       expect(find.byKey(const ValueKey('daily-congrats')), findsOneWidget);
       // The first-launch intro, every page.
       await show(const OnboardingScreen(), scroll: false);
-      for (var page = 1; page < 3; page++) {
+      for (var page = 1; page < 4; page++) {
         await tester.tap(find.byKey(const ValueKey('onboarding-next')));
         await _advance(tester, 10);
         expect(find.byKey(ValueKey('onboarding-page-$page')), findsOneWidget);
