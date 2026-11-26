@@ -787,23 +787,6 @@
       }
     }
   },
-  "stageCrownHeader": "Crown {crown} • Stage {number} of {total}: {title}",
-  "@stageCrownHeader": {
-    "placeholders": {
-      "crown": {
-        "type": "int"
-      },
-      "number": {
-        "type": "int"
-      },
-      "total": {
-        "type": "int"
-      },
-      "title": {
-        "type": "String"
-      }
-    }
-  },
   "solveAllStagesDone": "Every stage complete. Well done!",
   "trackFiveByFive": "5×5 Professor's Cube",
   "trackSixBySix": "6×6 cube",
@@ -1224,7 +1207,8 @@
         "example": "15"
       }
     }
-  },  "fastMoveCounter": "Move {current} / {total}",
+  },
+  "fastMoveCounter": "Move {current} / {total}",
   "@fastMoveCounter": {
     "description": "Live counter on the Fast Solve card: which move of the solution is on screen, out of all its moves.",
     "placeholders": {
@@ -1238,7 +1222,6 @@
       }
     }
   },
-
   "dailyStep1Title": "Step 1: Scramble your cube",
   "@dailyStep1Title": {
     "description": "Daily challenge: title of the scramble step card."
@@ -1850,6 +1833,176 @@
     "placeholders": {
       "front": {
         "type": "String"
+      }
+    }
+  },
+  "onboardingSkip": "Skip",
+  "@onboardingSkip": {
+    "description": "First-launch intro: skips the remaining pages."
+  },
+  "onboardingNext": "Next",
+  "@onboardingNext": {
+    "description": "First-launch intro: goes to the next page."
+  },
+  "onboardingStart": "Get started",
+  "@onboardingStart": {
+    "description": "First-launch intro: last page button that opens the app."
+  },
+  "onboardingWhatTitle": "Your cube companion",
+  "@onboardingWhatTitle": {
+    "description": "First-launch intro, page 1 title: what CubeMentor is."
+  },
+  "onboardingWhatBody": "CubeMentor helps you solve, learn and practice every cube from 2×2 to 6×6, fully offline.",
+  "@onboardingWhatBody": {
+    "description": "First-launch intro, page 1 text."
+  },
+  "onboardingScanTitle": "Scan & solve in seconds",
+  "@onboardingScanTitle": {
+    "description": "First-launch intro, page 2 title: scanning and solving."
+  },
+  "onboardingScanBody": "Show each face to the camera (or tap in the colors) and follow the 3D solution move by move.",
+  "@onboardingScanBody": {
+    "description": "First-launch intro, page 2 text."
+  },
+  "onboardingLearnTitle": "Learn and play",
+  "@onboardingLearnTitle": {
+    "description": "First-launch intro, page 3 title: Academy and 3D Playground."
+  },
+  "onboardingLearnBody": "Master the 3-crown method in the Academy, then twist, scramble and solve freely in the 3D Playground.",
+  "@onboardingLearnBody": {
+    "description": "First-launch intro, page 3 text."
+  },
+  "scanChoiceManualDesc": "Tap in the colors of each face, sticker by sticker.",
+  "@scanChoiceManualDesc": {
+    "description": "Scan & Solve sheet: description of the manual color entry choice."
+  },
+  "scanTryAgain": "Try again",
+  "@scanTryAgain": {
+    "description": "Scanner recovery button: start the camera / the scan again."
+  },
+  "scanEditManually": "Fix colors by hand",
+  "@scanEditManually": {
+    "description": "Scan review: keep the scanned colors and fix them by tapping stickers."
+  },
+  "scanLightingHint": "Center the face in the grid. Use bright, even light and avoid glare.",
+  "@scanLightingHint": {
+    "description": "Always-visible capture advice over the camera view."
+  },
+  "crownExplain": "A crown is one horizontal layer of the cube: the first crown is the white layer at the bottom, the second is the middle layer and the third is the yellow layer on top.",
+  "@crownExplain": {
+    "description": "Academy: one-sentence explanation of a crown (a horizontal layer) where crowns are first introduced."
+  },
+  "lessonObjectiveHeading": "Learning objective",
+  "@lessonObjectiveHeading": {
+    "description": "Heading of the learning-objective card at the start of an Academy lesson."
+  },
+  "dirRowTop": "Top row of the front face",
+  "@dirRowTop": {
+    "description": "Move instruction: the U layer as seen on the front face."
+  },
+  "dirRowBottom": "Bottom row of the front face",
+  "@dirRowBottom": {
+    "description": "Move instruction: the D layer as seen on the front face."
+  },
+  "dirColumnRight": "Right column of the front face",
+  "@dirColumnRight": {
+    "description": "Move instruction: the R layer as seen on the front face."
+  },
+  "dirColumnLeft": "Left column of the front face",
+  "@dirColumnLeft": {
+    "description": "Move instruction: the L layer as seen on the front face."
+  },
+  "solveChoiceTitle": "How do you want to solve it?",
+  "@solveChoiceTitle": {
+    "description": "3D Playground Solve button: sheet title asking for Fast or Guided solve."
+  },
+  "solveChoiceFastDesc": "The shortest solution, played move by move.",
+  "@solveChoiceFastDesc": {
+    "description": "Solve choice sheet: description of Fast solve."
+  },
+  "solveChoiceGuidedDesc": "Learn the 3-crown method one step at a time.",
+  "@solveChoiceGuidedDesc": {
+    "description": "Solve choice sheet: description of the guided step-by-step solve."
+  },
+  "guidedSolvedTitle": "Solved!",
+  "@guidedSolvedTitle": {
+    "description": "Dialog title when the last step of a guided solve is done."
+  },
+  "guidedSolvedBody": "You followed every step and solved the cube.",
+  "@guidedSolvedBody": {
+    "description": "Dialog text when the last step of a guided solve is done."
+  },
+  "solveAgain": "Solve again",
+  "@solveAgain": {
+    "description": "Guided solve finished: solve the same cube again from the first step."
+  },
+  "backToHome": "Back to Home",
+  "@backToHome": {
+    "description": "Returns to the home screen."
+  },
+  "dailyStatTime": "Today's time",
+  "@dailyStatTime": {
+    "description": "Daily Challenge completion screen: caption of today's solve time."
+  },
+  "dailyStatBest": "Personal best",
+  "@dailyStatBest": {
+    "description": "Daily Challenge completion screen: caption of the personal best time."
+  },
+  "dailyStatStreak": "Current streak",
+  "@dailyStatStreak": {
+    "description": "Daily Challenge completion screen: caption of the current streak."
+  },
+  "dailyStatBestStreak": "Best streak",
+  "@dailyStatBestStreak": {
+    "description": "Daily Challenge completion screen: caption of the best streak."
+  },
+  "privacyPolicyTitle": "Privacy policy",
+  "@privacyPolicyTitle": {
+    "description": "Settings entry and title of the in-app privacy policy screen."
+  },
+  "settingsPrivacyPolicyDesc": "What CubeMentor stores and what the ads use.",
+  "@settingsPrivacyPolicyDesc": {
+    "description": "Subtitle of the Privacy policy entry in Settings."
+  },
+  "privacyIntro": "CubeMentor works without an account and without servers of its own. This page explains what stays on your device and what our ad partner uses.",
+  "@privacyIntro": {
+    "description": "Privacy policy: introduction."
+  },
+  "privacyDataTitle": "Your data stays on your device",
+  "@privacyDataTitle": {
+    "description": "Privacy policy section title: data stored on the device."
+  },
+  "privacyDataBody": "Your language, settings, lesson progress, solve times and daily streak are saved only on this device. We have no servers, so we never receive them. Uninstalling the app deletes them.",
+  "@privacyDataBody": {
+    "description": "Privacy policy section: data stored on the device."
+  },
+  "privacyCameraTitle": "Camera",
+  "@privacyCameraTitle": {
+    "description": "Privacy policy section title: camera use."
+  },
+  "privacyCameraBody": "The camera is used only while you scan a cube. Frames are analyzed on your device to read the sticker colors; no photo or video is saved or sent anywhere.",
+  "@privacyCameraBody": {
+    "description": "Privacy policy section: camera use."
+  },
+  "privacyAdsTitle": "Ads",
+  "@privacyAdsTitle": {
+    "description": "Privacy policy section title: advertising."
+  },
+  "privacyAdsBody": "The app shows ads from Google AdMob. Google may use device identifiers and ad interaction data to show and measure ads, as described in Google's privacy policy. Where the law requires it, you are asked for consent first and can change it in Settings.",
+  "@privacyAdsBody": {
+    "description": "Privacy policy section: advertising (Google AdMob)."
+  },
+  "privacyContactTitle": "Contact",
+  "@privacyContactTitle": {
+    "description": "Privacy policy section title: contact."
+  },
+  "privacyContactBody": "Questions about privacy? Write to us at {email}.",
+  "@privacyContactBody": {
+    "description": "Privacy policy section: contact email.",
+    "placeholders": {
+      "email": {
+        "type": "String",
+        "example": "name@example.com"
       }
     }
   }

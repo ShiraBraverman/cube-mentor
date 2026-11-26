@@ -190,6 +190,13 @@ class ScanSessionController extends Notifier<ScanSession> {
     _validate();
   }
 
+  /// Keeps the scanned colors but switches to fixing them by hand (the
+  /// "Fix colors by hand" action of an invalid scan).
+  void editManually() {
+    if (state.phase != ScanPhase.review) return;
+    state = state.copyWith(manual: true);
+  }
+
   /// Restarts the camera scan from the first face.
   void restart() => state = build();
 

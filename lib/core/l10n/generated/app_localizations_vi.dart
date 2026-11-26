@@ -1557,11 +1557,6 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String stageCrownHeader(int crown, int number, int total, String title) {
-    return 'Vương miện $crown • Giai đoạn $number/$total: $title';
-  }
-
-  @override
   String get solveAllStagesDone => 'Hoàn thành mọi giai đoạn. Làm tốt lắm!';
 
   @override
@@ -2530,5 +2525,142 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String cueParityFive(String front) {
     return 'Parity cạnh: hai viên ngoài của một cạnh bị đổi chỗ. Xoay cạnh đó ra phía trước, $front hướng về bạn, sửa lại rồi xoay về.';
+  }
+
+  @override
+  String get onboardingSkip => 'Bỏ qua';
+
+  @override
+  String get onboardingNext => 'Tiếp';
+
+  @override
+  String get onboardingStart => 'Bắt đầu';
+
+  @override
+  String get onboardingWhatTitle => 'Người bạn đồng hành với khối lập phương';
+
+  @override
+  String get onboardingWhatBody =>
+      'CubeMentor giúp bạn giải, học và luyện tập mọi khối từ 2×2 đến 6×6, hoàn toàn ngoại tuyến.';
+
+  @override
+  String get onboardingScanTitle => 'Quét và giải trong vài giây';
+
+  @override
+  String get onboardingScanBody =>
+      'Đưa từng mặt vào camera (hoặc chạm nhập màu) và làm theo lời giải 3D từng bước xoay.';
+
+  @override
+  String get onboardingLearnTitle => 'Học và chơi';
+
+  @override
+  String get onboardingLearnBody =>
+      'Thành thạo phương pháp 3 vương miện trong Học viện, rồi tự do xoay, xáo trộn và giải trong Sân chơi 3D.';
+
+  @override
+  String get scanChoiceManualDesc =>
+      'Chạm nhập màu của từng mặt, từng nhãn dán một.';
+
+  @override
+  String get scanTryAgain => 'Thử lại';
+
+  @override
+  String get scanEditManually => 'Sửa màu thủ công';
+
+  @override
+  String get scanLightingHint =>
+      'Đặt mặt khối vào giữa lưới. Dùng ánh sáng mạnh, đều và tránh lóa.';
+
+  @override
+  String get crownExplain =>
+      'Vương miện là một tầng nằm ngang của khối: vương miện thứ nhất là tầng trắng ở dưới, thứ hai là tầng giữa và thứ ba là tầng vàng ở trên.';
+
+  @override
+  String get lessonObjectiveHeading => 'Mục tiêu bài học';
+
+  @override
+  String get dirRowTop => 'Hàng trên của mặt trước';
+
+  @override
+  String get dirRowBottom => 'Hàng dưới của mặt trước';
+
+  @override
+  String get dirColumnRight => 'Cột phải của mặt trước';
+
+  @override
+  String get dirColumnLeft => 'Cột trái của mặt trước';
+
+  @override
+  String get solveChoiceTitle => 'Bạn muốn giải theo cách nào?';
+
+  @override
+  String get solveChoiceFastDesc => 'Lời giải ngắn nhất, từng bước xoay.';
+
+  @override
+  String get solveChoiceGuidedDesc =>
+      'Học phương pháp 3 vương miện từng bước một.';
+
+  @override
+  String get guidedSolvedTitle => 'Đã giải xong!';
+
+  @override
+  String get guidedSolvedBody => 'Bạn đã làm theo mọi bước và giải xong khối.';
+
+  @override
+  String get solveAgain => 'Giải lại';
+
+  @override
+  String get backToHome => 'Về trang chủ';
+
+  @override
+  String get dailyStatTime => 'Thời gian hôm nay';
+
+  @override
+  String get dailyStatBest => 'Kỷ lục cá nhân';
+
+  @override
+  String get dailyStatStreak => 'Chuỗi hiện tại';
+
+  @override
+  String get dailyStatBestStreak => 'Chuỗi dài nhất';
+
+  @override
+  String get privacyPolicyTitle => 'Chính sách quyền riêng tư';
+
+  @override
+  String get settingsPrivacyPolicyDesc =>
+      'CubeMentor lưu gì và quảng cáo dùng gì.';
+
+  @override
+  String get privacyIntro =>
+      'CubeMentor hoạt động không cần tài khoản và không có máy chủ riêng. Trang này giải thích những gì ở lại trên thiết bị của bạn và những gì đối tác quảng cáo của chúng tôi sử dụng.';
+
+  @override
+  String get privacyDataTitle => 'Dữ liệu của bạn ở lại trên thiết bị';
+
+  @override
+  String get privacyDataBody =>
+      'Ngôn ngữ, cài đặt, tiến độ bài học, thời gian giải và chuỗi hằng ngày chỉ được lưu trên thiết bị này. Chúng tôi không có máy chủ nên không bao giờ nhận được chúng. Gỡ cài đặt ứng dụng sẽ xóa chúng.';
+
+  @override
+  String get privacyCameraTitle => 'Camera';
+
+  @override
+  String get privacyCameraBody =>
+      'Camera chỉ được dùng khi bạn quét khối. Hình ảnh được phân tích ngay trên thiết bị để đọc màu nhãn dán; không ảnh hay video nào được lưu hoặc gửi đi.';
+
+  @override
+  String get privacyAdsTitle => 'Quảng cáo';
+
+  @override
+  String get privacyAdsBody =>
+      'Ứng dụng hiển thị quảng cáo của Google AdMob. Google có thể dùng mã nhận dạng thiết bị và dữ liệu tương tác quảng cáo để hiển thị và đo lường quảng cáo, như mô tả trong chính sách quyền riêng tư của Google. Ở nơi pháp luật yêu cầu, bạn sẽ được hỏi ý kiến đồng ý trước và có thể thay đổi trong Cài đặt.';
+
+  @override
+  String get privacyContactTitle => 'Liên hệ';
+
+  @override
+  String privacyContactBody(String email) {
+    return 'Có câu hỏi về quyền riêng tư? Hãy viết cho chúng tôi tại $email.';
   }
 }

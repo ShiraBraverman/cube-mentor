@@ -21,6 +21,7 @@ import 'fake_cube_solver.dart';
 /// are tuned to that pace (the app's default is calmer).
 Future<SharedPreferences> _prefs([Map<String, Object> values = const {}]) {
   SharedPreferences.setMockInitialValues({
+    'onboarding_done': true,
     'settings_animation_speed': 1.0,
     ...values,
   });
@@ -66,6 +67,12 @@ Future<void> _openSolver(WidgetTester tester) async {
 
 TextDirection _directionOf(WidgetTester tester) =>
     Directionality.of(tester.element(find.byType(Scaffold).first));
+
+/// Picks the guided solve on the Playground's Fast / Guided sheet.
+Future<void> _pickGuided(WidgetTester tester) async {
+  await tester.tap(find.byKey(const ValueKey('solve-choice-guided')));
+  await _advance(tester, 8);
+}
 
 void main() {
   testWidgets('home shows every cube size in English, LTR', (tester) async {
@@ -217,9 +224,18 @@ void main() {
     await _advance(tester, 16);
     expect(container.read(cubeSessionProvider(3)).isIdle, isTrue);
 
-    // Solve defaults to the guided 3-crown method: no question asked.
+    // Solve asks Fast or Guided, like the post-scan review; Fast first.
     await tester.tap(find.byKey(const ValueKey('solve')));
     await _advance(tester, 8);
+    expect(find.byKey(const ValueKey('solve-choice-sheet')), findsOneWidget);
+    expect(solver.calls, isEmpty);
+    expect(
+      tester.getTopLeft(find.byKey(const ValueKey('solve-choice-fast'))).dy,
+      lessThan(
+        tester.getTopLeft(find.byKey(const ValueKey('solve-choice-guided'))).dy,
+      ),
+    );
+    await _pickGuided(tester);
     expect(solver.calls, [SolveMethod.layerByLayer]);
 
     // The first sub-step opens with its goal card; dismiss it to play.
@@ -236,7 +252,7 @@ void main() {
 
     // Banner: crown tracker, sub-step, explanation and the move to make.
     // Stages, not move counts.
-    expect(find.text('Crown 1 • Stage 1 of 7: White cross'), findsOneWidget);
+    expect(find.text('1.1 White cross'), findsOneWidget);
     expect(find.textContaining('Step 1 of'), findsNothing);
     expect(find.byKey(const ValueKey('stage-progress')), findsOneWidget);
     expect(find.byKey(const ValueKey('crown-1')), findsOneWidget);
@@ -247,7 +263,7 @@ void main() {
     );
     // The move as words and an arrow, never as a notation letter.
     expect(find.text("U'"), findsNothing);
-    expect(find.text('Top row'), findsOneWidget);
+    expect(find.text('Top row of the front face'), findsOneWidget);
     expect(find.text('Right'), findsOneWidget);
     expect(find.byKey(const ValueKey('move-arrow-right')), findsOneWidget);
 
@@ -272,7 +288,7 @@ void main() {
     await _advance(tester, 8);
     expect(find.byKey(const ValueKey('solve-details')), findsNothing);
     expect(container.read(cubeSessionProvider(3)).isGuiding, isTrue);
-    expect(find.text('Top row'), findsOneWidget);
+    expect(find.text('Top row of the front face'), findsOneWidget);
     final folded = tester.getSize(find.byType(CubeViewport)).height;
     expect(folded, greaterThan(cubeRect.height), reason: 'the cube grew');
     await tester.tap(find.byKey(const ValueKey('solve-collapse')));
@@ -312,10 +328,7 @@ void main() {
     );
     await tester.tap(find.byKey(const ValueKey('intro-start')));
     await _advance(tester, 12);
-    expect(
-      find.text('Crown 1 • Stage 2 of 7: First crown corners'),
-      findsOneWidget,
-    );
+    expect(find.text('1.2 First crown corners'), findsOneWidget);
 
     // The flag in the banner reopens the card at any time.
     await tester.tap(find.byKey(const ValueKey('solve-intro-open')));
@@ -333,15 +346,18 @@ void main() {
     expect(find.text('Way to go!'), findsOneWidget);
     expect(find.text('Cube solved!'), findsOneWidget);
     expect(find.text('Solved'), findsOneWidget);
+    // The guided solve ends on the "Solved!" dialog; tapping outside
+    // closes it and keeps the finished solution.
+    expect(find.byKey(const ValueKey('guided-solved')), findsOneWidget);
+    await tester.tapAt(const Offset(8, 8));
+    await _advance(tester, 8);
+    expect(find.byKey(const ValueKey('guided-solved')), findsNothing);
 
     // Stepping back replays the solution in reverse.
     await tester.tap(find.byKey(const ValueKey('playback-prev')));
     await _advance(tester, 12);
     expect(container.read(cubeSessionProvider(3)).cube.isSolved, isFalse);
-    expect(
-      find.text('Crown 1 • Stage 2 of 7: First crown corners'),
-      findsOneWidget,
-    );
+    expect(find.text('1.2 First crown corners'), findsOneWidget);
 
     // The toggle re-solves from here with the fast solver, and remembers it.
     await tester.tap(find.byKey(const ValueKey('solve-mode-fast')));
@@ -408,6 +424,7 @@ void main() {
     await _advance(tester, 16);
     await tester.tap(find.byKey(const ValueKey('solve')));
     await _advance(tester, 8);
+    await _pickGuided(tester);
 
     // 1.1 opens by itself; switch auto-show off from inside the sheet.
     expect(find.byKey(const ValueKey('lesson-intro')), findsOneWidget);
@@ -463,9 +480,10 @@ void main() {
     );
     container.read(cubeSessionProvider(2).notifier).turnNotation('R');
     await _advance(tester, 10);
-    // The 2x2 solves guided by default too (its three stages).
+    // The 2x2 offers the same choice (guided: its three stages).
     await tester.tap(find.byKey(const ValueKey('solve')));
     await _advance(tester, 4);
+    await _pickGuided(tester);
     expect(solver.calls, [SolveMethod.layerByLayer]);
     expect(find.text("This cube can't be solved (internal)."), findsOneWidget);
     expect(container.read(cubeSessionProvider(2)).hasPlayback, isFalse);
@@ -578,6 +596,7 @@ void main() {
       );
       await tester.tap(find.byKey(const ValueKey('solve')));
       await _advance(tester, 8);
+      await _pickGuided(tester);
       expect(find.text('Stage 2 of 2: Finish the cube'), findsOneWidget);
       // The arrow points out the expected move; its layer is in focus.
       expect(painter(tester).guide?.notation, 'R');
@@ -620,6 +639,21 @@ void main() {
         2,
       );
       expect(painter(tester).guide, isNull);
+
+      // The end of a guided solve: "Solved!" with Solve again / Home.
+      expect(find.byKey(const ValueKey('guided-solved')), findsOneWidget);
+      expect(find.text('Solved!'), findsOneWidget);
+      expect(find.text('Back to Home'), findsOneWidget);
+      // Solve again: the same scramble, solved again from the first step.
+      final solves = solver.calls.length;
+      await tester.tap(find.byKey(const ValueKey('guided-solved-again')));
+      await _advance(tester, 8);
+      expect(find.byKey(const ValueKey('guided-solved')), findsNothing);
+      expect(solver.calls, hasLength(solves + 1));
+      session = container.read(cubeSessionProvider(3));
+      expect(session.cube.isSolved, isFalse);
+      expect(session.playbackIndex, 0);
+      expect(session.hasPlayback, isTrue);
 
       // Exiting the guide returns to free play (once the snack bar left).
       await tester.pump(const Duration(seconds: 3));

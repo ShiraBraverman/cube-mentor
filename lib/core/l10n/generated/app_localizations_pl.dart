@@ -1582,11 +1582,6 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String stageCrownHeader(int crown, int number, int total, String title) {
-    return 'Korona $crown • Etap $number z $total: $title';
-  }
-
-  @override
   String get solveAllStagesDone => 'Wszystkie etapy ukończone. Brawo!';
 
   @override
@@ -2627,5 +2622,142 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String cueParityFive(String front) {
     return 'Parzystość krawędzi: dwa zewnętrzne elementy jednej krawędzi są zamienione. Obróć tę krawędź do przodu, kolor $front przodem do siebie, popraw i obróć z powrotem.';
+  }
+
+  @override
+  String get onboardingSkip => 'Pomiń';
+
+  @override
+  String get onboardingNext => 'Dalej';
+
+  @override
+  String get onboardingStart => 'Zaczynamy';
+
+  @override
+  String get onboardingWhatTitle => 'Twój kostkowy towarzysz';
+
+  @override
+  String get onboardingWhatBody =>
+      'CubeMentor pomaga układać, poznawać i ćwiczyć każdą kostkę od 2×2 do 6×6 — całkowicie offline.';
+
+  @override
+  String get onboardingScanTitle => 'Skanuj i układaj w kilka sekund';
+
+  @override
+  String get onboardingScanBody =>
+      'Pokaż aparatowi każdą ścianę (albo wpisz kolory) i podążaj za rozwiązaniem 3D ruch po ruchu.';
+
+  @override
+  String get onboardingLearnTitle => 'Ucz się i baw';
+
+  @override
+  String get onboardingLearnBody =>
+      'Opanuj metodę trzech koron w Akademii, a potem swobodnie kręć, mieszaj i układaj na placu zabaw 3D.';
+
+  @override
+  String get scanChoiceManualDesc =>
+      'Wpisz kolory każdej ściany, naklejka po naklejce.';
+
+  @override
+  String get scanTryAgain => 'Spróbuj ponownie';
+
+  @override
+  String get scanEditManually => 'Popraw kolory ręcznie';
+
+  @override
+  String get scanLightingHint =>
+      'Ustaw ścianę na środku siatki. Użyj jasnego, równego światła i unikaj odblasków.';
+
+  @override
+  String get crownExplain =>
+      'Korona to jedna pozioma warstwa kostki: pierwsza korona to biała warstwa na dole, druga to środkowa warstwa, a trzecia to żółta warstwa na górze.';
+
+  @override
+  String get lessonObjectiveHeading => 'Cel lekcji';
+
+  @override
+  String get dirRowTop => 'Górny rząd przedniej ściany';
+
+  @override
+  String get dirRowBottom => 'Dolny rząd przedniej ściany';
+
+  @override
+  String get dirColumnRight => 'Prawa kolumna przedniej ściany';
+
+  @override
+  String get dirColumnLeft => 'Lewa kolumna przedniej ściany';
+
+  @override
+  String get solveChoiceTitle => 'Jak chcesz ją ułożyć?';
+
+  @override
+  String get solveChoiceFastDesc => 'Najkrótsze rozwiązanie, ruch po ruchu.';
+
+  @override
+  String get solveChoiceGuidedDesc =>
+      'Poznaj metodę trzech koron krok po kroku.';
+
+  @override
+  String get guidedSolvedTitle => 'Ułożona!';
+
+  @override
+  String get guidedSolvedBody => 'Wszystkie kroki za Tobą — kostka ułożona.';
+
+  @override
+  String get solveAgain => 'Ułóż ponownie';
+
+  @override
+  String get backToHome => 'Wróć do ekranu głównego';
+
+  @override
+  String get dailyStatTime => 'Dzisiejszy czas';
+
+  @override
+  String get dailyStatBest => 'Rekord osobisty';
+
+  @override
+  String get dailyStatStreak => 'Obecna seria';
+
+  @override
+  String get dailyStatBestStreak => 'Najdłuższa seria';
+
+  @override
+  String get privacyPolicyTitle => 'Polityka prywatności';
+
+  @override
+  String get settingsPrivacyPolicyDesc =>
+      'Co zapisuje CubeMentor i z czego korzystają reklamy.';
+
+  @override
+  String get privacyIntro =>
+      'CubeMentor działa bez konta i bez własnych serwerów. Ta strona wyjaśnia, co zostaje na Twoim urządzeniu i z czego korzysta nasz partner reklamowy.';
+
+  @override
+  String get privacyDataTitle => 'Twoje dane zostają na urządzeniu';
+
+  @override
+  String get privacyDataBody =>
+      'Język, ustawienia, postępy w lekcjach, czasy ułożeń i dzienna seria są zapisywane tylko na tym urządzeniu. Nie mamy serwerów, więc nigdy ich nie otrzymujemy. Odinstalowanie aplikacji je usuwa.';
+
+  @override
+  String get privacyCameraTitle => 'Aparat';
+
+  @override
+  String get privacyCameraBody =>
+      'Aparat jest używany tylko podczas skanowania kostki. Klatki są analizowane na urządzeniu, aby odczytać kolory naklejek; żadne zdjęcie ani film nie jest zapisywane ani wysyłane.';
+
+  @override
+  String get privacyAdsTitle => 'Reklamy';
+
+  @override
+  String get privacyAdsBody =>
+      'Aplikacja wyświetla reklamy Google AdMob. Google może używać identyfikatorów urządzenia i danych o interakcjach z reklamami, aby je wyświetlać i mierzyć, zgodnie z polityką prywatności Google. Tam, gdzie wymaga tego prawo, najpierw prosimy o zgodę, którą możesz zmienić w Ustawieniach.';
+
+  @override
+  String get privacyContactTitle => 'Kontakt';
+
+  @override
+  String privacyContactBody(String email) {
+    return 'Pytania o prywatność? Napisz do nas: $email.';
   }
 }

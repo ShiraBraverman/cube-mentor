@@ -26,6 +26,7 @@ import 'model/guide_script.dart';
 import 'widgets/cube_viewport.dart';
 import 'widgets/double_turn_badge.dart';
 import 'widgets/move_pad.dart';
+import 'widgets/solve_dialogs.dart';
 import 'widgets/solve_banner.dart';
 
 /// 3D playground: a full-bleed touch-driven cube under context-aware
@@ -142,6 +143,23 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
     if (!_quickSolveFinished) return;
     _quickSolveFinished = false;
     unawaited(ref.read(interstitialPacerProvider.notifier).maybeShow());
+  }
+
+  Future<void> _showGuidedSolved() async {
+    final action = await showDialog<GuidedSolvedAction>(
+      context: context,
+      builder: (_) => const GuidedSolvedDialog(),
+    );
+    if (!mounted) return;
+    switch (action) {
+      case GuidedSolvedAction.solveAgain:
+        _leaveFinishedSolve();
+        await ref.read(cubeSessionProvider(widget.size).notifier).solveAgain();
+      case GuidedSolvedAction.home:
+        Navigator.of(context).popUntil((route) => route.isFirst);
+      case null:
+        break;
+    }
   }
 
   /// Sub-steps of the loaded guided solution whose goal card was shown.
@@ -289,6 +307,21 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
         if (size > 3 || previous != false || !next) return;
         _quickSolveFinished = true;
         unawaited(ref.read(interstitialPacerProvider.notifier).recordSolve());
+      },
+    );
+
+    // The last step of a guided (step-by-step) solve: the "Solved!" dialog
+    // with Solve again and Back to Home, once the final turn has landed.
+    ref.listen(
+      cubeSessionProvider(size).select(
+        (s) =>
+            s.isComplete &&
+            s.isIdle &&
+            s.solvedWith == SolveMethod.layerByLayer,
+      ),
+      (previous, next) {
+        if (widget.challenge || previous != false || !next) return;
+        _showGuidedSolved();
       },
     );
 
@@ -932,11 +965,18 @@ extension on _ActionBar {
       onNotice(l10n.solveUnavailable(size));
       return;
     }
-    // Guided by default. Only sizes with both modes (2x2, 3x3) follow the
-    // remembered Guided / Fast choice; bigger cubes are always guided.
-    final method = guided && fast
-        ? ref.read(solvePreferenceProvider)
-        : (guided ? SolveMethod.layerByLayer : SolveMethod.fast);
+    // Sizes with both modes (2x2, 3x3) ask, like the post-scan review:
+    // Fast Solve first, or the guided step-by-step solve. Bigger cubes are
+    // always guided.
+    final SolveMethod method;
+    if (guided && fast) {
+      final picked = await showSolveChoiceSheet(context);
+      if (picked == null || !context.mounted) return;
+      unawaited(ref.read(solvePreferenceProvider.notifier).set(picked));
+      method = picked;
+    } else {
+      method = guided ? SolveMethod.layerByLayer : SolveMethod.fast;
+    }
     // 4x4-6x6: the first solve is free, then a rewarded video unlocks 24 h.
     if (!await ensureBigCubeSolve(context, ref, size)) return;
     await controller.solve(method);

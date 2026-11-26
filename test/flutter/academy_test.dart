@@ -263,7 +263,7 @@ void main() {
   testWidgets('academy tab → continue learning → lesson with 3D demo → done', (
     tester,
   ) async {
-    SharedPreferences.setMockInitialValues({});
+    SharedPreferences.setMockInitialValues({'onboarding_done': true});
     final prefs = await SharedPreferences.getInstance();
     tester.view.physicalSize = const Size(1080, 2340);
     tester.view.devicePixelRatio = 2.75;
@@ -297,7 +297,9 @@ void main() {
     // The lesson opens on its goal card: live preview, goal and how-to.
     expect(find.byKey(const ValueKey('lesson-intro')), findsOneWidget);
     expect(find.byKey(const ValueKey('intro-preview')), findsOneWidget);
-    expect(find.text("What's the goal?"), findsOneWidget);
+    // A learning objective, unlike the solver's "What's the goal?".
+    expect(find.text('Learning objective'), findsOneWidget);
+    expect(find.text("What's the goal?"), findsNothing);
     expect(find.textContaining('Learn to read the cube'), findsOneWidget);
     expect(find.textContaining('Centers never move'), findsOneWidget);
     expect(find.text('Part 1 of 3'), findsNothing);
@@ -332,7 +334,7 @@ void main() {
     await _advance(tester, 4);
     expect(find.text('Example 1 of 2'), findsOneWidget);
     expect(find.text('Six face letters'), findsOneWidget);
-    expect(find.text('Right side'), findsOneWidget);
+    expect(find.text('Right column of the front face'), findsOneWidget);
     expect(find.text('Up'), findsOneWidget);
     expect(find.byKey(const ValueKey('move-arrow-up')), findsOneWidget);
     expect(find.textContaining('Turn the red face'), findsOneWidget);
@@ -496,7 +498,10 @@ void main() {
   testWidgets('the Academy lists every track in Hebrew, right to left', (
     tester,
   ) async {
-    SharedPreferences.setMockInitialValues({'app_locale': 'he'});
+    SharedPreferences.setMockInitialValues({
+      'app_locale': 'he',
+      'onboarding_done': true,
+    });
     final prefs = await SharedPreferences.getInstance();
     tester.view.physicalSize = const Size(1080, 2340);
     tester.view.devicePixelRatio = 2.75;
@@ -520,7 +525,10 @@ void main() {
       200,
       scrollable: find.byType(Scrollable).last,
     );
-    expect(find.text('1.1 איקס לבן מותאם למרכזים'), findsWidgets);
+    // One numbering: the sub-step badge and the lesson's name.
+    expect(find.text('1.1'), findsWidgets);
+    expect(find.text('איקס לבן מותאם למרכזים'), findsWidgets);
+    expect(find.byKey(const ValueKey('academy-crown-explain')), findsOneWidget);
     expect(find.byKey(const ValueKey('academy-crown-1')), findsOneWidget);
     expect(
       Directionality.of(tester.element(find.text('אקדמיה').first)),

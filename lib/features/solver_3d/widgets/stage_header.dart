@@ -27,16 +27,12 @@ String stageTitle(AppLocalizations l10n, SolveStage stage) =>
       StageKind.twoFinish => l10n.stageTwoFinish,
     };
 
-/// "Crown 1 • Stage 1 of 7: White cross" (3x3 beginner's method) or
+/// "1.1 White cross" for the 3x3 beginner's method, numbered exactly like
+/// its Academy lesson (the crown badges beside it show the crown), or
 /// "Stage 2 of 6: Pair outer & inner edges".
 String stageHeadline(AppLocalizations l10n, SolveStage stage) =>
     stage.kind == StageKind.subStep
-    ? l10n.stageCrownHeader(
-        stage.crown,
-        stage.number,
-        stage.total,
-        stageTitle(l10n, stage),
-      )
+    ? '${stage.crown}.${stage.subStep} ${stageTitle(l10n, stage)}'
     : l10n.stageHeader(stage.number, stage.total, stageTitle(l10n, stage));
 
 /// Where the learner is: the stage headline, a progress bar for this stage

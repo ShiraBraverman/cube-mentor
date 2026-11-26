@@ -1562,11 +1562,6 @@ class AppLocalizationsBn extends AppLocalizations {
   }
 
   @override
-  String stageCrownHeader(int crown, int number, int total, String title) {
-    return 'মুকুট $crown • ধাপ $number/$total: $title';
-  }
-
-  @override
   String get solveAllStagesDone => 'সব ধাপ শেষ। খুব ভালো!';
 
   @override
@@ -2527,5 +2522,142 @@ class AppLocalizationsBn extends AppLocalizations {
   @override
   String cueParityFive(String front) {
     return 'কিনারা প্যারিটি: একটি কিনারার বাইরের দুটি টুকরোর জায়গা বদলে গেছে। সেই কিনারা সামনে আনুন, $front আপনার দিকে, ঠিক করুন আর ফিরিয়ে দিন।';
+  }
+
+  @override
+  String get onboardingSkip => 'এড়িয়ে যান';
+
+  @override
+  String get onboardingNext => 'পরবর্তী';
+
+  @override
+  String get onboardingStart => 'শুরু করুন';
+
+  @override
+  String get onboardingWhatTitle => 'আপনার কিউব সঙ্গী';
+
+  @override
+  String get onboardingWhatBody =>
+      'CubeMentor আপনাকে 2×2 থেকে 6×6 পর্যন্ত প্রতিটি কিউব সমাধান করতে, শিখতে ও অনুশীলন করতে সাহায্য করে, পুরোপুরি অফলাইনে।';
+
+  @override
+  String get onboardingScanTitle => 'কয়েক সেকেন্ডে স্ক্যান করে সমাধান';
+
+  @override
+  String get onboardingScanBody =>
+      'প্রতিটি দিক ক্যামেরায় দেখান (বা রং ট্যাপ করে দিন) এবং 3D সমাধান এক চাল করে অনুসরণ করুন।';
+
+  @override
+  String get onboardingLearnTitle => 'শিখুন আর খেলুন';
+
+  @override
+  String get onboardingLearnBody =>
+      'অ্যাকাডেমিতে ৩-মুকুট পদ্ধতি আয়ত্ত করুন, তারপর 3D প্লেগ্রাউন্ডে ইচ্ছেমতো ঘোরান, এলোমেলো করুন ও সমাধান করুন।';
+
+  @override
+  String get scanChoiceManualDesc =>
+      'প্রতিটি দিকের রং একটি একটি স্টিকার করে ট্যাপ করে দিন।';
+
+  @override
+  String get scanTryAgain => 'আবার চেষ্টা করুন';
+
+  @override
+  String get scanEditManually => 'হাতে রং ঠিক করুন';
+
+  @override
+  String get scanLightingHint =>
+      'দিকটি গ্রিডের মাঝখানে রাখুন। উজ্জ্বল, সমান আলো ব্যবহার করুন এবং ঝলক এড়িয়ে চলুন।';
+
+  @override
+  String get crownExplain =>
+      'মুকুট হলো কিউবের একটি অনুভূমিক স্তর: প্রথম মুকুট নিচের সাদা স্তর, দ্বিতীয়টি মাঝের স্তর এবং তৃতীয়টি উপরের হলুদ স্তর।';
+
+  @override
+  String get lessonObjectiveHeading => 'শেখার লক্ষ্য';
+
+  @override
+  String get dirRowTop => 'সামনের দিকের উপরের সারি';
+
+  @override
+  String get dirRowBottom => 'সামনের দিকের নিচের সারি';
+
+  @override
+  String get dirColumnRight => 'সামনের দিকের ডান কলাম';
+
+  @override
+  String get dirColumnLeft => 'সামনের দিকের বাঁ কলাম';
+
+  @override
+  String get solveChoiceTitle => 'আপনি কীভাবে সমাধান করতে চান?';
+
+  @override
+  String get solveChoiceFastDesc => 'সবচেয়ে ছোট সমাধান, এক চাল করে।';
+
+  @override
+  String get solveChoiceGuidedDesc => '৩-মুকুট পদ্ধতি ধাপে ধাপে শিখুন।';
+
+  @override
+  String get guidedSolvedTitle => 'সমাধান হয়েছে!';
+
+  @override
+  String get guidedSolvedBody =>
+      'আপনি প্রতিটি ধাপ অনুসরণ করে কিউব সমাধান করেছেন।';
+
+  @override
+  String get solveAgain => 'আবার সমাধান করুন';
+
+  @override
+  String get backToHome => 'হোমে ফিরে যান';
+
+  @override
+  String get dailyStatTime => 'আজকের সময়';
+
+  @override
+  String get dailyStatBest => 'ব্যক্তিগত সেরা';
+
+  @override
+  String get dailyStatStreak => 'বর্তমান ধারা';
+
+  @override
+  String get dailyStatBestStreak => 'সেরা ধারা';
+
+  @override
+  String get privacyPolicyTitle => 'গোপনীয়তা নীতি';
+
+  @override
+  String get settingsPrivacyPolicyDesc =>
+      'CubeMentor কী সংরক্ষণ করে আর বিজ্ঞাপন কী ব্যবহার করে।';
+
+  @override
+  String get privacyIntro =>
+      'CubeMentor কোনো অ্যাকাউন্ট ও নিজস্ব সার্ভার ছাড়াই চলে। এই পৃষ্ঠায় বলা আছে কী আপনার ডিভাইসে থাকে এবং আমাদের বিজ্ঞাপন অংশীদার কী ব্যবহার করে।';
+
+  @override
+  String get privacyDataTitle => 'আপনার ডেটা আপনার ডিভাইসেই থাকে';
+
+  @override
+  String get privacyDataBody =>
+      'আপনার ভাষা, সেটিংস, পাঠের অগ্রগতি, সমাধানের সময় ও দৈনিক ধারা শুধু এই ডিভাইসে সংরক্ষিত হয়। আমাদের কোনো সার্ভার নেই, তাই আমরা কখনো এগুলো পাই না। অ্যাপ আনইনস্টল করলে এগুলো মুছে যায়।';
+
+  @override
+  String get privacyCameraTitle => 'ক্যামেরা';
+
+  @override
+  String get privacyCameraBody =>
+      'ক্যামেরা শুধু কিউব স্ক্যান করার সময় ব্যবহৃত হয়। স্টিকারের রং পড়তে ছবিগুলো আপনার ডিভাইসেই বিশ্লেষণ করা হয়; কোনো ছবি বা ভিডিও সংরক্ষণ বা পাঠানো হয় না।';
+
+  @override
+  String get privacyAdsTitle => 'বিজ্ঞাপন';
+
+  @override
+  String get privacyAdsBody =>
+      'অ্যাপটি Google AdMob-এর বিজ্ঞাপন দেখায়। Google-এর গোপনীয়তা নীতিতে যেমন বলা আছে, বিজ্ঞাপন দেখাতে ও পরিমাপ করতে Google ডিভাইস শনাক্তকারী ও বিজ্ঞাপনের সঙ্গে মিথস্ক্রিয়ার ডেটা ব্যবহার করতে পারে। যেখানে আইন অনুযায়ী প্রয়োজন, সেখানে আগে আপনার সম্মতি চাওয়া হয় এবং আপনি সেটিংসে তা বদলাতে পারেন।';
+
+  @override
+  String get privacyContactTitle => 'যোগাযোগ';
+
+  @override
+  String privacyContactBody(String email) {
+    return 'গোপনীয়তা নিয়ে প্রশ্ন আছে? আমাদের $email-এ লিখুন।';
   }
 }

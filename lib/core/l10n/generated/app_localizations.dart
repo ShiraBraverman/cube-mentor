@@ -2782,12 +2782,6 @@ abstract class AppLocalizations {
   /// **'Stage {number} of {total}: {title}'**
   String stageHeader(int number, int total, String title);
 
-  /// No description provided for @stageCrownHeader.
-  ///
-  /// In en, this message translates to:
-  /// **'Crown {crown} • Stage {number} of {total}: {title}'**
-  String stageCrownHeader(int crown, int number, int total, String title);
-
   /// No description provided for @solveAllStagesDone.
   ///
   /// In en, this message translates to:
@@ -4299,6 +4293,252 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Edge parity: the two outer pieces of one edge are swapped. Turn that edge to the front, {front} facing you, apply the fix, and turn back.'**
   String cueParityFive(String front);
+
+  /// First-launch intro: skips the remaining pages.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get onboardingSkip;
+
+  /// First-launch intro: goes to the next page.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get onboardingNext;
+
+  /// First-launch intro: last page button that opens the app.
+  ///
+  /// In en, this message translates to:
+  /// **'Get started'**
+  String get onboardingStart;
+
+  /// First-launch intro, page 1 title: what CubeMentor is.
+  ///
+  /// In en, this message translates to:
+  /// **'Your cube companion'**
+  String get onboardingWhatTitle;
+
+  /// First-launch intro, page 1 text.
+  ///
+  /// In en, this message translates to:
+  /// **'CubeMentor helps you solve, learn and practice every cube from 2×2 to 6×6, fully offline.'**
+  String get onboardingWhatBody;
+
+  /// First-launch intro, page 2 title: scanning and solving.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan & solve in seconds'**
+  String get onboardingScanTitle;
+
+  /// First-launch intro, page 2 text.
+  ///
+  /// In en, this message translates to:
+  /// **'Show each face to the camera (or tap in the colors) and follow the 3D solution move by move.'**
+  String get onboardingScanBody;
+
+  /// First-launch intro, page 3 title: Academy and 3D Playground.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn and play'**
+  String get onboardingLearnTitle;
+
+  /// First-launch intro, page 3 text.
+  ///
+  /// In en, this message translates to:
+  /// **'Master the 3-crown method in the Academy, then twist, scramble and solve freely in the 3D Playground.'**
+  String get onboardingLearnBody;
+
+  /// Scan & Solve sheet: description of the manual color entry choice.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap in the colors of each face, sticker by sticker.'**
+  String get scanChoiceManualDesc;
+
+  /// Scanner recovery button: start the camera / the scan again.
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get scanTryAgain;
+
+  /// Scan review: keep the scanned colors and fix them by tapping stickers.
+  ///
+  /// In en, this message translates to:
+  /// **'Fix colors by hand'**
+  String get scanEditManually;
+
+  /// Always-visible capture advice over the camera view.
+  ///
+  /// In en, this message translates to:
+  /// **'Center the face in the grid. Use bright, even light and avoid glare.'**
+  String get scanLightingHint;
+
+  /// Academy: one-sentence explanation of a crown (a horizontal layer) where crowns are first introduced.
+  ///
+  /// In en, this message translates to:
+  /// **'A crown is one horizontal layer of the cube: the first crown is the white layer at the bottom, the second is the middle layer and the third is the yellow layer on top.'**
+  String get crownExplain;
+
+  /// Heading of the learning-objective card at the start of an Academy lesson.
+  ///
+  /// In en, this message translates to:
+  /// **'Learning objective'**
+  String get lessonObjectiveHeading;
+
+  /// Move instruction: the U layer as seen on the front face.
+  ///
+  /// In en, this message translates to:
+  /// **'Top row of the front face'**
+  String get dirRowTop;
+
+  /// Move instruction: the D layer as seen on the front face.
+  ///
+  /// In en, this message translates to:
+  /// **'Bottom row of the front face'**
+  String get dirRowBottom;
+
+  /// Move instruction: the R layer as seen on the front face.
+  ///
+  /// In en, this message translates to:
+  /// **'Right column of the front face'**
+  String get dirColumnRight;
+
+  /// Move instruction: the L layer as seen on the front face.
+  ///
+  /// In en, this message translates to:
+  /// **'Left column of the front face'**
+  String get dirColumnLeft;
+
+  /// 3D Playground Solve button: sheet title asking for Fast or Guided solve.
+  ///
+  /// In en, this message translates to:
+  /// **'How do you want to solve it?'**
+  String get solveChoiceTitle;
+
+  /// Solve choice sheet: description of Fast solve.
+  ///
+  /// In en, this message translates to:
+  /// **'The shortest solution, played move by move.'**
+  String get solveChoiceFastDesc;
+
+  /// Solve choice sheet: description of the guided step-by-step solve.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn the 3-crown method one step at a time.'**
+  String get solveChoiceGuidedDesc;
+
+  /// Dialog title when the last step of a guided solve is done.
+  ///
+  /// In en, this message translates to:
+  /// **'Solved!'**
+  String get guidedSolvedTitle;
+
+  /// Dialog text when the last step of a guided solve is done.
+  ///
+  /// In en, this message translates to:
+  /// **'You followed every step and solved the cube.'**
+  String get guidedSolvedBody;
+
+  /// Guided solve finished: solve the same cube again from the first step.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve again'**
+  String get solveAgain;
+
+  /// Returns to the home screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to Home'**
+  String get backToHome;
+
+  /// Daily Challenge completion screen: caption of today's solve time.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s time'**
+  String get dailyStatTime;
+
+  /// Daily Challenge completion screen: caption of the personal best time.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal best'**
+  String get dailyStatBest;
+
+  /// Daily Challenge completion screen: caption of the current streak.
+  ///
+  /// In en, this message translates to:
+  /// **'Current streak'**
+  String get dailyStatStreak;
+
+  /// Daily Challenge completion screen: caption of the best streak.
+  ///
+  /// In en, this message translates to:
+  /// **'Best streak'**
+  String get dailyStatBestStreak;
+
+  /// Settings entry and title of the in-app privacy policy screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy policy'**
+  String get privacyPolicyTitle;
+
+  /// Subtitle of the Privacy policy entry in Settings.
+  ///
+  /// In en, this message translates to:
+  /// **'What CubeMentor stores and what the ads use.'**
+  String get settingsPrivacyPolicyDesc;
+
+  /// Privacy policy: introduction.
+  ///
+  /// In en, this message translates to:
+  /// **'CubeMentor works without an account and without servers of its own. This page explains what stays on your device and what our ad partner uses.'**
+  String get privacyIntro;
+
+  /// Privacy policy section title: data stored on the device.
+  ///
+  /// In en, this message translates to:
+  /// **'Your data stays on your device'**
+  String get privacyDataTitle;
+
+  /// Privacy policy section: data stored on the device.
+  ///
+  /// In en, this message translates to:
+  /// **'Your language, settings, lesson progress, solve times and daily streak are saved only on this device. We have no servers, so we never receive them. Uninstalling the app deletes them.'**
+  String get privacyDataBody;
+
+  /// Privacy policy section title: camera use.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera'**
+  String get privacyCameraTitle;
+
+  /// Privacy policy section: camera use.
+  ///
+  /// In en, this message translates to:
+  /// **'The camera is used only while you scan a cube. Frames are analyzed on your device to read the sticker colors; no photo or video is saved or sent anywhere.'**
+  String get privacyCameraBody;
+
+  /// Privacy policy section title: advertising.
+  ///
+  /// In en, this message translates to:
+  /// **'Ads'**
+  String get privacyAdsTitle;
+
+  /// Privacy policy section: advertising (Google AdMob).
+  ///
+  /// In en, this message translates to:
+  /// **'The app shows ads from Google AdMob. Google may use device identifiers and ad interaction data to show and measure ads, as described in Google\'s privacy policy. Where the law requires it, you are asked for consent first and can change it in Settings.'**
+  String get privacyAdsBody;
+
+  /// Privacy policy section title: contact.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact'**
+  String get privacyContactTitle;
+
+  /// Privacy policy section: contact email.
+  ///
+  /// In en, this message translates to:
+  /// **'Questions about privacy? Write to us at {email}.'**
+  String privacyContactBody(String email);
 }
 
 class _AppLocalizationsDelegate

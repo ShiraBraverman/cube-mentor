@@ -232,11 +232,17 @@ class LessonIntroCard extends StatefulWidget {
     required this.lesson,
     required this.onStart,
     this.previewHeight = 200,
+    this.objective = false,
   });
 
   final Lesson lesson;
   final VoidCallback onStart;
   final double previewHeight;
+
+  /// Inside an Academy lesson: the goal reads as a gold "Learning
+  /// objective" (what you will learn), unlike the solver's "What's the
+  /// goal?" card for the step being solved.
+  final bool objective;
 
   @override
   State<LessonIntroCard> createState() => _LessonIntroCardState();
@@ -324,13 +330,23 @@ class _LessonIntroCardState extends State<LessonIntroCard> {
                 ),
                 const SizedBox(height: 10),
                 GlassCard(
+                  key: ValueKey(
+                    widget.objective ? 'intro-objective' : 'intro-goal-card',
+                  ),
+                  selected: widget.objective,
+                  accent: widget.objective ? AppColors.gold : AppColors.accent,
                   padding: const EdgeInsetsDirectional.fromSTEB(14, 12, 14, 12),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       _Heading(
-                        icon: Icons.flag_rounded,
-                        text: l10n.introGoalHeading,
+                        icon: widget.objective
+                            ? Icons.school_rounded
+                            : Icons.flag_rounded,
+                        text: widget.objective
+                            ? l10n.lessonObjectiveHeading
+                            : l10n.introGoalHeading,
+                        color: widget.objective ? AppColors.gold : null,
                       ),
                       const SizedBox(height: 4),
                       Text(
@@ -387,22 +403,25 @@ class _LessonIntroCardState extends State<LessonIntroCard> {
 }
 
 class _Heading extends StatelessWidget {
-  const _Heading({required this.icon, required this.text});
+  const _Heading({required this.icon, required this.text, this.color});
 
   final IconData icon;
   final String text;
+
+  /// Defaults to the accent.
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(icon, size: 18, color: AppColors.accent),
+        Icon(icon, size: 18, color: color ?? AppColors.accent),
         const SizedBox(width: 6),
         Expanded(
           child: Text(
             text,
             style: Theme.of(context).textTheme.titleSmall?.copyWith(
-              color: AppColors.accent,
+              color: color ?? AppColors.accent,
               fontWeight: FontWeight.w700,
             ),
           ),

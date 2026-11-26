@@ -1567,11 +1567,6 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String stageCrownHeader(int crown, int number, int total, String title) {
-    return 'क्राउन $crown • चरण $number/$total: $title';
-  }
-
-  @override
   String get solveAllStagesDone => 'सभी चरण पूरे हुए। शाबाश!';
 
   @override
@@ -2564,5 +2559,141 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String cueParityFive(String front) {
     return 'एज पैरिटी: एक एज के दोनों बाहरी टुकड़े आपस में बदल गए हैं। उस एज को सामने लाएँ, $front आपकी ओर, सुधार करें और वापस घुमाएँ।';
+  }
+
+  @override
+  String get onboardingSkip => 'छोड़ें';
+
+  @override
+  String get onboardingNext => 'आगे';
+
+  @override
+  String get onboardingStart => 'शुरू करें';
+
+  @override
+  String get onboardingWhatTitle => 'आपका क्यूब साथी';
+
+  @override
+  String get onboardingWhatBody =>
+      'CubeMentor आपको 2×2 से 6×6 तक हर क्यूब हल करने, सीखने और अभ्यास करने में मदद करता है, पूरी तरह ऑफ़लाइन।';
+
+  @override
+  String get onboardingScanTitle => 'सेकंडों में स्कैन करें और हल करें';
+
+  @override
+  String get onboardingScanBody =>
+      'हर फलक कैमरे को दिखाएँ (या रंग टैप करें) और 3D हल को एक-एक चाल करके फ़ॉलो करें।';
+
+  @override
+  String get onboardingLearnTitle => 'सीखें और खेलें';
+
+  @override
+  String get onboardingLearnBody =>
+      'अकादमी में 3-मुकुट विधि में महारत हासिल करें, फिर 3D प्लेग्राउंड में खुलकर घुमाएँ, मिलाएँ और हल करें।';
+
+  @override
+  String get scanChoiceManualDesc =>
+      'हर फलक के रंग एक-एक स्टिकर करके टैप करें।';
+
+  @override
+  String get scanTryAgain => 'फिर से कोशिश करें';
+
+  @override
+  String get scanEditManually => 'रंग ख़ुद ठीक करें';
+
+  @override
+  String get scanLightingHint =>
+      'फलक को ग्रिड के बीच में रखें। तेज़, समान रोशनी इस्तेमाल करें और चमक से बचें।';
+
+  @override
+  String get crownExplain =>
+      'मुकुट क्यूब की एक क्षैतिज परत है: पहला मुकुट नीचे की सफ़ेद परत है, दूसरा बीच की परत और तीसरा ऊपर की पीली परत।';
+
+  @override
+  String get lessonObjectiveHeading => 'सीखने का लक्ष्य';
+
+  @override
+  String get dirRowTop => 'सामने के फलक की ऊपरी पंक्ति';
+
+  @override
+  String get dirRowBottom => 'सामने के फलक की निचली पंक्ति';
+
+  @override
+  String get dirColumnRight => 'सामने के फलक का दायाँ कॉलम';
+
+  @override
+  String get dirColumnLeft => 'सामने के फलक का बायाँ कॉलम';
+
+  @override
+  String get solveChoiceTitle => 'आप इसे कैसे हल करना चाहते हैं?';
+
+  @override
+  String get solveChoiceFastDesc => 'सबसे छोटा हल, एक-एक चाल करके।';
+
+  @override
+  String get solveChoiceGuidedDesc => '3-मुकुट विधि कदम-दर-कदम सीखें।';
+
+  @override
+  String get guidedSolvedTitle => 'हल हो गया!';
+
+  @override
+  String get guidedSolvedBody => 'आपने हर कदम पूरा किया और क्यूब हल कर दिया।';
+
+  @override
+  String get solveAgain => 'फिर से हल करें';
+
+  @override
+  String get backToHome => 'होम पर वापस जाएँ';
+
+  @override
+  String get dailyStatTime => 'आज का समय';
+
+  @override
+  String get dailyStatBest => 'पर्सनल बेस्ट';
+
+  @override
+  String get dailyStatStreak => 'मौजूदा स्ट्रीक';
+
+  @override
+  String get dailyStatBestStreak => 'सबसे लंबी स्ट्रीक';
+
+  @override
+  String get privacyPolicyTitle => 'गोपनीयता नीति';
+
+  @override
+  String get settingsPrivacyPolicyDesc =>
+      'CubeMentor क्या सहेजता है और विज्ञापन क्या इस्तेमाल करते हैं।';
+
+  @override
+  String get privacyIntro =>
+      'CubeMentor बिना खाते और बिना अपने सर्वर के काम करता है। यह पेज बताता है कि आपके डिवाइस पर क्या रहता है और हमारा विज्ञापन पार्टनर क्या इस्तेमाल करता है।';
+
+  @override
+  String get privacyDataTitle => 'आपका डेटा आपके डिवाइस पर रहता है';
+
+  @override
+  String get privacyDataBody =>
+      'आपकी भाषा, सेटिंग्स, पाठों की प्रगति, हल करने के समय और डेली स्ट्रीक सिर्फ़ इसी डिवाइस पर सहेजे जाते हैं। हमारे पास कोई सर्वर नहीं है, इसलिए वे हमें कभी नहीं मिलते। ऐप अनइंस्टॉल करने पर वे मिट जाते हैं।';
+
+  @override
+  String get privacyCameraTitle => 'कैमरा';
+
+  @override
+  String get privacyCameraBody =>
+      'कैमरा सिर्फ़ तब इस्तेमाल होता है जब आप क्यूब स्कैन करते हैं। स्टिकर के रंग पढ़ने के लिए तस्वीरों का विश्लेषण आपके डिवाइस पर होता है; कोई फ़ोटो या वीडियो सहेजा या कहीं भेजा नहीं जाता।';
+
+  @override
+  String get privacyAdsTitle => 'विज्ञापन';
+
+  @override
+  String get privacyAdsBody =>
+      'ऐप Google AdMob के विज्ञापन दिखाता है। Google विज्ञापन दिखाने और मापने के लिए डिवाइस आइडेंटिफ़ायर और विज्ञापन इंटरैक्शन डेटा का इस्तेमाल कर सकता है, जैसा Google की गोपनीयता नीति में बताया गया है। जहाँ क़ानून ज़रूरी बनाता है, वहाँ पहले आपकी सहमति माँगी जाती है और आप उसे सेटिंग्स में बदल सकते हैं।';
+
+  @override
+  String get privacyContactTitle => 'संपर्क';
+
+  @override
+  String privacyContactBody(String email) {
+    return 'गोपनीयता के बारे में सवाल हैं? हमें $email पर लिखें।';
   }
 }

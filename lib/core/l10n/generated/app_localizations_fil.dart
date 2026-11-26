@@ -1584,11 +1584,6 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String stageCrownHeader(int crown, int number, int total, String title) {
-    return 'Korona $crown • Yugto $number sa $total: $title';
-  }
-
-  @override
   String get solveAllStagesDone => 'Tapos na ang lahat ng yugto. Galing!';
 
   @override
@@ -2551,5 +2546,144 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String cueParityFive(String front) {
     return 'Edge parity: nagpalit ang dalawang panlabas na piraso ng isang edge. Iharap ang edge na iyon, nakaharap sa iyo ang $front, ayusin ito, saka ibalik.';
+  }
+
+  @override
+  String get onboardingSkip => 'Laktawan';
+
+  @override
+  String get onboardingNext => 'Susunod';
+
+  @override
+  String get onboardingStart => 'Magsimula';
+
+  @override
+  String get onboardingWhatTitle => 'Ang iyong kasama sa cube';
+
+  @override
+  String get onboardingWhatBody =>
+      'Tinutulungan ka ng CubeMentor na lutasin, pag-aralan at sanayin ang bawat cube mula 2×2 hanggang 6×6, kahit offline.';
+
+  @override
+  String get onboardingScanTitle =>
+      'Mag-scan at lumutas sa loob ng ilang segundo';
+
+  @override
+  String get onboardingScanBody =>
+      'Ipakita ang bawat mukha sa camera (o i-tap ang mga kulay) at sundan ang 3D na solusyon bawat galaw.';
+
+  @override
+  String get onboardingLearnTitle => 'Matuto at maglaro';
+
+  @override
+  String get onboardingLearnBody =>
+      'Masterin ang paraang 3 korona sa Akademya, saka malayang pumihit, maghalo at lumutas sa 3D Playground.';
+
+  @override
+  String get scanChoiceManualDesc =>
+      'I-tap ang mga kulay ng bawat mukha, sticker kada sticker.';
+
+  @override
+  String get scanTryAgain => 'Subukan ulit';
+
+  @override
+  String get scanEditManually => 'Ayusin ang mga kulay nang mano-mano';
+
+  @override
+  String get scanLightingHint =>
+      'Igitna ang mukha sa grid. Gumamit ng maliwanag at pantay na ilaw at iwasan ang silaw.';
+
+  @override
+  String get crownExplain =>
+      'Ang korona ay isang pahalang na layer ng cube: ang unang korona ay ang puting layer sa ibaba, ang ikalawa ay ang gitnang layer at ang ikatlo ay ang dilaw na layer sa itaas.';
+
+  @override
+  String get lessonObjectiveHeading => 'Layunin ng pag-aaral';
+
+  @override
+  String get dirRowTop => 'Itaas na hanay ng harapang mukha';
+
+  @override
+  String get dirRowBottom => 'Ibabang hanay ng harapang mukha';
+
+  @override
+  String get dirColumnRight => 'Kanang kolum ng harapang mukha';
+
+  @override
+  String get dirColumnLeft => 'Kaliwang kolum ng harapang mukha';
+
+  @override
+  String get solveChoiceTitle => 'Paano mo ito gustong lutasin?';
+
+  @override
+  String get solveChoiceFastDesc => 'Ang pinakamaikling solusyon, bawat galaw.';
+
+  @override
+  String get solveChoiceGuidedDesc =>
+      'Pag-aralan ang paraang 3 korona nang hakbang-hakbang.';
+
+  @override
+  String get guidedSolvedTitle => 'Nalutas!';
+
+  @override
+  String get guidedSolvedBody =>
+      'Sinunod mo ang bawat hakbang at nalutas mo ang cube.';
+
+  @override
+  String get solveAgain => 'Lutasin ulit';
+
+  @override
+  String get backToHome => 'Bumalik sa Home';
+
+  @override
+  String get dailyStatTime => 'Oras ngayong araw';
+
+  @override
+  String get dailyStatBest => 'Personal best';
+
+  @override
+  String get dailyStatStreak => 'Kasalukuyang streak';
+
+  @override
+  String get dailyStatBestStreak => 'Pinakamahabang streak';
+
+  @override
+  String get privacyPolicyTitle => 'Patakaran sa privacy';
+
+  @override
+  String get settingsPrivacyPolicyDesc =>
+      'Ano ang iniimbak ng CubeMentor at ano ang ginagamit ng ads.';
+
+  @override
+  String get privacyIntro =>
+      'Gumagana ang CubeMentor nang walang account at walang sariling server. Ipinapaliwanag ng pahinang ito kung ano ang nananatili sa iyong device at kung ano ang ginagamit ng aming ad partner.';
+
+  @override
+  String get privacyDataTitle => 'Nananatili sa device mo ang iyong data';
+
+  @override
+  String get privacyDataBody =>
+      'Ang iyong wika, settings, progreso sa mga aralin, oras ng paglutas at daily streak ay naka-save lang sa device na ito. Wala kaming server, kaya hindi namin ito natatanggap. Mabubura ang mga ito kapag in-uninstall mo ang app.';
+
+  @override
+  String get privacyCameraTitle => 'Camera';
+
+  @override
+  String get privacyCameraBody =>
+      'Ginagamit lang ang camera habang nag-i-scan ka ng cube. Sinusuri ang mga frame sa iyong device para mabasa ang kulay ng mga sticker; walang larawan o video na sine-save o ipinapadala.';
+
+  @override
+  String get privacyAdsTitle => 'Ads';
+
+  @override
+  String get privacyAdsBody =>
+      'Nagpapakita ang app ng ads mula sa Google AdMob. Maaaring gumamit ang Google ng mga device identifier at data ng pakikipag-ugnayan sa ads para magpakita at sumukat ng ads, gaya ng nakasaad sa patakaran sa privacy ng Google. Kung saan hinihingi ng batas, hihingin muna ang iyong pahintulot at mababago mo ito sa Settings.';
+
+  @override
+  String get privacyContactTitle => 'Makipag-ugnayan';
+
+  @override
+  String privacyContactBody(String email) {
+    return 'May tanong tungkol sa privacy? Sumulat sa amin sa $email.';
   }
 }

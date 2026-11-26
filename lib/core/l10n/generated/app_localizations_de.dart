@@ -1581,11 +1581,6 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String stageCrownHeader(int crown, int number, int total, String title) {
-    return 'Krone $crown • Stufe $number von $total: $title';
-  }
-
-  @override
   String get solveAllStagesDone => 'Alle Stufen geschafft. Super!';
 
   @override
@@ -2604,5 +2599,143 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String cueParityFive(String front) {
     return 'Kantenparität: Die zwei äußeren Teile einer Kante sind vertauscht. Drehe diese Kante nach vorne, $front zu dir, korrigiere sie und drehe zurück.';
+  }
+
+  @override
+  String get onboardingSkip => 'Überspringen';
+
+  @override
+  String get onboardingNext => 'Weiter';
+
+  @override
+  String get onboardingStart => 'Los geht’s';
+
+  @override
+  String get onboardingWhatTitle => 'Dein Würfel-Begleiter';
+
+  @override
+  String get onboardingWhatBody =>
+      'CubeMentor hilft dir, jeden Würfel von 2×2 bis 6×6 zu lösen, zu lernen und zu üben – komplett offline.';
+
+  @override
+  String get onboardingScanTitle => 'Scannen und lösen in Sekunden';
+
+  @override
+  String get onboardingScanBody =>
+      'Zeig der Kamera jede Seite (oder tippe die Farben ein) und folge der 3D-Lösung Zug für Zug.';
+
+  @override
+  String get onboardingLearnTitle => 'Lernen und spielen';
+
+  @override
+  String get onboardingLearnBody =>
+      'Meistere die 3-Kronen-Methode in der Akademie und dreh, verdreh und löse dann frei auf der 3D-Spielwiese.';
+
+  @override
+  String get scanChoiceManualDesc =>
+      'Tippe die Farben jeder Seite ein, Aufkleber für Aufkleber.';
+
+  @override
+  String get scanTryAgain => 'Erneut versuchen';
+
+  @override
+  String get scanEditManually => 'Farben von Hand korrigieren';
+
+  @override
+  String get scanLightingHint =>
+      'Richte die Seite mittig im Raster aus. Nutze helles, gleichmäßiges Licht und vermeide Spiegelungen.';
+
+  @override
+  String get crownExplain =>
+      'Eine Krone ist eine waagerechte Schicht des Würfels: Die erste Krone ist die weiße Schicht unten, die zweite die mittlere Schicht und die dritte die gelbe Schicht oben.';
+
+  @override
+  String get lessonObjectiveHeading => 'Lernziel';
+
+  @override
+  String get dirRowTop => 'Obere Reihe der Vorderseite';
+
+  @override
+  String get dirRowBottom => 'Untere Reihe der Vorderseite';
+
+  @override
+  String get dirColumnRight => 'Rechte Spalte der Vorderseite';
+
+  @override
+  String get dirColumnLeft => 'Linke Spalte der Vorderseite';
+
+  @override
+  String get solveChoiceTitle => 'Wie möchtest du ihn lösen?';
+
+  @override
+  String get solveChoiceFastDesc => 'Die kürzeste Lösung, Zug für Zug.';
+
+  @override
+  String get solveChoiceGuidedDesc =>
+      'Lerne die 3-Kronen-Methode Schritt für Schritt.';
+
+  @override
+  String get guidedSolvedTitle => 'Gelöst!';
+
+  @override
+  String get guidedSolvedBody =>
+      'Du bist jedem Schritt gefolgt und hast den Würfel gelöst.';
+
+  @override
+  String get solveAgain => 'Nochmal lösen';
+
+  @override
+  String get backToHome => 'Zurück zum Start';
+
+  @override
+  String get dailyStatTime => 'Heutige Zeit';
+
+  @override
+  String get dailyStatBest => 'Bestzeit';
+
+  @override
+  String get dailyStatStreak => 'Aktuelle Serie';
+
+  @override
+  String get dailyStatBestStreak => 'Beste Serie';
+
+  @override
+  String get privacyPolicyTitle => 'Datenschutzerklärung';
+
+  @override
+  String get settingsPrivacyPolicyDesc =>
+      'Was CubeMentor speichert und was die Werbung nutzt.';
+
+  @override
+  String get privacyIntro =>
+      'CubeMentor funktioniert ohne Konto und ohne eigene Server. Diese Seite erklärt, was auf deinem Gerät bleibt und was unser Werbepartner nutzt.';
+
+  @override
+  String get privacyDataTitle => 'Deine Daten bleiben auf deinem Gerät';
+
+  @override
+  String get privacyDataBody =>
+      'Deine Sprache, Einstellungen, dein Lektionsfortschritt, deine Lösungszeiten und deine tägliche Serie werden nur auf diesem Gerät gespeichert. Wir haben keine Server und erhalten sie daher nie. Beim Deinstallieren der App werden sie gelöscht.';
+
+  @override
+  String get privacyCameraTitle => 'Kamera';
+
+  @override
+  String get privacyCameraBody =>
+      'Die Kamera wird nur verwendet, während du einen Würfel scannst. Die Bilder werden auf deinem Gerät ausgewertet, um die Aufkleberfarben zu erkennen; kein Foto oder Video wird gespeichert oder versendet.';
+
+  @override
+  String get privacyAdsTitle => 'Werbung';
+
+  @override
+  String get privacyAdsBody =>
+      'Die App zeigt Werbung von Google AdMob. Google kann Gerätekennungen und Daten zur Interaktion mit Anzeigen nutzen, um Anzeigen auszuliefern und zu messen, wie in der Datenschutzerklärung von Google beschrieben. Wo es das Gesetz verlangt, wirst du zuerst um Einwilligung gebeten und kannst sie in den Einstellungen ändern.';
+
+  @override
+  String get privacyContactTitle => 'Kontakt';
+
+  @override
+  String privacyContactBody(String email) {
+    return 'Fragen zum Datenschutz? Schreib uns an $email.';
   }
 }

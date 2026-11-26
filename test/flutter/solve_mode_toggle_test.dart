@@ -18,12 +18,14 @@ Future<void> _advance(WidgetTester tester, [int frames = 10]) async {
   }
 }
 
-/// Opens the 3D solver on a scrambled [size] cube, taps Solve and returns
-/// the methods the solver was asked for.
+/// Opens the 3D solver on a scrambled [size] cube, taps Solve, picks
+/// [pick] on the Fast / Guided sheet (2x2, 3x3) and returns the methods the
+/// solver was asked for.
 Future<List<SolveMethod>> _solve(
   WidgetTester tester,
   int size, {
   String? savedMode,
+  SolveMethod? pick,
 }) async {
   SharedPreferences.setMockInitialValues({'solve_method': ?savedMode});
   final prefs = await SharedPreferences.getInstance();
@@ -69,6 +71,23 @@ Future<List<SolveMethod>> _solve(
   await _advance(tester, 4);
   await tester.tap(find.byKey(const ValueKey('solve')));
   await _advance(tester);
+  // 2x2 and 3x3 ask Fast or Guided; bigger cubes go straight to guided.
+  final sheet = find.byKey(const ValueKey('solve-choice-sheet'));
+  if (pick != null) {
+    expect(sheet, findsOneWidget);
+    await tester.tap(
+      find.byKey(
+        ValueKey(
+          pick == SolveMethod.fast
+              ? 'solve-choice-fast'
+              : 'solve-choice-guided',
+        ),
+      ),
+    );
+    await _advance(tester);
+  } else {
+    expect(sheet, findsNothing);
+  }
   return solver.calls;
 }
 
@@ -87,8 +106,8 @@ void main() {
 
   for (final size in [2, 3]) {
     testWidgets('$size×$size shows the Guided / Fast toggle', (tester) async {
-      final calls = await _solve(tester, size);
-      expect(calls, [SolveMethod.layerByLayer], reason: 'guided by default');
+      final calls = await _solve(tester, size, pick: SolveMethod.layerByLayer);
+      expect(calls, [SolveMethod.layerByLayer]);
       expect(find.byKey(const ValueKey('solve-mode')), findsOneWidget);
       expect(find.byKey(const ValueKey('solve-mode-fast')), findsOneWidget);
       expect(tester.takeException(), isNull);
@@ -109,11 +128,11 @@ void main() {
     });
   }
 
-  testWidgets('a remembered fast choice still applies on the 3x3', (
-    tester,
-  ) async {
-    final calls = await _solve(tester, 3, savedMode: 'fast');
+  testWidgets('picking Fast Solve on the 3x3 is remembered', (tester) async {
+    final calls = await _solve(tester, 3, pick: SolveMethod.fast);
     expect(calls, [SolveMethod.fast]);
+    final prefs = await SharedPreferences.getInstance();
+    expect(prefs.getString('solve_method'), 'fast');
     // Fast Solve stays uncluttered: no Guided / Fast switch on its card.
     expect(find.byKey(const ValueKey('solve-mode')), findsNothing);
     expect(find.byKey(const ValueKey('fast-move-live')), findsOneWidget);

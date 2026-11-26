@@ -133,6 +133,19 @@ class _AcademyScreenState extends ConsumerState<AcademyScreen> {
                 for (final track in LessonTrack.values)
                   if (lessons.any((l) => l.track == track)) ...[
                     SectionHeader(title: trackTitle(l10n, track)),
+                    // Where crowns are first met: what a crown is.
+                    if (track == LessonTrack.beginner)
+                      Padding(
+                        key: const ValueKey('academy-crown-explain'),
+                        padding: const EdgeInsetsDirectional.only(
+                          bottom: AppSpace.sm,
+                        ),
+                        child: Text(
+                          l10n.crownExplain,
+                          style: Theme.of(context).textTheme.bodyMedium
+                              ?.copyWith(color: AppColors.textSecondary),
+                        ),
+                      ),
                     for (final lesson in lessons.where(
                       (l) => l.track == track,
                     )) ...[
@@ -353,7 +366,10 @@ class _LessonTile extends ConsumerWidget {
                     size: 24,
                   )
                 : Text(
-                    '$number',
+                    // One numbering system: beginner's-method lessons use
+                    // their sub-step ("1.1"), like the guided solver.
+                    lesson.crown > 0 ? lesson.subStepLabel : '$number',
+                    textDirection: TextDirection.ltr,
                     style: TextStyle(
                       color: next ? AppColors.textPrimary : accent,
                       fontWeight: FontWeight.w800,
@@ -366,10 +382,7 @@ class _LessonTile extends ConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  lessonTitle(l10n, lesson.id),
-                  style: textTheme.titleMedium,
-                ),
+                Text(lessonName(l10n, lesson.id), style: textTheme.titleMedium),
                 const SizedBox(height: 2),
                 Text(
                   lessonDescription(l10n, lesson.id),

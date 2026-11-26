@@ -158,7 +158,11 @@ MoveInstruction moveInstruction(
     layer = l10n.dirMiddle;
   } else if (move.fromLayer == move.toLayer) {
     final depth = positive ? size - move.fromLayer : move.fromLayer + 1;
-    layer = depth == 1 ? face : l10n.dirLayerInner(depth, face);
+    // An outer layer says exactly which row or column of the front face
+    // moves ("Top row of the front face"); deeper layers count from it.
+    layer = depth == 1
+        ? _outerLayer(l10n, letter)
+        : l10n.dirLayerInner(depth, face);
   } else if (move.toLayer == size - 1 || move.fromLayer == 0) {
     final depth = positive ? size - move.fromLayer : move.toLayer + 1;
     layer = l10n.dirLayerWide(depth, face);
@@ -199,6 +203,17 @@ MoveInstruction moveInstruction(
     half: half,
   );
 }
+
+/// One outer layer as seen on the front face: a row, a column, or the
+/// front / back face itself.
+String _outerLayer(AppLocalizations l10n, String letter) => switch (letter) {
+  'R' => l10n.dirColumnRight,
+  'L' => l10n.dirColumnLeft,
+  'U' => l10n.dirRowTop,
+  'D' => l10n.dirRowBottom,
+  'F' => l10n.dirFaceF,
+  _ => l10n.dirFaceB,
+};
 
 String _shortFace(AppLocalizations l10n, String letter) => switch (letter) {
   'R' => l10n.dirFaceR,

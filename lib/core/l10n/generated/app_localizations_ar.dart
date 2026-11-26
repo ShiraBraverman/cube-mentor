@@ -1570,11 +1570,6 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String stageCrownHeader(int crown, int number, int total, String title) {
-    return 'التاج $crown • المرحلة $number من $total: $title';
-  }
-
-  @override
   String get solveAllStagesDone => 'اكتملت كل المراحل. أحسنت!';
 
   @override
@@ -2628,5 +2623,140 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String cueParityFive(String front) {
     return 'تكافؤ الحافة: القطعتان الخارجيتان لحافة واحدة متبادلتان. أدر تلك الحافة إلى الأمام، والمركز $front مواجه لك، وطبّق الإصلاح ثم أعدها.';
+  }
+
+  @override
+  String get onboardingSkip => 'تخطٍّ';
+
+  @override
+  String get onboardingNext => 'التالي';
+
+  @override
+  String get onboardingStart => 'لنبدأ';
+
+  @override
+  String get onboardingWhatTitle => 'رفيقك في المكعبات';
+
+  @override
+  String get onboardingWhatBody =>
+      'يساعدك CubeMentor على حل كل مكعب من 2×2 إلى 6×6 وتعلّمه والتدرّب عليه، دون اتصال بالإنترنت.';
+
+  @override
+  String get onboardingScanTitle => 'امسح وحُلّ في ثوانٍ';
+
+  @override
+  String get onboardingScanBody =>
+      'اعرض كل وجه على الكاميرا (أو أدخل الألوان) واتبع الحل ثلاثي الأبعاد حركةً بحركة.';
+
+  @override
+  String get onboardingLearnTitle => 'تعلّم والعب';
+
+  @override
+  String get onboardingLearnBody =>
+      'أتقن طريقة التيجان الثلاثة في الأكاديمية، ثم أدِر واخلط وحُلّ بحرية في الساحة ثلاثية الأبعاد.';
+
+  @override
+  String get scanChoiceManualDesc => 'أدخل ألوان كل وجه، ملصقًا بعد ملصق.';
+
+  @override
+  String get scanTryAgain => 'حاول مرة أخرى';
+
+  @override
+  String get scanEditManually => 'تصحيح الألوان يدويًا';
+
+  @override
+  String get scanLightingHint =>
+      'ضع الوجه في منتصف الشبكة. استخدم إضاءة قوية ومتساوية وتجنّب الوهج.';
+
+  @override
+  String get crownExplain =>
+      'التاج طبقة أفقية واحدة من المكعب: التاج الأول هو الطبقة البيضاء في الأسفل، والثاني هو الطبقة الوسطى، والثالث هو الطبقة الصفراء في الأعلى.';
+
+  @override
+  String get lessonObjectiveHeading => 'هدف التعلّم';
+
+  @override
+  String get dirRowTop => 'الصف العلوي من الوجه الأمامي';
+
+  @override
+  String get dirRowBottom => 'الصف السفلي من الوجه الأمامي';
+
+  @override
+  String get dirColumnRight => 'العمود الأيمن من الوجه الأمامي';
+
+  @override
+  String get dirColumnLeft => 'العمود الأيسر من الوجه الأمامي';
+
+  @override
+  String get solveChoiceTitle => 'كيف تريد حلّه؟';
+
+  @override
+  String get solveChoiceFastDesc => 'أقصر حل، حركةً بحركة.';
+
+  @override
+  String get solveChoiceGuidedDesc => 'تعلّم طريقة التيجان الثلاثة خطوة بخطوة.';
+
+  @override
+  String get guidedSolvedTitle => 'تم الحل!';
+
+  @override
+  String get guidedSolvedBody => 'اتبعت كل الخطوات وحللت المكعب.';
+
+  @override
+  String get solveAgain => 'حُلّ مرة أخرى';
+
+  @override
+  String get backToHome => 'العودة إلى الرئيسية';
+
+  @override
+  String get dailyStatTime => 'وقت اليوم';
+
+  @override
+  String get dailyStatBest => 'الرقم القياسي الشخصي';
+
+  @override
+  String get dailyStatStreak => 'السلسلة الحالية';
+
+  @override
+  String get dailyStatBestStreak => 'أفضل سلسلة';
+
+  @override
+  String get privacyPolicyTitle => 'سياسة الخصوصية';
+
+  @override
+  String get settingsPrivacyPolicyDesc =>
+      'ما الذي يحفظه CubeMentor وما الذي تستخدمه الإعلانات.';
+
+  @override
+  String get privacyIntro =>
+      'يعمل CubeMentor دون حساب ودون خوادم خاصة به. توضح هذه الصفحة ما يبقى على جهازك وما يستخدمه شريكنا الإعلاني.';
+
+  @override
+  String get privacyDataTitle => 'بياناتك تبقى على جهازك';
+
+  @override
+  String get privacyDataBody =>
+      'تُحفظ لغتك وإعداداتك وتقدّمك في الدروس وأوقات الحل وسلسلتك اليومية على هذا الجهاز فقط. ليست لدينا خوادم، لذلك لا تصلنا أبدًا. حذف التطبيق يمحوها.';
+
+  @override
+  String get privacyCameraTitle => 'الكاميرا';
+
+  @override
+  String get privacyCameraBody =>
+      'تُستخدم الكاميرا فقط أثناء مسح المكعب. تُحلَّل الصور على جهازك لقراءة ألوان الملصقات، ولا تُحفظ أي صورة أو فيديو ولا تُرسل إلى أي مكان.';
+
+  @override
+  String get privacyAdsTitle => 'الإعلانات';
+
+  @override
+  String get privacyAdsBody =>
+      'يعرض التطبيق إعلانات من Google AdMob. قد تستخدم Google معرّفات الجهاز وبيانات التفاعل مع الإعلانات لعرض الإعلانات وقياسها، كما هو موضّح في سياسة خصوصية Google. حيث يفرض القانون ذلك، تُطلب موافقتك أولًا ويمكنك تغييرها من الإعدادات.';
+
+  @override
+  String get privacyContactTitle => 'تواصل معنا';
+
+  @override
+  String privacyContactBody(String email) {
+    return 'لديك أسئلة عن الخصوصية؟ راسلنا على $email.';
   }
 }

@@ -3,7 +3,6 @@ import 'package:material_ui/material_ui.dart';
 
 import '../../core/ads/reward_gate.dart';
 import '../../core/ads/reward_prompt.dart';
-import '../../core/celebration/celebration.dart';
 import '../../core/cube/cube_move.dart';
 import '../../core/cube/cube_state.dart';
 import '../../core/l10n/generated/app_localizations.dart';
@@ -38,9 +37,13 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
   /// celebration toast.
   bool _dialogPending = false;
 
+  /// The personal best before today's challenge was finished.
+  int? _bestBefore;
+
   @override
   void initState() {
     super.initState();
+    _bestBefore = ref.read(dailyProvider).bestMillis;
     Future.microtask(() {
       if (mounted) ref.read(dailyProvider.notifier).loadScramble();
     });
@@ -108,27 +111,40 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
     );
   }
 
-  /// A 3D solve finished in [millis]: records it, then congratulates.
+  /// A 3D solve finished in [millis]: records it, then opens the
+  /// completion summary.
   Future<void> _reportVirtualSolve(int millis) async {
     final previousBest = ref.read(dailyProvider).bestMillis;
     _dialogPending = true;
     await ref.read(dailyProvider.notifier).complete(millis: millis);
     _dialogPending = false;
     if (!mounted) return;
-    final state = ref.read(dailyProvider);
+    _openComplete(
+      millis: millis,
+      newBest: previousBest != null && millis < previousBest,
+    );
+  }
+
+  /// Today's challenge is done: the completion summary opens over whatever
+  /// page finished it (timer or 3D cube); its Back returns to this page.
+  void _openComplete({required int? millis, required bool newBest}) {
     final daily = ModalRoute.of(context);
-    await showDialog<void>(
-      context: context,
-      builder: (_) => DailyCongratsDialog(
-        millis: millis,
-        streak: state.streak,
-        newBest: previousBest != null && millis < previousBest,
+    final state = ref.read(dailyProvider);
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => DailyCompleteScreen(
+          millis: millis,
+          streak: state.streak,
+          bestStreak: state.bestStreak,
+          bestMillis: state.bestMillis,
+          newBest: newBest,
+          onBack: daily == null
+              ? null
+              : (context) =>
+                    Navigator.of(context).popUntil((route) => route == daily),
+        ),
       ),
     );
-    // Back to the challenge page.
-    if (mounted && daily != null) {
-      Navigator.of(context).popUntil((route) => route == daily);
-    }
   }
 
   @override
@@ -143,21 +159,20 @@ class _DailyScreenState extends ConsumerState<DailyScreen> {
         ? null
         : MoveNotation.parseSequence(state.scramble!, kDailySize);
 
-    // Finishing today's challenge on the timer celebrates over whatever
-    // page is open (a 3D solve gets its own dialog instead); every fifth
-    // streak day gets a milestone message.
-    ref.listen(dailyProvider.select((s) => s.doneToday), (previous, done) {
-      if (previous == false && done && !_dialogPending) {
-        final streak = ref.read(dailyProvider).streak;
-        showCelebration(
-          context,
-          message: isStreakMilestone(streak)
-              ? l10n.dailyMilestone(streak)
-              : l10n.celebrateDailyDone,
-          icon: Icons.local_fire_department_rounded,
-          accent: AppColors.accentWarm,
-        );
-      }
+    // Finishing today's challenge on the timer opens the completion
+    // summary over it (a 3D solve opens it from its own report).
+    ref.listen(dailyProvider, (previous, next) {
+      if (previous == null || previous.doneToday || !next.doneToday) return;
+      if (_dialogPending) return;
+      // The store updates the best time just before marking the day done,
+      // so compare with the best this page saw before the solve.
+      final before = _bestBefore;
+      final today = next.todayMillis;
+      _bestBefore = next.bestMillis;
+      _openComplete(
+        millis: today,
+        newBest: before != null && today != null && today < before,
+      );
     });
 
     return GlassBackground(
@@ -623,110 +638,226 @@ class _SolveNextButtons extends StatelessWidget {
   }
 }
 
-/// "Congratulations!" after solving today's challenge on the 3D cube: the
-/// time, the streak, a new personal best and every fifth-day milestone.
-class DailyCongratsDialog extends StatelessWidget {
-  const DailyCongratsDialog({
+/// The completion summary of today's challenge: the solve time, the
+/// personal best, the updated streak (and best streak), a milestone every
+/// fifth day, and Back to the challenge page.
+class DailyCompleteScreen extends StatelessWidget {
+  const DailyCompleteScreen({
     super.key,
     required this.millis,
     required this.streak,
+    required this.bestStreak,
+    required this.bestMillis,
     required this.newBest,
+    this.onBack,
   });
 
-  final int millis;
+  /// Today's solve time; null when it was not timed.
+  final int? millis;
   final int streak;
+  final int bestStreak;
+
+  /// Personal best over all days.
+  final int? bestMillis;
   final bool newBest;
+
+  /// Returns to the challenge page; by default just closes this page.
+  final void Function(BuildContext context)? onBack;
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final textTheme = Theme.of(context).textTheme;
-    return Dialog(
-      key: const ValueKey('daily-congrats'),
-      backgroundColor: Colors.transparent,
-      insetPadding: const EdgeInsets.symmetric(
-        horizontal: AppSpace.gutter,
-        vertical: AppSpace.lg,
-      ),
-      child: GlassCard(
-        blur: 28,
-        selected: true,
-        accent: AppColors.gold,
-        borderRadius: AppRadius.lg,
-        padding: const EdgeInsetsDirectional.fromSTEB(
-          AppSpace.gutter,
-          AppSpace.lg,
-          AppSpace.gutter,
-          AppSpace.sm,
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Center(
-                child: AccentIcon(
-                  icon: Icons.emoji_events_rounded,
-                  color: AppColors.gold,
-                  size: 60,
-                  glow: true,
-                ),
-              ),
-              const SizedBox(height: AppSpace.md),
-              Text(
-                l10n.dailyCongratsTitle,
-                textAlign: TextAlign.center,
-                style: textTheme.headlineSmall,
-              ),
-              const SizedBox(height: AppSpace.xs),
-              Text(
-                l10n.dailyCongratsBody(formatTime(millis)),
-                key: const ValueKey('daily-congrats-time'),
-                textAlign: TextAlign.center,
-                style: textTheme.bodyLarge,
-              ),
-              const SizedBox(height: AppSpace.md),
-              Wrap(
-                alignment: WrapAlignment.center,
-                spacing: AppSpace.xs,
-                runSpacing: AppSpace.xs,
+    void back() {
+      final custom = onBack;
+      if (custom != null) {
+        custom(context);
+      } else {
+        Navigator.of(context).maybePop();
+      }
+    }
+
+    final time = millis;
+    final best = bestMillis;
+    return PopScope(
+      canPop: onBack == null,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) back();
+      },
+      child: GlassBackground(
+        child: Scaffold(
+          key: const ValueKey('daily-congrats'),
+          appBar: AppBar(
+            title: Text(l10n.dailyTitle),
+            leading: BackButton(
+              key: const ValueKey('daily-complete-back-arrow'),
+              onPressed: back,
+            ),
+          ),
+          body: SafeArea(
+            top: false,
+            child: PageFrame(
+              child: ListView(
+                padding: kPagePadding,
                 children: [
-                  AppPill(
-                    label: l10n.streakDays(streak),
-                    color: AppColors.accentWarm,
-                    icon: Icons.local_fire_department_rounded,
-                  ),
-                  if (newBest)
-                    AppPill(
-                      key: const ValueKey('daily-congrats-pb'),
-                      label: l10n.timerNewPb,
-                      color: AppColors.gold,
+                  const SizedBox(height: AppSpace.sm),
+                  const Center(
+                    child: AccentIcon(
                       icon: Icons.emoji_events_rounded,
+                      color: AppColors.gold,
+                      size: 84,
+                      glow: true,
                     ),
+                  ),
+                  const SizedBox(height: AppSpace.md),
+                  Text(
+                    l10n.dailyCongratsTitle,
+                    textAlign: TextAlign.center,
+                    style: textTheme.headlineMedium?.copyWith(
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  if (time != null) ...[
+                    const SizedBox(height: AppSpace.xs),
+                    Text(
+                      l10n.dailyCongratsBody(formatTime(time)),
+                      key: const ValueKey('daily-congrats-time'),
+                      textAlign: TextAlign.center,
+                      style: textTheme.bodyLarge,
+                    ),
+                  ],
+                  if (newBest) ...[
+                    const SizedBox(height: AppSpace.sm),
+                    Center(
+                      child: AppPill(
+                        key: const ValueKey('daily-congrats-pb'),
+                        label: l10n.timerNewPb,
+                        color: AppColors.gold,
+                        icon: Icons.emoji_events_rounded,
+                      ),
+                    ),
+                  ],
+                  if (isStreakMilestone(streak)) ...[
+                    const SizedBox(height: AppSpace.sm),
+                    Text(
+                      l10n.dailyMilestone(streak),
+                      key: const ValueKey('daily-congrats-milestone'),
+                      textAlign: TextAlign.center,
+                      style: textTheme.titleSmall?.copyWith(
+                        color: AppColors.gold,
+                      ),
+                    ),
+                  ],
+                  const SizedBox(height: AppSpace.lg),
+                  GlassCard(
+                    key: const ValueKey('daily-complete-stats'),
+                    selected: true,
+                    accent: AppColors.accentWarm,
+                    borderRadius: AppRadius.lg,
+                    child: Column(
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: _StatTile(
+                                icon: Icons.timer_rounded,
+                                color: AppColors.accent,
+                                label: l10n.dailyStatTime,
+                                value: time == null ? '–' : formatTime(time),
+                              ),
+                            ),
+                            Expanded(
+                              child: _StatTile(
+                                icon: Icons.emoji_events_rounded,
+                                color: AppColors.gold,
+                                label: l10n.dailyStatBest,
+                                value: best == null ? '–' : formatTime(best),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: AppSpace.md),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: _StatTile(
+                                key: const ValueKey('daily-complete-streak'),
+                                icon: Icons.local_fire_department_rounded,
+                                color: AppColors.accentWarm,
+                                label: l10n.dailyStatStreak,
+                                value: l10n.streakDays(streak),
+                              ),
+                            ),
+                            Expanded(
+                              child: _StatTile(
+                                icon: Icons.military_tech_rounded,
+                                color: AppColors.accentSecondary,
+                                label: l10n.dailyStatBestStreak,
+                                value: l10n.streakDays(bestStreak),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: AppSpace.lg),
+                  FilledButton.icon(
+                    key: const ValueKey('daily-congrats-done'),
+                    onPressed: back,
+                    icon: const Icon(Icons.arrow_back_rounded),
+                    label: Text(
+                      l10n.dailyCongratsDone,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                 ],
               ),
-              if (isStreakMilestone(streak)) ...[
-                const SizedBox(height: AppSpace.sm),
-                Text(
-                  l10n.dailyMilestone(streak),
-                  key: const ValueKey('daily-congrats-milestone'),
-                  textAlign: TextAlign.center,
-                  style: textTheme.titleSmall?.copyWith(color: AppColors.gold),
-                ),
-              ],
-              const SizedBox(height: AppSpace.lg),
-              FilledButton(
-                key: const ValueKey('daily-congrats-done'),
-                style: FilledButton.styleFrom(
-                  minimumSize: const Size.fromHeight(48),
-                ),
-                onPressed: () => Navigator.of(context).pop(),
-                child: Text(l10n.dailyCongratsDone),
-              ),
-            ],
+            ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class _StatTile extends StatelessWidget {
+  const _StatTile({
+    super.key,
+    required this.icon,
+    required this.color,
+    required this.label,
+    required this.value,
+  });
+
+  final IconData icon;
+  final Color color;
+  final String label;
+  final String value;
+
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    return Column(
+      children: [
+        Icon(icon, color: color, size: 26),
+        const SizedBox(height: AppSpace.xxs),
+        Text(
+          value,
+          textAlign: TextAlign.center,
+          style: textTheme.titleLarge?.copyWith(
+            color: color,
+            fontWeight: FontWeight.w800,
+          ),
+        ),
+        Text(
+          label,
+          textAlign: TextAlign.center,
+          style: textTheme.bodySmall?.copyWith(color: AppColors.textSecondary),
+        ),
+      ],
     );
   }
 }

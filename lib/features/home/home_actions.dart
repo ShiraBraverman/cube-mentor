@@ -100,6 +100,73 @@ class HomeActionGrid extends ConsumerWidget {
   }
 }
 
+/// Slim full-width pill under the action grid: opens the free 3D
+/// Playground on the selected size, so new users find it right away.
+class HomePlaygroundButton extends ConsumerWidget {
+  const HomePlaygroundButton({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final textTheme = Theme.of(context).textTheme;
+    final size = ref.watch(selectedCubeSizeProvider);
+    final mystery = ref.watch(showingMysteryProvider);
+    final onTap = mystery
+        ? null
+        : () => Navigator.of(context).push(
+            MaterialPageRoute<void>(builder: (_) => Solver3DScreen(size: size)),
+          );
+    return Semantics(
+      button: true,
+      enabled: onTap != null,
+      label: '${l10n.modePlayground}, ${l10n.cubeSizeLabel(size)}',
+      excludeSemantics: true,
+      child: AnimatedOpacity(
+        duration: const Duration(milliseconds: 200),
+        opacity: onTap == null ? 0.45 : 1,
+        child: GlassCard(
+          key: const ValueKey('home-playground'),
+          onTap: onTap,
+          accent: AppColors.accentSecondary,
+          borderRadius: AppRadius.pill,
+          padding: const EdgeInsetsDirectional.fromSTEB(6, 6, AppSpace.sm, 6),
+          child: Row(
+            children: [
+              const CubeIconTile(
+                accent: AppColors.accentSecondary,
+                size: 28,
+                child: AnimatedSolveCubeIcon(),
+              ),
+              const SizedBox(width: AppSpace.sm),
+              Expanded(
+                child: Text(
+                  l10n.modePlayground,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+              const SizedBox(width: AppSpace.xs),
+              _SizeBadge(
+                label: l10n.cubeSizeLabel(size),
+                color: AppColors.accentSecondary,
+              ),
+              const SizedBox(width: AppSpace.xs),
+              // Mirrors automatically in RTL (matchTextDirection).
+              const Icon(
+                Icons.chevron_right_rounded,
+                color: AppColors.textTertiary,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 /// One home action: animated mini-cube icon on an accent tile, the
 /// selected size as a badge, and a short title (up to two lines).
 class HomeActionCard extends StatelessWidget {
@@ -232,7 +299,7 @@ class _SizeBadge extends StatelessWidget {
 }
 
 /// Asks how to start solving a [size] cube: scan the real one with the
-/// camera, or open the 3D cube.
+/// camera, enter its colors by hand, or open the 3D cube.
 Future<void> showScanSolveSheet(BuildContext context, int size) =>
     showModalBottomSheet<void>(
       context: context,
@@ -241,7 +308,7 @@ Future<void> showScanSolveSheet(BuildContext context, int size) =>
       builder: (_) => ScanSolveSheet(size: size),
     );
 
-/// Content of [showScanSolveSheet]: two big choices for the [size] cube.
+/// Content of [showScanSolveSheet]: three big choices for the [size] cube.
 class ScanSolveSheet extends StatelessWidget {
   const ScanSolveSheet({super.key, required this.size});
 
@@ -313,6 +380,20 @@ class ScanSolveSheet extends StatelessWidget {
                     title: l10n.scanChoiceCamera,
                     description: l10n.scanChoiceCameraDesc,
                     onTap: () => go(ScannerScreen(size: size)),
+                  ),
+                  const SizedBox(height: AppSpace.sm),
+                  _ChoiceTile(
+                    key: const ValueKey('scan-choice-manual'),
+                    icon: const Icon(
+                      Icons.edit_rounded,
+                      color: AppColors.gold,
+                      size: 26,
+                    ),
+                    accent: AppColors.gold,
+                    title: l10n.scanManualInput,
+                    description: l10n.scanChoiceManualDesc,
+                    onTap: () =>
+                        go(ScannerScreen(size: size, startManual: true)),
                   ),
                   const SizedBox(height: AppSpace.sm),
                   _ChoiceTile(

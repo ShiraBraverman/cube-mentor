@@ -1582,11 +1582,6 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String stageCrownHeader(int crown, int number, int total, String title) {
-    return 'Couronne $crown • Étape $number sur $total : $title';
-  }
-
-  @override
   String get solveAllStagesDone => 'Toutes les étapes sont terminées. Bravo !';
 
   @override
@@ -2607,5 +2602,144 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String cueParityFive(String front) {
     return 'Parité d\'arête : les deux pièces extérieures d\'une arête sont échangées. Tournez cette arête vers l\'avant, $front face à vous, corrigez-la et revenez.';
+  }
+
+  @override
+  String get onboardingSkip => 'Passer';
+
+  @override
+  String get onboardingNext => 'Suivant';
+
+  @override
+  String get onboardingStart => 'Commencer';
+
+  @override
+  String get onboardingWhatTitle => 'Votre compagnon de cube';
+
+  @override
+  String get onboardingWhatBody =>
+      'CubeMentor vous aide à résoudre, apprendre et pratiquer tous les cubes du 2×2 au 6×6, entièrement hors ligne.';
+
+  @override
+  String get onboardingScanTitle => 'Scannez et résolvez en quelques secondes';
+
+  @override
+  String get onboardingScanBody =>
+      'Montrez chaque face à la caméra (ou saisissez les couleurs) et suivez la solution en 3D mouvement par mouvement.';
+
+  @override
+  String get onboardingLearnTitle => 'Apprenez et jouez';
+
+  @override
+  String get onboardingLearnBody =>
+      'Maîtrisez la méthode des 3 couronnes à l’Académie, puis tournez, mélangez et résolvez librement dans le Bac à sable 3D.';
+
+  @override
+  String get scanChoiceManualDesc =>
+      'Saisissez les couleurs de chaque face, autocollant par autocollant.';
+
+  @override
+  String get scanTryAgain => 'Réessayer';
+
+  @override
+  String get scanEditManually => 'Corriger les couleurs à la main';
+
+  @override
+  String get scanLightingHint =>
+      'Centrez la face dans la grille. Utilisez une lumière vive et uniforme et évitez les reflets.';
+
+  @override
+  String get crownExplain =>
+      'Une couronne est une couche horizontale du cube : la première couronne est la couche blanche en bas, la deuxième est la couche du milieu et la troisième est la couche jaune en haut.';
+
+  @override
+  String get lessonObjectiveHeading => 'Objectif d’apprentissage';
+
+  @override
+  String get dirRowTop => 'Rangée du haut de la face avant';
+
+  @override
+  String get dirRowBottom => 'Rangée du bas de la face avant';
+
+  @override
+  String get dirColumnRight => 'Colonne de droite de la face avant';
+
+  @override
+  String get dirColumnLeft => 'Colonne de gauche de la face avant';
+
+  @override
+  String get solveChoiceTitle => 'Comment voulez-vous le résoudre ?';
+
+  @override
+  String get solveChoiceFastDesc =>
+      'La solution la plus courte, mouvement par mouvement.';
+
+  @override
+  String get solveChoiceGuidedDesc =>
+      'Apprenez la méthode des 3 couronnes étape par étape.';
+
+  @override
+  String get guidedSolvedTitle => 'Résolu !';
+
+  @override
+  String get guidedSolvedBody =>
+      'Vous avez suivi chaque étape et résolu le cube.';
+
+  @override
+  String get solveAgain => 'Résoudre à nouveau';
+
+  @override
+  String get backToHome => 'Retour à l’accueil';
+
+  @override
+  String get dailyStatTime => 'Temps du jour';
+
+  @override
+  String get dailyStatBest => 'Record personnel';
+
+  @override
+  String get dailyStatStreak => 'Série actuelle';
+
+  @override
+  String get dailyStatBestStreak => 'Meilleure série';
+
+  @override
+  String get privacyPolicyTitle => 'Politique de confidentialité';
+
+  @override
+  String get settingsPrivacyPolicyDesc =>
+      'Ce que CubeMentor enregistre et ce qu’utilisent les publicités.';
+
+  @override
+  String get privacyIntro =>
+      'CubeMentor fonctionne sans compte et sans serveurs à lui. Cette page explique ce qui reste sur votre appareil et ce qu’utilise notre partenaire publicitaire.';
+
+  @override
+  String get privacyDataTitle => 'Vos données restent sur votre appareil';
+
+  @override
+  String get privacyDataBody =>
+      'Votre langue, vos réglages, votre progression dans les leçons, vos temps et votre série quotidienne sont enregistrés uniquement sur cet appareil. Nous n’avons pas de serveurs, nous ne les recevons donc jamais. Désinstaller l’app les supprime.';
+
+  @override
+  String get privacyCameraTitle => 'Caméra';
+
+  @override
+  String get privacyCameraBody =>
+      'La caméra n’est utilisée que pendant le scan d’un cube. Les images sont analysées sur votre appareil pour lire les couleurs des autocollants ; aucune photo ni vidéo n’est enregistrée ou envoyée.';
+
+  @override
+  String get privacyAdsTitle => 'Publicités';
+
+  @override
+  String get privacyAdsBody =>
+      'L’app affiche des publicités Google AdMob. Google peut utiliser des identifiants de l’appareil et des données d’interaction publicitaire pour afficher et mesurer les annonces, comme décrit dans la politique de confidentialité de Google. Là où la loi l’exige, votre consentement est d’abord demandé et vous pouvez le modifier dans les Réglages.';
+
+  @override
+  String get privacyContactTitle => 'Contact';
+
+  @override
+  String privacyContactBody(String email) {
+    return 'Des questions sur la confidentialité ? Écrivez-nous à $email.';
   }
 }

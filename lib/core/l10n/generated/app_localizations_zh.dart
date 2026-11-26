@@ -1480,11 +1480,6 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String stageCrownHeader(int crown, int number, int total, String title) {
-    return '王冠 $crown • 第 $number/$total 阶段：$title';
-  }
-
-  @override
   String get solveAllStagesDone => '所有阶段都完成了，太棒了！';
 
   @override
@@ -2393,6 +2388,136 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String cueParityFive(String front) {
     return '棱的特殊情况：一条棱外侧的两个小块互换了。把这条棱转到前面，保持$front色朝向你，修正后再转回去。';
+  }
+
+  @override
+  String get onboardingSkip => '跳过';
+
+  @override
+  String get onboardingNext => '下一步';
+
+  @override
+  String get onboardingStart => '开始使用';
+
+  @override
+  String get onboardingWhatTitle => '你的魔方好帮手';
+
+  @override
+  String get onboardingWhatBody =>
+      'CubeMentor 帮你还原、学习和练习从 2×2 到 6×6 的每一种魔方，完全离线可用。';
+
+  @override
+  String get onboardingScanTitle => '几秒钟扫描并还原';
+
+  @override
+  String get onboardingScanBody => '把每个面对准相机（或手动点选颜色），然后跟着 3D 解法一步步操作。';
+
+  @override
+  String get onboardingLearnTitle => '边学边玩';
+
+  @override
+  String get onboardingLearnBody => '在学院掌握三皇冠法，然后在 3D 练习场里自由转动、打乱和还原。';
+
+  @override
+  String get scanChoiceManualDesc => '逐个贴纸点选每个面的颜色。';
+
+  @override
+  String get scanTryAgain => '重试';
+
+  @override
+  String get scanEditManually => '手动修正颜色';
+
+  @override
+  String get scanLightingHint => '让这个面位于网格中央。使用明亮均匀的光线，避免反光。';
+
+  @override
+  String get crownExplain => '皇冠就是魔方的一个水平层：第一顶皇冠是底部的白色层，第二顶是中间层，第三顶是顶部的黄色层。';
+
+  @override
+  String get lessonObjectiveHeading => '学习目标';
+
+  @override
+  String get dirRowTop => '前面的顶行';
+
+  @override
+  String get dirRowBottom => '前面的底行';
+
+  @override
+  String get dirColumnRight => '前面的右列';
+
+  @override
+  String get dirColumnLeft => '前面的左列';
+
+  @override
+  String get solveChoiceTitle => '你想怎样还原？';
+
+  @override
+  String get solveChoiceFastDesc => '最短解法，一步一步来。';
+
+  @override
+  String get solveChoiceGuidedDesc => '一步步学习三皇冠法。';
+
+  @override
+  String get guidedSolvedTitle => '还原完成！';
+
+  @override
+  String get guidedSolvedBody => '你完成了每一步，还原了魔方。';
+
+  @override
+  String get solveAgain => '再还原一次';
+
+  @override
+  String get backToHome => '返回首页';
+
+  @override
+  String get dailyStatTime => '今日用时';
+
+  @override
+  String get dailyStatBest => '个人最佳';
+
+  @override
+  String get dailyStatStreak => '当前连续';
+
+  @override
+  String get dailyStatBestStreak => '最长连续';
+
+  @override
+  String get privacyPolicyTitle => '隐私政策';
+
+  @override
+  String get settingsPrivacyPolicyDesc => 'CubeMentor 保存的内容以及广告使用的数据。';
+
+  @override
+  String get privacyIntro =>
+      'CubeMentor 无需账号，也没有自己的服务器。本页说明哪些数据保留在你的设备上，以及我们的广告合作伙伴会使用哪些数据。';
+
+  @override
+  String get privacyDataTitle => '你的数据留在设备上';
+
+  @override
+  String get privacyDataBody =>
+      '你的语言、设置、课程进度、还原用时和每日连续记录只保存在这台设备上。我们没有服务器，因此从不会收到这些数据。卸载应用即会删除它们。';
+
+  @override
+  String get privacyCameraTitle => '相机';
+
+  @override
+  String get privacyCameraBody =>
+      '相机只在你扫描魔方时使用。画面会在你的设备上分析以识别贴纸颜色，不会保存或发送任何照片或视频。';
+
+  @override
+  String get privacyAdsTitle => '广告';
+
+  @override
+  String get privacyAdsBody =>
+      '本应用展示来自 Google AdMob 的广告。如 Google 隐私权政策所述，Google 可能会使用设备标识符和广告互动数据来展示和衡量广告。在法律要求的地区，会先征求你的同意，你也可以在设置中更改。';
+
+  @override
+  String get privacyContactTitle => '联系我们';
+
+  @override
+  String privacyContactBody(String email) {
+    return '对隐私有疑问？请发邮件至 $email。';
   }
 }
 
@@ -3868,11 +3993,6 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   }
 
   @override
-  String stageCrownHeader(int crown, int number, int total, String title) {
-    return '皇冠 $crown • 第 $number/$total 階段：$title';
-  }
-
-  @override
   String get solveAllStagesDone => '所有階段都完成了。做得好！';
 
   @override
@@ -4800,5 +4920,135 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   @override
   String cueParityFive(String front) {
     return '邊的特殊狀況：一條邊外側的兩個小塊互換了。把這條邊轉到前面，保持$front色朝向你，修正後再轉回去。';
+  }
+
+  @override
+  String get onboardingSkip => '略過';
+
+  @override
+  String get onboardingNext => '下一步';
+
+  @override
+  String get onboardingStart => '開始使用';
+
+  @override
+  String get onboardingWhatTitle => '你的魔術方塊好幫手';
+
+  @override
+  String get onboardingWhatBody =>
+      'CubeMentor 幫你解開、學習和練習從 2×2 到 6×6 的每一種魔術方塊，完全離線可用。';
+
+  @override
+  String get onboardingScanTitle => '幾秒鐘掃描並解開';
+
+  @override
+  String get onboardingScanBody => '把每一面對準相機（或手動點選顏色），然後跟著 3D 解法一步步操作。';
+
+  @override
+  String get onboardingLearnTitle => '邊學邊玩';
+
+  @override
+  String get onboardingLearnBody => '在學院學會三皇冠法，然後在 3D 遊樂場自由轉動、打亂和解開。';
+
+  @override
+  String get scanChoiceManualDesc => '逐一點選每一面每張貼紙的顏色。';
+
+  @override
+  String get scanTryAgain => '再試一次';
+
+  @override
+  String get scanEditManually => '手動修正顏色';
+
+  @override
+  String get scanLightingHint => '讓這一面位於格線中央。使用明亮均勻的光線，避免反光。';
+
+  @override
+  String get crownExplain => '皇冠就是魔術方塊的一個水平層：第一頂皇冠是底部的白色層，第二頂是中間層，第三頂是頂部的黃色層。';
+
+  @override
+  String get lessonObjectiveHeading => '學習目標';
+
+  @override
+  String get dirRowTop => '前面的頂排';
+
+  @override
+  String get dirRowBottom => '前面的底排';
+
+  @override
+  String get dirColumnRight => '前面的右欄';
+
+  @override
+  String get dirColumnLeft => '前面的左欄';
+
+  @override
+  String get solveChoiceTitle => '你想怎麼解？';
+
+  @override
+  String get solveChoiceFastDesc => '最短解法，一步一步來。';
+
+  @override
+  String get solveChoiceGuidedDesc => '一步步學習三皇冠法。';
+
+  @override
+  String get guidedSolvedTitle => '解開了！';
+
+  @override
+  String get guidedSolvedBody => '你完成了每一步，解開了魔術方塊。';
+
+  @override
+  String get solveAgain => '再解一次';
+
+  @override
+  String get backToHome => '返回首頁';
+
+  @override
+  String get dailyStatTime => '今日時間';
+
+  @override
+  String get dailyStatBest => '個人最佳';
+
+  @override
+  String get dailyStatStreak => '目前連續紀錄';
+
+  @override
+  String get dailyStatBestStreak => '最長連續紀錄';
+
+  @override
+  String get privacyPolicyTitle => '隱私權政策';
+
+  @override
+  String get settingsPrivacyPolicyDesc => 'CubeMentor 儲存的內容與廣告使用的資料。';
+
+  @override
+  String get privacyIntro =>
+      'CubeMentor 不需要帳號，也沒有自己的伺服器。本頁說明哪些資料留在你的裝置上，以及我們的廣告合作夥伴會使用哪些資料。';
+
+  @override
+  String get privacyDataTitle => '你的資料留在裝置上';
+
+  @override
+  String get privacyDataBody =>
+      '你的語言、設定、課程進度、解題時間和每日連續紀錄只儲存在這台裝置上。我們沒有伺服器，因此從不會收到這些資料。解除安裝應用程式即會刪除它們。';
+
+  @override
+  String get privacyCameraTitle => '相機';
+
+  @override
+  String get privacyCameraBody =>
+      '相機只在你掃描魔術方塊時使用。畫面會在你的裝置上分析以辨識貼紙顏色，不會儲存或傳送任何照片或影片。';
+
+  @override
+  String get privacyAdsTitle => '廣告';
+
+  @override
+  String get privacyAdsBody =>
+      '本應用程式顯示來自 Google AdMob 的廣告。如 Google 隱私權政策所述，Google 可能會使用裝置識別碼和廣告互動資料來顯示及評估廣告。在法律要求的地區，會先徵求你的同意，你也可以在設定中變更。';
+
+  @override
+  String get privacyContactTitle => '聯絡我們';
+
+  @override
+  String privacyContactBody(String email) {
+    return '對隱私權有疑問？請寫信到 $email。';
   }
 }

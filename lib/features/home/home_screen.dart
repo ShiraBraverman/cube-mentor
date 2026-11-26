@@ -12,7 +12,8 @@ import 'settings_sheet.dart';
 
 /// The home screen: the endless cube carousel as the hero size selector
 /// and, below it, four action cards (Scan & Solve, Academy, Cool Patterns,
-/// Timer & Daily Challenge) that all open on the selected size.
+/// Timer & Daily Challenge) and a slim 3D Playground pill, all opening on
+/// the selected size.
 /// Everything fits above the fold; very short screens scroll as a fallback.
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -41,6 +42,8 @@ class HomeScreen extends ConsumerWidget {
                 const actions = [
                   SizedBox(height: AppSpace.sm),
                   HomeActionGrid(),
+                  SizedBox(height: AppSpace.xs),
+                  HomePlaygroundButton(),
                 ];
                 // Very short screens (landscape, split screen) scroll.
                 if (constraints.maxHeight < _kMinFoldHeight) {
@@ -70,7 +73,7 @@ class HomeScreen extends ConsumerWidget {
                             alignment: Alignment.topCenter,
                             child: CubeCarousel(
                               height: (hero.maxHeight - _kCarouselChrome).clamp(
-                                120.0,
+                                100.0,
                                 380.0,
                               ),
                             ),

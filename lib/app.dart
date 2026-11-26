@@ -5,8 +5,10 @@ import 'core/l10n/app_delegates.dart';
 import 'core/l10n/generated/app_localizations.dart';
 import 'core/settings/app_settings.dart';
 import 'core/settings/locale_controller.dart';
+import 'core/settings/onboarding.dart';
 import 'core/theme/app_theme.dart';
 import 'core/theme/sticker_palette.dart';
+import 'features/home/onboarding_screen.dart';
 import 'features/home/root_shell.dart';
 
 /// Root widget. Locale changes rebuild [MaterialApp], which flips text
@@ -21,6 +23,8 @@ class CubeMentorApp extends ConsumerWidget {
     // Vietnamese and, most of all, Burmese).
     final theme = AppTheme.dark(languageCode: locale.languageCode);
     final colorScheme = ref.watch(cubeColorSchemeProvider);
+    // The three-page intro on first launch only; then the home screen.
+    final onboarded = ref.watch(onboardingSeenProvider);
     return MaterialApp(
       onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
       debugShowCheckedModeBanner: false,
@@ -33,7 +37,7 @@ class CubeMentorApp extends ConsumerWidget {
       // Every route, sheet and dialog paints stickers in the user's scheme.
       builder: (context, child) =>
           StickerPalette(scheme: colorScheme, child: child!),
-      home: const RootShell(),
+      home: onboarded ? const RootShell() : const OnboardingScreen(),
     );
   }
 }

@@ -1564,11 +1564,6 @@ class AppLocalizationsTt extends AppLocalizations {
   }
 
   @override
-  String stageCrownHeader(int crown, int number, int total, String title) {
-    return '$crown нче таҗ • $total этаптан $number нчесе: $title';
-  }
-
-  @override
   String get solveAllStagesDone => 'Барлык этаплар тәмам. Булдырдыгыз!';
 
   @override
@@ -2527,5 +2522,140 @@ class AppLocalizationsTt extends AppLocalizations {
   @override
   String cueParityFive(String front) {
     return 'Кыр паритеты: бер кырның ике тышкы кисәге урын алмашкан. Шул кырны алга борыгыз, $front сезгә карап торсын, төзәтегез һәм кире борыгыз.';
+  }
+
+  @override
+  String get onboardingSkip => 'Калдыру';
+
+  @override
+  String get onboardingNext => 'Алга';
+
+  @override
+  String get onboardingStart => 'Башлау';
+
+  @override
+  String get onboardingWhatTitle => 'Кубик буенча ярдәмчең';
+
+  @override
+  String get onboardingWhatBody =>
+      'CubeMentor 2×2 дән 6×6 га кадәр һәр кубикны җыярга, өйрәнергә һәм күнегергә ярдәм итә, интернетсыз да.';
+
+  @override
+  String get onboardingScanTitle => 'Берничә секундта сканерла һәм җый';
+
+  @override
+  String get onboardingScanBody =>
+      'Һәр якны камерага күрсәт (яки төсләрне кулдан керт) һәм 3D чишелешне адымлап кабатла.';
+
+  @override
+  String get onboardingLearnTitle => 'Өйрән һәм уйна';
+
+  @override
+  String get onboardingLearnBody =>
+      'Академиядә өч таҗ ысулын үзләштер, аннары 3D мәйданчыкта иркен әйләндер, бутап куй һәм җый.';
+
+  @override
+  String get scanChoiceManualDesc => 'Һәр якның төсләрен стикерлап кертеп чык.';
+
+  @override
+  String get scanTryAgain => 'Кабат тырышып карау';
+
+  @override
+  String get scanEditManually => 'Төсләрне кулдан төзәтү';
+
+  @override
+  String get scanLightingHint =>
+      'Якны челтәр уртасына куй. Якты, тигез яктылык кулла һәм ялтыраудан саклан.';
+
+  @override
+  String get crownExplain =>
+      'Таҗ — кубикның бер горизонталь катламы: беренче таҗ — астагы ак катлам, икенчесе — урта катлам, өченчесе — өстәге сары катлам.';
+
+  @override
+  String get lessonObjectiveHeading => 'Дәрес максаты';
+
+  @override
+  String get dirRowTop => 'Алгы якның өске рәте';
+
+  @override
+  String get dirRowBottom => 'Алгы якның аскы рәте';
+
+  @override
+  String get dirColumnRight => 'Алгы якның уң баганасы';
+
+  @override
+  String get dirColumnLeft => 'Алгы якның сул баганасы';
+
+  @override
+  String get solveChoiceTitle => 'Ничек җыярга телисең?';
+
+  @override
+  String get solveChoiceFastDesc => 'Иң кыска чишелеш, адымлап.';
+
+  @override
+  String get solveChoiceGuidedDesc => 'Өч таҗ ысулын адымлап өйрән.';
+
+  @override
+  String get guidedSolvedTitle => 'Җыелды!';
+
+  @override
+  String get guidedSolvedBody => 'Син һәр адымны үтеп кубикны җыйдың.';
+
+  @override
+  String get solveAgain => 'Тагын җыю';
+
+  @override
+  String get backToHome => 'Баш биткә кайту';
+
+  @override
+  String get dailyStatTime => 'Бүгенге вакыт';
+
+  @override
+  String get dailyStatBest => 'Шәхси рекорд';
+
+  @override
+  String get dailyStatStreak => 'Хәзерге серия';
+
+  @override
+  String get dailyStatBestStreak => 'Иң яхшы серия';
+
+  @override
+  String get privacyPolicyTitle => 'Хосусыйлык сәясәте';
+
+  @override
+  String get settingsPrivacyPolicyDesc =>
+      'CubeMentor нәрсә саклый һәм реклама нәрсә куллана.';
+
+  @override
+  String get privacyIntro =>
+      'CubeMentor аккаунтсыз һәм үз серверларыннан башка эшли. Бу биттә җиһазыңда нәрсә кала һәм безнең реклама партнёры нәрсә куллана икәне аңлатыла.';
+
+  @override
+  String get privacyDataTitle => 'Мәгълүматларың җиһазыңда кала';
+
+  @override
+  String get privacyDataBody =>
+      'Телең, көйләүләрең, дәресләрдәге алгарышың, җыю вакытларың һәм көндәлек сериясе бары тик шушы җиһазда саклана. Безнең серверлар юк, шуңа күрә без аларны беркайчан да алмыйбыз. Кушымтаны бетергәч, алар юкка чыга.';
+
+  @override
+  String get privacyCameraTitle => 'Камера';
+
+  @override
+  String get privacyCameraBody =>
+      'Камера кубикны сканерлаганда гына кулланыла. Стикер төсләрен уку өчен кадрлар җиһазыңда анализлана; бер фото да, видео да сакланмый һәм беркая да җибәрелми.';
+
+  @override
+  String get privacyAdsTitle => 'Реклама';
+
+  @override
+  String get privacyAdsBody =>
+      'Кушымта Google AdMob рекламасын күрсәтә. Google хосусыйлык сәясәтендә язылганча, Google рекламаны күрсәтү һәм бәяләү өчен җиһаз идентификаторларын һәм реклама белән эш турындагы мәгълүматларны куллана ала. Закон таләп иткән җирләрдә башта синең ризалыгың сорала, һәм аны көйләүләрдә үзгәртә аласың.';
+
+  @override
+  String get privacyContactTitle => 'Элемтә';
+
+  @override
+  String privacyContactBody(String email) {
+    return 'Хосусыйлык буенча сораулар бармы? Безгә $email адресына яз.';
   }
 }

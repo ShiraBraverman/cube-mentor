@@ -528,6 +528,18 @@ class CubeSessionController extends Notifier<CubeSession> {
 
   void clearSolveError() => state = state.copyWith(clearSolveError: true);
 
+  /// "Solve again" after a finished solution: back to the cube it started
+  /// from, then the same method solves it again from the first step.
+  Future<void> solveAgain() async {
+    final method = state.solvedWith;
+    if (method == null || !state.isIdle || state.isHandTurning) return;
+    final start = state.cube.applyAll([
+      for (final move in state.playback.reversed) move.inverse,
+    ]);
+    load(start);
+    await solve(method);
+  }
+
   /// Replaces the cube (e.g. with a scanned one), dropping animations,
   /// history and any loaded solution.
   void load(CubeState cube) {

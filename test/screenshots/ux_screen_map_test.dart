@@ -29,6 +29,9 @@ import 'package:cube_mentor/features/academy/academy_screen.dart';
 import 'package:cube_mentor/features/academy/lesson_screen.dart';
 import 'package:cube_mentor/features/academy/model/lesson_catalog.dart';
 import 'package:cube_mentor/features/daily/daily_screen.dart';
+import 'package:cube_mentor/core/theme/glass.dart';
+import 'package:cube_mentor/features/home/onboarding_screen.dart';
+import 'package:cube_mentor/features/home/privacy_policy_screen.dart';
 import 'package:cube_mentor/features/home/root_shell.dart';
 import 'package:cube_mentor/features/patterns/patterns.dart';
 import 'package:cube_mentor/features/patterns/patterns_screen.dart';
@@ -36,6 +39,7 @@ import 'package:cube_mentor/features/scanner/camera/camera_scan_view.dart';
 import 'package:cube_mentor/features/scanner/model/scan_session.dart';
 import 'package:cube_mentor/features/scanner/scanner_screen.dart';
 import 'package:cube_mentor/features/scanner/widgets/scan_layout.dart';
+import 'package:cube_mentor/features/solver_3d/model/cube_session.dart';
 import 'package:cube_mentor/features/solver_3d/model/guide_script.dart';
 import 'package:cube_mentor/features/solver_3d/solver_3d_screen.dart';
 import 'package:cube_mentor/features/timer/timer_screen.dart';
@@ -227,6 +231,7 @@ Future<void> _show(
   WidgetTester tester,
   Widget screen, {
   CubeSolver? solver,
+  bool root = false,
 }) async {
   tester.view.physicalSize = const Size(720, 1560);
   tester.view.devicePixelRatio = 2;
@@ -244,15 +249,17 @@ Future<void> _show(
           scanAnalyzerProvider.overrideWithValue(FakeScanAnalyzer()),
           ...adsOnOverrides(_ShotAdService()),
         ],
-        child: _app(screen),
+        child: _app(screen, root: root),
       ),
     ),
   );
   await _advance(tester, 16);
 }
 
-/// [testApp] with script fallbacks for the native language names.
-Widget _app(Widget home) {
+/// [testApp] with script fallbacks for the native language names. Unless
+/// [root], [home] is pushed over a blank first route, as every screen but
+/// the home screen is in the app, so its back arrow shows.
+Widget _app(Widget home, {bool root = false}) {
   final app = testApp(home) as MaterialApp;
   final theme = app.theme!;
   const fallback = ['FallbackUnicode', 'FallbackMyanmar'];
@@ -267,7 +274,12 @@ Widget _app(Widget home) {
     locale: app.locale,
     supportedLocales: app.supportedLocales,
     localizationsDelegates: app.localizationsDelegates,
-    home: home,
+    initialRoute: '/screen',
+    onGenerateRoute: (_) => MaterialPageRoute<void>(builder: (_) => home),
+    onGenerateInitialRoutes: (_) => [
+      if (!root) MaterialPageRoute<void>(builder: (_) => const Scaffold()),
+      MaterialPageRoute<void>(builder: (_) => home),
+    ],
   );
 }
 
@@ -322,17 +334,17 @@ void main() {
       }, skip: skip);
 
   // Home and its two sheets.
-  shot('01_home', (t) => _show(t, const RootShell()));
+  shot('01_home', (t) => _show(t, const RootShell(), root: true));
   shot('02_scan_solve_sheet', (t) async {
-    await _show(t, const RootShell());
+    await _show(t, const RootShell(), root: true);
     await _tap(t, 'home-scan-solve');
   });
   shot('03_settings', (t) async {
-    await _show(t, const RootShell());
+    await _show(t, const RootShell(), root: true);
     await _tap(t, 'settings-button');
   });
   shot('04_language', (t) async {
-    await _show(t, const RootShell());
+    await _show(t, const RootShell(), root: true);
     await _tap(t, 'language-button');
   });
 
@@ -519,18 +531,77 @@ void main() {
     await t.pump(const Duration(milliseconds: 1200));
   });
   shot('22_daily', (t) => _show(t, const DailyScreen()));
+  // Finishing today's challenge: the completion summary.
+  shot(
+    '31_daily_complete',
+    (t) => _show(
+      t,
+      const DailyCompleteScreen(
+        millis: 48370,
+        streak: 7,
+        bestStreak: 11,
+        bestMillis: 48370,
+        newBest: true,
+      ),
+    ),
+  );
+
+  // First launch and Settings extras.
+  shot('26_onboarding', (t) => _show(t, const OnboardingScreen(), root: true));
+  shot('27_privacy', (t) => _show(t, const PrivacyPolicyScreen()));
+
+  // The Playground's Solve: Fast or Guided, then the end of a guided solve.
+  shot('28_solve_choice', (t) async {
+    await _show(
+      t,
+      Solver3DScreen(
+        size: 3,
+        initialCube: CubeState.solved(3)
+            .applyAll(MoveNotation.parseSequence("R U R' U'", 3)),
+      ),
+    );
+    await _tap(t, 'solve', 16);
+  });
+  shot('29_guided_solved', (t) async {
+    // No sub-step goal sheets on the way to the end.
+    await _prefs.setBool('substep_intro_auto', false);
+    await _show(
+      t,
+      Solver3DScreen(
+        size: 3,
+        // The inverse of the fake guided plan (R2 U' F2 R): it ends solved.
+        initialCube: CubeState.solved(3)
+            .applyAll(MoveNotation.parseSequence("R' F2 U R2", 3)),
+        autoSolve: SolveMethod.layerByLayer,
+      ),
+    );
+    await _advance(t, 20);
+    final scope = ProviderScope.containerOf(
+      t.element(find.byType(Solver3DScreen)),
+    );
+    final controller = scope.read(cubeSessionProvider(3).notifier);
+    for (var i = 0; i < 8; i++) {
+      if (scope.read(cubeSessionProvider(3)).isComplete) break;
+      controller.stepForward();
+      await _advance(t, 16);
+    }
+    await _advance(t, 24);
+  });
+  // Camera denied: Try again or enter the colors by hand.
+  shot('30_camera_problem', (t) => _show(t, const _SimulatedCameraProblem()));
 }
 
 /// The full-screen capture layout (the real [ScanLayout] and
 /// [ScanGridOverlay]) over a drawn cube, standing in for the camera.
-class _SimulatedCameraScan extends StatefulWidget {
+class _SimulatedCameraScan extends ConsumerStatefulWidget {
   const _SimulatedCameraScan();
 
   @override
-  State<_SimulatedCameraScan> createState() => _SimulatedCameraScanState();
+  ConsumerState<_SimulatedCameraScan> createState() =>
+      _SimulatedCameraScanState();
 }
 
-class _SimulatedCameraScanState extends State<_SimulatedCameraScan> {
+class _SimulatedCameraScanState extends ConsumerState<_SimulatedCameraScan> {
   Rect? _grid;
 
   static const _face = 'GRWBGYOWG';
@@ -550,70 +621,35 @@ class _SimulatedCameraScanState extends State<_SimulatedCameraScan> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final text = Theme.of(context).textTheme;
+    final session = ref.watch(scanSessionProvider(3));
     return Scaffold(
       backgroundColor: Colors.black,
       body: ScanLayout(
         background: CustomPaint(painter: _CameraPainter(_grid, _colors)),
-        header: ScanOverlayBar(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(4, 4, 8, 10),
-            child: Row(
-              children: [
-                const BackButton(color: Colors.white),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(l10n.scanTitle(3), style: text.titleMedium),
-                      Text(
-                        '1 / 6',
-                        style: text.bodySmall?.copyWith(color: Colors.white70),
-                      ),
-                    ],
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  style: IconButton.styleFrom(
-                    backgroundColor: Colors.white.withValues(alpha: 0.12),
-                  ),
-                  icon: const Icon(Icons.flashlight_on_rounded, size: 20),
-                ),
-              ],
+        header: ScanCaptureHeader(
+          session: session,
+          showBack: true,
+          torch: IconButton(
+            onPressed: () {},
+            tooltip: l10n.scanTorch,
+            style: IconButton.styleFrom(
+              backgroundColor: Colors.white.withValues(alpha: 0.12),
             ),
+            icon: const Icon(Icons.flashlight_on_rounded, size: 20),
           ),
+          onFaceTap: (_) {},
         ),
-        footer: ScanOverlayBar(
-          top: false,
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: Align(
-                    heightFactor: 1,
-                    alignment: AlignmentDirectional.centerStart,
-                    child: IconButton.filledTonal(
-                      onPressed: () {},
-                      tooltip: l10n.scanManualInput,
-                      icon: const Icon(Icons.edit_rounded),
-                    ),
-                  ),
-                ),
-                FloatingActionButton(
-                  onPressed: () {},
-                  shape: const CircleBorder(
-                    side: BorderSide(color: Colors.white, width: 3),
-                  ),
-                  child: const Icon(Icons.camera_rounded, size: 30),
-                ),
-                const Expanded(child: SizedBox()),
-              ],
+        footer: ScanCaptureFooter(
+          session: session,
+          shutter: FloatingActionButton(
+            onPressed: () {},
+            shape: const CircleBorder(
+              side: BorderSide(color: Colors.white, width: 3),
             ),
+            child: const Icon(Icons.camera_rounded, size: 30),
           ),
+          onPillTap: (_) {},
+          onManual: () {},
         ),
         grid: ScanGridOverlay(n: 3, colors: _colors),
         onGridRect: (grid, _) {
@@ -623,6 +659,41 @@ class _SimulatedCameraScanState extends State<_SimulatedCameraScan> {
             });
           }
         },
+      ),
+    );
+  }
+}
+
+/// The scanner's recovery state when camera access was denied, inside the
+/// real capture overlays.
+class _SimulatedCameraProblem extends ConsumerWidget {
+  const _SimulatedCameraProblem();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final session = ref.watch(scanSessionProvider(3));
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: ScanLayout(
+        background: const GlassBackground(child: SizedBox.expand()),
+        header: ScanCaptureHeader(
+          session: session,
+          showBack: true,
+          torch: null,
+          onFaceTap: (_) {},
+        ),
+        footer: ScanCaptureFooter(
+          session: session,
+          shutter: null,
+          onPillTap: (_) {},
+          onManual: () {},
+        ),
+        fillCenter: true,
+        grid: CameraProblemView(
+          problem: CameraProblem.denied,
+          onManual: () {},
+          onRetry: () {},
+        ),
       ),
     );
   }

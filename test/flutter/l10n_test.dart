@@ -20,9 +20,12 @@ import 'package:cube_mentor/features/academy/model/lesson_catalog.dart';
 import 'package:cube_mentor/features/daily/daily_screen.dart';
 import 'package:cube_mentor/features/home/home_screen.dart';
 import 'package:cube_mentor/features/home/nickname_prompt.dart';
+import 'package:cube_mentor/features/home/onboarding_screen.dart';
+import 'package:cube_mentor/features/home/privacy_policy_screen.dart';
 import 'package:cube_mentor/features/home/root_shell.dart';
 import 'package:cube_mentor/features/home/settings_sheet.dart';
 import 'package:cube_mentor/features/patterns/patterns_screen.dart';
+import 'package:cube_mentor/features/scanner/camera/camera_scan_view.dart';
 import 'package:cube_mentor/features/scanner/camera/frame_sampler.dart';
 import 'package:cube_mentor/features/scanner/model/scan_session.dart';
 import 'package:cube_mentor/features/scanner/scanner_screen.dart';
@@ -30,6 +33,7 @@ import 'package:cube_mentor/features/scanner/widgets/lighting_tip.dart';
 import 'package:cube_mentor/features/solver_3d/model/cube_session.dart';
 import 'package:cube_mentor/features/solver_3d/model/guide_script.dart';
 import 'package:cube_mentor/features/solver_3d/solver_3d_screen.dart';
+import 'package:cube_mentor/features/solver_3d/widgets/solve_dialogs.dart';
 import 'package:cube_mentor/features/timer/timer_screen.dart';
 import 'package:cube_mentor/features/train/train_screen.dart';
 import 'package:cupertino_ui/cupertino_ui.dart' show CupertinoLocalizations;
@@ -262,7 +266,7 @@ void main() {
     tester,
   ) async {
     _smallPhone(tester);
-    SharedPreferences.setMockInitialValues({});
+    SharedPreferences.setMockInitialValues({'onboarding_done': true});
     final prefs = await SharedPreferences.getInstance();
     await tester.pumpWidget(
       ProviderScope(
@@ -499,14 +503,49 @@ void main() {
       ]) {
         await prefs.remove(key);
       }
-      // The congratulations dialog after a 3D solve.
+      // The completion summary after today's challenge.
+      await show(
+        const DailyCompleteScreen(
+          millis: 62350,
+          streak: 15,
+          bestStreak: 115,
+          bestMillis: 58410,
+          newBest: true,
+        ),
+      );
+      expect(find.byKey(const ValueKey('daily-congrats')), findsOneWidget);
+      // The first-launch intro, every page.
+      await show(const OnboardingScreen(), scroll: false);
+      for (var page = 1; page < 3; page++) {
+        await tester.tap(find.byKey(const ValueKey('onboarding-next')));
+        await _advance(tester, 10);
+        expect(find.byKey(ValueKey('onboarding-page-$page')), findsOneWidget);
+        expect(tester.takeException(), isNull, reason: 'onboarding $page');
+      }
+      // The privacy policy, the Playground's solve choice and the end of a
+      // guided solve.
+      await show(const PrivacyPolicyScreen());
       await show(
         const Scaffold(
-          body: DailyCongratsDialog(millis: 62350, streak: 15, newBest: true),
+          body: Align(
+            alignment: Alignment.bottomCenter,
+            child: SolveChoiceSheet(),
+          ),
         ),
         scroll: false,
       );
-      expect(find.byKey(const ValueKey('daily-congrats')), findsOneWidget);
+      await show(const Scaffold(body: GuidedSolvedDialog()), scroll: false);
+      // The camera recovery state, with Try again and manual entry.
+      await show(
+        Scaffold(
+          body: CameraProblemView(
+            problem: CameraProblem.denied,
+            onManual: () {},
+            onRetry: () {},
+          ),
+        ),
+        scroll: false,
+      );
       // Solving the daily scramble on the 3D cube: clock, Undo and Reset.
       await show(
         Solver3DScreen(
@@ -681,6 +720,10 @@ void main() {
         scroll: false,
       );
       await tester.tap(find.byKey(const ValueKey('solve')));
+      await _advance(tester, 8);
+      // Fast or guided: the choice sheet, then the guided solve.
+      expect(find.byKey(const ValueKey('solve-choice-sheet')), findsOneWidget);
+      await tester.tap(find.byKey(const ValueKey('solve-choice-guided')));
       await _advance(tester, 8);
       expect(find.byKey(const ValueKey('stage-title')), findsOneWidget);
       expect(find.byKey(const ValueKey('solve-mode')), findsOneWidget);

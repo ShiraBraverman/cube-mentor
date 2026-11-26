@@ -16,6 +16,7 @@ import '../academy/model/academy_progress.dart';
 import '../daily/daily_controller.dart';
 import 'language_sheet.dart';
 import 'nickname_prompt.dart';
+import 'privacy_policy_screen.dart';
 
 /// Where users send feature ideas and feedback.
 const String kFeedbackEmail = 'MyCubeMentor@gmail.com';
@@ -253,6 +254,24 @@ class SettingsSheet extends ConsumerWidget {
                     onTap: () => _confirmReset(context, ref),
                   ),
                   const _FeedbackCard(),
+                  _SettingsRow(
+                    key: const ValueKey('settings-privacy-policy'),
+                    icon: Icons.policy_outlined,
+                    title: l10n.privacyPolicyTitle,
+                    subtitle: Text(
+                      l10n.settingsPrivacyPolicyDesc,
+                      style: textTheme.bodySmall,
+                    ),
+                    trailing: const Icon(
+                      Icons.chevron_right_rounded,
+                      color: AppColors.textTertiary,
+                    ),
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (_) => const PrivacyPolicyScreen(),
+                      ),
+                    ),
+                  ),
                   // Only where the law requires a way back to the consent
                   // choices (e.g. GDPR); elsewhere there is nothing to set.
                   if (privacyOptionsRequired)

@@ -1045,6 +1045,16 @@ String lessonTitle(AppLocalizations l10n, String id) {
   return _lessonTitle(l10n, id);
 }
 
+/// A lesson's name without its sub-step number ("White cross"), for
+/// places that show the number on its own.
+String lessonName(AppLocalizations l10n, String id) {
+  final lesson = _lessonById(id);
+  if (lesson != null && lesson.crown > 0) {
+    return subStepTitle(l10n, lesson.crown, lesson.subStep);
+  }
+  return _lessonTitle(l10n, id);
+}
+
 String _lessonTitle(AppLocalizations l10n, String id) => switch (id) {
   'basics' => l10n.lessonBasics,
   'cfopIntro' => l10n.lessonCfopIntro,

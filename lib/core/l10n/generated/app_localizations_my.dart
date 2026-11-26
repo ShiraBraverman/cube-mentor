@@ -1575,11 +1575,6 @@ class AppLocalizationsMy extends AppLocalizations {
   }
 
   @override
-  String stageCrownHeader(int crown, int number, int total, String title) {
-    return 'သရဖူ $crown • အဆင့် $number / $total- $title';
-  }
-
-  @override
   String get solveAllStagesDone => 'အဆင့်အားလုံး ပြီးပါပြီ။ တော်လိုက်တာ။';
 
   @override
@@ -2554,5 +2549,143 @@ class AppLocalizationsMy extends AppLocalizations {
   @override
   String cueParityFive(String front) {
     return 'အနား parity: အနားတစ်ခု၏ အပြင်အပိုင်းနှစ်ခု နေရာလဲနေသည်။ ထိုအနားကို ရှေ့သို့လှည့်၊ $front ကို သင့်ဘက်ထား၊ ပြင်ပြီး ပြန်လှည့်ပါ။';
+  }
+
+  @override
+  String get onboardingSkip => 'ကျော်ရန်';
+
+  @override
+  String get onboardingNext => 'ရှေ့သို့';
+
+  @override
+  String get onboardingStart => 'စတင်မည်';
+
+  @override
+  String get onboardingWhatTitle => 'သင့်ကုဗ အဖော်';
+
+  @override
+  String get onboardingWhatBody =>
+      'CubeMentor က 2×2 မှ 6×6 အထိ ကုဗတိုင်းကို အင်တာနက်မလိုဘဲ ဖြေရှင်း၊ လေ့လာ၊ လေ့ကျင့်နိုင်အောင် ကူညီပေးသည်။';
+
+  @override
+  String get onboardingScanTitle => 'စက္ကန့်ပိုင်းအတွင်း စကင်ဖတ်ပြီး ဖြေရှင်း';
+
+  @override
+  String get onboardingScanBody =>
+      'မျက်နှာတစ်ခုစီကို ကင်မရာသို့ ပြပါ (သို့မဟုတ် အရောင်များကို နှိပ်ထည့်ပါ)၊ ပြီးလျှင် 3D ဖြေရှင်းချက်ကို တစ်လှည့်ချင်း လိုက်လုပ်ပါ။';
+
+  @override
+  String get onboardingLearnTitle => 'လေ့လာပြီး ကစားပါ';
+
+  @override
+  String get onboardingLearnBody =>
+      'အကယ်ဒမီတွင် သရဖူ ၃ ခု နည်းလမ်းကို ကျွမ်းကျင်အောင်လုပ်ပြီး 3D ကစားကွင်းတွင် လွတ်လပ်စွာ လှည့်၊ ရောမွှေ၊ ဖြေရှင်းပါ။';
+
+  @override
+  String get scanChoiceManualDesc =>
+      'မျက်နှာတစ်ခုစီ၏ အရောင်များကို စတစ်ကာတစ်ခုချင်း နှိပ်ထည့်ပါ။';
+
+  @override
+  String get scanTryAgain => 'ထပ်စမ်းကြည့်ရန်';
+
+  @override
+  String get scanEditManually => 'အရောင်များကို လက်ဖြင့် ပြင်ရန်';
+
+  @override
+  String get scanLightingHint =>
+      'မျက်နှာကို ဇယားကွက်အလယ်တွင် ထားပါ။ တောက်ပပြီး ညီညာသော အလင်းကို သုံးကာ အလင်းပြန်ခြင်းကို ရှောင်ပါ။';
+
+  @override
+  String get crownExplain =>
+      'သရဖူဆိုသည်မှာ ကုဗ၏ အလျားလိုက်အလွှာတစ်ခု ဖြစ်သည်- ပထမ သရဖူမှာ အောက်ခြေရှိ အဖြူရောင်အလွှာ၊ ဒုတိယမှာ အလယ်အလွှာ၊ တတိယမှာ အပေါ်ရှိ အဝါရောင်အလွှာ ဖြစ်သည်။';
+
+  @override
+  String get lessonObjectiveHeading => 'သင်ယူမှု ရည်မှန်းချက်';
+
+  @override
+  String get dirRowTop => 'ရှေ့မျက်နှာ၏ အပေါ်တန်း';
+
+  @override
+  String get dirRowBottom => 'ရှေ့မျက်နှာ၏ အောက်တန်း';
+
+  @override
+  String get dirColumnRight => 'ရှေ့မျက်နှာ၏ ညာကော်လံ';
+
+  @override
+  String get dirColumnLeft => 'ရှေ့မျက်နှာ၏ ဘယ်ကော်လံ';
+
+  @override
+  String get solveChoiceTitle => 'ဘယ်လို ဖြေရှင်းချင်ပါသလဲ။';
+
+  @override
+  String get solveChoiceFastDesc => 'အတိုဆုံး ဖြေရှင်းချက်၊ တစ်လှည့်ချင်း။';
+
+  @override
+  String get solveChoiceGuidedDesc =>
+      'သရဖူ ၃ ခု နည်းလမ်းကို တစ်ဆင့်ချင်း လေ့လာပါ။';
+
+  @override
+  String get guidedSolvedTitle => 'ဖြေရှင်းပြီးပါပြီ!';
+
+  @override
+  String get guidedSolvedBody =>
+      'အဆင့်တိုင်းကို လိုက်လုပ်ပြီး ကုဗကို ဖြေရှင်းနိုင်ခဲ့သည်။';
+
+  @override
+  String get solveAgain => 'ထပ်ဖြေရှင်းရန်';
+
+  @override
+  String get backToHome => 'ပင်မစာမျက်နှာသို့';
+
+  @override
+  String get dailyStatTime => 'ယနေ့ အချိန်';
+
+  @override
+  String get dailyStatBest => 'ကိုယ်ပိုင် စံချိန်';
+
+  @override
+  String get dailyStatStreak => 'လက်ရှိ ဆက်တိုက်ရက်';
+
+  @override
+  String get dailyStatBestStreak => 'အကောင်းဆုံး ဆက်တိုက်ရက်';
+
+  @override
+  String get privacyPolicyTitle => 'ကိုယ်ရေးလုံခြုံမှု မူဝါဒ';
+
+  @override
+  String get settingsPrivacyPolicyDesc =>
+      'CubeMentor က ဘာသိမ်းသလဲ၊ ကြော်ငြာများက ဘာသုံးသလဲ။';
+
+  @override
+  String get privacyIntro =>
+      'CubeMentor သည် အကောင့်မလိုဘဲ ကိုယ်ပိုင်ဆာဗာမရှိဘဲ အလုပ်လုပ်သည်။ သင့်စက်ပေါ်တွင် ဘာကျန်ရှိသလဲ၊ ကျွန်ုပ်တို့၏ ကြော်ငြာမိတ်ဖက်က ဘာသုံးသလဲကို ဤစာမျက်နှာတွင် ရှင်းပြထားသည်။';
+
+  @override
+  String get privacyDataTitle => 'သင့်ဒေတာ သင့်စက်ပေါ်တွင်သာ ရှိသည်';
+
+  @override
+  String get privacyDataBody =>
+      'သင့်ဘာသာစကား၊ ဆက်တင်များ၊ သင်ခန်းစာ တိုးတက်မှု၊ ဖြေရှင်းချိန်များနှင့် နေ့စဉ် ဆက်တိုက်ရက်တို့ကို ဤစက်ပေါ်တွင်သာ သိမ်းဆည်းသည်။ ကျွန်ုပ်တို့တွင် ဆာဗာမရှိသဖြင့် ၎င်းတို့ကို ဘယ်တော့မှ မရရှိပါ။ အက်ပ်ကို ဖြုတ်လိုက်လျှင် ၎င်းတို့ ပျက်သွားမည်။';
+
+  @override
+  String get privacyCameraTitle => 'ကင်မရာ';
+
+  @override
+  String get privacyCameraBody =>
+      'ကုဗကို စကင်ဖတ်နေစဉ်သာ ကင်မရာကို သုံးသည်။ စတစ်ကာအရောင်များကို ဖတ်ရန် ပုံရိပ်များကို သင့်စက်ပေါ်တွင် ခွဲခြမ်းစိတ်ဖြာပြီး ဓာတ်ပုံ သို့မဟုတ် ဗီဒီယို တစ်ခုမှ မသိမ်းပါ၊ မပို့ပါ။';
+
+  @override
+  String get privacyAdsTitle => 'ကြော်ငြာများ';
+
+  @override
+  String get privacyAdsBody =>
+      'အက်ပ်သည် Google AdMob ကြော်ငြာများကို ပြသည်။ Google ၏ ကိုယ်ရေးလုံခြုံမှုမူဝါဒတွင် ဖော်ပြထားသည့်အတိုင်း Google သည် ကြော်ငြာများ ပြသရန်နှင့် တိုင်းတာရန် စက်ကိရိယာ အမှတ်အသားများနှင့် ကြော်ငြာ တုံ့ပြန်မှုဒေတာကို သုံးနိုင်သည်။ ဥပဒေအရ လိုအပ်သည့်နေရာများတွင် သင့်ခွင့်ပြုချက်ကို ဦးစွာ တောင်းမည်ဖြစ်ပြီး ဆက်တင်များတွင် ပြောင်းနိုင်သည်။';
+
+  @override
+  String get privacyContactTitle => 'ဆက်သွယ်ရန်';
+
+  @override
+  String privacyContactBody(String email) {
+    return 'ကိုယ်ရေးလုံခြုံမှုနှင့် ပတ်သက်၍ မေးစရာရှိပါသလား။ $email သို့ စာရေးပါ။';
   }
 }

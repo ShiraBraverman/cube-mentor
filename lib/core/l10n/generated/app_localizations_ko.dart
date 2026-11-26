@@ -1494,11 +1494,6 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String stageCrownHeader(int crown, int number, int total, String title) {
-    return '왕관 $crown • $total단계 중 $number단계: $title';
-  }
-
-  @override
   String get solveAllStagesDone => '모든 단계를 마쳤어요. 잘했어요!';
 
   @override
@@ -2423,5 +2418,138 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String cueParityFive(String front) {
     return '엣지 패리티: 엣지 하나의 바깥 두 조각이 서로 바뀌었어요. 그 엣지를 앞으로 돌리고, $front 색을 앞에 두고 고친 뒤 되돌리세요.';
+  }
+
+  @override
+  String get onboardingSkip => '건너뛰기';
+
+  @override
+  String get onboardingNext => '다음';
+
+  @override
+  String get onboardingStart => '시작하기';
+
+  @override
+  String get onboardingWhatTitle => '나만의 큐브 도우미';
+
+  @override
+  String get onboardingWhatBody =>
+      'CubeMentor는 2×2부터 6×6까지 모든 큐브를 풀고, 배우고, 연습하도록 도와줘요. 완전히 오프라인으로요.';
+
+  @override
+  String get onboardingScanTitle => '몇 초 만에 스캔하고 풀기';
+
+  @override
+  String get onboardingScanBody =>
+      '각 면을 카메라에 보여 주거나 색을 직접 입력하고, 3D 풀이를 한 수씩 따라 하세요.';
+
+  @override
+  String get onboardingLearnTitle => '배우고 놀기';
+
+  @override
+  String get onboardingLearnBody =>
+      '아카데미에서 3크라운 방법을 익힌 뒤, 3D 놀이터에서 마음껏 돌리고 섞고 풀어 보세요.';
+
+  @override
+  String get scanChoiceManualDesc => '각 면의 색을 스티커 하나씩 입력하세요.';
+
+  @override
+  String get scanTryAgain => '다시 시도';
+
+  @override
+  String get scanEditManually => '색 직접 고치기';
+
+  @override
+  String get scanLightingHint => '면을 격자 가운데에 맞추세요. 밝고 고른 조명을 쓰고 빛 반사를 피하세요.';
+
+  @override
+  String get crownExplain =>
+      '크라운은 큐브의 가로 한 층이에요. 첫 번째 크라운은 아래의 흰색 층, 두 번째는 가운데 층, 세 번째는 위의 노란색 층이에요.';
+
+  @override
+  String get lessonObjectiveHeading => '학습 목표';
+
+  @override
+  String get dirRowTop => '앞면의 윗줄';
+
+  @override
+  String get dirRowBottom => '앞면의 아랫줄';
+
+  @override
+  String get dirColumnRight => '앞면의 오른쪽 열';
+
+  @override
+  String get dirColumnLeft => '앞면의 왼쪽 열';
+
+  @override
+  String get solveChoiceTitle => '어떻게 풀까요?';
+
+  @override
+  String get solveChoiceFastDesc => '가장 짧은 풀이를 한 수씩.';
+
+  @override
+  String get solveChoiceGuidedDesc => '3크라운 방법을 한 단계씩 배워요.';
+
+  @override
+  String get guidedSolvedTitle => '완성!';
+
+  @override
+  String get guidedSolvedBody => '모든 단계를 따라 큐브를 완성했어요.';
+
+  @override
+  String get solveAgain => '다시 풀기';
+
+  @override
+  String get backToHome => '홈으로 돌아가기';
+
+  @override
+  String get dailyStatTime => '오늘 기록';
+
+  @override
+  String get dailyStatBest => '개인 최고 기록';
+
+  @override
+  String get dailyStatStreak => '현재 연속 기록';
+
+  @override
+  String get dailyStatBestStreak => '최장 연속 기록';
+
+  @override
+  String get privacyPolicyTitle => '개인정보 처리방침';
+
+  @override
+  String get settingsPrivacyPolicyDesc => 'CubeMentor가 저장하는 정보와 광고가 사용하는 정보.';
+
+  @override
+  String get privacyIntro =>
+      'CubeMentor는 계정도, 자체 서버도 없이 작동해요. 이 페이지에서는 기기에 남는 정보와 광고 파트너가 사용하는 정보를 설명해요.';
+
+  @override
+  String get privacyDataTitle => '데이터는 기기에만 저장돼요';
+
+  @override
+  String get privacyDataBody =>
+      '언어, 설정, 레슨 진도, 풀이 시간, 일일 연속 기록은 이 기기에만 저장돼요. 저희는 서버가 없어서 이 정보를 받지 않아요. 앱을 삭제하면 함께 지워져요.';
+
+  @override
+  String get privacyCameraTitle => '카메라';
+
+  @override
+  String get privacyCameraBody =>
+      '카메라는 큐브를 스캔하는 동안에만 사용돼요. 스티커 색을 읽기 위해 화면은 기기 안에서 분석되며, 사진이나 동영상은 저장되거나 전송되지 않아요.';
+
+  @override
+  String get privacyAdsTitle => '광고';
+
+  @override
+  String get privacyAdsBody =>
+      '앱은 Google AdMob 광고를 보여 줘요. Google은 Google 개인정보처리방침에 설명된 대로 광고를 표시하고 측정하기 위해 기기 식별자와 광고 상호작용 데이터를 사용할 수 있어요. 법에서 요구하는 지역에서는 먼저 동의를 요청하며, 설정에서 바꿀 수 있어요.';
+
+  @override
+  String get privacyContactTitle => '문의';
+
+  @override
+  String privacyContactBody(String email) {
+    return '개인정보에 관해 궁금한 점이 있나요? $email로 연락해 주세요.';
   }
 }

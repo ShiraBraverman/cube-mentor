@@ -1578,11 +1578,6 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String stageCrownHeader(int crown, int number, int total, String title) {
-    return 'Корона $crown • Этап $number из $total: $title';
-  }
-
-  @override
   String get solveAllStagesDone => 'Все этапы пройдены. Отлично!';
 
   @override
@@ -2630,5 +2625,141 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String cueParityFive(String front) {
     return 'Паритет ребра: две внешние детали одного ребра поменялись местами. Поверните это ребро вперёд, центр «$front» к вам, исправьте и поверните обратно.';
+  }
+
+  @override
+  String get onboardingSkip => 'Пропустить';
+
+  @override
+  String get onboardingNext => 'Далее';
+
+  @override
+  String get onboardingStart => 'Начать';
+
+  @override
+  String get onboardingWhatTitle => 'Ваш помощник по кубикам';
+
+  @override
+  String get onboardingWhatBody =>
+      'CubeMentor помогает собирать, изучать и тренировать любые кубики от 2×2 до 6×6 — полностью офлайн.';
+
+  @override
+  String get onboardingScanTitle => 'Сканируйте и собирайте за секунды';
+
+  @override
+  String get onboardingScanBody =>
+      'Покажите камере каждую грань (или введите цвета) и следуйте 3D-решению ход за ходом.';
+
+  @override
+  String get onboardingLearnTitle => 'Учитесь и играйте';
+
+  @override
+  String get onboardingLearnBody =>
+      'Освойте метод трёх корон в Академии, а потом свободно крутите, перемешивайте и собирайте в 3D-песочнице.';
+
+  @override
+  String get scanChoiceManualDesc =>
+      'Введите цвета каждой грани, наклейку за наклейкой.';
+
+  @override
+  String get scanTryAgain => 'Повторить';
+
+  @override
+  String get scanEditManually => 'Исправить цвета вручную';
+
+  @override
+  String get scanLightingHint =>
+      'Расположите грань по центру сетки. Используйте яркий ровный свет и избегайте бликов.';
+
+  @override
+  String get crownExplain =>
+      'Корона — это один горизонтальный слой кубика: первая корона — белый слой внизу, вторая — средний слой, третья — жёлтый слой сверху.';
+
+  @override
+  String get lessonObjectiveHeading => 'Цель урока';
+
+  @override
+  String get dirRowTop => 'Верхний ряд передней грани';
+
+  @override
+  String get dirRowBottom => 'Нижний ряд передней грани';
+
+  @override
+  String get dirColumnRight => 'Правый столбец передней грани';
+
+  @override
+  String get dirColumnLeft => 'Левый столбец передней грани';
+
+  @override
+  String get solveChoiceTitle => 'Как вы хотите собрать кубик?';
+
+  @override
+  String get solveChoiceFastDesc => 'Самое короткое решение, ход за ходом.';
+
+  @override
+  String get solveChoiceGuidedDesc => 'Изучите метод трёх корон шаг за шагом.';
+
+  @override
+  String get guidedSolvedTitle => 'Собрано!';
+
+  @override
+  String get guidedSolvedBody => 'Вы прошли все шаги и собрали кубик.';
+
+  @override
+  String get solveAgain => 'Собрать снова';
+
+  @override
+  String get backToHome => 'На главный экран';
+
+  @override
+  String get dailyStatTime => 'Время сегодня';
+
+  @override
+  String get dailyStatBest => 'Личный рекорд';
+
+  @override
+  String get dailyStatStreak => 'Текущая серия';
+
+  @override
+  String get dailyStatBestStreak => 'Лучшая серия';
+
+  @override
+  String get privacyPolicyTitle => 'Политика конфиденциальности';
+
+  @override
+  String get settingsPrivacyPolicyDesc =>
+      'Что хранит CubeMentor и что использует реклама.';
+
+  @override
+  String get privacyIntro =>
+      'CubeMentor работает без аккаунта и без собственных серверов. На этой странице объясняется, что остаётся на вашем устройстве и что использует наш рекламный партнёр.';
+
+  @override
+  String get privacyDataTitle => 'Ваши данные остаются на устройстве';
+
+  @override
+  String get privacyDataBody =>
+      'Язык, настройки, прогресс в уроках, время сборок и ежедневная серия хранятся только на этом устройстве. У нас нет серверов, поэтому мы их никогда не получаем. При удалении приложения они стираются.';
+
+  @override
+  String get privacyCameraTitle => 'Камера';
+
+  @override
+  String get privacyCameraBody =>
+      'Камера используется только во время сканирования кубика. Кадры анализируются на устройстве, чтобы распознать цвета наклеек; фото и видео не сохраняются и никуда не отправляются.';
+
+  @override
+  String get privacyAdsTitle => 'Реклама';
+
+  @override
+  String get privacyAdsBody =>
+      'Приложение показывает рекламу Google AdMob. Google может использовать идентификаторы устройства и данные о взаимодействии с рекламой, чтобы показывать и оценивать объявления, как описано в политике конфиденциальности Google. Там, где этого требует закон, сначала запрашивается ваше согласие, и его можно изменить в настройках.';
+
+  @override
+  String get privacyContactTitle => 'Контакты';
+
+  @override
+  String privacyContactBody(String email) {
+    return 'Вопросы о конфиденциальности? Напишите нам: $email.';
   }
 }

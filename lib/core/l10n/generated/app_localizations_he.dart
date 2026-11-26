@@ -1554,11 +1554,6 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String stageCrownHeader(int crown, int number, int total, String title) {
-    return 'כתר $crown • שלב $number מתוך $total: $title';
-  }
-
-  @override
   String get solveAllStagesDone => 'כל השלבים הושלמו. כל הכבוד!';
 
   @override
@@ -2568,5 +2563,140 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String cueParityFive(String front) {
     return 'פריטי צלע: שני החלקים החיצוניים של צלע אחת התחלפו. סובבו את הצלע הזו לחזית, כשה$front מולכם, בצעו את התיקון וסובבו חזרה.';
+  }
+
+  @override
+  String get onboardingSkip => 'דלגו';
+
+  @override
+  String get onboardingNext => 'הבא';
+
+  @override
+  String get onboardingStart => 'בואו נתחיל';
+
+  @override
+  String get onboardingWhatTitle => 'המלווה שלכם לקובייה';
+
+  @override
+  String get onboardingWhatBody =>
+      'CubeMentor עוזרת לפתור, ללמוד ולהתאמן על כל קובייה מ־2×2 ועד 6×6, בלי חיבור לאינטרנט.';
+
+  @override
+  String get onboardingScanTitle => 'סורקים ופותרים בשניות';
+
+  @override
+  String get onboardingScanBody =>
+      'הראו כל פאה למצלמה (או הקישו את הצבעים) ועקבו אחרי הפתרון בתלת־ממד מהלך אחר מהלך.';
+
+  @override
+  String get onboardingLearnTitle => 'לומדים ומשחקים';
+
+  @override
+  String get onboardingLearnBody =>
+      'שלטו בשיטת שלושת הכתרים באקדמיה, ואז סובבו, ערבבו ופתרו בחופשיות במגרש התלת־ממד.';
+
+  @override
+  String get scanChoiceManualDesc => 'הקישו את צבעי כל פאה, מדבקה אחר מדבקה.';
+
+  @override
+  String get scanTryAgain => 'נסו שוב';
+
+  @override
+  String get scanEditManually => 'תיקון צבעים ידני';
+
+  @override
+  String get scanLightingHint =>
+      'מרכזו את הפאה ברשת. השתמשו באור חזק ואחיד והימנעו מסנוור.';
+
+  @override
+  String get crownExplain =>
+      'כתר הוא שכבה אופקית אחת של הקובייה: הכתר הראשון הוא השכבה הלבנה למטה, השני הוא השכבה האמצעית והשלישי הוא השכבה הצהובה למעלה.';
+
+  @override
+  String get lessonObjectiveHeading => 'מטרת הלמידה';
+
+  @override
+  String get dirRowTop => 'השורה העליונה של הפאה הקדמית';
+
+  @override
+  String get dirRowBottom => 'השורה התחתונה של הפאה הקדמית';
+
+  @override
+  String get dirColumnRight => 'העמודה הימנית של הפאה הקדמית';
+
+  @override
+  String get dirColumnLeft => 'העמודה השמאלית של הפאה הקדמית';
+
+  @override
+  String get solveChoiceTitle => 'איך תרצו לפתור?';
+
+  @override
+  String get solveChoiceFastDesc => 'הפתרון הקצר ביותר, מהלך אחר מהלך.';
+
+  @override
+  String get solveChoiceGuidedDesc => 'למדו את שיטת שלושת הכתרים צעד אחר צעד.';
+
+  @override
+  String get guidedSolvedTitle => 'נפתרה!';
+
+  @override
+  String get guidedSolvedBody => 'עברתם כל שלב ופתרתם את הקובייה.';
+
+  @override
+  String get solveAgain => 'לפתור שוב';
+
+  @override
+  String get backToHome => 'חזרה למסך הבית';
+
+  @override
+  String get dailyStatTime => 'הזמן של היום';
+
+  @override
+  String get dailyStatBest => 'שיא אישי';
+
+  @override
+  String get dailyStatStreak => 'רצף נוכחי';
+
+  @override
+  String get dailyStatBestStreak => 'הרצף הארוך ביותר';
+
+  @override
+  String get privacyPolicyTitle => 'מדיניות פרטיות';
+
+  @override
+  String get settingsPrivacyPolicyDesc =>
+      'מה CubeMentor שומרת ובמה הפרסומות משתמשות.';
+
+  @override
+  String get privacyIntro =>
+      'CubeMentor פועלת בלי חשבון ובלי שרתים משלה. בעמוד הזה מוסבר מה נשאר במכשיר שלכם ובמה משתמש שותף הפרסום שלנו.';
+
+  @override
+  String get privacyDataTitle => 'המידע שלכם נשאר במכשיר';
+
+  @override
+  String get privacyDataBody =>
+      'השפה, ההגדרות, ההתקדמות בשיעורים, זמני הפתרון והרצף היומי נשמרים רק במכשיר הזה. אין לנו שרתים, ולכן הם אף פעם לא מגיעים אלינו. הסרת האפליקציה מוחקת אותם.';
+
+  @override
+  String get privacyCameraTitle => 'מצלמה';
+
+  @override
+  String get privacyCameraBody =>
+      'המצלמה פועלת רק בזמן סריקת קובייה. התמונות מנותחות במכשיר כדי לזהות את צבעי המדבקות; אף תמונה או סרטון לא נשמרים ולא נשלחים לשום מקום.';
+
+  @override
+  String get privacyAdsTitle => 'פרסומות';
+
+  @override
+  String get privacyAdsBody =>
+      'האפליקציה מציגה פרסומות של Google AdMob. Google עשויה להשתמש במזהי מכשיר ובנתוני אינטראקציה עם פרסומות כדי להציג ולמדוד פרסומות, כמתואר במדיניות הפרטיות של Google. היכן שהחוק מחייב, תתבקשו קודם להסכים, ותוכלו לשנות זאת בהגדרות.';
+
+  @override
+  String get privacyContactTitle => 'יצירת קשר';
+
+  @override
+  String privacyContactBody(String email) {
+    return 'שאלות על פרטיות? כתבו לנו לכתובת $email.';
   }
 }

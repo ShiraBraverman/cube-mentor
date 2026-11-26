@@ -18,13 +18,37 @@ void main() {
     return (i.text(en), i.arrow, i.half);
   }
 
-  test('face turns read as a side and a way to push it', () {
-    expect(say('R'), ('Right side — Up', MoveArrow.up, false));
-    expect(say("R'"), ('Right side — Down', MoveArrow.down, false));
-    expect(say('L'), ('Left side — Down', MoveArrow.down, false));
-    expect(say('U'), ('Top row — Left', MoveArrow.left, false));
-    expect(say("U'"), ('Top row — Right', MoveArrow.right, false));
-    expect(say('D'), ('Bottom row — Right', MoveArrow.right, false));
+  test('outer turns name the row or column of the front face', () {
+    expect(say('R'), (
+      'Right column of the front face — Up',
+      MoveArrow.up,
+      false,
+    ));
+    expect(say("R'"), (
+      'Right column of the front face — Down',
+      MoveArrow.down,
+      false,
+    ));
+    expect(say('L'), (
+      'Left column of the front face — Down',
+      MoveArrow.down,
+      false,
+    ));
+    expect(say('U'), (
+      'Top row of the front face — Left',
+      MoveArrow.left,
+      false,
+    ));
+    expect(say("U'"), (
+      'Top row of the front face — Right',
+      MoveArrow.right,
+      false,
+    ));
+    expect(say('D'), (
+      'Bottom row of the front face — Right',
+      MoveArrow.right,
+      false,
+    ));
     expect(say('F'), ('Front face — Clockwise', MoveArrow.clockwise, false));
     expect(say("F'"), (
       'Front face — Counter-clockwise',
@@ -60,9 +84,9 @@ void main() {
   test('Hebrew reads naturally', () {
     String sayHe(String token) =>
         moveInstruction(he, MoveNotation.parse(token, 3), 3).text(he);
-    expect(sayHe('R'), 'צד ימין — למעלה');
-    expect(sayHe('U'), 'שורה עליונה — שמאלה');
+    expect(sayHe('R'), 'העמודה הימנית של הפאה הקדמית — למעלה');
+    expect(sayHe('U'), 'השורה העליונה של הפאה הקדמית — שמאלה');
     expect(sayHe('F'), 'פאה קדמית — עם כיוון השעון');
-    expect(sayHe('R2'), 'צד ימין — סיבוב כפול (180°)');
+    expect(sayHe('R2'), 'העמודה הימנית של הפאה הקדמית — סיבוב כפול (180°)');
   });
 }

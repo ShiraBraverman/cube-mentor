@@ -1569,11 +1569,6 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String stageCrownHeader(int crown, int number, int total, String title) {
-    return 'Crown $crown • Stage $number of $total: $title';
-  }
-
-  @override
   String get solveAllStagesDone => 'Every stage complete. Well done!';
 
   @override
@@ -2585,5 +2580,143 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String cueParityFive(String front) {
     return 'Edge parity: the two outer pieces of one edge are swapped. Turn that edge to the front, $front facing you, apply the fix, and turn back.';
+  }
+
+  @override
+  String get onboardingSkip => 'Skip';
+
+  @override
+  String get onboardingNext => 'Next';
+
+  @override
+  String get onboardingStart => 'Get started';
+
+  @override
+  String get onboardingWhatTitle => 'Your cube companion';
+
+  @override
+  String get onboardingWhatBody =>
+      'CubeMentor helps you solve, learn and practice every cube from 2×2 to 6×6, fully offline.';
+
+  @override
+  String get onboardingScanTitle => 'Scan & solve in seconds';
+
+  @override
+  String get onboardingScanBody =>
+      'Show each face to the camera (or tap in the colors) and follow the 3D solution move by move.';
+
+  @override
+  String get onboardingLearnTitle => 'Learn and play';
+
+  @override
+  String get onboardingLearnBody =>
+      'Master the 3-crown method in the Academy, then twist, scramble and solve freely in the 3D Playground.';
+
+  @override
+  String get scanChoiceManualDesc =>
+      'Tap in the colors of each face, sticker by sticker.';
+
+  @override
+  String get scanTryAgain => 'Try again';
+
+  @override
+  String get scanEditManually => 'Fix colors by hand';
+
+  @override
+  String get scanLightingHint =>
+      'Center the face in the grid. Use bright, even light and avoid glare.';
+
+  @override
+  String get crownExplain =>
+      'A crown is one horizontal layer of the cube: the first crown is the white layer at the bottom, the second is the middle layer and the third is the yellow layer on top.';
+
+  @override
+  String get lessonObjectiveHeading => 'Learning objective';
+
+  @override
+  String get dirRowTop => 'Top row of the front face';
+
+  @override
+  String get dirRowBottom => 'Bottom row of the front face';
+
+  @override
+  String get dirColumnRight => 'Right column of the front face';
+
+  @override
+  String get dirColumnLeft => 'Left column of the front face';
+
+  @override
+  String get solveChoiceTitle => 'How do you want to solve it?';
+
+  @override
+  String get solveChoiceFastDesc =>
+      'The shortest solution, played move by move.';
+
+  @override
+  String get solveChoiceGuidedDesc =>
+      'Learn the 3-crown method one step at a time.';
+
+  @override
+  String get guidedSolvedTitle => 'Solved!';
+
+  @override
+  String get guidedSolvedBody => 'You followed every step and solved the cube.';
+
+  @override
+  String get solveAgain => 'Solve again';
+
+  @override
+  String get backToHome => 'Back to Home';
+
+  @override
+  String get dailyStatTime => 'Today\'s time';
+
+  @override
+  String get dailyStatBest => 'Personal best';
+
+  @override
+  String get dailyStatStreak => 'Current streak';
+
+  @override
+  String get dailyStatBestStreak => 'Best streak';
+
+  @override
+  String get privacyPolicyTitle => 'Privacy policy';
+
+  @override
+  String get settingsPrivacyPolicyDesc =>
+      'What CubeMentor stores and what the ads use.';
+
+  @override
+  String get privacyIntro =>
+      'CubeMentor works without an account and without servers of its own. This page explains what stays on your device and what our ad partner uses.';
+
+  @override
+  String get privacyDataTitle => 'Your data stays on your device';
+
+  @override
+  String get privacyDataBody =>
+      'Your language, settings, lesson progress, solve times and daily streak are saved only on this device. We have no servers, so we never receive them. Uninstalling the app deletes them.';
+
+  @override
+  String get privacyCameraTitle => 'Camera';
+
+  @override
+  String get privacyCameraBody =>
+      'The camera is used only while you scan a cube. Frames are analyzed on your device to read the sticker colors; no photo or video is saved or sent anywhere.';
+
+  @override
+  String get privacyAdsTitle => 'Ads';
+
+  @override
+  String get privacyAdsBody =>
+      'The app shows ads from Google AdMob. Google may use device identifiers and ad interaction data to show and measure ads, as described in Google\'s privacy policy. Where the law requires it, you are asked for consent first and can change it in Settings.';
+
+  @override
+  String get privacyContactTitle => 'Contact';
+
+  @override
+  String privacyContactBody(String email) {
+    return 'Questions about privacy? Write to us at $email.';
   }
 }

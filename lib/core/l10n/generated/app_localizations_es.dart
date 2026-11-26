@@ -1577,11 +1577,6 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
-  String stageCrownHeader(int crown, int number, int total, String title) {
-    return 'Corona $crown • Etapa $number de $total: $title';
-  }
-
-  @override
   String get solveAllStagesDone => '¡Todas las etapas completadas! Muy bien.';
 
   @override
@@ -2597,5 +2592,144 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String cueParityFive(String front) {
     return 'Paridad de arista: las dos piezas exteriores de una arista están intercambiadas. Gira esa arista al frente, con el $front hacia ti, corrígela y vuelve a girar.';
+  }
+
+  @override
+  String get onboardingSkip => 'Omitir';
+
+  @override
+  String get onboardingNext => 'Siguiente';
+
+  @override
+  String get onboardingStart => 'Empezar';
+
+  @override
+  String get onboardingWhatTitle => 'Tu compañero de cubos';
+
+  @override
+  String get onboardingWhatBody =>
+      'CubeMentor te ayuda a resolver, aprender y practicar cualquier cubo de 2×2 a 6×6, totalmente sin conexión.';
+
+  @override
+  String get onboardingScanTitle => 'Escanea y resuelve en segundos';
+
+  @override
+  String get onboardingScanBody =>
+      'Muestra cada cara a la cámara (o introduce los colores) y sigue la solución en 3D movimiento a movimiento.';
+
+  @override
+  String get onboardingLearnTitle => 'Aprende y juega';
+
+  @override
+  String get onboardingLearnBody =>
+      'Domina el método de las 3 coronas en la Academia y luego gira, mezcla y resuelve libremente en la Zona 3D.';
+
+  @override
+  String get scanChoiceManualDesc =>
+      'Introduce los colores de cada cara, pegatina a pegatina.';
+
+  @override
+  String get scanTryAgain => 'Reintentar';
+
+  @override
+  String get scanEditManually => 'Corregir colores a mano';
+
+  @override
+  String get scanLightingHint =>
+      'Centra la cara en la cuadrícula. Usa luz intensa y uniforme y evita los reflejos.';
+
+  @override
+  String get crownExplain =>
+      'Una corona es una capa horizontal del cubo: la primera corona es la capa blanca de abajo, la segunda es la capa del medio y la tercera es la capa amarilla de arriba.';
+
+  @override
+  String get lessonObjectiveHeading => 'Objetivo de aprendizaje';
+
+  @override
+  String get dirRowTop => 'Fila superior de la cara frontal';
+
+  @override
+  String get dirRowBottom => 'Fila inferior de la cara frontal';
+
+  @override
+  String get dirColumnRight => 'Columna derecha de la cara frontal';
+
+  @override
+  String get dirColumnLeft => 'Columna izquierda de la cara frontal';
+
+  @override
+  String get solveChoiceTitle => '¿Cómo quieres resolverlo?';
+
+  @override
+  String get solveChoiceFastDesc =>
+      'La solución más corta, movimiento a movimiento.';
+
+  @override
+  String get solveChoiceGuidedDesc =>
+      'Aprende el método de las 3 coronas paso a paso.';
+
+  @override
+  String get guidedSolvedTitle => '¡Resuelto!';
+
+  @override
+  String get guidedSolvedBody =>
+      'Seguiste todos los pasos y resolviste el cubo.';
+
+  @override
+  String get solveAgain => 'Resolver de nuevo';
+
+  @override
+  String get backToHome => 'Volver al inicio';
+
+  @override
+  String get dailyStatTime => 'Tiempo de hoy';
+
+  @override
+  String get dailyStatBest => 'Récord personal';
+
+  @override
+  String get dailyStatStreak => 'Racha actual';
+
+  @override
+  String get dailyStatBestStreak => 'Mejor racha';
+
+  @override
+  String get privacyPolicyTitle => 'Política de privacidad';
+
+  @override
+  String get settingsPrivacyPolicyDesc =>
+      'Qué guarda CubeMentor y qué usan los anuncios.';
+
+  @override
+  String get privacyIntro =>
+      'CubeMentor funciona sin cuenta y sin servidores propios. Esta página explica qué se queda en tu dispositivo y qué usa nuestro socio publicitario.';
+
+  @override
+  String get privacyDataTitle => 'Tus datos se quedan en tu dispositivo';
+
+  @override
+  String get privacyDataBody =>
+      'Tu idioma, ajustes, progreso en las lecciones, tiempos y racha diaria se guardan solo en este dispositivo. No tenemos servidores, así que nunca los recibimos. Al desinstalar la app se borran.';
+
+  @override
+  String get privacyCameraTitle => 'Cámara';
+
+  @override
+  String get privacyCameraBody =>
+      'La cámara solo se usa mientras escaneas un cubo. Las imágenes se analizan en tu dispositivo para leer los colores de las pegatinas; no se guarda ni se envía ninguna foto o vídeo.';
+
+  @override
+  String get privacyAdsTitle => 'Anuncios';
+
+  @override
+  String get privacyAdsBody =>
+      'La app muestra anuncios de Google AdMob. Google puede usar identificadores del dispositivo y datos de interacción con anuncios para mostrarlos y medirlos, como se describe en la política de privacidad de Google. Donde la ley lo exige, primero se te pide tu consentimiento y puedes cambiarlo en Ajustes.';
+
+  @override
+  String get privacyContactTitle => 'Contacto';
+
+  @override
+  String privacyContactBody(String email) {
+    return '¿Preguntas sobre privacidad? Escríbenos a $email.';
   }
 }

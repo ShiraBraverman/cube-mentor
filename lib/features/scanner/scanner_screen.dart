@@ -31,9 +31,14 @@ class ScannerScreen extends ConsumerStatefulWidget {
     required this.size,
     this.cameraOverride,
     this.embedded = false,
+    this.startManual = false,
   });
 
   final int size;
+
+  /// Opens straight on manual color entry (the "Enter colors by hand"
+  /// choice on the home screen's Scan & Solve sheet).
+  final bool startManual;
 
   /// Hosted in the Scan tab of the root shell: the solver opens on top
   /// instead of replacing this screen, and the scan restarts on return.
@@ -58,7 +63,7 @@ class _ScannerScreenState extends ConsumerState<ScannerScreen> {
     super.initState();
     // The alignment grid maps to the sensor assuming an upright phone.
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    if (!widget.cameraSupported) {
+    if (!widget.cameraSupported || widget.startManual) {
       Future.microtask(() {
         if (mounted) _controller.startManual();
       });
@@ -165,14 +170,14 @@ class _ScannerScreenState extends ConsumerState<ScannerScreen> {
       }
     }
 
-    Widget header(Widget? torch) => _CaptureHeader(
+    Widget header(Widget? torch) => ScanCaptureHeader(
       session: session,
       showBack: !widget.embedded && Navigator.of(context).canPop(),
       torch: torch,
       onFaceTap: rescan,
     );
 
-    Widget footer(Widget? shutter) => _CaptureFooter(
+    Widget footer(Widget? shutter) => ScanCaptureFooter(
       session: session,
       shutter: shutter,
       onPillTap: rescan,
@@ -186,9 +191,13 @@ class _ScannerScreenState extends ConsumerState<ScannerScreen> {
         header: header(null),
         footer: footer(null),
         fillCenter: true,
-        grid: _CameraProblemView(
+        grid: CameraProblemView(
           problem: _problem ?? CameraProblem.missing,
           onManual: _controller.startManual,
+          // A missing camera cannot come back; a denied or failed one can.
+          onRetry: _problem == null || _problem == CameraProblem.missing
+              ? null
+              : () => setState(() => _problem = null),
         ),
       );
     }
@@ -209,8 +218,9 @@ class _ScannerScreenState extends ConsumerState<ScannerScreen> {
 
 /// Top overlay while capturing: back, which face and the flashlight on one
 /// compact row, then the turn guide (mini cube + what to do) under it.
-class _CaptureHeader extends StatelessWidget {
-  const _CaptureHeader({
+class ScanCaptureHeader extends StatelessWidget {
+  const ScanCaptureHeader({
+    super.key,
     required this.session,
     required this.showBack,
     required this.torch,
@@ -333,6 +343,33 @@ class _CaptureHeader extends StatelessWidget {
                               color: Colors.white70,
                             ),
                           ),
+                          // Always-on capture advice; live glare and dim
+                          // warnings appear under the grid as well.
+                          Row(
+                            key: const ValueKey('scan-light-hint'),
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Padding(
+                                padding: EdgeInsetsDirectional.only(
+                                  top: 1,
+                                  end: 4,
+                                ),
+                                child: Icon(
+                                  Icons.wb_sunny_outlined,
+                                  size: 12,
+                                  color: AppColors.accentWarm,
+                                ),
+                              ),
+                              Expanded(
+                                child: Text(
+                                  l10n.scanLightingHint,
+                                  style: textTheme.labelSmall?.copyWith(
+                                    color: Colors.white70,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ],
                       ),
                     ),
@@ -349,8 +386,9 @@ class _CaptureHeader extends StatelessWidget {
 
 /// Bottom overlay while capturing: the captured-faces strip, then manual
 /// entry beside the shutter.
-class _CaptureFooter extends StatelessWidget {
-  const _CaptureFooter({
+class ScanCaptureFooter extends StatelessWidget {
+  const ScanCaptureFooter({
+    super.key,
     required this.session,
     required this.shutter,
     required this.onPillTap,
@@ -560,11 +598,21 @@ class _FacePills extends StatelessWidget {
   }
 }
 
-class _CameraProblemView extends StatelessWidget {
-  const _CameraProblemView({required this.problem, required this.onManual});
+/// Recovery state when the camera cannot be used: what went wrong, then
+/// "Try again" (when the camera may come back) and "Enter colors by hand".
+class CameraProblemView extends StatelessWidget {
+  const CameraProblemView({
+    super.key,
+    required this.problem,
+    required this.onManual,
+    this.onRetry,
+  });
 
   final CameraProblem problem;
   final VoidCallback onManual;
+
+  /// Starts the camera again; null hides the button.
+  final VoidCallback? onRetry;
 
   @override
   Widget build(BuildContext context) {
@@ -590,11 +638,27 @@ class _CameraProblemView extends StatelessWidget {
                   CameraProblem.missing => l10n.scanCameraMissing,
                 }, textAlign: TextAlign.center),
                 const SizedBox(height: AppSpace.md),
-                FilledButton.icon(
-                  onPressed: onManual,
-                  icon: const Icon(Icons.edit_rounded),
-                  label: Text(l10n.scanManualInput),
-                ),
+                if (onRetry case final retry?) ...[
+                  FilledButton.icon(
+                    key: const ValueKey('scan-camera-retry'),
+                    onPressed: retry,
+                    icon: const Icon(Icons.refresh_rounded),
+                    label: Text(l10n.scanTryAgain),
+                  ),
+                  const SizedBox(height: AppSpace.xs),
+                  OutlinedButton.icon(
+                    key: const ValueKey('scan-camera-manual'),
+                    onPressed: onManual,
+                    icon: const Icon(Icons.edit_rounded),
+                    label: Text(l10n.scanManualInput),
+                  ),
+                ] else
+                  FilledButton.icon(
+                    key: const ValueKey('scan-camera-manual'),
+                    onPressed: onManual,
+                    icon: const Icon(Icons.edit_rounded),
+                    label: Text(l10n.scanManualInput),
+                  ),
               ],
             ),
           ),
@@ -628,7 +692,16 @@ class _ReviewBody extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        _StatusCard(session: session),
+        _StatusCard(
+          session: session,
+          // A camera scan that does not add up: scan again, or type it in.
+          onScanAgain: session.manual || session.isValid
+              ? null
+              : controller.restart,
+          onManual: session.manual || session.isValid
+              ? null
+              : controller.editManually,
+        ),
         const SizedBox(height: 12),
         Expanded(
           child: Center(
@@ -717,9 +790,13 @@ class _ReviewBody extends ConsumerWidget {
 }
 
 class _StatusCard extends StatelessWidget {
-  const _StatusCard({required this.session});
+  const _StatusCard({required this.session, this.onScanAgain, this.onManual});
 
   final ScanSession session;
+
+  /// Recovery actions for an invalid camera scan; null hides them.
+  final VoidCallback? onScanAgain;
+  final VoidCallback? onManual;
 
   @override
   Widget build(BuildContext context) {
@@ -739,32 +816,71 @@ class _StatusCard extends StatelessWidget {
     return GlassCard(
       key: const ValueKey('scan-status'),
       padding: const EdgeInsets.all(AppSpace.md),
-      child: Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(
-            valid ? Icons.check_circle_rounded : Icons.error_rounded,
-            color: color,
-            size: 30,
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w700,
-                    color: color,
-                  ),
+          Row(
+            children: [
+              Icon(
+                valid ? Icons.check_circle_rounded : Icons.error_rounded,
+                color: color,
+                size: 30,
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color: color,
+                      ),
+                    ),
+                    if (detail != null) ...[
+                      const SizedBox(height: 2),
+                      Text(detail, style: textTheme.bodySmall),
+                    ],
+                  ],
                 ),
-                if (detail != null) ...[
-                  const SizedBox(height: 2),
-                  Text(detail, style: textTheme.bodySmall),
-                ],
+              ),
+            ],
+          ),
+          if (onScanAgain != null || onManual != null) ...[
+            const SizedBox(height: AppSpace.sm),
+            Row(
+              children: [
+                if (onScanAgain case final scan?)
+                  Expanded(
+                    child: FilledButton.icon(
+                      key: const ValueKey('scan-status-again'),
+                      onPressed: scan,
+                      icon: const Icon(Icons.photo_camera_rounded, size: 18),
+                      label: Text(
+                        l10n.scanTryAgain,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                if (onScanAgain != null && onManual != null)
+                  const SizedBox(width: AppSpace.xs),
+                if (onManual case final manual?)
+                  Expanded(
+                    child: OutlinedButton.icon(
+                      key: const ValueKey('scan-status-manual'),
+                      onPressed: manual,
+                      icon: const Icon(Icons.edit_rounded, size: 18),
+                      label: Text(
+                        l10n.scanEditManually,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
               ],
             ),
-          ),
+          ],
         ],
       ),
     );

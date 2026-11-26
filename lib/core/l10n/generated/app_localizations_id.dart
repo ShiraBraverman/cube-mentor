@@ -1571,11 +1571,6 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String stageCrownHeader(int crown, int number, int total, String title) {
-    return 'Mahkota $crown • Tahap $number dari $total: $title';
-  }
-
-  @override
   String get solveAllStagesDone => 'Semua tahap selesai. Hebat!';
 
   @override
@@ -2534,5 +2529,143 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String cueParityFive(String front) {
     return 'Paritas rusuk: dua keping luar dari satu rusuk tertukar. Putar rusuk itu ke depan, $front menghadapmu, perbaiki, lalu putar kembali.';
+  }
+
+  @override
+  String get onboardingSkip => 'Lewati';
+
+  @override
+  String get onboardingNext => 'Lanjut';
+
+  @override
+  String get onboardingStart => 'Mulai';
+
+  @override
+  String get onboardingWhatTitle => 'Teman kubus Anda';
+
+  @override
+  String get onboardingWhatBody =>
+      'CubeMentor membantu Anda menyelesaikan, mempelajari, dan berlatih semua kubus dari 2×2 hingga 6×6, sepenuhnya offline.';
+
+  @override
+  String get onboardingScanTitle => 'Pindai & selesaikan dalam hitungan detik';
+
+  @override
+  String get onboardingScanBody =>
+      'Tunjukkan setiap sisi ke kamera (atau ketuk warnanya) dan ikuti solusi 3D langkah demi langkah.';
+
+  @override
+  String get onboardingLearnTitle => 'Belajar dan bermain';
+
+  @override
+  String get onboardingLearnBody =>
+      'Kuasai metode 3 mahkota di Akademi, lalu putar, acak, dan selesaikan dengan bebas di Arena 3D.';
+
+  @override
+  String get scanChoiceManualDesc =>
+      'Ketuk warna setiap sisi, stiker demi stiker.';
+
+  @override
+  String get scanTryAgain => 'Coba lagi';
+
+  @override
+  String get scanEditManually => 'Perbaiki warna secara manual';
+
+  @override
+  String get scanLightingHint =>
+      'Letakkan sisi di tengah kisi. Gunakan cahaya terang dan merata, hindari silau.';
+
+  @override
+  String get crownExplain =>
+      'Mahkota adalah satu lapisan horizontal kubus: mahkota pertama adalah lapisan putih di bawah, yang kedua lapisan tengah, dan yang ketiga lapisan kuning di atas.';
+
+  @override
+  String get lessonObjectiveHeading => 'Tujuan pembelajaran';
+
+  @override
+  String get dirRowTop => 'Baris atas sisi depan';
+
+  @override
+  String get dirRowBottom => 'Baris bawah sisi depan';
+
+  @override
+  String get dirColumnRight => 'Kolom kanan sisi depan';
+
+  @override
+  String get dirColumnLeft => 'Kolom kiri sisi depan';
+
+  @override
+  String get solveChoiceTitle => 'Bagaimana Anda ingin menyelesaikannya?';
+
+  @override
+  String get solveChoiceFastDesc => 'Solusi terpendek, gerakan demi gerakan.';
+
+  @override
+  String get solveChoiceGuidedDesc =>
+      'Pelajari metode 3 mahkota selangkah demi selangkah.';
+
+  @override
+  String get guidedSolvedTitle => 'Selesai!';
+
+  @override
+  String get guidedSolvedBody =>
+      'Anda mengikuti setiap langkah dan menyelesaikan kubus.';
+
+  @override
+  String get solveAgain => 'Selesaikan lagi';
+
+  @override
+  String get backToHome => 'Kembali ke Beranda';
+
+  @override
+  String get dailyStatTime => 'Waktu hari ini';
+
+  @override
+  String get dailyStatBest => 'Rekor pribadi';
+
+  @override
+  String get dailyStatStreak => 'Runtutan saat ini';
+
+  @override
+  String get dailyStatBestStreak => 'Runtutan terbaik';
+
+  @override
+  String get privacyPolicyTitle => 'Kebijakan privasi';
+
+  @override
+  String get settingsPrivacyPolicyDesc =>
+      'Apa yang disimpan CubeMentor dan apa yang digunakan iklan.';
+
+  @override
+  String get privacyIntro =>
+      'CubeMentor bekerja tanpa akun dan tanpa server sendiri. Halaman ini menjelaskan apa yang tetap ada di perangkat Anda dan apa yang digunakan mitra iklan kami.';
+
+  @override
+  String get privacyDataTitle => 'Data Anda tetap di perangkat';
+
+  @override
+  String get privacyDataBody =>
+      'Bahasa, pengaturan, kemajuan pelajaran, waktu penyelesaian, dan runtutan harian Anda hanya disimpan di perangkat ini. Kami tidak punya server, jadi kami tidak pernah menerimanya. Menghapus aplikasi akan menghapusnya.';
+
+  @override
+  String get privacyCameraTitle => 'Kamera';
+
+  @override
+  String get privacyCameraBody =>
+      'Kamera hanya digunakan saat Anda memindai kubus. Gambar dianalisis di perangkat Anda untuk membaca warna stiker; tidak ada foto atau video yang disimpan atau dikirim.';
+
+  @override
+  String get privacyAdsTitle => 'Iklan';
+
+  @override
+  String get privacyAdsBody =>
+      'Aplikasi ini menampilkan iklan dari Google AdMob. Google dapat menggunakan pengenal perangkat dan data interaksi iklan untuk menampilkan dan mengukur iklan, seperti dijelaskan dalam kebijakan privasi Google. Jika diwajibkan oleh hukum, Anda dimintai persetujuan terlebih dahulu dan dapat mengubahnya di Pengaturan.';
+
+  @override
+  String get privacyContactTitle => 'Kontak';
+
+  @override
+  String privacyContactBody(String email) {
+    return 'Ada pertanyaan tentang privasi? Tulis kepada kami di $email.';
   }
 }

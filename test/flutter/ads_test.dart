@@ -32,7 +32,7 @@ import 'fake_scan_analyzer.dart';
 import 'test_app.dart';
 
 Future<SharedPreferences> _prefs([Map<String, Object> values = const {}]) {
-  SharedPreferences.setMockInitialValues({...values});
+  SharedPreferences.setMockInitialValues({'onboarding_done': true, ...values});
   return SharedPreferences.getInstance();
 }
 

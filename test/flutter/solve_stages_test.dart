@@ -31,7 +31,8 @@ void main() {
     final plan = StagePlan.of(steps, 3);
     final first = plan.stageAt(0)!;
     expect((first.number, first.total), (1, 7));
-    expect(stageHeadline(en, first), 'Crown 1 • Stage 1 of 7: White cross');
+    // Numbered like the Academy lesson for the same sub-step.
+    expect(stageHeadline(en, first), '1.1 White cross');
     final corners = plan.stageAt(6)!;
     expect((corners.number, corners.first, corners.last), (2, 4, 11));
     // Progress runs within the stage only.

@@ -240,7 +240,11 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
 
     final Widget body;
     if (page.isIntro) {
-      body = LessonIntroCard(lesson: _lesson, onStart: _ticked(() => _goTo(1)));
+      body = LessonIntroCard(
+        lesson: _lesson,
+        objective: true,
+        onStart: _ticked(() => _goTo(1)),
+      );
     } else if (page.isDone) {
       body = _NextStage(lesson: _lesson);
     } else {

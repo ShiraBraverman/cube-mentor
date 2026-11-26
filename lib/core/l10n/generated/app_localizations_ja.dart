@@ -1490,11 +1490,6 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String stageCrownHeader(int crown, int number, int total, String title) {
-    return '王冠 $crown • ステージ $number/$total：$title';
-  }
-
-  @override
   String get solveAllStagesDone => 'すべてのステージ完了。お見事！';
 
   @override
@@ -2418,5 +2413,138 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String cueParityFive(String front) {
     return 'エッジパリティ：1つのエッジの外側の2パーツが入れ替わっています。そのエッジを手前に回し、$frontを手前にして直してから戻します。';
+  }
+
+  @override
+  String get onboardingSkip => 'スキップ';
+
+  @override
+  String get onboardingNext => '次へ';
+
+  @override
+  String get onboardingStart => 'はじめる';
+
+  @override
+  String get onboardingWhatTitle => 'キューブの頼れる相棒';
+
+  @override
+  String get onboardingWhatBody =>
+      'CubeMentor は 2×2 から 6×6 までのキューブを解く・学ぶ・練習するのを、完全オフラインでサポートします。';
+
+  @override
+  String get onboardingScanTitle => '数秒でスキャンして解く';
+
+  @override
+  String get onboardingScanBody =>
+      '各面をカメラに見せる（または色をタップで入力する）だけで、3D の解法を1手ずつたどれます。';
+
+  @override
+  String get onboardingLearnTitle => '学んで、遊ぶ';
+
+  @override
+  String get onboardingLearnBody =>
+      'アカデミーで3クラウン法を身につけたら、3Dプレイグラウンドで自由に回して、崩して、解いてみましょう。';
+
+  @override
+  String get scanChoiceManualDesc => '各面の色をステッカーごとにタップで入力します。';
+
+  @override
+  String get scanTryAgain => 'もう一度試す';
+
+  @override
+  String get scanEditManually => '色を手動で直す';
+
+  @override
+  String get scanLightingHint => '面をグリッドの中央に合わせ、明るく均一な光で反射を避けてください。';
+
+  @override
+  String get crownExplain =>
+      'クラウンとはキューブの横一層のことです。第1クラウンは下の白い層、第2クラウンは真ん中の層、第3クラウンは上の黄色い層です。';
+
+  @override
+  String get lessonObjectiveHeading => '学習の目標';
+
+  @override
+  String get dirRowTop => '前面のいちばん上の列';
+
+  @override
+  String get dirRowBottom => '前面のいちばん下の列';
+
+  @override
+  String get dirColumnRight => '前面の右の列';
+
+  @override
+  String get dirColumnLeft => '前面の左の列';
+
+  @override
+  String get solveChoiceTitle => 'どの方法で解きますか？';
+
+  @override
+  String get solveChoiceFastDesc => 'いちばん短い解法を1手ずつ。';
+
+  @override
+  String get solveChoiceGuidedDesc => '3クラウン法を一歩ずつ学びます。';
+
+  @override
+  String get guidedSolvedTitle => '完成！';
+
+  @override
+  String get guidedSolvedBody => 'すべてのステップをたどってキューブを完成させました。';
+
+  @override
+  String get solveAgain => 'もう一度解く';
+
+  @override
+  String get backToHome => 'ホームに戻る';
+
+  @override
+  String get dailyStatTime => '今日のタイム';
+
+  @override
+  String get dailyStatBest => '自己ベスト';
+
+  @override
+  String get dailyStatStreak => '現在の連続記録';
+
+  @override
+  String get dailyStatBestStreak => '最長連続記録';
+
+  @override
+  String get privacyPolicyTitle => 'プライバシーポリシー';
+
+  @override
+  String get settingsPrivacyPolicyDesc => 'CubeMentor が保存するものと広告が使うもの。';
+
+  @override
+  String get privacyIntro =>
+      'CubeMentor はアカウントも独自のサーバーも使わずに動作します。このページでは、端末に残るものと広告パートナーが使うものを説明します。';
+
+  @override
+  String get privacyDataTitle => 'データは端末の中だけに';
+
+  @override
+  String get privacyDataBody =>
+      '言語、設定、レッスンの進み具合、タイム、デイリーの連続記録はこの端末にだけ保存されます。サーバーがないため、私たちが受け取ることはありません。アプリを削除すると消去されます。';
+
+  @override
+  String get privacyCameraTitle => 'カメラ';
+
+  @override
+  String get privacyCameraBody =>
+      'カメラはキューブをスキャンしている間だけ使われます。ステッカーの色を読み取るため映像は端末内で解析され、写真や動画が保存・送信されることはありません。';
+
+  @override
+  String get privacyAdsTitle => '広告';
+
+  @override
+  String get privacyAdsBody =>
+      'このアプリは Google AdMob の広告を表示します。Google のプライバシーポリシーに記載のとおり、Google は広告の表示と効果測定のために端末の識別子や広告とのやり取りのデータを使うことがあります。法律で必要な地域では先に同意を求め、設定から変更できます。';
+
+  @override
+  String get privacyContactTitle => 'お問い合わせ';
+
+  @override
+  String privacyContactBody(String email) {
+    return 'プライバシーについてのご質問は $email までお寄せください。';
   }
 }

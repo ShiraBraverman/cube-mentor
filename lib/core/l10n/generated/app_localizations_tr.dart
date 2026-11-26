@@ -1557,11 +1557,6 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String stageCrownHeader(int crown, int number, int total, String title) {
-    return 'Taç $crown • Aşama $number/$total: $title';
-  }
-
-  @override
   String get solveAllStagesDone => 'Tüm aşamalar tamamlandı. Tebrikler!';
 
   @override
@@ -2535,5 +2530,141 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String cueParityFive(String front) {
     return 'Kenar paritesi: bir kenarın iki dış parçası yer değiştirmiş. O kenarı öne çevir, $front sana dönük olsun, düzelt ve geri çevir.';
+  }
+
+  @override
+  String get onboardingSkip => 'Atla';
+
+  @override
+  String get onboardingNext => 'İleri';
+
+  @override
+  String get onboardingStart => 'Başlayalım';
+
+  @override
+  String get onboardingWhatTitle => 'Küp arkadaşın';
+
+  @override
+  String get onboardingWhatBody =>
+      'CubeMentor, 2×2’den 6×6’ya kadar her küpü çözmene, öğrenmene ve çalışmana yardım eder; tamamen çevrimdışı.';
+
+  @override
+  String get onboardingScanTitle => 'Saniyeler içinde tara ve çöz';
+
+  @override
+  String get onboardingScanBody =>
+      'Her yüzü kameraya göster (ya da renkleri gir) ve 3D çözümü hamle hamle takip et.';
+
+  @override
+  String get onboardingLearnTitle => 'Öğren ve oyna';
+
+  @override
+  String get onboardingLearnBody =>
+      'Akademi’de 3 taç yöntemini öğren, sonra 3D Oyun Alanı’nda serbestçe çevir, karıştır ve çöz.';
+
+  @override
+  String get scanChoiceManualDesc =>
+      'Her yüzün renklerini çıkartma çıkartma gir.';
+
+  @override
+  String get scanTryAgain => 'Tekrar dene';
+
+  @override
+  String get scanEditManually => 'Renkleri elle düzelt';
+
+  @override
+  String get scanLightingHint =>
+      'Yüzü ızgaranın ortasına getir. Parlak ve eşit ışık kullan, parlamadan kaçın.';
+
+  @override
+  String get crownExplain =>
+      'Taç, küpün yatay bir katmanıdır: birinci taç alttaki beyaz katman, ikincisi orta katman, üçüncüsü üstteki sarı katmandır.';
+
+  @override
+  String get lessonObjectiveHeading => 'Öğrenme hedefi';
+
+  @override
+  String get dirRowTop => 'Ön yüzün üst sırası';
+
+  @override
+  String get dirRowBottom => 'Ön yüzün alt sırası';
+
+  @override
+  String get dirColumnRight => 'Ön yüzün sağ sütunu';
+
+  @override
+  String get dirColumnLeft => 'Ön yüzün sol sütunu';
+
+  @override
+  String get solveChoiceTitle => 'Nasıl çözmek istersin?';
+
+  @override
+  String get solveChoiceFastDesc => 'En kısa çözüm, hamle hamle.';
+
+  @override
+  String get solveChoiceGuidedDesc => '3 taç yöntemini adım adım öğren.';
+
+  @override
+  String get guidedSolvedTitle => 'Çözüldü!';
+
+  @override
+  String get guidedSolvedBody => 'Her adımı izledin ve küpü çözdün.';
+
+  @override
+  String get solveAgain => 'Tekrar çöz';
+
+  @override
+  String get backToHome => 'Ana ekrana dön';
+
+  @override
+  String get dailyStatTime => 'Bugünkü süre';
+
+  @override
+  String get dailyStatBest => 'Kişisel rekor';
+
+  @override
+  String get dailyStatStreak => 'Güncel seri';
+
+  @override
+  String get dailyStatBestStreak => 'En iyi seri';
+
+  @override
+  String get privacyPolicyTitle => 'Gizlilik politikası';
+
+  @override
+  String get settingsPrivacyPolicyDesc =>
+      'CubeMentor’ın neleri sakladığı ve reklamların neleri kullandığı.';
+
+  @override
+  String get privacyIntro =>
+      'CubeMentor hesap olmadan ve kendi sunucuları olmadan çalışır. Bu sayfa cihazında nelerin kaldığını ve reklam ortağımızın neleri kullandığını açıklar.';
+
+  @override
+  String get privacyDataTitle => 'Verilerin cihazında kalır';
+
+  @override
+  String get privacyDataBody =>
+      'Dilin, ayarların, ders ilerlemen, çözüm sürelerin ve günlük serin yalnızca bu cihazda saklanır. Sunucumuz olmadığı için bunları hiçbir zaman almayız. Uygulamayı kaldırmak hepsini siler.';
+
+  @override
+  String get privacyCameraTitle => 'Kamera';
+
+  @override
+  String get privacyCameraBody =>
+      'Kamera yalnızca bir küpü tararken kullanılır. Görüntüler çıkartma renklerini okumak için cihazında analiz edilir; hiçbir fotoğraf veya video kaydedilmez ya da gönderilmez.';
+
+  @override
+  String get privacyAdsTitle => 'Reklamlar';
+
+  @override
+  String get privacyAdsBody =>
+      'Uygulama Google AdMob reklamları gösterir. Google, Google’ın gizlilik politikasında açıklandığı gibi reklamları göstermek ve ölçmek için cihaz tanımlayıcılarını ve reklam etkileşim verilerini kullanabilir. Yasanın gerektirdiği yerlerde önce iznin istenir ve bunu Ayarlar’dan değiştirebilirsin.';
+
+  @override
+  String get privacyContactTitle => 'İletişim';
+
+  @override
+  String privacyContactBody(String email) {
+    return 'Gizlilikle ilgili soruların mı var? Bize $email adresinden yaz.';
   }
 }
