@@ -317,6 +317,21 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String explainLblDaisyPetal(String piece) {
+    return '小花：把$piece棱块白色朝上转到顶层，围在黄色中心块周围，成为一片花瓣。';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return '转动顶层，直到$piece花瓣正好在与它侧面同色的中心块上方。';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return '把那一面转 180°（转两下），把$piece棱块放到白色中心上：白色十字又多了一条臂。';
+  }
+
+  @override
   String explainLblCornerExtract(String piece) {
     return '$piece角块卡在了错误的位置。用 R U R\' U\' 把它提到顶层。';
   }
@@ -1924,6 +1939,20 @@ class AppLocalizationsZh extends AppLocalizations {
       '如果最后两个棱块看起来互换了，把它们放在顶层前面和后面，做内层双转的短公式：两个棱块的四个翼棱全部对调。';
 
   @override
+  String get stepSixWingRule => '四个翼棱还是两个？';
+
+  @override
+  String get stepSixWingRuleBody =>
+      '6×6 的一条棱由 4 个翼棱组成。修正看起来翻转的棱之前先仔细看：如果 4 个翼棱都翻转了，就用普通的 3 层 OLL 奇偶公式；如果只有内侧 2 个翼棱翻转了，就用内翼奇偶公式。魔方上展示的是内翼的情况。';
+
+  @override
+  String get stepSixInnerWingParity => '两个内侧翼棱翻转';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      '这里前面顶层棱的外侧翼棱是对的，只有内侧 2 个翼棱翻转了。把这条棱放在顶层前面，只转第三层（3R、3L）：内侧翼棱翻回来，魔方其余部分保持还原。';
+
+  @override
   String get stageTwoFirstLayer => '完成底层';
 
   @override
@@ -2356,9 +2385,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get lessonBonusCase => '额外情况';
 
   @override
-  String get lessonPracticeIntro => '真实打乱：只有前面的步骤已完成。跟着提示一条条来，把这一整步完成。';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return '直接进入「$lesson」。';
   }
@@ -2585,6 +2611,23 @@ class AppLocalizationsZh extends AppLocalizations {
   String cueParityFive(String front) {
     return '棱块奇偶：一个棱块的两个外翼棱互换了，这是 5×5 唯一的奇偶情况。$front色朝向你，把这个棱块放在前面，做一次修正公式。';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return '内翼奇偶：顶层棱只有内侧 2 个翼棱翻转了。$front色朝向你，把它放在前面，只转第三层。';
+  }
+
+  @override
+  String get wingRuleAllFour => '4 个翼棱都翻转';
+
+  @override
+  String get wingRuleAllFourFix => '3 层 OLL 奇偶（3Rw）';
+
+  @override
+  String get wingRuleInnerTwo => '只有内侧 2 个翼棱翻转';
+
+  @override
+  String get wingRuleInnerTwoFix => '内翼奇偶（3R）';
 
   @override
   String get onboardingSkip => '跳过';
@@ -3026,6 +3069,21 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   @override
   String explainLblCrossEdge(String piece) {
     return '把$piece邊塊移到白色中心旁，並對齊側面顏色。';
+  }
+
+  @override
+  String explainLblDaisyPetal(String piece) {
+    return '小花：把$piece邊塊白色朝上轉到頂層，圍在黃色中心塊旁邊，成為一片花瓣。';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return '轉動頂層，直到$piece花瓣正好在與它側面同色的中心塊上方。';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return '把那一面轉 2 次（180°），把$piece邊塊降到白色中心上：白色十字又多了一條臂。';
   }
 
   @override
@@ -4635,6 +4693,20 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
       '如果最後兩個邊塊看起來對調了，把它們放在頂層前面和後面，做內層轉 2 次的短公式：兩個邊塊的四個翼邊全部對調。';
 
   @override
+  String get stepSixWingRule => '四個翼邊還是兩個？';
+
+  @override
+  String get stepSixWingRuleBody =>
+      '6×6 的一條邊由 4 個翼邊組成。修正看起來翻轉的邊之前先仔細看：如果 4 個翼邊都翻轉了，就用一般的 3 層 OLL Parity；如果只有內側 2 個翼邊翻轉了，就用內翼 Parity。魔術方塊上展示的是內翼的情況。';
+
+  @override
+  String get stepSixInnerWingParity => '兩個內側翼邊翻轉';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      '這裡前面頂層邊的外側翼邊是對的，只有內側 2 個翼邊翻轉了。把這條邊放在頂層前面，只轉第三層（3R、3L）：內側翼邊翻回來，其餘部分保持復原。';
+
+  @override
   String get stageTwoFirstLayer => '拼出底層';
 
   @override
@@ -5082,9 +5154,6 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get lessonBonusCase => '額外狀況';
 
   @override
-  String get lessonPracticeIntro => '真實打亂：只有前面的步驟已完成。跟著提示一條一條來，把這一整步完成。';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return '直接進入「$lesson」。';
   }
@@ -5311,6 +5380,23 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String cueParityFive(String front) {
     return '邊塊 Parity：一個邊塊的兩個外翼邊對調了，這是 5×5 唯一的 Parity。$front色朝向你，把這個邊塊放在前面，做一次修正公式。';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return '內翼 Parity：頂層邊只有內側 2 個翼邊翻轉了。$front色朝向你，把它放在前面，只轉第三層。';
+  }
+
+  @override
+  String get wingRuleAllFour => '4 個翼邊都翻轉';
+
+  @override
+  String get wingRuleAllFourFix => '3 層 OLL Parity（3Rw）';
+
+  @override
+  String get wingRuleInnerTwo => '只有內側 2 個翼邊翻轉';
+
+  @override
+  String get wingRuleInnerTwoFix => '內翼 Parity（3R）';
 
   @override
   String get onboardingSkip => '略過';

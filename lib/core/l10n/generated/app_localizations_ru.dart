@@ -342,6 +342,21 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
+  String explainLblDaisyPetal(String piece) {
+    return 'Ромашка: поднимите ребро $piece наверх вокруг жёлтого центра, белым вверх, — это лепесток.';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return 'Крутите верхний слой, пока лепесток $piece не окажется прямо над центром своего бокового цвета.';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return 'Поверните эту грань дважды (180°), чтобы опустить ребро $piece к белому центру: ещё один луч белого креста.';
+  }
+
+  @override
   String explainLblCornerExtract(String piece) {
     return 'Угол $piece застрял не на своём месте. Поднимите его наверх с помощью R U R\' U\'.';
   }
@@ -2090,6 +2105,20 @@ class AppLocalizationsRu extends AppLocalizations {
       'Если в самом конце два ребра выглядят переставленными, держите их спереди и сзади в верхнем слое и выполните короткое исправление двойными внутренними поворотами: все четыре крыла обоих рёбер меняются местами.';
 
   @override
+  String get stepSixWingRule => 'Четыре крыла или два?';
+
+  @override
+  String get stepSixWingRuleBody =>
+      'Ребро 6×6 состоит из 4 крыльев. Прежде чем исправлять ребро, которое выглядит перевёрнутым, присмотритесь: если перевёрнуты все 4 крыла, используйте обычный паритет OLL на 3 слоя; если перевёрнуты только 2 внутренних крыла, используйте паритет внутренних крыльев. На кубике — случай внутренних крыльев.';
+
+  @override
+  String get stepSixInnerWingParity => 'Перевёрнуты два внутренних крыла';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      'Здесь внешние крылья переднего верхнего ребра в порядке, перевёрнуты только 2 внутренних. Держите это ребро спереди в верхнем слое и крутите только третьи срезы (3R, 3L): внутренние крылья встают на место, остальной кубик остаётся собранным.';
+
+  @override
   String get stageTwoFirstLayer => 'Собираем нижний слой';
 
   @override
@@ -2628,10 +2657,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get lessonBonusCase => 'Бонусный случай';
 
   @override
-  String get lessonPracticeIntro =>
-      'Настоящая скрамбла: собраны только предыдущие шаги. Доведите до конца весь этот шаг, подсказка за подсказкой.';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return 'Сразу к уроку «$lesson».';
   }
@@ -2864,6 +2889,23 @@ class AppLocalizationsRu extends AppLocalizations {
   String cueParityFive(String front) {
     return 'Рёберный паритет: два внешних крыла одного ребра переставлены — единственный паритет 5×5. Держите это ребро спереди, центр «$front» к вам, и примените исправление один раз.';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return 'Паритет внутренних крыльев: перевёрнуты только 2 внутренних крыла верхнего ребра. Держите его спереди, центр «$front» к вам, и крутите только третьи срезы.';
+  }
+
+  @override
+  String get wingRuleAllFour => 'Перевёрнуты все 4 крыла';
+
+  @override
+  String get wingRuleAllFourFix => 'Паритет OLL на 3 слоя (3Rw)';
+
+  @override
+  String get wingRuleInnerTwo => 'Перевёрнуты только 2 внутренних крыла';
+
+  @override
+  String get wingRuleInnerTwoFix => 'Паритет внутренних крыльев (3R)';
 
   @override
   String get onboardingSkip => 'Пропустить';

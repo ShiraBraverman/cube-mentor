@@ -317,6 +317,21 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
+  String explainLblDaisyPetal(String piece) {
+    return '데이지: $piece 엣지를 흰색이 위로 가게 윗층으로 올려 노란 센터를 둘러싸는 꽃잎으로 만들어요.';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return '윗층을 돌려 $piece 꽃잎이 옆면 색과 같은 센터 바로 위에 오게 해요.';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return '그 면을 두 번(180°) 돌려 $piece 엣지를 흰색 센터로 내려요: 흰색 십자의 팔이 하나 더 생겨요.';
+  }
+
+  @override
   String explainLblCornerExtract(String piece) {
     return '$piece 코너가 잘못된 자리에 끼어 있어요. R U R\' U\'로 위로 꺼내세요.';
   }
@@ -1963,6 +1978,20 @@ class AppLocalizationsKo extends AppLocalizations {
       '맨 마지막에 엣지 두 개가 바뀐 것 같으면 윗층 앞과 뒤에 두고 안쪽 두 번 회전으로 된 짧은 공식을 해요: 두 엣지의 윙 네 개가 모두 자리를 바꿔요.';
 
   @override
+  String get stepSixWingRule => '윙이 네 개일까, 두 개일까?';
+
+  @override
+  String get stepSixWingRuleBody =>
+      '6×6 엣지는 윙 4개로 이루어져 있어요. 뒤집혀 보이는 엣지를 고치기 전에 잘 보세요: 윙 4개가 모두 뒤집혔다면 일반 3층 OLL 패리티를, 안쪽 윙 2개만 뒤집혔다면 안쪽 윙 패리티를 써요. 큐브는 안쪽 윙의 경우를 보여 줘요.';
+
+  @override
+  String get stepSixInnerWingParity => '안쪽 윙 두 개가 뒤집힘';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      '여기서는 앞쪽 위 엣지의 바깥 윙은 맞고 안쪽 윙 2개만 뒤집혀 있어요. 그 엣지를 윗층 앞에 두고 세 번째 슬라이스(3R, 3L)만 돌려요: 안쪽 윙이 제자리로 돌아오고 나머지는 맞춰진 그대로예요.';
+
+  @override
   String get stageTwoFirstLayer => '아래층 만들기';
 
   @override
@@ -2396,10 +2425,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get lessonBonusCase => '보너스 상황';
 
   @override
-  String get lessonPracticeIntro =>
-      '진짜 스크램블이에요. 앞 단계만 맞춰져 있어요. 안내를 하나씩 따라 이 단계를 끝까지 완성하세요.';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return '바로 $lesson(으)로 이어서 배워요.';
   }
@@ -2629,6 +2654,23 @@ class AppLocalizationsKo extends AppLocalizations {
   String cueParityFive(String front) {
     return '엣지 패리티: 한 엣지의 바깥 윙 두 개가 바뀌어 있어요. 5×5의 유일한 패리티예요. $front 색을 앞으로 두고 그 엣지를 앞에 놓은 뒤 공식을 한 번 해요.';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return '안쪽 윙 패리티: 위 엣지의 안쪽 윙 2개만 뒤집혀 있어요. $front 색을 앞으로 두고 그 엣지를 앞에 놓은 뒤, 세 번째 슬라이스만 돌려요.';
+  }
+
+  @override
+  String get wingRuleAllFour => '윙 4개가 모두 뒤집힘';
+
+  @override
+  String get wingRuleAllFourFix => '3층 OLL 패리티 (3Rw)';
+
+  @override
+  String get wingRuleInnerTwo => '안쪽 윙 2개만 뒤집힘';
+
+  @override
+  String get wingRuleInnerTwoFix => '안쪽 윙 패리티 (3R)';
 
   @override
   String get onboardingSkip => '건너뛰기';

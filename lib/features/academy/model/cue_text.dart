@@ -74,5 +74,6 @@ String cueText(
     WalkCue.parityOll => l10n.cueParityOll(front),
     WalkCue.parityPll => l10n.cueParityPll,
     WalkCue.parityFive => l10n.cueParityFive(front),
+    WalkCue.parityInnerWing => l10n.cueParityInnerWing(front),
   };
 }

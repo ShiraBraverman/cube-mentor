@@ -12,6 +12,10 @@ import '../interaction/layer_drag.dart';
 import '../model/cube_session.dart';
 import '../render/cube_painter.dart';
 
+/// Whether a cube of [size] is a big cube (4x4 to 6x6): its instruction
+/// cards are compact so the 3D cube gets more of the screen.
+bool isBigCube(int size) => size >= 4;
+
 /// Interactive 3D viewport bound to a [cubeSessionProvider] session.
 ///
 /// * Drag on the background to orbit (with inertia); double-tap to reset.

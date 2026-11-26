@@ -432,6 +432,16 @@ void main() {
         expect(find.byKey(const ValueKey('lesson-complete')), findsOneWidget);
         expect(tester.takeException(), isNull, reason: 'complete $id');
       }
+      // The 6x6 four-or-two wing rule (a concept page with its picture
+      // card) and the compact big-cube instruction card.
+      await show(
+        LessonScreen(lesson: kLessons.firstWhere((l) => l.id == 'sixParity')),
+      );
+      await tester.ensureVisible(find.byKey(const ValueKey('intro-start')));
+      await tester.tap(find.byKey(const ValueKey('intro-start')));
+      await _advance(tester, 4);
+      expect(find.byKey(const ValueKey('wing-parity-rule')), findsOneWidget);
+      expect(tester.takeException(), isNull, reason: 'six wing rule');
       // Free practice from a finished lesson, with its goal banner.
       final practice = lookupAppLocalizations(language.locale);
       await show(

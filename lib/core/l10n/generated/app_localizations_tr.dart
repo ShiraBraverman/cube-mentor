@@ -336,6 +336,21 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String explainLblDaisyPetal(String piece) {
+    return 'Papatya: $piece kenarını beyazı yukarı bakacak şekilde sarı merkezin etrafına çıkar, bir yaprak olarak.';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return 'Üst katmanı, $piece yaprağı yan rengiyle aynı renkli merkezin tam üstüne gelene kadar çevir.';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return '$piece kenarını beyaz merkeze indirmek için o yüzü iki kez (180°) çevir: beyaz artının bir kolu daha.';
+  }
+
+  @override
   String explainLblCornerExtract(String piece) {
     return '$piece köşesi yanlış yerde sıkışmış. R U R\' U\' ile yukarı çıkar.';
   }
@@ -2066,6 +2081,20 @@ class AppLocalizationsTr extends AppLocalizations {
       'En sonda iki kenar yer değiştirmiş görünüyorsa onları üst katmanda önde ve arkada tut ve iç çift hamlelerle kısa düzeltmeyi yap: iki kenarın dört kanadı da yer değiştirir.';
 
   @override
+  String get stepSixWingRule => 'Dört kanat mı, iki mi?';
+
+  @override
+  String get stepSixWingRuleBody =>
+      '6×6 kenarı 4 kanattan oluşur. Ters görünen bir kenarı düzeltmeden önce dikkatle bak: 4 kanadın hepsi tersse normal 3 katmanlı OLL parity\'yi kullan; yalnızca 2 iç kanat tersse iç kanat parity\'sini kullan. Küp iç kanat durumunu gösteriyor.';
+
+  @override
+  String get stepSixInnerWingParity => 'İki iç kanat ters';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      'Burada öndeki üst kenarın dış kanatları doğru, yalnızca 2 iç kanat ters. O kenarı üst katmanın önünde tut ve yalnızca üçüncü dilimleri (3R, 3L) çevir: iç kanatlar düzelir, küpün geri kalanı çözülmüş kalır.';
+
+  @override
   String get stageTwoFirstLayer => 'Alt katmanı kur';
 
   @override
@@ -2533,10 +2562,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get lessonBonusCase => 'Bonus durum';
 
   @override
-  String get lessonPracticeIntro =>
-      'Gerçek bir karıştırma: yalnızca önceki adımlar çözülü. Bu adımın tamamını ipucu ipucu bitir.';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return 'Doğrudan $lesson dersine geç.';
   }
@@ -2769,6 +2794,23 @@ class AppLocalizationsTr extends AppLocalizations {
   String cueParityFive(String front) {
     return 'Kenar parity: bir kenarın iki dış kanadı yer değiştirmiş, 5×5\'in tek parity durumu. O kenarı önde tut, $front sana dönük, ve düzeltmeyi bir kez uygula.';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return 'İç kanat parity\'si: üst kenarın yalnızca 2 iç kanadı ters. Onu önde tut, $front sana dönük, ve yalnızca üçüncü dilimleri çevir.';
+  }
+
+  @override
+  String get wingRuleAllFour => '4 kanadın hepsi ters';
+
+  @override
+  String get wingRuleAllFourFix => '3 katmanlı OLL parity (3Rw)';
+
+  @override
+  String get wingRuleInnerTwo => 'Yalnızca 2 iç kanat ters';
+
+  @override
+  String get wingRuleInnerTwoFix => 'İç kanat parity\'si (3R)';
 
   @override
   String get onboardingSkip => 'Atla';

@@ -16,6 +16,7 @@ import '../model/cube_session.dart';
 import '../../../core/l10n/crown_words.dart';
 import '../../academy/widgets/lesson_intro.dart';
 import 'crown_tracker.dart';
+import 'cube_viewport.dart';
 import 'move_instruction.dart';
 import 'stage_header.dart';
 
@@ -63,6 +64,9 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
     final fast =
         session.solvedWith == SolveMethod.fast &&
         kFastSolveSizes.contains(size);
+    // Big cubes: a tighter dock, so the cube gets the room its small
+    // stickers need.
+    final compact = isBigCube(size);
 
     if (complete) {
       final guided = session.steps.any((s) => s.hasCrown);
@@ -173,7 +177,7 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
               key: ValueKey('solve-move-$index-${shown.notation}'),
               move: shown,
               size: size,
-              badgeSize: 46,
+              badgeSize: compact ? 38 : 46,
             ),
           ),
         ),
@@ -226,7 +230,7 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        const SizedBox(height: AppSpace.xs),
+        SizedBox(height: compact ? AppSpace.xxs : AppSpace.xs),
         if (stage != null)
           StageHeader(
             stage: stage,
@@ -275,7 +279,7 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
             scheme: StickerPalette.schemeOf(context),
           ),
           key: const ValueKey('solve-explanation'),
-          style: textTheme.bodyMedium,
+          style: compact ? textTheme.bodySmall : textTheme.bodyMedium,
         ),
         const SizedBox(height: 2),
         if (session.stepHint case final hint?)
@@ -294,11 +298,11 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
       selected: true,
       accent: AppColors.accent,
       borderRadius: AppRadius.md,
-      padding: const EdgeInsetsDirectional.fromSTEB(
+      padding: EdgeInsetsDirectional.fromSTEB(
         AppSpace.sm,
-        AppSpace.xs,
+        compact ? 2 : AppSpace.xs,
         AppSpace.xxs,
-        AppSpace.xs,
+        compact ? 2 : AppSpace.xs,
       ),
       child: AnimatedSize(
         duration: const Duration(milliseconds: 200),
@@ -335,7 +339,9 @@ class _SolveBannerState extends ConsumerState<SolveBanner> {
               // Long explanations scroll inside the dock, never over the cube.
               ConstrainedBox(
                 constraints: BoxConstraints(
-                  maxHeight: MediaQuery.sizeOf(context).height * 0.16,
+                  maxHeight:
+                      MediaQuery.sizeOf(context).height *
+                      (compact ? 0.12 : 0.16),
                 ),
                 child: SingleChildScrollView(
                   padding: const EdgeInsetsDirectional.only(end: AppSpace.xs),
@@ -621,6 +627,9 @@ String solveExplanation(
     'kociembaPhase2Explain' => l10n.explainKociemba2,
     'lblOrientExplain' => l10n.explainLblOrient,
     'lblCrossEdge' => l10n.explainLblCrossEdge(piece),
+    'lblDaisyPetal' => l10n.explainLblDaisyPetal(piece),
+    'lblDaisyAlign' => l10n.explainLblDaisyAlign(piece),
+    'lblDaisyDrop' => l10n.explainLblDaisyDrop(piece),
     'lblCornerExtract' => l10n.explainLblCornerExtract(piece),
     'lblCornerAlign' => l10n.explainLblCornerAlign(piece),
     'lblCornerInsert' => l10n.explainLblCornerInsert(piece),

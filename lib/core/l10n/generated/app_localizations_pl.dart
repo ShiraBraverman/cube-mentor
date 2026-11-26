@@ -342,6 +342,21 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
+  String explainLblDaisyPetal(String piece) {
+    return 'Wynieś krawędź $piece na górę wokół żółtego środka, białym do góry, jak płatek.';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return 'Kręć górną warstwą, aż płatek $piece stanie dokładnie nad środkiem swojego koloru bocznego.';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return 'Obróć tę ścianę o 180°, by położyć krawędź $piece na białym środku: kolejne ramię białego krzyża.';
+  }
+
+  @override
   String explainLblCornerExtract(String piece) {
     return 'Róg $piece utknął w złym miejscu. Wyciągnij go na górę ruchami R U R\' U\'.';
   }
@@ -2093,6 +2108,20 @@ class AppLocalizationsPl extends AppLocalizations {
       'Jeśli na samym końcu dwie krawędzie wyglądają na zamienione, trzymaj je z przodu i z tyłu górnej warstwy i zrób krótką poprawkę podwójnymi ruchami wewnętrznymi: cztery skrzydełka obu krawędzi zamieniają się miejscami.';
 
   @override
+  String get stepSixWingRule => 'Cztery skrzydełka czy dwa?';
+
+  @override
+  String get stepSixWingRuleBody =>
+      'Krawędź 6×6 składa się z 4 skrzydełek. Zanim poprawisz krawędź, która wygląda na odwróconą, przyjrzyj się: jeśli odwrócone są wszystkie 4 skrzydełka, użyj zwykłego OLL parity na 3 warstwy; jeśli odwrócone są tylko 2 wewnętrzne skrzydełka, użyj parity wewnętrznych skrzydełek. Kostka pokazuje przypadek wewnętrznych skrzydełek.';
+
+  @override
+  String get stepSixInnerWingParity => 'Dwa wewnętrzne skrzydełka odwrócone';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      'Tu zewnętrzne skrzydełka przedniej górnej krawędzi są dobre, a odwrócone są tylko 2 wewnętrzne. Trzymaj tę krawędź z przodu górnej warstwy i kręć tylko trzecimi warstwami (3R, 3L): wewnętrzne skrzydełka wracają na miejsce, a reszta kostki zostaje ułożona.';
+
+  @override
   String get stageTwoFirstLayer => 'Ułóż dolną warstwę';
 
   @override
@@ -2625,10 +2654,6 @@ class AppLocalizationsPl extends AppLocalizations {
   String get lessonBonusCase => 'Przypadek bonusowy';
 
   @override
-  String get lessonPracticeIntro =>
-      'Prawdziwe pomieszanie: ułożone są tylko wcześniejsze kroki. Dokończ cały ten krok, wskazówka po wskazówce.';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return 'Przejdź od razu do: $lesson.';
   }
@@ -2861,6 +2886,23 @@ class AppLocalizationsPl extends AppLocalizations {
   String cueParityFive(String front) {
     return 'Parity krawędzi: dwa zewnętrzne skrzydełka jednej krawędzi są zamienione, to jedyne parity 5×5. Trzymaj tę krawędź z przodu, kolorem $front do siebie, i zastosuj poprawkę raz.';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return 'Parity wewnętrznych skrzydełek: odwrócone są tylko 2 wewnętrzne skrzydełka górnej krawędzi. Trzymaj ją z przodu, kolorem $front do siebie, i kręć tylko trzecimi warstwami.';
+  }
+
+  @override
+  String get wingRuleAllFour => 'Odwrócone wszystkie 4 skrzydełka';
+
+  @override
+  String get wingRuleAllFourFix => 'OLL parity na 3 warstwy (3Rw)';
+
+  @override
+  String get wingRuleInnerTwo => 'Odwrócone tylko 2 wewnętrzne skrzydełka';
+
+  @override
+  String get wingRuleInnerTwoFix => 'Parity wewnętrznych skrzydełek (3R)';
 
   @override
   String get onboardingSkip => 'Pomiń';

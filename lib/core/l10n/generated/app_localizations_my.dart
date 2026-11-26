@@ -337,6 +337,21 @@ class AppLocalizationsMy extends AppLocalizations {
   }
 
   @override
+  String explainLblDaisyPetal(String piece) {
+    return 'Daisy: $piece အနားကို အဖြူ အပေါ်မူ၍ အဝါအလယ်ပတ်လည် အပေါ်သို့ တင်ပြီး ပွင့်ဖတ်တစ်ခု ဖြစ်စေပါ။';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return '$piece ပွင့်ဖတ်သည် ၎င်း၏ ဘေးအရောင်နှင့် တူသော အလယ်အပေါ်တည့်တည့် ရောက်သည်အထိ အပေါ်အလွှာကို လှည့်ပါ။';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return '$piece အနားကို အဖြူအလယ်ပေါ် ချရန် ထိုမျက်နှာကို နှစ်ကြိမ် (180°) လှည့်ပါ- အဖြူ ကြက်ခြေ၏ လက်တံတစ်ခု ထပ်ရပါပြီ။';
+  }
+
+  @override
   String explainLblCornerExtract(String piece) {
     return '$piece ထောင့်သည် မှားသောနေရာတွင် ပိတ်မိနေသည်။ R U R\' U\' ဖြင့် အပေါ်သို့ ထုတ်ပါ။';
   }
@@ -2087,6 +2102,20 @@ class AppLocalizationsMy extends AppLocalizations {
       'အဆုံးတွင် အနားနှစ်ခု လဲနေပုံရလျှင် ၎င်းတို့ကို အပေါ်အလွှာ၏ ရှေ့နှင့်နောက်တွင်ထားပြီး အတွင်း နှစ်ချက်လှည့် တိုသောပြင်ဆင်မှုကို လုပ်ပါ- အနားနှစ်ခု၏ အတောင်လေးခုလုံး နေရာလဲသည်။';
 
   @override
+  String get stepSixWingRule => 'အတောင် လေးခုလား၊ နှစ်ခုလား။';
+
+  @override
+  String get stepSixWingRuleBody =>
+      '6×6 ၏ အနားတစ်ခုသည် အတောင် 4 ခုဖြင့် ဖွဲ့စည်းထားသည်။ လှန်နေပုံရသော အနားကို မပြင်မီ သေချာကြည့်ပါ- အတောင် 4 ခုလုံး လှန်နေလျှင် ပုံမှန် အလွှာ 3 ခု OLL parity ကို သုံးပါ၊ အတွင်းအတောင် 2 ခုသာ လှန်နေလျှင် အတွင်းအတောင် parity ကို သုံးပါ။ ကုဗတုံးသည် အတွင်းအတောင် အခြေအနေကို ပြထားသည်။';
+
+  @override
+  String get stepSixInnerWingParity => 'အတွင်းအတောင် နှစ်ခု လှန်နေသည်';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      'ဤနေရာတွင် ရှေ့အပေါ်အနား၏ အပြင်အတောင်များ မှန်နေပြီး အတွင်းအတောင် 2 ခုသာ လှန်နေသည်။ ထိုအနားကို အပေါ်အလွှာ၏ ရှေ့တွင်ထားပြီး တတိယ အလွှာပါးများ (3R, 3L) ကိုသာ လှည့်ပါ- အတွင်းအတောင်များ ပြန်မှန်လာပြီး ကျန်ကုဗတုံး ဖြေရှင်းပြီးအတိုင်း ရှိနေမည်။';
+
+  @override
   String get stageTwoFirstLayer => 'အောက်အလွှာကို ဖွဲ့';
 
   @override
@@ -2552,10 +2581,6 @@ class AppLocalizationsMy extends AppLocalizations {
   String get lessonBonusCase => 'ဘောနပ်စ် အခြေအနေ';
 
   @override
-  String get lessonPracticeIntro =>
-      'တကယ့် ရောမွှေမှု: ယခင်အဆင့်များသာ ပြီးနေသည်။ ညွှန်ချက်တစ်ခုချင်း လိုက်၍ ဤအဆင့်တစ်ခုလုံး ပြီးအောင်လုပ်ပါ။';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return '$lesson သို့ တန်းသွားပါ။';
   }
@@ -2788,6 +2813,23 @@ class AppLocalizationsMy extends AppLocalizations {
   String cueParityFive(String front) {
     return 'အနား parity: အနားတစ်ခု၏ အပြင်အတောင်နှစ်ခု လဲနေသည်၊ 5×5 ၏ တစ်ခုတည်းသော parity ဖြစ်သည်။ $front ကို သင့်ဘက်မူ၍ ထိုအနားကို ရှေ့တွင်ထားပြီး ပြင်ဆင်မှုကို တစ်ကြိမ်လုပ်ပါ။';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return 'အတွင်းအတောင် parity: အပေါ်အနား၏ အတွင်းအတောင် 2 ခုသာ လှန်နေသည်။ $front ကို သင့်ဘက်မူ၍ ၎င်းကို ရှေ့တွင်ထားပြီး တတိယ အလွှာပါးများကိုသာ လှည့်ပါ။';
+  }
+
+  @override
+  String get wingRuleAllFour => 'အတောင် 4 ခုလုံး လှန်နေသည်';
+
+  @override
+  String get wingRuleAllFourFix => 'အလွှာ 3 ခု OLL parity (3Rw)';
+
+  @override
+  String get wingRuleInnerTwo => 'အတွင်းအတောင် 2 ခုသာ လှန်နေသည်';
+
+  @override
+  String get wingRuleInnerTwoFix => 'အတွင်းအတောင် parity (3R)';
 
   @override
   String get onboardingSkip => 'ကျော်ရန်';

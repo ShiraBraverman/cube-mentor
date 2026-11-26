@@ -340,6 +340,21 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
+  String explainLblDaisyPetal(String piece) {
+    return 'Bunga (daisy): naikkan rusuk $piece ke sekeliling pusat kuning, putih menghadap atas, sebagai kelopak.';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return 'Putar lapisan atas sampai kelopak $piece tepat di atas pusat yang sewarna dengan warna sampingnya.';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return 'Putar sisi itu dua kali (180°) untuk menurunkan rusuk $piece ke pusat putih: satu lengan lagi dari silang putih.';
+  }
+
+  @override
   String explainLblCornerExtract(String piece) {
     return 'Sudut $piece tersangkut di tempat yang salah. Angkat ke atas dengan R U R\' U\'.';
   }
@@ -2083,6 +2098,20 @@ class AppLocalizationsId extends AppLocalizations {
       'Jika di akhir dua rusuk tampak tertukar, pegang keduanya di depan dan belakang lapisan atas lalu lakukan perbaikan pendek dengan putaran ganda di dalam: keempat sayap kedua rusuk bertukar tempat.';
 
   @override
+  String get stepSixWingRule => 'Empat sayap atau dua?';
+
+  @override
+  String get stepSixWingRuleBody =>
+      'Rusuk 6×6 terdiri dari 4 sayap. Sebelum memperbaiki rusuk yang tampak terbalik, lihat baik-baik: jika keempat sayap terbalik, pakai OLL parity 3 lapisan yang biasa; jika hanya 2 sayap dalam yang terbalik, pakai parity sayap dalam. Kubus menunjukkan kasus sayap dalam.';
+
+  @override
+  String get stepSixInnerWingParity => 'Dua sayap dalam terbalik';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      'Di sini sayap luar rusuk atas depan sudah benar dan hanya 2 sayap dalam yang terbalik. Pegang rusuk itu di depan lapisan atas dan putar hanya irisan ketiga (3R, 3L): sayap dalam kembali benar dan bagian kubus lainnya tetap terpecahkan.';
+
+  @override
   String get stageTwoFirstLayer => 'Bangun lapisan bawah';
 
   @override
@@ -2533,10 +2562,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get lessonBonusCase => 'Kasus bonus';
 
   @override
-  String get lessonPracticeIntro =>
-      'Acakan sungguhan: hanya langkah sebelumnya yang sudah selesai. Tuntaskan seluruh langkah ini, petunjuk demi petunjuk.';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return 'Langsung lanjut ke $lesson.';
   }
@@ -2769,6 +2794,23 @@ class AppLocalizationsId extends AppLocalizations {
   String cueParityFive(String front) {
     return 'Parity rusuk: dua sayap luar dari satu rusuk tertukar, satu-satunya parity di 5×5. Pegang rusuk itu di depan, dengan $front menghadapmu, dan lakukan perbaikannya sekali.';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return 'Parity sayap dalam: hanya 2 sayap dalam dari rusuk atas yang terbalik. Pegang di depan, dengan $front menghadapmu, dan putar hanya irisan ketiga.';
+  }
+
+  @override
+  String get wingRuleAllFour => 'Keempat sayap terbalik';
+
+  @override
+  String get wingRuleAllFourFix => 'OLL parity 3 lapisan (3Rw)';
+
+  @override
+  String get wingRuleInnerTwo => 'Hanya 2 sayap dalam terbalik';
+
+  @override
+  String get wingRuleInnerTwoFix => 'Parity sayap dalam (3R)';
 
   @override
   String get onboardingSkip => 'Lewati';

@@ -75,6 +75,7 @@ enum WalkCue {
   parityOll,
   parityPll,
   parityFive,
+  parityInnerWing,
 }
 
 /// One stretch of a demonstration: its moves and what they do.
@@ -143,6 +144,7 @@ class WalkBeat {
     this.face,
     this.frontRight = const [],
     this.backEdge = const [],
+    this.targets = const {},
   });
 
   /// Index of the first move of this beat in the demonstration, and one
@@ -176,6 +178,10 @@ class WalkBeat {
   /// sizes), when the beat starts.
   final List<StickerColor> frontRight;
   final List<StickerColor> backEdge;
+
+  /// Ids of the pieces the beat brings home: the target pieces the cue
+  /// talks about, highlighted on the 3D cube while the beat plays.
+  final Set<int> targets;
 
   /// The side colors of [piece] (not white or yellow), the one facing the
   /// learner first: the centers a corner or middle edge goes between.
@@ -319,6 +325,7 @@ List<WalkBeat> analyzeBeats({
             : _faceColor(shadow, _normalOf(first, size)),
         frontRight: frontRight == null ? const [] : colorsOf(frontRight),
         backEdge: backEdge == null ? const [] : colorsOf(backEdge),
+        targets: Set.unmodifiable({for (final c in fixed) c.id}),
       ),
     );
     index += moves.length;

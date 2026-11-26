@@ -50,6 +50,28 @@ void main() {
     recorder.endRecording().dispose();
   }
 
+  test('target pieces glow while the rest of the cube steps back', () {
+    // Highlighted pieces, the layer to turn and the rest all paint.
+    final cube = CubeState.solved(6);
+    final ids = cube.cubies.map((c) => c.id).toList();
+    paintFrame(
+      CubeFrame(
+        cube: cube,
+        orbit: CubeOrientation.initial,
+        highlighted: {ids[5], ids[40]},
+        focus: {ids[0], ids[1]},
+      ),
+    );
+    paintFrame(
+      CubeFrame(
+        cube: cube,
+        orbit: CubeOrientation.initial,
+        highlighted: {ids[5]},
+        xray: true,
+      ),
+    );
+  });
+
   group('free orientation', () {
     Set<IVec3> visibleFaces(CubeOrientation orbit) => CubeScene.build(
       CubeFrame(cube: CubeState.solved(3), orbit: orbit),

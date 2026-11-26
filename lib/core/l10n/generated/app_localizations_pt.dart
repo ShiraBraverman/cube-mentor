@@ -339,6 +339,21 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
+  String explainLblDaisyPetal(String piece) {
+    return 'Margarida: suba a aresta $piece à volta do centro amarelo, com o branco para cima, como uma pétala.';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return 'Rode a camada de cima até a pétala $piece ficar mesmo por cima do centro da sua cor lateral.';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return 'Rode essa face duas vezes (180°) para descer a aresta $piece até ao centro branco: mais um braço da cruz branca.';
+  }
+
+  @override
   String explainLblCornerExtract(String piece) {
     return 'O canto $piece está preso no sítio errado. Suba-o com R U R\' U\'.';
   }
@@ -2088,6 +2103,20 @@ class AppLocalizationsPt extends AppLocalizations {
       'Se duas arestas parecerem trocadas mesmo no fim, ponha-as à frente e atrás na camada de cima e faça a correção curta de rotações interiores duplas: as quatro asas das duas arestas trocam de lugar.';
 
   @override
+  String get stepSixWingRule => 'Quatro asas ou duas?';
+
+  @override
+  String get stepSixWingRuleBody =>
+      'Uma aresta do 6×6 tem 4 asas. Antes de corrigir uma aresta que parece virada, observe bem: se as 4 asas estiverem viradas, use a paridade de OLL normal de 3 camadas; se só as 2 asas interiores estiverem viradas, use a paridade das asas interiores. O cubo mostra o caso das asas interiores.';
+
+  @override
+  String get stepSixInnerWingParity => 'Duas asas interiores viradas';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      'Aqui as asas exteriores da aresta de cima à frente estão bem e só as 2 interiores estão viradas. Deixe essa aresta à frente da camada de cima e rode só as terceiras camadas (3R, 3L): as asas interiores voltam ao lugar e o resto do cubo continua resolvido.';
+
+  @override
   String get stageTwoFirstLayer => 'Monte a camada de baixo';
 
   @override
@@ -2596,10 +2625,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get lessonBonusCase => 'Caso bónus';
 
   @override
-  String get lessonPracticeIntro =>
-      'Uma baralhação real: só os passos anteriores estão resolvidos. Termine todo este passo, indicação a indicação.';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return 'Siga diretamente para $lesson.';
   }
@@ -2832,6 +2857,23 @@ class AppLocalizationsPt extends AppLocalizations {
   String cueParityFive(String front) {
     return 'Paridade de arestas: as duas asas exteriores de uma aresta estão trocadas, a única paridade do 5×5. Deixe essa aresta à frente, com o $front virado para si, e aplique a correção uma vez.';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return 'Paridade das asas interiores: só as 2 asas interiores da aresta de cima estão viradas. Deixe-a à frente, com o $front virado para si, e rode só as terceiras camadas.';
+  }
+
+  @override
+  String get wingRuleAllFour => 'As 4 asas viradas';
+
+  @override
+  String get wingRuleAllFourFix => 'Paridade de OLL de 3 camadas (3Rw)';
+
+  @override
+  String get wingRuleInnerTwo => 'Só as 2 asas interiores viradas';
+
+  @override
+  String get wingRuleInnerTwoFix => 'Paridade das asas interiores (3R)';
 
   @override
   String get onboardingSkip => 'Saltar';
@@ -3304,6 +3346,21 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String explainLblCrossEdge(String piece) {
     return 'Leve o meio $piece para baixo, ao lado do centro branco, com a cor lateral combinando.';
+  }
+
+  @override
+  String explainLblDaisyPetal(String piece) {
+    return 'Margarida: suba o meio $piece em volta do centro amarelo, com o branco para cima, como uma pétala.';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return 'Gire a camada de cima até a pétala $piece ficar bem em cima do centro da sua cor lateral.';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return 'Gire essa face duas vezes (180°) para descer o meio $piece até o centro branco: mais um braço da cruz branca.';
   }
 
   @override
@@ -5050,6 +5107,20 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Se dois meios parecerem trocados bem no final, deixe-os na frente e atrás na camada de cima e faça a correção curta de giros internos duplos: as quatro wings dos dois meios trocam de lugar.';
 
   @override
+  String get stepSixWingRule => 'Quatro wings ou duas?';
+
+  @override
+  String get stepSixWingRuleBody =>
+      'Um meio do 6×6 tem 4 wings. Antes de corrigir um meio que parece invertido, olhe com atenção: se as 4 wings estiverem invertidas, use a paridade de OLL normal de 3 camadas; se só as 2 wings internas estiverem invertidas, use a paridade das wings internas. O cubo mostra o caso das wings internas.';
+
+  @override
+  String get stepSixInnerWingParity => 'Duas wings internas invertidas';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      'Aqui as wings externas do meio de cima da frente estão certas e só as 2 internas estão invertidas. Deixe esse meio na frente da camada de cima e gire só as terceiras camadas (3R, 3L): as wings internas voltam ao lugar e o resto do cubo continua resolvido.';
+
+  @override
   String get stageTwoFirstLayer => 'Monte a camada de baixo';
 
   @override
@@ -5558,10 +5629,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get lessonBonusCase => 'Caso bônus';
 
   @override
-  String get lessonPracticeIntro =>
-      'Um embaralhamento de verdade: só as etapas anteriores estão resolvidas. Termine esta etapa inteira, dica por dica.';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return 'Siga direto para $lesson.';
   }
@@ -5794,6 +5861,23 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String cueParityFive(String front) {
     return 'Paridade de meios: as duas wings externas de um meio estão trocadas, a única paridade do 5×5. Deixe esse meio na frente, com o $front virado para você, e aplique a correção uma vez.';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return 'Paridade das wings internas: só as 2 wings internas do meio de cima estão invertidas. Deixe-o na frente, com o $front virado para você, e gire só as terceiras camadas.';
+  }
+
+  @override
+  String get wingRuleAllFour => 'As 4 wings invertidas';
+
+  @override
+  String get wingRuleAllFourFix => 'Paridade de OLL de 3 camadas (3Rw)';
+
+  @override
+  String get wingRuleInnerTwo => 'Só as 2 wings internas invertidas';
+
+  @override
+  String get wingRuleInnerTwoFix => 'Paridade das wings internas (3R)';
 
   @override
   String get onboardingSkip => 'Pular';

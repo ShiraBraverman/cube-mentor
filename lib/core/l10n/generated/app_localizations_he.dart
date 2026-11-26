@@ -335,6 +335,21 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
+  String explainLblDaisyPetal(String piece) {
+    return 'חרצית: העלו את הקצה $piece סביב המרכז הצהוב, כשהלבן פונה למעלה – עוד עלה כותרת.';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return 'סובבו את השכבה העליונה עד שעלה הכותרת $piece יעמוד בדיוק מעל המרכז בצבע הצד שלו.';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return 'סובבו את הפאה הזו פעמיים (180 מעלות) כדי להוריד את הקצה $piece אל המרכז הלבן – עוד זרוע של הצלב הלבן.';
+  }
+
+  @override
   String explainLblCornerExtract(String piece) {
     return 'הפינה $piece תקועה במקום הלא נכון. העלו אותה למעלה עם ⁦R U R\' U\'⁩.';
   }
@@ -2060,6 +2075,20 @@ class AppLocalizationsHe extends AppLocalizations {
       'אם שני קצוות נראים מוחלפים ממש בסוף, החזיקו אותם בחזית ומאחור בשכבה העליונה ובצעו את התיקון הקצר בסיבובים פנימיים כפולים: כל ארבע הכנפיים של שני הקצוות מתחלפות.';
 
   @override
+  String get stepSixWingRule => 'ארבע כנפיים או שתיים?';
+
+  @override
+  String get stepSixWingRuleBody =>
+      'קצה ב־6×6 בנוי מ־4 כנפיים. לפני שמתקנים קצה שנראה הפוך, הסתכלו מקרוב: אם כל 4 הכנפיים הפוכות – משתמשים בפריטי OLL הרגיל של 3 שכבות; אם רק 2 הכנפיים הפנימיות הפוכות – משתמשים בפריטי הכנפיים הפנימיות. הקובייה מראה את מקרה הכנפיים הפנימיות.';
+
+  @override
+  String get stepSixInnerWingParity => 'שתי כנפיים פנימיות הפוכות';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      'כאן הכנפיים החיצוניות של הקצה העליון הקדמי תקינות, ורק 2 הכנפיים הפנימיות הפוכות. השאירו את הקצה הזה בחזית השכבה העליונה וסובבו רק את הפרוסות השלישיות (⁦3R, 3L⁩): הכנפיים הפנימיות מתהפכות בחזרה ושאר הקובייה נשארת פתורה.';
+
+  @override
   String get stageTwoFirstLayer => 'בונים את השכבה התחתונה';
 
   @override
@@ -2566,10 +2595,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get lessonBonusCase => 'מקרה בונוס';
 
   @override
-  String get lessonPracticeIntro =>
-      'ערבוב אמיתי: רק השלבים הקודמים פתורים. השלימו את כל השלב הזה, הנחיה אחר הנחיה.';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return 'ממשיכים ישר אל $lesson.';
   }
@@ -2802,6 +2827,23 @@ class AppLocalizationsHe extends AppLocalizations {
   String cueParityFive(String front) {
     return 'פריטי קצוות: שתי הכנפיים החיצוניות של קצה אחד מוחלפות, הפריטי היחיד שיש ב־5×5. השאירו את הקצה בחזית, כשה$front מולכם, ובצעו את התיקון פעם אחת.';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return 'פריטי כנפיים פנימיות: רק 2 הכנפיים הפנימיות של הקצה העליון הפוכות. השאירו אותו בחזית, כשה$front מולכם, וסובבו רק את הפרוסות השלישיות.';
+  }
+
+  @override
+  String get wingRuleAllFour => 'כל 4 הכנפיים הפוכות';
+
+  @override
+  String get wingRuleAllFourFix => 'פריטי OLL של 3 שכבות (⁦3Rw⁩)';
+
+  @override
+  String get wingRuleInnerTwo => 'רק 2 הכנפיים הפנימיות הפוכות';
+
+  @override
+  String get wingRuleInnerTwoFix => 'פריטי כנפיים פנימיות (⁦3R⁩)';
 
   @override
   String get onboardingSkip => 'דלגו';

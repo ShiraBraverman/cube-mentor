@@ -338,6 +338,21 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String explainLblDaisyPetal(String piece) {
+    return 'زهرة الأقحوان: اصعد بالحافة ($piece) حول المركز الأصفر والأبيض للأعلى، لتصبح بتلة.';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return 'أدر الطبقة العليا حتى تصبح البتلة ($piece) فوق مركز لونها الجانبي تمامًا.';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return 'أدر ذلك الوجه مرتين (180°) لتنزل الحافة ($piece) على المركز الأبيض: ذراع أخرى من الصليب الأبيض.';
+  }
+
+  @override
   String explainLblCornerExtract(String piece) {
     return 'الزاوية ($piece) عالقة في المكان الخطأ. ارفعها إلى الأعلى باستخدام ⁦R U R\' U\'⁩.';
   }
@@ -2075,6 +2090,20 @@ class AppLocalizationsAr extends AppLocalizations {
       'إن بدت حافتان متبادلتين في النهاية تمامًا، أمسكهما في أمام الطبقة العليا وخلفها ونفّذ الإصلاح القصير بدورات داخلية مزدوجة: تتبادل الأجنحة الأربعة لكلتا الحافتين.';
 
   @override
+  String get stepSixWingRule => 'أربعة أجنحة أم اثنان؟';
+
+  @override
+  String get stepSixWingRuleBody =>
+      'تتكون حافة المكعب 6×6 من 4 أجنحة. قبل إصلاح حافة تبدو مقلوبة، انظر جيدًا: إذا كانت الأجنحة الأربعة كلها مقلوبة فاستخدم تكافؤ OLL المعتاد بثلاث طبقات، وإذا كان الجناحان الداخليان فقط مقلوبين فاستخدم تكافؤ الأجنحة الداخلية. يعرض المكعب حالة الجناحين الداخليين.';
+
+  @override
+  String get stepSixInnerWingParity => 'جناحان داخليان مقلوبان';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      'هنا الجناحان الخارجيان للحافة العلوية الأمامية سليمان، والجناحان الداخليان فقط مقلوبان. أبقِ هذه الحافة في أمام الطبقة العليا وأدر الشرائح الثالثة فقط (⁦3R, 3L⁩): يعود الجناحان الداخليان إلى وضعهما ويبقى باقي المكعب محلولًا.';
+
+  @override
   String get stageTwoFirstLayer => 'ابنِ الطبقة السفلى';
 
   @override
@@ -2627,10 +2656,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get lessonBonusCase => 'حالة إضافية';
 
   @override
-  String get lessonPracticeIntro =>
-      'خلط حقيقي: الخطوات السابقة فقط محلولة. أكمل هذه الخطوة كلها، تعليمة بعد تعليمة.';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return 'انتقل مباشرة إلى $lesson.';
   }
@@ -2863,6 +2888,23 @@ class AppLocalizationsAr extends AppLocalizations {
   String cueParityFive(String front) {
     return 'تكافؤ الحواف: الجناحان الخارجيان لحافة واحدة متبادلان، وهو التكافؤ الوحيد في 5×5. أبقِ تلك الحافة في الأمام والمركز $front مواجه لك، ونفّذ الإصلاح مرة واحدة.';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return 'تكافؤ الأجنحة الداخلية: الجناحان الداخليان فقط للحافة العلوية مقلوبان. أبقِها في الأمام والمركز $front مواجه لك، وأدر الشرائح الثالثة فقط.';
+  }
+
+  @override
+  String get wingRuleAllFour => 'الأجنحة الأربعة كلها مقلوبة';
+
+  @override
+  String get wingRuleAllFourFix => 'تكافؤ OLL بثلاث طبقات (⁦3Rw⁩)';
+
+  @override
+  String get wingRuleInnerTwo => 'الجناحان الداخليان فقط مقلوبان';
+
+  @override
+  String get wingRuleInnerTwoFix => 'تكافؤ الأجنحة الداخلية (⁦3R⁩)';
 
   @override
   String get onboardingSkip => 'تخطٍّ';

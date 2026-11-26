@@ -457,11 +457,12 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
                   child: ConstrainedBox(
                     constraints: const BoxConstraints(maxWidth: 560),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
+                      // Big cubes: tighter docks leave the cube more room.
+                      padding: EdgeInsetsDirectional.fromSTEB(
                         AppSpace.md,
-                        AppSpace.xs,
+                        isBigCube(size) ? AppSpace.xxs : AppSpace.xs,
                         AppSpace.md,
-                        AppSpace.md,
+                        isBigCube(size) ? AppSpace.sm : AppSpace.md,
                       ),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
@@ -471,8 +472,10 @@ class _Solver3DScreenState extends ConsumerState<Solver3DScreen> {
                           if (session.hasPlayback) ...[
                             if (session.steps.isNotEmpty)
                               Padding(
-                                padding: const EdgeInsetsDirectional.only(
-                                  bottom: AppSpace.xs,
+                                padding: EdgeInsetsDirectional.only(
+                                  bottom: isBigCube(size)
+                                      ? AppSpace.xxs
+                                      : AppSpace.xs,
                                 ),
                                 child: SolveBanner(
                                   size: size,

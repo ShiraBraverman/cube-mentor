@@ -336,6 +336,21 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
+  String explainLblDaisyPetal(String piece) {
+    return 'डेज़ी: $piece एज को पीले केंद्र के चारों ओर ऊपर लाएँ, सफ़ेद ऊपर की ओर, एक पंखुड़ी की तरह।';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return 'ऊपरी परत घुमाएँ जब तक $piece पंखुड़ी अपने साइड रंग वाले केंद्र के ठीक ऊपर न आ जाए।';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return 'उस फ़ेस को दो बार (180°) घुमाकर $piece एज को सफ़ेद केंद्र पर उतारें: सफ़ेद क्रॉस की एक और भुजा।';
+  }
+
+  @override
   String explainLblCornerExtract(String piece) {
     return '$piece कोना गलत जगह फँसा है। उसे R U R\' U\' से ऊपर लाएँ।';
   }
@@ -2076,6 +2091,20 @@ class AppLocalizationsHi extends AppLocalizations {
       'अगर बिल्कुल आख़िर में दो एज बदले दिखें, तो उन्हें ऊपरी परत में आगे और पीछे रखें और अंदरूनी डबल मूव्स वाला छोटा सुधार करें: दोनों एज के चारों विंग जगह बदल लेते हैं।';
 
   @override
+  String get stepSixWingRule => 'चार विंग या दो?';
+
+  @override
+  String get stepSixWingRuleBody =>
+      '6×6 का एज 4 विंग से बनता है। पलटे दिखते एज को ठीक करने से पहले ध्यान से देखें: अगर चारों विंग पलटे हैं, तो सामान्य 3-परत OLL पैरिटी लगाएँ; अगर सिर्फ़ 2 अंदरूनी विंग पलटे हैं, तो अंदरूनी-विंग पैरिटी लगाएँ। क्यूब अंदरूनी विंग वाला केस दिखा रहा है।';
+
+  @override
+  String get stepSixInnerWingParity => 'दो अंदरूनी विंग पलटे';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      'यहाँ सामने वाले ऊपरी एज के बाहरी विंग ठीक हैं और सिर्फ़ 2 अंदरूनी विंग पलटे हैं। उस एज को ऊपरी परत में सामने रखें और सिर्फ़ तीसरी स्लाइस (3R, 3L) घुमाएँ: अंदरूनी विंग वापस पलट जाते हैं और बाकी क्यूब हल रहता है।';
+
+  @override
   String get stageTwoFirstLayer => 'निचली परत बनाएँ';
 
   @override
@@ -2564,10 +2593,6 @@ class AppLocalizationsHi extends AppLocalizations {
   String get lessonBonusCase => 'बोनस केस';
 
   @override
-  String get lessonPracticeIntro =>
-      'असली स्क्रैम्बल: सिर्फ़ पिछले स्टेप हल हैं। एक-एक संकेत के साथ यह पूरा स्टेप पूरा करें।';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return 'सीधे $lesson पर जाएँ।';
   }
@@ -2799,6 +2824,23 @@ class AppLocalizationsHi extends AppLocalizations {
   String cueParityFive(String front) {
     return 'एज पैरिटी: एक एज के दोनों बाहरी विंग बदले हुए हैं, 5×5 की इकलौती पैरिटी। उस एज को सामने रखें, $front आपकी ओर, और सुधार एक बार करें।';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return 'अंदरूनी-विंग पैरिटी: ऊपरी एज के सिर्फ़ 2 अंदरूनी विंग पलटे हैं। उसे सामने रखें, $front आपकी ओर, और सिर्फ़ तीसरी स्लाइस घुमाएँ।';
+  }
+
+  @override
+  String get wingRuleAllFour => 'चारों विंग पलटे';
+
+  @override
+  String get wingRuleAllFourFix => '3-परत OLL पैरिटी (3Rw)';
+
+  @override
+  String get wingRuleInnerTwo => 'सिर्फ़ 2 अंदरूनी विंग पलटे';
+
+  @override
+  String get wingRuleInnerTwoFix => 'अंदरूनी-विंग पैरिटी (3R)';
 
   @override
   String get onboardingSkip => 'छोड़ें';

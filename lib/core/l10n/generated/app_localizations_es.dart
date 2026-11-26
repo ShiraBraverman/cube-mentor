@@ -340,6 +340,21 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
+  String explainLblDaisyPetal(String piece) {
+    return 'Margarita: sube la arista $piece alrededor del centro amarillo, con el blanco hacia arriba, como un pétalo.';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return 'Gira la capa superior hasta que el pétalo $piece quede justo encima del centro de su color lateral.';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return 'Gira esa cara dos veces (180°) para bajar la arista $piece al centro blanco: un brazo más de la cruz blanca.';
+  }
+
+  @override
   String explainLblCornerExtract(String piece) {
     return 'La esquina $piece está atascada en el lugar equivocado. Súbela con R U R\' U\'.';
   }
@@ -2087,6 +2102,20 @@ class AppLocalizationsEs extends AppLocalizations {
       'Si dos aristas parecen intercambiadas al final, ponlas delante y detrás en la capa superior y haz el arreglo corto de dobles giros internos: las cuatro alas de ambas aristas se cambian.';
 
   @override
+  String get stepSixWingRule => '¿Cuatro alas o dos?';
+
+  @override
+  String get stepSixWingRuleBody =>
+      'Una arista del 6×6 tiene 4 alas. Antes de arreglar una arista que parece volteada, mírala bien: si las 4 alas están volteadas, usa la paridad OLL normal de 3 capas; si solo las 2 alas interiores están volteadas, usa la paridad de alas interiores. El cubo muestra el caso de las alas interiores.';
+
+  @override
+  String get stepSixInnerWingParity => 'Dos alas interiores volteadas';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      'Aquí las alas exteriores de la arista superior delantera están bien y solo las 2 interiores están volteadas. Deja esa arista al frente de la capa superior y gira solo las terceras capas (3R, 3L): las alas interiores vuelven a su sitio y el resto del cubo sigue resuelto.';
+
+  @override
   String get stageTwoFirstLayer => 'Arma la capa inferior';
 
   @override
@@ -2595,10 +2624,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get lessonBonusCase => 'Caso extra';
 
   @override
-  String get lessonPracticeIntro =>
-      'Una mezcla real: solo los pasos anteriores están resueltos. Termina todo este paso, indicación por indicación.';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return 'Sigue directamente con $lesson.';
   }
@@ -2831,6 +2856,23 @@ class AppLocalizationsEs extends AppLocalizations {
   String cueParityFive(String front) {
     return 'Paridad de aristas: las dos alas exteriores de una arista están cambiadas, la única paridad del 5×5. Deja esa arista al frente, con el $front hacia ti, y aplica el arreglo una vez.';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return 'Paridad de alas interiores: solo las 2 alas interiores de la arista de arriba están volteadas. Déjala al frente, con el $front hacia ti, y gira solo las terceras capas.';
+  }
+
+  @override
+  String get wingRuleAllFour => 'Las 4 alas volteadas';
+
+  @override
+  String get wingRuleAllFourFix => 'Paridad OLL de 3 capas (3Rw)';
+
+  @override
+  String get wingRuleInnerTwo => 'Solo las 2 alas interiores volteadas';
+
+  @override
+  String get wingRuleInnerTwoFix => 'Paridad de alas interiores (3R)';
 
   @override
   String get onboardingSkip => 'Omitir';

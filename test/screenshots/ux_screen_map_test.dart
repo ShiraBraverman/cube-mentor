@@ -128,7 +128,8 @@ class _ShotBanner implements BannerSlot {
   void dispose() {}
 }
 
-/// A guided (3 crowns) plan: white cross with a double turn first.
+/// A guided (3 crowns) plan: a daisy petal (a double turn), lining it up
+/// and dropping it onto the white center.
 final _guidedSolver = FakeCubeSolver(
   plan: const SolvePlan(
     method: 'lbl',
@@ -137,7 +138,7 @@ final _guidedSolver = FakeCubeSolver(
         cubeState: '',
         phaseName: 'lblCross',
         moveNotation: 'R2',
-        explanationKey: 'lblCrossEdge',
+        explanationKey: 'lblDaisyPetal',
         pieceColors: 'WR',
         crown: 1,
         subStep: 1,
@@ -146,7 +147,7 @@ final _guidedSolver = FakeCubeSolver(
         cubeState: '',
         phaseName: 'lblCross',
         moveNotation: "U'",
-        explanationKey: 'lblCrossEdge',
+        explanationKey: 'lblDaisyAlign',
         pieceColors: 'WB',
         crown: 1,
         subStep: 1,
@@ -155,7 +156,7 @@ final _guidedSolver = FakeCubeSolver(
         cubeState: '',
         phaseName: 'lblCross',
         moveNotation: 'F2',
-        explanationKey: 'lblCrossEdge',
+        explanationKey: 'lblDaisyDrop',
         pieceColors: 'WB',
         crown: 1,
         subStep: 1,
@@ -453,6 +454,14 @@ void main() {
       await _tap(t, 'lesson-next', 14);
     }
     await _advance(t, 20);
+  });
+  // 6x6 parity, stage 1: all 4 wings flipped vs only the 2 inner wings.
+  shot('32_lesson_six_wing_rule', (t) async {
+    await _show(
+      t,
+      LessonScreen(lesson: kLessons.firstWhere((l) => l.id == 'sixParity')),
+    );
+    await _tap(t, 'intro-start', 20);
   });
   // Stage 3: walkthroughs of the whole step, ending on a bonus case.
   shot('25_lesson_walkthrough', (t) async {

@@ -305,6 +305,46 @@ TEST_CASE("lbl: white goes down first and the cross is built on the bottom") {
   for (int i : {1, 3, 5, 7}) CHECK(replay.f[kD * 9 + i] == 'W');
 }
 
+TEST_CASE("lbl: the white cross goes through the daisy, like the Academy") {
+  std::mt19937 rng(21);
+  int withDaisy = 0;
+  for (int i = 0; i < 200; ++i) {
+    FaceletCube cube = cmtest::solvedColored(3);
+    cmtest::applyTokens(cube, cmtest::randomScramble(rng, 25, true, true));
+    const SolveResult result = solveCube(3, SolveMethod::kLayerByLayer, cube.f);
+    REQUIRE(result.ok);
+    FaceletCube replay = cube;
+    bool dropping = false;
+    bool checkedDaisy = false;
+    for (const SolveStep& step : result.steps) {
+      if (step.phase != "lblCross") break;
+      const bool drop = step.explanation == "lblDaisyAlign" || step.explanation == "lblDaisyDrop";
+      if (step.explanation != "lblOrientExplain") {
+        CHECK(step.explanation == "lblDaisyPetal" || drop);
+      }
+      // Petals are only gathered before the first one is dropped.
+      if (step.explanation == "lblDaisyPetal") CHECK(!dropping);
+      if (drop && !dropping) {
+        dropping = true;
+        // The daisy is complete: every white edge is a petal (white up
+        // around the yellow center) or already solved on the bottom.
+        const char white = replay.f[kD * 9 + 4];
+        int petals = 0;
+        int bottom = 0;
+        for (int k : {1, 3, 5, 7}) {
+          petals += replay.f[kU * 9 + k] == white ? 1 : 0;
+          bottom += replay.f[kD * 9 + k] == white ? 1 : 0;
+        }
+        CHECK(petals + bottom == 4);
+        checkedDaisy = true;
+      }
+      cmtest::applyTokens(replay, {step.move});
+    }
+    withDaisy += checkedDaisy ? 1 : 0;
+  }
+  CHECK(withDaisy > 190);
+}
+
 TEST_CASE("lbl: JSON carries the crown and sub-step, fast steps do not") {
   FaceletCube cube = cmtest::solvedColored(3);
   cmtest::applyTokens(cube, {"R", "U", "F"});

@@ -335,6 +335,21 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
+  String explainLblDaisyPetal(String piece) {
+    return 'Bông hoa: đưa cạnh $piece lên quanh tâm vàng, màu trắng hướng lên, thành một cánh hoa.';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return 'Xoay tầng trên đến khi cánh hoa $piece nằm ngay trên tâm cùng màu với mặt bên của nó.';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return 'Xoay mặt đó hai lần (180°) để đưa cạnh $piece xuống tâm trắng: thêm một nhánh của dấu cộng trắng.';
+  }
+
+  @override
   String explainLblCornerExtract(String piece) {
     return 'Góc $piece đang kẹt sai chỗ. Đưa nó lên tầng trên bằng R U R\' U\'.';
   }
@@ -2065,6 +2080,20 @@ class AppLocalizationsVi extends AppLocalizations {
       'Nếu ở cuối hai cạnh trông như đổi chỗ, giữ chúng ở trước và sau tầng trên và làm công thức ngắn bằng các lượt xoay kép bên trong: cả bốn cánh của hai cạnh đổi chỗ cho nhau.';
 
   @override
+  String get stepSixWingRule => 'Bốn cánh hay hai?';
+
+  @override
+  String get stepSixWingRuleBody =>
+      'Một cạnh 6×6 gồm 4 cánh. Trước khi sửa một cạnh trông như bị lật, hãy nhìn kỹ: nếu cả 4 cánh đều bị lật, dùng parity OLL 3 tầng thông thường; nếu chỉ 2 cánh trong bị lật, dùng parity cánh trong. Khối đang cho thấy trường hợp cánh trong.';
+
+  @override
+  String get stepSixInnerWingParity => 'Hai cánh trong bị lật';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      'Ở đây các cánh ngoài của cạnh trên phía trước đều đúng, chỉ 2 cánh trong bị lật. Giữ cạnh đó ở trước tầng trên và chỉ xoay các lát thứ ba (3R, 3L): các cánh trong lật lại đúng và phần còn lại của khối vẫn được giải.';
+
+  @override
   String get stageTwoFirstLayer => 'Dựng tầng dưới';
 
   @override
@@ -2528,10 +2557,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get lessonBonusCase => 'Tình huống thêm';
 
   @override
-  String get lessonPracticeIntro =>
-      'Một khối xáo trộn thật: chỉ các bước trước đã xong. Hoàn thành trọn bước này theo từng gợi ý.';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return 'Đi thẳng tới $lesson.';
   }
@@ -2764,6 +2789,23 @@ class AppLocalizationsVi extends AppLocalizations {
   String cueParityFive(String front) {
     return 'Parity cạnh: hai cánh ngoài của một cạnh bị đổi chỗ, parity duy nhất của 5×5. Giữ cạnh đó ở phía trước, $front hướng về bạn, và làm công thức sửa một lần.';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return 'Parity cánh trong: chỉ 2 cánh trong của cạnh trên bị lật. Giữ nó ở phía trước, $front hướng về bạn, và chỉ xoay các lát thứ ba.';
+  }
+
+  @override
+  String get wingRuleAllFour => 'Cả 4 cánh bị lật';
+
+  @override
+  String get wingRuleAllFourFix => 'Parity OLL 3 tầng (3Rw)';
+
+  @override
+  String get wingRuleInnerTwo => 'Chỉ 2 cánh trong bị lật';
+
+  @override
+  String get wingRuleInnerTwoFix => 'Parity cánh trong (3R)';
 
   @override
   String get onboardingSkip => 'Bỏ qua';

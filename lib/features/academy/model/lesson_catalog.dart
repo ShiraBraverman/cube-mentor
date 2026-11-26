@@ -916,7 +916,21 @@ final List<Lesson> kLessons = List.unmodifiable([
     size: 6,
     advanced: true,
     steps: [
+      // Four wings or two: which parity fix the flipped edge needs. The
+      // cube shows the inner-wing case (see `WingParityRule`).
+      const LessonStep(
+        'sixWingRule',
+        setup: _sixInnerWingParityInverse,
+        top: _white,
+        front: _green,
+      ),
       _example('sixOllParity', _sixOllParity, WalkCue.parityOll, setup: ''),
+      _example(
+        'sixInnerWingParity',
+        _sixInnerWingParity,
+        WalkCue.parityInnerWing,
+        setup: '',
+      ),
       _example('sixPllParity', _sixPllParity, WalkCue.parityPll, setup: ''),
     ],
     practice: const [
@@ -945,6 +959,15 @@ const _sixEdgeLast = "3Dw R F' U R' F 3Dw'";
 const _sixOllParity =
     "3Rw U2 x 3Rw U2 3Rw U2 3Rw' U2 3Lw U2 3Rw' U2 3Rw U2 3Rw' U2 3Rw'";
 const _sixPllParity = "2-3Rw2 U2 2-3Rw2 3Uw2 2-3Rw2 2-3Uw2";
+
+/// Inner-wing parity: only the two inner wings of the front top edge are
+/// flipped (the outer wings are fine), so only the third slice turns.
+const _sixInnerWingParity = "3R2 B2 U2 3L U2 3R' U2 3R U2 F2 3R F2 3L' B2 3R2";
+
+/// [_sixInnerWingParity] undone: a solved cube with the two inner wings of
+/// the front top edge flipped.
+const _sixInnerWingParityInverse =
+    "3R2 B2 3L F2 3R' F2 U2 3R' U2 3R U2 3L' U2 B2 3R2";
 
 /// OLL parity without whole-cube turns (inner slices only), for the
 /// walkthroughs: the cube stays in hand the whole time.
@@ -1235,7 +1258,9 @@ String lessonStepTitle(AppLocalizations l10n, String id) => switch (id) {
   'sixEdgePair' => l10n.stepSixEdgePair,
   'sixEdgeLast' => l10n.stepSixEdgeLast,
   'sixAsThree' => l10n.stepSixAsThree,
+  'sixWingRule' => l10n.stepSixWingRule,
   'sixOllParity' => l10n.stepSixOllParity,
+  'sixInnerWingParity' => l10n.stepSixInnerWingParity,
   'sixPllParity' => l10n.stepSixPllParity,
   _ => id,
 };
@@ -1290,7 +1315,9 @@ String lessonStepBody(AppLocalizations l10n, String id) => switch (id) {
   'sixEdgePair' => l10n.stepSixEdgePairBody,
   'sixEdgeLast' => l10n.stepSixEdgeLastBody,
   'sixAsThree' => l10n.stepSixAsThreeBody,
+  'sixWingRule' => l10n.stepSixWingRuleBody,
   'sixOllParity' => l10n.stepSixOllParityBody,
+  'sixInnerWingParity' => l10n.stepSixInnerWingParityBody,
   'sixPllParity' => l10n.stepSixPllParityBody,
   _ => id,
 };

@@ -26,6 +26,7 @@ import 'model/lesson_goal.dart';
 import 'model/walkthrough.dart';
 import 'widgets/hold_prompt.dart';
 import 'widgets/lesson_intro.dart';
+import 'widgets/wing_parity_rule.dart';
 
 /// The four stages of every lesson, shown as pills at the top.
 enum LessonStage {
@@ -278,7 +279,12 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                 Positioned.fill(
                   child: CubeViewport(
                     size: size,
-                    highlighted: solveHighlights(session),
+                    // The pieces the current callout talks about glow; the
+                    // rest of the cube steps back.
+                    highlighted: {
+                      ...solveHighlights(session),
+                      ...?beat?.targets,
+                    },
                     focus: solveFocus(session),
                   ),
                 ),
@@ -293,7 +299,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
           ),
           // Under the cube, never over it.
           _Explanation(lesson: _lesson, page: page, beat: beat),
-          const SizedBox(height: 8),
+          SizedBox(height: isBigCube(size) ? 4 : 8),
           _LessonNav(
             onPrevious: _previous(session),
             onNext: _next(session),
@@ -575,6 +581,9 @@ class _ExplanationState extends ConsumerState<_Explanation> {
     final textTheme = Theme.of(context).textTheme;
     final scheme = StickerPalette.schemeOf(context);
     final size = widget.lesson.size;
+    // Big cubes: a tighter card, so the cube gets the room its small
+    // stickers need.
+    final compact = isBigCube(size);
     final page = widget.page;
     final step = page.step;
     final beat = widget.beat;
@@ -583,6 +592,7 @@ class _ExplanationState extends ConsumerState<_Explanation> {
     final secondary = textTheme.bodySmall?.copyWith(
       color: AppColors.textSecondary,
     );
+    final body = compact ? textTheme.bodySmall : textTheme.bodyMedium;
     // How to hold the cube: as the current stretch starts (walkthroughs
     // turn the whole cube between slots), else as the part says.
     final top = beat?.top ?? step?.top ?? StickerColor.white;
@@ -608,13 +618,15 @@ class _ExplanationState extends ConsumerState<_Explanation> {
         key: ValueKey('lesson-move-${session.currentStepIndex}'),
         move: shown,
         size: size,
-        badgeSize: 44,
+        badgeSize: compact ? 38 : 44,
       );
     }
 
     return GlassCard(
       key: const ValueKey('lesson-explanation'),
-      padding: const EdgeInsetsDirectional.fromSTEB(12, 8, 4, 8),
+      padding: compact
+          ? const EdgeInsetsDirectional.fromSTEB(10, 3, 4, 3)
+          : const EdgeInsetsDirectional.fromSTEB(12, 8, 4, 8),
       child: AnimatedSize(
         duration: const Duration(milliseconds: 200),
         curve: Curves.easeOutCubic,
@@ -665,10 +677,15 @@ class _ExplanationState extends ConsumerState<_Explanation> {
               // squeezing the cube away.
               ConstrainedBox(
                 constraints: BoxConstraints(
-                  maxHeight: MediaQuery.sizeOf(context).height * 0.22,
+                  maxHeight:
+                      MediaQuery.sizeOf(context).height *
+                      (compact ? 0.15 : 0.22),
                 ),
                 child: SingleChildScrollView(
-                  padding: const EdgeInsetsDirectional.only(top: 8, end: 8),
+                  padding: EdgeInsetsDirectional.only(
+                    top: compact ? 4 : 8,
+                    end: 8,
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
@@ -679,8 +696,9 @@ class _ExplanationState extends ConsumerState<_Explanation> {
                           moves: beat!.moves,
                           size: size,
                           bonus: beat.bonus,
+                          compact: compact,
                         ),
-                        const SizedBox(height: 8),
+                        SizedBox(height: compact ? 4 : 8),
                       ],
                       Text(
                         hold,
@@ -692,18 +710,23 @@ class _ExplanationState extends ConsumerState<_Explanation> {
                         Text(
                           lessonStepTitle(l10n, step.id),
                           key: const ValueKey('lesson-step-title'),
-                          style: textTheme.titleMedium,
+                          style: compact
+                              ? textTheme.titleSmall
+                              : textTheme.titleMedium,
                         ),
                         const SizedBox(height: 4),
-                        Text(
-                          lessonStepBody(l10n, step.id),
-                          style: textTheme.bodyMedium,
-                        ),
+                        Text(lessonStepBody(l10n, step.id), style: body),
+                        if (step.id == 'sixWingRule') ...[
+                          const SizedBox(height: 8),
+                          const WingParityRule(),
+                        ],
                       ] else
+                        // Stage 3 goes straight to the coaching: how this
+                        // step is solved, in the lesson's own words.
                         Text(
-                          l10n.lessonPracticeIntro,
-                          key: const ValueKey('lesson-practice-intro'),
-                          style: textTheme.bodyMedium,
+                          introHowText(l10n, widget.lesson.id),
+                          key: const ValueKey('lesson-practice-coach'),
+                          style: body,
                         ),
                       if (session.guideMove != null &&
                           session.stepHint == null) ...[
@@ -729,12 +752,16 @@ class _CueCallout extends StatelessWidget {
     required this.moves,
     required this.size,
     required this.bonus,
+    this.compact = false,
   });
 
   final String text;
   final String moves;
   final int size;
   final bool bonus;
+
+  /// Big cubes: tighter padding and smaller text.
+  final bool compact;
 
   @override
   Widget build(BuildContext context) {
@@ -746,7 +773,9 @@ class _CueCallout extends StatelessWidget {
     return Container(
       key: const ValueKey('lesson-cue'),
       width: double.infinity,
-      padding: const EdgeInsetsDirectional.fromSTEB(10, 8, 10, 8),
+      padding: compact
+          ? const EdgeInsetsDirectional.fromSTEB(8, 5, 8, 5)
+          : const EdgeInsetsDirectional.fromSTEB(10, 8, 10, 8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(AppRadius.sm),
         color: accent.withValues(alpha: 0.1),
@@ -758,13 +787,14 @@ class _CueCallout extends StatelessWidget {
         children: [
           Text(
             text,
-            style: textTheme.bodyMedium?.copyWith(
-              color: AppColors.textPrimary,
-              fontWeight: FontWeight.w600,
-            ),
+            style: (compact ? textTheme.bodySmall : textTheme.bodyMedium)
+                ?.copyWith(
+                  color: AppColors.textPrimary,
+                  fontWeight: FontWeight.w600,
+                ),
           ),
           if (count > 0) ...[
-            const SizedBox(height: 6),
+            SizedBox(height: compact ? 3 : 6),
             Directionality(
               textDirection: TextDirection.ltr,
               child: Text(

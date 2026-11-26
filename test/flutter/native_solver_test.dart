@@ -121,7 +121,9 @@ void main() {
       expect(plan.steps.first.subStepLabel, '1.1');
       expect(plan.steps.last.crown, 3);
       final cross = plan.steps.firstWhere(
-        (s) => s.phaseName == 'lblCross' && s.explanationKey == 'lblCrossEdge',
+        (s) =>
+            s.phaseName == 'lblCross' &&
+            s.explanationKey.startsWith('lblDaisy'),
       );
       expect(cross.pieceColors, startsWith('W'));
       expect(cross.highlightedCubies, hasLength(1));

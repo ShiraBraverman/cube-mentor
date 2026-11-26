@@ -151,6 +151,33 @@
       }
     }
   },
+  "explainLblDaisyPetal": "Daisy: bring the {piece} edge up around the yellow center, white facing up, as a petal.",
+  "@explainLblDaisyPetal": {
+    "description": "Guided solve, sub-step 1.1: one move that brings a white edge up next to the yellow center, white facing up, forming the daisy.",
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "explainLblDaisyAlign": "Turn the top layer until the {piece} petal sits right above the center of its side color.",
+  "@explainLblDaisyAlign": {
+    "description": "Guided solve, sub-step 1.1: turning the top so a daisy petal sits above the center of its side color.",
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "explainLblDaisyDrop": "Turn that face twice (180°) to drop the {piece} edge onto the white center: one more arm of the white cross.",
+  "@explainLblDaisyDrop": {
+    "description": "Guided solve, sub-step 1.1: the half turn dropping a daisy petal onto the white center.",
+    "placeholders": {
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
   "explainLblCornerExtract": "The {piece} corner is stuck in the wrong spot. Lift it to the top with R U R' U'.",
   "@explainLblCornerExtract": {
     "placeholders": {
@@ -924,6 +951,22 @@
   "stepSixOllParityBody": "A single edge that looks flipped in the last layer is parity. Hold it at the front of the top layer and play the long fix: it flips all four wings, also swaps the left and right top edges, and leaves the first two layers untouched.",
   "stepSixPllParity": "Two swapped edges",
   "stepSixPllParityBody": "If two edges look swapped at the very end, hold them at the front and back of the top layer and play the short fix of inner double turns: all four wings of both edges trade places.",
+  "stepSixWingRule": "Four wings or two?",
+  "@stepSixWingRule": {
+    "description": "6x6 parity lesson: title of the rule telling the two flipped-edge cases apart."
+  },
+  "stepSixWingRuleBody": "A 6×6 edge is made of 4 wings. Before fixing an edge that looks flipped, look closely: if all 4 wings are flipped, use the standard 3-layer OLL parity; if only the 2 inner wings are flipped, use inner-wing parity. The cube shows the inner-wing case.",
+  "@stepSixWingRuleBody": {
+    "description": "6x6 parity lesson: all 4 wings flipped takes 3-layer OLL parity, only the 2 inner wings flipped takes inner-wing parity."
+  },
+  "stepSixInnerWingParity": "Two inner wings flipped",
+  "@stepSixInnerWingParity": {
+    "description": "6x6 parity lesson: title of the inner-wing parity example."
+  },
+  "stepSixInnerWingParityBody": "Here the outer wings of the front top edge are fine and only the 2 inner wings are flipped. Keep that edge at the front of the top layer and turn only the third slices (3R, 3L): the inner wings flip back and the rest of the cube stays solved.",
+  "@stepSixInnerWingParityBody": {
+    "description": "6x6 parity lesson: explanation of the inner-wing parity example (3R / 3L slices only)."
+  },
   "stageTwoFirstLayer": "Build the bottom layer",
   "stageTwoTopColor": "Make the top one color",
   "stageTwoFinish": "Finish the corners",
@@ -1512,7 +1555,6 @@
     }
   },
   "lessonBonusCase": "Bonus case",
-  "lessonPracticeIntro": "A real scramble: only the earlier steps are solved. Finish this whole step, one callout at a time.",
   "lessonContinueDesc": "Go straight on to {lesson}.",
   "@lessonContinueDesc": {
     "placeholders": {
@@ -1895,6 +1937,31 @@
         "type": "String"
       }
     }
+  },
+  "cueParityInnerWing": "Inner-wing parity: only the 2 inner wings of the top edge are flipped. Keep it at the front, {front} facing you, and turn only the third slices.",
+  "@cueParityInnerWing": {
+    "description": "Callout of the inner-wing parity demonstration.",
+    "placeholders": {
+      "front": {
+        "type": "String"
+      }
+    }
+  },
+  "wingRuleAllFour": "All 4 wings flipped",
+  "@wingRuleAllFour": {
+    "description": "Wing rule card: case where all 4 wings of an edge are flipped."
+  },
+  "wingRuleAllFourFix": "3-layer OLL parity (3Rw)",
+  "@wingRuleAllFourFix": {
+    "description": "Wing rule card: the fix for all 4 wings flipped."
+  },
+  "wingRuleInnerTwo": "Only the 2 inner wings flipped",
+  "@wingRuleInnerTwo": {
+    "description": "Wing rule card: case where only the 2 inner wings are flipped."
+  },
+  "wingRuleInnerTwoFix": "Inner-wing parity (3R)",
+  "@wingRuleInnerTwoFix": {
+    "description": "Wing rule card: the fix for only the 2 inner wings flipped."
   },
   "onboardingSkip": "Skip",
   "@onboardingSkip": {

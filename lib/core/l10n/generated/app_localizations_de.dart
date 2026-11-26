@@ -340,6 +340,21 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
+  String explainLblDaisyPetal(String piece) {
+    return 'Gänseblümchen: Bring die Kante $piece nach oben um die gelbe Mitte, Weiß nach oben, als Blütenblatt.';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return 'Dreh die obere Ebene, bis das Blütenblatt $piece genau über der Mitte seiner Seitenfarbe steht.';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return 'Dreh diese Seite zweimal (180°), um die Kante $piece auf die weiße Mitte zu bringen: ein weiterer Arm des weißen Kreuzes.';
+  }
+
+  @override
   String explainLblCornerExtract(String piece) {
     return 'Die Ecke $piece steckt an der falschen Stelle. Hole sie mit R U R\' U\' nach oben.';
   }
@@ -2094,6 +2109,20 @@ class AppLocalizationsDe extends AppLocalizations {
       'Sehen ganz am Ende zwei Kanten vertauscht aus, halte sie vorne und hinten in der oberen Ebene und spiel die kurze Korrektur mit inneren Doppeldrehungen: Alle vier Flügel beider Kanten tauschen.';
 
   @override
+  String get stepSixWingRule => 'Vier Flügel oder zwei?';
+
+  @override
+  String get stepSixWingRuleBody =>
+      'Eine 6×6-Kante besteht aus 4 Flügeln. Bevor du eine gekippt aussehende Kante korrigierst, schau genau hin: Sind alle 4 Flügel gekippt, nimm die normale 3-Ebenen-OLL-Parität; sind nur die 2 inneren Flügel gekippt, nimm die Innenflügel-Parität. Der Würfel zeigt den Innenflügel-Fall.';
+
+  @override
+  String get stepSixInnerWingParity => 'Zwei innere Flügel gekippt';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      'Hier sind die äußeren Flügel der vorderen oberen Kante in Ordnung, nur die 2 inneren Flügel sind gekippt. Halte diese Kante vorne in der oberen Ebene und dreh nur die dritten Scheiben (3R, 3L): Die inneren Flügel kippen zurück, der Rest des Würfels bleibt gelöst.';
+
+  @override
   String get stageTwoFirstLayer => 'Untere Ebene bauen';
 
   @override
@@ -2604,10 +2633,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get lessonBonusCase => 'Bonusfall';
 
   @override
-  String get lessonPracticeIntro =>
-      'Ein echter Scramble: Nur die früheren Schritte sind gelöst. Löse diesen ganzen Schritt, Hinweis für Hinweis.';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return 'Direkt weiter mit $lesson.';
   }
@@ -2840,6 +2865,23 @@ class AppLocalizationsDe extends AppLocalizations {
   String cueParityFive(String front) {
     return 'Kantenparität: Die zwei äußeren Flügel einer Kante sind vertauscht, die einzige Parität des 5×5. Halte diese Kante vorne, $front zu dir, und wende die Korrektur einmal an.';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return 'Innenflügel-Parität: Nur die 2 inneren Flügel der oberen Kante sind gekippt. Halte sie vorne, $front zu dir, und dreh nur die dritten Scheiben.';
+  }
+
+  @override
+  String get wingRuleAllFour => 'Alle 4 Flügel gekippt';
+
+  @override
+  String get wingRuleAllFourFix => '3-Ebenen-OLL-Parität (3Rw)';
+
+  @override
+  String get wingRuleInnerTwo => 'Nur die 2 inneren Flügel gekippt';
+
+  @override
+  String get wingRuleInnerTwoFix => 'Innenflügel-Parität (3R)';
 
   @override
   String get onboardingSkip => 'Überspringen';

@@ -358,6 +358,16 @@ void main() {
               isTrue,
               reason: why,
             );
+          case WalkCue.parityInnerWing:
+            // Only the two inner wings of the front top edge look wrong;
+            // the outer wings and everything else are home.
+            final pieces = piecesByPosition(f.before);
+            final home = piecesByPosition(f.homeBefore);
+            final wrong = {
+              for (final position in pieces.keys)
+                if (!looksHome(pieces, home, position)) position,
+            };
+            expect(wrong, {(-1, max, max), (1, max, max)}, reason: why);
           case WalkCue.trigger ||
               WalkCue.turnTop ||
               WalkCue.twistNext ||
@@ -372,6 +382,27 @@ void main() {
       }
     }
     flutter_test.expect(failures, isEmpty, reason: failures.join('\n'));
+  });
+
+  test('beats single out the pieces they bring home', () {
+    for (final demo in demos) {
+      for (final f in _frames(demo)) {
+        final beat = f.beat;
+        final why = '${demo.name} [${beat.moves}] ${beat.cue}';
+        // A beat naming a piece highlights it (and only pieces it fixes).
+        if (beat.piece.isNotEmpty) {
+          expect(beat.targets, isNotEmpty, reason: why);
+          final named = f.after.cubies.where(
+            (c) =>
+                beat.targets.contains(c.id) &&
+                c.stickers.length == beat.piece.length,
+          );
+          expect(named, isNotEmpty, reason: why);
+        } else {
+          expect(beat.targets, isEmpty, reason: why);
+        }
+      }
+    }
   });
 
   test('beats follow the hold and name the pieces by color', () {

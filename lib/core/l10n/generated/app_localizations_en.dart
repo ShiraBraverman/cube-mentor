@@ -339,6 +339,21 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String explainLblDaisyPetal(String piece) {
+    return 'Daisy: bring the $piece edge up around the yellow center, white facing up, as a petal.';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return 'Turn the top layer until the $piece petal sits right above the center of its side color.';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return 'Turn that face twice (180°) to drop the $piece edge onto the white center: one more arm of the white cross.';
+  }
+
+  @override
   String explainLblCornerExtract(String piece) {
     return 'The $piece corner is stuck in the wrong spot. Lift it to the top with R U R\' U\'.';
   }
@@ -2077,6 +2092,20 @@ class AppLocalizationsEn extends AppLocalizations {
       'If two edges look swapped at the very end, hold them at the front and back of the top layer and play the short fix of inner double turns: all four wings of both edges trade places.';
 
   @override
+  String get stepSixWingRule => 'Four wings or two?';
+
+  @override
+  String get stepSixWingRuleBody =>
+      'A 6×6 edge is made of 4 wings. Before fixing an edge that looks flipped, look closely: if all 4 wings are flipped, use the standard 3-layer OLL parity; if only the 2 inner wings are flipped, use inner-wing parity. The cube shows the inner-wing case.';
+
+  @override
+  String get stepSixInnerWingParity => 'Two inner wings flipped';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      'Here the outer wings of the front top edge are fine and only the 2 inner wings are flipped. Keep that edge at the front of the top layer and turn only the third slices (3R, 3L): the inner wings flip back and the rest of the cube stays solved.';
+
+  @override
   String get stageTwoFirstLayer => 'Build the bottom layer';
 
   @override
@@ -2583,10 +2612,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get lessonBonusCase => 'Bonus case';
 
   @override
-  String get lessonPracticeIntro =>
-      'A real scramble: only the earlier steps are solved. Finish this whole step, one callout at a time.';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return 'Go straight on to $lesson.';
   }
@@ -2819,6 +2844,23 @@ class AppLocalizationsEn extends AppLocalizations {
   String cueParityFive(String front) {
     return 'Edge parity: the two outer wings of one edge are swapped, the only parity a 5×5 has. Keep that edge at the front, $front facing you, and apply the fix once.';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return 'Inner-wing parity: only the 2 inner wings of the top edge are flipped. Keep it at the front, $front facing you, and turn only the third slices.';
+  }
+
+  @override
+  String get wingRuleAllFour => 'All 4 wings flipped';
+
+  @override
+  String get wingRuleAllFourFix => '3-layer OLL parity (3Rw)';
+
+  @override
+  String get wingRuleInnerTwo => 'Only the 2 inner wings flipped';
+
+  @override
+  String get wingRuleInnerTwoFix => 'Inner-wing parity (3R)';
 
   @override
   String get onboardingSkip => 'Skip';

@@ -223,6 +223,11 @@ class Builder {
     yellow_ = center(kU);
   }
 
+  /// 1.1 the way the Academy teaches it: first the daisy (every white edge
+  /// that is not already home goes up around the yellow center, white
+  /// facing up), then each petal is lined up above its matching side
+  /// center and dropped onto the white center with a half turn of that
+  /// face. White edges already solved on the bottom stay where they are.
   void cross() {
     phase_ = "lblCross";
     const auto& slots = cubieFacelets(3).edge;
@@ -237,39 +242,82 @@ class Builder {
       const int slot = findEdge(cube_, white_, sideColor(k));
       return slots[slot][cube_.f[slots[slot][0]] == white_ ? 0 : 1];
     };
+    auto home = [&](int k) { return whiteFacelet(k) == slots[kHome[k]][0]; };
+    // A petal: a white edge in the top layer with white facing up.
+    auto onTop = [](int facelet) { return facelet / 9 == kU; };
 
-    std::vector<int> done;
-    std::vector<int> remaining = {0, 1, 2, 3};
+    // ---- The daisy ----
+    std::vector<int> fixed;  // solved bottom edges: they must not move
+    std::vector<int> petals;
+    std::vector<int> remaining;
+    for (int k = 0; k < 4; ++k) {
+      if (home(k)) {
+        fixed.push_back(k);
+      } else if (onTop(whiteFacelet(k))) {
+        petals.push_back(k);
+      } else {
+        remaining.push_back(k);
+      }
+    }
     while (!remaining.empty()) {
       std::vector<int> bestPath;
       int bestK = -1;
       for (int k : remaining) {
         std::vector<int> start;
-        std::vector<int> goal;
-        for (int j : done) {
+        std::vector<int> target;  // exact facelet, or -1 for "any petal"
+        for (int j : fixed) {
           start.push_back(edgeFacelet[whiteFacelet(j)]);
-          goal.push_back(edgeFacelet[slots[kHome[j]][0]]);
+          target.push_back(edgeFacelet[slots[kHome[j]][0]]);
+        }
+        for (int j : petals) {
+          start.push_back(edgeFacelet[whiteFacelet(j)]);
+          target.push_back(-1);
         }
         start.push_back(edgeFacelet[whiteFacelet(k)]);
-        goal.push_back(edgeFacelet[slots[kHome[k]][0]]);
-        std::vector<int> path = shortestEdgePath(start, goal, edgeFacelet);
+        target.push_back(-1);
+        std::vector<int> path = shortestEdgePath(start, target, edgeFacelet, kU);
         if (bestK < 0 || path.size() < bestPath.size()) {
           bestPath = path;
           bestK = k;
         }
       }
       const std::string piece = {white_, sideColor(bestK)};
-      for (int m : bestPath) move(faceTurnName(m), {"lblCrossEdge", {piece}, piece});
-      done.push_back(bestK);
+      for (int m : bestPath) move(faceTurnName(m), {"lblDaisyPetal", {piece}, piece});
+      petals.push_back(bestK);
       remaining.erase(std::find(remaining.begin(), remaining.end(), bestK));
+    }
+
+    // ---- Petals down onto the white center ----
+    while (!petals.empty()) {
+      // The petal needing the fewest top turns goes first.
+      int bestK = -1;
+      int bestQ = 4;
+      for (int k : petals) {
+        const std::string c = {white_, sideColor(k)};
+        const Vec3 above = sideNormal(k) + Vec3{0, 1, 0};
+        const int q = alignU([&](const FaceletCube& probe) {
+          return edgeSlotUnits()[findEdge(probe, c[0], c[1])] == above;
+        });
+        if (q >= 0 && q < bestQ) {
+          bestQ = q;
+          bestK = k;
+        }
+      }
+      if (bestK < 0) return;
+      const std::string piece = {white_, sideColor(bestK)};
+      turnU(bestQ, {"lblDaisyAlign", {piece}, piece});
+      move(std::string(1, kSideLetters[bestK]) + "2", {"lblDaisyDrop", {piece}, piece});
+      petals.erase(std::find(petals.begin(), petals.end(), bestK));
     }
   }
 
   /// Breadth-first search over the positions of a few tracked edge stickers
-  /// (24 edge facelets each) for the shortest face-turn sequence.
+  /// (24 edge facelets each) for the shortest face-turn sequence. A target
+  /// of -1 accepts any edge facelet on [anyFace].
   static std::vector<int> shortestEdgePath(const std::vector<int>& start,
                                            const std::vector<int>& goal,
-                                           const std::array<int, 54>& edgeFacelet) {
+                                           const std::array<int, 54>& edgeFacelet,
+                                           int anyFace = -1) {
     const auto& slots = cubieFacelets(3).edge;
     std::array<int, 24> faceletOf;
     for (int i = 0; i < 12; ++i)
@@ -282,9 +330,16 @@ class Builder {
       for (int i = count - 1; i >= 0; --i) code = code * 24 + v[i];
       return code;
     };
+    auto reached = [&](int code) {
+      for (int i = 0; i < count; ++i) {
+        const int sticker = code % 24;
+        code /= 24;
+        if (goal[i] >= 0 ? sticker != goal[i] : faceletOf[sticker] / 9 != anyFace) return false;
+      }
+      return true;
+    };
     const int startCode = encode(start);
-    const int goalCode = encode(goal);
-    if (startCode == goalCode) return {};
+    if (reached(startCode)) return {};
     std::vector<int> parent(total, -1);
     std::vector<int8_t> via(total, -1);
     std::vector<int> queue = {startCode};
@@ -304,7 +359,7 @@ class Builder {
         if (parent[code] >= 0) continue;
         parent[code] = s;
         via[code] = static_cast<int8_t>(m);
-        if (code == goalCode) {
+        if (reached(code)) {
           std::vector<int> path;
           for (int c = code; c != startCode; c = parent[c]) path.push_back(via[c]);
           std::reverse(path.begin(), path.end());

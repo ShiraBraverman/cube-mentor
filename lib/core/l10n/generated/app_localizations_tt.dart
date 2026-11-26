@@ -337,6 +337,21 @@ class AppLocalizationsTt extends AppLocalizations {
   }
 
   @override
+  String explainLblDaisyPetal(String piece) {
+    return 'Ромашка: $piece кырын, агы өскә карап, сары үзәк тирәсенә өскә күтәрегез — бу чәчәк яфрагы.';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return '$piece яфрагы ян төсе белән бертөсле үзәк өстенә туры килгәнче өске катламны борыгыз.';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return '$piece кырын ак үзәккә төшерү өчен шул якны ике тапкыр (180°) борыгыз: ак хачның тагын бер кулы.';
+  }
+
+  @override
   String explainLblCornerExtract(String piece) {
     return '$piece почмагы дөрес булмаган урында кысылган. Аны R U R\' U\' белән өскә күтәрегез.';
   }
@@ -2072,6 +2087,20 @@ class AppLocalizationsTt extends AppLocalizations {
       'Иң ахырда ике кыр алышынган кебек күренсә, аларны өске катламның алдында һәм артында тотып, эчке икеле борылышлар белән кыска төзәтүне эшләгез: ике кырның дүрт канаты да урын алыша.';
 
   @override
+  String get stepSixWingRule => 'Дүрт канатмы, икеме?';
+
+  @override
+  String get stepSixWingRuleBody =>
+      '6×6 кыры 4 канаттан тора. Әйләнгән кебек күренгән кырны төзәткәнче игътибар белән карагыз: 4 канат та әйләнгән булса, гадәти 3 катламлы OLL паритетын кулланыгыз; эчке 2 канат кына әйләнгән булса, эчке канат паритетын кулланыгыз. Кубик эчке канат очрагын күрсәтә.';
+
+  @override
+  String get stepSixInnerWingParity => 'Ике эчке канат әйләнгән';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      'Монда алдагы өске кырның тышкы канатлары дөрес, эчке 2 канат кына әйләнгән. Шул кырны өске катламның алдында тотып, өченче кисемнәрне генә (3R, 3L) борыгыз: эчке канатлар урынына кайта, кубикның калганы җыелган килеш кала.';
+
+  @override
   String get stageTwoFirstLayer => 'Аскы катламны җыю';
 
   @override
@@ -2525,10 +2554,6 @@ class AppLocalizationsTt extends AppLocalizations {
   String get lessonBonusCase => 'Бонус очрак';
 
   @override
-  String get lessonPracticeIntro =>
-      'Чын болгату: алдагы адымнар гына җыелган. Бу адымны күрсәтмә артыннан күрсәтмә белән ахырынача җыегыз.';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return 'Турыдан-туры «$lesson» дәресенә күчегез.';
   }
@@ -2761,6 +2786,23 @@ class AppLocalizationsTt extends AppLocalizations {
   String cueParityFive(String front) {
     return 'Кыр паритеты: бер кырның ике тышкы канаты алышынган, 5×5 нең бердәнбер паритеты. $front сезгә карап торганда шул кырны алда тотыгыз һәм төзәтүне бер тапкыр эшләгез.';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return 'Эчке канат паритеты: өске кырның эчке 2 канаты гына әйләнгән. $front сезгә карап торганда аны алда тотыгыз һәм өченче кисемнәрне генә борыгыз.';
+  }
+
+  @override
+  String get wingRuleAllFour => '4 канат та әйләнгән';
+
+  @override
+  String get wingRuleAllFourFix => '3 катламлы OLL паритеты (3Rw)';
+
+  @override
+  String get wingRuleInnerTwo => 'Эчке 2 канат кына әйләнгән';
+
+  @override
+  String get wingRuleInnerTwoFix => 'Эчке канат паритеты (3R)';
 
   @override
   String get onboardingSkip => 'Калдыру';

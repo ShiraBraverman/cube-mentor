@@ -706,6 +706,24 @@ abstract class AppLocalizations {
   /// **'Bring the {piece} edge down next to the white center, matching its side color.'**
   String explainLblCrossEdge(String piece);
 
+  /// Guided solve, sub-step 1.1: one move that brings a white edge up next to the yellow center, white facing up, forming the daisy.
+  ///
+  /// In en, this message translates to:
+  /// **'Daisy: bring the {piece} edge up around the yellow center, white facing up, as a petal.'**
+  String explainLblDaisyPetal(String piece);
+
+  /// Guided solve, sub-step 1.1: turning the top so a daisy petal sits above the center of its side color.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn the top layer until the {piece} petal sits right above the center of its side color.'**
+  String explainLblDaisyAlign(String piece);
+
+  /// Guided solve, sub-step 1.1: the half turn dropping a daisy petal onto the white center.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn that face twice (180°) to drop the {piece} edge onto the white center: one more arm of the white cross.'**
+  String explainLblDaisyDrop(String piece);
+
   /// No description provided for @explainLblCornerExtract.
   ///
   /// In en, this message translates to:
@@ -3604,6 +3622,30 @@ abstract class AppLocalizations {
   /// **'If two edges look swapped at the very end, hold them at the front and back of the top layer and play the short fix of inner double turns: all four wings of both edges trade places.'**
   String get stepSixPllParityBody;
 
+  /// 6x6 parity lesson: title of the rule telling the two flipped-edge cases apart.
+  ///
+  /// In en, this message translates to:
+  /// **'Four wings or two?'**
+  String get stepSixWingRule;
+
+  /// 6x6 parity lesson: all 4 wings flipped takes 3-layer OLL parity, only the 2 inner wings flipped takes inner-wing parity.
+  ///
+  /// In en, this message translates to:
+  /// **'A 6×6 edge is made of 4 wings. Before fixing an edge that looks flipped, look closely: if all 4 wings are flipped, use the standard 3-layer OLL parity; if only the 2 inner wings are flipped, use inner-wing parity. The cube shows the inner-wing case.'**
+  String get stepSixWingRuleBody;
+
+  /// 6x6 parity lesson: title of the inner-wing parity example.
+  ///
+  /// In en, this message translates to:
+  /// **'Two inner wings flipped'**
+  String get stepSixInnerWingParity;
+
+  /// 6x6 parity lesson: explanation of the inner-wing parity example (3R / 3L slices only).
+  ///
+  /// In en, this message translates to:
+  /// **'Here the outer wings of the front top edge are fine and only the 2 inner wings are flipped. Keep that edge at the front of the top layer and turn only the third slices (3R, 3L): the inner wings flip back and the rest of the cube stays solved.'**
+  String get stepSixInnerWingParityBody;
+
   /// No description provided for @stageTwoFirstLayer.
   ///
   /// In en, this message translates to:
@@ -4354,12 +4396,6 @@ abstract class AppLocalizations {
   /// **'Bonus case'**
   String get lessonBonusCase;
 
-  /// No description provided for @lessonPracticeIntro.
-  ///
-  /// In en, this message translates to:
-  /// **'A real scramble: only the earlier steps are solved. Finish this whole step, one callout at a time.'**
-  String get lessonPracticeIntro;
-
   /// No description provided for @lessonContinueDesc.
   ///
   /// In en, this message translates to:
@@ -4653,6 +4689,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Edge parity: the two outer wings of one edge are swapped, the only parity a 5×5 has. Keep that edge at the front, {front} facing you, and apply the fix once.'**
   String cueParityFive(String front);
+
+  /// Callout of the inner-wing parity demonstration.
+  ///
+  /// In en, this message translates to:
+  /// **'Inner-wing parity: only the 2 inner wings of the top edge are flipped. Keep it at the front, {front} facing you, and turn only the third slices.'**
+  String cueParityInnerWing(String front);
+
+  /// Wing rule card: case where all 4 wings of an edge are flipped.
+  ///
+  /// In en, this message translates to:
+  /// **'All 4 wings flipped'**
+  String get wingRuleAllFour;
+
+  /// Wing rule card: the fix for all 4 wings flipped.
+  ///
+  /// In en, this message translates to:
+  /// **'3-layer OLL parity (3Rw)'**
+  String get wingRuleAllFourFix;
+
+  /// Wing rule card: case where only the 2 inner wings are flipped.
+  ///
+  /// In en, this message translates to:
+  /// **'Only the 2 inner wings flipped'**
+  String get wingRuleInnerTwo;
+
+  /// Wing rule card: the fix for only the 2 inner wings flipped.
+  ///
+  /// In en, this message translates to:
+  /// **'Inner-wing parity (3R)'**
+  String get wingRuleInnerTwoFix;
 
   /// First-launch intro: skips the remaining pages.
   ///

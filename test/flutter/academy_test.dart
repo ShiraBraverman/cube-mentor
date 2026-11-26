@@ -13,6 +13,7 @@ import 'package:cube_mentor/features/academy/model/academy_progress.dart';
 import 'package:cube_mentor/features/academy/model/lesson.dart';
 import 'package:cube_mentor/features/academy/model/lesson_catalog.dart';
 import 'package:cube_mentor/features/solver_3d/model/cube_session.dart';
+import 'package:flutter/foundation.dart' show mapEquals;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
@@ -40,8 +41,11 @@ void main() {
         for (final step in lesson.steps) {
           final start = step.startCube(lesson.size);
           final end = start.applyAll(step.demoMoves(lesson.size));
-          // Setups only re-orient the cube, so the end is always solved.
-          expect(end.isSolved, isTrue, reason: step.id);
+          // Setups only re-orient the cube, so the end is always solved,
+          // except for the 6x6 wing rule, which pictures a case to compare.
+          if (step.id != 'sixWingRule') {
+            expect(end.isSolved, isTrue, reason: step.id);
+          }
           // Notation drills (R R' ...) start and end solved; every other
           // demonstration starts from a position it fixes.
           final drill = const {
@@ -376,7 +380,9 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('lesson-stage-2')));
     await _advance(tester, 4);
     expect(find.text('Walkthrough 1 of 2'), findsOneWidget);
-    expect(find.byKey(const ValueKey('lesson-practice-intro')), findsOneWidget);
+    // Straight to the coaching, no meta note about the scramble.
+    expect(find.byKey(const ValueKey('lesson-practice-coach')), findsOneWidget);
+    expect(find.textContaining('only the earlier steps'), findsNothing);
     expect(find.textContaining('Turn the red face'), findsOneWidget);
     expect(session().playback, hasLength(4));
     expect(session().cube.isSolved, isFalse);
@@ -494,6 +500,94 @@ void main() {
     expect(prefs.getStringList('academy_completed'), ['corners']);
     expect(find.textContaining('Go straight on to 2.1'), findsOneWidget);
   });
+
+  test('6x6 inner-wing parity starts with two flipped inner wings on UF', () {
+    final lesson = kLessons.firstWhere((l) => l.id == 'sixParity');
+    // The full-edge OLL and PLL parity demos are still there.
+    expect(lesson.examples.map((s) => s.id), [
+      'sixOllParity',
+      'sixInnerWingParity',
+      'sixPllParity',
+    ]);
+    const max = 5;
+    final solved = CubeState.solved(6);
+    Set<IVec3> wrongWings(CubeState cube) {
+      final home = {for (final c in solved.cubies) c.position: c.stickers};
+      return {
+        for (final c in cube.cubies)
+          if (c.stickers.isNotEmpty && !mapEquals(c.stickers, home[c.position]))
+            c.position,
+      };
+    }
+
+    final example = lesson.examples[1];
+    final start = example.startCube(6);
+    expect(wrongWings(start), {(-1, max, max), (1, max, max)});
+    // Both inner wings show green on top and white in front: flipped.
+    for (final c in start.cubies.where(
+      (c) => wrongWings(start).contains(c.position),
+    )) {
+      expect(c.stickers[kNormalUp], StickerColor.green);
+      expect(c.stickers[kNormalFront], StickerColor.white);
+    }
+    expect(start.applyAll(example.demoMoves(6)).isSolved, isTrue);
+    // The rule page pictures the very same case.
+    final rule = lesson.concepts.single;
+    expect(rule.id, 'sixWingRule');
+    expect(rule.startCube(6).toFacelets(), start.toFacelets());
+  });
+
+  testWidgets(
+    '6x6 parity: the four-or-two wing rule, then the inner-wing demo',
+    (tester) async {
+      SharedPreferences.setMockInitialValues({});
+      final prefs = await SharedPreferences.getInstance();
+      tester.view.physicalSize = const Size(1080, 2340);
+      tester.view.devicePixelRatio = 2.75;
+      addTearDown(tester.view.reset);
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            sharedPreferencesProvider.overrideWithValue(prefs),
+            cubeSolverProvider.overrideWithValue(FakeCubeSolver()),
+          ],
+          child: MaterialApp(
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            home: LessonScreen(
+              lesson: kLessons.firstWhere((l) => l.id == 'sixParity'),
+            ),
+          ),
+        ),
+      );
+      await _advance(tester, 4);
+      await tester.tap(find.byKey(const ValueKey('intro-start')));
+      await _advance(tester);
+      expect(find.text('Four wings or two?'), findsOneWidget);
+      expect(find.byKey(const ValueKey('wing-parity-rule')), findsOneWidget);
+      expect(find.text('All 4 wings flipped'), findsOneWidget);
+      expect(find.text('3-layer OLL parity (3Rw)'), findsOneWidget);
+      expect(find.text('Only the 2 inner wings flipped'), findsOneWidget);
+      expect(find.text('Inner-wing parity (3R)'), findsOneWidget);
+
+      await tester.tap(find.byKey(const ValueKey('lesson-stage-1')));
+      await _advance(tester, 4);
+      expect(find.text('Example 1 of 3'), findsOneWidget);
+      // Skip through the 3Rw OLL parity demo to the inner-wing example.
+      for (var i = 0; i < 40; i++) {
+        if (find.text('Example 2 of 3').evaluate().isNotEmpty) break;
+        await tester.tap(find.byKey(const ValueKey('lesson-next')));
+        await _advance(tester, 12);
+      }
+      expect(find.text('Example 2 of 3'), findsOneWidget);
+      expect(find.text('Two inner wings flipped'), findsOneWidget);
+      expect(
+        find.textContaining('Inner-wing parity: only the 2'),
+        findsOneWidget,
+      );
+      expect(tester.takeException(), isNull);
+    },
+  );
 
   testWidgets('the Academy lists every track in Hebrew, right to left', (
     tester,

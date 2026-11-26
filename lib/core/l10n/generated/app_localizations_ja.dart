@@ -317,6 +317,21 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String explainLblDaisyPetal(String piece) {
+    return 'デイジー：$pieceのエッジを白を上に向けて上の段に上げ、黄色いセンターのまわりの花びらにします。';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return '上の段を回して、$pieceの花びらを横の色と同じ色のセンターの真上に合わせます。';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return 'その面を2回（180°）まわして$pieceのエッジを白いセンターへ下ろします。白クロスの腕がもう1本できます。';
+  }
+
+  @override
   String explainLblCornerExtract(String piece) {
     return '$pieceのコーナーが違う場所にはまっています。R U R\' U\'で上に出しましょう。';
   }
@@ -1956,6 +1971,20 @@ class AppLocalizationsJa extends AppLocalizations {
       '最後の最後でエッジ2つが入れ替わって見えたら、上の段の前と奥に置き、内側の2回転を使う短い手順をします。2つのエッジのウイング4つがすべて入れ替わります。';
 
   @override
+  String get stepSixWingRule => 'ウイングは4つ？それとも2つ？';
+
+  @override
+  String get stepSixWingRuleBody =>
+      '6×6のエッジは4つのウイングでできています。反転して見えるエッジを直す前によく見ましょう。4つのウイングすべてが反転していれば、通常の3層OLLパリティを使います。内側の2つのウイングだけが反転していれば、内側ウイングのパリティを使います。キューブは内側ウイングのケースを表示しています。';
+
+  @override
+  String get stepSixInnerWingParity => '内側のウイング2つが反転';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      'ここでは前の上のエッジの外側ウイングは正しく、内側の2つだけが反転しています。そのエッジを上の段の前に置き、3番目のスライス（3R、3L）だけを回します。内側のウイングが元に戻り、ほかの部分はそろったままです。';
+
+  @override
   String get stageTwoFirstLayer => '下の層を作る';
 
   @override
@@ -2389,10 +2418,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get lessonBonusCase => 'ボーナスケース';
 
   @override
-  String get lessonPracticeIntro =>
-      '本物のスクランブルです。完成しているのは前のステップだけ。ヒントに沿って、このステップを最後までそろえましょう。';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return 'そのまま「$lesson」へ進みます。';
   }
@@ -2621,6 +2646,23 @@ class AppLocalizationsJa extends AppLocalizations {
   String cueParityFive(String front) {
     return 'エッジパリティ：1つのエッジの外側のウイング2つが入れ替わっています。5×5の唯一のパリティです。$frontを手前にしてそのエッジを前に置き、手順を1回します。';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return '内側ウイングのパリティ：上のエッジの内側のウイング2つだけが反転しています。$frontを手前にしてそのエッジを前に置き、3番目のスライスだけを回します。';
+  }
+
+  @override
+  String get wingRuleAllFour => '4つのウイングすべてが反転';
+
+  @override
+  String get wingRuleAllFourFix => '3層OLLパリティ（3Rw）';
+
+  @override
+  String get wingRuleInnerTwo => '内側の2つのウイングだけが反転';
+
+  @override
+  String get wingRuleInnerTwoFix => '内側ウイングのパリティ（3R）';
 
   @override
   String get onboardingSkip => 'スキップ';

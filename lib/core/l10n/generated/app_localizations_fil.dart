@@ -341,6 +341,21 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
+  String explainLblDaisyPetal(String piece) {
+    return 'Daisy: iakyat ang $piece na edge sa paligid ng dilaw na center, puti pataas, bilang talulot.';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return 'Ikutin ang itaas na layer hanggang mismong nasa ibabaw ng center na kakulay ng gilid nito ang $piece na talulot.';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return 'Ikutin nang dalawang beses (180°) ang mukhang iyon para ibaba ang $piece na edge sa puting center: isa pang braso ng puting cross.';
+  }
+
+  @override
   String explainLblCornerExtract(String piece) {
     return 'Naipit sa maling puwesto ang $piece na kanto. Iangat ito gamit ang R U R\' U\'.';
   }
@@ -2097,6 +2112,20 @@ class AppLocalizationsFil extends AppLocalizations {
       'Kung mukhang nagpalit ang dalawang edge sa pinakahuli, hawakan ang mga ito sa harap at likod ng itaas na layer at gawin ang maikling ayos na may dobleng inner turn: nagpapalit ng puwesto ang apat na wing ng dalawang edge.';
 
   @override
+  String get stepSixWingRule => 'Apat na wing o dalawa?';
+
+  @override
+  String get stepSixWingRuleBody =>
+      'Ang edge ng 6×6 ay binubuo ng 4 na wing. Bago ayusin ang edge na mukhang baligtad, tingnang mabuti: kung baligtad ang lahat ng 4 na wing, gamitin ang karaniwang 3-layer na OLL parity; kung ang 2 panloob na wing lang ang baligtad, gamitin ang inner-wing parity. Ipinapakita ng cube ang kaso ng panloob na wing.';
+
+  @override
+  String get stepSixInnerWingParity => 'Dalawang panloob na wing ang baligtad';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      'Dito, maayos ang mga panlabas na wing ng edge sa itaas sa harap at ang 2 panloob na wing lang ang baligtad. Ilagay ang edge na iyon sa harap ng itaas na layer at ikutin lang ang ikatlong slice (3R, 3L): bumabalik sa ayos ang mga panloob na wing at nananatiling solved ang ibang bahagi ng cube.';
+
+  @override
   String get stageTwoFirstLayer => 'Buuin ang ibabang layer';
 
   @override
@@ -2549,10 +2578,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get lessonBonusCase => 'Bonus na kaso';
 
   @override
-  String get lessonPracticeIntro =>
-      'Tunay na scramble: ang mga naunang hakbang lang ang buo. Tapusin ang buong hakbang na ito, isa-isang paalala.';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return 'Dumiretso sa $lesson.';
   }
@@ -2785,6 +2810,23 @@ class AppLocalizationsFil extends AppLocalizations {
   String cueParityFive(String front) {
     return 'Edge parity: nagpalit ang dalawang panlabas na wing ng isang edge, ang tanging parity ng 5×5. Ilagay ang edge na iyon sa harap, nakaharap sa iyo ang $front, at gawin ang ayos nang isang beses.';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return 'Inner-wing parity: ang 2 panloob na wing lang ng edge sa itaas ang baligtad. Ilagay ito sa harap, nakaharap sa iyo ang $front, at ikutin lang ang ikatlong slice.';
+  }
+
+  @override
+  String get wingRuleAllFour => 'Baligtad ang lahat ng 4 na wing';
+
+  @override
+  String get wingRuleAllFourFix => '3-layer na OLL parity (3Rw)';
+
+  @override
+  String get wingRuleInnerTwo => '2 panloob na wing lang ang baligtad';
+
+  @override
+  String get wingRuleInnerTwoFix => 'Inner-wing parity (3R)';
 
   @override
   String get onboardingSkip => 'Laktawan';

@@ -335,6 +335,21 @@ class AppLocalizationsBn extends AppLocalizations {
   }
 
   @override
+  String explainLblDaisyPetal(String piece) {
+    return 'ডেইজি: $piece কিনারাটি হলুদ কেন্দ্রের চারপাশে উপরে আনুন, সাদা উপরের দিকে, একটি পাপড়ির মতো।';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return 'উপরের স্তর ঘোরান যতক্ষণ না $piece পাপড়িটি তার পাশের রঙের কেন্দ্রের ঠিক উপরে আসে।';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return 'সেই দিক দুবার (180°) ঘুরিয়ে $piece কিনারাটি সাদা কেন্দ্রে নামান: সাদা ক্রসের আরেকটি বাহু।';
+  }
+
+  @override
   String explainLblCornerExtract(String piece) {
     return '$piece কোণটি ভুল জায়গায় আটকে আছে। R U R\' U\' দিয়ে সেটিকে উপরে তুলুন।';
   }
@@ -2073,6 +2088,20 @@ class AppLocalizationsBn extends AppLocalizations {
       'একদম শেষে দুটি কিনারা বদলানো দেখালে সেগুলো উপরের স্তরে সামনে আর পেছনে রেখে ভেতরের ডাবল মুভের ছোট সমাধান করুন: দুই কিনারার চারটি উইংই জায়গা বদলায়।';
 
   @override
+  String get stepSixWingRule => 'চারটি উইং, না দুটি?';
+
+  @override
+  String get stepSixWingRuleBody =>
+      '6×6-এর একটি কিনারা 4টি উইং দিয়ে তৈরি। উল্টানো দেখানো কিনারা ঠিক করার আগে ভালো করে দেখুন: চারটি উইংই উল্টানো হলে সাধারণ 3-স্তরের OLL প্যারিটি ব্যবহার করুন; শুধু ভেতরের 2টি উইং উল্টানো হলে ভেতরের-উইং প্যারিটি ব্যবহার করুন। কিউবে ভেতরের উইংয়ের ঘটনাটি দেখানো হয়েছে।';
+
+  @override
+  String get stepSixInnerWingParity => 'ভেতরের দুটি উইং উল্টানো';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      'এখানে সামনের উপরের কিনারার বাইরের উইংগুলো ঠিক আছে, শুধু ভেতরের 2টি উল্টানো। সেই কিনারাটি উপরের স্তরে সামনে রেখে শুধু তৃতীয় স্লাইস (3R, 3L) ঘোরান: ভেতরের উইংগুলো আবার ঠিক হয়ে যায় আর বাকি কিউব সমাধান করাই থাকে।';
+
+  @override
   String get stageTwoFirstLayer => 'নিচের স্তর বানান';
 
   @override
@@ -2525,10 +2554,6 @@ class AppLocalizationsBn extends AppLocalizations {
   String get lessonBonusCase => 'বোনাস কেস';
 
   @override
-  String get lessonPracticeIntro =>
-      'আসল স্ক্র্যাম্বল: শুধু আগের ধাপগুলো মেলানো। একটি একটি নির্দেশনা ধরে পুরো এই ধাপটি শেষ করুন।';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return 'সরাসরি $lesson-এ চলুন।';
   }
@@ -2761,6 +2786,23 @@ class AppLocalizationsBn extends AppLocalizations {
   String cueParityFive(String front) {
     return 'কিনারা প্যারিটি: একটি কিনারার দুটি বাইরের উইং বদলানো, 5×5-এর একমাত্র প্যারিটি। সেই কিনারা সামনে রাখুন, $front আপনার দিকে, আর সমাধান একবার করুন।';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return 'ভেতরের-উইং প্যারিটি: উপরের কিনারার শুধু ভেতরের 2টি উইং উল্টানো। সেটি সামনে রাখুন, $front আপনার দিকে, আর শুধু তৃতীয় স্লাইস ঘোরান।';
+  }
+
+  @override
+  String get wingRuleAllFour => 'চারটি উইংই উল্টানো';
+
+  @override
+  String get wingRuleAllFourFix => '3-স্তরের OLL প্যারিটি (3Rw)';
+
+  @override
+  String get wingRuleInnerTwo => 'শুধু ভেতরের 2টি উইং উল্টানো';
+
+  @override
+  String get wingRuleInnerTwoFix => 'ভেতরের-উইং প্যারিটি (3R)';
 
   @override
   String get onboardingSkip => 'এড়িয়ে যান';

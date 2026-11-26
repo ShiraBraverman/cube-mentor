@@ -341,6 +341,21 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
+  String explainLblDaisyPetal(String piece) {
+    return 'Marguerite : montez l\'arête $piece autour du centre jaune, blanc vers le haut, comme un pétale.';
+  }
+
+  @override
+  String explainLblDaisyAlign(String piece) {
+    return 'Tournez la couronne du haut jusqu\'à ce que le pétale $piece soit juste au-dessus du centre de sa couleur latérale.';
+  }
+
+  @override
+  String explainLblDaisyDrop(String piece) {
+    return 'Faites un demi-tour (180°) de cette face pour poser l\'arête $piece sur le centre blanc : une branche de plus de la croix blanche.';
+  }
+
+  @override
   String explainLblCornerExtract(String piece) {
     return 'Le coin $piece est coincé au mauvais endroit. Remontez-le avec R U R\' U\'.';
   }
@@ -2096,6 +2111,20 @@ class AppLocalizationsFr extends AppLocalizations {
       'Si deux arêtes semblent échangées tout à la fin, tenez-les devant et derrière dans la couronne du haut et jouez la courte correction en doubles tours intérieurs : les quatre ailes des deux arêtes s\'échangent.';
 
   @override
+  String get stepSixWingRule => 'Quatre ailes ou deux ?';
+
+  @override
+  String get stepSixWingRuleBody =>
+      'Une arête du 6×6 compte 4 ailes. Avant de corriger une arête qui semble retournée, regardez bien : si les 4 ailes sont retournées, utilisez la parité OLL classique sur 3 couches ; si seules les 2 ailes intérieures sont retournées, utilisez la parité des ailes intérieures. Le cube montre le cas des ailes intérieures.';
+
+  @override
+  String get stepSixInnerWingParity => 'Deux ailes intérieures retournées';
+
+  @override
+  String get stepSixInnerWingParityBody =>
+      'Ici, les ailes extérieures de l\'arête avant du haut sont bonnes et seules les 2 ailes intérieures sont retournées. Gardez cette arête devant, dans la couronne du haut, et ne tournez que les troisièmes tranches (3R, 3L) : les ailes intérieures se remettent en place et le reste du cube reste résolu.';
+
+  @override
   String get stageTwoFirstLayer => 'Construire la couche du bas';
 
   @override
@@ -2605,10 +2634,6 @@ class AppLocalizationsFr extends AppLocalizations {
   String get lessonBonusCase => 'Cas bonus';
 
   @override
-  String get lessonPracticeIntro =>
-      'Un vrai mélange : seules les étapes précédentes sont résolues. Terminez toute cette étape, consigne après consigne.';
-
-  @override
   String lessonContinueDesc(String lesson) {
     return 'Passez directement à $lesson.';
   }
@@ -2841,6 +2866,23 @@ class AppLocalizationsFr extends AppLocalizations {
   String cueParityFive(String front) {
     return 'Parité d\'arête : les deux ailes extérieures d\'une arête sont échangées, l\'unique parité du 5×5. Gardez cette arête devant, $front face à vous, et appliquez la correction une fois.';
   }
+
+  @override
+  String cueParityInnerWing(String front) {
+    return 'Parité des ailes intérieures : seules les 2 ailes intérieures de l\'arête du haut sont retournées. Gardez-la devant, $front face à vous, et ne tournez que les troisièmes tranches.';
+  }
+
+  @override
+  String get wingRuleAllFour => 'Les 4 ailes retournées';
+
+  @override
+  String get wingRuleAllFourFix => 'Parité OLL sur 3 couches (3Rw)';
+
+  @override
+  String get wingRuleInnerTwo => 'Seules les 2 ailes intérieures retournées';
+
+  @override
+  String get wingRuleInnerTwoFix => 'Parité des ailes intérieures (3R)';
 
   @override
   String get onboardingSkip => 'Passer';
