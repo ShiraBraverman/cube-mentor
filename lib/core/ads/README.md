@@ -5,8 +5,8 @@ Google AdMob (banner + rewarded video + frequency-capped interstitial) and Googl
 **Ad-free testing switch:** `kDisableAdsForTesting` in `ad_config.dart` (read
 through `adsTestingBypassProvider`). While it is `true` there are no banners,
 no interstitials and no consent form, and every rewarded lock (lessons,
-patterns, 4x4-6x6 solving, daily hints) opens on tap. Set it to `false`
-before a release build; ad tests override the provider to `false`.
+patterns, 4x4-6x6 solving, daily hints) opens on tap. It is `false` (ads on)
+for release builds; ad tests override the provider either way.
 
 | File | Role |
 | --- | --- |

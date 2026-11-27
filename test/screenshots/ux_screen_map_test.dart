@@ -72,7 +72,16 @@ Future<void> _loadFonts() async {
   Future<void> load(String family, List<String> files) async {
     final loader = FontLoader(family);
     for (final f in files) {
-      final bytes = File('$fonts/$f').readAsBytesSync();
+      // Newer SDKs ship capitalized names (Roboto-Thin.ttf); match the file
+      // case-insensitively so case-sensitive file systems find it too.
+      var file = File('$fonts/$f');
+      if (!file.existsSync()) {
+        file = Directory(fonts).listSync().whereType<File>().firstWhere(
+          (e) => e.uri.pathSegments.last.toLowerCase() == f.toLowerCase(),
+          orElse: () => file,
+        );
+      }
+      final bytes = file.readAsBytesSync();
       loader.addFont(Future.value(ByteData.sublistView(bytes)));
     }
     await loader.load();

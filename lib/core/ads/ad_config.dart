@@ -1,15 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// Temporary ad-free testing switch.
+/// Ad-free testing switch (`false` for release builds).
 ///
 /// While `true` no banner is shown, no interstitial plays, the consent
 /// form is skipped and every rewarded lock (Academy lessons, Pattern
 /// Library patterns, 4x4-6x6 solving, daily hints) opens on tap without a
-/// video. The lock bookkeeping and UI stay in place, so setting this to
-/// `false` restores normal ad behavior immediately.
-// TODO(release): set to false before building a release.
-const bool kDisableAdsForTesting = true;
+/// video. The lock bookkeeping and UI stay in place, so flipping it only
+/// switches the ad flows on or off.
+const bool kDisableAdsForTesting = false;
 
 /// Whether ads are bypassed ([kDisableAdsForTesting]); tests override it
 /// to exercise the real ad flows.

@@ -1,0 +1,9 @@
+# Copy to android/key.properties (git-ignored) for Google Play release builds.
+# storeFile is resolved relative to android/app/.
+# Create the upload keystore once with:
+#   keytool -genkey -v -keystore ~/upload-keystore.jks -keyalg RSA \
+#     -keysize 2048 -validity 10000 -alias upload
+storePassword=CHANGE_ME
+keyPassword=CHANGE_ME
+keyAlias=upload
+storeFile=/absolute/path/to/upload-keystore.jks

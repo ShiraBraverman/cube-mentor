@@ -18,3 +18,22 @@
 -keep class * extends androidx.work.ListenableWorker {
     public <init>(android.content.Context, androidx.work.WorkerParameters);
 }
+
+# Google Mobile Ads / UMP: the SDKs ship consumer rules; these keep the
+# Flutter plugin bridge (method-channel handlers, platform views and ad
+# factories looked up by name) intact under R8 full mode.
+-keep class io.flutter.plugins.googlemobileads.** { *; }
+-keep class com.google.android.gms.ads.** { *; }
+-keep class com.google.android.ump.** { *; }
+-dontwarn com.google.android.gms.ads.**
+
+# Native code: keep every JNI-bound method name. The CubeMentor solver
+# library (libcubementor.so) is called from Dart through dart:ffi (dlsym on
+# its extern "C" exports), so R8 never sees or strips it; this rule covers
+# plugins that bind Java methods to native code.
+-keepclasseswithmembernames,includedescriptorclasses class * {
+    native <methods>;
+}
+
+# Flutter engine references Play Core (deferred components) optionally.
+-dontwarn com.google.android.play.core.**
