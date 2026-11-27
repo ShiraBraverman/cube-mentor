@@ -10,7 +10,7 @@ for release builds; ad tests override the provider either way.
 
 | File | Role |
 | --- | --- |
-| `ad_config.dart` | All ad IDs (Google **test** IDs until Milestone 6, see the `TODO(milestone-6)` markers) and ad limits (24 h per rewarded unlock, one interstitial per 3 quick solves). |
+| `ad_config.dart` | All ad IDs (production Android IDs in release builds, Google **test** ad units in debug builds; iOS still test IDs) and ad limits (24 h per rewarded unlock, one interstitial per 3 quick solves). |
 | `ad_service.dart` | `AdService` interface, `NoAdService` (desktop/tests), `adServiceProvider`, and `adsProvider` (consent state: can request ads, privacy options required). |
 | `admob_service.dart` | `AdMobService`: UMP consent flow, SDK start, inline adaptive banners (max 60 dp), rewarded and interstitial ad preloading. Swapped in by `main()` on Android/iOS only. |
 | `app_banner_ad.dart` | `AppBannerAd` slot: zero height until an ad loads, `visible: false` hides it instantly while keeping the ad. Used under the home screen, under the 3D solver, and on the Speed Timer (idle only). |

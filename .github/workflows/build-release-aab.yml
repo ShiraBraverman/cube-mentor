@@ -1,0 +1,158 @@
+name: Release AAB (Google Play)
+
+# Builds the signed Google Play bundle (app-release.aab).
+#
+# Upload key:
+# - First run: generates a new upload keystore and ships it ONLY inside an
+#   AES-256 encrypted 7z archive (this repository is public, so workflow
+#   artifacts can be downloaded by any signed-in GitHub user). The archive
+#   password is the KEYSTORE_BACKUP_PASSWORD repository secret, which must
+#   be set before running.
+# - Later runs: once the secrets UPLOAD_KEYSTORE_BASE64,
+#   UPLOAD_KEYSTORE_PASSWORD and UPLOAD_KEY_ALIAS are set (values are in the
+#   backup archive), every build is signed with that same upload key.
+
+on:
+  workflow_dispatch:
+    inputs:
+      build_number:
+        description: "versionCode override (empty = pubspec.yaml, 1.0.0+1). Every Play upload needs a higher number."
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      KEYSTORE_BACKUP_PASSWORD: ${{ secrets.KEYSTORE_BACKUP_PASSWORD }}
+      UPLOAD_KEYSTORE_BASE64: ${{ secrets.UPLOAD_KEYSTORE_BASE64 }}
+      UPLOAD_KEYSTORE_PASSWORD: ${{ secrets.UPLOAD_KEYSTORE_PASSWORD }}
+      UPLOAD_KEY_ALIAS: ${{ secrets.UPLOAD_KEY_ALIAS }}
+      KEYSTORE_PATH: android/app/upload-keystore.jks
+    steps:
+      - name: Check signing secrets
+        run: |
+          if [ -n "$UPLOAD_KEYSTORE_BASE64" ]; then
+            if [ -z "$UPLOAD_KEYSTORE_PASSWORD" ] || [ -z "$UPLOAD_KEY_ALIAS" ]; then
+              echo "::error::UPLOAD_KEYSTORE_BASE64 is set, so UPLOAD_KEYSTORE_PASSWORD and UPLOAD_KEY_ALIAS must be set too."
+              exit 1
+            fi
+            echo "Using the existing upload keystore from repository secrets."
+          elif [ "${#KEYSTORE_BACKUP_PASSWORD}" -lt 12 ]; then
+            echo "::error::Add a repository secret KEYSTORE_BACKUP_PASSWORD (at least 12 characters) before the first run: it encrypts the new upload keystore backup, because artifacts of this public repository are downloadable by anyone signed in to GitHub."
+            exit 1
+          else
+            echo "No upload keystore in secrets: a new one will be generated."
+          fi
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: android-actions/setup-android@v3
+
+      - name: Install NDK r28 and CMake
+        run: |
+          yes | sdkmanager --licenses > /dev/null || true
+          sdkmanager "ndk;28.2.13676358" "cmake;3.22.1" "platforms;android-36" "build-tools;36.0.0" > /dev/null
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Prepare upload keystore and key.properties
+        run: |
+          if [ -n "$UPLOAD_KEYSTORE_BASE64" ]; then
+            echo "$UPLOAD_KEYSTORE_BASE64" | base64 -d > "$KEYSTORE_PATH"
+            PASSWORD="$UPLOAD_KEYSTORE_PASSWORD"
+            ALIAS="$UPLOAD_KEY_ALIAS"
+          else
+            PASSWORD="$(openssl rand -base64 48 | tr -dc 'A-Za-z0-9' | head -c 32)"
+            ALIAS=upload
+            echo "::add-mask::$PASSWORD"
+            # PKCS12 keystore: the key password equals the store password.
+            keytool -genkeypair -v -noprompt \
+              -keystore "$KEYSTORE_PATH" -storetype PKCS12 \
+              -storepass "$PASSWORD" -keypass "$PASSWORD" \
+              -alias "$ALIAS" -keyalg RSA -keysize 4096 -validity 10000 \
+              -dname "CN=CubeMentor, O=CubeMentor, C=IL"
+            echo "GENERATED_KEYSTORE=1" >> "$GITHUB_ENV"
+          fi
+          echo "::add-mask::$PASSWORD"
+          # storeFile is relative to android/app/.
+          cat > android/key.properties <<EOF
+          storePassword=$PASSWORD
+          keyPassword=$PASSWORD
+          keyAlias=$ALIAS
+          storeFile=upload-keystore.jks
+          EOF
+          sed -i 's/^ *//' android/key.properties
+          keytool -list -v -keystore "$KEYSTORE_PATH" -storepass "$PASSWORD" \
+            | grep -E "Alias name|Owner|Valid|SHA1:|SHA256:" > upload-certificate.txt
+          cat upload-certificate.txt
+
+      - run: flutter pub get
+      - run: flutter gen-l10n
+
+      - name: Build app bundle
+        env:
+          BUILD_NUMBER: ${{ inputs.build_number }}
+        run: |
+          if [ -n "$BUILD_NUMBER" ]; then
+            flutter build appbundle --release --build-number="$BUILD_NUMBER"
+          else
+            flutter build appbundle --release
+          fi
+
+      - name: Verify upload signature
+        run: |
+          AAB=build/app/outputs/bundle/release/app-release.aab
+          SIGNER="$(keytool -printcert -jarfile "$AAB")"
+          echo "$SIGNER" | grep -E "Owner|SHA256:"
+          if echo "$SIGNER" | grep -q "CN=Android Debug"; then
+            echo "::error::The bundle is signed with the debug key."
+            exit 1
+          fi
+
+      - name: Package artifact
+        run: |
+          mkdir -p release
+          cp build/app/outputs/bundle/release/app-release.aab release/
+          cp upload-certificate.txt release/
+          if [ "${GENERATED_KEYSTORE:-}" = "1" ]; then
+            command -v 7z > /dev/null || sudo apt-get install -y p7zip-full > /dev/null
+            # -mhe=on also encrypts the file names inside the archive.
+            7z a -t7z -mhe=on -p"$KEYSTORE_BACKUP_PASSWORD" \
+              release/upload-keystore-backup.7z \
+              "$KEYSTORE_PATH" android/key.properties upload-certificate.txt > /dev/null
+          fi
+          rm -f "$KEYSTORE_PATH" android/key.properties
+          ls -l release
+          {
+            echo "## Release bundle"
+            echo ""
+            echo "| File | Size (bytes) |"
+            echo "| --- | --- |"
+            for f in release/*; do echo "| $(basename "$f") | $(stat -c %s "$f") |"; done
+            echo ""
+            echo "app-release.aab SHA-256: \`$(sha256sum release/app-release.aab | cut -d' ' -f1)\`"
+            if [ "${GENERATED_KEYSTORE:-}" = "1" ]; then
+              echo ""
+              echo "**A new upload keystore was generated.** Download the artifact now (it expires in 90 days), keep upload-keystore-backup.7z in at least two safe places, and add its values as the secrets UPLOAD_KEYSTORE_BASE64 (base64 of the .jks), UPLOAD_KEYSTORE_PASSWORD and UPLOAD_KEY_ALIAS so every later build uses the same key."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-bundle-and-keystore
+          path: release/
+          if-no-files-found: error
+          retention-days: 90

@@ -16,35 +16,50 @@ final adsTestingBypassProvider = Provider<bool>((ref) => kDisableAdsForTesting);
 
 /// AdMob identifiers in one place.
 ///
-/// Every value below is one of Google's official **sample / test** IDs
-/// (https://developers.google.com/admob/android/test-ads and
-/// https://developers.google.com/admob/ios/test-ads). Test ads never pay
-/// out and can be clicked safely during development.
+/// Android uses the production CubeMentor AdMob app and ad units. Debug
+/// builds (`flutter run`, `flutter test`) request Google's official
+/// **sample / test** ad units instead
+/// (https://developers.google.com/admob/android/test-ads), so development
+/// never generates invalid traffic on the real ad units. iOS is not
+/// released yet and keeps Google's sample IDs.
 ///
 /// The app IDs themselves live in the platform manifests:
 /// `android/app/src/main/AndroidManifest.xml`
 /// (`com.google.android.gms.ads.APPLICATION_ID`) and `ios/Runner/Info.plist`
 /// (`GADApplicationIdentifier`).
 abstract final class AdConfig {
-  /// Google's sample AdMob app ID for Android.
-  // TODO(milestone-6): replace with the production Android app ID (and in
-  // AndroidManifest.xml).
-  static const String androidAppId = 'ca-app-pub-3940256099942544~3347511713';
+  /// Production AdMob app ID for Android (also in AndroidManifest.xml).
+  static const String androidAppId = 'ca-app-pub-7616557370268924~2327279738';
 
   /// Google's sample AdMob app ID for iOS.
-  // TODO(milestone-6): replace with the production iOS app ID (and in
+  // TODO(ios-release): replace with the production iOS app ID (and in
   // Info.plist).
   static const String iosAppId = 'ca-app-pub-3940256099942544~1458002511';
 
-  // TODO(milestone-6): replace the six test ad unit IDs below with the
-  // production ad units created in the AdMob console.
-  static const String _androidBanner = 'ca-app-pub-3940256099942544/9214589741';
+  /// Production Android ad units.
+  static const String androidBannerProduction =
+      'ca-app-pub-7616557370268924/6701639013';
+  static const String androidInterstitialProduction =
+      'ca-app-pub-7616557370268924/7929805255';
+  static const String androidRewardedProduction =
+      'ca-app-pub-7616557370268924/1705956496';
+
+  /// Whether ad requests use Google's sample ad units (debug builds).
+  static const bool useTestAdUnits = kDebugMode;
+
+  static const String _androidBanner = useTestAdUnits
+      ? 'ca-app-pub-3940256099942544/9214589741'
+      : androidBannerProduction;
+  static const String _androidRewarded = useTestAdUnits
+      ? 'ca-app-pub-3940256099942544/5224354917'
+      : androidRewardedProduction;
+  static const String _androidInterstitial = useTestAdUnits
+      ? 'ca-app-pub-3940256099942544/1033173712'
+      : androidInterstitialProduction;
+
+  // TODO(ios-release): production iOS ad units.
   static const String _iosBanner = 'ca-app-pub-3940256099942544/2435281174';
-  static const String _androidRewarded =
-      'ca-app-pub-3940256099942544/5224354917';
   static const String _iosRewarded = 'ca-app-pub-3940256099942544/1712485313';
-  static const String _androidInterstitial =
-      'ca-app-pub-3940256099942544/1033173712';
   static const String _iosInterstitial =
       'ca-app-pub-3940256099942544/4411468910';
 

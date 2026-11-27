@@ -27,12 +27,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <!-- AdMob app ID: Google's official sample ID for development.
-             TODO(milestone-6): replace with the production AdMob app ID
-             (and update lib/core/ads/ad_config.dart). -->
+        <!-- Production AdMob app ID (also AdConfig.androidAppId in
+             lib/core/ads/ad_config.dart). -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
+            android:value="ca-app-pub-7616557370268924~2327279738" />
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data

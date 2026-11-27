@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:cube_mentor/app.dart';
 import 'package:cube_mentor/core/ads/ad_config.dart';
@@ -97,18 +98,33 @@ Future<ProviderContainer> _pumpApp(
 
 void main() {
   group('AdConfig', () {
-    test('uses Google sample IDs only (safe for development)', () {
-      const publisher = 'ca-app-pub-3940256099942544';
+    test('debug builds request Google sample ad units only', () {
+      const sample = 'ca-app-pub-3940256099942544';
+      expect(AdConfig.useTestAdUnits, isTrue);
       for (final id in [
-        AdConfig.androidAppId,
         AdConfig.iosAppId,
         AdConfig.bannerUnitId,
         AdConfig.rewardedUnitId,
         AdConfig.interstitialUnitId,
       ]) {
-        expect(id, startsWith(publisher));
+        expect(id, startsWith(sample));
       }
       expect(AdConfig.maxBannerHeight, inInclusiveRange(50, 60));
+    });
+
+    test('Android production IDs belong to the CubeMentor publisher', () {
+      const publisher = 'ca-app-pub-7616557370268924';
+      expect(AdConfig.androidAppId, startsWith('$publisher~'));
+      for (final id in [
+        AdConfig.androidBannerProduction,
+        AdConfig.androidInterstitialProduction,
+        AdConfig.androidRewardedProduction,
+      ]) {
+        expect(id, startsWith('$publisher/'));
+      }
+      final manifest = File('android/app/src/main/AndroidManifest.xml')
+          .readAsStringSync();
+      expect(manifest, contains(AdConfig.androidAppId));
     });
 
     test('the default ad service never touches the network', () async {
