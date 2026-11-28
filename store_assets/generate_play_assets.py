@@ -174,19 +174,86 @@ def app_icon():
     k = math.cos(math.radians(30))
     cyan_beam(img, cx - s * k * 1.32, cx + s * k * 1.32, beam_y, s * 2)
     out = img.convert('RGB').resize((512, 512), Image.LANCZOS)
-    return save(out, 'app_icon_512.png', 'icon', (512, 512))
+    return save(out, OUT, 'app_icon_512.png', 'icon', (512, 512))
+
+
+# ------------------------------------------------------------ languages --
+
+# Per-language text, fonts and screen renders. English uses the UX board
+# renders in docs/screens; other languages render their own screens with
+# the same test into store_assets/<lang>/raw (git-ignored):
+#
+#   flutter test test/screenshots/ux_screen_map_test.dart --update-goldens \
+#       --dart-define=SHOT_LOCALE=he --dart-define=SHOT_OUT=store_assets/he/raw
+LANGS = {
+    'en': {
+        'rtl': False,
+        'out': OUT,
+        'screens': SCREENS,
+        'title_font': BLACK,
+        'feature': ('Scan & Solve', '2×2–6×6 Cubes in 3D'),
+        'shots': [
+            ('Scan Any Cube with Camera',
+             'Live color detection on every sticker'),
+            ('2×2 to 6×6 Cubes Supported', 'Pick a size and turn it in 3D'),
+            ('3D Step-by-Step Solutions',
+             'Every move animated, play, pause, step back'),
+            ('Interactive Cube Academy',
+             'Layer-by-layer lessons and a speed timer'),
+        ],
+    },
+    'he': {
+        'rtl': True,
+        'out': os.path.join(OUT, 'he'),
+        'screens': os.path.join(OUT, 'he', 'raw'),
+        # Segoe UI Black has no Hebrew glyphs; Bold does.
+        'title_font': BOLD,
+        # Cube sizes are wrapped in LRI ... PDI (U+2066 / U+2069) so they
+        # read left to right, as in the app's Hebrew strings.
+        'feature': ('סריקה ופתרון קוביות', '\u20662×2–6×6\u2069 בתלת-ממד'),
+        'shots': [
+            ('סורקים כל קובייה במצלמה', 'זיהוי צבעים חי בכל מדבקה'),
+            ('תמיכה בקוביות\n2×2 עד 6×6', 'בוחרים גודל ומסובבים בתלת-ממד'),
+            ('פתרון תלת-ממדי צעד-אחר-צעד',
+             'כל מהלך מונפש: הפעלה, השהיה וחזרה'),
+            ('אקדמיה אינטראקטיבית וטיימר',
+             'שיעורי שכבה אחר שכבה וטיימר מהירות'),
+            ('דוגמאות ותבניות קובייה מגניבות',
+             'לוח שחמט, קובייה בתוך קובייה ועוד'),
+        ],
+    },
+}
+
+
+def visual(text, rtl):
+    """[text] in visual (left-to-right drawing) order. This Pillow has no
+    raqm, so right-to-left lines are reordered with python-bidi; Hebrew
+    needs no glyph shaping (Arabic would also need arabic-reshaper)."""
+    if not rtl:
+        return text
+    try:
+        # python-bidi >= 0.5: full UBA, including isolates (LRI ... PDI).
+        from bidi import get_display
+    except ImportError:
+        sys.exit('pip install "python-bidi>=0.5" (for right-to-left text)')
+    shown = get_display(text, base_dir='R')
+    # Drop the invisible bidi controls: the fonts have no glyphs for them.
+    return ''.join(c for c in shown if not '\u2066' <= c <= '\u2069')
 
 
 # ------------------------------------------------------ feature graphic --
 
-def feature_graphic():
+def feature_graphic(lang):
+    cfg = LANGS[lang]
+    rtl = cfg['rtl']
     w, h = 1024, 500
     img = gradient(w, h, [(0, NAVY), (1, SLATE)], angle_deg=25)
-    glow(img, (w * 0.79, h * 0.5), 250, CYAN, 55)
-    glow(img, (w * 0.79, h * 0.45), 170, ACCENT, 70)
+    # Right-to-left layouts mirror: cube on the left, text on the right.
+    cx, cy, s = w * (0.21 if rtl else 0.79), h * 0.46, 150
+    glow(img, (cx, h * 0.5), 250, CYAN, 55)
+    glow(img, (cx, h * 0.45), 170, ACCENT, 70)
 
-    # Cube on the right with a cyan orbit ring and scan beam.
-    cx, cy, s = w * 0.79, h * 0.46, 150
+    # Cube with a cyan orbit ring and scan beam.
     ring(img, cx, cy + s * 1.02, s * 1.18, s * 0.26, 6, CYAN, 220, blur=6)
     ring(img, cx, cy + s * 1.02, s * 1.18, s * 0.26, 3, CYAN_CORE, 180)
     beam_y = cube_on(img, cx, cy, s, beam_t=0.58)
@@ -194,15 +261,22 @@ def feature_graphic():
     cyan_beam(img, cx - s * k * 1.45, cx + s * k * 1.45, beam_y, s * 2)
 
     d = ImageDraw.Draw(img)
-    x = 64
-    title = font(BLACK, 84)
-    d.text((x, 132), 'CubeMentor', font=title, fill=TEXT)
-    d.rounded_rectangle([x + 4, 262, x + 104, 272], radius=5, fill=CYAN)
+    margin = 64
+
+    def put(y, text, f, fill):
+        shown = visual(text, rtl)
+        x = w - margin - d.textlength(shown, font=f) if rtl else margin
+        d.text((x, y), shown, font=f, fill=fill)
+
+    put(132, 'CubeMentor', font(BLACK, 84), TEXT)
+    bar_x = w - margin - 104 if rtl else margin + 4
+    d.rounded_rectangle([bar_x, 262, bar_x + 100, 272], radius=5, fill=CYAN)
+    line1, line2 = cfg['feature']
     sub = font(SEMI, 38)
-    d.text((x, 298), 'Scan & Solve', font=sub, fill=TEXT)
-    d.text((x, 346), '2×2–6×6 Cubes in 3D', font=sub, fill=CYAN)
-    return save(img.convert('RGB'), 'feature_graphic_1024x500.png', 'feature',
-                (w, h))
+    put(298, line1, sub, TEXT)
+    put(346, line2, sub, CYAN)
+    return save(img.convert('RGB'), cfg['out'], 'feature_graphic_1024x500.png',
+                'feature', (w, h))
 
 
 # --------------------------------------------------------- screenshots --
@@ -218,6 +292,11 @@ def screenshot_canvas():
 
 
 def wrap(d, text, f, max_w):
+    """Greedy word wrap in logical order, unless [text] has explicit line
+    breaks. Each line is reordered for display afterwards, so
+    right-to-left breaks fall between the right words."""
+    if '\n' in text:  # explicit breaks win
+        return text.split('\n')
     lines, line = [], ''
     for word in text.split(' '):
         probe = f'{line} {word}' if line else word
@@ -230,36 +309,42 @@ def wrap(d, text, f, max_w):
     return lines
 
 
-def headline(img, title, subtitle):
+def headline(img, title, subtitle, cfg):
     """Headline banner: bold title (1-2 lines), cyan bar, subtitle.
     Returns the y just below it."""
+    rtl = cfg['rtl']
     d = ImageDraw.Draw(img)
     size = 92
     while True:
-        f = font(BLACK, size)
+        f = font(cfg['title_font'], size)
         lines = wrap(d, title, f, SW - 140)
         if len(lines) <= 2:
             break
         size -= 4
     y = 104
     for line in lines:
-        tw = d.textlength(line, font=f)
-        d.text(((SW - tw) / 2, y), line, font=f, fill=TEXT)
+        shown = visual(line, rtl)
+        tw = d.textlength(shown, font=f)
+        d.text(((SW - tw) / 2, y), shown, font=f, fill=TEXT)
         y += int(size * 1.18)
     y += 18
     d.rounded_rectangle([SW / 2 - 56, y, SW / 2 + 56, y + 10], radius=5,
                         fill=CYAN)
     y += 36
     fs = font(REGULAR, 40)
-    tw = d.textlength(subtitle, font=fs)
-    d.text(((SW - tw) / 2, y), subtitle, font=fs, fill=TEXT_2)
+    shown = visual(subtitle, rtl)
+    tw = d.textlength(shown, font=fs)
+    d.text(((SW - tw) / 2, y), shown, font=fs, fill=TEXT_2)
     return y + 96
 
 
-def app_frame(name, crop_ad=True):
-    shot = Image.open(os.path.join(SCREENS, name)).convert('RGB')
+def app_frame(cfg, name, crop_ad=True):
+    path = os.path.join(cfg['screens'], name)
+    if not os.path.exists(path):
+        sys.exit(f'missing {path}: render the screens first (see LANGS)')
+    shot = Image.open(path).convert('RGB')
     if shot.size != (720, 1560):
-        sys.exit(f'unexpected render size {shot.size} for {name}')
+        sys.exit(f'unexpected render size {shot.size} for {path}')
     return shot.crop((0, 0, 720, APP_FRAME_H)) if crop_ad else shot
 
 
@@ -300,11 +385,25 @@ def phone(img, shot, x, y, width, tilt=0.0):
     return sh
 
 
-def single_phone(img, top, name, bottom_margin=70, crop_ad=True):
-    shot = app_frame(name, crop_ad)
+def single_phone(img, top, shot, bottom_margin=70):
     avail_h = SH - top - bottom_margin
     width = min(700, avail_h * shot.width / shot.height)
     phone(img, shot, (SW - width) / 2, top + 8, width)
+
+
+def two_phones(img, top, back, front, rtl):
+    """Two overlapping, slightly tilted phones: [back] high on the side
+    where reading starts, [front] lower on the other side."""
+    width = 500
+    h = front.height * width / front.width
+    y_back = top + 20
+    y_front = SH - 76 - h
+    if rtl:
+        phone(img, back, SW - 64 - width, y_back, width, tilt=-3)
+        phone(img, front, 72, y_front, width, tilt=3)
+    else:
+        phone(img, back, 64, y_back, width, tilt=3)
+        phone(img, front, SW - 72 - width, y_front, width, tilt=-3)
 
 
 def chip_row(img, y, labels, active):
@@ -327,59 +426,64 @@ def chip_row(img, y, labels, active):
     return y + hgt
 
 
-def screenshots():
+def screenshots(lang):
+    cfg = LANGS[lang]
+    rtl, shots = cfg['rtl'], cfg['shots']
     paths = []
 
+    def frame(name, crop_ad=True):
+        return app_frame(cfg, name, crop_ad)
+
+    def done(img, n):
+        paths.append(save(img.convert('RGB'), cfg['out'],
+                          f'screenshot_{n}.png', 'shot', (SW, SH)))
+
     img = screenshot_canvas()
-    top = headline(img, 'Scan Any Cube with Camera',
-                   'Live color detection on every sticker')
+    top = headline(img, *shots[0], cfg)
     # The scanner is full screen (no ad strip): keep its shutter row.
-    single_phone(img, top, '05_scanner_camera.png', crop_ad=False)
-    paths.append(save(img.convert('RGB'), 'screenshot_1.png', 'shot',
-                      (SW, SH)))
+    single_phone(img, top, frame('05_scanner_camera.png', crop_ad=False))
+    done(img, 1)
 
     img = screenshot_canvas()
-    top = headline(img, '2×2 to 6×6 Cubes Supported',
-                   'Pick a size and turn it in 3D')
-    top = chip_row(img, top - 30, ['2×2', '3×3', '4×4', '5×5', '6×6'],
-                   '3×3') + 34
-    single_phone(img, top, '01_home.png')
-    paths.append(save(img.convert('RGB'), 'screenshot_2.png', 'shot',
-                      (SW, SH)))
+    top = headline(img, *shots[1], cfg)
+    # Sizes run in reading order, like the app's own size chips.
+    sizes = ['2×2', '3×3', '4×4', '5×5', '6×6']
+    top = chip_row(img, top - 30, sizes[::-1] if rtl else sizes, '3×3') + 34
+    single_phone(img, top, frame('01_home.png'))
+    done(img, 2)
 
     img = screenshot_canvas()
-    top = headline(img, '3D Step-by-Step Solutions',
-                   'Every move animated, play, pause, step back')
-    single_phone(img, top, '09_solver_step_x2.png')
-    paths.append(save(img.convert('RGB'), 'screenshot_3.png', 'shot',
-                      (SW, SH)))
+    top = headline(img, *shots[2], cfg)
+    single_phone(img, top, frame('09_solver_step_x2.png'))
+    done(img, 3)
 
     img = screenshot_canvas()
-    top = headline(img, 'Interactive Cube Academy',
-                   'Layer-by-layer lessons and a speed timer')
-    width = 500
-    academy, timer = app_frame('11_academy.png'), app_frame('20_timer.png')
-    h = timer.height * width / timer.width
-    y_back = top + 20
-    y_front = SH - 76 - h
-    phone(img, academy, 64, y_back, width, tilt=3)
-    phone(img, timer, SW - 72 - width, y_front, width, tilt=-3)
-    paths.append(save(img.convert('RGB'), 'screenshot_4.png', 'shot',
-                      (SW, SH)))
+    top = headline(img, *shots[3], cfg)
+    two_phones(img, top, frame('11_academy.png'), frame('20_timer.png'), rtl)
+    done(img, 4)
+
+    if len(shots) > 4:
+        # Pattern library: the gallery and the checkerboard being played.
+        img = screenshot_canvas()
+        top = headline(img, *shots[4], cfg)
+        two_phones(img, top, frame('16_patterns.png'),
+                   frame('17_pattern_player.png'), rtl)
+        done(img, 5)
     return paths
 
 
 # -------------------------------------------------------------- checks --
 
-def save(img, name, kind, size):
-    path = os.path.join(OUT, name)
+def save(img, folder, name, kind, size):
+    os.makedirs(folder, exist_ok=True)
+    path = os.path.join(folder, name)
     img.save(path, optimize=True)
     return path, kind, size
 
 
 def verify(entries):
     ok = True
-    print(f'{"file":32} {"size":>11} {"mode":>5} {"bytes":>10}  result')
+    print(f'{"file":36} {"size":>11} {"mode":>5} {"bytes":>10}  result')
     for path, kind, size in entries:
         with Image.open(path) as im:
             dims, mode, fmt = im.size, im.mode, im.format
@@ -387,14 +491,22 @@ def verify(entries):
         good = (dims == size and fmt == 'PNG' and mode == 'RGB'
                 and nbytes < LIMITS[kind])
         ok &= good
-        print(f'{os.path.basename(path):32} {dims[0]:>5}x{dims[1]:<5} '
+        name = os.path.relpath(path, OUT).replace(os.sep, '/')
+        print(f'{name:36} {dims[0]:>5}x{dims[1]:<5} '
               f'{mode:>5} {nbytes:>10,}  {"OK" if good else "FAIL"}')
     if not ok:
         sys.exit('some assets fail the Play Console requirements')
 
 
 def main():
-    entries = [app_icon(), feature_graphic()] + screenshots()
+    langs = sys.argv[1:] or list(LANGS)
+    unknown = [lang for lang in langs if lang not in LANGS]
+    if unknown:
+        sys.exit(f'unknown language(s) {unknown}; known: {list(LANGS)}')
+    # The hi-res icon has no text, so one icon serves every language.
+    entries = [app_icon()] if 'en' in langs else []
+    for lang in langs:
+        entries += [feature_graphic(lang)] + screenshots(lang)
     verify(entries)
 
 

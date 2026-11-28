@@ -5,6 +5,11 @@
 //
 //   flutter test test/screenshots/ux_screen_map_test.dart --update-goldens
 //
+// Other languages (e.g. for localized store screenshots) render into another
+// folder, leaving the board's English shots alone:
+//
+//   flutter test test/screenshots/ux_screen_map_test.dart --update-goldens //       --dart-define=SHOT_LOCALE=he --dart-define=SHOT_OUT=store_assets/he/raw
+//
 // Screens are rendered at 360 x 780 dp (a Galaxy A16-class phone) at 2x,
 // with the bundled Roboto + Material Icons fonts so text is readable, and
 // with fakes for the native solver, ads, scrambler and clock so every shot
@@ -62,7 +67,15 @@ const _shotKey = ValueKey('ux-shot');
 
 /// Output folder, relative to the package root (the test's working
 /// directory).
-const _out = 'docs/screens';
+const _out = String.fromEnvironment('SHOT_OUT', defaultValue: 'docs/screens');
+
+/// App language of the shots (a language code, or e.g. pt_BR / zh_TW).
+const _localeTag = String.fromEnvironment('SHOT_LOCALE', defaultValue: 'en');
+
+Locale get _locale {
+  final parts = _localeTag.split('_');
+  return Locale(parts.first, parts.length > 1 ? parts[1] : null);
+}
 
 Future<void> _loadFonts() async {
   final root =
@@ -96,6 +109,23 @@ Future<void> _loadFonts() async {
     'roboto-black.ttf',
   ]);
   await load('MaterialIcons', ['materialicons-regular.otf']);
+  // Hebrew in all weights (localized shots): Segoe UI, when present.
+  final hebrew = FontLoader('FallbackHebrew');
+  for (final file in [
+    'segoeuil.ttf',
+    'segoeui.ttf',
+    'seguisb.ttf',
+    'segoeuib.ttf',
+    'seguibl.ttf',
+  ]) {
+    final font = File(
+      '${Platform.environment['WINDIR'] ?? r'C:\Windows'}/Fonts/$file',
+    );
+    if (font.existsSync()) {
+      hebrew.addFont(Future.value(ByteData.sublistView(font.readAsBytesSync())));
+    }
+  }
+  await hebrew.load();
   // Native language names (Hebrew, Arabic, Hindi, CJK, Burmese...) on the
   // language sheet: Windows script fonts, when present, as fallbacks.
   for (final (family, file) in [
@@ -270,17 +300,11 @@ Future<void> _show(
 /// [root], [home] is pushed over a blank first route, as every screen but
 /// the home screen is in the app, so its back arrow shows.
 Widget _app(Widget home, {bool root = false}) {
-  final app = testApp(home) as MaterialApp;
+  final app = testApp(home, locale: _locale) as MaterialApp;
   final theme = app.theme!;
-  const fallback = ['FallbackUnicode', 'FallbackMyanmar'];
   return MaterialApp(
     debugShowCheckedModeBanner: false,
-    theme: theme.copyWith(
-      textTheme: theme.textTheme.apply(fontFamilyFallback: fallback),
-      primaryTextTheme: theme.primaryTextTheme.apply(
-        fontFamilyFallback: fallback,
-      ),
-    ),
+    theme: _withFallbackFonts(theme),
     locale: app.locale,
     supportedLocales: app.supportedLocales,
     localizationsDelegates: app.localizationsDelegates,
@@ -290,6 +314,62 @@ Widget _app(Widget home, {bool root = false}) {
       if (!root) MaterialPageRoute<void>(builder: (_) => const Scaffold()),
       MaterialPageRoute<void>(builder: (_) => home),
     ],
+  );
+}
+
+/// [theme] with the script fallback fonts on every text style, including
+/// the ones the app theme copied from its text theme into sub-themes (app
+/// bar, chips, buttons, dialogs...), so non-Latin text never shows tofu.
+ThemeData _withFallbackFonts(ThemeData theme) {
+  const fallback = ['FallbackHebrew', 'FallbackUnicode', 'FallbackMyanmar'];
+  TextStyle? f(TextStyle? s) => s?.apply(fontFamilyFallback: fallback);
+  ButtonStyle? b(ButtonStyle? style) {
+    final text = style?.textStyle;
+    if (style == null || text == null) return style;
+    return style.copyWith(
+      textStyle: WidgetStateProperty.resolveWith((s) => f(text.resolve(s))),
+    );
+  }
+
+  return theme.copyWith(
+    textTheme: theme.textTheme.apply(fontFamilyFallback: fallback),
+    primaryTextTheme: theme.primaryTextTheme.apply(
+      fontFamilyFallback: fallback,
+    ),
+    appBarTheme: theme.appBarTheme.copyWith(
+      titleTextStyle: f(theme.appBarTheme.titleTextStyle),
+      toolbarTextStyle: f(theme.appBarTheme.toolbarTextStyle),
+    ),
+    chipTheme: theme.chipTheme.copyWith(
+      labelStyle: f(theme.chipTheme.labelStyle),
+      secondaryLabelStyle: f(theme.chipTheme.secondaryLabelStyle),
+    ),
+    filledButtonTheme: FilledButtonThemeData(
+      style: b(theme.filledButtonTheme.style),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: b(theme.elevatedButtonTheme.style),
+    ),
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: b(theme.outlinedButtonTheme.style),
+    ),
+    textButtonTheme: TextButtonThemeData(
+      style: b(theme.textButtonTheme.style),
+    ),
+    dialogTheme: theme.dialogTheme.copyWith(
+      titleTextStyle: f(theme.dialogTheme.titleTextStyle),
+      contentTextStyle: f(theme.dialogTheme.contentTextStyle),
+    ),
+    snackBarTheme: theme.snackBarTheme.copyWith(
+      contentTextStyle: f(theme.snackBarTheme.contentTextStyle),
+    ),
+    tooltipTheme: theme.tooltipTheme.copyWith(
+      textStyle: f(theme.tooltipTheme.textStyle),
+    ),
+    inputDecorationTheme: theme.inputDecorationTheme.copyWith(
+      hintStyle: f(theme.inputDecorationTheme.hintStyle),
+      labelStyle: f(theme.inputDecorationTheme.labelStyle),
+    ),
   );
 }
 
@@ -327,7 +407,7 @@ void main() {
 
   setUp(() async {
     SharedPreferences.setMockInitialValues({
-      'app_locale': 'en',
+      'app_locale': _localeTag,
       'user_nickname': 'Shira',
       // A running streak looks like real use.
       'daily_streak': 6,
